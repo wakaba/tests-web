@@ -126,7 +126,12 @@ $r }]}
 <dt>Something text</dt><dd><input type="text" name="something-text" value="test&#x4E00;.??&amp;&amp;" /></dd>
 <dt>Something check</dt><dd><input type="checkbox" name="something-check" checked /> <input type="checkbox" name="something-check2" /></dd>
 <dt>Something non-ASCII named</dt><dd><input type="text" name="something&#x4E00;" value="&#x4E00;&#x3002;" /></dd>
-<dt><input type="submit" /><input type="hidden" name="_charset_" /></dt>
+<dt>Something file</dt>
+    <dd><input type="file" name="file1" /></dd>
+    <dd><input type="file" name="file2" /></dd>
+<dt>Submit: <input type="hidden" name="_charset_" /></dt>
+    <dd><input type="image" name="image" src="/admin/logo" /></dd>
+    <dd><input type="submit" name="submit" /></dd>
 </dl>
 
 </form>
