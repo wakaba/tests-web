@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+<title>Click event and checked attribute</title>
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<script type="text/javascript" defer>
+function check1_event (ename) {
+  document.forms.check.result.value
+     = ename + " - Checked: " + document.forms.check.check1.checked + "\n"
+     + document.forms.check.result.value;
+}
+</script>
+</head>
+<body>
+<h1>Click event and checked attribute</h1>
+
+<h2>Checkbox control and click event</h2>
+
+<form action="" name="check">
+
+<p><label>Checkbox: <input type="checkbox" name="check1"
+                           onclick="check1_event ('@onclick')"
+                           onchange="check1_event ('@onchange')"></label></p>
+
+<p>
+  <textarea name="result" rows="10" cols="50"></textarea>
+</p>
+</form>
+
+<script type="text/javascript" defer>
+var c1 = document.forms.check.check1;
+if (c1.addEventListener) {
+  c1.addEventListener ('click', function (e) {
+    check1_event ('click');
+  }, false);
+  c1.addEventListener ('DOMActivate', function (e) {
+    check1_event ('DOMActivate');
+  }, false);
+  c1.addEventListener ('change', function (e) {
+    check1_event ('change');
+  }, false);
+}
+</script>
+
+</body>
+</html>
