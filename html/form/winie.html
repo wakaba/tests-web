@@ -1,0 +1,72 @@
+<!DOCTYPE body SYSTEM>
+
+<h1>Form autocomplete test</h1>
+
+<h2>form[not @autocomplete]</h2>
+
+<form action="" method="GET">
+
+<dl>
+<dt>autocomplete=#IMPLIED</dt><dd><input type="text" name="text0" value="text0" /></dd>
+<dt>autocomplete=on</dt><dd><input type="text" name="text1" value="text1" autocomplete="on" /></dd>
+<dt>autocomplete=off</dt><dd><input type="text" name="text2" value="text2" autocomplete="off" /></dd>
+<dt>autocomplete=ON</dt><dd><input type="text" name="text3" value="text3" autocomplete="ON" /></dd>
+<dt>autocomplete=OFF</dt><dd><input type="text" name="text4" value="text4" autocomplete="OFF" /></dd>
+</dl>
+
+<p><input type="submit" /></p>
+
+</form>
+
+<h2>form[@autocomplete='on']</h2>
+
+<form action="" method="GET" autocomplete="on">
+
+<dl>
+<dt>autocomplete=#IMPLIED</dt><dd><input type="text" name="text0" value="text0" /></dd>
+<dt>autocomplete=on</dt><dd><input type="text" name="text1" value="text1" autocomplete="on" /></dd>
+<dt>autocomplete=off</dt><dd><input type="text" name="text2" value="text2" autocomplete="off" /></dd>
+<dt>autocomplete=ON</dt><dd><input type="text" name="text3" value="text3" autocomplete="ON" /></dd>
+<dt>autocomplete=OFF</dt><dd><input type="text" name="text4" value="text4" autocomplete="OFF" /></dd>
+</dl>
+
+<p><input type="submit" /></p>
+
+</form>
+
+<h2>form[@autocomplete='off']</h2>
+
+<form action="" method="GET" autocomplete="off">
+
+<dl>
+<dt>autocomplete=#IMPLIED</dt><dd><input type="text" name="text0" value="text0" /></dd>
+<dt>autocomplete=on</dt><dd><input type="text" name="text1" value="text1" autocomplete="on" /></dd>
+<dt>autocomplete=off</dt><dd><input type="text" name="text2" value="text2" autocomplete="off" /></dd>
+<dt>autocomplete=ON</dt><dd><input type="text" name="text3" value="text3" autocomplete="ON" /></dd>
+<dt>autocomplete=OFF</dt><dd><input type="text" name="text4" value="text4" autocomplete="OFF" /></dd>
+</dl>
+
+<p><input type="submit" /></p>
+
+</form>
+
+
+<h2>vcard_name attribute</h2>
+
+<form action="" method="post">
+
+<dl>
+<dt>vCard.FirstName</dt>
+	<dd><input type="text" name="v1" vcard_name="vCard.FirstName" /></dd>
+<dt>vCard.LastName</dt>
+	<dd><input type="text" name="v2" vcard_name="vCard.LastName" /></dd>
+<dt>vCard.Email</dt>
+	<dd><input type="text" name="v3" vcard_name="vCard.Email" /></dd>
+<dt>vCard.Home.Country</dt>
+	<dd><input type="text" name="v4" vcard_name="vCard.Home.Country" /></dd>
+<dt>search</dt>
+	<dd><input type="text" name="v5" vcard_name="search" /></dd>
+<dt><input type="submit" /></dt>
+</dl>
+
+</form>
