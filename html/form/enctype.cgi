@@ -83,7 +83,9 @@ $r }]}
 
 <h2>An example form</h2>
 
-<form action="@{[escape $ENV{SCRIPT_NAME}]}" method="$method" enctype="@{[escape $enctype]}" @{[$accept_charset?qq(accept-charset="$accept_charset"):'']}>
+<form action="@{[escape $ENV{SCRIPT_NAME}]}" method="$method"
+      @{[$enctype?qq(enctype="@{[escape $enctype]}"):'']}
+      @{[$accept_charset?qq(accept-charset="$accept_charset"):'']}>
 
 <dl>
 <dt>Enctype</dt>  <dd>@{[escape $enctype]}</dd>
@@ -93,23 +95,37 @@ $r }]}
 
 <dl>
 <dt>Enctype</dt> <dd>@{[sel 'enctype', $enctype,
-                        qw!application/x-www-form-urlencoded
+                        qw!(none)
+                           application/x-www-form-urlencoded
+                           APPLICATION/X-WWW-FORM-URLENCODED
+                           Application/X-WWW-Form-URLEncoded
                            application/x-www-form-urlencoded;charset=utf-8
                            application/x-www-form-urlencoded;charset=iso-2022-jp
                            application/x-www-form-urlencoded;x-unknown=unknown
                            appliaction/sgml-form-urlencoded
                            application/sgml-form-urlencoded;x-unknown=unknown
                            multipart/form-data
+                           MULTIPART/FORM-DATA
+                           Multipart/Form-Data
                            multipart/form-data;boundary=a
                            multipart/form-data;x-unknown=unknown
+                           multipart/form-data;charset=iso-2022-jp
+                           multipart/mixed
                            text/plain
                            text/plain;charset=utf-8
                            text/plain;charset=iso-2022-jp
                            text/plain;format=flowed
                            text/plain;format=fixed
+                           text/plain;format=fixed;charset=iso-2022-jp
+                           text/plain;charset=iso-2022-jp;format=flowed
                            text/html
+                           text/html;charset=iso-2022-jp
+                           application/x-www-form+xml
+                           application/x-www-form+xml;charset=iso-2022-jp
                            text/xml
-                           application/xml!]}</dd>
+                           text/xml;charset=iso-2022-jp
+                           application/xml
+                           application/xml;charset=iso-2022-jp!]}</dd>
 <dt>Accept-charset</dt><dd>@{[sel 'accept_charset', $accept_charset,
                            qw!(none) us-ascii iso-8859-1 utf-8
                               iso-2022-jp euc-jp shift_jis
@@ -122,7 +138,9 @@ $r }]}
                             qw!us-ascii iso-8859-1 shift_jis
                                euc-jp iso-2022-jp utf-8!]}</dd>
 <dt>Method</dt><dd>@{[sel 'method', $method,
-                      qw!GET POST get post HEAD PUT OPTIONS!]}</dd>
+                      qw!GET get Get POST post Post HEAD head PUT put
+                         OPTIONS options
+                         DELETE delete M-GET m-get M-POST m-post!]}</dd>
 <dt>Something text</dt><dd><input type="text" name="something-text" value="test&#x4E00;.??&amp;&amp;" /></dd>
 <dt>Something check</dt><dd><input type="checkbox" name="something-check" checked /> <input type="checkbox" name="something-check2" /></dd>
 <dt>Something non-ASCII named</dt><dd><input type="text" name="something&#x4E00;" value="&#x4E00;&#x3002;" /></dd>
