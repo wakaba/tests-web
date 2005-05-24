@@ -30,23 +30,41 @@ li.hover {
 </ul>
 </div>
 
-<div class="section" id="STYLE">
-<h2>Style Sheet Fragment</h2>
+<div class="section" id="SOURCE">
+<h2>Source</h2>
 
-<pre><code class="CSS">
-li {
+<div class="section" id="SOURCE-DOC">
+<h3>Document Fragment</h3>
+
+<pre><code class="HTML">&lt;<code class="HTMLe">ul</code>&gt;
+  &lt;<code class="HTMLe">li</code>&gt;List item 1&lt;/<code class="HTMLe">li</code>&gt;
+  &lt;<code class="HTMLe">li</code>&gt;List item 2&lt;/<code class="HTMLe">li</code>&gt;
+  &lt;<code class="HTMLe">li</code>&gt;List item 3&lt;/<code class="HTMLe">li</code>&gt;
+  &lt;<code class="HTMLe">li</code>&gt;>List item 4&lt;/<code class="HTMLe">li</code>&gt;
+&lt;/<code class="HTMLe">ul</code>&gt;</code></pre>
+
+<p class="note memo">Only!  No <code class="HTMLa">onmouseover</code>
+is required in HTML documents!</p>
+
+</div>
+
+<div class="section" id="SOURCE-STYLE">
+<h3>Style Sheet Fragment</h3>
+
+<pre><code class="CSS"><code class="HTMLe">li</code> {
   behavior: expression(function (el) {
     el.onmouseover = function () { this.className += ' <em>HOVER</em>' };
     el.onmouseout = function () { this.className = this.className.replace (/\\s*<em>HOVER</em>\\b/g, '') };
     runtimeStyle.bahavior = 'none';
   } (this));
 }
-li:hover <code class="comment">/* For CSS compliant user agents */</code>,
-li.<em>HOVER</em> <code class="comment">/* For WinIE */</code> {
+<code class="HTMLe">li</code>:hover <code class="comment">/* For CSS compliant user agents */</code>,
+<code class="HTMLe">li</code>.<em>HOVER</em> <code class="comment">/* For WinIE */</code> {
   color: red;
   background-color: white;
 }</code></pre>
 
+</div>
 </div>
 
 </body>
