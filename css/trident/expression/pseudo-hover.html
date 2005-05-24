@@ -5,12 +5,13 @@
 <style type="text/css">
 li {
   behavior: expression(function (el) {
-    el.onmouseover = function () { this.className += ' hover' };
-    el.onmouseout = function () { this.className = this.className.replace (/\\s*hover\\b/g, '') };
+    el.onmouseover = function () { this.className += ' HOVER' };
+    el.onmouseout = function () { this.className = this.className.replace (/\\s*HOVER\\b/g, '') };
     runtimeStyle.bahavior = 'none';
   } (this));
 }
-li.hover {
+li:hover,
+li.HOVER {
   color: red;
   background-color: white;
 }
