@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>submit() Method Followed by reset() Method in submit Event</title>
+</head>
+<body>
+<h1><code>submit()</code> Followed by 
+<code>reset()</code> Method in <code>submit</code> Event</h1>
+
+<form method="get" action="submit-submit-reset"
+onsubmit="
+  submit ();
+  reset ();
+  alert ('Submitted?');
+  return false;
+">
+
+  <pre>
+onsubmit="
+  submit ();
+  reset ();
+  alert ('Submitted?');
+  return false;
+"
+  </pre>
+
+  <p><input type="text" name="text1" value=""></p>
+
+  <p><input type="submit" value="Submit"></p>
+
+</form>
+
+</body>
+</html>
