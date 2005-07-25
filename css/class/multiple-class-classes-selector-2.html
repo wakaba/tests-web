@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>1つの class 属性に複数のクラス、1つの選択子に複数のクラス</title>
+<style type="text/css">
+p {
+  color: gray;
+}
+.class1.class2 {
+  color: blue;
+}
+.class1 {
+  color: red;
+}
+.class2 {
+  color: green;
+}
+</style>
+</head>
+<body>
+
+<p class="class1 class2">CSS2 
+利用者エージェントではこの段落の文字は青色が正しい。
+CSS1 利用者エージェントでは緑色が正しい。</p>
+
+<pre>
+.class1 {
+  color: red;
+}
+.class2 {
+  color: green;
+}
+.class1.class2 {
+  color: blue;
+}
+</pre>
+
+</body>
+</html>
