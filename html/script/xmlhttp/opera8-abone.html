@@ -1,0 +1,38 @@
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>XMLHttpRequest でよくわからないけど Opera 8 が落ちるテスト</title>
+</head>
+<body>
+<h1>XMLHttpRequest でよくわからないけど Opera 8 が落ちるテスト</h1>
+<p onclick=''></p>
+
+<p>
+<button onclick='
+  var htreq = window.XMLHttpRequest
+                 ? new XMLHttpRequest ()
+                 : new ActiveXObject ("Microsoft.XMLHTTP");
+  htreq.onreadystatechange = function (e) {
+    if (htreq.readyState == 4) {
+      if (htreq.status < 400) {
+        document.getElementById ("result").value = htreq.responseText;
+      } else {
+        window.status = htreq.status + " " + htreq.statusText;
+      }
+    }
+  };
+  htreq.open ("GET", "opera8-abone", true);
+  htreq.send (null);
+'>
+読込み
+</button>
+</p>
+
+<p>
+<label>読込み結果<br />
+<textarea id="result" rows="10" cols="50"></textarea></label>
+</p>
+
+<p><a href="http://suika.fam.cx/gate/2005/sw/XMLHttpRequest#anchor-6">解説</a></p>
+
+</body>
+</html>
