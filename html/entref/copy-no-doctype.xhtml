@@ -10,11 +10,41 @@ with no DOCTYPE Declaration</title>
 
 <h2>Test</h2>
 
-<dl>
-<dl>
+<dl id="test-list">
 <dt><code>&amp;copy;</code> is rendered as</dt><dd>&copy;</dd>
 <dt><code>&amp;#xA9;</code> is rendered as</dt><dd>&#xA9;</dd>
 </dl>
+
+<p>The <code>innerHTML</code> of the list above is:</p>
+<pre id="test-source"></pre>
+
+
+<p>About the first <code>dd</code> element:</p>
+<ul id="test-nodes">
+  <li>[There is no child.]</li>
+</ul>
+
+<script type="text/javascript">
+var list = document.getElementById ('test-list');
+document.getElementById ('test-source').appendChild
+  (document.createTextNode (list.innerHTML));
+
+var listc = list.getElementsByTagName ('dd')[0].childNodes;
+var ul = document.getElementById ('test-nodes');
+if (listc.length > 0) {
+  ul.textContent = "";
+  ul.innerText = "";
+}
+for (var i = 0; listc.length > i; i++) {
+  var listcn = listc[i];
+  var li = document.createElementNS ("http://www.w3.org/1999/xhtml", 'li');
+  li.appendChild (document.createTextNode
+                    (i + "th child is of type |" + listcn.nodeType +
+                     "| with name |" + listcn.nodeName + "|, value |" +
+                     listcn.nodeValue + "|."));
+  ul.appendChild (li);
+}
+</script>
 
 <h2>Expected Result</h2>
 
