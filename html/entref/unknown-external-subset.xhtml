@@ -1,0 +1,48 @@
+<!DOCTYPE html SYSTEM "unknown-external-subset-dtd.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Unknown HTML Character Entity Reference,
+with Custom External Subset</title>
+</head>
+<body>
+<h1>Unknown HTML Character Entity Reference, with Custom External Subset</h1>
+
+<p>Note: An external subset entity referenced from this document
+by <code>SYSTEM</code> identifier declares the <code>unknown</code>
+general entity.</p>
+
+<h2>Test</h2>
+
+<dl id="test-list">
+<dt><code>&amp;unknown;</code> is rendered as</dt><dd>&unknown;</dd>
+<dt><code>&amp;#xA9;</code> is rendered as</dt><dd>&#xA9;</dd>
+</dl>
+
+<p>The <code>innerHTML</code> of the list above is:</p>
+<pre id="test-source"></pre>
+<script type="text/javascript">
+document.getElementById ('test-source').appendChild
+  (document.createTextNode (document.getElementById ('test-list').innerHTML));
+</script>
+
+<h2>Expected Result</h2>
+
+<dl>
+<dt><a href="http://www.w3.org/TR/2002/REC-xhtml1-20020801/#uaconf">Conforming XHTML 1.0 User Agent</a></dt>
+<dt><a href="http://www.w3.org/TR/2001/REC-xhtml-modularization-20010410/conformance.html#s_conform_user_agent">Conforming XHTML Family User Agent</a></dt>
+	<dd>The character reference (later) is treated as a
+	<code>COPYRIGHT SIGN</code>.</dd>
+	<dd>A user agent that reads external entities will treat
+	the entity reference (former) as a <code>COPYRIGHT SIGN</code>.</dd>
+	<dd>A user agent that does not read the external entity in which
+	the entity declaration for the general entity <code>unknown</code>
+	will render it as a sequence of nine characters:
+	<code>&amp;unknown;</code>.</dd>
+</dl>
+
+<h2>Discussion</h2>
+
+<p>See a <a href="http://suika.fam.cx/gate/2005/sw/">SuikaWiki</a> article on <a href="http://suika.fam.cx/gate/2005/sw/XHTML/%E5%AE%9F%E4%BD%93%E5%8F%82%E7%85%A7">entity references in XHTML documents</a>.</p>
+
+</body>
+</html>
