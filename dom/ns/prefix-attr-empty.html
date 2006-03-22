@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Attr.prefix = ''</title>
+</head>
+<body>
+<h1><code><var>Attr</var>.prefix = ''</code></h1>
+
+<p>Result: <span id="result">NOT EXECUTED</span></p>
+
+<script>
+window.onload = function () {
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAILED';
+
+  var el = document.createAttributeNS ('http://www.dom.test/', 'dom:test');
+  el.prefix = '';
+
+  var newPrefix = el.prefix;
+  if (newPrefix == null) {
+    result.firstChild.data = '(null)';
+  } else if (newPrefix == '') {
+    result.firstChild.data = '(empty)';
+  } else if (newPrefix == 'dom') {
+    result.firstChild.data = '(as is)';
+  } else {
+    result.firstChild.data = newPrefix;
+  }
+};
+</script>
+
+<p>Setting the empty string as the namespace prefix of a node
+is implementation dependent in DOM Level 3 Core.</p>
+
+</body>
+</html>
