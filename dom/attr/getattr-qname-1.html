@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Element.getAttribute ("q:name")</title>
+</head>
+<body>
+<h1><code><var>Element</var>.getAttribute ("q:name")</code></h1>
+
+<p>Does <code><var>Element</var>.getAttribute 
+("<var>prefix</var>:<var>localName</var>")</code> match to
+attribute <code>(<var>namespaceURI</var>, 
+<var>prefix</var>, <var>localName</var>)</code>?</p>
+
+<p>Result: <span id="result">NOT EXECUTED</span></p>
+
+<script>
+window.onload = function () {
+  var result = document.getElementById ("result");
+  result.firstChild.data = "FAILED";
+
+  var el = document.createElement ("span");
+  el.setAttributeNS ("http://q.test/", "q:name", "MATCH");
+  
+  var attr = el.getAttribute ("q:name");
+
+  if (attr == null) {
+    result.firstChild.data = "NO MATCH (null)";
+  } else if (attr == "") {
+    result.firstChild.data = "NO MATCH (empty)";
+  } else {
+    result.firstChild.data = attr;
+  }
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Element.getAttribute ("xmlns")</title>
+</head>
+<body>
+<h1><code><var>Element</var>.getAttribute ("xmlns")</code></h1>
+
+<p>Does <code><var>Element</var>.getAttribute 
+("xmlns")</code> match to
+attribute <code>("http://www.w3.org/2000/xmlns/", 
+null, "xmlns")</code>?</p>
+
+<p>Result: <span id="result">NOT EXECUTED</span></p>
+
+<script>
+window.onload = function () {
+  var result = document.getElementById ("result");
+  result.firstChild.data = "FAILED";
+
+  var el = document.createElement ("span");
+  el.setAttributeNS ("http://www.w3.org/2000/xmlns/",
+                     "xmlns", "MATCH");
+  
+  var attr = el.getAttribute ("xmlns");
+
+  if (attr == null) {
+    result.firstChild.data = "NO MATCH (null)";
+  } else if (attr == "") {
+    result.firstChild.data = "NO MATCH (empty)";
+  } else {
+    result.firstChild.data = attr;
+  }
+};
+</script>
+
+</body>
+</html>
