@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>textarea @accept='text/html'</title>
+</head>
+<body>
+<h1><code>textarea</code> <code>@accept='text/html'</code></h1>
+
+<p>
+<textarea accept="text/html" name="edit" id="edit"
+style="width: 90%; height: 20em">&lt;p>Paragraph...&lt;/p></textarea>
+</p>
+
+<h2>Source</h2>
+
+<p><button onclick="
+  document.getElementById ('result').innerText = '';
+  document.getElementById ('result').textContent = '';
+  document.getElementById ('result').appendChild
+    (document.createTextNode (document.getElementById ('edit').value));
+">Update</button></p>
+
+<pre id="result"></pre>
+
+</body>
+</html>

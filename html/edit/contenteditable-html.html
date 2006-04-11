@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>@contentEditable in HTML</title>
+</head>
+<body>
+<h1><code>@contentEditable</code> in HTML</h1>
+
+<p>
+<iframe id="edit" src="contenteditable-html-iframe.html"
+style="width: 90%; height: 20em">NO SUPPORT FOR 
+<code>iframe</code></iframe>
+</p>
+
+<h2>Source (w/o outermost tags)</h2>
+
+<p><button onclick="
+  document.getElementById ('result').innerText = '';
+  document.getElementById ('result').textContent = '';
+  document.getElementById ('result').appendChild
+    (document.createTextNode (document.getElementById ('edit')
+                                      .contentWindow.document
+                                      .documentElement.innerHTML));
+">Update</button></p>
+
+<pre id="result"></pre>
+
+</body>
+</html>
