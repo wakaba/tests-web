@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Single-line Text Input with CRLF References</title>
+<title>Hidden Control with CRLF References</title>
 <script type="text/javascript" src="../../../support/result.js"></script>
 </head>
 <body onload="
@@ -10,22 +10,15 @@
       setResult ('domDefaultValue', iel.defaultValue);
       setResult ('domGetAttributeValue', iel.getAttribute ('value'));
     ">
-<h1>Single-line Text Input with <code>CRLF</code> References</h1>
-<form action="../asis" method="post"
-    onreset="
-      var iel = document.getElementsByTagName ('input')[0];
-      setResult ('domValue', iel.value);
-      setResult ('domDefaultValue', iel.defaultValue);
-      setResult ('domGetAttributeValue', iel.getAttribute ('value'));
-    ">
-<input type="text" name="text1" value="abcdefg&#x0D;&#x0A;ABCDEFG"
+<h1>Hidden Control Input with <code>CRLF</code> References</h1>
+<form action="../asis" method="post">
+<input type="hidden" name="hidden1" value="abcdefg&#x0D;&#x0A;ABCDEFG"
     onchange="
       setResult ('domValue', this.value);
       setResult ('domDefaultValue', this.defaultValue);
       setResult ('domGetAttributeValue', this.getAttribute ('value'));
     ">
 <input type="submit">
-<input type="reset">
 </form>
 
 <h2>Source Code</h2>
