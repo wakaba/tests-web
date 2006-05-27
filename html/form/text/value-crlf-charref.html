@@ -1,16 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <title>Single-line Text Input with CRLF References</title>
+<script type="text/javascript" src="../../../support/result.js"></script>
 </head>
-<body>
+<body onload="
+      var iel = document.getElementsByTagName ('input')[0];
+      setResult ('domValue', iel.value);
+      setResult ('domDefaultValue', iel.defaultValue);
+      setResult ('domGetAttributeValue', iel.getAttribute ('value'));
+    ">
 <h1>Single-line Text Input with <code>CRLF</code> References</h1>
 <form action="../asis" method="post">
-<input type="text" name="text1" value="abcdefg&#x0A;&#x0D;ABCDEFG">
+<input type="text" name="text1" value="abcdefg&#x0A;&#x0D;ABCDEFG"
+    onchange="
+      setResult ('domValue', this.value);
+      setResult ('domDefaultValue', this.defaultValue);
+      setResult ('domGetAttributeValue', this.getAttribute ('value'));
+    ">
 <input type="submit">
 </form>
 
+<h2>Source Code</h2>
+
 <p><code>value="abcdefg&amp;#x0A;&amp;#x0D;ABCDEFG"</code></p>
+
+<h2>DOM <code>value</code></h2>
+
+<p id="domValue"></p>
+
+<h2>DOM <code>defaultValue</code></h2>
+
+<p id="domDefaultValue"></p>
+
+<h2>DOM <code>getAttribute ('value')</code></h2>
+
+<p id="domGetAttributeValue"></p>
 
 </body>
 </html>
