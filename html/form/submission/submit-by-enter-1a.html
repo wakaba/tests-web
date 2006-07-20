@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Form Submission by Pressing the Enter Key</title>
+</head>
+<body>
+<h1>Form Submission by Pressing the Enter Key</h1>
+
+<form action="">
+
+<dl>
+<dt>Submit button</dt>
+  <dd><input type="submit" name="submit1" value="Submit1"
+          onclick="
+            document.getElementById ('submit1-onclick')
+                    .appendChild (document.createElement ('li'))
+                    .appendChild (document.createTextNode ('submit1 clicked'));
+          "></dd>
+  <dd>
+    <ul id="submit1-onclick"></ul>
+  </dd>
+<dt>Text input</dt>
+  <dd><input type="text" size="20" name="text1" value="Press [Enter]"></dd>
+</dl>
+
+</form>
+
+<script>
+  var q = location.search;
+  q = q != null ? q : '?';
+  q = q.substr (1);
+  q = q.replace ('&', '&amp;');
+      q.replace ('<', '&lt;');
+      q.replace ('>', '&gt;');
+  document.write ('<p>Query: <code>' + q + '</code></p>');
+</script>
+
+<dl>
+<dt>If you submitted the form by pushing the <q>Submit1</q> button
+(explicitly or implicitly):</dt>
+    <dd>The <q>Query</q> field above should contain
+        <code>submit1=Submit1</code>.</dd>
+<dt>Otherwise:</dt>
+    <dd>The <q>Query</q> field above should not contain
+        any <code>submit1=</code> parameter.</dd>
+</dl>
+
+</body>
+</html>
