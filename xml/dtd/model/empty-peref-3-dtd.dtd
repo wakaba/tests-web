@@ -1,0 +1,11 @@
+<!ENTITY % child.qname "child">
+
+<!ENTITY % child.extra "">
+
+<!ENTITY % child.class "%child.qname; %child.extra;">  
+
+<!ENTITY % test.content "(%child.class;)*">
+
+<!ELEMENT test %test.content;>
+
+<!ELEMENT %child.qname; EMPTY>
