@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xml:lang="en">
+<head>
+<title>observer ~ &lt;script ev:observer=""&gt;</title>
+</head>
+<body>
+<h1><var>observer</var> ~ <code>&lt;script ev:observer=""&gt;</code></h1>
+
+<p>Is a <code>&lt;script ev:event="" ev:observer=""&gt;</code>
+executed during loading the document?
+<em id="executed">FAIL</em></p>
+
+<p>Is a <code>&lt;script ev:event="" ev:observer=""&gt;</code>
+executed when <button id="button">an event is dispatched</button>?
+<em id="invoked">not yet</em></p>
+
+<script type="text/javascript">
+window.Loading = true;
+document.getElementById ('executed').textContent = 'No';
+</script>
+
+<script type="text/javascript" ev:event="click" ev:observer="button">
+if (window.Loading) {
+  document.getElementById ('executed').textContent = 'Yes';
+} else {
+  document.getElementById ('invoked').textContent = 'PASS';
+}
+</script>
+
+<script type="text/javascript">
+window.Loading = false;
+</script>
+
+</body>
+</html>

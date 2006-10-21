@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xml:lang="en">
+<head>
+<title>handler ~ &lt;button ev:handler=""&gt;</title>
+</head>
+<body>
+<h1><var>handler</var> ~ <code>&lt;button ev:handler=""&gt;</code></h1>
+
+<script type="text/javascript">
+window.Loading = true;
+</script>
+
+<script type="text/javascript" id="handler">
+if (!window.Loading) {
+  document.getElementById ('invoked').textContent = 'PASS';
+}
+</script>
+
+<script type="text/javascript">
+window.Loading = false;
+</script>
+
+<p>Is a <code>&lt;script&gt;</code>
+executed when an event is dispatched on <button id="button"
+    ev:handler="#handler" ev:event="click">an element
+with <code>ev:event=""</code></button>?
+<em id="invoked">not yet</em></p>
+
+</body>
+</html>
