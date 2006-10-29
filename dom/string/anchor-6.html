@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>String.anchor (String)</title>
+</head>
+<body>
+<h1><code>textContent = <var>String</var>.anchor (<var>String</var>)</code></h1>
+
+<script type="text/javascript">
+var s = 'text <&"> content';
+document.write ('<pre>' + s.anchor ('na<&">me').replace (/&/g, '&amp;').replace (/</g, '&lt;') + '</pre>');
+</script>
+
+</body>
+</html>
