@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>document.domain</title>
+</head>
+<body>
+<p><script type="text/javascript">
+  if (typeof (document.domain) == 'undefined') {
+    document.write ('You do not have <code>document.domain</code>.');
+  } else if (document.domain == null) {
+    document.write ('<code>document.domain</code> is <code>null</code>.');
+  } else if (document.domain == '') {
+    document.write ('<code>document.domain</code> is an empty string.');
+  } else {
+    document.write ('<code>document.domain</code> is <code>');
+    document.write (document.domain.replace ('&', '&amp;')
+        .replace ('<', '&lt;'));
+    document.write ('</code>.');
+  }
+</script></p>
+</body>
+</html>
