@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Node and Node.childNodes</title>
+</head>
+<body>
+<h1><code>Node</code> and <code>Node.childNodes</code></h1>
+
+<form id="form1"><input type="text" name="text1" value="text1"><input type="text" name="text2" value="text2"></form>
+
+<script type="text/javascript">
+
+var el = document.getElementById ('form1');
+
+if (el.childNodes != null) {
+  document.write ('<p>You have ');
+} else {
+  document.write ('<p>You do <em>not</em> have ');
+}
+document.write ('<code>Element.childNodes</code>.</p>');
+
+document.write ('<p><code>Element.childNodes ');
+if (el.childNodes == el) {
+  document.write ('==');
+} else {
+  document.write ('<em>!</em>=');
+}
+document.write (' Element</code>.</p>');
+
+document.write ('<p><code>Element.childNodes ');
+if (el.childNodes === el) {
+  document.write ('===');
+} else {
+  document.write ('<em>!</em>==');
+}
+document.write (' Element</code>.</p>');
+
+if (el[0]) {
+  document.write ('<p>You have');
+} else {
+  document.write ('<p>You do <em>not</em> have');
+}
+document.write (' <code>Element[0]</code>.</p>');
+
+document.write ('<p><code>Element.childNodes[0] ');
+if (el.childNodes[0] == el[0]) {
+  document.write ('==');
+} else {
+  document.write ('<em>!</em>=');
+}
+document.write (' Element[0]</code>.</p>');
+
+</script>
+
+</body>
+</html>
