@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>onload="javascript : code"</title>
+</head>
+<body onload="javascript :
+for (var i = 0; i < 2; i++) {
+  if (i == 0) {
+    document.forms.results.result.value = 'PASS';
+    break javascript;
+  } else {
+    document.forms.results.result.value = 'FAIL (ignored)';
+  }
+}"><form name="results">
+  <noscript><input type="text" name="result" value="noscript"></noscript>
+  <script type="text/javascript">
+    document.write ('<input type="text" name="result"\
+        value="FAIL (not executed)">');
+  </script>
+</form></body>
+</html>
