@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>new Date (string) and Date.parse test</title>
+<script type="text/javascript">
+  function update (inputText, resultForm) {
+    var parsedDate = new Date (inputText);
+    resultForm['date-typeof'].value = typeof (parsedDate);
+    for (var s in {'toString': 1, 'toGMTString': 1,
+        'toUTCString': 1, 'toLocaleString': 1,
+        'toLocaleDateString': 1, 'toLocaleTimeString': 1}) {
+      resultForm['date-' + s].value = parsedDate[s] != null
+          ? parsedDate[s] () : '(method is null)';
+    }
+
+    var parsedNumber = Date.parse (inputText);
+    resultForm['number-typeof'].value = typeof (parsedNumber);
+    for (var s in {'toString': 1, 'toLocaleString': 1}) {
+      resultForm['number-' + s].value = parsedNumber[s] != null
+          ? parsedNumber[s] () : '(method is null)';
+    }
+  } // update
+</script>
+</head>
+<body>
+<h1><code>new Date (<var>string</var>)</code> and 
+<code>Date.parse</code> test</h1>
+
+<form name="testform">
+  <dl>
+  <dt><var>input</var></dt>
+    <dd><input type="text" name="input" value="" size="40"
+        onchange="update (this.value, this.form)"
+        oninput="update (this.value, this.form)"></dd>
+  </dl>
+  <dl>
+  <dt><code>typeof (new Date (<var>input</var>))</code></dt>
+    <dd><input type="text" name="date-typeof" value="" size="40"></dd>
+  <dt><code>new Date (<var>input</var>).toString ()</code></dt>
+    <dd><input type="text" name="date-toString" value="" size="40"></dd>
+  <dt><code>new Date (<var>input</var>).toGMTString ()</code></dt>
+    <dd><input type="text" name="date-toGMTString" value="" size="40"></dd>
+  <dt><code>new Date (<var>input</var>).toUTCString ()</code></dt>
+    <dd><input type="text" name="date-toUTCString" value="" size="40"></dd>
+  <dt><code>new Date (<var>input</var>).toLocaleString ()</code></dt>
+    <dd><input type="text" name="date-toLocaleString" value="" size="40"></dd>
+  <dt><code>new Date (<var>input</var>).toLocaleDateString ()</code></dt>
+    <dd><input type="text" name="date-toLocaleDateString" value="" size="40"></dd>
+  <dt><code>new Date (<var>input</var>).toLocaleTimeString ()</code></dt>
+    <dd><input type="text" name="date-toLocaleTimeString" value="" size="40"></dd>
+  </dl>
+  <dl>
+  <dt><code>typeof (Date.parse (<var>input</var>))</code></dt>
+    <dd><input type="text" name="number-typeof" value="" size="40"></dd>
+  <dt><code>Date.parse (<var>input</var>).toString ()</code></dt>
+    <dd><input type="text" name="number-toString" value="" size="40"></dd>
+  <dt><code>Date.parse (<var>input</var>).toLocaleString ()</code></dt>
+    <dd><input type="text" name="number-toLocaleString" value="" size="40"></dd>
+  </dl>
+</form>
+
+</body>
+</html>
