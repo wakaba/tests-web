@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DOM3 XPath vs HTML Document</title>
+</head>
+<body>
+<h1>DOM3 XPath vs HTML Document</h1>
+
+<div>A <code>div</code> element.</div>
+
+<Div>A <code>Div</code> element.</Div>
+
+<DIV>A <code>DIV</code> element.</DIV>
+
+<p id="status"></p>
+
+<script type="text/javascript">
+  document.getElementById ('status').appendChild
+      (document.createTextNode ('FAIL'));
+  var nl = document.evaluate ('//div', document, function () {
+    return 'http://www.w3.org/1999/xhtml';
+  }, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+  for (var i = 0; i < nl.snapshotLength; i++) {
+    nl.snapshotItem (i).style.color = 'blue';
+  }
+  document.getElementById ('status').firstChild.data
+      = '"//div" elements are colored blue.';
+</script>
+<noscript>NOSCRIPT</noscript>
+
+</body>
+</html>

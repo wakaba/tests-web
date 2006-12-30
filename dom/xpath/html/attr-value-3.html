@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DOM3 XPath vs HTML Document</title>
+</head>
+<body>
+<h1>DOM3 XPath vs HTML Document</h1>
+
+<div align="center">An element with <code>align=center</code>.</div>
+
+<div align="Center">An element with <code>align=Center</code>.</div>
+
+<div align="CENTER">An element with <code>align=CENTER</code>.</div>
+
+<p id="status"></p>
+
+<script type="text/javascript">
+  document.getElementById ('status').appendChild
+      (document.createTextNode ('FAIL'));
+  var nl = document.evaluate ('//*[@align = "CENTER"]', document, null,
+      XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+  for (var i = 0; i < nl.snapshotLength; i++) {
+    nl.snapshotItem (i).style.color = 'blue';
+  }
+  document.getElementById ('status').firstChild.data
+      = '"//*[@align = "CENTER"]" elements are colored blue.';
+</script>
+<noscript>NOSCRIPT</noscript>
+
+</body>
+</html>
