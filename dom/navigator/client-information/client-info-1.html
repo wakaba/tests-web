@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>window.clientInformation</title>
+</head>
+<body>
+
+<p><script type="text/javascript">
+  if (typeof (window.clientInformation) == 'undefined') {
+    document.write ("You don't have <code>window.clientInformation</code>.");
+  } else if (window.clientInformation == null) {
+    document.write ("<code>window.clientInformation</code> == <code>null</code>.");
+  } else if (window.clientInformation == window.navigator) {
+    document.write ("<code>window.clientInformation</code> == <code>window.navigator</code>.");
+  } else {
+    document.write ("<code>window.clientInformation</code> is of <code>");
+    document.write (typeof (window.clientInformation).replace ('&', '&amp;')
+        .replace ('<', '&lt;'));
+    document.write ('</code> and <code>window.clientInformation.toString ()</code> is ');
+    document.write (window.clientInformation.toString ().replace ('&', '&amp;')
+        .replace ('<', '&lt;'));
+    document.write ('</code>.');
+  }
+</script></p>
+
+</body>
+</html>
+

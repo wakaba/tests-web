@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>for-each with window.navigator</title>
+</head>
+<body>
+
+<table>
+<thead>
+<tr><th scope="col">Property</th><th scope="col">Type</th><th scope="col"><code>toString ()</th></tr>
+</thead>
+<tbody>
+<script type="text/javascript">
+  function htescape (s) {
+    return s.replace ('&', '&amp;').replace ('<', '&lt;');
+  }
+
+  for (var p in window.navigator) {
+    document.write ('<tr><th scope="row"><code>');
+    document.write (htescape (p));
+    document.write ('</code></th>');
+    try {
+      document.write ('<td><code>' + htescape (typeof (window.navigator[p])) + '</code></td>');
+      document.write ('<td><code>' + htescape (window.navigator[p].toString ()) + '</code></td>');
+    } catch (e) {
+      document.write ('<td>(<code>' + htescape (e.toString ()) + '</code>)</td>');
+    }
+    document.write ('</tr>');
+  }
+</script>
+</tbody>
+</table>
+
+</body>
+</html>
