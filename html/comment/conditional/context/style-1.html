@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Conditional Comment in &lt;style></title>
+<style>
+
+body {
+  color: blue;
+}
+
+<!--[if !IE]>
+
+p { } /* dummy for forward-compatible parsing */
+
+body {
+  color: red;
+}
+
+<![endif]-->
+</style>
+</style>
+<body>
+<p>If this text is <em>blue</em>, the conditional comment
+takes effect.</p>
+</body>
+</html>
