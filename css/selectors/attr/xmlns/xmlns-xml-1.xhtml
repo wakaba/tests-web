@@ -1,0 +1,30 @@
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace">
+<head>
+<title>[xmlns|xml]</title>
+<style type="text/css">
+@namespace xmlns 'http://www.w3.org/2000/xmlns/';
+
+html {
+  color: red;
+}
+html[xmlns|xml] {
+  color: blue;
+}
+
+#pass {
+  display: none;
+}
+[xmlns|xml] #pass {
+  display: block;
+}
+[xmlns|xml] #fail {
+  display: none;
+}
+</style>
+</head>
+<body>
+<p id="pass">PASS</p>
+<p id="fail">FAIL</p>
+</body>
+</html>

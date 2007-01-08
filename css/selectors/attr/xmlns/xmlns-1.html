@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>[xmlns]</title>
+<style type="text/css">
+html {
+  color: blue;
+}
+
+html[xmlns] {
+  color: red;
+}
+
+#fail {
+  display: none;
+}
+
+html[xmlns] #pass {
+  display: none;
+}
+html[xmlns] #fail {
+  display: block;
+}
+</style>
+</head>
+<body>
+<p id="pass">PASS</p>
+<p id="fail">FAIL</p>
+</body>
+</html>
