@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>&lt;iframe src="file://127.0.0.1/SharedDocs/"></title>
+</head>
+<body>
+<p><iframe src="file://127.0.0.1/SharedDocs/" width="10" height="10" id="iframe1">(iframe content)</iframe></p>
+
+<script type="text/javascript">
+
+function htescape (s) {
+  return s.replace ('&', '&amp;').replace ('<', '&lt;');
+} // htescape
+
+function dumpValue (v) {
+  if (typeof (v) == 'undefined') {
+    document.write ('is <code>undefined</code>.');
+  } else if (v == null) {
+    document.write ('is <code>null</code>.');
+  } else if (typeof (v) == 'string' && v == '') {
+    document.write ('is an empty string.');
+  } else {
+    document.write ('is of ' + htescape (typeof (v)));
+    try {
+      document.write (', with string value <code>'
+          + htescape (v.toString ()) + '</code>.');
+    } catch (e) {
+      document.write (' whose string value is unknown: <q>'
+          + htescape (e.toString ()) + '</q>.');
+    }
+  }
+} // dumpValue
+
+var iframe = document.getElementById ('iframe1');
+
+document.write ('<p><code><var>iframe1</var>.contentDocument</code> ');
+dumpValue (iframe.contentDocument);
+
+document.write ('<p><code><var>iframe1</var>.contentWindow</code> ');
+dumpValue (iframe.contentWindow);
+
+if (iframe.contentWindow) {
+  document.write ('<p><code><var>iframe1</var>.contentWindow.location</code> ');
+  dumpValue (iframe.contentWindow.location);
+}
+</script>
+
+</body>
+</html>
