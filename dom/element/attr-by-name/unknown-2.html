@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Element['unknown']</title>
+<script src="../../../support/result0.js"></script>
+</head>
+<body>
+
+<div><p id="a" unknown="value-of-the-unknown-attribute"></p></div>
+
+<script type="text/javascript">
+  var a = document.getElementById ('a');
+  var unknown = a['unknown'];
+
+  document.write ('<dl><dt><code><var>Element</var>["unknown"]</code></dt><dd>');
+  writeResult (a['unknown']);
+  document.write ('</dd><dt><code><var>Element</var>.getAttribute ("unknown")</code><dd>');
+  writeResult (a.getAttribute ('unknown'));
+  document.write ('</dd><dt><code><var>Element</var>.parentNode.innerHTML</code></dt><dd>');
+  document.write (htescape (a.parentNode.innerHTML));
+  document.write ('</dd></dl>');
+</script>
+
+</body>
+</html>
