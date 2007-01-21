@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>try...finally</title>
+</head>
+<body>
+<p id="result">FAIL</p>
+<script type="text/javascript">
+var i = 0;
+try {
+  i++;
+} finally {
+  i++;
+}
+if (i == 2) {
+  document.getElementById ('result').innerHTML = 'PASS';
+}
+</script>
+</body>
+</html>
