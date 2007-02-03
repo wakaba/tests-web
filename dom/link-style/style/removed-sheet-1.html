@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>LinkStyle.sheet</title>
+<style type="text/css">
+  #style-test-1 {
+    color: blue;
+  }
+</style>
+<script src="../../../support/result0.js"></script>
+</head>
+<body>
+
+<p><code>document.createElement ('style').sheet</code> = 
+<script type="text/javascript">
+  var ls = document.getElementsByTagName ('style')[0];
+  ls.parentNode.removeChild (ls);
+  writeResult (ls.sheet);
+</script></p>
+
+</body>
+</html>
