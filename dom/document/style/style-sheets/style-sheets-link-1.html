@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>document.styleSheets</title>
+<script type="text/javascript" src="../../../../support/result0.js"></script>
+<link rel="stylesheet" href="../../../../support/test-style-1.css">
+</head>
+<body>
+
+<p><code>document.styleSheets.length</code> = <script type="text/javascript">
+  writeResult (document.styleSheets.length);
+</script></p>
+
+<ol>
+  <script type="text/javascript">
+    var sss = document.styleSheets;
+    var sssl = sss.length;
+    for (var i = 0; i < sssl; i++) {
+      var ss = sss[i];
+      document.write ('<li>');
+      writeResult (ss);
+      document.write ('</li>');
+    }
+  </script>
+</ol>
+
+</body>
+</html>
