@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>&lt;style> CSSStyleSheet.rules</title>
+<style type="text/css">
+#test-style-1 {
+  color: blue;
+}
+#test-style-2 {
+  color: green;
+}
+</style>
+<script src="../../../support/result0.js"></script>
+</head>
+<body>
+
+<p><code><var>CSSStyleSheet</var> /* <code>&lt;style></code
+> */ .rules.length</code> = 
+<script type="text/javascript">
+  var ds = document.styleSheets[0];
+  writeResult (ds.rules.length);
+</script></p>
+
+<ol>
+  <script type="text/javascript">
+    var ds = document.styleSheets[0];
+    var rules = ds.rules;
+    var rulesL = rules.length;
+    for (var i = 0; i < rulesL; i++) {
+      var rule = rules[i];
+      document.write ('<li>');
+      writeResult (rule);
+      document.write ('</li>');
+    }
+  </script>
+</ol>
+
+</body>
+</html>
