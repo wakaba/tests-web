@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>&lt;form>.submit ()</title>
+</head>
+<body>
+
+<p><button onclick="
+  var form = document.createElement ('form');
+  form.action = 'submit-action.html';
+  form.method = 'get';
+  var p = form.appendChild (document.createElement ('p'));
+  var input = p.appendChild (document.createElement ('input'));
+  input.type = 'text';
+  input.name = 'input-text-1';
+  input.value = 'input-text-1-value';
+  form.submit ();
+"><code>&lt;form>.submit ()</code></button></p>
+
+</body>
+</html>
