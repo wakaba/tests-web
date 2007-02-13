@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>DOM3 XPath vs HTML Document</title>
+<title>DOM3 XPath vs XHTML Document</title>
 </head>
 <body>
-<h1>DOM3 XPath vs HTML Document</h1>
+<h1>DOM3 XPath vs XHTML Document</h1>
 
 <div>A <code>div</code> element.</div>
 
@@ -14,18 +13,18 @@
 
 <p id="status"></p>
 
-<script type="text/javascript">
+<script type="text/javascript"><![CDATA[
   document.getElementById ('status').appendChild
       (document.createTextNode ('FAIL'));
-  var nl = document.evaluate ('//html:div', document, function () {
+  var nl = document.evaluate ('//html:Div', document, function () {
     return 'http://www.w3.org/1999/xhtml';
   }, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
   for (var i = 0; i < nl.snapshotLength; i++) {
     nl.snapshotItem (i).style.color = 'blue';
   }
   document.getElementById ('status').firstChild.data
-      = '"//html:div" elements are colored blue.';
-</script>
+      = '"//html:Div" elements are colored blue.';
+]]></script>
 <noscript>NOSCRIPT</noscript>
 
 </body>

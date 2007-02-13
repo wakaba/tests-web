@@ -1,0 +1,30 @@
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>DOM3 XPath vs XHTML Document</title>
+</head>
+<body>
+<h1>DOM3 XPath vs XHTML Document</h1>
+
+<div class="a">An element with <code>class</code>.</div>
+
+<div Class="b">An element with <code>Class</code>.</div>
+
+<div CLASS="c">An element with <code>CLASS</code>.</div>
+
+<p id="status"></p>
+
+<script type="text/javascript"><![CDATA[
+  document.getElementById ('status').appendChild
+      (document.createTextNode ('FAIL'));
+  var nl = document.evaluate ('//*[@Class]', document, null,
+      XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+  for (var i = 0; i < nl.snapshotLength; i++) {
+    nl.snapshotItem (i).style.color = 'blue';
+  }
+  document.getElementById ('status').firstChild.data
+      = '"//*[@Class]" elements are colored blue.';
+]]></script>
+<noscript>NOSCRIPT</noscript>
+
+</body>
+</html>

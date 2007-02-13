@@ -1,0 +1,30 @@
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>DOM3 XPath vs XHTML Document</title>
+</head>
+<body>
+<h1>DOM3 XPath vs XHTML Document</h1>
+
+<div align="center">An element with <code>align=center</code>.</div>
+
+<div align=" center ">An element with <code>align=" center "</code>.</div>
+
+<div align="centerline">An element with <code>align=centerline</code>.</div>
+
+<p id="status"></p>
+
+<script type="text/javascript"><![CDATA[
+  document.getElementById ('status').appendChild
+      (document.createTextNode ('FAIL'));
+  var nl = document.evaluate ('//*[@align = " center "]', document, null,
+      XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+  for (var i = 0; i < nl.snapshotLength; i++) {
+    nl.snapshotItem (i).style.color = 'blue';
+  }
+  document.getElementById ('status').firstChild.data
+      = '"//*[@align = " center "]" elements are colored blue.';
+]]></script>
+<noscript>NOSCRIPT</noscript>
+
+</body>
+</html>
