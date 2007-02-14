@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>DOM3 XPath vs HTML Document</title>
+</head>
+<body>
+<h1>DOM3 XPath vs HTML Document</h1>
+
+<dl><dt>An element with<em>out</em> <code>compact</code>.</dt></dl>
+
+<dl compact><dt>An element with <code>compact</code>.</dt></dl>
+
+<dl compact=""><dt>An element with <code>compact=""</code>.</dt></dl>
+
+<dl compact="compact"><dt>An element with <code>compact=compact</code>.</dt></dl>
+
+<p id="status"></p>
+
+<script type="text/javascript">
+  document.getElementById ('status').appendChild
+      (document.createTextNode ('FAIL'));
+  var nl = document.evaluate ('//*[@COMPACT = "compact"]', document, null,
+      XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+  for (var i = 0; i < nl.snapshotLength; i++) {
+    nl.snapshotItem (i).style.color = 'blue';
+  }
+  document.getElementById ('status').firstChild.data
+      = '"//*[@COMPACT = "compact"]" elements are colored blue.';
+</script>
+<noscript>NOSCRIPT</noscript>
+
+</body>
+</html>
