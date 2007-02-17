@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>window.external</title>
+<script src="../../../support/result0.js"></script>
+</head>
+<body>
+  <p><code>window.external</code> has: <ul>
+  <script type="text/javascript">
+    for (var p in window.external) {
+      document.write ('<li><code>');
+      document.write (htescape (p));
+      document.write ('</code>: ');
+      try {
+        writeResult (window.external[p]);
+      } catch (e) {
+        document.write ('(error ');
+        writeResult (e);
+        document.write (')');
+      }
+      document.write ('</li>');
+    }
+  </script></ul>
+</body>
+</html>
