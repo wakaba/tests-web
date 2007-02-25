@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>&lt;iframe src="view-source:"></title>
+</head>
+<body>
+  <p><iframe src="view-source:http://suika.fam.cx/news" name="frame1"
+      style="width: 80%; height: 10em"
+      onload="
+        document.getElementById ('result').textContent = this.contentDocument.documentElement.textContent;
+      ">NOIFRAME</iframe></p>
+
+  <pre><code id="result"></code></pre>
+</body>
+</html>
