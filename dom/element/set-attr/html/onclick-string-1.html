@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>setAttribute ('onclick', function () {})</title>
+</head>
+<body>
+  <p><a href="#">anchor</a></p>
+  <script>
+    document.links[0].setAttribute ('onclick', "\
+      alert ('...');\
+      return false;\
+    ");
+  </script>
+  <noscript>NOSCRIPT</noscript>
+</body>
+</html>
