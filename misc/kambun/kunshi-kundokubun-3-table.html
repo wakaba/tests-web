@@ -43,7 +43,7 @@
     }
     sub {
       display: block;
-      margin: 0;
+      margin: 0 auto 0 0;
       border-style: none;
       padding: 0;
       letter-spacing: 0;
@@ -54,6 +54,10 @@
     ruby {
       display: table;
       direction: ltr;
+      margin: 0 auto 0 0;
+    }
+    .okuri {
+      margin-top: -0.3em;
     }
     rb {
       display: table-cell;
@@ -69,17 +73,27 @@
     }
     .hyphen {
       display: block;
-      content: "|";
+      border-right: 1px solid;
+      content: "\A0";
       width: 1em;
       text-align: center;
-      font-size: 80%;
+      font-size: 50%;
       line-height: 1.0;
+    }
+    sub + .hyphen {
+      margin-top: -1em;
+    }
+    sub + sub {
+      margin-top: -0.5em;
+    }
+    .okuri + sub {
+      margin-top: -1em;
     }
   </style>
 </head>
 <body>
   <div>
-    <p><ruby><rb>君子</rb><rt>くんし</rt></ruby><ruby><rb></rb><rt>ハ</rt></ruby><ruby><rb>不</rb><rt>ず</rt></ruby><sub>乙</sub><ruby><rb>以</rb><rt style="content: 'もつ'">もっ</rt></ruby><ruby><rb></rb><rt>テ</rt></ruby><sub>下</sub><ruby><rb>其</rb><rt>そ</rt></ruby><ruby><rb></rb><rt>ノ</rt></ruby><ruby><rb>所<sub>二</sub><span class="hyphen">‐</span>以</rb><rt>ゆえん</rt></ruby><ruby><rb></rb><rt>ノ</rt></ruby><ruby><rb>養</rb><rt>やしな</rt></ruby><ruby><rb></rb><rt>ウ</rt></ruby><sub>一</sub><sub>レ</sub><ruby><rb>人</rb><rt>ひと</rt></ruby><ruby><rb></rb><rt>ヲ</rt></ruby><ruby><rb>者</rb><rt>もの</rt></ruby><ruby><rb></rb><rt>ヲ</rt></ruby><sub>上</sub><ruby><rb>害</rb><rt>がい</rt></ruby><ruby><rb></rb><rt>セ</rt></ruby><sub>甲</sub><sub>レ</sub><ruby><rb>人</rb><rt>ひと</rt></ruby><ruby><rb></rb><rt>ヲ</rt></ruby>。</p>
+    <p><ruby><rb>君子</rb><rt>くんし</rt></ruby><ruby class="okuri"><rb></rb><rt>ハ</rt></ruby><ruby><rb>不</rb><rt>ず</rt></ruby><sub>乙</sub><ruby><rb>以</rb><rt style="content: 'もつ'">もっ</rt></ruby><ruby class="okuri"><rb></rb><rt>テ</rt></ruby><sub>下</sub><ruby><rb>其</rb><rt>そ</rt></ruby><ruby class="okuri"><rb></rb><rt>ノ</rt></ruby><ruby><rb>所<sub>二</sub><span class="hyphen">‐</span>以</rb><rt>ゆえん</rt></ruby><ruby class="okuri"><rb></rb><rt>ノ</rt></ruby><ruby><rb>養</rb><rt>やしな</rt></ruby><ruby class="okuri"><rb></rb><rt>ウ</rt></ruby><sub>一</sub><sub>レ</sub><ruby><rb>人</rb><rt>ひと</rt></ruby><ruby class="okuri"><rb></rb><rt>ヲ</rt></ruby><ruby><rb>者</rb><rt>もの</rt></ruby><ruby class="okuri"><rb></rb><rt>ヲ</rt></ruby><sub>上</sub><ruby><rb>害</rb><rt>がい</rt></ruby><ruby class="okuri"><rb></rb><rt>セ</rt></ruby><sub>甲</sub><sub>レ</sub><ruby><rb>人</rb><rt>ひと</rt></ruby><ruby class="okuri"><rb></rb><rt>ヲ</rt></ruby>。</p>
     <address><ruby><rb>孟子</rb><rt>もうし</rt></ruby></address>
   </div>
 </body>
