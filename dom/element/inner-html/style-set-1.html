@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>&lt;style>.innerHTML = ''</title>
+<style type="text/css">
+  p {
+    color: blue;
+  }
+</style>
+</head>
+<body>
+  <p><button type="button" onclick="
+    document.getElementsByTagName ('style')[0].innerHTML = 'p { color: green }';
+  ">Click this button</button></p>
+  <p>PASS iff this text becomes <em>green</em>.</p>
+</body>
+</html>
