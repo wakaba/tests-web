@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>LinkStyle.styleSheet == document.styleSheets[i]</title>
+<style type="text/css">
+  #style-test-1 {
+    color: blue;
+  }
+</style>
+<script src="../../../support/result0.js"></script>
+</head>
+<body>
+
+<p><code><code>&lt;style></code>.styleSheet
+== document.styleSheets[<var>i</var>]</code> = 
+<script type="text/javascript">
+  var ds = document.styleSheets[0];
+  var ls = document.getElementsByTagName ('style')[0].styleSheet;
+  writeResult (ds == ls);
+</script></p>
+
+</body>
+</html>
