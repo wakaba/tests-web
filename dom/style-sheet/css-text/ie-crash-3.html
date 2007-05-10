@@ -2,12 +2,12 @@
 <html>
 <head>
 <title>cssText = '' and die</title>
+<style></style>
 </head>
 <body>
 <p><textarea></textarea></p>
 <p><button type="button" onclick="
-document.getElementsByTagName ('iframe')[0].contentWindow.document.getElementsByTagName ('style')[0].styleSheet.cssText = '' + document.getElementsByTagName ('textarea')[0].accessKey;
+document.getElementsByTagName ('style')[0].styleSheet.cssText = '' + document.getElementsByTagName ('textarea')[0].accessKey;
 ">Click to die!</button></p>
-<p><iframe src="javascript:'<style></style>'"></iframe></p>
 </body>
 </html>
