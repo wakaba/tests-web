@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>&lt;iframe>.onreadystatechange Event Handler DOM Attribute and src='' DOM Attribute
+Setting</title>
+</head>
+<body onunload="document.getElementsByTagName ('iframe')[0].onreadystatechange = null">
+  <p><iframe src="about:blank">noiframe</iframe></p>
+  <p><button type="button" onclick="
+    var result = document.getElementById ('result');
+    result.innerHTML = '';
+    var iframe = document.getElementsByTagName ('iframe')[0];
+    iframe.onreadystatechange = function () {
+      result.innerHTML += this.readyState + '<br>';
+      if (this.readyState == 'complete') this.onreadystatechange = null;
+    };
+    iframe.src = 'http://www.w3.org/';
+  ">Click this button!</button></p>
+  <p id="result">not executed yet</p>
+</body>
+</html>
