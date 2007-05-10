@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>&lt;iframe>.onload Event Handler DOM Attribute and src='' DOM Attribute
+Setting</title>
+</head>
+<body onunload="document.getElementsByTagName ('iframe')[0].onload = null">
+  <p><iframe src="about:blank">noiframe</iframe></p>
+  <p><button type="button" onclick="
+    var result = document.getElementById ('result');
+    result.innerHTML = 'not invoked yet';
+    var iframe = document.getElementsByTagName ('iframe')[0];
+    iframe.onload = function () {
+      if (iframe.src == 'http://www.w3.org/') {
+        result.innerHTML = 'invoked';
+      } else {
+        result.innerHTML = 'invoked but src != http://www.w3.org/';
+      }
+    };
+    iframe.src = 'http://www.w3.org/';
+  ">Click this button!</button></p>
+  <p id="result">not executed yet</p>
+</body>
+</html>
