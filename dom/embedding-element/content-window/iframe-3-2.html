@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>&lt;iframe>.contentWindow</title>
+<script type="text/javascript" src="../../../support/result0.js"></script>
+</head>
+<body onload="
+  var result = document.getElementById ('result');
+  result.innerHTML = 'FAIL';
+  var iframe = document.getElementsByTagName ('iframe')[0];
+  var cd = iframe.contentWindow;
+  if (typeof (cd) == 'object') {
+    result.innerHTML = 'PASS';
+  }
+">
+  <p id="result">FAIL (noscript)</p>
+  <p><iframe src="http://www.w3.org/">noiframe</iframe></p>
+</body>
+</html>
