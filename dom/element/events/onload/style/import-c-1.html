@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>&lt;style>.onload Event Handler Content Attribute and @import</title>
+<style type="text/css" onload="
+  document.getElementById ('result').innerHTML
+      = '<code>onload=&quot;&quot;</code>executed!';
+">
+  @import '200.css';
+</style>
+</head>
+<body>
+  <p id="result"><code>onload=""</code> is not executed (yet)</p>
+</body>
+</html>
