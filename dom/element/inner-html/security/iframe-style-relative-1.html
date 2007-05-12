@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Access to &lt:style>.innerHTML in &lt;iframe></title>
+  <style type="text/css">
+    iframe {
+      width: 0; height: 0; border-style: none;
+    }
+  </style>
+</head>
+<body onload="
+  var r = document.getElementById ('result');
+  r.innerHTML = 'FAIL';
+  var iframe = document.getElementsByTagName ('iframe')[0];
+  var idoc = iframe.contentWindow.document;
+  var istyle = idoc.getElementsByTagName ('style')[0];
+  istyle.innerHTML = 'p{}';
+  if (istyle.innerHTML == 'p{}') {
+    r.innerHTML = 'PASS';
+  }
+">
+  <p id="result">FAIL (noscript)</p>
+  <p><iframe src="iframe-content.html"></iframe></p>
+</body>
+</html>
