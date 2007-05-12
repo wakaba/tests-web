@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{prop:value}[i]</title>
+<style type="text/css">
+div {
+  color: red;
+  background-color: white;
+}
+</style>
+<script type="text/javascript" src="../../../support/result0.js"></script>
+</head>
+<body>
+  <script type="text/javascript">
+    var style = document.getElementsByTagName ('style')[0];
+    var rule = style.sheet.cssRules[0];
+    var styledecl = rule.style;
+    document.write ('<ol>');
+    for (var i = 0; i < styledecl.length; i++) {
+      document.write ('<li>');
+      writeResult (styledecl[i]);
+      document.write ('<' + '/li>');
+    }
+    document.write ('<' + '/ol>');
+  </script><noscript><p>noscript</p></noscript>
+</body>
+</html>
