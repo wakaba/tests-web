@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Access to cssRules in &lt;iframe></title>
+  <style type="text/css">
+    iframe {
+      width: 0; height: 0; border-style: none;
+    }
+  </style>
+</head>
+<body>
+  <p id="result">FAIL (noscript)</p>
+  <p><iframe src="iframe-relative-import-2-content.html"></iframe></p>
+<script type="text/javascript">
+  var r = document.getElementById ('result');
+  r.innerHTML = 'FAIL';
+  var iframe = document.getElementsByTagName ('iframe')[0];
+  var idoc = iframe.contentDocument;
+  var istyle = idoc.getElementsByTagName ('style')[0];
+  var isheet = istyle.sheet;
+  var cssRules = isheet.cssRules;
+  if (cssRules) {
+    r.innerHTML = 'PASS';
+  }
+</script>
+</body>
+</html>
