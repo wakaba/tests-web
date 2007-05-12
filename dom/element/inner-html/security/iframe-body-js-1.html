@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Access to cssRules in &lt;iframe></title>
+  <style type="text/css">
+    iframe {
+      width: 0; height: 0; border-style: none;
+    }
+  </style>
+</head>
+<body onload="
+  var r = document.getElementById ('result');
+  r.innerHTML = 'FAIL';
+  var iframe = document.getElementsByTagName ('iframe')[0];
+  var idoc = iframe.contentWindow.document;
+  var ibody = idoc.getElementsByTagName ('body')[0];
+  ibody.innerHTML = 'XXXX';
+  if (ibody.innerHTML == 'XXXX') {
+    r.innerHTML = 'PASS';
+  }
+">
+  <p id="result">FAIL (noscript)</p>
+  <p><iframe src="javascript:'<html><head><title></title></head><body></body></html>'"></iframe></p>
+</body>
+</html>
