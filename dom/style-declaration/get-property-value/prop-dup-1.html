@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{prop:value}.getPropertyValue (s)</title>
+<style type="text/css">
+div {
+  color: red;
+  color: white;
+}
+</style>
+<script type="text/javascript" src="../../../support/result0.js"></script>
+</head>
+<body>
+  <p><code>color</code> is <script type="text/javascript">
+    var style = document.getElementsByTagName ('style')[0];
+    var rule = style.sheet.cssRules[0];
+    var styledecl = rule.style;
+    writeResult (styledecl.getPropertyValue ('color'));
+  </script>.</p><noscript><p>noscript</p></noscript>
+</body>
+</html>
