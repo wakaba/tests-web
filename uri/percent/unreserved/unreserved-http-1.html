@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Percent-encoded unreserved characters in HTTP URIs</title>
+</head>
+<body>
+  <ul>
+    <li><a href="http://suika.fam.cx/">http://suika.fam.cx/</a></li>
+    <li><a href="%68ttp://suika.fam.cx/">%68ttp://suika.fam.cx/</a></li>
+    <li><a href="h%74tp://suika.fam.cx/">h%74tp://suika.fam.cx/</a></li>
+    <li><a href="h%74%74p://suika.fam.cx/">h%74%74p://suika.fam.cx/</a></li>
+    <li><a href="htt%70://suika.fam.cx/">htt%70://suika.fam.cx/</a></li>
+    <li><a href="%68%74%74%70://suika.fam.cx/">%68%74%74%70://suika.fam.cx/</a></li>
+    <li><a href="http://%73uika.fam.cx/">http://%73uika.fam.cx/</a></li>
+    <li><a href="http://%73%75%69%6B%61.fam.cx/">http://%73%75%69%6B%61.fam.cx/</a></li>
+    <li><a href="http://suika%2Efam%2Ecx/">http://suika%2Efam%2Ecx/</a></li>
+    <li><a href="http://%73%75%69%6B%61.%66%61%6D.%63%78/">http://%73%75%69%6B%61.%66%61%6D.%63%78/</a></li>
+    <li><a href="http://%73%75%69%6B%61%2E%66%61%6D%2E%63%78/">http://%73%75%69%6B%61%2E%66%61%6D%2E%63%78/</a></li>
+    <li><a href="http://suika.fam.cx:80/">http://suika.fam.cx:80/</a></li>
+    <li><a href="http://suika.fam.cx:%380/">http://suika.fam.cx:%380/</a></li>
+    <li><a href="http://suika.fam.cx:%38%30/">http://suika.fam.cx:%38%30/</a></li>
+  </ul>
+</body>
+</html>
