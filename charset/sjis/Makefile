@@ -21,3 +21,7 @@ shift-jis-1997-E.html: shift-jis-1997.tbl maketest.pl
 	perl maketest.pl 14 $< > $@
 shift-jis-1997-F.html: shift-jis-1997.tbl maketest.pl
 	perl maketest.pl 15 $< > $@
+
+clean:
+	rm -fv *~
+	rm -fv shift-jis-1997.tbl
