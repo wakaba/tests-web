@@ -1,0 +1,21 @@
+<root>
+<p id="result" xmlns="http://www.w3.org/1999/xhtml">FAIL (not executed)</p>
+<script type="text/javascript" xmlns="http://www.w3.org/1999/xhtml">
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL';
+  var el = document.createElement ('elementName');
+  if (typeof (el.localName) == 'undefined') {
+    result.firstChild.data = 'FAIL (undefined)';
+  } else if (el.localName == null) {
+    result.firstChild.data = 'PASS (as per DOM3)';
+  } else if (el.localName == 'elementname') {
+    result.firstChild.data = 'FAIL (lowercase)';
+  } else if (el.localName == 'elementName') {
+    result.firstChild.data = 'FAIL (as is)';
+  } else if (el.localName == 'ELEMENTNAME') {
+    result.firstChild.data = 'FAIL (uppercase)';
+  } else {
+    result.firstChild.data = 'FAIL';
+  }
+</script>
+</root>

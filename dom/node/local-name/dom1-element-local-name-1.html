@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>createElement ().localName</title>
+</head>
+<body>
+<p id="result">FAIL (not executed)</p>
+<script type="text/javascript">
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL';
+  var el = document.createElement ('elementName');
+  if (typeof (el.localName) == 'undefined') {
+    result.firstChild.data = 'FAIL (undefined)';
+  } else if (el.localName == null) {
+    result.firstChild.data = 'PASS (as per DOM3)';
+  } else if (el.localName == 'elementname') {
+    result.firstChild.data = 'FAIL (lowercase)';
+  } else if (el.localName == 'elementName') {
+    result.firstChild.data = 'FAIL (as is)';
+  } else if (el.localName == 'ELEMENTNAME') {
+    result.firstChild.data = 'FAIL (uppercase)';
+  } else {
+    result.firstChild.data = 'FAIL';
+  }
+</script>
+</body>
+</html>
