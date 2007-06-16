@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+      <title>Element.prefix = undefined</title>
+    </head><body>
+      <p id="result" class="FAIL">FAIL (not executed)</p>
+      <script type="text/javascript">// <![CDATA[
+        var result = document.getElementById ('result');
+        result.firstChild.data = 'FAIL (script error)';
+        
+      var el;
+      try {
+        el = document.createAttributeNS ("http://test/", "localName");
+      } catch (e) { }
+      if (!el) {
+        try {
+          el = document.createAttributeNS ("http://test/", "localName");
+          el.prefix = null;
+        } catch (e) { }
+      }
+      var ok = (el && el.prefix == null &&
+                el.namespaceURI == "http://test/");
+    
+        if (ok) {
+          try {
+            el.prefix = undefined;
+            result.className = '';
+            result.firstChild.data = el.prefix + ', type ' + typeof (el.prefix);
+          } catch (e) {
+            result.className = '';
+            result.firstChild.data = e.toString ();
+          }
+        } else {
+          result.className = 'NA';
+          result.firstChild.data = 'N/A';
+        }
+      // ]]></script>
+    </body></html>
+    
