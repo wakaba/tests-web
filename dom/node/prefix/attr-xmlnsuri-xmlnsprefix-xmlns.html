@@ -1,0 +1,37 @@
+<!DOCTYPE html><html><head>
+      <title>Attr.prefix = xmlns</title>
+    </head><body>
+      <p id="result" class="FAIL">FAIL (not executed)</p>
+      <script type="text/javascript">// <![CDATA[
+        var result = document.getElementById ('result');
+        result.firstChild.data = 'FAIL (script error)';
+        
+      var el;
+      try {
+        el = document.createAttributeNS ("http://www.w3.org/2000/xmlns/", "xmlns:declaredPrefix");
+      } catch (e) { }
+      if (!el) {
+        try {
+          el = document.createAttributeNS ("http://www.w3.org/2000/xmlns/", "declaredPrefix");
+          el.prefix = "xmlns";
+        } catch (e) { }
+      }
+      var ok = (el && el.prefix == "xmlns" &&
+                el.namespaceURI == "http://www.w3.org/2000/xmlns/");
+    
+        if (ok) {
+          try {
+            el.prefix = "xmlns";
+            result.className = '';
+            result.firstChild.data = el.prefix + ', type ' + typeof (el.prefix);
+          } catch (e) {
+            result.className = '';
+            result.firstChild.data = e.toString ();
+          }
+        } else {
+          result.className = 'NA';
+          result.firstChild.data = 'N/A';
+        }
+      // ]]></script>
+    </body></html>
+    
