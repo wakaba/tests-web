@@ -1,0 +1,33 @@
+<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml"><head>
+<title>document.xmlVersion = ""</title>
+<script src="../../../../support/result.js"></script>
+</head>
+<body>
+<p id="result" class="FAIL">FAIL (not executed)</p>
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script error)';
+  if (document.xmlVersion === "1.0") {
+    try {
+      document.xmlVersion = "";
+      var xv = document.xmlVersion;
+      if (xv === "") {
+        result.firstChild.data = 'new value';
+        result.className = 'see-detail';
+      } else if (xv === "1.0") {
+        result.firstChild.data = 'original value';
+        result.className = 'see-detail';
+      } else {
+        setResult ('result', xv);
+      }
+    } catch (e) {
+      result.firstChild.data = e.toString ();
+      result.className = 'see-detail';
+    }
+  } else {
+    result.firstChild.data = 'N/A';
+    result.className = 'NA';
+  }
+</script>
+</body>
+</html>
