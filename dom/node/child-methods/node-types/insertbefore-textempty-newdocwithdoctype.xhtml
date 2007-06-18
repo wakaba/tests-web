@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+        <title>textempty.insertBefore (newdocwithdoctype)</title>
+        </head>
+        <body>
+        <p id="result" class="FAIL">FAIL (not executed)</p>
+        <script>// <![CDATA[
+          var result = document.getElementById ('result');
+          result.firstChild.data = 'N/A';
+          result.className = 'NA';
+          doc = document;
+          var parent;
+          var child;
+          try {
+            parent = ( function () { return doc.createTextNode ('') } )();
+            child = ( function () {
+    var doctype = doc.implementation.createDocumentType ('root', null, null);
+    return doc.implementation.createDocument (null, null, doctype);
+  } )();
+          } catch (e) { }
+          if (parent && child) {
+          try {
+            parent.insertBefore (child, null);
+            if (parent.lastChild === child) {
+              if (child.parentNode === parent) {
+                result.firstChild.data = '(appended)';
+                result.className = 'see-detail';
+              } else {
+                result.firstChild.data = 'FAIL (in childNodes, but parentNode disagree)';
+                result.className = 'FAIL';
+              }
+            } else {
+              result.firstChild.data = '(not appended)';
+              result.className = 'see-detail';
+            }
+          } catch (e) {
+            result.firstChild.data = '(' + (e.code ? e.code : e.description) + ')';
+            result.className = 'see-detail';
+          }
+          }
+        // ]]></script>
+        </body>
+        </html>
+      

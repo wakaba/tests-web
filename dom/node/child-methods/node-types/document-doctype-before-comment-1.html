@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Document.insertBefore (DocumentType, Comment)</title>
+</head>
+<p id="result" class="FAIL">FAIL (not executed)</p>
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script error)';
+  var doc = document.implementation.createDocument (null, null, null);
+  var doctype = document.implementation.createDocumentType ('e', null, null);
+  var comment = document.createComment ('');
+  doc.appendChild (comment);
+  try {
+    doc.insertBefore (doctype, comment);
+    if (doctype.parentNode == doc && doc.firstChild == doctype) {
+      result.firstChild.data = 'PASS';
+      result.className = 'PASS';
+    } else {
+      result.firstChild.data = 'FAIL (not appended)';
+    }
+  } catch (e) {
+    if (e.code) {
+      result.firstChild.data = 'FAIL (' + e.code + ')';
+    } else {
+      result.firstChild.data = 'FAIL (' + e.description + ')';
+    }
+  }
+</script>
+</html>

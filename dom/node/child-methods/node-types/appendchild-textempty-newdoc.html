@@ -1,0 +1,40 @@
+<!DOCTYPE html><html><head>
+        <title>textempty.appendChild (newdoc)</title>
+        </head>
+        <body>
+        <p id="result" class="FAIL">FAIL (not executed)</p>
+        <script>// <![CDATA[
+          var result = document.getElementById ('result');
+          result.firstChild.data = 'N/A';
+          result.className = 'NA';
+          doc = document;
+          var parent;
+          var child;
+          try {
+            parent = ( function () { return doc.createTextNode ('') } )();
+            child = ( function () { return doc.implementation.createDocument (null, null, null) } )();
+          } catch (e) { }
+          if (parent && child) {
+          try {
+            parent.appendChild (child, null);
+            if (parent.lastChild === child) {
+              if (child.parentNode === parent) {
+                result.firstChild.data = '(appended)';
+                result.className = 'see-detail';
+              } else {
+                result.firstChild.data = 'FAIL (in childNodes, but parentNode disagree)';
+                result.className = 'FAIL';
+              }
+            } else {
+              result.firstChild.data = '(not appended)';
+              result.className = 'see-detail';
+            }
+          } catch (e) {
+            result.firstChild.data = '(' + (e.code ? e.code : e.description) + ')';
+            result.className = 'see-detail';
+          }
+          }
+        // ]]></script>
+        </body>
+        </html>
+      
