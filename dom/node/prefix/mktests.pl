@@ -109,6 +109,7 @@ for my $type (
   ['.html' => '<!DOCTYPE html><html>'],
   ['.xhtml' => '<html xmlns="http://www.w3.org/1999/xhtml">'],
 ) {
+  my $table = $table;
   $table =~ s/\.xhtml\b/$type->[0]/g;
   open my $file, '>', "set-prefix-list$type->[0]"
       or die "$0: set-prefix-list$type->[0]: $!";
