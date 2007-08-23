@@ -51,14 +51,14 @@ window.onload = function () {
 
     for (var jl = 0x00; jl < 0x100; jl++) {
       var j = jh * 0x100 + jl;
-      var v = String.fromCharCode (j);
+      var v = String.fromCharCode (i) + String.fromCharCode (j);
       ta.defaultValue = v;
       form.reset ();
       var cc = ta.value;
       if (v != cc) {
         var li = results.appendChild (document.createElement ('li'));
         li.innerHTML = 'X';
-        li.firstChild.data = code.toString (16).toUpperCase () + ', ' +
+        li.firstChild.data = i.toString (16).toUpperCase () + ', ' +
             j.toString (16).toUpperCase () + ' -> ' +
             encodeURIComponent (cc);
       }
