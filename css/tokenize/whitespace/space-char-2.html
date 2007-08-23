@@ -28,7 +28,7 @@ window.onload = function () {
       var ss = 'p { color: ' + String.fromCharCode (code) + ' red}';
       style.textContent = ss;
       var cc = getComputedStyle (test, null).color;
-      if (cc == 'rgb(255, 0, 0)' || cc == 'red') {
+      if (cc == 'rgb(255, 0, 0)' || cc == '#ff0000' || cc == 'red') {
         results.appendChild (document.createElement ('li'))
             .textContent = code.toString (16).toUpperCase ();
       }
