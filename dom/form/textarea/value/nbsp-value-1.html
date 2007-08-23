@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>NBSP and &lt;textarea>.value</title>
+</head>
+<body>
+<p id=result class=FAIL>FAIL (noscript)</p>
+<p><textarea>&nbsp;</textarea></p>
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL';
+
+  var ta = document.getElementsByTagName ('textarea')[0];
+  var index = ta.value.indexOf ('\u00A0');
+  if (index == 0) {
+    result.firstChild.data = 'PASS';
+    result.className = 'PASS';
+  } else {
+    result.firstChild.data = 'FAIL (' + index + ', 0 = 0x' + ta.value.charCodeAt (0).toString (16).toUpperCase () + ')';
+  }
+</script>
+</body>
