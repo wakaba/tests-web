@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>White Space Characters in CSS Style Sheet</title>
+<style>
+</style>
+</head>
+<body>
+
+<p>This test is for IE.  For other browsers, use
+<a href=space-char-2>space-char-2</a>.</p>
+
+<p id=test>Script is not executed yet.</p>
+
+<ul id=result-list></ul>
+
+<script>
+  var test = document.getElementById ('test');
+  var style = document.getElementsByTagName ('style')[0];
+  var results = document.getElementById ('result-list');
+
+  test.innerText = 'Testing BMP...';
+
+  for (var i = 0; i < 0x10000; i++) {
+    var ss = 'p { color: ' + String.fromCharCode (i) + ' red}';
+    style.styleSheet.cssText = ss;
+    if (test.currentStyle.color == 'red') {
+      results.appendChild (document.createElement ('li'))
+          .innerText = i.toString (16).toUpperCase ();
+    }
+  }
+
+  for (var i = 0xD800; i < 0xDC00; i++) {
+    test.innerText = 'Testing surrogate 0x' + i.toString (16) + '...';
+
+    for (var j = 0xDC00; j < 0xE000; j++) {
+      var ss = 'p { color: ' + String.fromCharCode (i) +
+          String.fromCharCode (j) + ' red}';
+      style.styleSheet.cssText = ss;
+      if (test.currentStyle.color == 'red') {
+        results.appendChild (document.createElement ('li'))
+            .innerText = i.toString (16).toUpperCase () + ', ' +
+            j.toString (16).toUpperCase ();
+      }
+    }
+  }
+
+  test.innerText = 'Done.';
+</script>
+
+</body>
+</html>

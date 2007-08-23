@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>White Space Characters in CSS Style Sheet</title>
+<style>
+</style>
+</head>
+<body>
+
+<p>This test is for non-IE browsers.  For IE, use
+<a href=space-char-1>space-char-1</a>.</p>
+
+<p id=test>Script is not executed yet.</p>
+
+<ul id=result-list></ul>
+
+<script>
+window.onload = function () {
+  var test = document.getElementById ('test');
+  var style = document.getElementsByTagName ('style')[0];
+  var results = document.getElementById ('result-list');
+
+  var c = function (j) {
+    test.textContent = 'Testing U+' + j.toString (16) + 'XX...';
+
+    for (var i = 0; i < 0x100; i++) {
+      var code = i + 0x100 * j;
+      var ss = 'p { color: ' + String.fromCharCode (code) + ' red}';
+      style.textContent = ss;
+      var cc = getComputedStyle (test, null).color;
+      if (cc == 'rgb(255, 0, 0)' || cc == 'red') {
+        results.appendChild (document.createElement ('li'))
+            .textContent = code.toString (16).toUpperCase ();
+      }
+    }
+
+    j++;
+    if (j < 0x100) {
+      setTimeout (function () { c (j) }, 50);
+    } else {
+      setTimeout (function () { xc (0xD800, 0xDC) }, 50);
+    }
+  };
+  setTimeout (function () { c (0) }, 50);
+
+  var xc = function (i, jh) {
+    test.textContent = 'Testing surrogate 0x' + i.toString (16) + ' 0x' +
+        jh.toString (16) + 'XX...';
+
+    for (var jl = 0x00; jl < 0x100; jl++) {
+      var j = jh * 0x100 + jl;
+      var ss = 'p { color: ' + String.fromCharCode (i) +
+          String.fromCharCode (j) + ' red}';
+      style.textContent = ss;
+      if (getComputedStyle (test, null).color == 'red') {
+        results.appendChild (document.createElement ('li'))
+            .textContent = i.toString (16).toUpperCase () + ', ' +
+            j.toString (16).toUpperCase ();
+      }
+    }
+
+    jh++;
+    if (jh > 0xDF) {
+      i++;
+      jh = 0xDC;
+    }
+
+    if (i < 0xDC00) {
+      setTimeout (function () { xc (i, jh) }, 50);
+    } else {
+      test.textContent = 'Done.';
+    }
+  };
+};
+</script>
+
+</body>
+</html>
