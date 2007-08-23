@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>CRLF in &lt;textarea>.defaultValue</title>
+</head>
+<body>
+
+<p id=result>Script not executed.</p>
+
+<form><p><textarea></textarea></p></form>
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script error)';
+
+  var ta = document.getElementsByTagName ('textarea')[0];
+  ta.defaultValue = '\u000D\u000A';
+
+  document.forms[0].reset ();
+
+  var v = ta.value;
+  if (v == '\u000D\u000A') {
+    result.firstChild.data = 'unchanged';
+  } else {
+    result.firstChild.data = 'changed (' + encodeURIComponent (v) + ')';
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>&lt;textarea>.defaultValue = '\u000D\u000AB'</title>
+</head>
+<body>
+
+<p id=result>Script not executed.</p>
+
+<form><p><textarea></textarea></p></form>
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script error)';
+
+  var ta = document.getElementsByTagName ('textarea')[0];
+  ta.defaultValue = '\u000D\u000AB';
+
+  document.forms[0].reset ();
+
+  var v = ta.value;
+  if (v == '\u000D\u000AB') {
+    result.firstChild.data = 'unchanged';
+  } else {
+    result.firstChild.data = 'changed (' + encodeURIComponent (v) + ')';
+  }
+</script>
+
+</body>
+</html>

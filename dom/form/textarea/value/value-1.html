@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Character Substition Performed Between |defaultValue| And 
+|value|</title>
+</head>
+<body>
+
+<p id=test>Script is not executed yet.</p>
+
+<ul id=result-list></ul>
+
+<form><p><textarea></textarea></p></form>
+
+<script>
+window.onload = function () {
+  var test = document.getElementById ('test');
+  var form = document.getElementsByTagName ('form')[0];
+  var ta = document.getElementsByTagName ('textarea')[0];
+  var results = document.getElementById ('result-list');
+
+  var c = function (j) {
+    test.firstChild.data = 'Testing U+' + j.toString (16) + 'XX...';
+
+    for (var i = 0; i < 0x100; i++) {
+      var code = i + 0x100 * j;
+      var v = String.fromCharCode (code);
+      ta.defaultValue = v;
+      form.reset ();
+      var cc = ta.value;
+      if (v != cc) {
+        var li = results.appendChild (document.createElement ('li'));
+        li.innerHTML = 'X';
+        li.firstChild.data = code.toString (16).toUpperCase () + ' -> ' +
+            encodeURIComponent (cc);
+      }
+    }
+
+    j++;
+    if (j < 0x100) {
+      setTimeout (function () { c (j) }, 50);
+    } else {
+      setTimeout (function () { xc (0xD800, 0xDC) }, 50);
+    }
+  };
+  setTimeout (function () { c (0) }, 50);
+
+  var xc = function (i, jh) {
+    test.firstChild.data = 'Testing surrogate 0x' + i.toString (16) + ' 0x' +
+        jh.toString (16) + 'XX...';
+
+    for (var jl = 0x00; jl < 0x100; jl++) {
+      var j = jh * 0x100 + jl;
+      var v = String.fromCharCode (j);
+      ta.defaultValue = v;
+      form.reset ();
+      var cc = ta.value;
+      if (v != cc) {
+        var li = results.appendChild (document.createElement ('li'));
+        li.innerHTML = 'X';
+        li.firstChild.data = code.toString (16).toUpperCase () + ', ' +
+            j.toString (16).toUpperCase () + ' -> ' +
+            encodeURIComponent (cc);
+      }
+    }
+
+    jh++;
+    if (jh > 0xDF) {
+      i++;
+      jh = 0xDC;
+    }
+
+    if (i < 0xDC00) {
+      setTimeout (function () { xc (i, jh) }, 50);
+    } else {
+      test.firstChild.data = 'Done.';
+    }
+  };
+};
+</script>
+
+</body>
+</html>

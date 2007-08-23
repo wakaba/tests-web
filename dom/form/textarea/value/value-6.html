@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>&lt;textarea>.defaultValue and .value</title>
+<style>
+.PASS {
+  color: green;
+}
+.FAIL {
+  color: red;
+}
+</style>
+</head>
+<body>
+
+<p id=status>Script not executed.</p>
+
+<form><p><textarea></textarea></p></form>
+
+<table>
+<thead>
+<tr><th></th>
+<th scope=col><code>defaultValue</code> -> <code>defaultValue</code></th>
+<th scope=col><code>defaultValue</code> -> <code>reset ()</code> -> 
+<code>value</code></th>
+<th scope=col><code>value</code> -> <code>value</code></th></tr>
+</thead>
+<tbody><tr
+><th scope=row>%00</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>%0D</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>%0A</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>%0B</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>%C2%A0</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>%0D%0A</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>%0D%0D%0A</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>%0A%0D</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>%0D%0D</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>%0A%0A</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>%0D%0A%0D%0A</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>A%0D</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>A%0A</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>A%0D%0A</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>A%0A%0D</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>A%0D%0D%0A</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>%0DB</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>%0AB</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>%0D%0AB</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>A%0DB</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>A%0AB</th><td>?</td><td>?</td><td>?</td></tr><tr
+><th scope=row>A%0D%0AB</th><td>?</td><td>?</td><td>?</td></tr></tbody
+</table>
+
+<script>
+  var status = document.getElementById ('status');
+  status.firstChild.data = 'FAIL (script error)';
+
+  var ta = document.getElementsByTagName ('textarea')[0];
+
+  var tbody = document.getElementsByTagName ('tbody')[0];
+  var trs = tbody.childNodes;
+  var trsL = trs.length;
+  for (var i = 0; i < trsL; i++) {
+    var tr = trs[i];
+    var tds = tr.childNodes;
+    var v = decodeURIComponent (tds[0].firstChild.data);
+
+    ta.defaultValue = v;
+    var v1 = ta.defaultValue;
+    if (v == v1) {
+      var td = tds[1];
+      td.firstChild.data = 'unchanged (length = ' + v1.length + ')';
+      td.className = 'PASS';
+    } else {
+      var td = tds[1];
+      td.firstChild.data = 'changed (' + encodeURIComponent (v1) + ')';
+      td.className = 'FAIL';
+    }
+
+    document.forms[0].reset ();
+    var v2 = ta.value;
+    if (v == v2) {
+      var td = tds[2];
+      td.firstChild.data = 'unchanged';
+      td.className = 'PASS';
+    } else {
+      var td = tds[2];
+      td.firstChild.data = 'changed (' + encodeURIComponent (v2) + ')';
+      td.className = 'FAIL';
+    }
+
+    ta.value = 'XXXX';
+    ta.value = v;
+    var v3 = ta.defaultValue;
+    if (v == v3) {
+      var td = tds[3];
+      td.firstChild.data = 'unchanged';
+      td.className = 'PASS';
+    } else {
+      var td = tds[3];
+      td.firstChild.data = 'changed (' + encodeURIComponent (v3) + ')';
+      td.className = 'FAIL';
+    }
+  }
+
+  status.firstChild.data = 'Done.';
+</script>
+
+</body>
+</html>
