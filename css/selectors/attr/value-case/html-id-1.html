@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>[id=a]</title>
+<style>
+a {
+  color: green;
+}
+[id=a] {
+  color: red;
+}
+</style>
+</head>
+<body>
+<p><a id="A" href="http://example.com/">XXXXXXXXXX</a></p>
+<!-- According to HTML4, [id=A] must match to id="a", since
+     id="a" is normalized to id="A" by SGML parser. -->
+</body>
+</html>
