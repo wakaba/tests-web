@@ -1,20 +1,19 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>White space and ~= selectors</title>
+<title>White space and class selectors</title>
 <style>
-.empty [class~=ab],
-.u0009 [class~=a\9 b],
-.u000a [class~=a\a b],
-.u000b [class~=a\b b],
-.u000c [class~=a\c b],
-.u000d [class~=a\d b],
-.u000du000a [class~=a\d\a b],
-.u000du000b [class~=a\d\b b],
-.u0020 [class~=a\ b],
-.u0020u0020 [class~=a\ \ b],
-.aa [class~=a],
-.bb [class~=b] {
+.empty .ab,
+.u0009 .a9 b,
+.u000a .a\a b,
+.u000b .a\b b,
+.u000c .a\c b,
+.u000d .a\d b,
+.u000du000a .a\d\a b,
+.u000du000b .a\d\b b,
+.u0020 .a\ b,
+.u0020u0020 .a\ \ b,
+.aa .a, .bb .b {
   color: white;
   background-color: blue;
 }
@@ -40,7 +39,7 @@ th, td {
 <th scope=col><code>class="a&amp;#x20;b"</code>
 <th scope=col><code>class="a&amp;#x20;&amp;#x20;b"</code>
 <tbody>
-<tr class=aa><th scope=row><code>[class~="a"]</code>
+<tr class=aa><th scope=row><code>.a</code>
 <td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
 <td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
 <td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
@@ -48,7 +47,8 @@ th, td {
 <td class="a&#xd;&#xb;b">XXXXXXXX
 <td class="a&#x20;b">XXXXXXXX
 <td class="a&#x20;&#x20;b">XXXXXXXX
-<tr class=bb><th scope=row><code>[class~="b"]</code>
+
+<tr class=bb><th scope=row><code>.b</code>
 <td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
 <td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
 <td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
@@ -56,7 +56,8 @@ th, td {
 <td class="a&#xd;&#xb;b">XXXXXXXX
 <td class="a&#x20;b">XXXXXXXX
 <td class="a&#x20;&#x20;b">XXXXXXXX
-<tr class=empty><th scope=row><code>[class~="ab"]</code>
+
+<tr class=empty><th scope=row><code>.ab</code>
 <td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
 <td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
 <td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
@@ -64,7 +65,8 @@ th, td {
 <td class="a&#xd;&#xb;b">XXXXXXXX
 <td class="a&#x20;b">XXXXXXXX
 <td class="a&#x20;&#x20;b">XXXXXXXX
-<tr class=u0009><th scope=row><code>[class~="a\9 b"]</code>
+
+<tr class=u0009><th scope=row><code>.a\9 b</code>
 <td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
 <td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
 <td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
@@ -72,7 +74,8 @@ th, td {
 <td class="a&#xd;&#xb;b">XXXXXXXX
 <td class="a&#x20;b">XXXXXXXX
 <td class="a&#x20;&#x20;b">XXXXXXXX
-<tr class=u000a><th scope=row><code>[class~="a\a b"]</code>
+
+<tr class=u000a><th scope=row><code>.a\a b</code>
 <td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
 <td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
 <td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
@@ -80,7 +83,8 @@ th, td {
 <td class="a&#xd;&#xb;b">XXXXXXXX
 <td class="a&#x20;b">XXXXXXXX
 <td class="a&#x20;&#x20;b">XXXXXXXX
-<tr class=u000b><th scope=row><code>[class~="a\b b"]</code>
+
+<tr class=u000b><th scope=row><code>.a\b b</code>
 <td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
 <td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
 <td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
@@ -88,7 +92,8 @@ th, td {
 <td class="a&#xd;&#xb;b">XXXXXXXX
 <td class="a&#x20;b">XXXXXXXX
 <td class="a&#x20;&#x20;b">XXXXXXXX
-<tr class=u000c><th scope=row><code>[class~="a\c b"]</code>
+
+<tr class=u000c><th scope=row><code>.a\c b</code>
 <td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
 <td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
 <td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
@@ -96,7 +101,8 @@ th, td {
 <td class="a&#xd;&#xb;b">XXXXXXXX
 <td class="a&#x20;b">XXXXXXXX
 <td class="a&#x20;&#x20;b">XXXXXXXX
-<tr class=u000d><th scope=row><code>[class~="a\d b"]</code>
+
+<tr class=u000d><th scope=row><code>.a\d b</code>
 <td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
 <td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
 <td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
@@ -104,7 +110,8 @@ th, td {
 <td class="a&#xd;&#xb;b">XXXXXXXX
 <td class="a&#x20;b">XXXXXXXX
 <td class="a&#x20;&#x20;b">XXXXXXXX
-<tr class=u000du000a><th scope=row><code>[class~="a\d\a b"]</code>
+
+<tr class=u000du000a><th scope=row><code>.a\d\a b</code>
 <td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
 <td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
 <td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
@@ -112,7 +119,8 @@ th, td {
 <td class="a&#xd;&#xb;b">XXXXXXXX
 <td class="a&#x20;b">XXXXXXXX
 <td class="a&#x20;&#x20;b">XXXXXXXX
-<tr class=u000du000b><th scope=row><code>[class~="a\d\b b"]</code>
+
+<tr class=u000du000b><th scope=row><code>.a\d\b b</code>
 <td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
 <td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
 <td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
@@ -120,7 +128,8 @@ th, td {
 <td class="a&#xd;&#xb;b">XXXXXXXX
 <td class="a&#x20;b">XXXXXXXX
 <td class="a&#x20;&#x20;b">XXXXXXXX
-<tr class=u0020><th scope=row><code>[class~="a b"]</code>
+
+<tr class=u0020><th scope=row><code>.a\ b</code>
 <td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
 <td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
 <td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
@@ -128,7 +137,8 @@ th, td {
 <td class="a&#xd;&#xb;b">XXXXXXXX
 <td class="a&#x20;b">XXXXXXXX
 <td class="a&#x20;&#x20;b">XXXXXXXX
-<tr class=u0020u0020><th scope=row><code>[class~="a\ \ b"]</code>
+
+<tr class=u0020u0020><th scope=row><code>.a\ \ b</code>
 <td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
 <td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
 <td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
@@ -136,4 +146,5 @@ th, td {
 <td class="a&#xd;&#xb;b">XXXXXXXX
 <td class="a&#x20;b">XXXXXXXX
 <td class="a&#x20;&#x20;b">XXXXXXXX
+
 </table>

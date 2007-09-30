@@ -1,18 +1,17 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>White space and ~= selectors</title>
+<title>White space and class selectors</title>
 <style>
-.empty [class~=""],
-.u0009 [class~=\9],
-.u000a [class~=\a],
-.u000b [class~=\b],
-.u000c [class~=\c],
-.u000d [class~=\d],
-.u000du000a [class~=\d\a],
-.u000du000b [class~=\d\b],
-.u0020 [class~=\ ],
-.u0020u0020 [class~=\ \ ] {
+.u0009 .\9,
+.u000a .\a,
+.u000b .\b,
+.u000c .\c,
+.u000d .\d,
+.u000du000a .\d\a,
+.u000du000b .\d\b,
+.u0020 .\ ,
+.u0020u0020 .\ \  {
   color: white;
   background-color: blue;
 }
@@ -38,7 +37,7 @@ th, td {
 <th scope=col><code>class="&amp;#x20;"</code>
 <th scope=col><code>class="&amp;#x20;&amp;#x20;"</code>
 <tbody>
-<tr class=empty><th scope=row><code>[class~=""]</code>
+<tr class=u0009><th scope=row><code>.\9</code>
 <td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
 <td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
 <td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
@@ -46,7 +45,7 @@ th, td {
 <td class="&#xd;&#xb;">XXXXXXXX
 <td class="&#x20;">XXXXXXXX
 <td class="&#x20;&#x20;">XXXXXXXX
-<tr class=u0009><th scope=row><code>[class~="\9"]</code>
+<tr class=u000a><th scope=row><code>.\a</code>
 <td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
 <td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
 <td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
@@ -54,15 +53,7 @@ th, td {
 <td class="&#xd;&#xb;">XXXXXXXX
 <td class="&#x20;">XXXXXXXX
 <td class="&#x20;&#x20;">XXXXXXXX
-<tr class=u000a><th scope=row><code>[class~="\a"]</code>
-<td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
-<td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
-<td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
-<td class="&#xd;&#xa;">XXXXXXXX
-<td class="&#xd;&#xb;">XXXXXXXX
-<td class="&#x20;">XXXXXXXX
-<td class="&#x20;&#x20;">XXXXXXXX
-<tr class=u000b><th scope=row><code>[class~="\b"]</code>
+<tr class=u000b><th scope=row><code>.\b</code>
 <td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
 <td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
 <td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
@@ -70,7 +61,7 @@ th, td {
 <td class="&#xd;&#xb;">XXXXXXXX
 <td class="&#x20;">XXXXXXXX
 <td class="a&#x20;&#x20;b">XXXXXXXX
-<tr class=u000c><th scope=row><code>[class~="\c"]</code>
+<tr class=u000c><th scope=row><code>.\c</code>
 <td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
 <td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
 <td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
@@ -78,7 +69,7 @@ th, td {
 <td class="&#xd;&#xb;">XXXXXXXX
 <td class="&#x20;">XXXXXXXX
 <td class="&#x20;&#x20;">XXXXXXXX
-<tr class=u000d><th scope=row><code>[class~="\d"]</code>
+<tr class=u000d><th scope=row><code>.\d</code>
 <td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
 <td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
 <td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
@@ -86,7 +77,7 @@ th, td {
 <td class="&#xd;&#xb;">XXXXXXXX
 <td class="&#x20;">XXXXXXXX
 <td class="&#x20;&#x20;">XXXXXXXX
-<tr class=u000du000a><th scope=row><code>[class~="\d\a"]</code>
+<tr class=u000du000a><th scope=row><code>.\d\a</code>
 <td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
 <td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
 <td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
@@ -94,7 +85,7 @@ th, td {
 <td class="&#xd;&#xb;">XXXXXXXX
 <td class="&#x20;">XXXXXXXX
 <td class="&#x20;&#x20;">XXXXXXXX
-<tr class=u000du000b><th scope=row><code>[class~="\d\b"]</code>
+<tr class=u000du000b><th scope=row><code>.\d\b</code>
 <td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
 <td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
 <td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
@@ -102,7 +93,7 @@ th, td {
 <td class="&#xd;&#xb;">XXXXXXXX
 <td class="&#x20;">XXXXXXXX
 <td class="&#x20;&#x20;">XXXXXXXX
-<tr class=u0020><th scope=row><code>[class~=" "]</code>
+<tr class=u0020><th scope=row><code>.\ </code>
 <td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
 <td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
 <td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
@@ -110,7 +101,7 @@ th, td {
 <td class="&#xd;&#xb;">XXXXXXXX
 <td class="&#x20;">XXXXXXXX
 <td class="&#x20;&#x20;">XXXXXXXX
-<tr class=u0020u0020><th scope=row><code>[class~="\ \ "]</code>
+<tr class=u0020u0020><th scope=row><code>.\ \ </code>
 <td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
 <td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
 <td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
