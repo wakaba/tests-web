@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>White space and ~= selectors</title>
+<style>
+.empty [class~=ab],
+.u0009 [class~=a\9 b],
+.u000a [class~=a\a b],
+.u000b [class~=a\b b],
+.u000c [class~=a\c b],
+.u000d [class~=a\d b],
+.u000du000a [class~=a\d\a b],
+.u000du000b [class~=a\d\b b],
+.u0020 [class~=a\ b],
+.u0020u0020 [class~=a\ \ b] {
+  color: white;
+  background-color: blue;
+}
+table {
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid;
+  text-align: center;
+}
+</style>
+<body>
+<table>
+<thead>
+<tr><th><th scope=col><code>class="ab"</code>
+<th scope=col><code>class="a&amp;#x9;b"</code>
+<th scope=col><code>class="a&amp;#xa;b"</code>
+<th scope=col><code>class="a&amp;#xb;b"</code>
+<th scope=col><code>class="a&amp;#xc;b"</code>
+<th scope=col><code>class="a&amp;#xd;b"</code>
+<th scope=col><code>class="a&amp;#xd;&amp;#xa;b"</code>
+<th scope=col><code>class="a&amp;#xd;&amp;#xb;b"</code>
+<th scope=col><code>class="a&amp;#x20;b"</code>
+<th scope=col><code>class="a&amp;#x20;&amp;#x20;b"</code>
+<tbody>
+<tr class=empty><th scope=row><code>[class="ab"]</code>
+<td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
+<td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
+<td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
+<td class="a&#xd;&#xa;b">XXXXXXXX
+<td class="a&#xd;&#xb;b">XXXXXXXX
+<td class="a&#x20;b">XXXXXXXX
+<td class="a&#x20;&#x20;b">XXXXXXXX
+<tr class=u0009><th scope=row><code>[class="a\9 b"]</code>
+<td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
+<td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
+<td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
+<td class="a&#xd;&#xa;b">XXXXXXXX
+<td class="a&#xd;&#xb;b">XXXXXXXX
+<td class="a&#x20;b">XXXXXXXX
+<td class="a&#x20;&#x20;b">XXXXXXXX
+<tr class=u000a><th scope=row><code>[class="a\a b"]</code>
+<td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
+<td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
+<td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
+<td class="a&#xd;&#xa;b">XXXXXXXX
+<td class="a&#xd;&#xb;b">XXXXXXXX
+<td class="a&#x20;b">XXXXXXXX
+<td class="a&#x20;&#x20;b">XXXXXXXX
+<tr class=u000b><th scope=row><code>[class="a\b b"]</code>
+<td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
+<td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
+<td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
+<td class="a&#xd;&#xa;b">XXXXXXXX
+<td class="a&#xd;&#xb;b">XXXXXXXX
+<td class="a&#x20;b">XXXXXXXX
+<td class="a&#x20;&#x20;b">XXXXXXXX
+<tr class=u000c><th scope=row><code>[class="a\c b"]</code>
+<td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
+<td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
+<td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
+<td class="a&#xd;&#xa;b">XXXXXXXX
+<td class="a&#xd;&#xb;b">XXXXXXXX
+<td class="a&#x20;b">XXXXXXXX
+<td class="a&#x20;&#x20;b">XXXXXXXX
+<tr class=u000d><th scope=row><code>[class="a\d b"]</code>
+<td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
+<td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
+<td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
+<td class="a&#xd;&#xa;b">XXXXXXXX
+<td class="a&#xd;&#xb;b">XXXXXXXX
+<td class="a&#x20;b">XXXXXXXX
+<td class="a&#x20;&#x20;b">XXXXXXXX
+<tr class=u000du000a><th scope=row><code>[class="a\d\a b"]</code>
+<td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
+<td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
+<td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
+<td class="a&#xd;&#xa;b">XXXXXXXX
+<td class="a&#xd;&#xb;b">XXXXXXXX
+<td class="a&#x20;b">XXXXXXXX
+<td class="a&#x20;&#x20;b">XXXXXXXX
+<tr class=u000du000b><th scope=row><code>[class="a\d\b b"]</code>
+<td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
+<td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
+<td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
+<td class="a&#xd;&#xa;b">XXXXXXXX
+<td class="a&#xd;&#xb;b">XXXXXXXX
+<td class="a&#x20;b">XXXXXXXX
+<td class="a&#x20;&#x20;b">XXXXXXXX
+<tr class=u0020><th scope=row><code>[class="a b"]</code>
+<td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
+<td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
+<td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
+<td class="a&#xd;&#xa;b">XXXXXXXX
+<td class="a&#xd;&#xb;b">XXXXXXXX
+<td class="a&#x20;b">XXXXXXXX
+<td class="a&#x20;&#x20;b">XXXXXXXX
+<tr class=u0020u0020><th scope=row><code>[class="a\ \ b"]</code>
+<td class="ab">XXXXXXXX<td class="a&#x9;b">XXXXXXXX
+<td class="a&#xa;b">XXXXXXXX<td class="a&#xb;b">XXXXXXXX
+<td class="a&#xc;b">XXXXXXXX<td class="a&#xd;b">XXXXXXXX
+<td class="a&#xd;&#xa;b">XXXXXXXX
+<td class="a&#xd;&#xb;b">XXXXXXXX
+<td class="a&#x20;b">XXXXXXXX
+<td class="a&#x20;&#x20;b">XXXXXXXX
+</table>

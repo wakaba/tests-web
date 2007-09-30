@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>White space and ~= selectors</title>
+<style>
+.empty [class~=""],
+.u0009 [class~=\9],
+.u000a [class~=\a],
+.u000b [class~=\b],
+.u000c [class~=\c],
+.u000d [class~=\d],
+.u000du000a [class~=\d\a],
+.u000du000b [class~=\d\b],
+.u0020 [class~=\ ],
+.u0020u0020 [class~=\ \ ] {
+  color: white;
+  background-color: blue;
+}
+table {
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid;
+  text-align: center;
+}
+</style>
+<body>
+<table>
+<thead>
+<tr><th><th scope=col><code>class=""</code>
+<th scope=col><code>class="&amp;#x9;"</code>
+<th scope=col><code>class="&amp;#xa;"</code>
+<th scope=col><code>class="&amp;#xb;"</code>
+<th scope=col><code>class="&amp;#xc;"</code>
+<th scope=col><code>class="&amp;#xd;"</code>
+<th scope=col><code>class="&amp;#xd;&amp;#xa;"</code>
+<th scope=col><code>class="&amp;#xd;&amp;#xb;"</code>
+<th scope=col><code>class="&amp;#x20;"</code>
+<th scope=col><code>class="&amp;#x20;&amp;#x20;"</code>
+<tbody>
+<tr class=empty><th scope=row><code>[class=""]</code>
+<td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
+<td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
+<td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
+<td class="&#xd;&#xa;">XXXXXXXX
+<td class="&#xd;&#xb;">XXXXXXXX
+<td class="&#x20;">XXXXXXXX
+<td class="&#x20;&#x20;">XXXXXXXX
+<tr class=u0009><th scope=row><code>[class="\9"]</code>
+<td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
+<td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
+<td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
+<td class="&#xd;&#xa;">XXXXXXXX
+<td class="&#xd;&#xb;">XXXXXXXX
+<td class="&#x20;">XXXXXXXX
+<td class="&#x20;&#x20;">XXXXXXXX
+<tr class=u000a><th scope=row><code>[class="\a"]</code>
+<td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
+<td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
+<td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
+<td class="&#xd;&#xa;">XXXXXXXX
+<td class="&#xd;&#xb;">XXXXXXXX
+<td class="&#x20;">XXXXXXXX
+<td class="&#x20;&#x20;">XXXXXXXX
+<tr class=u000b><th scope=row><code>[class="\b"]</code>
+<td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
+<td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
+<td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
+<td class="&#xd;&#xa;">XXXXXXXX
+<td class="&#xd;&#xb;">XXXXXXXX
+<td class="&#x20;">XXXXXXXX
+<td class="a&#x20;&#x20;b">XXXXXXXX
+<tr class=u000c><th scope=row><code>[class="\c"]</code>
+<td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
+<td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
+<td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
+<td class="&#xd;&#xa;">XXXXXXXX
+<td class="&#xd;&#xb;">XXXXXXXX
+<td class="&#x20;">XXXXXXXX
+<td class="&#x20;&#x20;">XXXXXXXX
+<tr class=u000d><th scope=row><code>[class="\d"]</code>
+<td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
+<td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
+<td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
+<td class="&#xd;&#xa;">XXXXXXXX
+<td class="&#xd;&#xb;">XXXXXXXX
+<td class="&#x20;">XXXXXXXX
+<td class="&#x20;&#x20;">XXXXXXXX
+<tr class=u000du000a><th scope=row><code>[class="\d\a"]</code>
+<td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
+<td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
+<td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
+<td class="&#xd;&#xa;">XXXXXXXX
+<td class="&#xd;&#xb;">XXXXXXXX
+<td class="&#x20;">XXXXXXXX
+<td class="&#x20;&#x20;">XXXXXXXX
+<tr class=u000du000b><th scope=row><code>[class="\d\b"]</code>
+<td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
+<td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
+<td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
+<td class="&#xd;&#xa;">XXXXXXXX
+<td class="&#xd;&#xb;">XXXXXXXX
+<td class="&#x20;">XXXXXXXX
+<td class="&#x20;&#x20;">XXXXXXXX
+<tr class=u0020><th scope=row><code>[class=" "]</code>
+<td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
+<td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
+<td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
+<td class="&#xd;&#xa;">XXXXXXXX
+<td class="&#xd;&#xb;">XXXXXXXX
+<td class="&#x20;">XXXXXXXX
+<td class="&#x20;&#x20;">XXXXXXXX
+<tr class=u0020u0020><th scope=row><code>[class="\ \ "]</code>
+<td class="">XXXXXXXX<td class="&#x9;">XXXXXXXX
+<td class="&#xa;">XXXXXXXX<td class="&#xb;">XXXXXXXX
+<td class="&#xc;">XXXXXXXX<td class="&#xd;">XXXXXXXX
+<td class="&#xd;&#xa;">XXXXXXXX
+<td class="&#xd;&#xb;">XXXXXXXX
+<td class="&#x20;">XXXXXXXX
+<td class="&#x20;&#x20;">XXXXXXXX
+</table>
