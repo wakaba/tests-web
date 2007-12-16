@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>.setAtribute ('style', valid-css)</title>
+</head>
+<body>
+<p id=result class=FAIL>FAIL (noscript)</p>
+<p id=test></p>
+<script>
+  var r = document.getElementById ('result');
+  r.firstChild.data = 'FAIL (script error)';
+  var t = document.getElementById ('test');
+  t.setAttribute ('style', 'display: none');
+  var v = t.getAttribute ('style');
+  if (v == 'display: none') {
+    r.firstChild.data = 'PASS';
+    r.className = 'PASS';
+  } else {
+    r.firstChild.data = 'FAIL (' + typeof (v) + ', ' + v + ')';
+  }
+</script>
+</body>
+</html>
