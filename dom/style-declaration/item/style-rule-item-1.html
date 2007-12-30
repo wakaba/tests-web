@@ -13,7 +13,9 @@ div {
 <body>
   <script type="text/javascript">
     var style = document.getElementsByTagName ('style')[0];
-    var rule = style.sheet.cssRules[0];
+    var sheet = style.sheet || style.styleSheet;
+    var rules = sheet.cssRules || sheet.rules;
+    var rule = rules[0];
     var styledecl = rule.style;
     document.write ('<ol>');
     for (var i = 0; i < styledecl.length; i++) {

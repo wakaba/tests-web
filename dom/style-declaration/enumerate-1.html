@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>for in CSSStyleDeclaration</title>
+<style>
+div {
+  color: red;
+  background-color: blue;
+}
+</style>
+</head>
+<body>
+
+<ul></ul>
+
+<script>
+  var ul = document.getElementsByTagName ('ul')[0];
+  var style = document.getElementsByTagName ('style')[0];
+  var ss = style.sheet || style.styleSheet;
+  var rules = ss.cssRules || ss.rules;
+  var sd = rules[0].style;
+  for (var v in sd) {
+    var li = document.createElement ('li');
+    li.appendChild (document.createElement ('code').appendChild (document.createTextNode (v)));
+    ul.appendChild (li);
+  }
+</script>
+
+</body>
+</html>

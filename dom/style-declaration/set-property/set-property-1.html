@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>CSSStyleDeclaration.setProperty</title>
+<style>
+div {
+  color: red;
+  background-color: blue;
+}
+</style>
+<script src="../../../support/result0.js"></script>
+</head>
+<body>
+
+<p><code>setProperty</code> = <script>
+  var style = document.getElementsByTagName ('style')[0];
+  var ss = style.sheet || style.styleSheet;
+  var rules = ss.cssRules || ss.rules;
+  var sd = rules[0].style;
+  writeResult (sd.setProperty);
+</script></code></p>
+
+</body>
+</html>

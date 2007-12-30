@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>CSSStyleDeclaration.item</title>
+<style>
+div {
+  color: red;
+  background-color: blue;
+}
+</style>
+<script src="../../../support/result0.js"></script>
+</head>
+<body>
+
+<p><code>item</code> = <script>
+  var ul = document.getElementsByTagName ('ul')[0];
+  var style = document.getElementsByTagName ('style')[0];
+  var ss = style.sheet || style.styleSheet;
+  var rules = ss.cssRules || ss.rules;
+  var sd = rules[0].style;
+  writeResult (sd.item);
+</script></code></p>
+
+</body>
+</html>
