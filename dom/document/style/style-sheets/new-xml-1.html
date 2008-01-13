@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>document.styleSheets</title>
+<script src="../../../../support/result0.js"></script>
+</head>
+<body>
+
+<p><code>createDocument ().styleSheets</code> = <script>
+  var doc = document.implementation.createDocument (null, null, null);
+  var ss = doc.styleSheets;
+  writeResult (ss);
+</script>.</p>
+
+<script>
+  if (ss) {
+    document.write ('<ul>');
+    for (var v in ss) {
+      document.write ('<li><code>' + htescape (v) + '</code> = ');
+      writeResult (ss[v]);
+      document.write ('</li>');
+    }
+    document.write ('</ul>');
+  }
+</script>
+
+</body>
+</html>

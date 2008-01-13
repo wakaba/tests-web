@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>document.styleSheets</title>
+<script src="../../../../support/result0.js"></script>
+</head>
+<body>
+
+<p><code>createDocument ().styleSheets</code> = <script>
+
+  var xhr;
+  try {
+    xhr = new XMLHttpRequest ();
+  } catch (e) {
+    xhr = new ActiveXObject ('Msxml2.XMLHTTP');
+  }
+
+  xhr.open ('GET', 'test.xml', false);
+  xhr.send (null);
+
+  var doc = xhr.responseXML;
+  var ss = doc.styleSheets;
+  writeResult (ss);
+</script>.</p>
+
+<script>
+  if (ss) {
+    document.write ('<ul>');
+    for (var v in ss) {
+      document.write ('<li><code>' + htescape (v) + '</code> = ');
+      writeResult (ss[v]);
+      document.write ('</li>');
+    }
+    document.write ('</ul>');
+  }
+</script>
+
+</body>
+</html>
