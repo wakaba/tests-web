@@ -11,6 +11,7 @@
 </script>
 
 <p><input type=button value=setDocument onclick="
+  window.olddoc = document;
   var doc = document.implementation.createDocument
       ('http://www.w3.org/1999/xhtml', 'html', null);
   var html = doc.documentElement;
