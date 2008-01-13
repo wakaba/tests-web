@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>document.defaultView</title>
+</head>
+<body>
+
+<script src="../../../support/result0.js"></script>
+
+<p><code>document.defaultView</code> = <script>
+
+var doc = document.implementation.createDocument (null, null, null);
+
+writeResult (doc.defaultView);
+
+</script>.</p>
+
+<script>
+  if (doc.defaultView) {
+    document.write ('<ul>');
+    for (var v in doc.defaultView) {
+      document.write ('<li><code>' + htescape (v) + '</code> = ');
+      writeResult (doc.defaultView[v]);
+      document.write ('</li>');
+    }
+    document.write ('</ul>');
+  }
+</script>
+
+</body>
+</html>
