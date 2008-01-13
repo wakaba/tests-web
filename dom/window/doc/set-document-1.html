@@ -20,10 +20,13 @@
   var body = html.appendChild (doc.createElementNS ('http://www.w3.org/1999/xhtml', 'body'));
   body.appendChild (doc.createElementNS ('http://www.w3.org/1999/xhtml', 'p'))
       .textContent = 'New document.';
+  body.onload = &quot;document.getElementById ('atonload').textContent += '\nonload: ' + new Date ();&quot;;
   var button = body.appendChild (doc.createElementNS ('http://www.w3.org/1999/xhtml', 'p'))
       .appendChild (doc.createElementNS ('http://www.w3.org/1999/xhtml', 'button'));
   button.textContent = 'alert (window.xxxxx)';
   button.onclick = 'alert (window.xxxxx)';
+  body.appendChild (document.createElementNS ('http://www.w3.org/1999/xhtml', 'pre'))
+      .setAttributeNS (null, 'id', 'atonload');
   setDocument (doc);
 "></p>
 
