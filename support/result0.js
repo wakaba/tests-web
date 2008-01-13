@@ -1,5 +1,5 @@
 function htescape (s) {
-  return s.replace ('&', '&amp;').replace ('<', '&lt;');
+  return s.replace (/&/g, '&amp;').replace (/</g, '&lt;');
 } // htescape
 
 function writeResult (value) {
