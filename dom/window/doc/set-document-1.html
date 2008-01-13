@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Original document &mdash; setDocument</title>
+</head>
+<body>
+
+<p><code>window.xxxxx = 12345;</code></p>
+<script>
+  window.xxxxx = 12345;
+</script>
+
+<p><input type=button value=setDocument onclick="
+  var doc = document.implementation.createDocument
+      ('http://www.w3.org/1999/xhtml', 'html', null);
+  var html = doc.documentElement;
+  html.appendChild (doc.createElementNS ('http://www.w3.org/1999/xhtml', 'head'))
+      .appendChild (doc.createElementNS ('http://www.w3.org/1999/xhtml', 'title'))
+      .textContent = 'New document';
+  var body = html.appendChild (doc.createElementNS ('http://www.w3.org/1999/xhtml', 'body'));
+  body.appendChild (doc.createElementNS ('http://www.w3.org/1999/xhtml', 'p'))
+      .textContent = 'New document.';
+  var button = body.appendChild (doc.createElementNS ('http://www.w3.org/1999/xhtml', 'p'))
+      .appendChild (doc.createElementNS ('http://www.w3.org/1999/xhtml', 'button'));
+  button.textContent = 'alert (window.xxxxx)';
+  button.onclick = 'alert (window.xxxxx)';
+  setDocument (doc);
+"></p>
+
+</body>
+</html>
