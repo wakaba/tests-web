@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>createDocument</title>
+<script src="../../../support/result0.js"></script>
+</head>
+<body>
+
+<p><script>
+  var d = document.implementation.createDocument (null, null, null);
+  writeResult (d);
+
+  if (d) {
+    document.write ('<h1>The Document</h1>');
+    document.write ('<ul>');
+    for (var v in d) {
+      document.write ('<li><code>' + htescape (v) + '</code>: ');
+      try {
+        writeResult (d[v]);
+      } catch (e) {
+        document.write ('ERROR: ' + htescape ('' + e));
+      }
+    }
+    document.write ('</ul>');
+
+    var de = d.documentElement;
+    if (de) {
+      document.write ('<h1>The Document Element</h1>');
+      document.write ('<ul>');
+      for (var v in de) {
+        document.write ('<li><code>' + htescape (v) + '</code>: ');
+        try {
+          writeResult (de[v]);
+        } catch (e) {
+          document.write ('ERROR: ' + htescape ('' + e));
+        }
+      }
+      document.write ('</ul>');
+    }
+  }
+</script></p>
+
+</body>
+</html>

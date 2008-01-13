@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>createDocument</title>
+<script src="../../../support/result.js"></script>
+</head>
+<body>
+
+<p id="result-document"></p>
+
+<h1>The Document</h1>
+<ul id="list-document"></ul>
+
+<h1>The Document Element</h1>
+<ul id="list-document-element"></ul>
+
+<script>
+  var d = document.implementation.createDocument ('http://www.w3.org/1999/xhtml', 'html', null);
+  setResult ('result-document', d);
+
+  if (d) {
+    var i = 0;
+    var ul = document.getElementsByTagName ('ul')[0];
+    for (var v in d) {
+      var li = document.createElementNS ('http://www.w3.org/1999/xhtml', 'li');
+      li.textContent = ': ';
+      li.insertBefore (document.createElementNS ('http://www.w3.org/1999/xhtml', 'code'),
+          li.firstChild)
+          .textContent = v;
+      li.appendChild (document.createElementNS ('http://www.w3.org/1999/xhtml', 'span'))
+          .setAttributeNS (null, 'id', 'item-' + i);
+      ul.appendChild (li);
+      try {
+        setResult ('item-' + i, d[v]);
+      } catch (e) {
+        document.getElementById ('item-' + i).textContent = 'ERROR: ' + e;
+      }
+      i++;
+    }
+
+    var de = d.documentElement;
+    if (de) {
+      var ul = document.getElementsByTagName ('ul')[1];
+      for (var v in de) {
+        var li = document.createElementNS ('http://www.w3.org/1999/xhtml', 'li');
+        li.textContent = ': ';
+        li.insertBefore (document.createElementNS ('http://www.w3.org/1999/xhtml', 'code'),
+            li.firstChild)
+            .textContent = v;
+        li.appendChild (document.createElementNS ('http://www.w3.org/1999/xhtml', 'span'))
+            .setAttributeNS (null, 'id', 'item-' + i);
+        ul.appendChild (li);
+        try {
+          setResult ('item-' + i, de[v]);
+        } catch (e) {
+          document.getElementById ('item-' + i).textContent = 'ERROR: ' + e;
+        }
+        i++;
+      }
+    }
+  }
+</script>
+
+</body>
+</html>
