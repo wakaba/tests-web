@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>&lt;html:style> and Embedded SVG</title>
+<style>
+  svg {
+    width: 20em;
+    height: 20em;
+  }
+  circle {
+    fill: green;
+  }
+</style>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg">
+    <g>
+      <text xml:lang="en" x="50%" y="10%" text-anchor="middle" fill="blue">The circle below should be green.</text>
+      <circle cx="50%" cy="50%" r="20%" fill="red"/>
+    </g>
+  </svg>
+</body>
+</html>
