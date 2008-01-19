@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <text xml:lang="en" x="50%" y="10%" text-anchor="middle" fill="blue">
+    Click the circle below.  If the color of the circle has changed to green,
+    then your browser passes this test.
+  </text>
+  <style type="text/css">
+    circle {
+      fill: blue;
+    }
+  </style>
+  <circle cx="50%" cy="50%" r="20%" onclick="
+    document.getElementsByTagNameNS ('http://www.w3.org/2000/svg', 'style')[0]
+        .textContent = 'circle { fill: green }';
+  "/>
+</svg>
