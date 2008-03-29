@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DocumentType.entities</title>
+<script src="../../../support/result.js"></script>
+<style>
+ol:empty:before {
+  content: "(empty)";
+}
+</style>
+</head>
+<body onload="
+  var ol = document.getElementById ('result');
+  var entities = document.doctype.entities;
+  for (var i = 0; i &lt; entities.length; i++) {
+    var entity = entities[i];
+    var li = document.createElementNS ('http://www.w3.org/1999/xhtml', 'li');
+    li.textContent = entity.nodeName;
+    ol.appendChild (li);
+  }
+">
+<p>Entities:
+<ol id="result"></ol>
+</body>
+</html>
