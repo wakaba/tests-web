@@ -1,0 +1,29 @@
+<!DOCTYPE html [
+  <!ENTITY ent1 "xxx">
+  <!ENTITY amp "&#x26;#x26;">
+  <!ENTITY ent2 "yy<x >x</x>zz">
+  <!ENTITY another-ent2 "yy<x >x</x>zz">
+  <!ENTITY ent1 "xxx">
+  <!ENTITY % para SYSTEM "404">
+  %para;
+  <!ENTITY ent3 "xxxxxx">
+]>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>DocumentType.entities</title>
+<script src="../../../support/result.js"/>
+</head>
+<body onload="
+  var ol = document.getElementById ('result');
+  var entities = document.doctype.entities;
+  for (var i = 0; i &lt; entities.length; i++) {
+    var entity = entities[i];
+    var li = document.createElementNS ('http://www.w3.org/1999/xhtml', 'li');
+    li.textContent = '&amp;' + entity.nodeName + '; ' + entity.textContent;
+    ol.appendChild (li);
+  }
+">
+<ol id="result"/>
+<p>&ent2;</p>
+</body>
+</html>
