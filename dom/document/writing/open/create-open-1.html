@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>createDocument() and document.open</title>
+<script src="../../../../result.js"></script>
+</head>
+<body>
+
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+  document.getElementById ('result').firstChild.data = 'FAIL';
+  var d = document.implementation.createDocument (null, null, null);
+  d.open ();
+  setResult ('result', d);
+</script>
+
+</body>
+</html>
