@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<title>Relative reference in data: URI</title>
+<iframe src="about:blank">Need &lt;iframe> support for this test</iframe>
+<script>
+  setTimeout (function () {
+    var iframe = document.getElementsByTagName ('iframe')[0];
+    var doc = iframe.contentWindow.document;
+    doc.open ();
+    doc.write ('<!DOCTYPE HTML><a href="relative">relative</a>');
+    doc.close ();
+  }, 1000);
+</script>
