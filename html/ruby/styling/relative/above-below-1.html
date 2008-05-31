@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Ruby styling approximation by position: relative</title>
+<style>
+  p {
+    line-height: 3;
+  }
+  ruby {
+    display: inline;
+    ruby-position: inline; /* disable WinIE ruby rendering */
+    position: relative;
+  }
+  ruby rp {
+    display: none;
+  }
+  ruby rt {
+    display: block;
+    position: absolute;
+    bottom: 1.8em;
+    left: 0;
+    right: 0;
+    font-size: 70%;
+    line-height: 1.3;
+    text-align: center;
+  }
+  ruby /* rt ~ rt */
+       rt.secondary {
+    top: 1.5em;
+    bottom: auto;    
+  }
+
+  body {
+    width: 20em;
+  }
+</style>
+</head>
+<body>
+<p>うつくしい<ruby><rb>日本語</rb><rp> (</rp><rt>にほんご</rt><rp> / </rp><rt class=secondary>Japanese</rt><rp>) </rp></ruby>の文書。
+うつくしい<ruby><rb>日本語</rb><rp> (</rp><rt>にほんご</rt><rp> / </rp><rt class=secondary>Japanese</rt><rp>) </rp></ruby>の文書。
+うつくしい<ruby><rb>日本語</rb><rp> (</rp><rt>にほんご</rt><rp> / </rp><rt class=secondary>Japanese</rt><rp>) </rp></ruby>の文書。
+</body>
+</html>

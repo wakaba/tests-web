@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Ruby styling approximation by position: relative</title>
+<style>
+  p {
+    line-height: 2;
+  }
+  ruby {
+    display: inline;
+    ruby-position: inline; /* disable WinIE ruby rendering */
+    position: relative;
+  }
+  ruby rp {
+    display: none;
+  }
+  ruby rt {
+    display: block;
+    position: absolute;
+    bottom: 1.8em;
+    left: 0;
+    right: 0;
+    font-size: 70%;
+    line-height: 1.1;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<p>うつくしい<ruby><rb>日本語</rb><rp> (</rp><rt>にほんご</rt><rp>) </rp></ruby>の文書。</p>
+</body>
+</html>
