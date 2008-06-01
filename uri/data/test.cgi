@@ -45,15 +45,18 @@ print q[Content-Type: text/html; charset=utf-8
 </style>
 <script>
   window.onload = function () {
+    var tags = {};
     var anchors = document.getElementsByTagName ('a');
     var anchorsL = anchors.length;
     for (var i = 0; i < anchorsL; i++) {
       var anchor = anchors[i];
       if (!anchor.hasAttribute ('href')) {
-        anchor.setAttribute ('href', '#tag=' + encodeURIComponent (anchor.textContent));
+        var tagName = anchor.textContent;
+        anchor.setAttribute ('href', '#tag=' + encodeURIComponent (tagName));
         anchor.onclick = function () {
           showTag (this.textContent);
         };
+        tags[tagName] = true;
       }
     }
 
@@ -63,6 +66,22 @@ print q[Content-Type: text/html; charset=utf-8
       if (hash.match (/^#tag=/)) {
         showTag (decodeURIComponent (hash.substring (5)));
       }
+    }
+
+    var tagsEl = document.getElementById ('tags');
+    var tagList = [];
+    for (var v in tags) {
+      tagList.push (v);
+    }
+    tagList = tagList.sort ();
+    for (var i = 0; i < tagList.length; i++) {
+      tagsEl.appendChild (document.createTextNode (', '));
+      var a = tagsEl.appendChild (document.createElement ('a'));
+      a.href = '#tag=' + encodeURIComponent (tagList[i]);
+      a.textContent = tagList[i];
+      a.onclick = function () {
+        showTag (this.textContent);
+      };
     }
   }; // window.onload
 
@@ -86,7 +105,7 @@ print q[Content-Type: text/html; charset=utf-8
       }
     }
   }
-</script><p><a href="#" onclick="showTag ('')">Show all</a></p>];
+</script><p id=tags>Tags: <a href="#" onclick="showTag ('')">All</a></p>];
 
 for (@item) {
   s/^#//;
@@ -94,6 +113,10 @@ for (@item) {
   for (split /\n#/, $_) {
     if (s/^([0-9A-Za-z-]+)(?>\n|\z)//s) {
       $prop{$1} = $_;
+    } elsif (s/^([0-9A-Za-z-]+)\s+escaped(?>\n|\z)//s) {
+      my $t = $1;
+      s/&#x([0-9A-Fa-f]+);/chr hex $1/ge;
+      $prop{$t} = $_;
     }
   }
 
@@ -103,8 +126,8 @@ for (@item) {
   for (qw/note conforming non-conforming source/) {
     next unless defined $prop{$_};
     print qq[<p>];
-    print qq[<strong>Conforming</strong>: ] if $_ eq 'conforming';
-    print qq[<strong>Non-conforming</strong>: ] if $_ eq 'non-conforming';
+    print qq[<strong>Conforming <code>data:</code> URI</strong>: ] if $_ eq 'conforming';
+    print qq[<strong>Non-conforming <code>data:</code> URI</strong>: ] if $_ eq 'non-conforming';
     print qq[Source: ] if $_ eq 'source';
     my $v = htescape ($prop{$_});
     $v =~ s[&lt;([^>]+)>][&lt;<a href="$1">$1</a>&gt;]g;
@@ -112,7 +135,7 @@ for (@item) {
   }
 
   if (defined $prop{tag}) {
-    my @tag = split /\n/, $prop{tag};
+    my @tag = sort {$a cmp $b} split /\n/, $prop{tag};
     print q[<p class=tags>Tags: ];
     print join ', ', map {'<a>' . htescape ($_) . '</a>'} @tag;
   }

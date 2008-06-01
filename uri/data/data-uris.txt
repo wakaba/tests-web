@@ -4,6 +4,7 @@ data:
 "," missing
 #tag
 no scheme-specific data
+no media type separator
 
 #data
 DATA:
@@ -11,41 +12,74 @@ DATA:
 "," missing
 #tag
 no scheme-specific data
+no media type separator
+
+#data
+Data:
+#non-conforming
+"," missing
+#tag
+no scheme-specific data
+no media type separator
 
 #data
 data:text
 #non-conforming
 "," missing
+#tag
+broken media type
 
 #data
 data:test
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#tag
+broken media type
 
 #data
 data:,
 #conforming
 "text/plain;charset=us-ascii" implied
+#data
+implied media type
+implied charset
+empty data
 
 #data
 data:text/plain
 #non-conforming
 "," missing
+#tag
+no media type separator
 
 #data
 data:text/plain,
 #conforming
 ";charset=us-ascii" implied
+#tag
+implied charset
+empty data
+
+#data
+data:text/plain;charset=utf-16,
+#conforming
+UTF-16 without BOM
+#tag
+empty data
 
 #data
 data:text,abc
 #non-conforming
 "text" is not a valid IMT
+#tag
+broken media type
 
 #data
 data:text/plain;charset=us-ascii;abc
 #non-conforming
 "," missing
+#data
+no media type separator
 
 #data
 data:text/plain;charset=us-ascii,abc
@@ -58,53 +92,106 @@ confirm parser takes data
 segment from first ","
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#tag
+implied media type
+implied charset
 
 #data
 data:,foo bar
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#non-conforming
+implied media type
+implied charset
+illegal as URI
 
 #data
 data:,abc#def
 #note
 "#" in URI
+#tag
+implied media type
+implied charset
+fragment
 
 #data
 data:text / plain,abc
+#non-conforming
+space in URI
+#tag
+white space in media type
+implied charset
+illegal as URI
 
 #data
 data: text/plain ,abc
+#non-conforming
+space in URI
+#tag
+white space in media type
+implied charset
+illegal as URI
 
 #data
 data:TEXT/PLAIN,ABC
 #conforming
 ";charset=us-ascii" implied
+#tag
+implied charset
 
 #data
 data:;,test
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#non-conforming
+";" not followed by a parameter
+#tag
+broken parameter
+implied media type
+implied charset
 
 #data
 data:text/plain;,abc
+#non-conforming
+";" not followed by a parameter
+#tag
+implied charset
+broken parameter
 
 #data
 data:,A%20brief%20note
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#conforming
+#tag
+implied media type
+implied charset
+percent-encoding in data
 
 #data
 data:text/plain,There%20should%20be%20one%20word%20%28four%20letters%20and%20a%20dot%29%20below%20this%20line:%0A%54%45%53%54.
 #source
 <http://www.hixie.ch/tests/adhoc/data/018.html>
+#conforming
+#tag
+implied charset
+percent-encoding in data
 
 #data
 data:text/plain;charset,abc
 #non-conforming
 "=charset-name" missing
+#tag
+broken parameter
+implied charset
 
 #data
 data:text/plain; charset=us-ascii,abc
+#non-conforming
+space in URI
+#tag
+illegal as URI
+white space in media type
 
 #data
 data:text/plain;charset=US-ASCII,test
@@ -115,19 +202,28 @@ data:text/plain;charset=US-ASCII,test
 data:;charset=UTF-8,Hello
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#conforming
+implied media type
+superset charset name
 
 #data
 data:text/plain;charset=iso-8859-1,%A1%A2
 #conforming
+#tag
+percent-encoding in data
 
 #data
 data:text/plain;charset=euc-jp,%A1%A2
 #conforming
+#tag
+percent-encoding in data
 
 #data
 data:text/plain;charset=iso-8859-7,%b8%f7%fe
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#data
+percent-encoding in data
 
 #data
 data:text/plain;charset=iso-8859-1;charset=euc-jp,%A1%A2
@@ -135,11 +231,18 @@ data:text/plain;charset=iso-8859-1;charset=euc-jp,%A1%A2
 Compare with
 <#data_0000003Atext_0000002Fplain_0000003Bcharset_0000003Diso-8859-1_0000002C_00000025A1_00000025A2>
 and <#data_0000003Atext_0000002Fplain_0000003Bcharset_0000003Deuc-jp_0000002C_00000025A1_00000025A2>.
+#tag
+parameter duplication
+percent-encoding in data
 
 #data
 data:text/plain;charset;charset=euc-jp,%A1%A2
 #non-conforming
 Broken ";charset;" parameter
+#data
+parameter duplication
+broken parameter
+percent-encoding in data
 
 #data
 data:text/plain;CHARSET=us-ascii,abc
@@ -147,27 +250,73 @@ data:text/plain;CHARSET=us-ascii,abc
 
 #data
 data:text/plain;charset=us-ascii ,abc
+#non-conforming
+space in URI
+#tag
+illegal as URI
+white space in media type
 
 #data
 data:text/plain;charset="us-ascii",abc
+#non-conforming
+" in URI
+#tag
+quoted-string
+illegal as URI
 
 #data
 data:text/plain;charset="euc-jp",%A1%A2
+#non-conforming
+" in URI
+#tag
+quoted-string
+illegal as URI
+percent-encoding in data
+
+#data
+data:text/plain;charset=%22euc-jp%22,%A1%A2
+#tag
+quoted-string
+illegal as URI
+percent-encoding in data
+percent-encoding in media type
 
 #data
 data:text/plain;charset="\euc-jp",%A1%A2
+#non-conforming
+" and \ in URI
+#tag
+illegal as URI
+quoted-string
+quoted-pair
+percent-encoding in data
 
 #data
 data:text/plain;x-data="#",abc
+#non-conforming
+" in URI
+#tag
+illegal as URI
+fragment
+quoted-string
+unknown parameter
 
 #data
 data:text/plain;x-title="Hello,%20FAIL";,PASS
-#note
+#non-conforming
+" in URI.
+
 You should only see the word "PASS".
 
 Note: this test is, I believe, technically correct. However, it is possible that the intent of the data: URI specification was to disallow quoted MIME values. This is not very clear, as the specification fails to make a clear statement of the UA requirements for parsing data: URIs (especially non-conformant ones). 
 #source
 <http://www.hixie.ch/tests/adhoc/data/019.html>
+#tag
+illegal as URI
+quoted-string
+percent-encoding in media type
+implied charset
+unknown parameter
 
 #data
 data:text/plain;foo=%22,FAILED!%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A(ignore%20stuff%20beyond%20this%20point)%22,PASS
@@ -175,90 +324,206 @@ data:text/plain;foo=%22,FAILED!%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%
 It should say whether the test passed or not.
 #source
 <http://www.hixie.ch/tests/adhoc/data/014.html>
+#tag
+quoted-string
+percent-encoding in media type
+comma in media type
+unknown parameter
+implied charset
 
 #data
 data:t%65xt/plain;charset=euc-jp,%A1%A2
+#tag
+percent-encoding in data
+percent-encoding in media type
+
+#data
+data:text%2Fplain;charset=euc-jp,%A1%A2
+#tag
+percent-encoding in media type
+percent-encoding in data
 
 #data
 data:text/pl%61in;charset=euc-jp,%A1%A2
+#tag
+percent-encoding in media type
+percent-encoding in data
+
+#data
+data:text/plain%3Bcharset=euc-jp,%A1%A2
+#tag
+percent-encoding in media type
+percent-encoding in data
 
 #data
 data:text/plain;%63harset=euc-jp,%A1%A2
+#tag
+percent-encoding in media type
+percent-encoding in data
+
+#data
+data:text/plain;charset%3Deuc-jp,%A1%A2
+#tag
+percent-encoding in media type
+percent-encoding in data
 
 #data
 data:text/plain;charset=eu%63-jp,%A1%A2
+#tag
+percent-encoding in media type
+percent-encoding in data
+
+#data
+data:text/plain;charset=us-ascii%2Cabc
+#tag
+percent-encoded comma
 
 #data
 data:text/plain;charset=iso-8859-8-i,%f9%ec%e5%ed
-#note
+#conforming
 ISO-8859-8 in URL-encoding
 #source
 <https://bugzilla.mozilla.org/attachment.cgi?id=94670&action=view>
+#tag
+percent-encoding in data
 
 #data
 data:text/plain;charset=UTF-8,%d7%a9%d7%9c%d7%95%d7%9d
-#note
+#conforming
 UTF-8 in URL-encoding
 #source
 <https://bugzilla.mozilla.org/attachment.cgi?id=94670&action=view>
+#tag
+percent-encoding in data
 
 #data
 data:,;test
-#note
+#conforming
 data w/ traditionally reserved
 chaacters like ";"
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#tag
+reserved in data
+implied media type
+implied charset
+
+#data
+data:,a+b+c
+#conforming
+data including "+" (a PLUS SIGN character, not a SPACE character).
+#tag
+reserved in data
+implied media type
+implied charset
 
 #data
 data:,%2546%2541%2549%254C%0A%0AThere%20should%20be%20a%20line%20of%20gibberish%20above%20this%20one.
-#note
+#conforming
 It should NOT say fail!
 #source
 <http://www.hixie.ch/tests/adhoc/data/016.html>
+#tag
+implied media type
+implied charset
+percent-encoding in data
 
-#data
-data:,The following two lines should look identical:%0A%E2%98%BA%0A&#x263A;
+#data escaped
+data:text/plain,The following two lines should look identical:%0A%E2%98%BA%0A&#x263A;
 #source
 <http://www.hixie.ch/tests/adhoc/data/017.html>
+#non-conforming
+non-URI characters
+#tag
+implied media type
+implied charset
+illegal as URI
+percent-encoding in data
+wrong charset label
 
 #data
 data:text/plain;charset=thing;base64;test
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#non-conforming
+"," missing
+#tag
+unknown charset
+no media type separator
+
+#data
+data:text/plain;charset=unknown;base64,test
+#conforming
+#tag
+unknown charset
+base64
 
 #data
 data:;charset=,test
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#non-conforming
+broken parameter "charset="
+#tag
+implied media type
+broken parameter
+unknown charset
 
 #data
 data:application/vnd-xxx-query,select_vcount,fcol_from_fieldtable/local
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#conforming
+#tag
+unknown media type
 
 #data
 data:application/vnd.mozilla.xul+xml,%3C?xml%20version=%221.0%22?%3E%3Cwindow%20xmlns=%22http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul%22%3E%3C?xml-stylesheet%20href=%22data:text/css,#a%7B-moz-box-flex:1;%7D%22?%3E%3Cbox%20id=%22a%22%3E%3Clabel%20value=%22This%20works%21%22/%3E%3C/box%3E%3Cbox/%3E%3C/window%3E
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#tag
+fragment
+reserved in data
+query
+percent-encoding in data
+missing XML charset
 
 #data
 data:image/svg+xml,%3C?xml%20version="1.0"?%3E%3Csvg%20xmlns="http://www.w3.org/2000/svg"%3E%20%3Ccircle%20id="circ"%20r="1cm"%20cx="5cm"%20cy="3cm"%20style="fill:red;%20stroke:blue;%20stroke-width:3;"/%3E%3C/svg%3E
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#non-conforming
+non-URI character
+#tag
+illegal as URI
+percent-encoding in data
+query
+missing XML charset
 
 #data
 data:application/xml,%3Cformdata%20xmlns%3D%22http%3A%2F%2Fn.whatwg.org%2Fformdata%22%20type%3D%22incremental%22%2F%3E
 #source
 <http://www.whatwg.org/specs/web-forms/current-work/#events>
+#conforming
+#tag
+missing XML charset
+percent-encoding in data
 
 #data
 data:application/xml,%3Cselect%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxhtml%22%20type%3D%22incremental%22%3E%3Coption%3Eb%3C%2Foption%3E%3C%2Fselect%3E
 #source
 <http://www.whatwg.org/specs/web-forms/current-work/#selectSeeding>
+#tag
+missing XML charset
+percent-encoding in data
 
 #data
 data:;base64,
+#tag
+base64
+empty data
+implied media type
+implied charset
 
 #data
 data:;base64,hello
@@ -266,6 +531,11 @@ data:;base64,hello
 broken Base64 data
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#tag
+base64
+broken base64
+implied media type
+implied charset
 
 #data
 data:text/plain;charset=iso-8859-8-i;base64,+ezl7Q==
@@ -273,6 +543,8 @@ data:text/plain;charset=iso-8859-8-i;base64,+ezl7Q==
 ISO-8859-8 in Base64
 #source
 <https://bugzilla.mozilla.org/attachment.cgi?id=94670&action=view>
+#tag
+base64
 
 #data
 data:text/plain;charset=UTF-8;base64,16nXnNeV150=
@@ -280,6 +552,8 @@ data:text/plain;charset=UTF-8;base64,16nXnNeV150=
 UTF-8 in Base64
 #source
 <https://bugzilla.mozilla.org/attachment.cgi?id=94670&action=view>
+#tag
+base64
 
 #data
 data:text/html;base64,VGhpcyBpcyBhIHRlc3QK
@@ -287,16 +561,62 @@ data:text/html;base64,VGhpcyBpcyBhIHRlc3QK
 "This is a test"
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#tag
+base64
+missing HTML charset
+
+#data
+data:text/plain;base64,VGhpcyBpcyBhIHRlc3QK!?
+#note
+Base64'ed "This is a test" followed by non-Base64'ed "!?".
+#tag
+base64
+broken base64
+implied charset
+
+#data
+data:text/plain;base64,VGhpcyBpcyBhIHRlc3QK!?!?
+#note
+Base64'ed "This is a test" followed by non-Base64'ed "!?!?".
+#tag
+base64
+broken base64
+implied charset
+
+#data
+data:text/plain;base64,VGhpcyBpcyBhIHRlc3QK#fragment
+#note
+Base64'ed "This is a test" followed by non-Base64'ed "#fragment"
+#tag
+base64
+broken base64
+fragment
+implied charset
+
+#data
+data:text/plain;base64,VG!h$pcy]BpcyBh[IHRl>c3QK
+#non-conforming
+Base64'ed "This is a test" with garbages inside it
+#tag
+base64
+broken base64
+implied charset
+illegal as URI
 
 #data
 data:text/html;base64,PGh0bWw+PGhlYWQ+PHRpdGxlPlRlc3Q8L3RpdGxlPjwvaGVhZD48Ym9keT48cD5UaGlzIGlzIGEgdGVzdDwvYm9keT48L2h0bWw+Cg==
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#tag
+base64
+missing HTML charset
 
 #data
 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB9EFBAoYMhVvMQIAAAAtSURBVHicY/z//z8DHoBH+v///yy4FDEyMjIwMDDhM3lgpaEuh7gTEzDiDxYA9HEPDF90e5YAAAAASUVORK5CYII=
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#tag
+base64
 
 #data
 data:image/gif;base64,R0lGODdhMAAwAPAAAAAAAP///ywAAAAAMAAw
@@ -306,20 +626,29 @@ a/TPg7JpJHxyendzWTBfX0cxOnKPjgBzi4diinWGdkF8kjdfnycQZXZeYGejmJl
 ZeGl9i2icVqaNVailT6F5iJ90m6mvuTS4OK05M0vDk0Q4XUtwvKOzrcd3iq9uis
 F81M1OIcR7lEewwcLp7tuNNkM3uNna3F2JQFo97Vriy/Xl4/f1cf5VWzXyym7PH
 hhx4dbgYKAAA7
-#conforming
-An example from the RFC which defines the data: URI scheme
+#non-conforming
+An example from the RFC which defines the data: URI scheme.
+White space in URI.
 #source
 <urn:ietf:rfc:2397>
+#tag
+illegal as URI
+base64
+white space in base64
 
 #data
 data:image/gif;base64,R0lGODdhMAAwAPAAAAAAAP///ywAAAAAMAAwAAAC8IyPqcvt3wCcDkiLc7C0qwyGHhSWpjQu5yqmCYsapyuvUUlvONmOZtfzgFzByTB10QgxOR0TqBQejhRNzOfkVJ+5YiUqrXF5Y5lKh/DeuNcP5yLWGsEbtLiOSpa/TPg7JpJHxyendzWTBfX0cxOnKPjgBzi4diinWGdkF8kjdfnycQZXZeYGejmJlZeGl9i2icVqaNVailT6F5iJ90m6mvuTS4OK05M0vDk0Q4XUtwvKOzrcd3iq9uisF81M1OIcR7lEewwcLp7tuNNkM3uNna3F2JQFo97Vriy/Xl4/f1cf5VWzXyym7PHhhx4dbgYKAAA7
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#tag
+base64
 
 #data
 data:audio/mp3;base64,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8vaF9XjfQxrNcEcK8r6Q/QOSe9NXe/s+T9Fuymqr83Kdaz7XFXNEnz342p9f0+dr+vAD8bccmLw+VaqcNaeYI6FokNIqRUHSeoXbTeKOzCJl7HqzFIWzUudQ+lctVYFfI2UURy9t/uXZJ2Z6njB0cLh8nRXMIC1mWVS1irnykaIIAAAqqANMtpKzQQBPDv/7QsTPAAplC13njEuhP4/p8PSNIGN6FDjWeIsNhAEtUFuGqqcesdvPUWRZs3mdlYzHJLJkq0E2a/jykWbdpPATyy5YoeCbDAwyKQyRqldL0h70xGt96SFxUMpCpsKgiDYGwlKmVta1xpcuSeZNBgESr0luSjMyxxJJQdBXEoKhosdLA0eEwNCUFfyoaq9R7ES3Q7EQNPlgaPYKuTywdaCoKgr/qadni0SIMCljpQugNkwpEQyHhv/7QsTOgAnIRU+HrMbJPo4qNPGNIcQCsSCUVCEaD4wRkBOaCQYSBCxBMgqpZ2dndnZ2uFpETjSizLQRJGnFlHmJpInGlFmWICaaQNb////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////7QsTQgAms3USnmGtBRpfosPGNaP/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////7QsTSAAmgWzIEsMcBKBZSQGSZaf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////1RBR0hhdHMgSWRlYSAgICAgICAgICAgICAgICAgICAgIFNhbGVtICAgICAgICAgICAgICAgICAgICAgICAgIFNhYnJpbmEgVGhlIFRlZW5hZ2UgV2l0Y2ggICAgIDE5OTcgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA5
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#tag
+base64
 
 #data
 data:,Data%20was:%20'%%%%'
@@ -327,11 +656,21 @@ data:,Data%20was:%20'%%%%'
 <http://www.whatwg.org/specs/web-forms/current-work/#for-data>
 #non-conforming
 WF2 form action="" (This string itself is not a conforming URI)
+#tag
+illegal as URI
+broken percent-encoding
+implied media type
+implied charset
+percent-encoding in data
 
 #data
 data:,Data%20was:%20'x%253DIt%2527s%252Ba%252Btest'
 #source
 <http://www.whatwg.org/specs/web-forms/current-work/#for-data>
+#tag
+percent-encoding in data
+implied media type
+implied charset
 
 #data
 data:,Data%20was:%20'%%'
@@ -339,43 +678,69 @@ data:,Data%20was:%20'%%'
 <http://www.whatwg.org/specs/web-forms/current-work/#for-data>
 #non-conforming
 WF2 form action="" (This string itself is not a conforming URI)
+#tag
+percent-encoding in data
+implied media type
+implied charset
+broken percent-encoding
+illegal as URI
 
 #data
 data:,Data%20was:%20'x%3DIt's%2Ba%2Btest'
 #source
 <http://www.whatwg.org/specs/web-forms/current-work/#for-data>
+#tag
+implied media type
+implied charset
+percent-encoding in data
 
 #data
 data:text/html;charset=utf-8,%3C!DOCTYPE%20HTML%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20HTML%204.01%20Transitional%2F%2FEN%22%3E%0D%0A%3Chtml%20lang%3D%22en%22%3E%0D%0A%20%3Chead%3E%0D%0A%20%20%3Ctitle%3EThe%20Virtual%20Web%20Page...%3C%2Ftitle%3E%0D%0A%20%20%3Cstyle%20type%3D%22text%2Fcss%22%3E%0D%0A%20%20%20body%20%7Bpadding%3A%2050px%3Btext-align%3A%20justify%3Bbackground%3A%20%23DDCCAA%3B%20font%3A%201em%20Verdana%2C%20sans-serif%3B%7D%0D%0A%20%20%20h1%20%7Bfont%3A%20italic%20900%202em%2F2.5em%20Georgia%2C%20serif%3B%20color%3A%20%23CC0000%7D%0D%0A%20%20%20p%3Afirst-letter%20%7Bpadding%3A0%3Bmargin%3A0%3Bfont%3A%20900%203em%2F0.5em%20monospace%3B%20float%3A%20left%3B%7D%0D%0A%09%20a%20%7Bcolor%3A%20%23990000%3B%7D%0D%0A%09%20a%3Ahover%20%7Bcolor%3A%20%23FF0000%3B%20background%3A%20%23000000%3B%7D%0D%0A%20%20%3C%2Fstyle%3E%0D%0A%20%3C%2Fhead%3E%0D%0A%20%3Cbody%3E%0D%0A%20%20%3Ch1%3EThe%20Magic%20Non-Hosted%20Web%20Page%3C%2Fh1%3E%0D%0A%20%20%3Cp%3EThis%20page%20does%20not%20reside%20%3Cb%3Eanywhere%20on%20the%20web!%3C%2Fb%3E%2C%20it%20was%20completely%20embedded%20in%20the%20previous%20page%20you%20visited.%20This%20is%20the%20power%20of%20data%3A%20URL's%20-%20the%20address%20URL%20contains%20the%20data%20that%20makes%20the%20page.%20You%20can%20also%20encode%20any%20data%20as%20MIME%20types%20are%20supported%20-%20so%20having%20images%20embedded%20in%20the%20page%20without%20calling%20external%20resources%20is%20possible%20using%20this%20technique.%3C%2Fp%3E%0D%0A%20%20%3Cp%3E%20This%20example%20was%20generated%20using%20%3Ca%20href%3D%22http%3A%2F%2Fsoftware.hixie.ch%2Futilities%2Fcgi%2Fdata%2Fdata%22%3EIan%20Hickson's%20wonderful%20data%3AURI%20Kitchen%3C%2Fa%3E%3C%2Fp%3E%0D%0A%20%3C%2Fbody%3E%0D%0A%3C%2Fhtml%3E%0D%0A%0D%0A
 #source
 <http://operawiki.info/DataURIs>
+#tag
+percent-encoding in data
 
 #data
 data:text/html;charset=utf-8,%3C!DOCTYPE%20HTML%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20HTML%204.01%20Transitional%2F%2FEN%22%3E%0D%0A%3Chtml%20lang%3D%22en%22%3E%0D%0A%20%3Chead%3E%0D%0A%20%20%3Ctitle%3EThe%20Virtual%20Web%20Page...%3C%2Ftitle%3E%0D%0A%20%20%3Cstyle%20type%3D%22text%2Fcss%22%3E%0D%0A%20%20%20body%20%7Bpadding%3A%2050px%3Btext-align%3A%20justify%3Bbackground%3A%20%23DDCCAA%3B%20font%3A%201em%20Verdana%2C%20sans-serif%3B%7D%0D%0A%20%20%20h1%20%7Bfont%3A%20italic%20900%202em%2F2.5em%20Georgia%2C%20serif%3B%20color%3A%20%23CC0000%7D%0D%0A%20%20%20p%3Afirst-letter%20%7Bpadding%3A0%3Bmargin%3A0%3Bfont%3A%20900%203em%2F0.5em%20monospace%3B%20float%3A%20left%3B%7D%0D%0A%09%20a%20%7Bcolor%3A%20%23990000%3B%7D%0D%0A%09%20a%3Ahover%20%7Bcolor%3A%20%23FF0000%3B%20background%3A%20%23000000%3B%7D%0D%0A%20%20%3C%2Fstyle%3E%0D%0A%20%3C%2Fhead%3E%0D%0A%20%3Cbody%3E%0D%0A%20%20%3Ch1%3E%3Cimg%20src%3D%22data%3Aimage%2Fpng%3Bcharset%3Dutf-8%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8%252F9hAAAABGdBTUEAAK%252FINwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAN2SURBVHjaYmHAAvJzcxWAlD8Qa0GFbgPx%252FomTJ59FVwsQQIxoGlWB1BQBQQE3TU1NBjExUbD427dvGe7du8%252Fw7OmzE0BuDrJBAAHEiKTZEUht8PTy4HNxccHmMIbDh48wbFi%252F4fv%252F%252F%252F%252BTJ02ZshwkBhBAzCAiJytLjYmJaWd4ZLigra0tw9t37xi2bdvKcOr0cYb3Hz4w8PLxgQ1QUVZmkJWTYT1%252F7oKfmanpgVOnTz8CCCCwAZYWFouBNuuBNB88fIBhxoypDOLiogz%252F%252Fv1jWLNmFcOJ40cYZGRkGQQEBRmkJKUY%252BPn5mK9fu26ipqo6FyAAAEEAvv8DZ2VlKBcXF5BfYF8A3%252BDfAJ2dmwBjZGQAOjo6ANjY2QBsa3AA%252BPf4AKusqQA3OTsABQQEACEhIQDe3t4X8%252FPzxwKIiZmZ2UdNXQ3sxP0H9jPY2tkxqKqqMnz79o3h1%252B9fDPfu32fgFxBg0NPXZzh0YB88PNTUQOHN4AMQQExAQllQUAAseO%252FuXQZ1NXWGnz9%252FMjAyMjE4OjkxvH79nEFJRZHB2tqG4fbtW3ADQN5hZGRUBAggJqA%252F2YEBCBbk5%252Bdl%252BPjpIwML0Jn%252F%252F%252F9j4OPlZbC0smRQkFdkADqXgZeXD24AM1APSC9AADH9%252BfPn5adPn8GCFkA%252F7ty5neHP338MnJycDEDvMbCzsTH8%252BPmL4dSJEwxOzojo%252FfTpE8Pfv39fAAQQ08tXrw7duXMHLGhsZMwgKiLB0NfdDXTubYZPnz8x3AbKTZsykeH6jesM%252F4AGw8Cd23eA8p8PAQQQ861bt76oqai68fDyioPiGRRY%252F%252F8zMBw4sBcYaAcZXr58xWBgYMzw4cN7hpMnjzGoqmkyPH%252F2DOjSXS%252FXb9xYARBAoHTAxs%252FP%252F%252Bjd27dBCgryTJISkgxS0lLAaLRhcHJyYTA3twBHm7yCEsPRwwcZLl48D%252FSqFcPGDZsqzwMBQACBDGAERtVHWRmZd7dv3bYDJhImkAZWVlYULCQsxKCkrMrw9%252Fd%252FhiWLl%252FavWrNmKVDvR4AAAuUFFiAGBa%252BIq4uLtaqKSqW2jjaQUgZHFSjhgDLT3Tt3Ga5cufrq8ZMn3Rs3bdoMVP8OiD8ABBAjNEOxgWIRFL1AzOnt5WUnKiJiycbGJgWMa%252FZfv349evP27cmjx44dfffu3UeQRij%252BCRBgAOVnNwamxrqyAAAAAElFTkSuQmCC%22%20%2F%3EThe%20Magic%20Non-Hosted%20Web%20Page%3C%2Fh1%3E%0D%0A%20%20%3Cp%3EThis%20page%20does%20not%20reside%20%3Cb%3Eanywhere%20on%20the%20web!%3C%2Fb%3E%2C%20it%20was%20completely%20embedded%20in%20the%20previous%20page%20you%20visited.%20This%20is%20the%20power%20of%20data%3A%20URI's%20-%20the%20address%20URL%20contains%20the%20data%20that%20makes%20the%20page.%20You%20can%20also%20encode%20any%20data%20as%20MIME%20types%20are%20supported%20-%20so%20having%20images%20embedded%20in%20the%20page%20without%20calling%20external%20resources%20is%20possible%20using%20this%20technique.%3C%2Fp%3E%0D%0A%20%20%3Cp%3EThis%20page%20also%20contains%20an%20embedded%20PNG%20image!%3C%2Fp%3E%0D%0A%20%20%3Cp%3E%20This%20example%20was%20generated%20using%20%3Ca%20href%3D%22http%3A%2F%2Fsoftware.hixie.ch%2Futilities%2Fcgi%2Fdata%2Fdata%22%3EIan%20Hickson's%20wonderful%20data%3AURI%20Kitchen%3C%2Fa%3E%3C%2Fp%3E%0D%0A%20%3C%2Fbody%3E%0D%0A%3C%2Fhtml%3E%0D%0A
 #source
 <http://operawiki.info/DataURIs>
+#tag
+percent-encoding in data
 
 #data
 data:application/xhtml+xml;charset=utf-8,%3C!DOCTYPE%20html%20PUBLIC%20%22-//W3C//DTD%20XHTML%201.1//EN%22%20%22http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd%22%3E%0D%0A%3Chtml%20xmlns=%22http://www.w3.org/1999/xhtml%22%20xml:lang=%22en%22%3E%0D%0A%20%3Chead%3E%0D%0A%20%20%3Ctitle%3EThe%20First%20Level%3C/title%3E%0D%0A%20%3C/head%3E%0D%0A%20%3Cbody%3E%0D%0A%20%20%3Cp%3E%0D%0A%20%20%20This%20is%20just%20the%20first%20level.%20You%20really%20want%20to%20enter%20the%0D%0A%20%20%20%3Ca%20href=%22data:text/html;charset=utf-8,%253C!DOCTYPE%2520HTML%2520PUBLIC%2520%2522-//W3C//DTD%2520HTML%25204.0//EN%2522%253E%250D%250A%253Chtml%2520lang=%2522en%2522%253E%250D%250A%2520%253Chead%253E%250D%250A%2520%2520%253Ctitle%253EThe%2520Second%2520Level%253C/title%253E%250D%250A%2520%2520%253Clink%2520rel=%2522stylesheet%2522%2520href=%2522data:text/css;charset=utf-8,body%252520%25257B%25250D%25250A%252520%252520background:%252520white%252520url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAACAAAAAAYCAYAAABuzR2hAAAABGdBTUEAALGPC/xhBQAAAgVJREFUeJzt2tFugzAQBEDT//9n9yGJaEhCDaXoWM1IlbkE2RfLVDzs1Fvr7WFajO8+2/uducz1n3NdsWdzZcw1us7yevS+CtdV+tCrXpP7rtJHwV77/br/+FMfV1fq5ep1pV7S6kq9XL2ei6nN/2An9RF1pV7S6kq9XL2u1EtK/XhxXZR/Go+cq/pYoYezxgo9nDVW6OGssUIPZ42nrNVb6/Pl2jj129vtdH/J/Ty+3vd+3j647q14WmdwzvVe++r38zyje/R635Y9er/+eo+ffst6r+v7vqXH5fp79uhp3Y1n4zHnnj1a36vRs7n/mfh8Rsbn3LJHY2dzbC/Hn4n2cob3nI39Z3O+75hn4vc9+moAAAAAAAAAwOUJAAAAAAAAAABAAAEAAAAAAAAAAAggAAAAAAAAAAAAAQQAAAAAAAAAACCAAAAAAAAAAAAABBAAAAAAAAAAAIAAAgAAAAAAAAAAEEAAAAAAAAAAAAACCAAAAAAAAAAAQAABAAAAAAAAAAAIIAAAAAAAAAAAAAEEAAAAAAAAAAAggAAAAAAAAAAAAAQQAAAAAAAAAACAAAIAAAAAAAAAABBAAAAAAAAAAAAAAggAAAAAAAAAAEAAAQAAAAAAAAAACCAAAAAAAAAAAAABBAAAAAAAAAAAIIAAAAAAAAAAAAAEEAAAAAAAAAAAgADfHlPO4IPpKTwAAAAASUVORK5CYII=)%252520%252520repeat-y;%252520%25250D%25250A%252520%252520color:%252520black;%25250D%25250A%252520%252520padding:%2525202em;%25250D%25250A%25257D%25250D%25250A:link,%252520:visited%252520%25257B%25250D%25250A%252520%252520padding:%2525200.2em;%25250D%25250A%252520%252520background:%252520white;%25250D%25250A%252520%252520color:%252520blue;%25250D%25250A%25257D%2522%253E%250D%250A%2520%253C/head%253E%250D%250A%2520%253Cbody%253E%250D%250A%2520%2520%253Ch1%253EWelcome%2520to%2520the%2520Second%2520Level%253C/h1%253E%250D%250A%2520%2520%253Cp%253E%2520You%2520want%2520to%2520be%250D%250A%2520%2520%2520%253Ca%2520href=%2522data:text/plain;charset=utf-8;base64,SGVscCEgSGVscCEgSSdtIHVuZGVyIGEgaGF0IQ==%2522%253Ein%2520here%253C/a%253E.%250D%250A%2520%2520%253C/p%253E%250D%250A%2520%253C/body%253E%250D%250A%253C/html%253E%250D%250A%22%3Esecond%20level%3C/a%3E.%0D%0A%20%20%3C/p%3E%0D%0A%20%3C/body%3E%0D%0A%3C/html%3E%0D%0A
 #source
 <http://operawiki.info/DataURIs>
+#data
+percent-encoding in data
+data in data
 
 #data
 data:text/html;charset=utf-8,%3C!DOCTYPE%20HTML%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20HTML%204.0%2F%2FEN%22%3E%0D%0A%3Chtml%20lang%3D%22en%22%3E%0D%0A%3Chead%3E%0D%0A%3Ctitle%3EThe%20data%3A%20URI%20kitchen%20as%20a%20data%3A%20URI%3C%2Ftitle%3E%0D%0A%3Cstyle%20type%3D%22text%2Fcss%22%3E%0D%0A%3C%2Fstyle%3E%0D%0A%3Cscript%20type%3D%22text%2Fjavascript%22%3E%0D%0Avar%20base64EncodeChars%20%3D%20%22ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%2B%2F%22%3B%0D%0A%0D%0Afunction%20base64encode(str)%20%7B%0D%0A%20%20%20%20var%20out%3B%20var%20i%3B%20var%20len%3B%0D%0A%20%20%20%20var%20c1%3B%20var%20c2%3B%20var%20c3%3B%0D%0A%20%20%20%20var%20len%20%3D%20str.length%3B%0D%0A%20%20%20%20var%20i%20%3D%200%3B%0D%0A%20%20%20%20out%20%3D%20%22%22%3B%0D%0A%20%20%20%20while(i%20%3C%20len)%20%7B%0D%0A%20%20%20%20%20%20%20%20c1%20%3D%20str.charCodeAt(i%2B%2B)%20%26%200xff%3B%0D%0A%20%20%20%20%20%20%20%20if(i%20%3D%3D%20len)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20out%20%2B%3D%20base64EncodeChars.charAt(c1%20%3E%3E%202)%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20out%20%2B%3D%20base64EncodeChars.charAt((c1%20%26%200x3)%20%3C%3C%204)%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20out%20%2B%3D%20%22%3D%3D%22%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20break%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20c2%20%3D%20str.charCodeAt(i%2B%2B)%3B%0D%0A%20%20%20%20%20%20%20%20if(i%20%3D%3D%20len)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20out%20%2B%3D%20base64EncodeChars.charAt(c1%20%3E%3E%202)%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20out%20%2B%3D%20base64EncodeChars.charAt(((c1%20%26%200x3)%20%3C%3C%204)%20%7C%20((c2%20%26%200xF0)%20%3E%3E%204))%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20out%20%2B%3D%20base64EncodeChars.charAt((c2%20%26%200xF)%20%3C%3C%202)%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20out%20%2B%3D%20%22%3D%22%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20break%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20c3%20%3D%20str.charCodeAt(i%2B%2B)%3B%0D%0A%20%20%20%20%20%20%20%20out%20%2B%3D%20base64EncodeChars.charAt(c1%20%3E%3E%202)%3B%0D%0A%20%20%20%20%20%20%20%20out%20%2B%3D%20base64EncodeChars.charAt(((c1%20%26%200x3)%20%3C%3C%204)%20%7C%20((c2%20%26%200xF0)%20%3E%3E%204))%3B%0D%0A%20%20%20%20%20%20%20%20out%20%2B%3D%20base64EncodeChars.charAt(((c2%20%26%200xF)%20%3C%3C%202)%20%7C%20((c3%20%26%200xC0)%20%3E%3E%206))%3B%0D%0A%20%20%20%20%20%20%20%20out%20%2B%3D%20base64EncodeChars.charAt(c3%20%26%200x3F)%3B%0D%0A%20%20%20%20%7D%0D%0A%20%20%20%20return%20out%3B%0D%0A%7D%0D%0A%0D%0Afunction%20generate()%20%7B%0D%0A%20%20%20%20var%20content%20%3D%20document.data.content.value%3B%0D%0A%20%20%20%20var%20uri%20%3D%20'data%3A'%2Bdocument.data.type.value%3B%0D%0A%20%20%20%20if%20(document.data.base64.checked)%20%7B%0D%0A%20%20%20%20%20%20%20%20content%20%3D%20base64encode(content)%3B%0D%0A%20%20%20%20%20%20%20%20uri%20%2B%3D%20'%3Bbase64'%3B%0D%0A%20%20%20%20%7D%0D%0A%20%20%20%20uri%20%2B%3D%20'%2C'%20%2B%20escape(content)%3B%0D%0A%20%20%20%20document.getElementById('uri').href%20%3D%20uri%3B%0D%0A%20%20%20%20document.getElementById('uri').style.display%20%3D%20'inline'%3B%0D%0A%7D%0D%0A%3C%2Fscript%3E%0D%0A%3C%2Fhead%3E%0D%0A%3Cbody%3E%0D%0A%3Cform%20name%3D%22data%22%20method%3D%22get%22%3E%0D%0A%3Cp%3EType%3A%0D%0A%3Cinput%20type%3D%22text%22%20name%3D%22type%22%20value%3D%22text%2Fhtml%3Bcharset%3Dutf-8%22%3E%0D%0A%3Clabel%3E%3Cinput%20type%3D%22checkbox%22%20name%3D%22base64%22%20value%3D%221%22%3E%20base64%20%3C%2Flabel%3E%3C%2Fp%3E%0D%0A%3Ctextarea%20rows%3D%2212%22%20cols%3D%2280%22%20name%3D%22content%22%3E%3C%2Ftextarea%3E%0D%0A%3Cp%3E%3Cinput%20type%3D%22submit%22%20value%3D%22Generate%22%20onclick%3D%22generate()%3B%20return%20false%3B%22%3E%3C%2Fp%3E%0D%0A%3Cp%3E%3Ca%20id%3D%22uri%22%20href%3D%22about%3Anone%22%20style%3D%22display%3A%20none%3B%22%3EThe%20URI%3C%2Fa%3E%3C%2Fp%3E%0D%0A%3C%2Fform%3E%0D%0A%3C%2Fbody%3E%0D%0A%3C%2Fhtml%3E
 #source
 <http://operawiki.info/DataURIs>
+#data
+percent-encoding in data
 
 #data
 data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%0C%00%00%00%10%08%06%00%00%00%22a%9E%07%00%00%00%04gAMA%00%00%B1%8E%7C%FBQ%93%00%00%00%20cHRM%00%00z%25%00%00%80%83%00%00%F9%FF%00%00%80%E9%00%00u0%00%00%EA`%00%00%3A%98%00%00%17o%92_%C5F%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%9A%9C%18%00%00%01%3EIDAT8O%95%911KBa%18%85_%0D%03%25%97%A6?QZ%9A%0A%0C%A2%A9%A0?%C5~%40%E0PA%D0%0Fh%89hq%90nC%5B%B4%14%05B5D0%E8PT%A2S%04%FE%80%A0%D5A%24p9%9D%E3%F7%8A%E8%1D%A4%0B%0F%1C%9Es%5E%B8%5E%0D%80%FD%87%98%98FLLc8EC9C1%9A%E5P%B0%23%947%EA(0E5%EB%83L7%BE%F2%07%9B%B6%82%83%F5%0E%9AO8C0%F7W%40Y%8E0DD%E4x%09%BB%F3%1D?%81%07Rs%94%E5%D4q%13%C6-Kb%C7N%B0%3F%03%9CbCF%01%97i%20%B2%80%B2%9C%3Am%B82D50C1%2C%8A%F6%86S%0EnH%8D%3C%3B%CAr0EA%B4%E1V%07%19%ECY%13?%AF?%1De9u%25n%B8%D5A%16%C7V%C1%1D%E5%0F?%A3%2CwO%B4%E16%1CT%AD%88%2B%FBE%DF%26%3F%3B%06.b%A7%8D%1Fd%C82%1E%ED%02%0D6EBFC7%0E%E4%D4i?%22%8Bd%9B%3F2?%B5%F1n%5D%7C%10e9ua%93%0A%9F%B5ei%92%23%5B?9%CAr%EA%B4I%8E%FE%8B%20%16H%9E%AC%3A%CAr%A3%F1%F0%A1H%20%BC%9E?%A3%2C%97%18EEE%FE%00%3FQ%AC%11F6CE6%EA%00%00%00%00IEND%AEB`%82
-#note
-broken image
+#non-conforming
+non-URI characters.
+broken image.
 #source
 <http://operawiki.info/DataURIs>
+#tag
+illegal as URI
+percent-encoding in data
+query
 
 #data
 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAQCAYAAAAiYZ4HAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6JQAAgIMAAPn%2FAACA6QAAdTAAAOpgAAA6mAAAF2%2BSX8VGAAAACXBIWXMAAAsTAAALEwEAmpwYAAABPklEQVQ4T5WRMUtCYRiFXw0DJZem2qRRWpoKDKKpoMmhxX5A4FBB0A9oiWhxkG5DW7QUBULQ6FBUolME%2FoCg1UEkcDmd4%2FeK6B2kCw8cnnNeuF4NgP2HmJhGTExj7MGa5VCwI5Q36ijl64NMN77yB5u2goP1DppPwPdXQFmO3eR4CbvzHdyWgQdSc5Tl1HETxi1LYsdOsD8DnM8Bl2kgsoCynDptuNXBLIr2hlMObkiNPDvKcuq04VYHGexZE9eUr%2BSTtB1lOXUlbrjVQRbHVsEd5Q%2Fpkp6jLHdPtOE2HFStiCv7Rd8mPzsGLmKnjR9kyDIe7QIN68cO5NRp46%2BUIotkmz8ywou18W5dfBBlOXVhkwqftWVpkiNb5JCcOcpy6rRJjv6LIBZInqw6ynKj8fChSCC8nsqsoyyXGO7%2BAD9RrBFGNubqAAAAAElFTkSuQmCC
 #source
 <http://operawiki.info/DataURIs>
+#tag
+base64
 
 #data
 data:text/plain;base64,%20U%20E%0AF%20T%20U%0Aw%20%3D%20%3D%0A
@@ -383,6 +748,11 @@ data:text/plain;base64,%20U%20E%0AF%20T%20U%0Aw%20%3D%20%3D%0A
 It should just say PASS.
 #source
 <http://www.hixie.ch/tests/adhoc/data/012.html>
+#tag
+base64
+percent-encoded base64
+implied charset
+white space in base64
 
 #data
 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAQCAYAAAAiYZ4HAAAABGdBTUEAALGOfPtRkwAAACBj
@@ -404,16 +774,26 @@ wou18W5dfBBlOXVhkwqftWVpkiNb5JCcOcpy6rRJjv6LIBZInqw6ynKj8fChSCC8nsqsoyyX
 GO7+AD9RrBFGNubqAAAAAElFTkSuQmCC
 #source
 <http://operawiki.info/DataURIs>
+#non-conforming
+space in URI
+#tag
+base64
+white space in base64
 
 #data
 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAACAAAAAAYCAYAAABuzR2hAAAABGdBTUEAALGPC/xhBQAAAgVJREFUeJzt2tFugzAQBEDT//9n9yGJaEhCDaXoWM1IlbkE2RfLVDzs1Fvr7WFajO8+2/uducz1n3NdsWdzZcw1us7yevS+CtdV+tCrXpP7rtJHwV77/br/+FMfV1fq5ep1pV7S6kq9XL2ei6nN/2An9RF1pV7S6kq9XL2u1EtK/XhxXZR/Go+cq/pYoYezxgo9nDVW6OGssUIPZ42nrNVb6/Pl2jj129vtdH/J/Ty+3vd+3j647q14WmdwzvVe++r38zyje/R635Y9er/+eo+ffst6r+v7vqXH5fp79uhp3Y1n4zHnnj1a36vRs7n/mfh8Rsbn3LJHY2dzbC/Hn4n2cob3nI39Z3O+75hn4vc9+moAAAAAAAAAwOUJAAAAAAAAAABAAAEAAAAAAAAAAAggAAAAAAAAAAAAAQQAAAAAAAAAACCAAAAAAAAAAAAABBAAAAAAAAAAAIAAAgAAAAAAAAAAEEAAAAAAAAAAAAACCAAAAAAAAAAAQAABAAAAAAAAAAAIIAAAAAAAAAAAAAEEAAAAAAAAAAAggAAAAAAAAAAAAAQQAAAAAAAAAACAAAIAAAAAAAAAABBAAAAAAAAAAAAAAggAAAAAAAAAAEAAAQAAAAAAAAAACCAAAAAAAAAAAAABBAAAAAAAAAAAIIAAAAAAAAAAAAAEEAAAAAAAAAAAgADfHlPO4IPpKTwAAAAASUVORK5CYII=
 #source
 <http://operawiki.info/DataURIs>
+#tag
+base64
 
 #data
 data:image/png;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8%2F9hAAAABGdBTUEAAK%2FINwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAN2SURBVHjaYmHAAvJzcxWAlD8Qa0GFbgPx%2FomTJ59FVwsQQIxoGlWB1BQBQQE3TU1NBjExUbD427dvGe7du8%2Fw7OmzE0BuDrJBAAHEiKTZEUht8PTy4HNxccHmMIbDh48wbFi%2F4fv%2F%2F%2F%2BTJ02ZshwkBhBAzCAiJytLjYmJaWd4ZLigra0tw9t37xi2bdvKcOr0cYb3Hz4w8PLxgQ1QUVZmkJWTYT1%2F7oKfmanpgVOnTz8CCCCwAZYWFouBNuuBNB88fIBhxoypDOLiogz%2F%2Fv1jWLNmFcOJ40cYZGRkGQQEBRmkJKUY%2BPn5mK9fu26ipqo6FyAAAEEAvv8DZ2VlKBcXF5BfYF8A3%2BDfAJ2dmwBjZGQAOjo6ANjY2QBsa3AA%2BPf4AKusqQA3OTsABQQEACEhIQDe3t4X8%2FPzxwKIiZmZ2UdNXQ3sxP0H9jPY2tkxqKqqMnz79o3h1%2B9fDPfu32fgFxBg0NPXZzh0YB88PNTUQOHN4AMQQExAQllQUAAseO%2FuXQZ1NXWGnz9%2FMjAyMjE4OjkxvH79nEFJRZHB2tqG4fbtW3ADQN5hZGRUBAggJqA%2F2YEBCBbk5%2Bdl%2BPjpIwML0Jn%2F%2F%2F9j4OPlZbC0smRQkFdkADqXgZeXD24AM1APSC9AADH9%2BfPn5adPn8GCFkA%2F7ty5neHP338MnJycDEDvMbCzsTH8%2BPmL4dSJEwxOzojo%2FfTpE8Pfv39fAAQQ08tXrw7duXMHLGhsZMwgKiLB0NfdDXTubYZPnz8x3AbKTZsykeH6jesM%2F4AGw8Cd23eA8p8PAQQQ861bt76oqai68fDyioPiGRRY%2F%2F8zMBw4sBcYaAcZXr58xWBgYMzw4cN7hpMnjzGoqmkyPH%2F2DOjSXS%2FXb9xYARBAoHTAxs%2FP%2F%2Bjd27dBCgryTJISkgxS0lLAaLRhcHJyYTA3twBHm7yCEsPRwwcZLl48D%2FSqFcPGDZsqzwMBQACBDGAERtVHWRmZd7dv3bYDJhImkAZWVlYULCQsxKCkrMrw9%2Fd%2FhiWLl%2FavWrNmKVDvR4AAAuUFFiAGBa%2BIq4uLtaqKSqW2jjaQUgZHFSjhgDLT3Tt3Ga5cufrq8ZMn3Rs3bdoMVP8OiD8ABBAjNEOxgWIRFL1AzOnt5WUnKiJiycbGJgWMa%2FZfv349evP27cmjx44dfffu3UeQRij%2BCRBgAOVnNwamxrqyAAAAAElFTkSuQmCC
 #source
 <http://operawiki.info/DataURIs>
+#tag
+unknown parameter
+base64
 
 #data
 data:text/plain;base64,%55%45%46%54%55%77%3D%3D
@@ -421,6 +801,10 @@ data:text/plain;base64,%55%45%46%54%55%77%3D%3D
 it should say "PASS"
 #source
 <http://www.hixie.ch/tests/adhoc/data/009.html>
+#tag
+base64
+percent-encoded base64
+implied charset
 
 #data
 data:text/plain;base64,MTIzNDU%3D
@@ -428,6 +812,10 @@ data:text/plain;base64,MTIzNDU%3D
 "12345"
 #source
 <http://www.hixie.ch/tests/adhoc/data/010.html>
+#tag
+base64
+percent-encoded base64
+implied charset
 
 #data
 data:text/plain;base64,MTIzNDU=
@@ -435,4 +823,7 @@ data:text/plain;base64,MTIzNDU=
 "12345"
 #source
 <http://www.hixie.ch/tests/adhoc/data/010.html>
+#tag
+implied charset
+base64
 
