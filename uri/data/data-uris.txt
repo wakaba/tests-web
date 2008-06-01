@@ -1,0 +1,81 @@
+#data
+data:
+#non-conforming
+"," missing
+
+#data
+data:text
+#non-conforming
+"," missing
+
+#data
+data:,
+#conforming
+"text/plain;charset=us-ascii" implied
+
+#data
+data:text/plain
+#non-conforming
+"," missing
+
+#data
+data:text/plain,
+#conforming
+";charset=us-ascii" implied
+
+#data
+data:text/plain;charset=us-ascii;abc
+#non-conforming
+"," missing
+
+#data
+data:text/plain;charset=us-ascii,abc
+#conforming
+
+#data
+data:,abc#def
+#note
+"#" in URI
+
+#data
+data:text / plain,abc
+
+#data
+data: text/plain ,abc
+
+#data
+data:TEXT/PLAIN,ABC
+#conforming
+";charset=us-ascii" implied
+
+#data
+data:text/plain;,abc
+
+#data
+data:text/plain;charset,abc
+#non-conforming
+"=charset-name" missing
+
+#data
+data:text/plain; charset=us-ascii,abc
+
+#data
+data:text/plain;charset=iso-8859-1,%A1%A2
+#conforming
+
+#data
+data:text/plain;charset=euc-jp,%A1%A2
+#conforming
+
+#data
+data:text/plain;charset=iso-8859-1;charset=euc-jp,%A1%A2
+#note
+Compare with
+<#data_0000003Atext_0000002Fplain_0000003Bcharset_0000003Diso-8859-1_0000002C_00000025A1_00000025A2>
+and <#data_0000003Atext_0000002Fplain_0000003Bcharset_0000003Deuc-jp_0000002C_00000025A1_00000025A2>.
+
+#data
+data:text/plain;CHARSET=us-ascii,abc
+#conforming
+
+
