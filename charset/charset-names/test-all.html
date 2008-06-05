@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title></title>
+<script src="../../support/result.js"></script>
+<style>
+  .result-match {
+    background-color: green;
+    color: white;
+  }
+  .result-notmatch {
+    background-color: white;
+    color: blue;
+  }
+  .result-na {
+    background-color: gray;
+    color: black;
+  }
+  .result-na .result-notmatch {
+    background-color: transparent;
+    color: #C0C0C0;
+  }
+</style>
+</head>
+<body>
+
+<noscript>FAIL (noscript)</noscript>
+
+<table>
+<thead>
+<tr><th>HTTP <code>charset=""</code> parameter
+<th><code>charset</code><th><code>characterSet</code>
+<th><code>inputEncoding</code>
+<tbody id=result-tbody></table>
+
+<iframe style="width: 0; height: 0"></iframe>
+
+<script>
+  var iframe = document.getElementsByTagName ('iframe')[0];
+  var resultTBody = document.getElementById ('result-tbody');
+
+  var xhr = new XMLHttpRequest ();
+  xhr.open ('GET', 'list.txt', false);
+  xhr.send (null);
+  var names = xhr.responseText.toLowerCase ().split (/\n/).sort ();
+
+  var lastData;
+  doNext ();
+
+  function doNext () {
+    if (names.length > 0) {
+      if (document.all && !window.opera) {
+        iframe.onreadystatechange = function () {
+          if (this.readyState == 'complete') {
+            addData ();
+          }
+        };
+      } else {
+        iframe.onload = addData;
+      }
+      var n = encodeURIComponent (names[0]).replace (/%2[Ff]/g, '/');
+      iframe.src = 'charset.cgi/' + n + '?' + (lastData ? 'c1' : 'c2');
+    } else {
+      iframe.onload = null;
+    }
+  } // doNext
+
+  function addData () {
+    var doc = iframe.contentWindow.document;
+    if (!lastData) {
+      lastData = [doc.charset, doc.characterSet, doc.inputEncoding];
+      doNext ();
+      return;
+    }
+
+    var tr = document.createElement ('tr');
+    if (lastData[0] != doc.charset ||
+        lastData[1] != doc.characterSet ||
+        lastData[2] != doc.inputEncoding) {
+      tr.className = 'result-na';
+    }
+    lastData = null;
+
+    var name = names.shift ();
+    tr.appendChild (document.createElement ('th'))
+        .appendChild (document.createElement ('code'))
+        .appendChild (document.createTextNode (name));
+
+    var v = doc.charset;
+    if (v != null) {
+      var td = tr.appendChild (document.createElement ('td'));
+      td.appendChild (document.createElement ('code'))
+          .appendChild (document.createTextNode (v));
+      td.className = v.toLowerCase () == name ? 'result-match' : 'result-notmatch';
+    } else {
+      tr.appendChild (document.createElement ('td'))
+          .className = 'result-na';
+    }
+
+    v = doc.characterSet;
+    if (v != null) {
+      var td = tr.appendChild (document.createElement ('td'));
+      td.appendChild (document.createElement ('code'))
+          .appendChild (document.createTextNode (v));
+      td.className = v.toLowerCase () == name ? 'result-match' : 'result-notmatch';
+    } else {
+      tr.appendChild (document.createElement ('td'))
+          .className = 'result-na';
+    }
+
+    v = doc.inputEncoding;
+    if (v != null) {
+      var td = tr.appendChild (document.createElement ('td'));
+      td.appendChild (document.createElement ('code'))
+          .appendChild (document.createTextNode (v));
+      td.className = v.toLowerCase () == name ? 'result-match' : 'result-notmatch';
+    } else {
+      tr.appendChild (document.createElement ('td'))
+          .className = 'result-na';
+    }
+
+    resultTBody.appendChild (tr);
+
+    doNext ();
+  } // addData
+</script>
+
+</body>
+</html>

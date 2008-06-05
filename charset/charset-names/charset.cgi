@@ -14,8 +14,10 @@ print "Content-Type: text/html; charset=$name_c
 ";
 
 
-my $s = q[<!DOCTYPE HTML>
-<script charset=utf-8 src="../../../support/result0.js"></script>
+my $s = q[<!DOCTYPE HTML>].
+($ENV{QUERY_STRING} =~ /c1/ ? q[<meta charset=iso-8859-3>] :
+ $ENV{QUERY_STRING} =~ /c2/ ? q[<meta charset=iso-8859-4>] : q[]) .
+q[<script charset=utf-8 src="../../../support/result0.js"></script>
 <script charset=utf-8 src="../../../support/result.js"></script>
 
 <h1>Before <code>onload</code></h1>
