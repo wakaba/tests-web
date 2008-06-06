@@ -62,6 +62,7 @@
       iframe.src = 'charset.cgi/' + n + '?' + (lastData ? 'c1' : 'c2');
     } else {
       iframe.onload = null;
+      showSummary ();
     }
   } // doNext
 
@@ -123,6 +124,44 @@
 
     doNext ();
   } // addData
+
+  function showSummary () {
+    var nameList = {};
+
+    var trs = document.getElementsByTagName ('table')[0].rows;
+    var trsL = trs.length;
+    for (var i = 0; i < trsL; i++) {
+      var tr = trs[i];
+      if (tr.className.match (/result-na/)) {
+        continue;
+      }
+
+  var th = tr.firstChild;
+  var td = th.nextSibling;
+  if (td.className.match (/result-na/)) {
+    td = td.nextSibling;
+    if (td.className.match (/result-na/)) {
+      continue;
+    }
+  }
+
+  var canonName = td.innerText || td.textContent;
+  var aliasName = th.innerText || th.textContent;
+  if (!nameList[canonName]) nameList[canonName] = {};
+  nameList[canonName][aliasName] = true;
+}
+
+var dl = document.createElement ('dl');
+for (var v in nameList) {
+  dl.appendChild (document.createElement ('dt'))
+      .appendChild (document.createTextNode (v));
+  for (var w in nameList[v]) {
+    dl.appendChild (document.createElement ('dd'))
+        .appendChild (document.createTextNode (w));
+  }
+}
+document.body.appendChild (dl);
+  } // showSummary
 </script>
 
 </body>
