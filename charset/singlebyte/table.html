@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<body>
+
+<table>
+<thead>
+<tr><th>Original Byte<th>Result String
+<tbody>
+</table>
+
+<iframe style=display:none></iframe>
+
+<script>
+  var charset = (location.search || '?').substring (1);
+  var iframe = document.getElementsByTagName ('iframe')[0];
+  var tbody = document.getElementsByTagName ('tbody')[0];
+  var nextByte = 0x00;
+
+  doNext ();
+  
+  function doNext () {
+    if (nextByte <= 0xFF) {
+      if (document.all && !window.opera) {
+        iframe.onreadystatechange = function () {
+          if (this.readyState == 'complete') {
+            addTableRow ();
+          }
+        };
+      } else {
+        iframe.onload = addTableRow;
+      }
+      iframe.src = 'charset.cgi/' + encodeURIComponent (charset)
+          + '?' + nextByte++;
+    } else {
+      iframe.onload = null;
+      iframe.onreadystatechange = null;
+    }
+  } // doNext
+
+  function addTableRow () {
+    var tr = document.createElement ('tr');
+
+    tr.appendChild (document.createElement ('th'))
+        .appendChild (document.createTextNode ('0x' + (nextByte - 1).toString (16).toUpperCase ()));
+
+    var td = tr.appendChild (document.createElement ('td'));
+    var docbody = iframe.contentWindow.document.body;
+    var value = docbody.firstChild ? docbody.firstChild.data : '';
+    for (var i = 0; i < value.length; i++) {
+      td.appendChild (document.createTextNode ('U+' + value.charCodeAt (i).toString (16).toUpperCase () + ' '));
+    }
+
+    tbody.appendChild (tr);
+
+    doNext ();
+  } // addTableRow
+</script>
