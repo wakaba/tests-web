@@ -9,7 +9,9 @@ $name =~ s/[\x00-\x1F]/ /g;
 my $name_c = $name;
 $name_c =~ s/[\\";\x20\x7F-\xFF]//g;
 
-print "Content-Type: text/html; charset=$name_c
+my $type = $ENV{QUERY_STRING} =~ /;plain\b/ ? 'plain' : 'html';
+
+print "Content-Type: text/$type;  charset=$name_c
 
 ";
 
