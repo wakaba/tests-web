@@ -140,6 +140,34 @@ data:TEXT/PLAIN,ABC
 implied charset
 
 #data
+data:text\plain,abc
+#non-conforming
+"\" instead of "/" in media type
+#tag
+broken media type
+illegal as URI
+backslash
+implied charset
+
+#data
+data:text/./plain,abc
+#non-conforming
+relative path component in media type
+#tag
+broken media type
+dot-segment
+implied charset
+
+#data
+data:application/../text/plain,abc
+#non-conforming
+relative path component in media type
+#tag
+broken media type
+dot-segment
+implied charset
+
+#data
 data:;,test
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
@@ -433,6 +461,24 @@ data:,a+b+c
 data including "+" (a PLUS SIGN character, not a SPACE character).
 #tag
 reserved in data
+implied media type
+implied charset
+
+#data
+data:,a/../b
+#conforming
+data including "/../"
+#tag
+dot-segment
+implied media type
+implied charset
+
+#data
+data:,a/./b
+#conforming
+data including "/./"
+#tag
+dot-segment
 implied media type
 implied charset
 
