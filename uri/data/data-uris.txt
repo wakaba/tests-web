@@ -140,6 +140,34 @@ implied charset
 fragment
 
 #data
+data:text/html,
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html lang="en">
+ <head>
+  <title>Data protocol: %23 in data: URLs (data: page)</title>
+  <style type="text/css">
+   %23pass { color: white; background: green; }
+   %23fail { color: yellow; background: red; margin: 300em 0; }
+  </style>
+ </head>
+ <body>
+  <p> Return to <a href="http://www.hixie.ch/tests/adhoc/data/011.html">HTTP page</a>. </p>
+  <p id="pass"> This test has passed. </p>
+  <p>(ignore anything below this point unless you can see it when you load the page)</p>
+  <p id="fail"> This test has failed. </p>
+  <p>#fail
+#source
+<http://www.hixie.ch/tests/adhoc/data/011.html>
+#non-conforming
+non-URI characters
+#tag
+illegal as URI
+missing HTML charset
+fragment
+reserved in data
+percent-encoding in data
+
+#data
 data:text / plain,abc
 #non-conforming
 space in URI
