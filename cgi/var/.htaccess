@@ -1,0 +1,14 @@
+Options +ExecCGI +Includes
+AddHandler cgi-script .cgi
+AddHandler server-parsed .ssi
+AddType text/html .ssi
+
+Action server-protocol /~wakaba/-temp/test/cgi/server-protocol.ssi
+AddHandler server-protocol .translated
+
+#<Files "auth">
+        AuthType basic
+        authname "user=user;pass=pass"
+        require user name user
+        authuserfile /home/wakaba/public_html/-temp/test/cgi/var/.htpasswd
+#</Files>

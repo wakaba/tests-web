@@ -1,0 +1,67 @@
+<!DOCTYPE html SYSTEM>
+<style type="text/css">
+dd {white-space: pre}
+</style>
+<dl>
+<dt>Echo</dt>
+        <dd>SERVER_PROTOCOL: <!--#echo var="SERVER_PROTOCOL" encoding="entity" --></dd>
+        <dd>SERVER_NAME: <!--#echo var="SERVER_NAME" encoding="entity"--></dd>
+        <dd>SERVER_PORT: <!--#echo var="SERVER_PORT" encoding="entity"--></dd>
+        <dd>SERVER_SOFTWARE: <!--#echo var="SERVER_SOFTWARE" encoding="entity"--></dd>
+        <dd>GATEWAY_INTERFACE: <!--#echo var="GATEWAY_INTERFACE" encoding="entity"--></dd>
+        <dd>REQUEST_METHOD: <!--#echo var="REQUEST_METHOD" encoding="entity"--></dd>
+        <dd>PATH_INFO: <!--#echo var="PATH_INFO" encoding="entity"--></dd>
+        <dd>REMOTE_ADDR: <!--#echo var="REMOTE_ADDR" encoding="entity"-->
+        <dd>REMOTE_HOST: <!--#echo var="REMOTE_HOST" encoding="entity"-->
+        <dd>REMOTE_IDENT: <!--#echo var="REMOTE_IDENT" encoding="entity"-->
+        <dd>CONTENT_TYPE:  <!--#echo var="CONTENT_TYPE" encoding="entity"-->
+        <dd>CONTENT_LENGTH:  <!--#echo var="CONTENT_LENGTH" encoding="entity"--></dd>
+        <dd>HTTP_HOST: <!--#echo var="HTTP_HOST" encoding="entity"--></dd>
+        <dd>HTTP_AUTHORIZATION: <!--#echo var="HTTP_AUTHORIZATION" encoding="entity"--></dd>
+         <dd>HTTP_CONTENT_TYPE: <!--#echo var="HTTP_CONTENT_TYPE" encoding="entity"--></dd>
+        <dd>HTTP_CONTENT_LENGTH: <!--#echo var="HTTP_CONTENT_LENGTH" encoding="entity"--></dd>
+        <dd>HTTP_USER_AGENT: <!--#echo var="HTTP_USER_AGENT" encoding="entity"-->
+        <dd>HTTP_ACCEPT: <!--#echo var="HTTP_ACCEPT" encoding="entity"--></dd>
+        <dd>AUTH_TYPE: <!--#echo var="AUTH_TYPE" encoding="entity"--></dd>
+</dd>
+<dt>Exec'ed CGI</dt>
+        <dd><!--#exec cgi="/~wakaba/-temp/test/cgi/server-protocol.cgi" --></dd>
+<dt>Included CGI</dt>
+        <dd><!--#include virtual="/~wakaba/-temp/test/cgi/server-protocol.cgi" --></dd>
+</dl>
+
+<pre><![CDATA[
+<!--#printenv -->
+]]></pre>
+
+<form action="server-protocol.ssi" method="post">
+<input type="text" value="text" name="text1" />
+<input type="submit" value="post" />
+</form>
+
+<form action="server-protocol.ssi" method="get">
+<input type="text" value="text" name="text1" />
+<input type="submit" value="get" />
+</form>
+
+<form action="server-protocol.ssi" method="head">
+<input type="text" value="text" name="text1" />
+<input type="submit" value="head" />
+</form>
+
+
+CGI:
+<form action="server-protocol.cgi" method="post">
+<input type="text" value="text" name="text1" />
+<input type="submit" value="post" />
+</form>
+
+<form action="server-protocol.cgi" method="get">
+<input type="text" value="text" name="text1" />
+<input type="submit" value="get" />
+</form>
+
+<form action="server-protocol.cgi" method="head">
+<input type="text" value="text" name="text1" />
+<input type="submit" value="head" />
+</form>
