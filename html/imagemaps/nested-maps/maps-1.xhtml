@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Nested &lt;map> elements</title>
+<!-- Original: From HTML5 spec -->
+</head>
+<body>
+<h1>Shape 1: Only the red box and the green circle should be activatable
+as hyperlinks</h1>
+<img src="../../../support/sample-usemap.png" usemap="#shapes1"
+      alt="Four shapes are available: a red hollow box, a green circle, a blue triangle, and a yellow four-pointed star."/>
+
+<h1>Shape 2: All of the four shapes should be activatable as hyperlinks</h1>
+<img src="../../../support/sample-usemap.png" usemap="#shapes2"
+      alt="Four shapes are available: a red hollow box, a green circle, a blue triangle, and a yellow four-pointed star."/>
+
+<map name="shapes2" id="shapes2">
+  <map name="shapes1" id="shapes1">
+    <area shape="rect" coords="50,50,100,100"/> <!-- the hole in the red box -->
+    <area shape="rect" coords="25,25,125,125" href="red.html" alt="Red box."/>
+    <area shape="circle" coords="200,75,50" href="green.html" alt="Green circle."/>
+  </map>
+  <area shape="poly" coords="325,25,262,125,388,125" href="blue.html" alt="Blue triangle."/>
+  <area shape="poly" coords="450,25,435,60,400,75,435,90,450,125,465,90,500,75,465,60"
+        href="yellow.html" alt="Yellow star."/>
+</map>
+</body>
+</html>
