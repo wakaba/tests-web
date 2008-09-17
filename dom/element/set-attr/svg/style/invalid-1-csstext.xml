@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <text id="result" x="0" y="20" class="FAIL">FAIL (noscript)</text>
+  <g>
+    <circle cx="10" cy="80" r="10"/>
+  </g>
+  <script type="text/javascript">
+    var r = document.getElementById ('result');
+    r.textContent = 'FAIL (script error)';
+    var e = document.getElementsByTagName ('g')[0];
+    e.setAttributeNS (null, 'style', 'invalid-css');
+    var v = e.style.cssText;
+    if (v == '') {
+      r.textContent = 'PASS';
+      r.className = 'PASS';
+    } else {
+      r.textContent = 'FAIL (' + typeof (v) + ', "' + v + '")';
+    }
+  </script>
+</svg>
