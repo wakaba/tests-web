@@ -1,0 +1,30 @@
+<!DOCTYPE HTML><title>node-interface-object-has-instance-prototype-null</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'node-interface-object-has-instance-prototype-null';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+function V () {};
+V.prototype = null;
+var v = new V ();
+wttAssertFalse (v instanceof Node, 'null');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

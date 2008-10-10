@@ -1,0 +1,27 @@
+<!DOCTYPE HTML><title>node-interface-object-const-document-position-preceding-read-only</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'node-interface-object-const-document-position-preceding-read-only';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertReadOnly (Node, 'DOCUMENT_POSITION_PRECEDING', '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

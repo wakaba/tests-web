@@ -1,0 +1,28 @@
+<!DOCTYPE HTML><title>node-instance-create-document-create-pi-attr-last-child-has-property</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'node-instance-create-document-create-pi-attr-last-child-has-property';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+var v = wttGetInstance ('ProcessingInstruction', 'create-document-create-pi');
+wttAssertTrue ('lastChild' in v, '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

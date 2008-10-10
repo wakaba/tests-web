@@ -1,0 +1,28 @@
+<!DOCTYPE HTML><title>node-interface-prototype-object-const-processing-instruction-node-value</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'node-interface-prototype-object-const-processing-instruction-node-value';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertEquals (Node.prototype.PROCESSING_INSTRUCTION_NODE, 7,
+                                   '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

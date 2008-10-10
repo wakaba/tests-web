@@ -1,0 +1,28 @@
+<!DOCTYPE HTML><title>dom-exception-instance-append-child-hierarchy-attr-name-dont-delete</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'dom-exception-instance-append-child-hierarchy-attr-name-dont-delete';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+var v = wttGetInstance ('DOMException', 'append-child-hierarchy');
+wttAssertDontDelete (v, 'name', '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

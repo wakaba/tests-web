@@ -1,0 +1,28 @@
+<!DOCTYPE HTML><title>character-data-instance-create-text-node-attr-length-read-only</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'character-data-instance-create-text-node-attr-length-read-only';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+var v = wttGetInstance ('Text', 'create-text-node');
+wttAssertReadOnly (v, 'length', '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

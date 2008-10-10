@@ -1,0 +1,28 @@
+<!DOCTYPE HTML><title>node-instance-create-document-type-attr-owner-document-read-only</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'node-instance-create-document-type-attr-owner-document-read-only';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+var v = wttGetInstance ('DocumentType', 'create-document-type');
+wttAssertReadOnly (v, 'ownerDocument', '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

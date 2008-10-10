@@ -1,0 +1,27 @@
+<!DOCTYPE HTML><title>dom-exception-interface-prototype-object-const-network-err-has-property</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'dom-exception-interface-prototype-object-const-network-err-has-property';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertTrue ('NETWORK_ERR' in DOMException.prototype, '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

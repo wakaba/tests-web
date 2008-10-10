@@ -1,0 +1,28 @@
+<!DOCTYPE HTML><title>document-interface-prototype-object-method-create-element-ns-dont-enum</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'document-interface-prototype-object-method-create-element-ns-dont-enum';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertDontEnum (Document.prototype, 'createElementNS',
+                                 '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

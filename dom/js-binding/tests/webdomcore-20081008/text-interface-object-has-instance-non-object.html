@@ -1,0 +1,31 @@
+<!DOCTYPE HTML><title>text-interface-object-has-instance-non-object</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'text-interface-object-has-instance-non-object';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertFalse (null instanceof Text, 'null');
+wttAssertFalse (undefined instanceof Text,
+                            'undefined');
+wttAssertFalse (0 instanceof Text, 'number');
+wttAssertFalse ("" instanceof Text, 'string');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

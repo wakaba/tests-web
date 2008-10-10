@@ -1,0 +1,28 @@
+<!DOCTYPE HTML><title>xml-http-request-interface-object-has-instance-host-object-xhr-constructor</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'xml-http-request-interface-object-has-instance-host-object-xhr-constructor';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+var v = wttGetInstance ('XMLHttpRequest', 'xhr-constructor');
+wttAssertTrue (v instanceof XMLHttpRequest, '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

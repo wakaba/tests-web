@@ -1,0 +1,34 @@
+<!DOCTYPE HTML><title>dom-exception-interface-object-has-instance-prototype-object</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'dom-exception-interface-object-has-instance-prototype-object';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+function V () {};
+V.prototype = DOMException.prototype;
+var v = new V ();
+wttAssertFalse (v instanceof DOMException, 'level-0');
+function W () {};
+W.prototype = v;
+var w = new W ();
+wttAssertTrue (w instanceof DOMException, 'level-1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

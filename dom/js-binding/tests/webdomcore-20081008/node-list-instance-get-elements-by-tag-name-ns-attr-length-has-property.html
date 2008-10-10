@@ -1,0 +1,28 @@
+<!DOCTYPE HTML><title>node-list-instance-get-elements-by-tag-name-ns-attr-length-has-property</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'node-list-instance-get-elements-by-tag-name-ns-attr-length-has-property';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+var v = wttGetInstance ('NodeList', 'get-elements-by-tag-name-ns');
+wttAssertTrue ('length' in v, '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

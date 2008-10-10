@@ -1,0 +1,28 @@
+<!DOCTYPE HTML><title>document-fragment-interface-object-has-instance-host-object-create-document-fragment</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'document-fragment-interface-object-has-instance-host-object-create-document-fragment';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+var v = wttGetInstance ('DocumentFragment', 'create-document-fragment');
+wttAssertTrue (v instanceof DocumentFragment, '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>
