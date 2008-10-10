@@ -1,0 +1,27 @@
+<!DOCTYPE HTML><title>html-media-element-interface-prototype-object-const-loaded-first-frame-read-only</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'html-media-element-interface-prototype-object-const-loaded-first-frame-read-only';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertReadOnly (HTMLMediaElement.prototype, 'LOADED_FIRST_FRAME', '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

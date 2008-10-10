@@ -1,0 +1,28 @@
+<!DOCTYPE HTML><title>html-document-instance-create-document-html-attr-applets-has-property</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'html-document-instance-create-document-html-attr-applets-has-property';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+var v = wttGetInstance ('HTMLDocument', 'create-document-html');
+wttAssertTrue ('applets' in v, '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

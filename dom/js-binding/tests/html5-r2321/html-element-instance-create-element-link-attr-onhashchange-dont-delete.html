@@ -1,0 +1,28 @@
+<!DOCTYPE HTML><title>html-element-instance-create-element-link-attr-onhashchange-dont-delete</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'html-element-instance-create-element-link-attr-onhashchange-dont-delete';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+var v = wttGetInstance ('HTMLLinkElement', 'create-element-link');
+wttAssertDontDelete (v, 'onhashchange', '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

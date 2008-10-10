@@ -1,0 +1,31 @@
+<!DOCTYPE HTML><title>html-table-data-cell-element-interface-object-has-instance-non-object</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'html-table-data-cell-element-interface-object-has-instance-non-object';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertFalse (null instanceof HTMLTableDataCellElement, 'null');
+wttAssertFalse (undefined instanceof HTMLTableDataCellElement,
+                            'undefined');
+wttAssertFalse (0 instanceof HTMLTableDataCellElement, 'number');
+wttAssertFalse ("" instanceof HTMLTableDataCellElement, 'string');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

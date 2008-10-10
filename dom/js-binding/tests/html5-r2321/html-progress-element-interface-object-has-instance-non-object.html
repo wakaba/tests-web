@@ -1,0 +1,31 @@
+<!DOCTYPE HTML><title>html-progress-element-interface-object-has-instance-non-object</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'html-progress-element-interface-object-has-instance-non-object';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertFalse (null instanceof HTMLProgressElement, 'null');
+wttAssertFalse (undefined instanceof HTMLProgressElement,
+                            'undefined');
+wttAssertFalse (0 instanceof HTMLProgressElement, 'number');
+wttAssertFalse ("" instanceof HTMLProgressElement, 'string');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

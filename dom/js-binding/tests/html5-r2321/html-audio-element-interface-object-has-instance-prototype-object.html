@@ -1,0 +1,34 @@
+<!DOCTYPE HTML><title>html-audio-element-interface-object-has-instance-prototype-object</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'html-audio-element-interface-object-has-instance-prototype-object';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+function V () {};
+V.prototype = HTMLAudioElement.prototype;
+var v = new V ();
+wttAssertTrue (v instanceof HTMLAudioElement, 'level-0');
+function W () {};
+W.prototype = v;
+var w = new W ();
+wttAssertTrue (w instanceof HTMLAudioElement, 'level-1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

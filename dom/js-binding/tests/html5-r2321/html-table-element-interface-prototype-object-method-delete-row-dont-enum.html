@@ -1,0 +1,28 @@
+<!DOCTYPE HTML><title>html-table-element-interface-prototype-object-method-delete-row-dont-enum</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'html-table-element-interface-prototype-object-method-delete-row-dont-enum';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertDontEnum (HTMLTableElement.prototype, 'deleteRow',
+                                 '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

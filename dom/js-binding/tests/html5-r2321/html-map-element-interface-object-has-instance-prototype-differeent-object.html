@@ -1,0 +1,30 @@
+<!DOCTYPE HTML><title>html-map-element-interface-object-has-instance-prototype-differeent-object</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'html-map-element-interface-object-has-instance-prototype-differeent-object';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertFalse ({} instanceof HTMLMapElement, 'object');
+wttAssertFalse ((new Date ()) instanceof HTMLMapElement,
+                            'date');
+wttAssertFalse ([] instanceof HTMLMapElement, 'array');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

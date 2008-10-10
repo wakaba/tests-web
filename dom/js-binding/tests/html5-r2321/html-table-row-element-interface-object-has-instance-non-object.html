@@ -1,0 +1,31 @@
+<!DOCTYPE HTML><title>html-table-row-element-interface-object-has-instance-non-object</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'html-table-row-element-interface-object-has-instance-non-object';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertFalse (null instanceof HTMLTableRowElement, 'null');
+wttAssertFalse (undefined instanceof HTMLTableRowElement,
+                            'undefined');
+wttAssertFalse (0 instanceof HTMLTableRowElement, 'number');
+wttAssertFalse ("" instanceof HTMLTableRowElement, 'string');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

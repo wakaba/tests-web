@@ -1,0 +1,28 @@
+<!DOCTYPE HTML><title>html-table-section-element-interface-prototype-object-method-insert-row-dont-enum</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'html-table-section-element-interface-prototype-object-method-insert-row-dont-enum';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertDontEnum (HTMLTableSectionElement.prototype, 'insertRow',
+                                 '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

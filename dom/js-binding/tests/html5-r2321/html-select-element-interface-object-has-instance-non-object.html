@@ -1,0 +1,31 @@
+<!DOCTYPE HTML><title>html-select-element-interface-object-has-instance-non-object</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'html-select-element-interface-object-has-instance-non-object';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertFalse (null instanceof HTMLSelectElement, 'null');
+wttAssertFalse (undefined instanceof HTMLSelectElement,
+                            'undefined');
+wttAssertFalse (0 instanceof HTMLSelectElement, 'number');
+wttAssertFalse ("" instanceof HTMLSelectElement, 'string');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>
