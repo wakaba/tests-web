@@ -1,0 +1,185 @@
+typedef unsigned long long DOMTimeStamp;
+
+[ExceptionConsts=DOMException]
+module domexception {
+  exception DOMException {
+    unsigned short code;
+    DOMString message;
+    DOMString name;
+  };
+  const unsigned short INDEX_SIZE_ERR = 1;
+  const unsigned short DOMSTRING_SIZE_ERR = 2;
+  const unsigned short HIERARCHY_REQUEST_ERR = 3;
+  const unsigned short WRONG_DOCUMENT_ERR = 4;
+  const unsigned short INVALID_CHARACTER_ERR = 5;
+  const unsigned short NO_DATA_ALLOWED_ERR = 6;
+  const unsigned short NO_MODIFICATION_ALLOWED_ERR = 7;
+  const unsigned short NOT_FOUND_ERR = 8;
+  const unsigned short NOT_SUPPORTED_ERR = 9;
+  const unsigned short INUSE_ATTRIBUTE_ERR = 10;
+  const unsigned short INVALID_STATE_ERR = 11;
+  const unsigned short SYNTAX_ERR = 12;
+  const unsigned short INVALID_MODIFICATION_ERR = 13;
+  const unsigned short NAMESPACE_ERR = 14;
+  const unsigned short INVALID_ACCESS_ERR = 15;
+  const unsigned short VALIDATION_ERR = 16;
+  const unsigned short TYPE_MISMATCH_ERR = 17;
+  const unsigned short SECURITY_ERR = 18;
+  const unsigned short NETWORK_ERR = 19;
+  const unsigned short ABORT_ERR = 20;
+  const unsigned short URL_MISMATCH_ERR = 21;
+};
+
+interface DOMImplementation {
+  boolean hasFeature(in DOMString feature, [Null=Empty] in DOMString version);
+  DocumentType createDocumentType([Null=Empty] in DOMString qualifiedName, in DOMString publicId, in DOMString systemId);
+  Document createDocument([Null=Empty] in DOMString namespaceURI, [Null=Empty] in DOMString qualifiedName, in DocumentType doctype);
+};
+
+interface DocumentFragment : Node {
+};
+
+interface Document : Node {
+  readonly attribute DocumentType doctype;
+  readonly attribute DOMImplementation implementation;
+  readonly attribute Element documentElement;
+  Element createElement(in DOMString tagName);
+  DocumentFragment createDocumentFragment();
+  Text createTextNode(in DOMString data);
+  Comment createComment(in DOMString data);
+  ProcessingInstruction createProcessingInstruction(in DOMString target, in DOMString data);
+  NodeList getElementsByTagName(in DOMString tagname);
+  Node importNode(in Node importedNode, in boolean deep);
+  Element createElementNS(in DOMString namespaceURI, in DOMString qualifiedName);
+  NodeList getElementsByTagNameNS(in DOMString namespaceURI, in DOMString localName);
+  Element getElementById(in DOMString elementId);
+  readonly attribute DOMString inputEncoding;
+           attribute DOMString documentURI;
+  Node adoptNode(in Node source);
+};
+
+interface Node {
+
+  // NodeType
+  const unsigned short ELEMENT_NODE = 1;
+  const unsigned short ATTRIBUTE_NODE = 2;
+  const unsigned short TEXT_NODE = 3;
+  const unsigned short CDATA_SECTION_NODE = 4; // historical
+  const unsigned short ENTITY_REFERENCE_NODE = 5; // historical
+  const unsigned short ENTITY_NODE = 6; // historical
+  const unsigned short PROCESSING_INSTRUCTION_NODE = 7;
+  const unsigned short COMMENT_NODE = 8;
+  const unsigned short DOCUMENT_NODE = 9;
+  const unsigned short DOCUMENT_TYPE_NODE = 10;
+  const unsigned short DOCUMENT_FRAGMENT_NODE = 11;
+  const unsigned short NOTATION_NODE = 12; // historical
+
+  readonly attribute DOMString nodeName;
+           attribute DOMString nodeValue;
+  readonly attribute unsigned short nodeType;
+  readonly attribute Node parentNode;
+  readonly attribute NodeList childNodes;
+  readonly attribute Node firstChild;
+  readonly attribute Node lastChild;
+  readonly attribute Node previousSibling;
+  readonly attribute Node nextSibling;
+  readonly attribute NamedNodeMap attributes;
+  readonly attribute Document ownerDocument;
+  Node insertBefore(in Node newChild, [Undefined=Null] in Node refChild);
+  Node replaceChild(in Node newChild, in Node oldChild);
+  Node removeChild(in Node oldChild);
+  Node appendChild(in Node newChild);
+  boolean hasChildNodes();
+  Node cloneNode(in boolean deep);
+  boolean isSupported(in DOMString feature, in DOMString version);
+  readonly attribute DOMString namespaceURI;
+  readonly attribute DOMString prefix;
+  readonly attribute DOMString localName;
+  boolean hasAttributes();
+  readonly attribute DOMString baseURI;
+
+  // DocumentPosition
+  const unsigned short DOCUMENT_POSITION_DISCONNECTED = 0x01;
+  const unsigned short DOCUMENT_POSITION_PRECEDING = 0x02;
+  const unsigned short DOCUMENT_POSITION_FOLLOWING = 0x04;
+  const unsigned short DOCUMENT_POSITION_CONTAINS = 0x08;
+  const unsigned short DOCUMENT_POSITION_CONTAINED_BY = 0x10;
+  const unsigned short DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC = 0x20;
+
+  unsigned short compareDocumentPosition(in Node other);
+
+  [Null=Empty] attribute DOMString textContent;
+  boolean isSameNode(in Node other);
+  DOMString lookupPrefix(in DOMString namespaceURI);
+  boolean isDefaultNamespace(in DOMString namespaceURI);
+  DOMString lookupNamespaceURI(in DOMString prefix);
+  boolean isEqualNode(in Node arg);
+};
+
+interface NodeList {
+  [IndexGetter] Node item(in unsigned long index);
+  readonly attribute unsigned long length;
+};
+
+interface NamedNodeMap {
+  Node getNamedItem(in DOMString name);
+  Node setNamedItem(in Node arg);
+  Node removeNamedItem(in DOMString name);
+  Node item(in unsigned long index);
+  readonly attribute unsigned long length;
+  Node getNamedItemNS(in DOMString namespaceURI, in DOMString localName);
+  Node setNamedItemNS(in Node arg);
+  Node removeNamedItemNS(in DOMString namespaceURI, in DOMString localName);
+};
+
+interface CharacterData : Node {
+  [Null=Empty] attribute DOMString data;
+  readonly attribute unsigned long length;
+  DOMString substringData(in unsigned long offset, in unsigned long count);
+  void appendData(in DOMString arg);
+  void insertData(in unsigned long offset, in DOMString arg);
+  void deleteData(in unsigned long offset, in unsigned long count);
+  void replaceData(in unsigned long offset, in unsigned long count, in DOMString arg);
+};
+
+interface Attr : Node {
+  readonly attribute DOMString name;
+  readonly attribute boolean specified;
+           attribute DOMString value;
+  readonly attribute Element ownerElement;
+};
+
+interface Element : Node {
+  readonly attribute DOMString tagName;
+  DOMString getAttribute(in DOMString name);
+  void setAttribute(in DOMString name, in DOMString value);
+  void removeAttribute(in DOMString name);
+  NodeList getElementsByTagName(in DOMString name);
+  DOMString getAttributeNS(in DOMString namespaceURI, in DOMString localName);
+  void setAttributeNS(in DOMString namespaceURI, in DOMString qualifiedName, in DOMString value);
+  void removeAttributeNS(in DOMString namespaceURI, in DOMString localName);
+  NodeList getElementsByTagNameNS(in DOMString namespaceURI, in DOMString localName);
+  boolean hasAttribute(in DOMString name);
+  boolean hasAttributeNS(in DOMString namespaceURI, in DOMString localName);
+           attribute HTMLCollection children;
+};
+
+interface Text : CharacterData {
+  Text splitText(in unsigned long offset);
+  readonly attribute DOMString wholeText;
+  Text replaceWholeText(in DOMString content);
+};
+
+interface Comment : CharacterData {
+};
+
+interface DocumentType : Node {
+  readonly attribute DOMString name;
+  readonly attribute DOMString publicId;
+  readonly attribute DOMString systemId;
+};
+
+interface ProcessingInstruction : Node {
+  readonly attribute DOMString target;
+           attribute DOMString data;
+};

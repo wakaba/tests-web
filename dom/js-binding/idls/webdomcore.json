@@ -1,0 +1,112 @@
+{
+  "DOMException": [
+    {
+      "id": "append-child-hierarchy",
+      "code": " var a = document.createElement ('a'); var b = document.createElement ('b'); a.appendChild (b); var x = null; try { b.appendChild (a); } catch (e) { x = e; } x;"
+    }
+  ],
+  "DOMImplementation": [
+    {
+      "id": "implementation",
+      "code": "document.implementation;"
+    }
+  ],
+  "DocumentFragment": [
+    {
+      "id": "create-document-fragment",
+      "code": "document.createDocumentFragment ();"
+    }
+  ],
+  "Document": [
+    {
+     "id": "create-document",
+     "code": " document.implementation.createDocument (null, null, null); "
+    },
+    {
+     "id": "document",
+     "code": " document; "
+    }
+  ],
+  "NodeList": [
+    {
+     "id": "get-elements-by-tag-name",
+     "code": "document.getElementsByTagName ('*');"
+    },
+    {
+     "id": "get-elements-by-tag-name-ns",
+     "code": "document.getElementsByTagNameNS ('*', '*');"
+    },
+    {
+     "id": "child-nodes",
+     "code": "document.body.childNodes;"
+    }
+  ],
+  "NamedNodeMap": [
+    {
+     "id": "attributes",
+     "code": "document.body.attributes;"
+    }
+  ],
+  "Attr": [
+    {
+     "id": "get-attribute",
+     "code": "document.getElementById ('result').getAttributeNode ('id');"
+    }
+  ],
+  "Element": [
+    {
+     "id": "create-element",
+     "code": "document.createElement ('test');"
+    },
+    {
+     "id": "create-element-ns",
+     "code": "document.createElementNS (null, 'test');"
+    }
+  ],
+  "Text": [
+    {
+     "id": "create-text-node",
+     "code": "document.createTextNode ('xyz');"
+    }
+  ],
+  "Comment": [
+    {
+     "id": "create-comment",
+     "code": "document.createComment ('xyz');"
+    }
+  ],
+  "DocumentType": [
+    {
+     "id": "create-document-type",
+     "code": "document.implementation.createDocumentType ('html', null, null);"
+    },
+    {
+     "id": "create-document-create-document-type",
+     "code": "document.implementation.createDocument (null, null, null).implementation.createDocumentType ('a', null, null);"
+    }
+  ],
+  "ProcessingInstruction": [
+    {
+     "id": "create-pi",
+     "code": "document.createProcessingInstruction ('a', 'b');"
+    },
+    {
+     "id": "create-document-create-pi",
+     "code": "document.implementation.createDocument (null, null, null).createProcessingInstruction ('a', 'b');"
+    }
+  ],
+  "_crash": {
+    "node-instance-create-document-type-attr-child-nodes-dont-delete": [
+      "AppleWebKit/525\\.1[3-9]"
+    ],
+    "node-instance-create-document-type-attr-child-nodes-read-only": [
+      "AppleWebKit/525\\.1[3-9]"
+    ],
+    "node-instance-create-document-create-document-type-attr-child-nodes-dont-delete": [
+      "AppleWebKit/525\\.1[3-9]"
+    ],
+    "node-instance-create-document-create-document-type-attr-child-nodes-read-only": [
+      "AppleWebKit/525\\.1[3-9]"
+    ]
+  }
+}
