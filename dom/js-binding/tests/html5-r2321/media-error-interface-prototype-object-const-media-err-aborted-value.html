@@ -1,0 +1,28 @@
+<!DOCTYPE HTML><title>media-error-interface-prototype-object-const-media-err-aborted-value</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'media-error-interface-prototype-object-const-media-err-aborted-value';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertEquals (MediaError.prototype.MEDIA_ERR_ABORTED, 1,
+                                   '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

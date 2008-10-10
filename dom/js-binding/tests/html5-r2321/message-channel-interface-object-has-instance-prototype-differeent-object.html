@@ -1,0 +1,30 @@
+<!DOCTYPE HTML><title>message-channel-interface-object-has-instance-prototype-differeent-object</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'message-channel-interface-object-has-instance-prototype-differeent-object';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertFalse ({} instanceof MessageChannel, 'object');
+wttAssertFalse ((new Date ()) instanceof MessageChannel,
+                            'date');
+wttAssertFalse ([] instanceof MessageChannel, 'array');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML><title>canvas-gradient-interface-object-has-instance-prototype-differeent-object</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'canvas-gradient-interface-object-has-instance-prototype-differeent-object';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertFalse ({} instanceof CanvasGradient, 'object');
+wttAssertFalse ((new Date ()) instanceof CanvasGradient,
+                            'date');
+wttAssertFalse ([] instanceof CanvasGradient, 'array');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

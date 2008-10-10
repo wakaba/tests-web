@@ -1,0 +1,34 @@
+<!DOCTYPE HTML><title>sql-result-set-interface-object-has-instance-prototype-object</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'sql-result-set-interface-object-has-instance-prototype-object';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+function V () {};
+V.prototype = SQLResultSet.prototype;
+var v = new V ();
+wttAssertTrue (v instanceof SQLResultSet, 'level-0');
+function W () {};
+W.prototype = v;
+var w = new W ();
+wttAssertTrue (w instanceof SQLResultSet, 'level-1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

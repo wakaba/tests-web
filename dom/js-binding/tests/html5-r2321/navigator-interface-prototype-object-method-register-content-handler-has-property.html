@@ -1,0 +1,28 @@
+<!DOCTYPE HTML><title>navigator-interface-prototype-object-method-register-content-handler-has-property</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'navigator-interface-prototype-object-method-register-content-handler-has-property';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertTrue ('registerContentHandler' in Navigator.prototype,
+                             '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

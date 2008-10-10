@@ -1,0 +1,30 @@
+<!DOCTYPE HTML><title>canvas-rendering-context2-d-interface-object-has-instance-prototype-differeent-object</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'canvas-rendering-context2-d-interface-object-has-instance-prototype-differeent-object';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertFalse ({} instanceof CanvasRenderingContext2D, 'object');
+wttAssertFalse ((new Date ()) instanceof CanvasRenderingContext2D,
+                            'date');
+wttAssertFalse ([] instanceof CanvasRenderingContext2D, 'array');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML><title>media-error-interface-object-const-media-err-decode-value</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'media-error-interface-object-const-media-err-decode-value';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertEquals (MediaError.MEDIA_ERR_DECODE, 3,
+                                   '1');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

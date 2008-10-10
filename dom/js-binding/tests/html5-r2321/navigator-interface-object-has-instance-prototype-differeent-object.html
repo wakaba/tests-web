@@ -1,0 +1,30 @@
+<!DOCTYPE HTML><title>navigator-interface-object-has-instance-prototype-differeent-object</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'navigator-interface-object-has-instance-prototype-differeent-object';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertFalse ({} instanceof Navigator, 'object');
+wttAssertFalse ((new Date ()) instanceof Navigator,
+                            'date');
+wttAssertFalse ([] instanceof Navigator, 'array');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

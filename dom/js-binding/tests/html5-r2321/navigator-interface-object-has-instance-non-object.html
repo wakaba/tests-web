@@ -1,0 +1,31 @@
+<!DOCTYPE HTML><title>navigator-interface-object-has-instance-non-object</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'navigator-interface-object-has-instance-non-object';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertFalse (null instanceof Navigator, 'null');
+wttAssertFalse (undefined instanceof Navigator,
+                            'undefined');
+wttAssertFalse (0 instanceof Navigator, 'number');
+wttAssertFalse ("" instanceof Navigator, 'string');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

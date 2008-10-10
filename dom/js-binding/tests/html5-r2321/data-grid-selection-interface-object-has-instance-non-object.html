@@ -1,0 +1,31 @@
+<!DOCTYPE HTML><title>data-grid-selection-interface-object-has-instance-non-object</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'data-grid-selection-interface-object-has-instance-non-object';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertFalse (null instanceof DataGridSelection, 'null');
+wttAssertFalse (undefined instanceof DataGridSelection,
+                            'undefined');
+wttAssertFalse (0 instanceof DataGridSelection, 'number');
+wttAssertFalse ("" instanceof DataGridSelection, 'string');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML><title>undo-manager-event-interface-object-has-instance-prototype-differeent-object</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'undo-manager-event-interface-object-has-instance-prototype-differeent-object';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertFalse ({} instanceof UndoManagerEvent, 'object');
+wttAssertFalse ((new Date ()) instanceof UndoManagerEvent,
+                            'date');
+wttAssertFalse ([] instanceof UndoManagerEvent, 'array');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>

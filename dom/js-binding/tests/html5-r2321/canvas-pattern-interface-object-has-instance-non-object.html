@@ -1,0 +1,31 @@
+<!DOCTYPE HTML><title>canvas-pattern-interface-object-has-instance-non-object</title><script src=wtt.js></script>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+var globalId = 'canvas-pattern-interface-object-has-instance-non-object';
+wttSetStatus ('FAIL', 'script')
+
+try {
+
+wttCheckCrash (globalId);
+
+wttAssertFalse (null instanceof CanvasPattern, 'null');
+wttAssertFalse (undefined instanceof CanvasPattern,
+                            'undefined');
+wttAssertFalse (0 instanceof CanvasPattern, 'number');
+wttAssertFalse ("" instanceof CanvasPattern, 'string');
+
+
+wttOk ();
+
+} catch (e) {
+  if (e instanceof WttFail) {
+    //
+  } else if (e instanceof WttSkip) {
+    wttSetStatus ('SKIPPED', e.message);
+  } else {
+    throw e;
+  }
+}
+
+</script>
