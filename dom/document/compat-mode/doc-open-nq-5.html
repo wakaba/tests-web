@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>document.open () and document.compatMode</title>
+<script src="../../../support/result.js"></script>
+</head>
+
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<iframe src="no-quirks.html"></iframe>
+
+<script>
+  document.getElementById ('result').firstChild.data = 'FAIL';
+  window.setTimeout (function () {
+    var iframe = document.getElementsByTagName ('iframe')[0];
+    var d = iframe.contentWindow.document;
+    d.open ();
+    d.write ('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">');
+    setResult ('result', d.compatMode);
+    d.close ();
+  }, 1000 /* wait until loaded */);
+</script>
+
+</html>
