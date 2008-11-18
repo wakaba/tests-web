@@ -1,0 +1,17 @@
+<?xml-stylesheet href="test.css" title="a&#x0d;b"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>&amp;#xd; in title=""</title>
+</head>
+<body>
+
+<p id="result"></p>
+
+<script>
+window.onload = function () {
+  document.getElementById ('result').textContent = encodeURIComponent (document.styleSheets[0].title);
+};
+</script>
+
+</body>
+</html>
