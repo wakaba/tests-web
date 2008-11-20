@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<title>about:blank.lastModified</title>
+
+<p><iframe src="about:blank"></iframe>
+
+<p id=result>FAIL (noscript)</p>
+
+<p id=containers>xxx</p>
+
+<script>
+document.getElementById ('result').firstChild.data = 'FAIL';
+
+window.onload = function () {
+  var iframe = document.getElementsByTagName ('iframe')[0];
+  var doc = iframe.contentWindow.document;
+  document.getElementById ('result').firstChild.data
+      = 'about:blank\'s lastModified = "' + doc.lastModified + '"';
+  document.getElementById ('containers').firstChild.data
+      = 'Container\'s lastModified = "' + document.lastModified + '"';
+};
+</script>
