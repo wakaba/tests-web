@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<title>&lt;button>.type = 'button'</title>
+<p id=result class=FAIL>FAIL (noscript)</p>
+<script>
+  var r = document.getElementById ('result');
+  r.firstChild.data = 'FAIL (script error)';
+
+  var b = document.createElement ('button');
+  b.type = 'button';
+  if (b.getAttribute ('type') == 'button') {
+    r.firstChild.data = 'PASS';
+    r.className = 'PASS';
+  } else {
+    r.firstChild.data = 'FAIL (' + encodeURIComponent (b.getAttribute ('type')) + ')';
+  }
+</script>
