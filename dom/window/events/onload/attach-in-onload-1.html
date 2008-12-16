@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<title>window.attachEvent ('load') in window.onload</title>
+
+<body onload="
+  var r = document.getElementById ('result');
+  r.className = 'SEE-RESULT';
+  r.firstChild.data = '(added handler not invoked)';
+
+  if (window.attachEvent) {
+    window.attachEvent ('onload', function () {
+      r.firstChild.data = '(added handler invoked)';
+    }, false);
+  } else {
+    r.className = 'FAIL';
+    r.firstChild.data = 'FAIL (no attachEvent)';
+  }
+">
+
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+  document.getElementById ('result').firstChild.data = 'FAIL (no onload="")';
+</script>
+
