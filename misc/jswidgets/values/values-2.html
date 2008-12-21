@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<title>widget-values.js</title>
+<script src="http://suika.fam.cx/www/style/ui/widget-values.js.u8" charset=utf-8></script>
+<script>
+  function MyNumbersWidget (c) {
+    WidgetValues.apply (this, [c]);
+  }
+  
+  MyNumbersWidget.prototype = new WidgetValues;
+  
+  MyNumbersWidget.prototype.createField = function (value) {
+    var field = document.createElement ('span');
+    field.wvIsField = true;
+    
+    var input = document.createElement ('input');
+    input.setAttribute ('type', 'number');
+    input.setAttribute ('min', 1);
+    input.setAttribute ('max', 10);
+    input.value = value;
+    field.appendChild (input);
+    
+    return field;
+  };
+  
+  MyNumbersWidget.prototype.clear = function () {
+    var self = this;
+    
+    this._clear ();
+    
+    var fields = document.createElement ('span');
+    this.container.appendChild (fields);
+    this.fieldsParent = fields;
+    
+    var addButton = this.createButton ();
+    addButton.innerHTML = '+';
+    addButton.onclick = function () { self.appendValues ([5]) };
+    this.container.appendChild (addButton);
+  };
+
+  window.onload = function () {
+    new MyNumbersWidget (document.getElementById ('c'));
+  }; // onload
+</script>
+
+<p><span id=c data-widget-name=test>
+<textarea name=tests>5 0 3</textarea>
+</span>
