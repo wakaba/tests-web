@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<title>appendChild and getBoundingClientRect</title>
+<link rel=stylesheet href="../../../../support/sleep10.css.cgi">
+
+<body>
+
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+document.getElementById ('result').firstChild.data = 'FAIL (script)';
+
+var el = document.createElement ('div');
+el.style.position = 'absolute';
+el.style.width = '120px';
+el.style.height = '140px';
+
+document.body.appendChild (el);
+
+var bb = el.getBoundingClientRect (el);
+
+if (bb && bb.right - bb.left == 120 && bb.bottom - bb.top == 140) {
+  document.getElementById ('result').firstChild.data = 'PASS';
+  document.getElementById ('result').firstChild.className = 'PASS'; 
+} else if (bb) {
+  document.getElementById ('result').firstChild.data = 'FAIL (width = ' + (bb.right - bb.left) + ', height = ' + (bb.bottom - bb.top) + ')';
+} else {
+  document.getElementById ('result').firstChild.data = 'FAIL (return = ' + bb + ')';
+}
+
+</script>
