@@ -1,0 +1,593 @@
+<!DOCTYPE HTML>
+<html lang=en class=account-user-misc>
+<meta charset=utf-8>
+<title>新しい利用者アカウントの作成</title>
+<link rel=stylesheet href="/admin/style/common">
+<body>
+<h1>新しい利用者アカウントの作成</h1>
+
+<form action=new-user accept-charset=utf-8 method=post>
+
+<p><strong>利用者識別子</strong>: <input type=text name=user-id
+maxlength=20 size=10 required pattern="[0-9a-z-]{4,20}"> (文字「a」〜「z」、「0」〜「9」、「-」を使って 4〜10 文字の文字列を指定してください。)<p><strong>合言葉</strong>: <input type=password name=user-pass
+size=10 required pattern=".{4,}"> (最低4文字入力してください。)<p><strong>合言葉</strong> (もう一度): <input type=password
+name=user-pass2 size=10 required pattern=".{4,}">
+
+<p><input type=submit value="作成" class=create></p></form>
+
+<section>
+<html lang=en class=account-user-info>
+<title>さん</title>
+
+<h1>さん</h1><section id=groups><h2>グループ</h2><section id="groups-joined"><h3>参加中のグループ</h3><ul><li><form action="group.admin-groups" accept-charset=utf-8 method=post><a href="../../groups/admin-groups/">admin-groups</a> <input type=hidden name=action value=leave><input type=submit value="このグループから抜ける"></form><li><form action="group.admin-users" accept-charset=utf-8 method=post><a href="../../groups/admin-users/">admin-users</a> <input type=hidden name=action value=leave><input type=submit value="このグループから抜ける"></form><li><form action="group.helo" accept-charset=utf-8 method=post><a href="../../groups/helo/">helo</a> <input type=hidden name=action value=leave><input type=submit value="このグループから抜ける"></form><li><form action="group.helo-admin" accept-charset=utf-8 method=post><a href="../../groups/helo-admin/">helo-admin</a> <input type=hidden name=action value=leave><input type=submit value="このグループから抜ける"></form><li><form action="group.schema-db" accept-charset=utf-8 method=post><a href="../../groups/schema-db/">schema-db</a> <input type=hidden name=action value=leave><input type=submit value="このグループから抜ける"></form><li><form action="group.spec-ja" accept-charset=utf-8 method=post><a href="../../groups/spec-ja/">spec-ja</a> <input type=hidden name=action value=leave><input type=submit value="このグループから抜ける"></form><li><form action="group.spec-ja-admin" accept-charset=utf-8 method=post><a href="../../groups/spec-ja-admin/">spec-ja-admin</a> <input type=hidden name=action value=leave><input type=submit value="このグループから抜ける"></form><li><form action="group.suikawiki" accept-charset=utf-8 method=post><a href="../../groups/suikawiki/">suikawiki</a> <input type=hidden name=action value=leave><input type=submit value="このグループから抜ける"></form><li><form action="group.test-results" accept-charset=utf-8 method=post><a href="../../groups/test-results/">test-results</a> <input type=hidden name=action value=leave><input type=submit value="このグループから抜ける"></form></ul></section><section id="groups-requested"><h3>参加申請中 (未許可) のグループ</h3><ul><li><form action="" accept-charset=utf-8 method=post><a href="../../groups//"></a> <input type=hidden name=action value=leave><input type=submit value="申請取消"></form></ul></section></section><section id=props><h2>特性</h2><p><em>これらの特性は管理者のみが見ることができますが、秘密の情報は記述しないことをお勧めします。</em></p>
+
+<form action="prop" accept-charset=utf-8 method=post><input type=hidden name=name value="full_name"><p><label><strong>名前</strong>: <input type="text" name="value" value=""></label> <input type=submit value="保存">
+
+</p></form>
+
+<form action="prop" accept-charset=utf-8 method=post><input type=hidden name=name value="mail_addr"><p><label><strong>メイル・アドレス</strong>: <input type="email" name="value" value=""></label> <input type=submit value="保存">
+</p></form>
+
+<form action="prop" accept-charset=utf-8 method=post><input type=hidden name=name value="home_url"><p><label><strong>Web サイト URL</strong>: <input type="url" name="value" value=""></label> <input type=submit value="保存">
+</p>
+
+</form></section><section id=password><h2>合言葉</h2>
+
+<form action=password method=post accept-charset=utf-8>
+
+<p>合言葉を変更できます。<p><strong>新しい合言葉</strong>: <input type=password name=user-pass
+size=10 required pattern=".{4,}"> (最低4文字入力してください。) <p><strong>新しい合言葉</strong> (もう一度): <input type=password
+name=user-pass2 size=10 required pattern=".{4,}">
+
+<p><input type=submit value="変更"></p>
+
+</form>
+</section>
+
+<section id=disable-account><h2>アカウントの無効化</h2>
+
+
+<p><label><input type=checkbox name=action value=enable checked> このアカウントを有効にする</label>
+
+<p><strong>警告!</strong> 自分のアカウントを無効にすると、自分で再度有効にすることはできません。<p><input type=submit value="変更"></form></section></section>
+
+<style>
+
+section, article, menu {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.sbs-container {
+  display: block;
+  position: absolute;
+}
+
+.sbs-container.sbs-without-refelement {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+}
+
+.sbs-selected {
+  outline: 2px blue dotted !important;
+}
+
+.mm-container {
+  display: block;
+  padding-bottom: 2em;
+  background-color: white;
+  width: 20em;
+  min-height: 5em;
+}
+
+.mm-container menu {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+</style>
+
+</p>
+
+<script type="text/javascript" src="uupaa-detect.mini.js"></script>
+<script type="text/javascript" src="uupaa-selector.js"></script>
+<script type="text/javascript" src="uupaa-selector+.js"></script>
+
+<script src="../../css/noderect/NodeRect.js"></script>
+
+<script id="uupaa.js" type="text/javascript" src="uupaa/uupaa.js"></script>
+
+<script src=tutorial.js></script>
+
+<script>
+
+window.onload = function () {
+  window.loaded = true;
+};
+
+function showElement (elements) {
+  if (!window.loaded) {
+    new JSTE.Observer ('load', window, function () {
+      showElement (elements);
+    });
+    return;
+  }
+
+  var top = Infinity;
+  var left = Infinity;
+  var topEl;
+  var leftEl;
+  elements.forEach (function (el) {
+    var rect = uu.element.rect (el);
+    if (rect.y < top) {
+      top = rect.y;
+      topEl = el;
+    }
+    if (rect.x < left) {
+      left = rect.x;
+      leftEl = el;
+    }
+  });
+  
+  var rect = uu.viewport.rect ();
+  if (rect.sh <= top && top <= rect.sh + rect.h) {
+    top = rect.sh;
+  }
+  if (rect.sw <= left && left <= rect.sw + rect.w) {
+    left = rect.sw;
+  }
+  
+  if (leftEl || topEl) {
+    var od = (leftEl || topEl).ownerDocument;
+    var point = od.createElement ('span');
+    point.style.display = 'block';
+    point.style.position = 'absolute';
+    point.style.top = top + 'px';
+    point.style.left = left + 'px';
+    point.style.width = 0;
+    point.style.height = 0;
+    od.documentElement.appendChild (point);
+    point.scrollIntoView (true);
+    point.parentNode.removeChild (point);
+  }
+}
+
+var SimpleBalloon = new JSTE.Class (function (messageContainer, refElement) {
+  if (!messageContainer) return;
+
+  this.element = document.createElement ('article');
+  this.element.className = 'sbs-container';
+  document.body.appendChild (this.element);
+
+  this.contentElement = messageContainer;
+  this.element.appendChild (messageContainer);
+
+  this._renderBorder ();
+
+  this.refElement = refElement;
+  if (refElement) {
+    JSTE.Element.addClassName (refElement, 'sbs-selected');
+    this._renderPointer ();
+
+    JSTE.Element.addClassName (this.element, 'sbs-with-refelement');
+  } else {
+    JSTE.Element.addClassName (this.element, 'sbs-without-refelement');
+  }
+  
+  var self = this;
+  //setTimeout (function () {
+    showElement (new JSTE.List ([refElement]).onlyNonNull ());
+  //}, 2000);
+}, {
+  SVGNS: 'http://www.w3.org/2000/svg',
+
+  remove: function () {
+    if (this.refElement) {
+      JSTE.Element.deleteClassName (this.refElement, 'sbs-selected');
+    }
+  }, // remove
+
+  _renderBorder: function () {
+    var msgRects = NR.Element.getRects (this.contentElement, window);
+    var msgRect = msgRects.borderBox;
+
+    var bb = this.getComputedStyle ();
+
+    var bwDelta = bb.marginLeft + bb.borderLeftWidth + bb.paddingLeft;
+    var bhDelta = bb.marginTop + bb.borderTopWidth + bb.paddingTop;
+    var boxMBWidth = msgRect.width + bwDelta
+        + bb.marginRight + bb.borderRightWidth + bb.paddingRight;
+    var boxMBHeight = msgRect.height + bhDelta
+        + bb.marginBottom + bb.borderBottomWidth + bb.paddingBottom;
+
+    var box = document.createElementNS (this.SVGNS, 'svg');
+    box.style.display = 'block';
+    box.style.position = 'absolute';
+    box.style.top = -bhDelta + 'px';
+    box.style.left = -bwDelta + 'px';
+
+    /* This is necessary to render the content element over the border SVG
+       element. */
+    this.contentElement.style.position = 'relative';
+
+    box.setAttribute ('width', boxMBWidth);
+    box.setAttribute ('height', boxMBHeight);
+
+    var bbTop = bb.marginTop + bb.borderTopWidth / 2;
+    var bbRight = boxMBWidth - bb.marginLeft - bb.borderLeftWidth / 2
+        - bb.marginRight - bb.borderRightWidth / 2;
+    var bbLeft = bb.marginLeft + bb.borderLeftWidth / 2;
+    var bbBottom = boxMBHeight - bb.marginTop - bb.marginBottom
+        - bb.borderTopWidth / 2 - bb.borderBottomWidth / 2;
+
+    var boxBorder = document.createElementNS (this.SVGNS, 'path');
+    boxBorder.setAttribute ('d', [
+      'M', bbLeft + bb.manakaiBorderTopLeftRadiusHorizontal, bbTop,
+
+      'L', bbRight - bb.manakaiBorderTopRightRadiusHorizontal, bbTop,
+
+      'a',
+      bb.manakaiBorderTopRightRadiusHorizontal,
+      bb.manakaiBorderTopRightRadiusVertical, 0, 0, 1, 
+      bb.manakaiBorderTopRightRadiusHorizontal,
+      bb.manakaiBorderTopRightRadiusVertical,
+
+      'L', bbRight, bbBottom - bb.manakaiBorderBottomRightRadiusVertical,
+  
+      'a',
+      bb.manakaiBorderBottomRightRadiusHorizontal,
+      bb.manakaiBorderBottomRightRadiusVertical, 0, 0, 1,
+      -bb.manakaiBorderBottomRightRadiusHorizontal,
+      bb.manakaiBorderBottomRightRadiusVertical,    
+
+      'L', bbLeft + bb.manakaiBorderBottomLeftRadiusHorizontal, bbBottom,
+
+      'a',
+      bb.manakaiBorderBottomLeftRadiusHorizontal,
+      bb.manakaiBorderBottomLeftRadiusVertical, 0, 0, 1,
+      -bb.manakaiBorderBottomLeftRadiusHorizontal,
+      -bb.manakaiBorderBottomLeftRadiusVertical,    
+
+      'L', bbLeft, bbTop + bb.manakaiBorderTopLeftRadiusVertical,
+
+      'a',
+      bb.manakaiBorderTopLeftRadiusHorizontal,
+      bb.manakaiBorderTopLeftRadiusVertical, 0, 0, 1,
+      bb.manakaiBorderTopLeftRadiusHorizontal,
+      -bb.manakaiBorderTopLeftRadiusVertical
+    ].join (' '));
+    boxBorder.setAttribute ('stroke', bb.borderColor);
+    boxBorder.setAttribute ('stroke-width', bb.borderWidth);
+    boxBorder.setAttribute ('fill', bb.backgroundColor);
+
+    box.appendChild (boxBorder);
+
+    this.element.insertBefore (box, this.element.firstChild);
+  }, // _renderBorder
+  _renderPointer: function () {
+    var rects = NR.Element.getRects (this.refElement, window);
+    var rbb = rects.borderBox;
+
+    var bb = this.getComputedStyle ();
+    
+    var left = rbb.left + rbb.width * 3 / 4 - bb.manakaiPointerSource;
+    if (left < 0) left = bb.borderLeftWidth + bb.paddingLeft;
+    var top = rbb.bottom + bb.manakaiPointerOffset + bb.manakaiPointerHeight + bb.paddingTop;
+
+    this.element.style.top = top + 'px';
+    this.element.style.left = left + 'px';
+
+    var pointerSVGElement = document.createElementNS (this.SVGNS, 'svg');
+    pointerSVGElement.setAttribute ('width', bb.manakaiPointerWidth);
+    pointerSVGElement.setAttribute ('height', bb.manakaiPointerHeight);
+    pointerSVGElement.style.display = 'block';
+    pointerSVGElement.style.position = 'absolute';
+    pointerSVGElement.style.top = -(bb.manakaiPointerHeight + bb.paddingTop) + 'px';
+    pointerSVGElement.style.left = (bb.manakaiPointerSource - bb.manakaiPointerWidth / 2) + 'px';
+  
+    var pointerElement = document.createElementNS (this.SVGNS, 'path');
+    pointerElement.setAttribute ('d', [
+      'M', bb.manakaiPointerWidth, bb.manakaiPointerHeight,
+      'Q', bb.manakaiPointerWidth * 3 / 4, bb.manakaiPointerHeight,
+      bb.manakaiPointerWidth / 2, 0,
+      'Q', bb.manakaiPointerWidth / 4, bb.manakaiPointerHeight,
+      0, bb.manakaiPointerHeight].join (' '));
+    pointerElement.setAttribute ('stroke', bb.borderColor);
+    pointerElement.setAttribute ('stroke-width', bb.borderWidth);
+    pointerElement.setAttribute ('fill', bb.backgroundColor);
+
+    pointerSVGElement.appendChild (pointerElement);
+
+    this.element.appendChild (pointerSVGElement);
+  }, // _renderPointer
+
+  getComputedStyle: function (pseudoEl) {
+    if (pseudoEl == null) {
+      var boxMargin = 1;
+      var boxBorderWidth = 5;
+      var boxBorderColor = 'green';
+      var boxBorderRadiusHorizontal = 10;
+      var boxBorderRadiusVertical = 10;
+      var boxPadding = 10;
+      var pointerBoxMargin = 5;
+      var pointerBoxWidth = 20;
+      var pointerBoxHeight = 40;
+      var pointerBoxLeft = 20;
+
+      return {
+        marginTop: boxMargin, marginRight: boxMargin, marginBottom: boxMargin,
+        marginLeft: boxMargin,
+        borderColor: boxBorderColor,
+        borderTopColor: boxBorderColor, borderRightColor: boxBorderColor,
+        borderBottomColor: boxBorderColor, borderLeftColor: boxBorderColor,
+        borderWidth: boxBorderWidth,
+        borderTopWidth: boxBorderWidth, borderRightWidth: boxBorderWidth,
+        borderBottomWidth: boxBorderWidth, borderLeftWidth: boxBorderWidth,
+        manakaiBorderTopLeftRadiusHorizontal: boxBorderRadiusHorizontal,
+        manakaiBorderTopLeftRadiusVertical: boxBorderRadiusVertical,
+        manakaiBorderTopRightRadiusHorizontal: boxBorderRadiusHorizontal,
+        manakaiBorderTopRightRadiusVertical: boxBorderRadiusVertical,
+        manakaiBorderBottomLeftRadiusHorizontal: boxBorderRadiusHorizontal,
+        manakaiBorderBottomLeftRadiusVertical: boxBorderRadiusVertical,
+        manakaiBorderBottomRightRadiusHorizontal: boxBorderRadiusHorizontal,
+        manakaiBorderBottomRightRadiusVertical: boxBorderRadiusVertical,
+        paddingTop: boxPadding, paddingRight: boxPadding,
+        paddingBottom: boxPadding, paddingLeft: boxPadding,
+        backgroundColor: this.getBackgroundColor (),
+        manakaiPointerWidth: pointerBoxWidth,
+        manakaiPointerHeight: pointerBoxHeight,
+        manakaiPointerOffset: pointerBoxMargin,
+        manakaiPointerSource: pointerBoxLeft
+      };
+    } else {
+      return {};
+    }
+  }, // getComputedStyle
+
+  getBackgroundColor: function () {
+    var el = this.contentElement;
+    if (window.getComputedStyle) {
+      return getComputedStyle (el, null).backgroundColor;
+    } else if (el.currentStyle) {
+      return el.currentStyle.backgroundColor;
+    } else {
+      return 'white';
+    }
+  } // getBackgroundColor
+}); // SimpleBalloon
+
+var SimpleBalloonVML = new JSTE.Subclass (function () {
+  if (document.namespaces._vml_) {
+    document.namespaces.add ('_vml_', 'urn:schemas-microsoft-com:vml');
+  }
+
+  var ss = document.createStyleSheet ();
+  ss.cssText = '_vml_\\:* { behavior: url(#default#VML) }';
+
+  this._super.apply (this, arguments);
+}, SimpleBalloon, {
+  _renderBorder: function () {
+    var msgRects = NR.Element.getRects (this.contentElement, window);
+    var msgRect = msgRects.borderBox;
+
+    var bb = this.getComputedStyle ();
+
+    var bwDelta = bb.marginLeft + bb.borderLeftWidth + bb.paddingLeft;
+    var bhDelta = bb.marginTop + bb.borderTopWidth + bb.paddingTop;
+    var boxMBWidth = msgRect.width + bwDelta
+        + bb.marginRight + bb.borderRightWidth + bb.paddingRight;
+    var boxMBHeight = msgRect.height + bhDelta
+        + bb.marginBottom + bb.borderBottomWidth + bb.paddingBottom;
+
+    var box = document.createElement ('_vml_:shape');
+    box.style.display = 'block';
+    box.style.position = 'absolute';
+    box.style.top = -bhDelta + 'px';
+    box.style.left = -bwDelta + 'px';
+
+    /* This is necessary to render the content element over the border SVG
+       element. */
+    this.contentElement.style.position = 'relative';
+
+    box.style.width = boxMBWidth + 'px';
+    box.style.height = boxMBHeight + 'px';
+
+    var bbTop = bb.marginTop + bb.borderTopWidth / 2;
+    var bbRight = boxMBWidth - bb.marginLeft - bb.borderLeftWidth / 2
+        - bb.marginRight - bb.borderRightWidth / 2;
+    var bbLeft = bb.marginLeft + bb.borderLeftWidth / 2;
+    var bbBottom = boxMBHeight - bb.marginTop - bb.marginBottom
+        - bb.borderTopWidth / 2 - bb.borderBottomWidth / 2;
+
+    var boxBorder = document.createElement ('_vml_:path');
+    boxBorder.setAttribute ('v', [
+      'm', bbLeft + bb.manakaiBorderTopLeftRadiusHorizontal, bbTop,
+
+      'l', bbRight - bb.manakaiBorderTopRightRadiusHorizontal, bbTop,
+/*
+      'a',
+      bb.manakaiBorderTopRightRadiusHorizontal,
+      bb.manakaiBorderTopRightRadiusVertical, 0, 0, 1, 
+      bb.manakaiBorderTopRightRadiusHorizontal,
+      bb.manakaiBorderTopRightRadiusVertical,
+*/
+      'l', bbRight, bbBottom - bb.manakaiBorderBottomRightRadiusVertical,
+/*
+      'a',
+      bb.manakaiBorderBottomRightRadiusHorizontal,
+      bb.manakaiBorderBottomRightRadiusVertical, 0, 0, 1,
+      -bb.manakaiBorderBottomRightRadiusHorizontal,
+      bb.manakaiBorderBottomRightRadiusVertical,    
+*/
+      'l', bbLeft + bb.manakaiBorderBottomLeftRadiusHorizontal, bbBottom,
+/*
+      'a',
+      bb.manakaiBorderBottomLeftRadiusHorizontal,
+      bb.manakaiBorderBottomLeftRadiusVertical, 0, 0, 1,
+      -bb.manakaiBorderBottomLeftRadiusHorizontal,
+      -bb.manakaiBorderBottomLeftRadiusVertical,    
+*/
+      'l', bbLeft, bbTop + bb.manakaiBorderTopLeftRadiusVertical,
+/*
+      'a',
+      bb.manakaiBorderTopLeftRadiusHorizontal,
+      bb.manakaiBorderTopLeftRadiusVertical, 0, 0, 1,
+      bb.manakaiBorderTopLeftRadiusHorizontal,
+      -bb.manakaiBorderTopLeftRadiusVertical,
+*/
+      'e'
+    ].join (' '));
+    boxBorder.setAttribute ('stroke', 'true');
+    boxBorder.setAttribute ('strokecolor', bb.borderColor);
+    boxBorder.setAttribute ('strokeweight', bb.borderWidth);
+    boxBorder.setAttribute ('fill', 'true');
+    boxBorder.setAttribute ('fillcolor', bb.backgroundColor);
+    boxBorder.setAttribute ('coordorigin', '0 0');
+    boxBorder.setAttribute ('coordsize', boxMBWidth + ' ' + boxMBHeight);
+
+var a = document.createElement ('_vml_:shape');
+var b = document.createElement ('_vml_:path');
+a.appendChild (b);
+
+//    box.appendChild (boxBorder);
+
+    this.element.insertBefore (box, this.element.firstChild);
+  }, // _renderBorder
+  _renderPointer: function () {
+return;
+    var rects = NR.Element.getRects (this.refElement, window);
+    var rbb = rects.borderBox;
+
+    var bb = this.getComputedStyle ();
+    
+    var left = rbb.left + rbb.width * 3 / 4 - bb.manakaiPointerSource;
+    if (left < 0) left = bb.borderLeftWidth + bb.paddingLeft;
+    var top = rbb.bottom + bb.manakaiPointerOffset + bb.manakaiPointerHeight + bb.paddingTop;
+
+    this.element.style.top = top + 'px';
+    this.element.style.left = left + 'px';
+
+    var pointerSVGElement = document.createElementNS (this.SVGNS, 'svg');
+    pointerSVGElement.setAttribute ('width', bb.manakaiPointerWidth);
+    pointerSVGElement.setAttribute ('height', bb.manakaiPointerHeight);
+    pointerSVGElement.style.display = 'block';
+    pointerSVGElement.style.position = 'absolute';
+    pointerSVGElement.style.top = -(bb.manakaiPointerHeight + bb.paddingTop) + 'px';
+    pointerSVGElement.style.left = (bb.manakaiPointerSource - bb.manakaiPointerWidth / 2) + 'px';
+  
+    var pointerElement = document.createElementNS (this.SVGNS, 'path');
+    pointerElement.setAttribute ('d', [
+      'M', bb.manakaiPointerWidth, bb.manakaiPointerHeight,
+      'Q', bb.manakaiPointerWidth * 3 / 4, bb.manakaiPointerHeight,
+      bb.manakaiPointerWidth / 2, 0,
+      'Q', bb.manakaiPointerWidth / 4, bb.manakaiPointerHeight,
+      0, bb.manakaiPointerHeight].join (' '));
+    pointerElement.setAttribute ('stroke', bb.borderColor);
+    pointerElement.setAttribute ('stroke-width', bb.borderWidth);
+    pointerElement.setAttribute ('fill', bb.backgroundColor);
+
+    pointerSVGElement.appendChild (pointerElement);
+
+    this.element.appendChild (pointerSVGElement);
+  } // _renderPointer
+
+}); // SimpleBalloonVML
+
+var MyMessage = new JSTE.Subclass (function () {
+  return this._super.apply (this, arguments);
+}, JSTE.Message, {
+  _render: function (msgContainer, buttonContainer) {
+    var doc = this._targetDocument;
+    
+    var container = doc.createElement ('section');
+    container.className = 'mm-container';
+    
+    container.appendChild (msgContainer);
+    container.appendChild (buttonContainer);
+    
+    var refElement = JSTE.Node.querySelector (document, this.select);
+    if (document.all) {
+      this._simpleBalloon = new SimpleBalloonVML (container, refElement);
+    } else {
+      this._simpleBalloon = new SimpleBalloon (container, refElement);
+    }
+    
+    return this._simpleBalloon.element;
+  }, // _render
+  _remove: function () {
+    this._simpleBalloon.remove ();
+  } // _remove
+});
+
+  var xhr = new XMLHttpRequest ();
+  xhr.open ('GET', 'test.xml', false);
+  xhr.send (null);
+
+
+document.a =
+JSTE.Course.createFromDocument (xhr.responseXML, document);
+
+document.b = 
+new JSTE.Tutorial (document, document.a, {messageClass: MyMessage});
+
+</script>
+
+<!--
+/* ***** BEGIN LICENSE BLOCK *****
+ * Copyright 2008-2009 Wakaba <w@suika.fam.cx>.  All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or 
+ * modify it under the same terms as Perl itself.
+ *
+ * Alternatively, the contents of this file may be used 
+ * under the following terms (the "MPL/GPL/LGPL"), 
+ * in which case the provisions of the MPL/GPL/LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of the MPL/GPL/LGPL, and not to allow others to
+ * use your version of this file under the terms of the Perl, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the MPL/GPL/LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the Perl or the MPL/GPL/LGPL.
+ *
+ * "MPL/GPL/LGPL":
+ *
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * <http://www.mozilla.org/MPL/>
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is JSTE code.
+ *
+ * The Initial Developer of the Original Code is Wakaba.
+ * Portions created by the Initial Developer are Copyright (C) 2008
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *   Wakaba <w@suika.fam.cx>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the LGPL or the GPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+-->
