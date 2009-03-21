@@ -28,7 +28,7 @@ if (length $input) {
 
   my @flag = map {"--$_"} grep {$flags->{$_}} keys %$flags;
 
-  my $pid = open3 my $in, my $out, my $err, qw/msgfmt -o - -/, @flag;
+  my $pid = open3 my $in, my $out, my $err, qw[/usr/local/bin/msgfmt -o - -], @flag;
   my $mo = '';
   print $in $input;
   close $in;
@@ -39,7 +39,7 @@ if (length $input) {
     $output .= $mo;
     $mo = '';
   } else {
-    my $pid = open3 my $in, my $out, my $err, qw/msgunfmt -o - -/;
+    my $pid = open3 my $in, my $out, my $err, qw[/usr/local/bin/msgunfmt -o - -];
     print $in $mo;
     close $in;
     $output .= $_ while <$out>; close $out;
@@ -92,11 +92,13 @@ textarea {
 <h2>Result</h2>
 
 <textarea id=result>
+Input:
 [PRE(code)[
 @{[htescape $input]}
 ]PRE]
 
-[PRE[
+Result:
+[PRE(code)[
 @{[htescape $output]}
 ]PRE]
 
