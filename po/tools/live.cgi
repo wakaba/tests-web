@@ -23,8 +23,6 @@ for (qw/check check-compatibility use-fuzzy/) {
 }
 
 my $output = '';
-my $fmt_err = '';
-my $unfmt_err = '';
 if (length $input) {
   use IPC::Open3;
 
@@ -35,22 +33,21 @@ if (length $input) {
   print $in $input;
   close $in;
   $mo .= $_ while <$out>; close $out;
-  if ($err) { $fmt_err .= $_ while <$err>; close $err; }
+  if ($err) { $output .= $_ while <$err>; close $err; }
   waitpid $pid, 0;
   if ($? >> 8) {
-    $fmt_err .= $mo;
+    $output .= $mo;
     $mo = '';
-  }
-
-  my $pid = open3 my $in, my $out, my $err, qw/msgunfmt -o - -/;
-  print $in $mo;
-  close $in;
-  $output .= $_ while <$out>; close $out;
-  if ($err) { $unfmt_err .= $_ while <$err>; close $err; }
-  waitpid $pid, 0;
-  if ($? >> 8) {
-    $unfmt_err .= $output;
-    $output = '';
+  } else {
+    my $pid = open3 my $in, my $out, my $err, qw/msgunfmt -o - -/;
+    print $in $mo;
+    close $in;
+    $output .= $_ while <$out>; close $out;
+    if ($err) { $output .= $_ while <$err>; close $err; }
+    waitpid $pid, 0;
+    if ($? >> 8) {
+      #
+    }
   }
 }
 
@@ -94,14 +91,20 @@ textarea {
 
 <h2>Result</h2>
 
-<h3>Reserialied PO content</h3>
-<pre>@{[htescape $output]}</pre>
+<textarea id=result>
+[PRE(code)[
+@{[htescape $input]}
+]PRE]
 
-<h3>Parse errors</h3>
-<pre>@{[htescape $fmt_err]}</pre>
+[PRE[
+@{[htescape $output]}
+]PRE]
 
-<h3>Serialization errors</h3>
-<pre>@{[htescape $unfmt_err]}</pre>
+</textarea>
+<script>
+  document.getElementById ('result').value += ';; <' + location.href + '>\\n';
+</script>
+
 ];
 
 
