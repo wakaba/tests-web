@@ -16,6 +16,8 @@ $cgi->{decoder}->{'#default'} = sub {
 my $input = my $input_orig = $cgi->get_parameter ('s');
 my $charset = $cgi->get_parameter ('c') || 'utf-8';
 $input = Encode::encode ($charset, $input);
+$input =~ s/\x0D\x0A/\x0A/g;
+$input =~ tr/\x0D/\x0A/;
 
 print "Content-Type: text/html; charset=utf-8\n\n";
 
