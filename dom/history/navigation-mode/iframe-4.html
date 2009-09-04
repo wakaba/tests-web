@@ -1,0 +1,9 @@
+<script>
+alert(1);
+</script>
+<iframe src=.></iframe>
+<script>
+window.onload = function () {
+  document.getElementsByTagName('iframe')[0].contentWindow.onunload = function () { };
+};
+</script>
