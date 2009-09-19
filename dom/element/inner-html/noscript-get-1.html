@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<title>noscript.innerHTML</title>
+<script src="../../../support/result0.js"></script>
+
+<body>
+
+<noscript>aaa<p>bbb</noscript>
+
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script)';
+  var ns = document.getElementsByTagName ('noscript')[0];
+  writeResult (ns.innerHTML);
+  result.className = '';
+  result.firstChild.data = '(done)';
+</script>
