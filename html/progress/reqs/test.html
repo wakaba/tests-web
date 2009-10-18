@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<title>&lt;progress> processing and authoring requirements</title>
+<title>&lt;meter> processing and authoring requirements</title>
 
 <script>
 
@@ -276,7 +276,7 @@ function collectASequenceOfCharacters (characters, input, position) {
   return {result: result, position: position};
 } // collectASequenceOfCharacters
 
-function tokenizeProgressContent (string) {
+function tokenizeMeterContent (string) {
   var position = 0;
   var tokens = [];
   var lastToken = {type: 'initial', value: ''};
@@ -312,7 +312,7 @@ function tokenizeProgressContent (string) {
   }
   
   return tokens;
-} // tokenizeProgressContent
+} // tokenizeMeterContent
 
 function extractNumbersFromTokens (tokens) {
   var number1 = undefined;
@@ -352,7 +352,7 @@ function objectToString (object) {
   return self.JSON ? JSON.stringify (object) : object.toSource ? object.toSource () : object.toString ();
 } // objectToString
 
-function processProgressContent (string) {
+function processMeterContent (string) {
   var result = {};
   
   var ua = findingOneOrTwoNumbersOfARatioInAString (string);
@@ -360,7 +360,7 @@ function processProgressContent (string) {
     result['ua-' + i] = ua[i];
   }
   
-  var tokens = tokenizeProgressContent (string);
+  var tokens = tokenizeMeterContent (string);
   result['author-tokens'] = objectToString (tokens);
   var author = extractNumbersFromTokens (tokens);
   for (var i in author) {
@@ -368,12 +368,12 @@ function processProgressContent (string) {
   }
   
   return result;
-} // processProgressContent
+} // processMeterContent
 
 function update (form) {
   var input = form.elements.input.value;
   
-  var result = processProgressContent (input);
+  var result = processMeterContent (input);
   
   var outputs = form.getElementsByTagName ('output');
   for (var i = 0; i < outputs.length; i++) {
