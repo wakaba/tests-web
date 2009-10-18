@@ -1,0 +1,50 @@
+<!-- Work in progress -->
+<html>
+<head>
+<title>HTML entities</title>
+<style>
+X.non-entity {
+  display: none;
+}
+</style>
+</head>
+<body>
+<noscript><p id=result class=FAIL>FAIL (not executed)</p></noscript>
+<p><button type=button onclick="stopP=true">stop</button></p>
+<p><iframe></iframe></p>
+<script>
+  var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_.-';
+  var stopP = false;
+
+  var doc = document.getElementsByTagName ('iframe')[0].contentWindow.document;
+
+  var prefix = [''];
+  p (prefix.shift ());
+
+function p (m) {
+  var v = '<table><caption>'+m+'</caption><tbody>';
+  for (var i = 0; i < chars.length; i++) {
+    n = m + chars[i];
+    v += '<tr><td>&amp;'+n+';</td><td>&'+n+';</td></tr>';
+    prefix.push (n);
+  }
+  v += '</tbody></table>';
+  doc.body.innerHTML = v;
+  var trs = doc.getElementsByTagName ('table')[0].tBodies[0].rows;
+  var trsL = trs.length;
+  for (var i = 0; i < trsL; i++) {
+    var tr = trs[i];
+    if (tr.firstChild.innerHTML == tr.lastChild.innerHTML) {
+      tr.className = 'non-entity';
+    }
+  }
+
+  if (!stopP && prefix.length) {
+    window.setTimeout (function () {
+      p (prefix.shift ());
+    }, 1000);
+  }
+}
+</script>
+</body>
+</html>
