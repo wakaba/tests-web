@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<title>iframe</title>
+
+<body>
+
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<p class=note>This test first creates an <code>iframe</code> element,
+inserts the element into the document, and removes the element.  Then,
+it creates another <code>iframe</code> element, inserts the element
+into the document.  The browsing context of the second
+<code>iframe</code> element should not be affected by the first
+element's browsing context.</p>
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script)';
+
+  var iframe = document.createElement ('iframe');
+  iframe.onload = function () {
+    document.body.removeChild (iframe);
+    var iframe2 = document.createElement ('iframe');
+    iframe2.onload = function () {
+      var href = iframe2.contentWindow.document.getElementById ('href');
+      var value = href.innerHTML;
+      if (value.match (/\/remove-create-inner-2\.html$/)) {
+        result.firstChild.data = 'PASS';
+        result.className = 'PASS';
+      } else if (value.match (/\/remove-create-inner-1\.html$/)) {
+        result.firstChild.data = 'FAIL (old content)';
+      } else {
+        result.firstChild.data = 'FAIL (' + value + ')';
+      }
+      document.body.removeChild (iframe2);
+    };
+    iframe2.src = 'remove-create-inner-2.html';
+    document.body.appendChild (iframe2);
+  };
+  iframe.src = 'remove-create-inner-1.html';
+  document.body.appendChild (iframe);
+</script>
