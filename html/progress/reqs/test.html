@@ -1,0 +1,427 @@
+<!DOCTYPE HTML>
+<title>&lt;progress> processing and authoring requirements</title>
+
+<script>
+
+// Web Applications 1.0 Revision 4116, 12 October 2009
+
+var whiteSpace = /\s/; // XXX White_Space != \s
+var denominatorPunctuationCharacter = /[\u0025\u066A\uFE6A\uFF05\u2030\u2031]/;
+
+function findingOneOrTwoNumbersOfARatioInAString (string) {
+  // 1. If the string is empty, then return nothing and abort these steps.
+  if (string == '') {
+    return {isNothing: true, step: 1};
+  }
+  
+  // 2. Find a number in the string according to the algorithm below, starting at the start of the string.
+  var position = 0;
+  var s2 = findANumber (string, position);
+  
+  // 3. If the sub-algorithm in step 2 returned nothing or returned an error condition, return nothing and abort these steps.
+  if (s2.isNothing || s2.isError) {
+    return {isNothing: true, step: 3};
+  }
+  
+  // 4. Set number1 to the number returned by the sub-algorithm in step 2.
+  var number1 = s2.number;
+  
+  // 5. Starting with the character immediately after the last one examined by the sub-algorithm in step 2, skip all White_Space characters in the string (this might match zero characters).
+  position = s2.position;
+  while (position < string.length && string.charAt (position).match (whiteSpace)) {
+    position++;
+  }
+  
+  // 6. If there are still further characters in the string, and the next character in the string is a valid denominator punctuation character, set denominator to that character.
+  var denominator = null;
+  if (position < string.length && string.charAt (position).match (denominatorPunctuationCharacter)) {
+    denominator = string.charAt (position);
+  }
+  
+  // 7. If the string contains any other characters in the range U+0030 DIGIT ZERO (0) to U+0039 DIGIT NINE (9), but denominator was given a value in the step 6, return nothing and abort these steps.
+  if (string.substring (position).match (/[0-9]/) && denominator != null) {
+    return {isNothing: true, step: 7};
+  }
+  
+  // 8. Otherwise, if denominator was given a value in step 6, return number1 and denominator and abort these steps.
+  if (denominator != null) {
+    return {number1: number1, denominator: denominator, step: 8};
+  }
+  
+  // 9. Find a number in the string again, starting immediately after the last character that was examined by the sub-algorithm in step 2.
+  var s9 = findANumber (string, position);
+  
+  // 10. If the sub-algorithm in step 9 returned nothing or an error condition, return number1 and abort these steps.
+  if (s9.isNothing || s9.isError) {
+    return {number1: number1, step: 10};
+  }
+  
+  // 11. Set number2 to the number returned by the sub-algorithm in step 9.
+  var number2 = s9.number;
+  
+  // 12. Starting with the character immediately after the last one examined by the sub-algorithm in step 9, skip all White_Space characters in the string (this might match zero characters).
+  position = s9.position;
+  while (position < string.length && string.charAt (position).match (whiteSpace)) {
+    position++;
+  }
+  
+  // 13. If there are still further characters in the string, and the next character in the string is a valid denominator punctuation character, return nothing and abort these steps.
+  if (position < string.length && string.charAt (position).match (denominatorPunctuationCharacter)) {
+    return {isNothing: true, step: 13};
+  }
+  
+  // 14. If the string contains any other characters in the range U+0030 DIGIT ZERO (0) to U+0039 DIGIT NINE (9), return nothing and abort these steps.
+  if (string.substring (position).match (/[0-9]/)) {
+    return {isNothing: true, step: 14};
+  }
+  
+  // 15. Otherwise, return number1 and number2.
+  return {number1: number1, number2: number2, step: 15};
+} // findingOneOrTwoNumbersOfARatioInAString
+
+function findANumber (givenString, position) {
+  // 1. Starting at the given starting position, ignore all characters in the given string until the first character that is either a U+002E FULL STOP or one of the ten characters in the range U+0030 DIGIT ZERO (0) to U+0039 DIGIT NINE (9).
+  while (position < givenString.length && !givenString.charAt (position).match (/[0-9.]/)) {
+    position++;
+  }
+  
+  // 2. If there are no such characters, return nothing and abort these steps.
+  if (position < givenString.length && givenString.charAt (position).match (/[0-9.]/)) {
+    //
+  } else {
+    return {isNothing: true, position: position};
+  }
+  
+  // 3. Starting with the character matched in step 1, collect all the consecutive characters that are either a U+002E FULL STOP or one of the ten characters in the range U+0030 DIGIT ZERO (0) to U+0039 DIGIT NINE (9), and assign this string of one or more characters to string.
+  var string = '';
+  while (position < givenString.length && givenString.charAt (position).match (/[0-9.]/)) {
+    string += givenString.charAt (position);
+    position++;
+  }
+  
+  // 4. If string consists of just a single U+002E FULL STOP character or if it contains more than one U+002E FULL STOP character then return an error condition and abort these steps.
+  if (string == '.' || string.match (/\..*\./)) {
+    return {isError: true, position: position};
+  }
+  
+  // 5. Parse string according to the rules for parsing floating point number values, to obtain number. This step cannot fail (string is guaranteed to be a valid floating point number).
+  var s5 = parseFloatingPointNumberValue (string);
+  var number = s5.value;
+  
+  // 6. Return number.
+  return {number: number, position: position};
+} // findANumber
+
+function parseFloatingPointNumberValue (input) {
+  // 1. Let input be the string being parsed.
+  //
+  
+  // 2. Let position be a pointer into input, initially pointing at the start of the string.
+  var position = 0;
+  
+  // 3. Let value have the value 1.
+  var value = 1;
+  
+  // 4. Let divisor have the value 1.
+  var divisor = 1;
+  
+  // 5. Let exponent have the value 1.
+  var exponent = 1;
+  
+  // 6. Skip whitespace.
+  var s6 = skipWhitespace (input, position);
+  position = s6.position;
+  
+  // 7. If position is past the end of input, return an error.
+  if (position >= input.length) {
+    return {isError: true};
+  }
+  
+  // 8. If the character indicated by position is a U+002D HYPHEN-MINUS character (-):
+  if (input.charAt (position) == '-') {
+    // 1. Change value and divisor to −1.
+    value = -1;
+    divisor = -1;
+    
+    // 2. Advance position to the next character.
+    position++;
+    
+    // 3. If position is past the end of input, return an error.
+    if (position >= input.length) {
+      return {isError: true};
+    }
+  }
+  
+  // 9. If the character indicated by position is not one of U+0030 DIGIT ZERO (0) to U+0039 DIGIT NINE (9), then return an error.
+  if (!input.charAt (position).match (/[0-9]/)) {
+    return {isError: true};
+  }
+  
+  // 10. Collect a sequence of characters in the range U+0030 DIGIT ZERO (0) to U+0039 DIGIT NINE (9), and interpret the resulting sequence as a base-ten integer. Multiply value by that integer.
+  var s10 = collectASequenceOfCharacters (/[0-9]/, input, position);
+  position = s10.position;
+  value *= parseInt (s10.result);
+  
+  // 11. If position is past the end of input, return value.
+  if (position >= input.length) {
+    return {value: value};
+  }
+  
+  // 12. If the character indicated by position is a U+002E FULL STOP (.), run these substeps:
+  if (input.charAt (position) == '.') {
+    // 1. Advance position to the next character.
+    position++;
+    
+    // 2. If position is past the end of input, or if the character indicated by position is not one of U+0030 DIGIT ZERO (0) to U+0039 DIGIT NINE (9), then return value.
+    if (position >= input.length ||
+        !input.charAt (position).match (/[0-9]/)) {
+      return {value: value};
+    }
+    
+    // 3. Fraction loop: Multiply divisor by ten.
+    var fractionLoop = true;
+    while (fractionLoop) {
+      divisor *= 10;
+      
+      // 4. Add the value of the current character interpreted as a base-ten digit (0..9) divided by divisor, to value.
+      value += parseInt (input.charAt (position)) / divisor;
+      
+      // 5. Advance position to the next character.
+      position++;
+      
+      // 6. If position is past the end of input, then return value.
+      if (position >= input.length) {
+        return {value: value};
+      }
+      
+      // 7. If the character indicated by position is one of U+0030 DIGIT ZERO (0) to U+0039 DIGIT NINE (9), return to the step labeled fraction loop in these substeps.
+      if (input.charAt (position).match (/[0-9]/)) {
+        fractionLoop = true;
+      } else {
+        fractionLoop = false;
+      }
+    }
+  }
+  
+  // 13. If the character indicated by position is a U+0065 LATIN SMALL LETTER E character (e) or a U+0045 LATIN CAPITAL LETTER E character (E), run these substeps:
+  if (input.charAt (position).match (/[eE]/)) {
+    // 1. Advance position to the next character.
+    position++;
+    
+    // 2. If position is past the end of input, then return value.
+    if (position >= input.length) {
+      return {value: value};
+    }
+    
+    // 3. If the character indicated by position is a U+002D HYPHEN-MINUS character (-):
+    if (input.charAt (position) == '-') {
+      // 1. Change exponent to −1.
+      exponent = -1;
+      
+      // 2. Advance position to the next character.
+      position++;
+      
+      // 3. If position is past the end of input, then return value.
+      if (position >= input.length) {
+        return {value: value};
+      }
+    
+    // Otherwise, if the character indicated by position is a U+002B PLUS SIGN character (+):
+    } else if (input.charAt (position) == '+') {
+      // 1. Advance position to the next character.
+      position++;
+      
+      // 2. If position is past the end of input, then return value.
+      if (position >= input.length) {
+        return {value: value};
+      }
+    }
+    
+    // 4. If the character indicated by position is not one of U+0030 DIGIT ZERO (0) to U+0039 DIGIT NINE (9), then return value.
+    if (!input.charAt (position).match (/[0-9]/)) {
+      return {value: value};
+    }
+    
+    // 5. Collect a sequence of characters in the range U+0030 DIGIT ZERO (0) to U+0039 DIGIT NINE (9), and interpret the resulting sequence as a base-ten integer. Multiply exponent by that integer.
+    var s13_5 = collectASequenceOfCharacters (/[0-9]/, input, position);
+    position = s13_5.position;
+    exponent *= parseInt (s13_5.result);
+    
+    // 6. Multiply value by ten raised to the exponentth power.
+    value *= Math.pow (10, exponent);
+  }
+  
+  // 14. Return value.
+  return {value: value};
+} // parseFloatingPointNumberValue
+
+function skipWhitespace (input, position) {
+  return collectASequenceOfCharacters (/[\u0009\u000A\u000C\u000D\u0020]/, input, position);
+} // skipWhitespace
+
+function collectASequenceOfCharacters (characters, input, position) {
+  // 1. Let input and position be the same variables as those of the same name in the algorithm that invoked these steps.
+  //
+  
+  // 2. Let result be the empty string.
+  var result = '';
+  
+  // 3. While position doesn't point past the end of input and the character at position is one of the characters, append that character to the end of result and advance position to the next character in input.
+  while (position < input.length && input.charAt (position).match (characters)) {
+    result += input.charAt (position);
+    position++;
+  }
+  
+  // 4. Return result.
+  return {result: result, position: position};
+} // collectASequenceOfCharacters
+
+function tokenizeProgressContent (string) {
+  var position = 0;
+  var tokens = [];
+  var lastToken = {type: 'initial', value: ''};
+  while (position < string.length) {
+    var char = string.charAt (position);
+    var tokenType;
+    if (char.match (/[0-9]/)) {
+      tokenType = 'number';
+    } else if (char.match (/\./)) {
+      if (lastToken.type == 'number' && !lastToken.value.match (/\./)) {
+        tokenType = 'number';
+      } else {
+        tokenType = 'dot';
+      }
+    } else if (char.match (whiteSpace)) {
+      if (lastToken.type == 'number' || lastToken.type == 'whitespace') {
+        tokenType = 'whitespace';
+      } else {
+        tokenType = 'string';
+      }
+    } else if (char.match (denominatorPunctuationCharacter) && (lastToken.type == 'whitespace' || lastToken.type == 'number')) {
+      tokenType = 'denominator';
+    } else {
+      tokenType = 'string';
+    }
+    if (tokenType == lastToken.type) {
+      lastToken.value += char;
+    } else {
+      lastToken = {type: tokenType, value: char};
+      tokens.push (lastToken);
+    }
+    position++;
+  }
+  
+  return tokens;
+} // tokenizeProgressContent
+
+function extractNumbersFromTokens (tokens) {
+  var number1 = undefined;
+  var number2 = undefined;
+  var denominator = undefined;
+  for (var i = 0; i < tokens.length; i++) {
+    var token = tokens[i];
+    if (token.type == 'number') {
+      if (number1 == undefined) {
+        number1 = parseFloat (token.value);
+      } else if (denominator != undefined) {
+        return {isNothing: true};
+      } else if (number2 == undefined) {
+        number2 = parseFloat (token.value);
+      } else {
+        return {isNothing: true};
+      }
+    } else if (token.type == 'denominator') {
+      if (number2 != undefined) {
+        return {isNothing: true};
+      } else {
+        denominator = token.value;
+      }
+    } else if (token.type == 'dot') {
+      return {isNothing: true};
+    }
+  }
+  
+  if (number1 == undefined) {
+    return {isNothing: true};
+  } else {
+    return {number1: number1, number2: number2, denominator: denominator};
+  }
+} // extractNumbersFromTokens
+
+function objectToString (object) {
+  return self.JSON ? JSON.stringify (object) : object.toSource ? object.toSource () : object.toString ();
+} // objectToString
+
+function processProgressContent (string) {
+  var result = {};
+  
+  var ua = findingOneOrTwoNumbersOfARatioInAString (string);
+  for (var i in ua) {
+    result['ua-' + i] = ua[i];
+  }
+  
+  var tokens = tokenizeProgressContent (string);
+  result['author-tokens'] = objectToString (tokens);
+  var author = extractNumbersFromTokens (tokens);
+  for (var i in author) {
+    result['author-' + i] = author[i];
+  }
+  
+  return result;
+} // processProgressContent
+
+function update (form) {
+  var input = form.elements.input.value;
+  
+  var result = processProgressContent (input);
+  
+  var outputs = form.getElementsByTagName ('output');
+  for (var i = 0; i < outputs.length; i++) {
+    var output = outputs[i];
+    var name = output.getAttribute ('name');
+    var value = result[name];
+    if (value === undefined) {
+      output.textContent = '(undefined)';
+    } else if (value === null) {
+      output.textContent = '(null)';
+    } else if (value === '') {
+      output.textContent = '(empty)';
+    } else {
+      output.textContent = value;
+    }
+  }
+} // update
+
+</script>
+
+<form>
+  <p><input name=input onchange="update (this.form)">
+  
+  <fieldset>
+    <legend>From UA parsing rules</legend>
+    
+    <p><code>step</code>: <output name=ua-step></output>
+    <p><code>isNothing</code>: <output name=ua-isNothing></output>
+    <p><code>number1</code>: <output name=ua-number1></output>
+    <p><code>number2</code>: <output name=ua-number2></output>
+    <p><code>denominator</code>: <output name=ua-denominator></output>
+  </fieldset>
+  
+  <fieldset>
+    <legend>From author requirements</legend>
+    
+    <p><code>isNothing</code>: <output name=author-isNothing></output>
+    <p><code>number1</code>: <output name=author-number1></output>
+    <p><code>number2</code>: <output name=author-number2></output>
+    <p><code>denominator</code>: <output name=author-denominator></output>
+    <p>Tokens: <output name=author-tokens></output>
+  </fieldset>
+</form>
+
+<script>
+  if (location.href.match (/#/)) {
+    var fragment = decodeURIComponent (location.href.split (/#/, 2)[1]);
+    document.forms[0].elements.input.value = fragment;
+    update (document.forms[0]);
+  }
+</script>
