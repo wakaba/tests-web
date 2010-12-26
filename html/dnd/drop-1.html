@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<p><a href="">link link link</a>
+<p><img src="/admin/logo">
+
+<div draggable=true style="font-size: 80%; margin:1em">
+draggable div div div div div div div div div div div div div div div div div
+div div div div div div div div div div div div div div div div div
+div div div div div div div div div div div div div div div div div
+</div>
+
+<div ondrop="drop(event)" ondragenter="return false" ondragover="return false">
+div div div div div div div div div div div div div div div div div
+div div div div div div div div div div div div div div div div div
+div div div div div div div div div div div div div div div div div
+div div div div div div div div div div div div div div div div div
+div div div div div div div div div div div div div div div div div
+div div div div div div div div div div div div div div div div div
+div div div div div div div div div div div div div div div div div
+</div>
+
+<div id=result></div>
+
+<script>
+  var result = document.getElementById('result');
+  function d (s) {
+    var div = result.appendChild(document.createElement('div'));
+    div.innerHTML = 'X';
+    div.firstChild.data = s;
+  }
+  function drop (ev) {
+    var dt = ev.dataTransfer;
+    d ('drop; dropEffect = ' + dt.dropEffect);
+    try {
+      d ('- effectAllowed = ' + dt.effectAllowed);
+    } catch (e) { 
+    }
+    if (dt.types) {
+      for (var i = 0; i < dt.types.length; i++) {
+        d ('- type = ' + dt.types[i]);
+      }
+    }
+    d ('- text: ' + dt.getData ('text'));
+    d ('- url: ' + dt.getData ('url'));
+    try { d ('- file: ' + dt.getData ('file')); } catch (e) { }
+    try { d ('- html: ' + dt.getData ('html')); } catch (e) { }
+    try { d ('- image: ' + dt.getData ('image')); } catch (e) { }
+    try { d ('- text/html: ' + dt.getData ('text/html')); } catch (e) { }
+  }
+</script>
+
