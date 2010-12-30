@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>removeChild then parentNode</title>
+<p id=result class=FAIL>FAIL (noscript)</p>
+<script>
+  var result = document.getElementById ('result');
+  
+  var div = document.createElement ('div');
+  document.body.appendChild (div);
+  document.body.removeChild (div);
+
+  if (div.parentNode === null) {
+    result.firstChild.data = 'PASS';
+    result.firstChild.className = 'PASS';
+  } else {
+    result.firstChild.data = 'FAIL (' + div.parentNode + ')';
+  }
+</script>
