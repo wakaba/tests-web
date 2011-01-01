@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<title>==</title>
+<p id=result class=FAIL>FAIL (noscript)</p>
+<script>
+  var result = document.getElementById ('result');
+  
+  var div = document.createElement ('div');
+  div.id = 'test-div-1';
+  document.body.appendChild (div);
+
+  var div2 = document.getElementById ('test-div-1');
+
+  if (div === div2) {
+    result.firstChild.data = 'PASS';
+    result.className = 'PASS';
+  } else {
+    result.firstChild.data = 'FAIL';
+  }
+</script>
