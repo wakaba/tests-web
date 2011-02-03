@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<event-source src="event-source-print-2-data.events.cgi">
+
+<pre id=status></pre>
+
+<script>
+  var status = document.getElementById ('status');
+  var es = document.getElementsByTagName ("event-source")[0];
+  es.addEventListener ('test-event-1', function (ev) {
+    status.appendChild (document.createTextNode (event.data + "\n"));
+  }, false);
+</script>
