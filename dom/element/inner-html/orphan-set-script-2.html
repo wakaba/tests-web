@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<style>
+  body {
+    background-color: green;
+  }
+  p {
+    color: blue;
+  }
+</style>
+
+<p>FAIL IF the background color is RED.</p>
+
+<script>
+  var div = document.createElement ('div');
+  div.innerHTML = '<html><script>document.body.style.backgroundColor = "red"</' + 'script>';
+</script>
