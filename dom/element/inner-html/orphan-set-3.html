@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<meta name=viewport content="width=device-width">
+
+<p>See below...</p>
+
+<p style="padding-bottom: 40em"></p>
+
+
+<button onclick="
+  var xhr = new XMLHttpRequest;
+  xhr.open ('GET', '/', true);
+  xhr.onreadystate = function () {
+    if (xhr.readyState == 4) {
+      var div = document.createElement ('div');
+      div.innerHTML = '';
+    }
+  };
+  xhr.send (null);
+">Push this button</script>
