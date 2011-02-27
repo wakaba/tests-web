@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script error)';
+
+  if (document.charset && document.charset.toLowerCase () == 'utf-8') {
+    result.firstChild.data = 'PASS';
+    result.className = 'PASS';
+  } else {
+    result.firstChild.data = 'FAIL (' + document.charset + ')';
+  }
+</script>
