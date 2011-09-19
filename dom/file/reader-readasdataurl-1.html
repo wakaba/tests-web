@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<title>FileReader.readAsDataURL</title>
+<style>
+  textarea {
+    width: 100%;
+    height: 10em;
+  }
+</style>
+
+<p><label>Select a file: <input type=file onchange="
+  var reader = new FileReader ();
+  reader.onload = function () {
+    document.getElementsByTagName ('textarea')[0].value = reader.result;
+  };
+  reader.readAsDataURL (this.files[0]);
+"></label>
+
+<p><textarea></textarea>
