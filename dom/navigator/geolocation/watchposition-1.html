@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<title>navigator.geolocation.getCurrentPosition</title>
+<style>
+  body > dl {
+    border-top: 3px blue solid;
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+  }
+</style>
+
+<p><code></code>
+<dl></dl>
+
+<script>
+  var result = document.getElementsByTagName ('code')[0];
+  window.navigator.geolocation.watchPosition (function (pos) {
+    result.textContent = pos;
+    var results = document.getElementsByTagName ('dl')[0];
+    document.body.insertBefore (document.createElement ('dl'), results);
+    for (var v in pos) {
+      var dt = document.createElement ('dt');
+      dt.innerHTML = '<code></code>';
+      dt.firstChild.textContent = v;
+      results.appendChild (dt);
+
+      var dd = document.createElement ('dd');
+      dd.innerHTML = '<code></code>';
+      dd.firstChild.textContent = pos[v];
+      results.appendChild (dd);
+
+      var dd = document.createElement ('dd');
+      dd.innerHTML = '<dl></dl>';
+      var dl = dd.firstChild;
+      for (var w in pos[v]) {
+        var dt = document.createElement ('dt');
+        dt.innerHTML = '<code></code>';
+        dt.firstChild.textContent = w;
+        dl.appendChild (dt);
+
+        var dd2 = document.createElement ('dd');
+        dd2.innerHTML = '<code></code>';
+        dd2.firstChild.textContent = pos[v][w];
+        dl.appendChild (dd2);
+      }
+      results.appendChild (dd);
+    }
+  }, function (error) {
+    result.textContent = error;
+    document.body.insertBefore (document.createElement ('dl'), results);
+    var results = document.getElementsByTagName ('dl')[0];
+    for (var v in error) {
+      var dt = document.createElement ('dt');
+      dt.innerHTML = '<code></code>';
+      dt.firstChild.textContent = v;
+      results.appendChild (dt);
+
+      var dd = document.createElement ('dd');
+      dd.innerHTML = '<code></code>';
+      dd.firstChild.textContent = error[v];
+      results.appendChild (dd);
+    }
+  }, {
+
+  });
+</script>

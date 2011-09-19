@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<title>navigator.geolocation.getCurrentPosition</title>
+
+<p><code></code>
+<dl></dl>
+
+<script>
+  var result = document.getElementsByTagName ('code')[0];
+  var results = document.getElementsByTagName ('dl')[0];
+  window.navigator.geolocation.getCurrentPosition (function (pos) {
+    result.textContent = pos;
+    for (var v in pos) {
+      var dt = document.createElement ('dt');
+      dt.innerHTML = '<code></code>';
+      dt.firstChild.textContent = v;
+      results.appendChild (dt);
+
+      var dd = document.createElement ('dd');
+      dd.innerHTML = '<code></code>';
+      dd.firstChild.textContent = pos[v];
+      results.appendChild (dd);
+
+      var dd = document.createElement ('dd');
+      dd.innerHTML = '<dl></dl>';
+      var dl = dd.firstChild;
+      for (var w in pos[v]) {
+        var dt = document.createElement ('dt');
+        dt.innerHTML = '<code></code>';
+        dt.firstChild.textContent = w;
+        dl.appendChild (dt);
+
+        var dd2 = document.createElement ('dd');
+        dd2.innerHTML = '<code></code>';
+        dd2.firstChild.textContent = pos[v][w];
+        dl.appendChild (dd2);
+      }
+      results.appendChild (dd);
+    }
+  }, function (error) {
+    result.textContent = error;
+    for (var v in error) {
+      var dt = document.createElement ('dt');
+      dt.innerHTML = '<code></code>';
+      dt.firstChild.textContent = v;
+      results.appendChild (dt);
+
+      var dd = document.createElement ('dd');
+      dd.innerHTML = '<code></code>';
+      dd.firstChild.textContent = error[v];
+      results.appendChild (dd);
+    }
+  }, {
+
+  });
+</script>
