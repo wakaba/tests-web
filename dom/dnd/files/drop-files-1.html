@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<title>drop files</title>
+<style>
+#drop {
+  border: blue 1px solid;
+  height: 5em;
+}
+</style>
+
+<p id=drop>Drop files here
+
+<dl></dl>
+
+<script>
+  var results = document.getElementsByTagName ('dl')[0];
+  var droparea = document.getElementById ('drop');
+  droparea.ondragenter = function () { return false };
+  droparea.ondragover = function () { return false };
+  droparea.ondrop = function (ev) {
+    var files = ev.dataTransfer.files;
+    results.innerHTML = '';
+    for (var i in files) {
+      var dt = document.createElement ('dt');
+      var code = document.createElement ('code');
+      code.appendChild (document.createTextNode (i));
+      dt.appendChild (code);
+      results.appendChild (dt);
+
+      var dd = document.createElement ('dd');
+      var code = document.createElement ('code');
+      code.appendChild (document.createTextNode (files[i]));
+      dd.appendChild (code);
+      results.appendChild (dd);
+
+      var dd = document.createElement ('dd');
+      var fdl = document.createElement ('dl');
+      dd.appendChild (fdl);
+      results.appendChild (dd);
+      var file = files[i];
+      for (var j in file) {
+        var fdt = document.createElement ('dt');
+        var code = document.createElement ('code');
+        code.appendChild (document.createTextNode (j));
+        fdt.appendChild (code);
+        fdl.appendChild (fdt);
+
+        var fdd = document.createElement ('dd');
+        var code = document.createElement ('code');
+        code.appendChild (document.createTextNode(file[j]));
+        fdd.appendChild (code);
+        fdl.appendChild (fdd);
+      }
+    }
+  };
+</script>
