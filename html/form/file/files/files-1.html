@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<title>&lt;input type=file>.files</title>
+
+<p><label>File: <input type=file></label>
+
+<p><input type=button onclick="
+  var file = document.getElementsByTagName ('input')[0];
+  var files = file.files;
+
+  var results = document.getElementsByTagName ('ul')[0];
+  results.innerHTML = '';
+
+  var li = document.createElement ('li');
+  var code = document.createElement ('code');
+  code.appendChild (document.createTextNode (files));
+  li.appendChild (code);
+  results.appendChild (li);
+
+  var fdl = document.createElement ('dl');
+  for (var p in files) {
+    var v = files[p];
+    var fdt = document.createElement ('dt');
+    fdt.appendChild (document.createTextNode (p));
+    fdl.appendChild (fdt);
+    var fdd = document.createElement ('dd');
+    fdd.appendChild (document.createTextNode (v));
+    fdl.appendChild (fdd);
+
+    var gdl = document.createElement ('dl');
+    for (var q in v) {
+      var gdt = document.createElement ('dt');
+      gdt.appendChild (document.createTextNode (q));
+      gdl.appendChild (gdt);
+      var gdd = document.createElement ('dd');
+      gdd.appendChild (document.createTextNode (v[q]));
+      gdl.appendChild (gdd);
+    }
+    fdd.appendChild (gdl);
+  }
+  li.appendChild (fdl);
+" value="Push this button">
+
+<ul></ul>
