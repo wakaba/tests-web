@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<title>drop files</title>
+<style>
+#drop {
+  border: blue 1px solid;
+  height: 5em;
+}
+</style>
+
+<p id=drop>Drop files here
+
+<dl></dl>
+
+<script>
+  var results = document.getElementsByTagName ('dl')[0];
+  var droparea = document.getElementById ('drop');
+  droparea.ondragenter = function () { return false };
+  droparea.ondragover = function () { return false };
+  droparea.ondrop = function (ev) {
+    var files = ev.dataTransfer.files;
+    results.innerHTML = '';
+    for (var i in files) {
+      var dt = document.createElement ('dt');
+      var code = document.createElement ('code');
+      code.appendChild (document.createTextNode (i));
+      dt.appendChild (code);
+      results.appendChild (dt);
+
+      var dd = document.createElement ('dd');
+      var code = document.createElement ('code');
+      code.appendChild (document.createTextNode (files[i]));
+      dd.appendChild (code);
+      results.appendChild (dd);
+
+      var dd = document.createElement ('dd');
+      results.appendChild (dd);
+      var file = files[i];
+      var img = document.createElement ('img');
+      try { img.src = (window.URL || window.webkitURL).createObjectURL (file) } catch (e) { };
+      dd.appendChild (img);
+    }
+    return false;
+  };
+</script>
