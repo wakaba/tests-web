@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<title>window.URL.createObjectURL</title>
+
+<p><label>Select a file: <input type=file></label>
+
+<p><input type=button onclick=exec() value="Then push this button">
+
+<p id=value>...
+<dl></dl>
+
+<script>
+function exec () {
+  var results = document.getElementsByTagName ('dl')[0];
+
+  var u = window.URL || window.webkitURL || {};
+  if (u.createObjectURL) {
+    var url = u.createObjectURL (document.getElementsByTagName ('input')[0].files[0]);
+    document.getElementById ('value').firstChild.data = url;
+  } else {
+    var url = {};
+  }
+
+  for (var v in url) {
+    var dt = document.createElement ('dt');
+    var code = document.createElement ('code');
+    code.appendChild (document.createTextNode (v));
+    dt.appendChild (code);
+    results.appendChild (dt);
+
+    var dd = document.createElement ('dd');
+    var code = document.createElement ('code');
+    code.appendChild (document.createTextNode (url[v]));
+    dd.appendChild (code);
+    results.appendChild (dd);
+
+    var dd = document.createElement ('dd');
+    var code = document.createElement ('code');
+    code.appendChild (document.createTextNode (Object.prototype.toString.apply (url[v])));
+    dd.appendChild (code);
+    results.appendChild (dd);
+  }
+} // exec
+</script>
