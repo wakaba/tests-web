@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<title>File.getAsDataURL</title>
+<style>
+  textarea {
+    width: 100%;
+    height: 10em;
+  }
+</style>
+
+<p><label>Select a file: <input type=file onchange="
+  var data = this.files[0].getAsDataURL ();
+  document.getElementsByTagName ('textarea')[0].value = data;
+"></label>
+
+<p><textarea></textarea>
