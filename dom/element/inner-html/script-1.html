@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<title>innerHTML = '<script>'</title>
+
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (error)';
+
+  var el = document.createElement ('div');
+  el.innerHTML = '<script>window.testValue1 = 1</' + 'script>';
+  document.body.appendChild (el);
+</script>
+
+<script>
+  if (window.testValue1) {
+    result.firstChild.data = 'FAIL';
+  } else {
+    result.firstChild.data = 'PASS';
+    result.className = 'PASS';
+  }
+</script>
