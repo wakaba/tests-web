@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<title>Events</title>
+<style>
+  #eventarea {
+    background-color: blue;
+    min-height: 9em;
+  }
+  li code:first-child {
+    font-weight: bolder;
+  }
+</style>
+
+<div id=eventarea>
+
+  agewagea g awtg at gages w43t 434 gsa re tag bw t4 4q4tg4 t4wa
+  3gv enw 4a g4w t4wa aegfe rr r agewagea g awtg at gages w43t 434 gsa
+  re tag bw t4 4q4tg4 t4wad 3gv enw 4a g4w t4wa aegfe rr ragewagea g
+  awtg at gages w43t 434 gsa re tag bw t4 4q4tg4 t4wa 3gv enw 4a g4w.
+
+  <p>awtg at gages w43t 434 gsa re tag bw t4 4q4tg4 t4wa 3gv enw 4a g4w
+  t4wa aegfe rr ragewagea g awtg at gages w43t 434 gsa re tag bw t4
+  4q4tg4 t4wa 3gv enw 4a g4w t4wa aegfe rr ragewagea g awtg at gages
+  w43t 434 gsa re tag bw t4 4q4tg4 t4wa 3gv enw 4a g4w t4wa aegfe rr
+
+  <p><input pattern="[^0-9]+"> <select><option>a<option>b</select>
+
+  <p>t4wa aegfe rr ragewagea g awtg at gages w43t 434 gsa re tag bw t4
+  4q4tg4 t4wa 3gv enw 4a g4w t4wa aegfe rr ragewagea g awtg at gages
+  re tag bw t4 4q4tg4 t4wa3gv enw 4a g4w t4wa aegfe rr r.
+</div>
+
+<ul id=events></ul>
+
+<script>
+  var target = document.getElementById ('eventarea');
+  var results = document.getElementById ('events');
+
+  if (target.addEventListener) {
+    var add = function (event, code) {
+      target.addEventListener (event, code, false);
+    }; // add
+  } else if (target.attachEvent) {
+    var add = function (event, code) {
+      target.attachEvent ('on' + event, code);
+    }; // add
+  }
+
+  var handleEvent = function (event) {
+    var ev = event || window.event;
+    var li = document.createElement ('li');
+    li.appendChild (document.createElement ('code')).appendChild (document.createTextNode (ev.type));
+    li.appendChild (document.createTextNode (' '));
+    li.appendChild (document.createElement ('code')).appendChild (document.createTextNode (ev.clientX));
+    li.appendChild (document.createTextNode (','));
+    li.appendChild (document.createElement ('code')).appendChild (document.createTextNode (ev.clientY));
+    results.insertBefore (li, results.firstChild);
+  };
+
+  for (var e in {
+    'mousemove':0
+  }) {
+    add (e, handleEvent);
+  }
+</script>

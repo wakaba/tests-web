@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<title>Events</title>
+<style>
+  #eventarea {
+    background-color: blue;
+    height: 9em;
+    overflow: scroll;
+  }
+  li code:first-child {
+    font-weight: bolder;
+  }
+</style>
+
+<div id=eventarea tabindex=0>
+
+  agewagea g awtg at gages w43t 434 gsa re tag bw t4 4q4tg4 t4wa
+  3gv enw 4a g4w t4wa aegfe rr r agewagea g awtg at gages w43t 434 gsa
+  re tag bw t4 4q4tg4 t4wad 3gv enw 4a g4w t4wa aegfe rr ragewagea g
+  awtg at gages w43t 434 gsa re tag bw t4 4q4tg4 t4wa 3gv enw 4a g4w.
+
+  <p>awtg at gages w43t 434 gsa re tag bw t4 4q4tg4 t4wa 3gv enw 4a g4w
+  t4wa aegfe rr ragewagea g awtg at gages w43t 434 gsa re tag bw t4
+  4q4tg4 t4wa 3gv enw 4a g4w t4wa aegfe rr ragewagea g awtg at gages
+  w43t 434 gsa re tag bw t4 4q4tg4 t4wa 3gv enw 4a g4w t4wa aegfe rr
+
+  <p><input pattern="[^0-9]+"> <select><option>a<option>b</select>
+
+  <p>t4wa aegfe rr ragewagea g awtg at gages w43t 434 gsa re tag bw t4
+  4q4tg4 t4wa 3gv enw 4a g4w t4wa aegfe rr ragewagea g awtg at gages
+  re tag bw t4 4q4tg4 t4wa3gv enw 4a g4w t4wa aegfe rr r.
+</div>
+
+<ul id=events></ul>
+
+<script>
+  var target = document.getElementById ('eventarea');
+  var results = document.getElementById ('events');
+
+  if (target.addEventListener) {
+    var add = function (event, code) {
+      target.addEventListener (event, code, false);
+    }; // add
+  } else if (target.attachEvent) {
+    var add = function (event, code) {
+      target.attachEvent ('on' + event, code);
+    }; // add
+  }
+
+  var lastEvent;
+  var handleEvent = function (event) {
+    var ev = event || window.event;
+    if (ev.type == lastEvent) return;
+    lastEvent = ev.type;
+    var li = document.createElement ('li');
+    li.appendChild (document.createElement ('code')).appendChild (document.createTextNode (ev.type));
+    li.appendChild (document.createTextNode (' '));
+    for (var n in ev) {
+      if (ev[n] instanceof Function) continue;
+      if (/^(?:[0-9A-Z_]+|type|target|currentTarget)$/.test (n)) continue;
+      li.appendChild (document.createElement ('code')).appendChild (document.createTextNode (n));
+      li.appendChild (document.createTextNode (' '));
+      li.appendChild (document.createElement ('code')).appendChild (document.createTextNode (ev[n]));
+      li.appendChild (document.createTextNode ('; '));
+    }
+    results.insertBefore (li, results.firstChild);
+  };
+
+  for (var e in {
+    'click':0, 'dblclick':0,
+    'mouseover':0, 'mouseenter':0, 'mousedown':0, 'mousemove':0, 
+    'mouseup':0, 'mouseout':0, 'mouseleave': 0,
+    'wheel':0,
+    'touchstart':0, 'touchmove':0, 'touchend':0, 'touchcancel':0,
+    'dragstart':0, 'dragenter':0, 'dragover':0, 'drop':0, 'dragleave':0,
+    
+    'focus':0, 'DOMFocusIn':0, 'focusin':0, 
+    'blur':0, 'DOMFocusOut':0, 'focusout':0,
+    'DOMActivate':0, 'select':0,
+    'contextmenu':0,
+
+    'keydown':0, 'keypress':0, 'keyup':0,
+    'textinput':0,
+    'compositionstart':0, 'compositionupdate':0, 'compositionend':0,
+
+    'scroll':0,
+
+    'input':0, 'change':0, 'forminput':0, 'formchange':0,
+    'invalid':0,
+
+    'dummry':0
+  }) {
+    add (e, handleEvent);
+  }
+</script>
