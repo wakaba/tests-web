@@ -120,7 +120,7 @@
 
   ctx.fillStyle = 'black';
   var eraserMode = false;
-  canvasGrid.addEventListener ('click', function (ev) {
+  canvasGrid.addEventListener ('mousemove', function (ev) {
     // Firefox does not have |offsetX| but WebKit does.
     var x = ev.offsetX - (ev.offsetX % pixel);
     var y = ev.offsetY - (ev.offsetY % pixel);
