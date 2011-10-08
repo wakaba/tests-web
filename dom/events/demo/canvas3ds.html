@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<title>Canvas</title>
+<meta name=viewport content="width=320px">
+<style>
+  body {
+    margin: 0;
+  }
+  #canvas-bg {
+    position: absolute;
+  }
+
+    #panel {
+      margin: 0;
+      border-color: #dedede;
+      border-style: solid;
+      border-width: 1px 0 0 0;
+      border-top: 0;
+      padding: 0;
+      background: #efefef;
+      text-align: left;
+    }
+
+  #panel p {
+    margin: 0;
+    padding: 2px 7px;
+    font-size: 16px;
+    line-height: 1.0;
+  }
+
+  #panel p a{
+    text-decoration: none;
+  }
+
+  .eraser {
+    border: 1px #dedede solid;#dedede
+    padding: 0;
+    font-size: 12px;
+  }
+
+  .eraser img {
+    vertical-align: bottom;
+  }
+
+  .linewidth {
+    display: inline-block;
+    text-align: center;
+    color: #efefef;
+    border: 1px #dedede solid;#dedede
+    min-width: 12px;
+    max-width: 12px;
+    min-height: 12px;
+    max-height: 12px;
+    padding: 1px;
+    overflow: hidden;
+  }
+    .linewidth span {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      line-height: 1.0;
+      overflow: hidden;
+      vertical-align: top;
+      font-size: 12px;
+    }
+    .linewidth-1  span { margin: 5px; border-left: 1px  solid black; height: 1px; width: 1px }
+    .linewidth-2  span { margin: 5px; border-left: 2px  solid black; height: 2px; width: 2px }
+    .linewidth-3  span { margin: 4px; border-left: 3px  solid black; height: 3px; width: 3px }
+    .linewidth-4  span { margin: 4px; border-left: 4px  solid black; height: 4px; width: 4px }
+    .linewidth-8  span { margin: 3px; border-left: 8px  solid black; height: 8px; width: 8px }
+</style>
+
+<canvas width=320 height=200 id=canvas-bg></canvas>
+<canvas width=320 height=200 id=canvas></canvas>
+
+<div id="panel">
+        <p class="color">
+        <a href="javascript:setProp('fillStyle', '#FFFFFF')" style="color: #FFFFFF">&#9632;</a>
+        <a href="javascript:setProp('fillStyle', '#DCDDDD')" style="color: #DCDDDD">&#9632;</a>
+        <a href="javascript:setProp('fillStyle', '#9ea1a3')" style="color: #9ea1a3">&#9632;</a>
+        <a href="javascript:setProp('fillStyle', '#2B2B2B')" style="color: #2B2B2B">&#9632;</a>
+        <a href="javascript:setProp('fillStyle', '#D9333F')" style="color: #D9333F">&#9632;</a>
+        <a href="javascript:setProp('fillStyle', '#762f07')" style="color: #762f07">&#9632;</a>
+        <a href="javascript:setProp('fillStyle', '#F5B199')" style="color: #F5B199">&#9632;</a>
+        <a href="javascript:setProp('fillStyle', '#FFDB4F')" style="color: #FFDB4F">&#9632;</a>
+        <a href="javascript:setProp('fillStyle', '#7EBEAB')" style="color: #7EBEAB">&#9632;</a>
+        <a href="javascript:setProp('fillStyle', '#2F5D50')" style="color: #2F5D50">&#9632;</a>
+        <a href="javascript:setProp('fillStyle', '#89C3EB')" style="color: #89C3EB">&#9632;</a>
+        <a href="javascript:setProp('fillStyle', '#706CAA')" style="color: #706CAA">&#9632;</a>
+
+    <a href="javascript:void(0)" onclick="inputCustomColor(this)" style="color: black">&#9632;</a>
+    <a href="javascript:eraser()" class=eraser><img src="http://f.hatena.ne.jp/images/fotolife/h/hatenahaiku/20080710/20080710114446.gif" width=16 height=16 alt=Eraser></a>
+      </p>
+
+  <p class="width">
+    <a href="javascript:setPixelSize(1)" class="linewidth linewidth-1"><span>1</span></a>
+    <a href="javascript:setPixelSize(2)" class="linewidth linewidth-2"><span>2</span></a>
+    <a href="javascript:setPixelSize(3)" class="linewidth linewidth-3"><span>3</span></a>
+    <a href="javascript:setPixelSize(4)" class="linewidth linewidth-4"><span>4</span></a>
+    <a href="javascript:setPixelSize(8)" class="linewidth linewidth-8"><span>8</span></a>
+        </p>
+</div>
+
+<script>
+  var canvas = document.getElementById ('canvas');
+  var canvasGrid = document.getElementById ('canvas-bg');
+  var ctx = canvas.getContext ('2d');
+  var ctxGrid = canvasGrid.getContext ('2d');
+
+  var width = canvas.width;
+  var height = canvas.height;
+  var pixel = 8;
+
+  ctxGrid.fillStyle = '#eee';
+  for (var i = 0; i < width / pixel; i++) {
+    ctxGrid.fillRect (i * pixel, 0, 1, height);
+  }
+  for (var i = 0; i < height / pixel; i++) {
+    ctxGrid.fillRect (0, i * pixel, width, 1);
+  }
+
+  ctx.fillStyle = 'black';
+  var eraserMode = false;
+  canvasGrid.addEventListener ('click', function (ev) {
+    var x = ev.offsetX - (ev.offsetX % pixel);
+    var y = ev.offsetY - (ev.offsetY % pixel);
+    ctx[eraserMode ? 'clearRect' : 'fillRect'] (x, y, pixel, pixel);
+  }, false);
+
+  function eraser () {
+    eraserMode = true;
+  }
+
+  function setProp (n, v) {
+    ctx[n] = v;
+    eraserMode = false;
+  }
+
+  function inputCustomColor(button) {
+    var color = prompt('Specify color', button.style.color);
+    if (color) {
+        setProp('fillStyle', color);
+        button.style.color = color;
+    }
+  }
+
+  function setPixelSize (size) {
+    pixel = size;
+  }
+</script>
+<!--
+
+Copyright 2011 Wakaba <w@suika.fam.cx>.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->

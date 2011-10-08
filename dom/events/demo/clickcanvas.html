@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<title>Canvas</title>
+
+<style>
+  body {
+    margin: 0;
+  }
+  canvas {
+    background-color: blue;
+  }
+</style>
+
+<canvas width=400 height=200></canvas>
+
+<script>
+  var canvas = document.getElementsByTagName ('canvas')[0];
+  var ctx = canvas.getContext ('2d');
+  ctx.fillStyle = 'white';
+  canvas.addEventListener ('click', function (ev) {
+    ctx.fillRect (ev.clientX - 2, ev.clientY - 2, 4, 4);
+  }, false);
+</script>
