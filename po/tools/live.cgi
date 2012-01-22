@@ -1,10 +1,10 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
+use Path::Class;
+use lib file (__FILE__)->dir->parent->parent->subdir ('modules', 'manakai', 'lib')->stringify;
 use CGI::Carp qw/fatalsToBrowser/;
-
-use lib qw[/home/wakaba/work/manakai2/lib];
-
+use Encode;
 use Message::CGI::Util qw/htescape/;
 
 require Message::CGI::HTTP;
