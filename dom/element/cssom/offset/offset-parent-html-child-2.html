@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<title>body.nextSibling.offsetParent</title>
+<script src="../../../../support/result.js"></script>
+<style>
+html {
+  background-color: white;
+}
+</style>
+<body>
+
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script error)';
+  var el = document.createElement ('div');
+  el.style.position = 'absolute';
+  el.style.top = '123px';
+  el.style.left = '45px';
+  document.documentElement.appendChild (el);
+
+  setResult ('result', el.offsetParent);
+</script>

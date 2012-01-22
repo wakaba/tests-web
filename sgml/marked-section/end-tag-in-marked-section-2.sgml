@@ -1,0 +1,16 @@
+<!DOCTYPE foo [
+  <!ELEMENT foo - - (#PCDATA|bar)+>
+  <!ELEMENT bar - o (#PCDATA)>
+]>
+<foo>
+  foo text 1
+  <bar>
+    bar text 1
+    <![ INCLUDE [
+      included text 1
+      </bar>
+      included text 2
+    ]]>
+    some text 1
+  foo text 2
+</foo>

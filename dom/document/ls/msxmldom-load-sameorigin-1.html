@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<body>
+
+<p id=rcontent></p>
+
+<script>
+  var contentEl = document.getElementById ('rcontent');
+
+  var xml = new ActiveXObject ('Microsoft.XMLDOM');
+  xml.async = false;
+  xml.load ('data1.xml');
+
+  var descs = xml.getElementsByTagName ('description');
+  for (var i = 0; i < descs.length; i++) {
+    contentEl.appendChild (document.createTextNode (descs[i].firstChild.nodeValue));
+  }
+</script>
+

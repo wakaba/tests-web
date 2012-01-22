@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE foo SYSTEM "http://suika.fam.cx/~wakaba/-temp/test/xml/b.dtd" [
+  <!ELEMENT foo ANY>
+  <!ELEMENT b:a ANY>
+  <!ATTLIST b:a xmlns:b CDATA #IMPLIED>
+  <!ELEMENT blockquote ANY>
+  <!ATTLIST blockquote type CDATA #IMPLIED xmlns CDATA #IMPLIED>
+]>
+<foo>
+<!--&ent;{{&ent2;::&lt3;}}&e2;;&amamp; [SAMP(SGML)[&AMP;]]   [SAMP(SGML)[&AMPp;]]
+--><b:a xmlns:b="vf">kkkkk</b:a><blockquote type="cite" xmlns="http://www.w3.org/1999/xhtml"> daadda</blockquote>
+<foo>&an-external-entity;</foo>
+</foo>

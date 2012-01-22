@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-2022-jp"?>
+<!ENTITY  lt3 ";">
+<!ENTITY % lt "<">
+<!ENTITY ent "%lt;foo></foo>">
+<!--<!ENTITY ent0 SYSTEM "%lt;foo></foo>" NDATA foo>-->
+
+<!ENTITY % entdef "%lt;!ENTITY ent2 'offf'>">
+<!ENTITY % q '"'>
+<!ENTITY % lt "&lt;"><!ENTITY % a "<!ENTITY ent2 %q;entity No. 2%q;>">
+%a;
+
+
+<!ENTITY % e1 "'Q&#x26;#x26;#x26;#x26;#x26;A'">
+<!ENTITY % e2.5  '"%e1;"'>
+<!ENTITY e2 "%e2.5;">
+
+<!ENTITY   amamp0  '&#x26;#x26;#x26;'>
+<!ENTITY amamp "&amamp0;amp;">
+<!ENTITY % AMP0 '&#x26;#x26;#x26;'>
+<!ENTITY AMP0 '&#x26;#x26;#x26;'>
+<!ENTITY AMPp "%AMP0;">
+<!ENTITY AMP "&AMP0;">
+
+<!ENTITY % external-text SYSTEM "c.dtd">
+<!--<!ENTITY %external-text; >-->
+
+<!ENTITY % xent2 "%external-text;>">
+%xent2;

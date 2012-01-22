@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="#style" type="text/css"?>
+<!DOCTYPE foo [
+  <!ATTLIST style id ID #IMPLIED>
+]>
+<foo>
+  <style id="style">
+    foo {
+      border: blue solid 3px;
+      display: block;
+    }
+    style {
+      display: block;
+    }
+    /* Is agent recognize ID attribute? */
+    #style {
+      border: red dotted 1px;
+    }
+  </style>
+</foo>

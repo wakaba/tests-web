@@ -1,0 +1,12 @@
+<!DOCTYPE foo [
+  <!ENTITY ent "
+    <![ IGNORE [
+      ignored? included?
+    ]]>
+  ">
+]>
+<foo>
+  <![ RCDATA [
+    &ent;
+  ]]>
+</foo>
