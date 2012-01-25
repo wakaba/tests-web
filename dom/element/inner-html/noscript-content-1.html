@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<title>noscript.innerHTML</title>
+
+<noscript><p>Noscript<p>content</noscript>
+
+<pre id=result>(noscript)</pre>
+
+<script>
+  document.getElementById ('result').firstChild.data = document.getElementsByTagName('noscript')[0].innerHTML;
+</script>

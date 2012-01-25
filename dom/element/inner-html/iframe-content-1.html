@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<title>iframe.innerHTML</title>
+
+<iframe><p>Iframe<p>content</iframe>
+
+<pre id=result>(noscript)</pre>
+
+<script>
+  document.getElementById ('result').firstChild.data = document.getElementsByTagName('iframe')[0].innerHTML;
+</script>

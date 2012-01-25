@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<title>style.innerHTML</title>
+
+<style><p>Style<p>content</style>
+
+<pre id=result>(noscript)</pre>
+
+<script>
+  document.getElementById ('result').firstChild.data = document.getElementsByTagName('style')[0].innerHTML;
+</script>
