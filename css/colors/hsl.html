@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<title>hsl()</title>
+<style>
+  nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.7em;
+    height: 1.3em;
+    background: white;
+    z-index: 10000;
+  }
+  a {
+    display: inline-block;
+    width: 1.3em;
+    height: 1.3em;
+  }
+  td {
+    width: 1.3em;
+    height: 1.3em;
+    cursor: pointer;
+  }
+
+  #result {
+    position: fixed;
+    top: 4em;
+    right: 0.7em;
+  }
+</style>
+
+<p><input id=result onclick=" this.select () "></p>
+
+<script>
+
+  var html = '';
+
+  html += '<nav>';
+  for (var h = 0; h <= 360; h += 10) {
+    html += ' <a href="#h=' + h + '" class=color style="background-color: hsl(' + h + ', 100%, 50%)"></a>';
+  }
+  html += '</nav>';
+
+  html += '<section>';
+  for (var h = 0; h <= 360; h += 10) {
+    html += '<table id="h=' + h + '">';
+    for (var s = 0; s <= 100; s += 5) {
+      html += '<tr>';
+      for (var l = 0; l <= 100; l += 5) {
+        html += '<td style="background-color: hsl(' + h + ', ' + s + '%, ' + l + '%)" onclick="selectColor(this)">';
+      }
+    }
+    html += '</table>';
+  }
+  html += '</section>';
+
+  document.write (html);
+
+  var result = document.getElementById ('result');
+  function selectColor (el) {
+    result.value = getComputedStyle (el, null).backgroundColor;
+  } // selectColor
+
+</script>
