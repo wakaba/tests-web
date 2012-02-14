@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<title>Image.src</title>
+
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL';
+
+  var img = new Image ();
+  img.src = '../../support/1.png';
+  img.onload = function () {
+    result.firstChild.data = 'PASS';
+    result.className = 'PASS';
+  };
+</script>
