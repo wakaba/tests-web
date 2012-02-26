@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<title>Accept-Language parsing</title>
+<script src="http://suika.fam.cx/www/js/sami/script/sami-core.js"></script>
+<script src="http://suika.fam.cx/www/js/sami/script/sami-test.js"></script>
+
+<p id=result class=FAIL>FAIL (noscript)</p>
+<pre id=result-tap></pre>
+
+<script>
+  var r = document.getElementById ('result');
+  var tap = document.getElementById ('result-tap');
+  var tm = new SAMI.Test.Manager (r, new SAMI.StringContainer.Element (tap));
+
+  SAMI.Test.executeTestsByURL ('parse-tests.dat', {
+    data: {isPrefixed: true}
+  }, function (test) {
+    var xhr = new XMLHttpRequest ();
+    xhr.open ('GET', 'pages/conneg-1?' + Math.random (), false);
+    xhr.setRequestHeader ('Accept-Language', test.getField ('data'));
+    xhr.send (null);
+    var actual = xhr.responseText.replace (/\n/g, '');
+    tm.is (actual, test.getField ('result'), test.getField ('data'));
+  }, function () {
+    tm.done ();
+  }, function (e) {
+    tm.abort (e.type + ' - ' + e.text);
+  });
+</script>
