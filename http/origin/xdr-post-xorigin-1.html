@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<title>Origin:</title>
+
+<p class=FAIL id=result>FAIL (noscript)</p>
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script)';
+
+  var url = location.protocol + '//' +
+      (location.hostname.match (/\.$/)
+           ? location.hostname.replace (/\.$/, '')
+           : location.hostname + '.') + ':' + location.port + location.pathname.replace (/[^\/]+$/, 'return-origin.cgi');
+
+  var xhr = new XDomainRequest ();
+  xhr.open ('POST', url, false);
+  xhr.send (null);
+  var origin = xhr.responseText;
+  if (origin == location.protocol + '//' + location.host) {
+    result.firstChild.data = 'PASS';
+    result.className = 'PASS';
+  } else {
+    result.firstChild.data = 'FAIL (' + origin + ')';
+  }
+</script>
