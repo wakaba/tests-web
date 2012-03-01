@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<title>Origin:</title>
+
+<p class=FAIL id=result>FAIL (noscript)</p>
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script)';
+
+  var xhr = new XMLHttpRequest ();
+  xhr.open ('GET', 'return-origin.cgi', false);
+  xhr.send (null);
+  var origin = xhr.responseText;
+  if (origin == location.protocol + '//' + location.host) {
+    result.firstChild.data = 'PASS';
+    result.className = 'PASS';
+  } else {
+    result.firstChild.data = 'FAIL (' + origin + ')';
+  }
+</script>
