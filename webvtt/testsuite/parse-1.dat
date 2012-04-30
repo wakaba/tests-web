@@ -1,0 +1,597 @@
+#data
+#errors
+1;1;m;webvtt:no signature;;
+#parsed
+invalid
+
+#data
+0
+#errors
+1;1;m;webvtt:no signature;;
+#parsed
+invalid
+
+#data
+hoge
+#errors
+1;1;m;webvtt:no signature;;
+#parsed
+invalid
+
+#data
+webvtt
+#errors
+1;1;m;webvtt:no signature;;
+#parsed
+invalid
+
+#data
+WEB
+#errors
+1;1;m;webvtt:no signature;;
+#parsed
+invalid
+
+#data
+web
+#errors
+1;1;m;webvtt:no signature;;
+#parsed
+invalid
+
+#data
+WEBVT
+#errors
+1;1;m;webvtt:no signature;;
+#parsed
+invalid
+
+#data
+WEBSRT
+#errors
+1;1;m;webvtt:no signature;;
+#parsed
+invalid
+
+#data
+WEBVTT
+#errors
+#parsed
+
+#data
+ WEBVTT
+#errors
+1;1;m;webvtt:no signature;;
+#parsed
+invalid
+
+#data escaped
+WEBVTT\u0020
+#errors
+#parsed
+sigline ""
+
+#data escaped
+WEBVTT\u0009
+#errors
+#parsed
+sigline ""
+
+#data escaped
+WEBVTTxyz
+#errors
+1;1;m;webvtt:no signature;;
+#parsed
+invalid
+
+#data escaped
+WEBVTT/2.0
+#errors
+1;1;m;webvtt:no signature;;
+#parsed
+invalid
+
+#data escaped
+WEBVTT\u000C
+#errors
+1;1;m;webvtt:no signature;;
+#parsed
+invalid
+
+#data escaped
+WEBVTT\u0000
+#errors
+1;1;m;webvtt:no signature;;
+#parsed
+invalid
+
+#data escaped
+WEBVTT\u0020abc
+#errors
+#parsed
+sigline "abc"
+
+#data escaped
+WEBVTT\u0009abc
+#errors
+#parsed
+sigline "abc"
+
+#data escaped
+WEBVTT\u000Cabc
+#errors
+1;1;m;webvtt:no signature;;
+#parsed
+invalid
+
+#data escaped
+WEBVTT -*- WebVTT -*-
+#errors
+#parsed
+sigline "-*- WebVTT -*-"
+
+#data escaped
+WEBVTT abc\u0000
+#errors
+#parsed escaped
+sigline "abc\uFFFD"
+
+#data escaped
+WEBVTT abc\uD800
+#errors
+#parsed escaped
+sigline "abc\uD800"
+#validity
+surrogate
+
+#data escaped
+WEBVTT abc\uFFFF
+#errors
+#parsed escaped
+sigline "abc\uFFFF"
+#validity
+noncharacter
+
+#data escaped
+WEBVTT abc\U00010000
+#errors
+#parsed escaped
+sigline "abc\U00010000"
+
+#data escaped
+WEBVTT abc\U00FF0000
+#errors
+#parsed escaped
+sigline "abc\U00FF0000"
+#validity
+nonunicode
+
+#data
+WEBVTT
+abc
+#errors
+2;1;m;webvtt:headers;;
+#parsed
+headers "abc"
+
+#data escaped
+WEBVTT
+abc\u000Adef
+#errors
+2;1;m;webvtt:headers;;
+#parsed escaped
+headers "abc\u000Adef"
+
+#data escaped
+WEBVTT
+abc\u000Ddef
+#errors
+2;1;m;webvtt:headers;;
+#parsed escaped
+headers "abc\u000Adef"
+
+#data escaped
+WEBVTT
+abc\u000D\u000Adef
+#errors
+2;1;m;webvtt:headers;;
+#parsed escaped
+headers "abc\u000Adef"
+
+#data escaped
+WEBVTT
+abc\u000D\u000C\u000Adef
+#errors
+2;1;m;webvtt:headers;;
+#parsed escaped
+headers "abc\u000A\u000C\u000Adef"
+
+#data escaped
+WEBVTT
+aa\u0000
+#errors
+2;1;m;webvtt:headers;;
+#parsed escaped
+headers "aa\uFFFD"
+
+#data escaped
+WEBVTT
+aa\uD800
+#errors
+2;1;m;webvtt:headers;;
+#parsed escaped
+headers "aa\uD800"
+#validity
+surrogate
+
+#data escaped
+WEBVTT
+aa\uFFFF
+#errors
+2;1;m;webvtt:headers;;
+#parsed escaped
+headers "aa\uFFFF"
+#validity
+noncharacter
+
+#data escaped
+WEBVTT
+aa\U00FE00FF
+#errors
+2;1;m;webvtt:headers;;
+#parsed escaped
+headers "aa\U00FE00FF"
+#validity
+nonunicode
+
+#data
+| WEBVTT
+| abc
+| 
+#errors
+2;1;m;webvtt:headers;;
+#parsed escaped
+headers "abc"
+
+#data
+| WEBVTT
+| abc
+| 
+| 
+#errors
+2;1;m;webvtt:headers;;
+#parsed escaped
+headers "abc"
+
+#data
+| WEBVTT
+| abc
+| 
+| 
+| 
+#errors
+2;1;m;webvtt:headers;;
+#parsed escaped
+headers "abc"
+
+#data
+| WEBVTT
+| 
+| 12:33.000 -> 100:31:22.000
+| aa
+#errors
+4;3;m;webvtt:no timings;;
+#parsed
+invalid "12:33.000 -> 100:31:22.000
+aa"
+
+#data
+| WEBVTT
+| 
+| aa
+#errors
+3;3;m;webvtt:no timings;;
+#parsed
+invalid "aa"
+
+#data
+| WEBVTT
+| 
+| aa
+| 
+#errors
+4;1;m;webvtt:no timings;;
+#parsed
+invalid "aa"
+
+#data
+| WEBVTT
+| 
+| aa
+| 
+| bb
+#errors
+4;1;m;webvtt:no timings;;
+5;3;m;webvtt:no timings;;
+#parsed
+invalid "aa"
+invalid "bb"
+
+#data
+| WEBVTT
+| 
+| id1
+| id2
+| 12:43:21.000 --> 12:56:31.000
+| aaa
+#errors
+3;1;m;webvtt:id:duplicate;;
+#parsed
+<12:43:21.000> <12:56:31.000>
+  invalid #id1
+  #id2
+  "aaa"
+
+#data
+| WEBVTT
+| 
+| id1
+| id2
+| id3
+| 12:43:21.000 --> 12:56:31.000
+| aaa
+#errors
+3;1;m;webvtt:id:duplicate;;
+4;1;m;webvtt:id:duplicate;;
+#parsed
+<12:43:21.000> <12:56:31.000>
+  invalid #id1
+  invalid #id2
+  #id3
+  "aaa"
+
+#data
+| WEBVTT
+| 
+| id1
+| id2
+| id3
+| 12:43:21.000 --> 12:56:31.000
+#errors
+3;1;m;webvtt:id:duplicate;;
+4;1;m;webvtt:id:duplicate;;
+6;30;m;webvtt:no text;;
+#parsed
+<12:43:21.000> <12:56:31.000>
+  invalid #id1
+  invalid #id2
+  #id3
+  ""
+
+#data
+| WEBVTT
+| 
+| abc
+| def
+#errors
+4;4;m;webvtt:no timings;;
+#parsed
+invalid "abc
+def"
+
+#data
+| WEBVTT
+| 
+| abc
+| def
+| 
+#errors
+3;1;m;webvtt:id:duplicate;;
+5;1;m;webvtt:no timings;;
+#parsed
+invalid "abc
+def"
+
+#data
+| WEBVTT
+| 
+| abc
+| -->
+#errors
+4;1;m;webvtt:bad timings;;
+#parsed
+invalid "abc
+-->"
+
+#data
+| WEBVTT
+| 
+| abc
+| -->
+| 
+#errors
+4;1;m;webvtt:bad timings;;
+#parsed
+invalid "abc
+-->"
+
+#data
+| WEBVTT
+| 
+| abc
+| 10:20.333 --> 20:21.000
+#errors
+4;24;m;webvtt:no text;;
+#parsed
+<00:10:20.333> <00:20:21.000>
+  #abc
+  ""
+
+#data
+| WEBVTT
+| 
+| abc
+| 10:20.333 --> 20:21.000 vertical:lr
+#errors
+4;36;m;webvtt:no text;;
+#parsed
+<00:10:20.333> <00:20:21.000>
+  #abc
+  writing direction lr
+  ""
+
+#data
+| WEBVTT
+| 
+| abc
+| 10:20.333 --> 20:21.000 vertical:lr
+| 
+#errors
+#parsed
+<00:10:20.333> <00:20:21.000>
+  #abc
+  writing direction lr
+  ""
+
+#data
+| WEBVTT
+| 
+| abc
+| 10:20.333 --> 20:21.000
+| 
+#errors
+#parsed
+<00:10:20.333> <00:20:21.000>
+  #abc
+  ""
+
+#data
+| WEBVTT
+| 
+| 12:21:11.000 --> 44:12:22.000
+| abc
+| de ff
+| 
+| xxz
+#errors
+7;4;m;webvtt:no timings;;
+#parsed
+<12:21:11.000> <44:12:22.000>
+  "abc
+de ff"
+invalid "xxz"
+
+#data
+| WEBVTT
+| 
+| 12:21:11.000 --> 44:12:22.000
+| abc
+| de ff
+| 
+| xxz
+| 
+#errors
+8;1;m;webvtt:no timings;;
+#parsed
+<12:21:11.000> <44:12:22.000>
+  "abc
+de ff"
+invalid "xxz"
+
+#data escaped
+| WEBVTT
+| 
+| 21:21:33.000 --> 31:43:33.000
+| aaa\u0000
+#errors
+#parsed escaped
+<21:21:33.000> <31:43:33.000>
+  "aaa\uFFFD"
+
+#data escaped
+| WEBVTT
+| 
+| 21:21:33.000 --> 31:43:33.000
+| aaa\uD800
+#errors
+#parsed escaped
+<21:21:33.000> <31:43:33.000>
+  "aaa\uD800"
+#validity
+surrogate
+
+#data escaped
+| WEBVTT
+| 
+| 21:21:33.000 --> 31:43:33.000
+| aaa\uFFFF
+#errors
+#parsed escaped
+<21:21:33.000> <31:43:33.000>
+  "aaa\uFFFF"
+#validity
+noncharacter
+
+#data escaped
+| WEBVTT
+| 
+| 21:21:33.000 --> 31:43:33.000
+| aaa\U0100F000
+#errors
+#parsed escaped
+<21:21:33.000> <31:43:33.000>
+  "aaa\U0100F000"
+#validity
+nonunicode
+
+#data escaped
+| WEBVTT
+| 
+| 21:21:33.000 --> 31:43:33.000
+| aaa\u000Abbbb
+#errors
+#parsed escaped
+<21:21:33.000> <31:43:33.000>
+  "aaa\u000Abbbb"
+
+#data escaped
+| WEBVTT
+| 
+| 21:21:33.000 --> 31:43:33.000
+| aaa\u000D\u000Abbbb\u000Acccc
+#errors
+#parsed escaped
+<21:21:33.000> <31:43:33.000>
+  "aaa\u000Abbbb\u000Acccc"
+
+#data escaped
+| WEBVTT
+| 
+| 21:21:33.000 --> 31:43:33.000
+| aaa\u000Cbbbb
+#errors
+#parsed escaped
+<21:21:33.000> <31:43:33.000>
+  "aaa\u000Cbbbb"
+
+#data escaped
+| WEBVTT
+| 
+| 21:21:33.000 --> 31:43:33.000
+| aaa\u000A\u000Dbbbb
+#errors
+6;5;m;webvtt:no timings;;
+#parsed escaped
+<21:21:33.000> <31:43:33.000>
+  "aaa"
+invalid "bbbb"
+
+#data escaped
+| WEBVTT
+| 
+| 21:21:33.000 --> 31:43:33.000
+| aaa\u000D\u000Abbbb
+#errors
+#parsed escaped
+<21:21:33.000> <31:43:33.000>
+  "aaa\u000Abbbb"

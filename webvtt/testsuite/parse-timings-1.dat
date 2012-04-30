@@ -1,0 +1,516 @@
+#data
+| WEBVTT
+| 00:12:12.000 --> 00:44:12.000
+| abc def
+| 
+#errors
+2;1;m;webvtt:no header end;;
+#parsed
+<00:12:12.000> <00:44:12.000>
+  "abc def"
+
+#data
+| WEBVTT
+| xyz
+| 00:12:12.000 --> 00:44:12.000
+| abc def
+| 
+#errors
+2;1;m;webvtt:headers;;
+3;1;m;webvtt:no header end;;
+#parsed
+headers "xyz"
+<00:12:12.000> <00:44:12.000>
+  "abc def"
+
+#data
+| WEBVTT
+| xyz
+| aaa
+| 00:12:12.000 --> 00:44:12.000
+| abc def
+| 
+#errors
+2;1;m;webvtt:headers;;
+4;1;m;webvtt:no header end;;
+#parsed escaped
+headers "xyz\u000Aaaa"
+<00:12:12.000> <00:44:12.000>
+  "abc def"
+
+#data
+WEBVTT
+-->
+aaa
+#errors
+2;1;m;webvtt:no header end;;
+2;1;m;webvtt:bad timings;;
+#parsed
+invalid "-->
+aaa"
+
+#data
+| WEBVTT
+| 
+| 12:45.000 --> 42:13.000
+| xxx
+| 
+#errors
+#parsed
+<00:12:45.000> <00:42:13.000>
+  "xxx"
+
+#data
+| WEBVTT
+| 
+| 
+| 12:45.000 --> 42:13.000
+| xxx
+| 
+#errors
+#parsed
+<00:12:45.000> <00:42:13.000>
+  "xxx"
+
+#data escaped
+| WEBVTT\u000D\u000D12:45.000 --> 42:13.000
+| xxx
+| 
+#errors
+#parsed
+<00:12:45.000> <00:42:13.000>
+  "xxx"
+
+#data escaped
+| WEBVTT\u000D\u000D\u000A12:45.000 --> 42:13.000
+| xxx
+| 
+#errors
+#parsed
+<00:12:45.000> <00:42:13.000>
+  "xxx"
+
+#data
+| WEBVTT
+| 
+| 00:12:12.000 --> 00:44:12.000
+| abc def
+#errors
+#parsed
+<00:12:12.000> <00:44:12.000>
+  "abc def"
+
+#data
+| WEBVTT
+| 
+| 00:12:12.000 --> 00:44:12.000
+| abc def
+| 
+#errors
+#parsed
+<00:12:12.000> <00:44:12.000>
+  "abc def"
+
+#data
+| WEBVTT
+| 
+| 00:15:25.111 --> 12:44:11.012
+| xyz
+| 
+| 012:44:41.120 --> 111:32:33.122
+| aaa
+#errors
+#parsed
+<00:15:25.111> <12:44:11.012>
+  "xyz"
+<12:44:41.120> <111:32:33.122>
+  "aaa"
+
+#data
+| WEBVTT
+| 
+| 00:15:25.111 --> 12:44:11.012
+| xyz
+| 
+| 012:44:41.120 --> 111:32:33.122
+| aaa
+| 
+#errors
+#parsed
+<00:15:25.111> <12:44:11.012>
+  "xyz"
+<12:44:41.120> <111:32:33.122>
+  "aaa"
+
+#data
+| WEBVTT
+| 
+| 00:15:25.111 --> 12:44:11.012
+| xyz
+| 
+| 
+| 012:44:41.120 --> 111:32:33.122
+| aaa
+| 
+| 
+#errors
+#parsed
+<00:15:25.111> <12:44:11.012>
+  "xyz"
+<12:44:41.120> <111:32:33.122>
+  "aaa"
+
+#data escaped
+| WEBVTT
+| 
+| 12:43:21.111\u0009-->\u000912:31:33.111
+| aa
+#errors
+#parsed
+<12:43:21.111> <12:31:33.111>
+  "aa"
+
+#data escaped
+| WEBVTT
+| 
+| 12:43:21.111\u000C-->\u000C12:31:33.111
+| aa
+#errors
+3;13;m;webvtt:ff;;
+#parsed
+<12:43:21.111> <12:31:33.111>
+  "aa"
+
+#data escaped
+| WEBVTT
+| 
+| 12:43:21.111\u000D-->\u000D12:31:33.111
+| aa
+#errors
+4;1;m;webvtt:bad timings;;
+#parsed escaped
+invalid "12:43:21.111
+-->
+12:31:33.111
+aa"
+
+#data escaped
+| WEBVTT
+| 
+| 12:43:21.111\u000A-->\u000A12:31:33.111
+| aa
+#errors
+4;1;m;webvtt:bad timings;;
+#parsed escaped
+invalid "12:43:21.111\u000A-->\u000A12:31:33.111
+aa"
+
+#data escaped
+| WEBVTT
+| 
+| 12:43:21.111\u000D\u000A-->\u000D\u000A12:31:33.111
+| aa
+#errors
+4;1;m;webvtt:bad timings;;
+#parsed escaped
+invalid "12:43:21.111\u000A-->\u000A12:31:33.111
+aa"
+
+#data escaped
+| WEBVTT
+| 
+| 12:43:21.111   -->   12:31:33.111
+| aa
+#errors
+#parsed
+<12:43:21.111> <12:31:33.111>
+  "aa"
+
+#data escaped
+| WEBVTT
+| 
+| 12:43:21.111 \u0009  -->  \u000C\u000C 12:31:33.111
+| aa
+#errors
+3;22;m;webvtt:ff;;
+#parsed
+<12:43:21.111> <12:31:33.111>
+  "aa"
+
+#data escaped
+| WEBVTT
+| 
+|     12:43:21.111   -->  12:31:33.111
+| aa
+#errors
+3;1;m;webvtt:timings:leading space;;
+#parsed
+<12:43:21.111> <12:31:33.111>
+  "aa"
+
+#data escaped
+| WEBVTT
+| 
+| 12:43:21.111   -->  12:31:33.111    \u0009
+| aa
+#errors
+3;38;m;webvtt:setting:empty name;;
+#parsed
+<12:43:21.111> <12:31:33.111>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 10:31.333 --> 01:33.000
+| bb
+#errors
+#parsed
+<00:10:31.333> <00:01:33.000>
+  "bb"
+
+#data
+| WEBVTT
+| 
+| 90:31.333 --> 01:33.000
+| bb
+#errors
+3;1;m;webvtt:bad timestamp;;
+#parsed
+invalid "90:31.333 --> 01:33.000
+bb"
+
+#data
+| WEBVTT
+| 
+|   90:31.333 --> 01:33.000
+| bb
+#errors
+3;3;m;webvtt:bad timestamp;;
+#parsed
+invalid "  90:31.333 --> 01:33.000
+bb"
+
+#data
+| WEBVTT
+| 
+| 00:31.333 --> 61:33.000
+| bb
+#errors
+3;15;m;webvtt:bad timestamp;;
+#parsed
+invalid "00:31.333 --> 61:33.000
+bb"
+
+#data
+| WEBVTT
+| 
+|   00:31.333 --> 61:33.000
+| bb
+#errors
+3;17;m;webvtt:bad timestamp;;
+#parsed
+invalid "  00:31.333 --> 61:33.000
+bb"
+
+#data
+| WEBVTT
+| 
+| 12:12:60.000 --> 12:41:11.000
+#errors
+3;1;m;webvtt:bad timestamp;;
+#parsed
+invalid "12:12:60.000 --> 12:41:11.000"
+
+#data
+| WEBVTT
+| 
+|   12:12:60.000 --> 12:41:11.000
+#errors
+3;3;m;webvtt:bad timestamp;;
+#parsed
+invalid "  12:12:60.000 --> 12:41:11.000"
+
+#data
+| WEBVTT
+| 
+| 12:60:59.000 --> 12:41:11.000
+#errors
+3;1;m;webvtt:bad timestamp;;
+#parsed
+invalid "12:60:59.000 --> 12:41:11.000"
+
+#data
+| WEBVTT
+| 
+|   12:60:59.000 --> 12:41:11.000
+#errors
+3;3;m;webvtt:bad timestamp;;
+#parsed
+invalid "  12:60:59.000 --> 12:41:11.000"
+
+#data
+| WEBVTT
+| 
+| 12:59:59.000 --> 12:60:11.000
+#errors
+3;18;m;webvtt:bad timestamp;;
+#parsed
+invalid "12:59:59.000 --> 12:60:11.000"
+
+#data
+| WEBVTT
+| 
+| 12:59:59.000 --> 12:11:60.000
+#errors
+3;18;m;webvtt:bad timestamp;;
+#parsed
+invalid "12:59:59.000 --> 12:11:60.000"
+
+#data
+| WEBVTT
+| 
+| 12:60.000 --> 12:60:11.000
+#errors
+3;1;m;webvtt:bad timestamp;;
+#parsed
+invalid "12:60.000 --> 12:60:11.000"
+
+#data
+| WEBVTT
+| 
+| 60:12.000 --> 12:60:11.000
+#errors
+3;1;m;webvtt:bad timestamp;;
+#parsed
+invalid "60:12.000 --> 12:60:11.000"
+
+#data
+| WEBVTT
+| 
+| 00:12:59.000 --> 60:11.000
+#errors
+3;18;m;webvtt:bad timestamp;;
+#parsed
+invalid "00:12:59.000 --> 60:11.000"
+
+#data
+| WEBVTT
+| 
+| 00:12:59.000 --> 11:60.000
+#errors
+3;18;m;webvtt:bad timestamp;;
+#parsed
+invalid "00:12:59.000 --> 11:60.000"
+
+#data
+| WEBVTT
+| 
+| 00:12:59.000 --> 60:12:11.000
+| ab
+#errors
+#parsed
+<00:12:59.000> <60:12:11.000>
+  "ab"
+
+#data
+| WEBVTT
+| 
+| 5:12:33.000 --> 100:31:22.000
+| aa
+#errors
+3;1;m;webvtt:timestamp:hour;;
+#parsed
+<05:12:33.000> <100:31:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 05:12:33.000 --> 7:31:22.000
+| aa
+#errors
+3;18;m;webvtt:timestamp:hour;;
+#parsed
+<05:12:33.000> <07:31:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 5:12.000 --> 07:31:22.000
+| aa
+#errors
+3;1;m;webvtt:bad timestamp;;
+#parsed
+invalid "5:12.000 --> 07:31:22.000
+aa"
+
+#data
+| WEBVTT
+| 
+| 05:12.000 --> 7:31.000
+| aa
+#errors
+3;15;m;webvtt:bad timestamp;;
+#parsed
+invalid "05:12.000 --> 7:31.000
+aa"
+
+#data
+| WEBVTT
+| 
+| 12:21:33.000--> 12:44:32.000
+#errors
+3;14;m;webvtt:timings:no space;;
+3;29;m;webvtt:no text;;
+#parsed
+<12:21:33.000> <12:44:32.000>
+  ""
+
+#data
+| WEBVTT
+| 
+| 12:21:33.000 -->12:44:32.000
+#errors
+3;17;m;webvtt:timings:no space;;
+3;29;m;webvtt:no text;;
+#parsed
+<12:21:33.000> <12:44:32.000>
+  ""
+
+#data
+| WEBVTT
+| 
+| 12:21:33.00 --> 12:44:32.000
+#errors
+3;1;m;webvtt:bad timings;;
+#parsed
+invalid "12:21:33.00 --> 12:44:32.000"
+
+#data
+| WEBVTT
+| 
+| 12:21:33.000 --> 12:44:32.0
+#errors
+3;1;m;webvtt:bad timings;;
+#parsed
+invalid "12:21:33.000 --> 12:44:32.0"
+
+#data
+| WEBVTT
+| 
+| 12:21:33.000 --> 12:44:2.000
+#errors
+3;1;m;webvtt:bad timings;;
+#parsed
+invalid "12:21:33.000 --> 12:44:2.000"
+
+#data
+| WEBVTT
+| 
+| 12:21:033.000 --> 12:44:02.000
+#errors
+3;1;m;webvtt:bad timings;;
+#parsed
+invalid "12:21:033.000 --> 12:44:02.000"

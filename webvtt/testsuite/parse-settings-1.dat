@@ -1,0 +1,695 @@
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 foo
+| aa
+#errors
+3;34;m;webvtt:setting:no value;;foo
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 foo:
+| aa
+#errors
+3;35;m;webvtt:setting:empty value;;foo
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 foo  bar
+| aa
+#errors
+3;34;m;webvtt:setting:no value;;foo
+3;39;m;webvtt:setting:no value;;bar
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 foo:  bar
+| aa
+#errors
+3;35;m;webvtt:setting:empty value;;foo
+3;40;m;webvtt:setting:no value;;bar
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 bad
+| aa
+#errors
+3;34;m;webvtt:setting:no value;;bad
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 :bad
+| aa
+#errors
+3;31;m;webvtt:setting:empty name;;
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 foo::bad
+| aa
+#errors
+3;31;m;webvtt:setting:invalid;;foo
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 vertical:lr
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  writing direction lr
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 vertical:rl
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  writing direction rl
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 vertical:LR
+| aa
+#errors
+3;40;m;webvtt:setting:invalid value;;LR
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 vertical::lr
+| aa
+#errors
+3;40;m;webvtt:setting:invalid value;;:lr
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 vertical:lr vertical:rl
+| aa
+#errors
+3;31;m;webvtt:setting:duplicate;;vertical
+#parsed
+<12:31:22.000> <31:53:22.000>
+  writing direction rl
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:125
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  line position 125
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:00025
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  line position 25
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:-0040
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  line position -40
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:-0
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  line position 0
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:00
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  line position 0
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:-1
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:10.32
+| aa
+#errors
+3;36;m;webvtt:setting:invalid value;;10.32
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:-
+| aa
+#errors
+3;36;m;webvtt:setting:invalid value;;-
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:12abc
+| aa
+#errors
+3;36;m;webvtt:setting:invalid value;;12abc
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:abc line:120
+| aa
+#errors
+3;36;m;webvtt:setting:invalid value;;abc
+#parsed
+<12:31:22.000> <31:53:22.000>
+  line position 120
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:-13 line:abc
+| aa
+#errors
+3;45;m;webvtt:setting:invalid value;;abc
+#parsed
+<12:31:22.000> <31:53:22.000>
+  line position -13
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:10%
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  line position 10
+  not snap-to-lines
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:100%
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  line position 100
+  not snap-to-lines
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:0013%
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  line position 13
+  not snap-to-lines
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:-0%
+| aa
+#errors
+3;36;m;webvtt:setting:invalid value;;-0%
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:-10%
+| aa
+#errors
+3;36;m;webvtt:setting:invalid value;;-10%
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:101%
+| aa
+#errors
+3;36;m;webvtt:setting:invalid value;;101%
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:12.1%
+| aa
+#errors
+3;36;m;webvtt:setting:invalid value;;12.1%
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:12% line:20
+| aa
+#errors
+3;31;m;webvtt:setting:duplicate;;line
+#parsed
+<12:31:22.000> <31:53:22.000>
+  line position 20
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:12% line:20 line:21%
+| aa
+#errors
+3;31;m;webvtt:setting:duplicate;;line
+3;40;m;webvtt:setting:duplicate;;line
+#parsed
+<12:31:22.000> <31:53:22.000>
+  line position 21
+  not snap-to-lines
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 line:12% line:20
+| aa
+#errors
+3;31;m;webvtt:setting:duplicate;;line
+#parsed
+<12:31:22.000> <31:53:22.000>
+  line position 20
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 position:52%
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  text position 52%
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 position:0012%
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  text position 12%
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 position:100%
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  text position 100%
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 position:00%
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  text position 0%
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 position:50%
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 position:152%
+| aa
+#errors
+3;40;m;webvtt:setting:invalid value;;152%
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 position:152
+| aa
+#errors
+3;40;m;webvtt:setting:invalid value;;152
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 position:-31%
+| aa
+#errors
+3;40;m;webvtt:setting:invalid value;;-31%
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 position:left
+| aa
+#errors
+3;40;m;webvtt:setting:invalid value;;left
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 position:152 position:10%
+| aa
+#errors
+3;40;m;webvtt:setting:invalid value;;152
+#parsed
+<12:31:22.000> <31:53:22.000>
+  text position 10%
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 position:15% position:10%
+| aa
+#errors
+3;31;m;webvtt:setting:duplicate;;position
+#parsed
+<12:31:22.000> <31:53:22.000>
+  text position 10%
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 size:52%
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  size 52%
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 size:0012%
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  size 12%
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 size:100%
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 size:00%
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  size 0%
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 size:50%
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  size 50%
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 size:152%
+| aa
+#errors
+3;36;m;webvtt:setting:invalid value;;152%
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 size:152
+| aa
+#errors
+3;36;m;webvtt:setting:invalid value;;152
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 size:-31%
+| aa
+#errors
+3;36;m;webvtt:setting:invalid value;;-31%
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 size:left
+| aa
+#errors
+3;36;m;webvtt:setting:invalid value;;left
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 size:152 size:10%
+| aa
+#errors
+3;36;m;webvtt:setting:invalid value;;152
+#parsed
+<12:31:22.000> <31:53:22.000>
+  size 10%
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 size:15% size:10%
+| aa
+#errors
+3;31;m;webvtt:setting:duplicate;;size
+#parsed
+<12:31:22.000> <31:53:22.000>
+  size 10%
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 align:start
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  align start
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 align:end align:start
+| aa
+#errors
+3;31;m;webvtt:setting:duplicate;;align
+#parsed
+<12:31:22.000> <31:53:22.000>
+  align start
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 align:end
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  align end
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 align:middle
+| aa
+#errors
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 align:end  align:middle
+| aa
+#errors
+3;31;m;webvtt:setting:duplicate;;align
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 align:Start
+| aa
+#errors
+3;37;m;webvtt:setting:invalid value;;Start
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
+
+#data
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 ALIGN:start
+| aa
+#errors
+3;31;m;webvtt:setting:invalid;;ALIGN
+#parsed
+<12:31:22.000> <31:53:22.000>
+  "aa"
