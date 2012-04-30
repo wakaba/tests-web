@@ -69,13 +69,11 @@ invalid
 WEBVTT\u0020
 #errors
 #parsed
-sigline ""
 
 #data escaped
 WEBVTT\u0009
 #errors
 #parsed
-sigline ""
 
 #data escaped
 WEBVTTxyz
@@ -109,13 +107,11 @@ invalid
 WEBVTT\u0020abc
 #errors
 #parsed
-sigline "abc"
 
 #data escaped
 WEBVTT\u0009abc
 #errors
 #parsed
-sigline "abc"
 
 #data escaped
 WEBVTT\u000Cabc
@@ -128,19 +124,16 @@ invalid
 WEBVTT -*- WebVTT -*-
 #errors
 #parsed
-sigline "-*- WebVTT -*-"
 
 #data escaped
 WEBVTT abc\u0000
 #errors
 #parsed escaped
-sigline "abc\uFFFD"
 
 #data escaped
 WEBVTT abc\uD800
 #errors
 #parsed escaped
-sigline "abc\uD800"
 #validity
 surrogate
 
@@ -148,7 +141,6 @@ surrogate
 WEBVTT abc\uFFFF
 #errors
 #parsed escaped
-sigline "abc\uFFFF"
 #validity
 noncharacter
 
@@ -156,13 +148,11 @@ noncharacter
 WEBVTT abc\U00010000
 #errors
 #parsed escaped
-sigline "abc\U00010000"
 
 #data escaped
 WEBVTT abc\U00FF0000
 #errors
 #parsed escaped
-sigline "abc\U00FF0000"
 #validity
 nonunicode
 
@@ -172,7 +162,6 @@ abc
 #errors
 2;1;m;webvtt:headers;;
 #parsed
-headers "abc"
 
 #data escaped
 WEBVTT
@@ -180,7 +169,6 @@ abc\u000Adef
 #errors
 2;1;m;webvtt:headers;;
 #parsed escaped
-headers "abc\u000Adef"
 
 #data escaped
 WEBVTT
@@ -188,7 +176,6 @@ abc\u000Ddef
 #errors
 2;1;m;webvtt:headers;;
 #parsed escaped
-headers "abc\u000Adef"
 
 #data escaped
 WEBVTT
@@ -196,7 +183,6 @@ abc\u000D\u000Adef
 #errors
 2;1;m;webvtt:headers;;
 #parsed escaped
-headers "abc\u000Adef"
 
 #data escaped
 WEBVTT
@@ -204,7 +190,6 @@ abc\u000D\u000C\u000Adef
 #errors
 2;1;m;webvtt:headers;;
 #parsed escaped
-headers "abc\u000A\u000C\u000Adef"
 
 #data escaped
 WEBVTT
@@ -212,7 +197,6 @@ aa\u0000
 #errors
 2;1;m;webvtt:headers;;
 #parsed escaped
-headers "aa\uFFFD"
 
 #data escaped
 WEBVTT
@@ -220,7 +204,6 @@ aa\uD800
 #errors
 2;1;m;webvtt:headers;;
 #parsed escaped
-headers "aa\uD800"
 #validity
 surrogate
 
@@ -230,7 +213,6 @@ aa\uFFFF
 #errors
 2;1;m;webvtt:headers;;
 #parsed escaped
-headers "aa\uFFFF"
 #validity
 noncharacter
 
@@ -240,7 +222,6 @@ aa\U00FE00FF
 #errors
 2;1;m;webvtt:headers;;
 #parsed escaped
-headers "aa\U00FE00FF"
 #validity
 nonunicode
 
@@ -251,7 +232,6 @@ nonunicode
 #errors
 2;1;m;webvtt:headers;;
 #parsed escaped
-headers "abc"
 
 #data
 | WEBVTT
@@ -261,7 +241,6 @@ headers "abc"
 #errors
 2;1;m;webvtt:headers;;
 #parsed escaped
-headers "abc"
 
 #data
 | WEBVTT
@@ -272,7 +251,6 @@ headers "abc"
 #errors
 2;1;m;webvtt:headers;;
 #parsed escaped
-headers "abc"
 
 #data
 | WEBVTT
@@ -282,8 +260,6 @@ headers "abc"
 #errors
 4;3;m;webvtt:no timings;;
 #parsed
-invalid "12:33.000 -> 100:31:22.000
-aa"
 
 #data
 | WEBVTT
@@ -292,7 +268,6 @@ aa"
 #errors
 3;3;m;webvtt:no timings;;
 #parsed
-invalid "aa"
 
 #data
 | WEBVTT
@@ -302,7 +277,6 @@ invalid "aa"
 #errors
 4;1;m;webvtt:no timings;;
 #parsed
-invalid "aa"
 
 #data
 | WEBVTT
@@ -314,8 +288,6 @@ invalid "aa"
 4;1;m;webvtt:no timings;;
 5;3;m;webvtt:no timings;;
 #parsed
-invalid "aa"
-invalid "bb"
 
 #data
 | WEBVTT
@@ -328,7 +300,6 @@ invalid "bb"
 3;1;m;webvtt:id:duplicate;;
 #parsed
 <12:43:21.000> <12:56:31.000>
-  invalid #id1
   #id2
   "aaa"
 
@@ -345,8 +316,6 @@ invalid "bb"
 4;1;m;webvtt:id:duplicate;;
 #parsed
 <12:43:21.000> <12:56:31.000>
-  invalid #id1
-  invalid #id2
   #id3
   "aaa"
 
@@ -363,8 +332,6 @@ invalid "bb"
 6;30;m;webvtt:no text;;
 #parsed
 <12:43:21.000> <12:56:31.000>
-  invalid #id1
-  invalid #id2
   #id3
   ""
 
@@ -376,8 +343,6 @@ invalid "bb"
 #errors
 4;4;m;webvtt:no timings;;
 #parsed
-invalid "abc
-def"
 
 #data
 | WEBVTT
@@ -389,8 +354,6 @@ def"
 3;1;m;webvtt:id:duplicate;;
 5;1;m;webvtt:no timings;;
 #parsed
-invalid "abc
-def"
 
 #data
 | WEBVTT
@@ -400,8 +363,6 @@ def"
 #errors
 4;1;m;webvtt:bad timings;;
 #parsed
-invalid "abc
--->"
 
 #data
 | WEBVTT
@@ -412,8 +373,6 @@ invalid "abc
 #errors
 4;1;m;webvtt:bad timings;;
 #parsed
-invalid "abc
--->"
 
 #data
 | WEBVTT
@@ -479,7 +438,6 @@ invalid "abc
 <12:21:11.000> <44:12:22.000>
   "abc
 de ff"
-invalid "xxz"
 
 #data
 | WEBVTT
@@ -496,7 +454,6 @@ invalid "xxz"
 <12:21:11.000> <44:12:22.000>
   "abc
 de ff"
-invalid "xxz"
 
 #data escaped
 | WEBVTT
@@ -584,7 +541,6 @@ nonunicode
 #parsed escaped
 <21:21:33.000> <31:43:33.000>
   "aaa"
-invalid "bbbb"
 
 #data escaped
 | WEBVTT
