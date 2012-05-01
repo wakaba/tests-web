@@ -161,6 +161,7 @@ aa<u.xxx.yyy abi>bb</u>dd
 #data
 aa<ruby>bb</ruby>dd
 #errors
+1;3;m;element missing;rt;
 #document
 | "aa"
 | <ruby>
@@ -170,6 +171,7 @@ aa<ruby>bb</ruby>dd
 #data
 aa<ruby.foo.bar>bb</ruby>dd
 #errors
+1;3;m;element missing;rt;
 #document
 | "aa"
 | <ruby>
@@ -181,6 +183,7 @@ aa<ruby.foo.bar>bb</ruby>dd
 aa<ruby abi>bb</ruby>dd
 #errors
 1;3;m;webvtt:annotation not allowed;;
+1;3;m;element missing;rt;
 #document
 | "aa"
 | <ruby>
@@ -191,6 +194,7 @@ aa<ruby abi>bb</ruby>dd
 aa<ruby.xxx.yyy abi>bb</ruby>dd
 #errors
 1;3;m;webvtt:annotation not allowed;;
+1;3;m;element missing;rt;
 #document
 | "aa"
 | <ruby>
@@ -223,6 +227,7 @@ a<ruby>b<rt>c</rt></ruby>d
 #data
 a<ruby>b<rt>c</rt>e</ruby>d
 #errors
+1;2;m;element missing;rt;
 #document
 | "a"
 | <ruby>
@@ -318,6 +323,7 @@ a<ruby><i>b<rt>c</rt></i><rt>e</ruby>d
 #data
 <ruby><ruby>ab<rt>cc</rt></ruby>dd</ruby>ee</ruby>
 #errors
+1;1;m;element missing;rt;
 1;44;m;unmatched end tag;ruby;
 #document
 | <ruby>
@@ -331,6 +337,7 @@ a<ruby><i>b<rt>c</rt></i><rt>e</ruby>d
 #data
 <ruby>aa<rt>bb<ruby>cc</rt>dd</ruby>ee
 #errors
+1;15;m;element missing;rt;
 1;23;m;unmatched end tag;rt;
 1;39;m;not closed;ruby;
 #document
@@ -541,3 +548,36 @@ aaa<v foo>bbb</span>ddd
 |   title="foo"
 |   "bbb"
 |   "ddd"
+
+#data
+a<ruby>foo</ruby>
+#errors
+1;2;m;element missing;rt;
+#document
+| "a"
+| <ruby>
+|   "foo"
+
+#data
+a<ruby>foo<rt>aa</rt>bb</ruby>
+#errors
+1;2;m;element missing;rt;
+#document
+| "a"
+| <ruby>
+|   "foo"
+|   <rt>
+|     "aa"
+|   "bb"
+
+#data
+a<ruby>foo</baz>aaa</ruby>
+#errors
+1;11;m;unmatched end tag;baz;
+1;2;m;element missing;rt;
+#document
+| "a"
+| <ruby>
+|   "foo"
+|   "aaa"
+
