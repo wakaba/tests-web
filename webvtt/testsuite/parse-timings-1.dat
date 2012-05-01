@@ -162,6 +162,7 @@ aaa
 | 12:43:21.111\u0009-->\u000912:31:33.111
 | aa
 #errors
+3;1;m;webvtt:end time < start time;;
 #parsed
 <12:43:21.111> <12:31:33.111>
   "aa"
@@ -172,6 +173,7 @@ aaa
 | 12:43:21.111\u000C-->\u000C12:31:33.111
 | aa
 #errors
+3;1;m;webvtt:end time < start time;;
 3;13;m;form feed;;
 #parsed
 <12:43:21.111> <12:31:33.111>
@@ -210,6 +212,7 @@ aaa
 | 12:43:21.111   -->   12:31:33.111
 | aa
 #errors
+3;1;m;webvtt:end time < start time;;
 #parsed
 <12:43:21.111> <12:31:33.111>
   "aa"
@@ -220,6 +223,7 @@ aaa
 | 12:43:21.111 \u0009  -->  \u000C\u000C 12:31:33.111
 | aa
 #errors
+3;1;m;webvtt:end time < start time;;
 3;22;m;form feed;;
 #parsed
 <12:43:21.111> <12:31:33.111>
@@ -231,6 +235,7 @@ aaa
 |     12:43:21.111   -->  12:31:33.111
 | aa
 #errors
+3;1;m;webvtt:end time < start time;;
 3;1;m;webvtt:timings:leading space;;
 #parsed
 <12:43:21.111> <12:31:33.111>
@@ -242,6 +247,7 @@ aaa
 | 12:43:21.111   -->  12:31:33.111    \u0009
 | aa
 #errors
+3;1;m;webvtt:end time < start time;;
 3;38;m;webvtt:setting:empty name;;
 #parsed
 <12:43:21.111> <12:31:33.111>
@@ -253,6 +259,7 @@ aaa
 | 10:31.333 --> 01:33.000
 | bb
 #errors
+3;1;m;webvtt:end time < start time;;
 #parsed
 <00:10:31.333> <00:01:33.000>
   "bb"
@@ -476,3 +483,76 @@ aaa
 #errors
 3;1;m;webvtt:bad timings;;
 #parsed
+
+#data
+| WEBVTT
+| 
+| 12:41.000 --> 10:21:11.000
+| ab
+#errors
+#parsed
+<00:12:41.000> <10:21:11.000>
+  "ab"
+
+#data
+| WEBVTT
+| 
+| 12:12:41.000 --> 21:11.000
+| ab
+#errors
+3;1;m;webvtt:end time < start time;;
+#parsed
+<12:12:41.000> <00:21:11.000>
+  "ab"
+
+#data
+| WEBVTT
+| 
+| 12:41.000 --> 21:11.000
+| ab
+| 
+| 10:21.000 --> 12:41:44.000
+| xy
+#errors
+6;1;m;webvtt:start time order;;
+#parsed
+<00:12:41.000> <00:21:11.000>
+  "ab"
+<00:10:21.000> <12:41:44.000>
+  "xy"
+
+#data
+| WEBVTT
+| 
+| 12:41.000 --> 21:11.000
+| ab
+| 
+| 10:21.000 --> 12:41:44.000
+| xy
+| 
+| 12:41.000 --> 21:11.000
+| ab
+#errors
+6;1;m;webvtt:start time order;;
+#parsed
+<00:12:41.000> <00:21:11.000>
+  "ab"
+<00:10:21.000> <12:41:44.000>
+  "xy"
+<00:12:41.000> <00:21:11.000>
+  "ab"
+
+#data
+| WEBVTT
+| 
+| 12:41.000 --> 21:11.000
+| ab
+| 
+| 12:41.000 --> 21:11.000
+| ab
+#errors
+#parsed
+<00:12:41.000> <00:21:11.000>
+  "ab"
+<00:12:41.000> <00:21:11.000>
+  "ab"

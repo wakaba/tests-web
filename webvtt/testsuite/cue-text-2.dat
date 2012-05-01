@@ -10,94 +10,86 @@ aa<v foo
 #data escaped
 aa<v\u0020
 #errors
+1;3;m;webvtt:empty annotation;;
 1;6;m;unclosed tag;;
 #document
 | "aa"
 | <span>
 |   title=""
-#validity
-empty
 
 #data escaped
 aa<v\u0009
 #errors
+1;3;m;webvtt:empty annotation;;
 1;6;m;unclosed tag;;
 #document
 | "aa"
 | <span>
 |   title=""
-#validity
-empty
 
 #data escaped
 aa<v \u0020
 #errors
+1;3;m;webvtt:empty annotation;;
 1;7;m;unclosed tag;;
 #document
 | "aa"
 | <span>
 |   title=""
-#validity
-empty
 
 #data escaped
 aa<v\u0020\u0009
 #errors
+1;3;m;webvtt:empty annotation;;
 1;7;m;unclosed tag;;
 #document
 | "aa"
 | <span>
 |   title=""
-#validity
-empty
 
 #data escaped
 aa<v\u0020\u000A
 #errors
+1;3;m;webvtt:empty annotation;;
 1;6;m;newline not allowed;;
 2;1;m;unclosed tag;;
 #document
 | "aa"
 | <span>
 |   title=""
-#validity
-empty
 
 #data escaped
 aa<v\u0020\u000C
 #errors
+1;3;m;webvtt:empty annotation;;
 1;6;m;form feed;;
 1;7;m;unclosed tag;;
 #document
 | "aa"
 | <span>
 |   title=""
-#validity
-empty
 
 #data escaped
 aa<v\u0020\u000D
 #errors
+1;3;m;webvtt:empty annotation;;
 1;6;m;newline not allowed;;
 2;1;m;unclosed tag;;
 #document
 | "aa"
 | <span>
 |   title=""
-#validity
-empty
 
 #data escaped
 aa<v\u0020\u000D\u000A
 #errors
+1;3;m;webvtt:empty annotation;;
 1;6;m;newline not allowed;;
 2;1;m;unclosed tag;;
 #document
 | "aa"
 | <span>
 |   title=""
-#validity
-empty
 
 #data escaped
 aa<v\u0020xyz\u0009
@@ -107,8 +99,6 @@ aa<v\u0020xyz\u0009
 | "aa"
 | <span>
 |   title="xyz"
-#validity
-empty
 
 #data
 aa<v hoge !W& fug&amp;a>aa

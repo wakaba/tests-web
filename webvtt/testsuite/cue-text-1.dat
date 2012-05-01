@@ -43,24 +43,18 @@ ab\uFFFF
 #errors
 #document escaped
 | "ab\uFFFF"
-#validity
-noncharacter
 
 #data escaped
 ab\uD800
 #errors
 #document escaped
 | "ab\uD800"
-#validity
-surrogate
 
 #data escaped
 ab\U10000000
 #errors
 #document escaped
 | "ab\U10000000"
-#validity
-nonunicode
 
 #data
 foo</bar>aaa
@@ -893,6 +887,7 @@ aa<v foo  \u0009bar\u000D\u000C\u000Aabc>cc
 | 
 | >cc
 #errors
+1;3;m;webvtt:empty annotation;;
 1;6;m;newline not allowed;;
 #document
 | "aa"
@@ -903,7 +898,7 @@ aa<v foo  \u0009bar\u000D\u000C\u000Aabc>cc
 #data escaped
 | aa<v>cc
 #errors
-1;3;m;webvtt:no annotation;v;
+1;3;m;webvtt:empty annotation;;
 #document
 | "aa"
 | <span>
@@ -913,66 +908,61 @@ aa<v foo  \u0009bar\u000D\u000C\u000Aabc>cc
 #data escaped
 | aa<v >cc
 #errors
+1;3;m;webvtt:empty annotation;;
 #document
 | "aa"
 | <span>
 |   title=""
 |   "cc"
-#validity
-empty
 
 #data escaped
 | aa<v \u000A>cc
 #errors
+1;3;m;webvtt:empty annotation;;
 1;6;m;newline not allowed;;
 #document
 | "aa"
 | <span>
 |   title=""
 |   "cc"
-#validity
-empty
 
 #data escaped
 | aa<v \u000D\u000A>cc
 #errors
+1;3;m;webvtt:empty annotation;;
 1;6;m;newline not allowed;;
 #document
 | "aa"
 | <span>
 |   title=""
 |   "cc"
-#validity
-empty
 
 #data escaped
 | aa<v \u000D>cc
 #errors
+1;3;m;webvtt:empty annotation;;
 1;6;m;newline not allowed;;
 #document
 | "aa"
 | <span>
 |   title=""
 |   "cc"
-#validity
-empty
 
 #data escaped
 | aa<v \u000C>cc
 #errors
+1;3;m;webvtt:empty annotation;;
 1;6;m;form feed;;
 #document
 | "aa"
 | <span>
 |   title=""
 |   "cc"
-#validity
-empty
 
 #data escaped
 | aa<v.>cc
 #errors
-1;3;m;webvtt:no annotation;v;
+1;3;m;webvtt:empty annotation;;
 1;6;m;empty class;;
 #document
 | "aa"
@@ -983,7 +973,7 @@ empty
 #data escaped
 | aa<v.hoge>cc
 #errors
-1;3;m;webvtt:no annotation;v;
+1;3;m;webvtt:empty annotation;;
 #document
 | "aa"
 | <span>

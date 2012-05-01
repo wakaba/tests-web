@@ -134,15 +134,11 @@ WEBVTT abc\u0000
 WEBVTT abc\uD800
 #errors
 #parsed escaped
-#validity
-surrogate
 
 #data escaped
 WEBVTT abc\uFFFF
 #errors
 #parsed escaped
-#validity
-noncharacter
 
 #data escaped
 WEBVTT abc\U00010000
@@ -153,8 +149,6 @@ WEBVTT abc\U00010000
 WEBVTT abc\U00FF0000
 #errors
 #parsed escaped
-#validity
-nonunicode
 
 #data
 WEBVTT
@@ -204,8 +198,6 @@ aa\uD800
 #errors
 2;1;m;webvtt:headers;;
 #parsed escaped
-#validity
-surrogate
 
 #data escaped
 WEBVTT
@@ -213,8 +205,6 @@ aa\uFFFF
 #errors
 2;1;m;webvtt:headers;;
 #parsed escaped
-#validity
-noncharacter
 
 #data escaped
 WEBVTT
@@ -222,8 +212,6 @@ aa\U00FE00FF
 #errors
 2;1;m;webvtt:headers;;
 #parsed escaped
-#validity
-nonunicode
 
 #data
 | WEBVTT
@@ -386,6 +374,52 @@ nonunicode
   #abc
   ""
 
+#data escaped
+| WEBVTT
+| 
+| aa\u0000
+| bb\u0000
+| 10:21.344 --> 41:12.351
+| aaa
+#errors
+3;1;m;webvtt:id:duplicate;;
+#parsed escaped
+<00:10:21.344> <00:41:12.351>
+  #bb\uFFFD
+  "aaa"
+
+#data escaped
+| WEBVTT
+| 
+| aa\u0000
+| 10:21.344 --> 41:12.351
+| aaa
+#errors
+#parsed escaped
+<00:10:21.344> <00:41:12.351>
+  #aa\uFFFD
+  "aaa"
+
+#data escaped
+| WEBVTT
+| 
+| aa\u0000
+#errors
+3;4;m;webvtt:no timings;;
+#parsed escaped
+
+#data escaped
+| WEBVTT
+| 
+| aa\uFFFF
+| 10:21.344 --> 41:12.351
+| aaa
+#errors
+#parsed escaped
+<00:10:21.344> <00:41:12.351>
+  #aa\uFFFF
+  "aaa"
+
 #data
 | WEBVTT
 | 
@@ -474,8 +508,6 @@ de ff"
 #parsed escaped
 <21:21:33.000> <31:43:33.000>
   "aaa\uD800"
-#validity
-surrogate
 
 #data escaped
 | WEBVTT
@@ -486,8 +518,6 @@ surrogate
 #parsed escaped
 <21:21:33.000> <31:43:33.000>
   "aaa\uFFFF"
-#validity
-noncharacter
 
 #data escaped
 | WEBVTT
@@ -498,8 +528,6 @@ noncharacter
 #parsed escaped
 <21:21:33.000> <31:43:33.000>
   "aaa\U0100F000"
-#validity
-nonunicode
 
 #data escaped
 | WEBVTT
