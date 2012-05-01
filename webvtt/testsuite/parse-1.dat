@@ -58,6 +58,27 @@ WEBVTT
 #errors
 #parsed
 
+#data escaped
+\uFEFFWEBVTT
+#errors
+1;1;m;webvtt:no signature;;
+#parsed
+invalid
+
+#data escaped
+\uFEFF\uFEFFWEBVTT
+#errors
+1;1;m;webvtt:no signature;;
+#parsed
+invalid
+
+#data escaped
+\uFFFEWEBVTT
+#errors
+1;1;m;webvtt:no signature;;
+#parsed
+invalid
+
 #data
  WEBVTT
 #errors
