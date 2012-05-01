@@ -1,0 +1,539 @@
+#data
+aa<v foo
+#errors
+1;9;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="foo"
+
+#data escaped
+aa<v\u0020
+#errors
+1;6;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title=""
+#validity
+empty
+
+#data escaped
+aa<v\u0009
+#errors
+1;6;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title=""
+#validity
+empty
+
+#data escaped
+aa<v \u0020
+#errors
+1;7;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title=""
+#validity
+empty
+
+#data escaped
+aa<v\u0020\u0009
+#errors
+1;7;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title=""
+#validity
+empty
+
+#data escaped
+aa<v\u0020\u000A
+#errors
+1;6;m;newline not allowed;;
+2;1;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title=""
+#validity
+empty
+
+#data escaped
+aa<v\u0020\u000C
+#errors
+1;6;m;form feed;;
+1;7;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title=""
+#validity
+empty
+
+#data escaped
+aa<v\u0020\u000D
+#errors
+1;6;m;newline not allowed;;
+2;1;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title=""
+#validity
+empty
+
+#data escaped
+aa<v\u0020\u000D\u000A
+#errors
+1;6;m;newline not allowed;;
+2;1;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title=""
+#validity
+empty
+
+#data escaped
+aa<v\u0020xyz\u0009
+#errors
+1;10;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="xyz"
+#validity
+empty
+
+#data
+aa<v hoge !W& fug&amp;a>aa
+#errors
+1;13;m;bare ero;;
+#document
+| "aa"
+| <span>
+|   title="hoge !W& fug&a"
+|   "aa"
+
+#data escaped
+aa<v \u0020xya>b
+#errors
+#document
+| "aa"
+| <span>
+|   title="xya"
+|   "b"
+
+#data escaped
+aa<v \u0009xya>b
+#errors
+#document
+| "aa"
+| <span>
+|   title="xya"
+|   "b"
+
+#data escaped
+aa<v \u000Axya>b
+#errors
+1;6;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="xya"
+|   "b"
+
+#data escaped
+aa<v \u000A xya>b
+#errors
+1;6;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="xya"
+|   "b"
+
+#data escaped
+aa<v \u000A\u000Axya>b
+#errors
+1;6;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="xya"
+|   "b"
+
+#data escaped
+aa<v \u000Axya\u000A>b
+#errors
+1;6;m;newline not allowed;;
+2;4;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="xya"
+|   "b"
+
+#data escaped
+aa<v \u000D\u000Axya>b
+#errors
+1;6;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="xya"
+|   "b"
+
+#data escaped
+aa<v \u000Dxya>b
+#errors
+1;6;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="xya"
+|   "b"
+
+#data escaped
+aa<v\u000A xya>b
+#errors
+1;5;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="xya"
+|   "b"
+
+#data escaped
+aa<v\u000A\u000Dxya>b
+#errors
+1;5;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="xya"
+|   "b"
+
+#data escaped
+aa<v\u000A\u000Cxya>b
+#errors
+1;5;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="xya"
+|   "b"
+
+#data escaped
+aa<v\u0009\u000Cxya>b
+#errors
+1;6;m;form feed;;
+#document
+| "aa"
+| <span>
+|   title="xya"
+|   "b"
+
+#data escaped
+aa<v\u000C\u000Cxya>b
+#errors
+1;5;m;form feed;;
+#document
+| "aa"
+| <span>
+|   title="xya"
+|   "b"
+
+#data escaped
+aa<v\u0009\u000Cxya\u000C>b
+#errors
+1;6;m;form feed;;
+1;10;m;form feed;;
+#document
+| "aa"
+| <span>
+|   title="xya"
+|   "b"
+
+#data escaped
+aa<v\u0009\u000C\u000Cxya\u000C>b
+#errors
+1;6;m;form feed;;
+1;11;m;form feed;;
+#document
+| "aa"
+| <span>
+|   title="xya"
+|   "b"
+
+#data escaped
+aa<v\u0009\u000C\u000D\u000Axya\u000C>b
+#errors
+1;6;m;form feed;;
+2;4;m;form feed;;
+#document
+| "aa"
+| <span>
+|   title="xya"
+|   "b"
+
+#data escaped
+aa<v xya  ab\u000C c>b
+#errors
+1;13;m;form feed;;
+#document
+| "aa"
+| <span>
+|   title="xya ab c"
+|   "b"
+
+#data escaped
+aa<v xya  ab\u000D c>b
+#errors
+1;13;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="xya ab c"
+|   "b"
+
+#data escaped
+aa<v xya  ab\u000D\u000A c>b
+#errors
+1;13;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="xya ab c"
+|   "b"
+
+#data escaped
+aa<v xya  ab\u000A c>b
+#errors
+1;13;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="xya ab c"
+|   "b"
+
+#data escaped
+aa<v xya  ab\u000D\u000C c>b
+#errors
+1;13;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="xya ab c"
+|   "b"
+
+#data escaped
+aa<v xya  ab\u000D
+#errors
+1;13;m;newline not allowed;;
+2;1;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="xya ab"
+
+#data escaped
+aa<v xya  ab\u000A
+#errors
+1;13;m;newline not allowed;;
+2;1;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="xya ab"
+
+#data escaped
+aa<v xya  ab\u000C
+#errors
+1;13;m;form feed;;
+1;14;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="xya ab"
+
+#data escaped
+aa<v xya  ab\u000D\u000A
+#errors
+1;13;m;newline not allowed;;
+2;1;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="xya ab"
+
+#data escaped
+aa<v xya  ab\u000D\u000D
+#errors
+1;13;m;newline not allowed;;
+3;1;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="xya ab"
+
+#data escaped
+aa<v xya  ab\u000D\u0009
+#errors
+1;13;m;newline not allowed;;
+2;2;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="xya ab"
+
+#data escaped
+aa<v xya  ab\u000D\u000C
+#errors
+1;13;m;newline not allowed;;
+2;2;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="xya ab"
+
+#data escaped
+aa<v xya  ab\u000C\u000D
+#errors
+1;13;m;form feed;;
+2;1;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="xya ab"
+
+#data escaped
+aa<v xya  ab\u000D\u0020
+#errors
+1;13;m;newline not allowed;;
+2;2;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="xya ab"
+
+#data escaped
+aa<v &amp
+#errors
+1;6;m;bare ero;;
+1;10;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="&amp"
+
+#data escaped
+aa<v &amp;
+#errors
+1;11;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="&"
+
+#data escaped
+aa<v &amp;>b
+#errors
+#document
+| "aa"
+| <span>
+|   title="&"
+|   "b"
+
+#data escaped
+aa<v &amp;abx
+#errors
+1;14;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="&abx"
+
+#data escaped
+aa<v &amp;abx>b
+#errors
+#document
+| "aa"
+| <span>
+|   title="&abx"
+|   "b"
+
+#data escaped
+aa<v aa&amp
+#errors
+1;8;m;bare ero;;
+1;12;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="aa&amp"
+
+#data escaped
+aa<v aa&&amp
+#errors
+1;8;m;bare ero;;
+1;9;m;bare ero;;
+1;13;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="aa&&amp"
+
+#data escaped
+aa<v aa&&
+#errors
+1;8;m;bare ero;;
+1;9;m;bare ero;;
+1;10;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="aa&&"
+
+#data escaped
+aa<v aa&copy;
+#errors
+1;8;m;entity not declared;;
+1;14;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="aa&copy;"
+
+#data escaped
+aa<v aa&copy;abc
+#errors
+1;8;m;entity not declared;;
+1;17;m;unclosed tag;;
+#document
+| "aa"
+| <span>
+|   title="aa&copy;abc"
+
+#data escaped
+aa<v aa&rlm;a&lrm;aa>bb
+#errors
+#document escaped
+| "aa"
+| <span>
+|   title="aa\u200Fa\u200Eaa"
+|   "bb"
+
+#data escaped
+aa<v aa&gt;a&lrm;aa>bb
+#errors
+#document escaped
+| "aa"
+| <span>
+|   title="aa>a\u200Eaa"
+|   "bb"

@@ -1,0 +1,1116 @@
+#data
+#errors
+#document
+
+#data
+0
+#errors
+#document
+| "0"
+
+#data
+foo
+#errors
+#document
+| "foo"
+
+#data escaped
+ab\u0000
+#errors
+#document escaped
+| "ab\u0000"
+
+#data escaped
+ab\u000D
+#errors
+#document escaped
+| "ab\u000D"
+
+#data escaped
+ab\u000D\u000A
+#errors
+#document escaped
+| "ab\u000D\u000A"
+
+#data escaped
+ab\u000C
+#errors
+#document escaped
+| "ab\u000C"
+
+#data escaped
+ab\uFFFF
+#errors
+#document escaped
+| "ab\uFFFF"
+#validity
+noncharacter
+
+#data escaped
+ab\uD800
+#errors
+#document escaped
+| "ab\uD800"
+#validity
+surrogate
+
+#data escaped
+ab\U10000000
+#errors
+#document escaped
+| "ab\U10000000"
+#validity
+nonunicode
+
+#data
+foo</bar>aaa
+#errors
+1;4;m;unmatched end tag;bar;
+#document
+| "foo"
+| "aaa"
+
+#data
+foo
+</bar>aaa
+#errors
+2;1;m;unmatched end tag;bar;
+#document
+| "foo
+"
+| "aaa"
+
+#data
+foo
+</baz>
+aaa
+b</baa>
+#errors
+2;1;m;unmatched end tag;baz;
+4;2;m;unmatched end tag;baa;
+#document
+| "foo
+"
+| "
+aaa
+b"
+
+#data
+aa&
+#errors
+1;3;m;bare ero;;
+#document
+| "aa&"
+
+#data
+aa&bb
+#errors
+1;3;m;bare ero;;
+#document
+| "aa&bb"
+
+#data
+aa&&
+#errors
+1;3;m;bare ero;;
+1;4;m;bare ero;;
+#document
+| "aa&&"
+
+#data
+aa&amp&
+#errors
+1;3;m;bare ero;;
+1;7;m;bare ero;;
+#document
+| "aa&amp&"
+
+#data
+aa&1421abcdeAgewga;xyz
+#errors
+1;3;m;entity not declared;;
+#document
+| "aa&1421abcdeAgewga;xyz"
+
+#data
+aa&#1241;
+#errors
+1;3;m;bare ero;;
+#document
+| "aa&#1241;"
+
+#data
+aa&#x1241;
+#errors
+1;3;m;bare ero;;
+#document
+| "aa&#x1241;"
+
+#data
+aa&#X1241;
+#errors
+1;3;m;bare ero;;
+#document
+| "aa&#X1241;"
+
+#data
+aa&amp;
+#errors
+#document
+| "aa&"
+
+#data
+aa&amp;aa
+#errors
+#document
+| "aa&aa"
+
+#data
+aa&lt;
+#errors
+#document
+| "aa<"
+
+#data
+aa&gt;
+#errors
+#document
+| "aa>"
+
+#data
+aa&lt;&gt;
+#errors
+#document
+| "aa<>"
+
+#data
+aa&lrm;
+#errors
+#document escaped
+| "aa\u200E"
+
+#data
+aa&rlm;
+#errors
+#document escaped
+| "aa\u200F"
+
+#data
+aa&nbsp;
+#errors
+#document escaped
+| "aa\u00A0"
+
+#data
+aa&NBSP;
+#errors
+1;3;m;entity not declared;;
+#document escaped
+| "aa&NBSP;"
+
+#data
+xxx&<
+#errors
+1;4;m;bare ero;;
+1;5;m;bare stago;;
+1;5;m;start tag not allowed;;
+#document
+| "xxx&"
+
+#data
+xxx&<abc
+#errors
+1;4;m;bare ero;;
+1;9;m;unclosed tag;;
+1;5;m;start tag not allowed;abc;
+#document
+| "xxx&"
+
+#data
+xxx&<b>aa</b>cdc
+#errors
+1;4;m;bare ero;;
+#document
+| "xxx&"
+| <b>
+|   "aa"
+| "cdc"
+
+#data
+xxx&amp<abc
+#errors
+1;4;m;bare ero;;
+1;12;m;unclosed tag;;
+1;8;m;start tag not allowed;abc;
+#document
+| "xxx&amp"
+
+#data
+aa< foo>bb
+#errors
+1;4;m;empty start tag;;
+1;3;m;start tag not allowed;;
+#document
+| "aa"
+| "bb"
+
+#data
+aa<   foo>bb
+#errors
+1;4;m;empty start tag;;
+1;3;m;start tag not allowed;;
+#document
+| "aa"
+| "bb"
+
+#data escaped
+aa<\u0009foo>bb
+#errors
+1;4;m;empty start tag;;
+1;3;m;start tag not allowed;;
+#document
+| "aa"
+| "bb"
+
+#data escaped
+aa<\u000Afoo>bb
+#errors
+1;4;m;empty start tag;;
+1;3;m;start tag not allowed;;
+#document
+| "aa"
+| "bb"
+
+#data escaped
+aa<\u000Dfoo>bb
+#errors
+1;4;m;empty start tag;;
+1;3;m;start tag not allowed;;
+#document
+| "aa"
+| "bb"
+
+#data escaped
+aa<\u000D\u000Afoo>bb
+#errors
+1;4;m;empty start tag;;
+1;3;m;start tag not allowed;;
+#document
+| "aa"
+| "bb"
+
+#data escaped
+aa<\u000Cfoo>bb
+#errors
+1;4;m;empty start tag;;
+1;3;m;start tag not allowed;;
+#document
+| "aa"
+| "bb"
+
+#data
+aa<.bbb>cc
+#errors
+1;4;m;empty start tag;;
+1;3;m;start tag not allowed;;
+#document
+| "aa"
+| "cc"
+
+#data
+aa<>cc
+#errors
+1;3;m;start tag not allowed;;
+#document
+| "aa"
+| "cc"
+
+#data
+aaa<
+#errors
+1;4;m;bare stago;;
+1;4;m;start tag not allowed;;
+#document
+| "aaa"
+
+#data
+aaa<bb  >vvv
+#errors
+1;4;m;start tag not allowed;bb;
+#document
+| "aaa"
+| "vvv"
+
+#data escaped
+aaa<bb  \u0009>vvv
+#errors
+1;4;m;start tag not allowed;bb;
+#document
+| "aaa"
+| "vvv"
+
+#data escaped
+aaa<bb\u0009  >vvv
+#errors
+1;4;m;start tag not allowed;bb;
+#document
+| "aaa"
+| "vvv"
+
+#data escaped
+aaa<bb\u000C  >vvv
+#errors
+1;7;m;form feed;;
+1;4;m;start tag not allowed;bb;
+#document
+| "aaa"
+| "vvv"
+
+#data escaped
+aaa<bb\u000C\u000C  >vvv
+#errors
+1;7;m;form feed;;
+1;4;m;start tag not allowed;bb;
+#document
+| "aaa"
+| "vvv"
+
+#data escaped
+aaa<bb\u000A  >vvv
+#errors
+1;7;m;newline not allowed;;
+1;4;m;start tag not allowed;bb;
+#document
+| "aaa"
+| "vvv"
+
+#data escaped
+aaa<bb\u000D  >vvv
+#errors
+1;4;m;start tag not allowed;bb;
+1;7;m;newline not allowed;;
+#document
+| "aaa"
+| "vvv"
+
+#data escaped
+aaa<bb\u000D\u000A  >vvv
+#errors
+1;4;m;start tag not allowed;bb;
+1;7;m;newline not allowed;;
+#document
+| "aaa"
+| "vvv"
+
+#data
+aaa<v abc>ccc
+#errors
+#document
+| "aaa"
+| <span>
+|   title="abc"
+|   "ccc"
+
+#data
+aaa<v  abc>ccc
+#errors
+#document
+| "aaa"
+| <span>
+|   title="abc"
+|   "ccc"
+
+#data escaped
+aaa<v\u0009abc>ccc
+#errors
+#document
+| "aaa"
+| <span>
+|   title="abc"
+|   "ccc"
+
+#data escaped
+aaa<v\u000Cabc>ccc
+#errors
+1;6;m;form feed;;
+#document
+| "aaa"
+| <span>
+|   title="abc"
+|   "ccc"
+
+#data escaped
+aaa<v\u000Aabc>ccc
+#errors
+1;6;m;newline not allowed;;
+#document
+| "aaa"
+| <span>
+|   title="abc"
+|   "ccc"
+
+#data escaped
+aaa<v\u000Dabc>ccc
+#errors
+1;6;m;newline not allowed;;
+#document
+| "aaa"
+| <span>
+|   title="abc"
+|   "ccc"
+
+#data escaped
+aaa<v\u000D\u000Aabc>ccc
+#errors
+1;6;m;newline not allowed;;
+#document
+| "aaa"
+| <span>
+|   title="abc"
+|   "ccc"
+
+#data escaped
+aaa<v.abcd abc>ccc
+#errors
+#document
+| "aaa"
+| <span>
+|   class="abcd"
+|   title="abc"
+|   "ccc"
+
+#data escaped
+aaa<v.Abcd.fff abc>ccc
+#errors
+#document
+| "aaa"
+| <span>
+|   class="Abcd fff"
+|   title="abc"
+|   "ccc"
+
+#data
+aaa<b>ccc</b>ddd
+#errors
+#document
+| "aaa"
+| <b>
+|   "ccc"
+| "ddd"
+
+#data
+aaa<b
+#errors
+1;6;m;unclosed tag;;
+1;6;m;not closed;b;
+#document
+| "aaa"
+| <b>
+
+#data
+aaa<B
+#errors
+1;6;m;unclosed tag;;
+1;4;m;start tag not allowed;B;
+#document
+| "aaa"
+
+#data
+aaa<hoge
+#errors
+1;4;m;start tag not allowed;hoge;
+1;9;m;unclosed tag;;
+#document
+| "aaa"
+
+#data
+aaa<!foobar>ccc
+#errors
+1;4;m;start tag not allowed;!foobar;
+#document
+| "aaa"
+| "ccc"
+
+#data
+aaa<b.>ccc</b>
+#errors
+1;7;m;empty class;;
+#document
+| "aaa"
+| <b>
+|   "ccc"
+
+#data
+aaa<b..foo>ccc</b>
+#errors
+1;7;m;empty class;;
+#document
+| "aaa"
+| <b>
+|   class="foo"
+|   "ccc"
+
+#data
+aaa<b.foo.>ccc</b>
+#errors
+1;11;m;empty class;;
+#document
+| "aaa"
+| <b>
+|   class="foo"
+|   "ccc"
+
+#data
+aaa<b.foo..bar>ccc</b>
+#errors
+1;11;m;empty class;;
+#document
+| "aaa"
+| <b>
+|   class="foo bar"
+|   "ccc"
+
+#data
+aaa<v. aa>ccc
+#errors
+1;7;m;empty class;;
+#document
+| "aaa"
+| <span>
+|   title="aa"
+|   "ccc"
+
+#data escaped
+aaa<v.\u0009aa>ccc
+#errors
+1;7;m;empty class;;
+#document
+| "aaa"
+| <span>
+|   title="aa"
+|   "ccc"
+
+#data escaped
+aaa<v.\u000Caa>ccc
+#errors
+1;7;m;empty class;;
+#document
+| "aaa"
+| <span>
+|   title="aa"
+|   "ccc"
+
+#data escaped
+aaa<v.\u000Daa>ccc
+#errors
+1;7;m;empty class;;
+#document
+| "aaa"
+| <span>
+|   title="aa"
+|   "ccc"
+
+#data escaped
+aaa<v.\u000Aaa>ccc
+#errors
+1;7;m;empty class;;
+#document
+| "aaa"
+| <span>
+|   title="aa"
+|   "ccc"
+
+#data escaped
+aaa<v.\u000D\u000aa>ccc
+#errors
+1;7;m;empty class;;
+#document
+| "aaa"
+| <span>
+|   title="a"
+|   "ccc"
+
+#data escaped
+aaa<v.abc\u000Caa>ccc
+#errors
+1;10;m;form feed;;
+#document
+| "aaa"
+| <span>
+|   class="abc"
+|   title="aa"
+|   "ccc"
+
+#data
+aaa<b.acaa>ccc</b>dd
+#errors
+#document
+| "aaa"
+| <b>
+|   class="acaa"
+|   "ccc"
+| "dd"
+
+#data
+aaa<b.acaa >ccc</b>dd
+#errors
+1;4;m;webvtt:annotation not allowed;;
+#document
+| "aaa"
+| <b>
+|   class="acaa"
+|   "ccc"
+| "dd"
+
+#data escaped
+aaa<b.acaa\u0009>ccc</b>dd
+#errors
+1;4;m;webvtt:annotation not allowed;;
+#document
+| "aaa"
+| <b>
+|   class="acaa"
+|   "ccc"
+| "dd"
+
+#data escaped
+aaa<b.acaa\u000D>ccc</b>dd
+#errors
+1;11;m;newline not allowed;;
+1;4;m;webvtt:annotation not allowed;;
+#document
+| "aaa"
+| <b>
+|   class="acaa"
+|   "ccc"
+| "dd"
+
+#data escaped
+aaa<b.acaa\u000D\u000A>ccc</b>dd
+#errors
+1;11;m;newline not allowed;;
+1;4;m;webvtt:annotation not allowed;;
+#document
+| "aaa"
+| <b>
+|   class="acaa"
+|   "ccc"
+| "dd"
+
+#data escaped
+aaa<b.acaa\u000A>ccc</b>dd
+#errors
+1;11;m;newline not allowed;;
+1;4;m;webvtt:annotation not allowed;;
+#document
+| "aaa"
+| <b>
+|   class="acaa"
+|   "ccc"
+| "dd"
+
+#data escaped
+aaa<b.acaa\u000C>ccc</b>dd
+#errors
+1;11;m;form feed;;
+1;4;m;webvtt:annotation not allowed;;
+#document
+| "aaa"
+| <b>
+|   class="acaa"
+|   "ccc"
+| "dd"
+
+#data
+aaa<b.fff
+#errors
+1;10;m;unclosed tag;;
+1;10;m;not closed;b;
+#document
+| "aaa"
+| <b>
+|   class="fff"
+
+#data
+aaa<b.fff.>aa</b>cc
+#errors
+1;11;m;empty class;;
+#document
+| "aaa"
+| <b>
+|   class="fff"
+|   "aa"
+| "cc"
+
+#data
+aa<v foo bar>cc
+#errors
+#document
+| "aa"
+| <span>
+|   title="foo bar"
+|   "cc"
+
+#data
+aa<v   foo bar>cc
+#errors
+#document
+| "aa"
+| <span>
+|   title="foo bar"
+|   "cc"
+
+#data escaped
+aa<v \u0009foo bar>cc
+#errors
+#document
+| "aa"
+| <span>
+|   title="foo bar"
+|   "cc"
+
+#data escaped
+aa<v \u000Afoo bar>cc
+#errors
+1;6;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="foo bar"
+|   "cc"
+
+#data escaped
+aa<v \u000Dfoo bar>cc
+#errors
+1;6;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="foo bar"
+|   "cc"
+
+#data escaped
+aa<v \u000A\u000Dfoo bar>cc
+#errors
+1;6;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="foo bar"
+|   "cc"
+
+#data escaped
+aa<v \u0009\u000Cfoo bar>cc
+#errors
+1;7;m;form feed;;
+#document
+| "aa"
+| <span>
+|   title="foo bar"
+|   "cc"
+
+#data escaped
+aa<v foo bar \u000C>cc
+#errors
+1;14;m;form feed;;
+#document
+| "aa"
+| <span>
+|   title="foo bar"
+|   "cc"
+
+#data escaped
+aa<v \u0009foo bar\u000A>cc
+#errors
+1;14;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="foo bar"
+|   "cc"
+
+#data escaped
+aa<v \u0009foo bar\u000D>cc
+#errors
+1;14;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="foo bar"
+|   "cc"
+
+#data escaped
+aa<v \u0009foo bar  >cc
+#errors
+#document
+| "aa"
+| <span>
+|   title="foo bar"
+|   "cc"
+
+#data escaped
+aa<v \u0009foo bar\u0009>cc
+#errors
+#document
+| "aa"
+| <span>
+|   title="foo bar"
+|   "cc"
+
+#data escaped
+aa<v foo bar
+abc>cc
+#errors
+1;13;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="foo bar abc"
+|   "cc"
+
+#data escaped
+aa<v foo bar\u000Dabc>cc
+#errors
+1;13;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="foo bar abc"
+|   "cc"
+
+#data escaped
+aa<v foo  \u0009bar\u000D\u000C\u000Aabc>cc
+#errors
+1;15;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title="foo bar abc"
+|   "cc"
+
+#data escaped
+| aa<v\u0020
+| 
+| >cc
+#errors
+1;6;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title=""
+|   "cc"
+
+#data escaped
+| aa<v>cc
+#errors
+1;3;m;webvtt:no annotation;v;
+#document
+| "aa"
+| <span>
+|   title=""
+|   "cc"
+
+#data escaped
+| aa<v >cc
+#errors
+#document
+| "aa"
+| <span>
+|   title=""
+|   "cc"
+#validity
+empty
+
+#data escaped
+| aa<v \u000A>cc
+#errors
+1;6;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title=""
+|   "cc"
+#validity
+empty
+
+#data escaped
+| aa<v \u000D\u000A>cc
+#errors
+1;6;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title=""
+|   "cc"
+#validity
+empty
+
+#data escaped
+| aa<v \u000D>cc
+#errors
+1;6;m;newline not allowed;;
+#document
+| "aa"
+| <span>
+|   title=""
+|   "cc"
+#validity
+empty
+
+#data escaped
+| aa<v \u000C>cc
+#errors
+1;6;m;form feed;;
+#document
+| "aa"
+| <span>
+|   title=""
+|   "cc"
+#validity
+empty
+
+#data escaped
+| aa<v.>cc
+#errors
+1;3;m;webvtt:no annotation;v;
+1;6;m;empty class;;
+#document
+| "aa"
+| <span>
+|   title=""
+|   "cc"
+
+#data escaped
+| aa<v.hoge>cc
+#errors
+1;3;m;webvtt:no annotation;v;
+#document
+| "aa"
+| <span>
+|   class="hoge"
+|   title=""
+|   "cc"
+
+#data escaped
+| aa<v. hoge>cc
+#errors
+1;6;m;empty class;;
+#document
+| "aa"
+| <span>
+|   title="hoge"
+|   "cc"
+
+#data
+aa<b.fo&amp;cc>aa</b>cc
+#errors
+#document
+| "aa"
+| <b>
+|   class="fo&amp;cc"
+|   "aa"
+| "cc"
+
+#data
+aa<b.fo&gt;cc>aa</b>cc
+#errors
+#document
+| "aa"
+| <b>
+|   class="fo&gt;cc"
+|   "aa"
+| "cc"
+
+#data
+aa<b.fo&ampcc>aa</b>cc
+#errors
+#document
+| "aa"
+| <b>
+|   class="fo&ampcc"
+|   "aa"
+| "cc"
+
+#data
+aaaa<b>cc</b
+#errors
+1;13;m;unclosed tag;;
+#document
+| "aaaa"
+| <b>
+|   "cc"
+
+#data
+aaaa<b>cc</b>
+#errors
+#document
+| "aaaa"
+| <b>
+|   "cc"
+
+#data
+aa<b>aa<bcd>cc</bcd></b>cc
+#errors
+1;8;m;start tag not allowed;bcd;
+1;15;m;unmatched end tag;bcd;
+#document
+| "aa"
+| <b>
+|   "aa"
+|   "cc"
+| "cc"
+
+#data
+aa<b>aa<bcd>cc</b>d</bcd>cc
+#errors
+1;8;m;start tag not allowed;bcd;
+1;20;m;unmatched end tag;bcd;
+#document
+| "aa"
+| <b>
+|   "aa"
+|   "cc"
+| "d"
+| "cc"
+
+#data
+aaaa<b>cc</b
+>d
+#errors escaped
+1;10;m;unmatched end tag;b\u000A;
+2;3;m;not closed;b;
+#document
+| "aaaa"
+| <b>
+|   "cc"
+|   "d"
+
+#data
+aaaa<b>cc</B>d
+#errors escaped
+1;10;m;unmatched end tag;B;
+1;15;m;not closed;b;
+#document
+| "aaaa"
+| <b>
+|   "cc"
+|   "d"
+
+#data
+aaa</>bbb
+#errors
+1;4;m;empty end tag;;
+#document
+| "aaa"
+| "bbb"
+
+#data
+a<i>aa</>bbb
+#errors
+1;7;m;empty end tag;;
+1;13;m;not closed;i;
+#document
+| "a"
+| <i>
+|   "aa"
+|   "bbb"
