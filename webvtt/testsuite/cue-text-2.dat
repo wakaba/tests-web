@@ -16,6 +16,8 @@ aa<v\u0020
 | "aa"
 | <span>
 |   title=""
+#serialized
+aa<v ></v>
 
 #data escaped
 aa<v\u0009
@@ -430,6 +432,8 @@ aa<v &amp;
 | "aa"
 | <span>
 |   title="&"
+#serialized
+aa<v &amp;></v>
 
 #data escaped
 aa<v &amp;>b
@@ -439,6 +443,8 @@ aa<v &amp;>b
 | <span>
 |   title="&"
 |   "b"
+#serialized
+aa<v &amp;>b</v>
 
 #data escaped
 aa<v &amp;abx
@@ -509,6 +515,8 @@ aa<v aa&copy;abc
 | "aa"
 | <span>
 |   title="aa&copy;abc"
+#serialized
+aa<v aa&amp;copy;abc></v>
 
 #data escaped
 aa<v aa&rlm;a&lrm;aa>bb
@@ -527,3 +535,5 @@ aa<v aa&gt;a&lrm;aa>bb
 | <span>
 |   title="aa>a\u200Eaa"
 |   "bb"
+#serialized escaped
+aa<v aa&gt;a\u200Eaa>bb</v>

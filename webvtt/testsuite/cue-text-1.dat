@@ -1,24 +1,31 @@
 #data
 #errors
 #document
+#serialized
 
 #data
 0
 #errors
 #document
 | "0"
+#serialized
+0
 
 #data
 foo
 #errors
 #document
 | "foo"
+#serialized
+foo
 
 #data escaped
 ab\u0000
 #errors
 #document escaped
 | "ab\u0000"
+#serialized escaped
+ab\u0000
 
 #data escaped
 ab\u000D
@@ -31,6 +38,8 @@ ab\u000D\u000A
 #errors
 #document escaped
 | "ab\u000D\u000A"
+#serialized escaped
+ab\u000D\u000A
 
 #data escaped
 ab\u000C
@@ -63,6 +72,8 @@ foo</bar>aaa
 #document
 | "foo"
 | "aaa"
+#serialized
+fooaaa
 
 #data
 foo
@@ -95,6 +106,8 @@ aa&
 1;3;m;bare ero;;
 #document
 | "aa&"
+#serialized
+aa&amp;
 
 #data
 aa&bb
@@ -102,6 +115,8 @@ aa&bb
 1;3;m;bare ero;;
 #document
 | "aa&bb"
+#serialized
+aa&amp;bb
 
 #data
 aa&&
@@ -110,6 +125,8 @@ aa&&
 1;4;m;bare ero;;
 #document
 | "aa&&"
+#serialized
+aa&amp;&amp;
 
 #data
 aa&amp&
@@ -164,12 +181,16 @@ aa&lt;
 #errors
 #document
 | "aa<"
+#serialized
+aa&lt;
 
 #data
 aa&gt;
 #errors
 #document
 | "aa>"
+#serialized
+aa&gt;
 
 #data
 aa&lt;&gt;
@@ -182,6 +203,8 @@ aa&lrm;
 #errors
 #document escaped
 | "aa\u200E"
+#serialized escaped
+aa\u200E
 
 #data
 aa&rlm;
@@ -201,6 +224,8 @@ aa&NBSP;
 1;3;m;entity not declared;;
 #document escaped
 | "aa&NBSP;"
+#serialized
+aa&amp;NBSP;
 
 #data
 xxx&<
@@ -210,6 +235,8 @@ xxx&<
 1;5;m;start tag not allowed;;
 #document
 | "xxx&"
+#serialized
+xxx&amp;
 
 #data
 xxx&<abc
@@ -229,6 +256,8 @@ xxx&<b>aa</b>cdc
 | <b>
 |   "aa"
 | "cdc"
+#serialized
+xxx&amp;<b>aa</b>cdc
 
 #data
 xxx&amp<abc
@@ -247,6 +276,8 @@ aa< foo>bb
 #document
 | "aa"
 | "bb"
+#serialized
+aabb
 
 #data
 aa<   foo>bb
@@ -404,6 +435,8 @@ aaa<v abc>ccc
 | <span>
 |   title="abc"
 |   "ccc"
+#serialized
+aaa<v abc>ccc</v>
 
 #data
 aaa<v  abc>ccc
@@ -413,6 +446,8 @@ aaa<v  abc>ccc
 | <span>
 |   title="abc"
 |   "ccc"
+#serialized
+aaa<v abc>ccc</v>
 
 #data escaped
 aaa<v\u0009abc>ccc
@@ -442,6 +477,8 @@ aaa<v\u000Aabc>ccc
 | <span>
 |   title="abc"
 |   "ccc"
+#serialized
+aaa<v abc>ccc</v>
 
 #data escaped
 aaa<v\u000Dabc>ccc
@@ -462,6 +499,8 @@ aaa<v\u000D\u000Aabc>ccc
 | <span>
 |   title="abc"
 |   "ccc"
+#serialized
+aaa<v abc>ccc</v>
 
 #data escaped
 aaa<v.abcd abc>ccc
@@ -472,6 +511,8 @@ aaa<v.abcd abc>ccc
 |   class="abcd"
 |   title="abc"
 |   "ccc"
+#serialized
+aaa<v.abcd abc>ccc</v>
 
 #data escaped
 aaa<v.Abcd.fff abc>ccc
@@ -482,6 +523,8 @@ aaa<v.Abcd.fff abc>ccc
 |   class="Abcd fff"
 |   title="abc"
 |   "ccc"
+#serialized
+aaa<v.Abcd.fff abc>ccc</v>
 
 #data
 aaa<b>ccc</b>ddd
@@ -500,6 +543,8 @@ aaa<b
 #document
 | "aaa"
 | <b>
+#serialized
+aaa<b></b>
 
 #data
 aaa<B
@@ -533,6 +578,8 @@ aaa<b.>ccc</b>
 | "aaa"
 | <b>
 |   "ccc"
+#serialized
+aaa<b>ccc</b>
 
 #data
 aaa<b..foo>ccc</b>
@@ -553,6 +600,8 @@ aaa<b.foo.>ccc</b>
 | <b>
 |   class="foo"
 |   "ccc"
+#serialized
+aaa<b.foo>ccc</b>
 
 #data
 aaa<b.foo..bar>ccc</b>
@@ -563,6 +612,8 @@ aaa<b.foo..bar>ccc</b>
 | <b>
 |   class="foo bar"
 |   "ccc"
+#serialized
+aaa<b.foo.bar>ccc</b>
 
 #data
 aaa<v. aa>ccc
@@ -603,6 +654,8 @@ aaa<v.\u000Daa>ccc
 | <span>
 |   title="aa"
 |   "ccc"
+#serialized
+aaa<v aa>ccc</v>
 
 #data escaped
 aaa<v.\u000Aaa>ccc
@@ -678,6 +731,8 @@ aaa<b.acaa\u000D>ccc</b>dd
 |   class="acaa"
 |   "ccc"
 | "dd"
+#serialized
+aaa<b.acaa>ccc</b>dd
 
 #data escaped
 aaa<b.acaa\u000D\u000A>ccc</b>dd
@@ -762,6 +817,8 @@ aa<v \u0009foo bar>cc
 | <span>
 |   title="foo bar"
 |   "cc"
+#serialized
+aa<v foo bar>cc</v>
 
 #data escaped
 aa<v \u000Afoo bar>cc
@@ -861,6 +918,8 @@ abc>cc
 | <span>
 |   title="foo bar abc"
 |   "cc"
+#serialized
+aa<v foo bar abc>cc</v>
 
 #data escaped
 aa<v foo bar\u000Dabc>cc
@@ -914,6 +973,8 @@ aa<v foo  \u0009bar\u000D\u000C\u000Aabc>cc
 | <span>
 |   title=""
 |   "cc"
+#serialized
+aa<v >cc</v>
 
 #data escaped
 | aa<v \u000A>cc
@@ -980,6 +1041,8 @@ aa<v foo  \u0009bar\u000D\u000C\u000Aabc>cc
 |   class="hoge"
 |   title=""
 |   "cc"
+#serialized
+aa<v.hoge >cc</v>
 
 #data escaped
 | aa<v. hoge>cc
@@ -1000,6 +1063,8 @@ aa<b.fo&amp;cc>aa</b>cc
 |   class="fo&amp;cc"
 |   "aa"
 | "cc"
+#serialized
+aa<b>aa</b>cc
 
 #data
 aa<b.fo&gt;cc>aa</b>cc
@@ -1010,6 +1075,8 @@ aa<b.fo&gt;cc>aa</b>cc
 |   class="fo&gt;cc"
 |   "aa"
 | "cc"
+#serialized
+aa<b>aa</b>cc
 
 #data
 aa<b.fo&ampcc>aa</b>cc
@@ -1114,3 +1181,5 @@ aa<ruby><rt>vb</rt></ruby>b
 |   <rt>
 |     "vb"
 | "b"
+#serialized
+aa<ruby><rt>vb</rt></ruby>b

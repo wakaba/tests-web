@@ -6,6 +6,8 @@ aa<c>bb</c>dd
 | <span>
 |   "bb"
 | "dd"
+#serialized
+aa<c>bb</c>dd
 
 #data
 aa<c.foo.bar>bb</c>dd
@@ -16,6 +18,8 @@ aa<c.foo.bar>bb</c>dd
 |   class="foo bar"
 |   "bb"
 | "dd"
+#serialized
+aa<c.foo.bar>bb</c>dd
 
 #data
 aa<c abc>bb</c>dd
@@ -26,6 +30,8 @@ aa<c abc>bb</c>dd
 | <span>
 |   "bb"
 | "dd"
+#serialized
+aa<c>bb</c>dd
 
 #data
 aa<c.xxx.yyy abc>bb</c>dd
@@ -77,6 +83,8 @@ aa<i.xxx.yyy abi>bb</i>dd
 |   class="xxx yyy"
 |   "bb"
 | "dd"
+#serialized
+aa<i.xxx.yyy>bb</i>dd
 
 #data
 aa<b>bb</b>dd
@@ -167,6 +175,8 @@ aa<ruby>bb</ruby>dd
 | <ruby>
 |   "bb"
 | "dd"
+#serialized
+aa<ruby>bb</ruby>dd
 
 #data
 aa<ruby.foo.bar>bb</ruby>dd
@@ -178,6 +188,8 @@ aa<ruby.foo.bar>bb</ruby>dd
 |   class="foo bar"
 |   "bb"
 | "dd"
+#serialized
+aa<ruby.foo.bar>bb</ruby>dd
 
 #data
 aa<ruby abi>bb</ruby>dd
@@ -212,6 +224,8 @@ a<ruby>b<rt>c</ruby>d
 |   <rt>
 |     "c"
 | "d"
+#serialized
+a<ruby>b<rt>c</rt></ruby>d
 
 #data
 a<ruby>b<rt>c</rt></ruby>d
@@ -250,6 +264,8 @@ a<ruby>b<rt>c</rt>f<rt>g</ruby>d
 |   <rt>
 |     "g"
 | "d"
+#serialized
+a<ruby>b<rt>c</rt>f<rt>g</rt></ruby>d
 
 #data
 a<ruby>b<rt>c<rt>e</ruby>d
@@ -364,6 +380,8 @@ a<ruby><i>b<rt>c</rt></i><rt>e</ruby>d
 |       <rt>
 |         "dd"
 |     "ee"
+#serialized
+<ruby>aa<rt>bb<ruby>cc<rt>dd</rt></ruby>ee</rt></ruby>
 
 #data
 bb<rt>aa
@@ -526,6 +544,8 @@ aa<span>bbb</span>ddf
 | "aa"
 | "bbb"
 | "ddf"
+#serialized
+aabbbddf
 
 #data
 aaa<c>bbb</span>ddd
@@ -580,4 +600,5 @@ a<ruby>foo</baz>aaa</ruby>
 | <ruby>
 |   "foo"
 |   "aaa"
-
+#serialized
+a<ruby>fooaaa</ruby>

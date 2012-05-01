@@ -3,6 +3,10 @@
 1;1;m;webvtt:no signature;;
 #parsed
 invalid
+#serialized
+| WEBVTT
+| 
+| 
 
 #data
 0
@@ -10,6 +14,10 @@ invalid
 1;1;m;webvtt:no signature;;
 #parsed
 invalid
+#serialized
+| WEBVTT
+| 
+| 
 
 #data
 hoge
@@ -57,6 +65,10 @@ invalid
 WEBVTT
 #errors
 #parsed
+#serialized
+| WEBVTT
+| 
+| 
 
 #data escaped
 \uFEFFWEBVTT
@@ -64,6 +76,10 @@ WEBVTT
 1;1;m;webvtt:no signature;;
 #parsed
 invalid
+#serialized
+| WEBVTT
+| 
+| 
 
 #data escaped
 \uFEFF\uFEFFWEBVTT
@@ -90,6 +106,10 @@ invalid
 WEBVTT\u0020
 #errors
 #parsed
+#serialized
+| WEBVTT
+| 
+| 
 
 #data escaped
 WEBVTT\u0009
@@ -145,11 +165,19 @@ invalid
 WEBVTT -*- WebVTT -*-
 #errors
 #parsed
+#serialized
+| WEBVTT
+| 
+| 
 
 #data escaped
 WEBVTT abc\u0000
 #errors
 #parsed escaped
+#serialized
+| WEBVTT
+| 
+| 
 
 #data escaped
 WEBVTT abc\uD800
@@ -269,6 +297,10 @@ aa\U00FE00FF
 #errors
 4;3;m;webvtt:no timings;;
 #parsed
+#serialized
+| WEBVTT
+| 
+| 
 
 #data
 | WEBVTT
@@ -327,6 +359,13 @@ aa\U00FE00FF
 <12:43:21.000> <12:56:31.000>
   #id3
   "aaa"
+#serialized
+| WEBVTT
+| 
+| id3
+| 12:43:21.000 --> 12:56:31.000
+| aaa
+| 
 
 #data
 | WEBVTT
@@ -343,6 +382,13 @@ aa\U00FE00FF
 <12:43:21.000> <12:56:31.000>
   #id3
   ""
+#serialized
+| WEBVTT
+| 
+| id3
+| 12:43:21.000 --> 12:56:31.000
+| 
+| 
 
 #data
 | WEBVTT
@@ -352,6 +398,10 @@ aa\U00FE00FF
 #errors
 4;4;m;webvtt:no timings;;
 #parsed
+#serialized
+| WEBVTT
+| 
+| 
 
 #data
 | WEBVTT
@@ -372,6 +422,10 @@ aa\U00FE00FF
 #errors
 4;1;m;webvtt:bad timings;;
 #parsed
+#serialized
+| WEBVTT
+| 
+| 
 
 #data
 | WEBVTT
@@ -394,6 +448,13 @@ aa\U00FE00FF
 <00:10:20.333> <00:20:21.000>
   #abc
   ""
+#serialized
+| WEBVTT
+| 
+| abc
+| 00:10:20.333 --> 00:20:21.000
+| 
+| 
 
 #data escaped
 | WEBVTT
@@ -408,6 +469,13 @@ aa\U00FE00FF
 <00:10:21.344> <00:41:12.351>
   #bb\uFFFD
   "aaa"
+#serialized escaped
+| WEBVTT
+| 
+| bb\uFFFD
+| 00:10:21.344 --> 00:41:12.351
+| aaa
+| 
 
 #data escaped
 | WEBVTT
@@ -614,6 +682,15 @@ de ff"
   ""
 <51:32:33.000> <71:42:22.000>
   "aaa"
+#serialized
+| WEBVTT
+| 
+| 31:42:11.000 --> 42:44:22.000
+| 
+| 
+| 51:32:33.000 --> 71:42:22.000
+| aaa
+| 
 
 #data
 | WEBVTT
@@ -718,6 +795,12 @@ de ff"
   writing direction rl
   size 50%
   "aa"
+#serialized
+| WEBVTT
+| 
+| 12:31:22.000 --> 31:53:22.000 vertical:rl size:50%
+| aa
+| 
 
 #data
 | WEBVTT
