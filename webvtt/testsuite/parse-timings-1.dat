@@ -42,7 +42,7 @@ WEBVTT
 aaa
 #errors
 2;1;m;webvtt:no header end;;
-2;1;m;webvtt:bad timings;;
+2;1;m;webvtt:bad timestamp;;
 #parsed
 
 #data
@@ -185,7 +185,7 @@ aaa
 | 12:43:21.111\u000D-->\u000D12:31:33.111
 | aa
 #errors
-4;1;m;webvtt:bad timings;;
+4;1;m;webvtt:bad timestamp;;
 #parsed escaped
 
 #data escaped
@@ -194,7 +194,7 @@ aaa
 | 12:43:21.111\u000A-->\u000A12:31:33.111
 | aa
 #errors
-4;1;m;webvtt:bad timings;;
+4;1;m;webvtt:bad timestamp;;
 #parsed escaped
 
 #data escaped
@@ -203,7 +203,7 @@ aaa
 | 12:43:21.111\u000D\u000A-->\u000D\u000A12:31:33.111
 | aa
 #errors
-4;1;m;webvtt:bad timings;;
+4;1;m;webvtt:bad timestamp;;
 #parsed escaped
 
 #data escaped
@@ -457,7 +457,7 @@ aaa
 | 
 | 12:21:33.00 --> 12:44:32.000
 #errors
-3;1;m;webvtt:bad timings;;
+3;1;m;webvtt:bad timestamp;;
 #parsed
 
 #data
@@ -465,7 +465,7 @@ aaa
 | 
 | 12:21:33.000 --> 12:44:32.0
 #errors
-3;1;m;webvtt:bad timings;;
+3;1;m;webvtt:bad timestamp;;
 #parsed
 
 #data
@@ -473,7 +473,7 @@ aaa
 | 
 | 12:21:33.000 --> 12:44:2.000
 #errors
-3;1;m;webvtt:bad timings;;
+3;1;m;webvtt:bad timestamp;;
 #parsed
 
 #data
@@ -481,7 +481,7 @@ aaa
 | 
 | 12:21:033.000 --> 12:44:02.000
 #errors
-3;1;m;webvtt:bad timings;;
+3;1;m;webvtt:bad timestamp;;
 #parsed
 
 #data
@@ -582,6 +582,27 @@ aaa
 | WEBVTT
 | 
 | 12:40.000 --> 51:31.012
+| a<51:31.012>
+#errors
+4;2;m;webvtt:end time < timestamp;;
+#parsed
+<00:12:40.000> <00:51:31.012>
+  "a<51:31.012>"
+
+#data
+| WEBVTT
+| 
+| 12:40.000 --> 51:31.013
+| a<51:31.012>
+#errors
+#parsed
+<00:12:40.000> <00:51:31.013>
+  "a<51:31.012>"
+
+#data
+| WEBVTT
+| 
+| 12:40.000 --> 51:31.012
 | a<20:32.000>b<10:31.000>
 #errors
 4;14;m;webvtt:timestamp < min time;;
@@ -599,3 +620,67 @@ aaa
 #parsed
 <00:12:40.000> <00:51:31.012>
   "a<10:32.000>b<14:42.000>"
+
+#data
+| WEBVTT
+| 
+| 12:40.000 --> 51:31.012
+| a<12:41.001>b<12:41.000>
+#errors
+4;14;m;webvtt:timestamp < min time;;
+#parsed
+<00:12:40.000> <00:51:31.012>
+  "a<12:41.001>b<12:41.000>"
+
+#data
+| WEBVTT
+| 
+| 12:40.000 --> 51:31.012
+| a<12:41.000>b<12:41.000>
+#errors
+4;14;m;webvtt:timestamp < min time;;
+#parsed
+<00:12:40.000> <00:51:31.012>
+  "a<12:41.000>b<12:41.000>"
+
+#data
+| WEBVTT
+| 
+| 12:40.000 --> 51:31.012
+| a<12:41.000>b<12:41.001>
+#errors
+#parsed
+<00:12:40.000> <00:51:31.012>
+  "a<12:41.000>b<12:41.001>"
+
+#data
+| WEBVTT
+| 
+| 12:40.001 --> 51:31.012
+| a<12:40.000>b
+#errors
+4;2;m;webvtt:timestamp < min time;;
+#parsed
+<00:12:40.001> <00:51:31.012>
+  "a<12:40.000>b"
+
+#data
+| WEBVTT
+| 
+| 12:40.000 --> 51:31.012
+| a<12:40.000>b
+#errors
+4;2;m;webvtt:timestamp < min time;;
+#parsed
+<00:12:40.000> <00:51:31.012>
+  "a<12:40.000>b"
+
+#data
+| WEBVTT
+| 
+| 12:40.000 --> 51:31.012
+| a<12:40.001>b
+#errors
+#parsed
+<00:12:40.000> <00:51:31.012>
+  "a<12:40.001>b"
