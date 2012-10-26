@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<style> p { display: inline } p + p::before { content: " > " } </style>
+<div foo bar baz>
+<script>
+  var div = document.getElementsByTagName ('div')[0];
+  var attrs = div.attributes;
+  for (var i = 0; i < attrs.length; i++) {
+    document.write ('<p>' + attrs[i].nodeName);
+  }
+</script>
