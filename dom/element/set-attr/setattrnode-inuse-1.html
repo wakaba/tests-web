@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<title>setAttributeNode</title>
+
+<p class=test1>
+<p class=test2>
+
+<p class=FAIL>FAIL (noscript)</p>
+
+<script>
+  var p = document.getElementsByTagName ('p')[2];
+  p.firstChild.data = 'FAIL (script error)';
+
+  var q = document.getElementsByTagName ('p')[0];
+  var r = document.getElementsByTagName ('p')[1];
+  var attr = q.getAttributeNode ('class');
+  var x = {};
+  try {
+    r.setAttributeNode (attr);
+  } catch (e) {
+    x = e;
+  }
+  if (r.className == 'test2' && x.code == 10 /* INUSE_ATTRIBUTE_ERR */) {
+    p.firstChild.data = 'PASS';
+    p.className = 'PASS';
+  } else {
+    p.firstChild.data = 'FAIL';
+    p.className = 'FAIL';
+  }
+</script>

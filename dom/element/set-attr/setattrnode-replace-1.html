@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<title>setAttributeNode</title>
+
+<p class=FAIL>FAIL (noscript)</p>
+
+<script>
+  var p = document.getElementsByTagName ('p')[0];
+  p.firstChild.data = 'FAIL (script error)';
+
+  var clsAttr = document.createAttribute ('class');
+  clsAttr.value = 'PASS';
+  p.setAttributeNode (clsAttr);
+  if (p.className == 'PASS') {
+    p.firstChild.data = 'PASS';
+  } else {
+    p.firstChild.data = 'FAIL';
+  }
+</script>
