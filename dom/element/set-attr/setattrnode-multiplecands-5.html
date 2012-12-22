@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<title>setAttributeNode</title>
+
+<p class=test1>
+
+<p class=FAIL>FAIL (noscript)</p>
+
+<script>
+  var p = document.getElementsByTagName ('p')[1];
+  p.firstChild.data = 'FAIL (script error)';
+
+  var q = document.getElementsByTagName ('p')[0];
+  q.setAttributeNS ('http://foo/', 'title', 'titlefoo');
+
+  var attr = document.createAttribute ('title');
+  attr.value = 'new';
+  var r = q.setAttributeNodeNS (attr);
+  if (q.title == 'new' &&
+      q.getAttributeNS ('http://foo/', 'title') == 'titlefoo' &&
+      r == null) {
+    p.firstChild.data = 'PASS';
+    p.className = 'PASS';
+  } else {
+    p.firstChild.data = 'FAIL';
+    p.className = 'FAIL';
+  }
+</script>
