@@ -1,0 +1,138 @@
+#data
+aa<3>bb
+#errors
+1;3;m;webvtt:bad timestamp;;
+#document
+| "aa"
+| "bb"
+#serialized
+aabb
+
+#data
+aa<3abac
+#errors
+1;3;m;webvtt:bad timestamp;;
+1;9;m;unclosed tag;;
+#document
+| "aa"
+
+#data
+aa<12:421>xx
+#errors
+1;3;m;webvtt:bad timestamp;;
+#document
+| "aa"
+| "xx"
+
+#data
+aa<12:42.000
+#errors
+1;13;m;unclosed tag;;
+#document
+| "aa"
+| <?timestamp 00:12:42.000?>
+#serialized
+aa<00:12:42.000>
+
+#data
+aa<12:42.000>xx
+#errors
+#document
+| "aa"
+| <?timestamp 00:12:42.000?>
+| "xx"
+#serialized
+aa<00:12:42.000>xx
+
+#data
+aa<12:42.000>xx</12:42.000>
+#errors
+1;16;m;unmatched end tag;12:42.000;
+#document
+| "aa"
+| <?timestamp 00:12:42.000?>
+| "xx"
+#serialized
+aa<00:12:42.000>xx
+
+#data
+aa<100:12:42.000>xx
+#errors
+#document
+| "aa"
+| <?timestamp 100:12:42.000?>
+| "xx"
+#serialized
+aa<100:12:42.000>xx
+
+#data
+aa<-100:12:42.000>xx
+#errors
+1;3;m;start tag not allowed;-100:12:42;
+#document
+| "aa"
+| "xx"
+
+#data
+aa<00000:12:42.100>xx
+#errors
+#document
+| "aa"
+| <?timestamp 00:12:42.100?>
+| "xx"
+
+#data
+aa<61:12:42.100>xx
+#errors
+#document
+| "aa"
+| <?timestamp 61:12:42.100?>
+| "xx"
+
+#data
+aa<2:02.100>xx
+#errors
+1;3;m;webvtt:bad timestamp;;
+#document
+| "aa"
+| "xx"
+
+#data
+aa<62:02.100>xx
+#errors
+1;3;m;webvtt:bad timestamp;;
+#document
+| "aa"
+| "xx"
+
+#data
+aa<20:62.100>xx
+#errors
+1;3;m;webvtt:bad timestamp;;
+#document
+| "aa"
+| "xx"
+
+#data
+aa<201:02.100>xx
+#errors
+1;3;m;webvtt:bad timestamp;;
+#document
+| "aa"
+| "xx"
+
+#data
+aa<2:01:02.100 >xx
+#errors
+1;3;m;webvtt:bad timestamp;;
+#document
+| "aa"
+| "xx"
+
+#data
+aa<2:01:02.100 abc>xx
+#errors
+1;3;m;webvtt:bad timestamp;;
+#document
+| "aa"
+| "xx"

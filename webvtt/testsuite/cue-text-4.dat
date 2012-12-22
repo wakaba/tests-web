@@ -1,0 +1,604 @@
+#data
+aa<c>bb</c>dd
+#errors
+#document
+| "aa"
+| <span>
+|   "bb"
+| "dd"
+#serialized
+aa<c>bb</c>dd
+
+#data
+aa<c.foo.bar>bb</c>dd
+#errors
+#document
+| "aa"
+| <span>
+|   class="foo bar"
+|   "bb"
+| "dd"
+#serialized
+aa<c.foo.bar>bb</c>dd
+
+#data
+aa<c abc>bb</c>dd
+#errors
+1;3;m;webvtt:annotation not allowed;c;
+#document
+| "aa"
+| <span>
+|   "bb"
+| "dd"
+#serialized
+aa<c>bb</c>dd
+
+#data
+aa<c.xxx.yyy abc>bb</c>dd
+#errors
+1;3;m;webvtt:annotation not allowed;c;
+#document
+| "aa"
+| <span>
+|   class="xxx yyy"
+|   "bb"
+| "dd"
+
+#data
+aa<i>bb</i>dd
+#errors
+#document
+| "aa"
+| <i>
+|   "bb"
+| "dd"
+
+#data
+aa<i.foo.bar>bb</i>dd
+#errors
+#document
+| "aa"
+| <i>
+|   class="foo bar"
+|   "bb"
+| "dd"
+
+#data
+aa<i abi>bb</i>dd
+#errors
+1;3;m;webvtt:annotation not allowed;i;
+#document
+| "aa"
+| <i>
+|   "bb"
+| "dd"
+
+#data
+aa<i.xxx.yyy abi>bb</i>dd
+#errors
+1;3;m;webvtt:annotation not allowed;i;
+#document
+| "aa"
+| <i>
+|   class="xxx yyy"
+|   "bb"
+| "dd"
+#serialized
+aa<i.xxx.yyy>bb</i>dd
+
+#data
+aa<b>bb</b>dd
+#errors
+#document
+| "aa"
+| <b>
+|   "bb"
+| "dd"
+
+#data
+aa<b.foo.bar>bb</b>dd
+#errors
+#document
+| "aa"
+| <b>
+|   class="foo bar"
+|   "bb"
+| "dd"
+
+#data
+aa<b abi>bb</b>dd
+#errors
+1;3;m;webvtt:annotation not allowed;b;
+#document
+| "aa"
+| <b>
+|   "bb"
+| "dd"
+
+#data
+aa<b.xxx.yyy abi>bb</b>dd
+#errors
+1;3;m;webvtt:annotation not allowed;b;
+#document
+| "aa"
+| <b>
+|   class="xxx yyy"
+|   "bb"
+| "dd"
+
+#data
+aa<u>bb</u>dd
+#errors
+#document
+| "aa"
+| <u>
+|   "bb"
+| "dd"
+
+#data
+aa<u.foo.bar>bb</u>dd
+#errors
+#document
+| "aa"
+| <u>
+|   class="foo bar"
+|   "bb"
+| "dd"
+
+#data
+aa<u abi>bb</u>dd
+#errors
+1;3;m;webvtt:annotation not allowed;u;
+#document
+| "aa"
+| <u>
+|   "bb"
+| "dd"
+
+#data
+aa<u.xxx.yyy abi>bb</u>dd
+#errors
+1;3;m;webvtt:annotation not allowed;u;
+#document
+| "aa"
+| <u>
+|   class="xxx yyy"
+|   "bb"
+| "dd"
+
+#data
+aa<ruby>bb</ruby>dd
+#errors
+1;3;m;element missing;rt;
+#document
+| "aa"
+| <ruby>
+|   "bb"
+| "dd"
+#serialized
+aa<ruby>bb</ruby>dd
+
+#data
+aa<ruby.foo.bar>bb</ruby>dd
+#errors
+1;3;m;element missing;rt;
+#document
+| "aa"
+| <ruby>
+|   class="foo bar"
+|   "bb"
+| "dd"
+#serialized
+aa<ruby.foo.bar>bb</ruby>dd
+
+#data
+aa<ruby abi>bb</ruby>dd
+#errors
+1;3;m;webvtt:annotation not allowed;ruby;
+1;3;m;element missing;rt;
+#document
+| "aa"
+| <ruby>
+|   "bb"
+| "dd"
+
+#data
+aa<ruby.xxx.yyy abi>bb</ruby>dd
+#errors
+1;3;m;webvtt:annotation not allowed;ruby;
+1;3;m;element missing;rt;
+#document
+| "aa"
+| <ruby>
+|   class="xxx yyy"
+|   "bb"
+| "dd"
+
+#data
+a<ruby>b<rt>c</ruby>d
+#errors
+#document
+| "a"
+| <ruby>
+|   "b"
+|   <rt>
+|     "c"
+| "d"
+#serialized
+a<ruby>b<rt>c</rt></ruby>d
+
+#data
+a<ruby>b<rt>c</rt></ruby>d
+#errors
+#document
+| "a"
+| <ruby>
+|   "b"
+|   <rt>
+|     "c"
+| "d"
+
+#data
+a<ruby>b<rt>c</rt>e</ruby>d
+#errors
+1;2;m;element missing;rt;
+#document
+| "a"
+| <ruby>
+|   "b"
+|   <rt>
+|     "c"
+|   "e"
+| "d"
+
+#data
+a<ruby>b<rt>c</rt>f<rt>g</ruby>d
+#errors
+#document
+| "a"
+| <ruby>
+|   "b"
+|   <rt>
+|     "c"
+|   "f"
+|   <rt>
+|     "g"
+| "d"
+#serialized
+a<ruby>b<rt>c</rt>f<rt>g</rt></ruby>d
+
+#data
+a<ruby>b<rt>c<rt>e</ruby>d
+#errors
+1;14;m;start tag not allowed;rt;
+#document
+| "a"
+| <ruby>
+|   "b"
+|   <rt>
+|     "c"
+|     "e"
+| "d"
+
+#data
+a<ruby>b<rt>c</rt><rt>e</ruby>d
+#errors
+#document
+| "a"
+| <ruby>
+|   "b"
+|   <rt>
+|     "c"
+|   <rt>
+|     "e"
+| "d"
+
+#data
+a<ruby>b<rt>c</rt><i></i><rt>e</ruby>d
+#errors
+#document
+| "a"
+| <ruby>
+|   "b"
+|   <rt>
+|     "c"
+|   <i>
+|   <rt>
+|     "e"
+| "d"
+
+#data
+a<ruby><b>b</b><rt>c</rt><rt>e</ruby>d
+#errors
+#document
+| "a"
+| <ruby>
+|   <b>
+|     "b"
+|   <rt>
+|     "c"
+|   <rt>
+|     "e"
+| "d"
+
+#data
+a<ruby><i>b<rt>c</rt></i><rt>e</ruby>d
+#errors
+1;12;m;start tag not allowed;rt;
+1;17;m;unmatched end tag;rt;
+#document
+| "a"
+| <ruby>
+|   <i>
+|     "b"
+|     "c"
+|   <rt>
+|     "e"
+| "d"
+
+#data
+<ruby><ruby>ab<rt>cc</rt></ruby>dd</ruby>ee</ruby>
+#errors
+1;1;m;element missing;rt;
+1;44;m;unmatched end tag;ruby;
+#document
+| <ruby>
+|   <ruby>
+|     "ab"
+|     <rt>
+|       "cc"
+|   "dd"
+| "ee"
+
+#data
+<ruby>aa<rt>bb<ruby>cc</rt>dd</ruby>ee
+#errors
+1;15;m;element missing;rt;
+1;23;m;unmatched end tag;rt;
+1;39;m;not closed;ruby;
+#document
+| <ruby>
+|   "aa"
+|   <rt>
+|     "bb"
+|     <ruby>
+|       "cc"
+|       "dd"
+|     "ee"
+
+#data
+<ruby>aa<rt>bb<ruby>cc<rt>dd</ruby>ee
+#errors
+1;38;m;not closed;ruby;
+#document
+| <ruby>
+|   "aa"
+|   <rt>
+|     "bb"
+|     <ruby>
+|       "cc"
+|       <rt>
+|         "dd"
+|     "ee"
+#serialized
+<ruby>aa<rt>bb<ruby>cc<rt>dd</rt></ruby>ee</rt></ruby>
+
+#data
+bb<rt>aa
+#errors
+1;3;m;start tag not allowed;rt;
+#document
+| "bb"
+| "aa"
+
+#data
+bb<ruby>cc<rt.foo.bar>ss</ruby>
+#errors
+#document
+| "bb"
+| <ruby>
+|   "cc"
+|   <rt>
+|     class="foo bar"
+|     "ss"
+
+#data
+bb<ruby>cc<rt foo.bar>ss</ruby>
+#errors
+1;11;m;webvtt:annotation not allowed;rt;
+#document
+| "bb"
+| <ruby>
+|   "cc"
+|   <rt>
+|     "ss"
+
+#data
+bb<ruby>cc<rt.baz foo.bar>ss</ruby>
+#errors
+1;11;m;webvtt:annotation not allowed;rt;
+#document
+| "bb"
+| <ruby>
+|   "cc"
+|   <rt>
+|     class="baz"
+|     "ss"
+
+#data
+aa<v>dd</v>yy
+#errors
+1;3;m;webvtt:empty annotation;;
+#document
+| "aa"
+| <span>
+|   title=""
+|   "dd"
+| "yy"
+
+#data
+aa<v.foo.bar>dd</v>yy
+#errors
+1;3;m;webvtt:empty annotation;;
+#document
+| "aa"
+| <span>
+|   class="foo bar"
+|   title=""
+|   "dd"
+| "yy"
+
+#data
+aa<v foo bar>dd</v>yy
+#errors
+#document
+| "aa"
+| <span>
+|   title="foo bar"
+|   "dd"
+| "yy"
+
+#data
+aa<v.abc.def foo bar>dd</v>yy
+#errors
+#document
+| "aa"
+| <span>
+|   class="abc def"
+|   title="foo bar"
+|   "dd"
+| "yy"
+
+#data
+<c>aa<v.abc.def foo bar>dd</v>yy</c>
+#errors
+#document
+| <span>
+|   "aa"
+|   <span>
+|     class="abc def"
+|     title="foo bar"
+|     "dd"
+|   "yy"
+
+#data
+ab<c>de<v foo>xx</v>yy</c>dd
+#errors
+#document
+| "ab"
+| <span>
+|   "de"
+|   <span>
+|     title="foo"
+|     "xx"
+|   "yy"
+| "dd"
+
+#data
+ab<c>de<v foo>xx</c>yy</v>dd
+#errors
+1;17;m;unmatched end tag;c;
+1;29;m;not closed;c;
+#document
+| "ab"
+| <span>
+|   "de"
+|   <span>
+|     title="foo"
+|     "xx"
+|     "yy"
+|   "dd"
+
+#data
+aa<b>fee<i>feee</i>gr</b>gg
+#errors
+#document
+| "aa"
+| <b>
+|   "fee"
+|   <i>
+|     "feee"
+|   "gr"
+| "gg"
+
+#data
+aa<b>fee<i>feee</b>gr</i>gg
+#errors
+1;16;m;unmatched end tag;b;
+1;28;m;not closed;b;
+#document
+| "aa"
+| <b>
+|   "fee"
+|   <i>
+|     "feee"
+|     "gr"
+|   "gg"
+
+#data
+aa<span>bbb</span>ddf
+#errors
+1;3;m;start tag not allowed;span;
+1;12;m;unmatched end tag;span;
+#document
+| "aa"
+| "bbb"
+| "ddf"
+#serialized
+aabbbddf
+
+#data
+aaa<c>bbb</span>ddd
+#errors
+1;10;m;unmatched end tag;span;
+1;20;m;not closed;c;
+#document
+| "aaa"
+| <span>
+|   "bbb"
+|   "ddd"
+
+#data
+aaa<v foo>bbb</span>ddd
+#errors
+1;14;m;unmatched end tag;span;
+#document
+| "aaa"
+| <span>
+|   title="foo"
+|   "bbb"
+|   "ddd"
+
+#data
+a<ruby>foo</ruby>
+#errors
+1;2;m;element missing;rt;
+#document
+| "a"
+| <ruby>
+|   "foo"
+
+#data
+a<ruby>foo<rt>aa</rt>bb</ruby>
+#errors
+1;2;m;element missing;rt;
+#document
+| "a"
+| <ruby>
+|   "foo"
+|   <rt>
+|     "aa"
+|   "bb"
+
+#data
+a<ruby>foo</baz>aaa</ruby>
+#errors
+1;11;m;unmatched end tag;baz;
+1;2;m;element missing;rt;
+#document
+| "a"
+| <ruby>
+|   "foo"
+|   "aaa"
+#serialized
+a<ruby>fooaaa</ruby>
