@@ -15,14 +15,14 @@
   var attr1 = test1P.getAttributeNode ('hoge');
   var attr2 = test2P.getAttributeNode ('hoge');
 
-  var result = attr1.compareDocumentPosition (attr2);
+  var result1 = attr1.compareDocumentPosition (attr2);
+  var result2 = attr2.compareDocumentPosition (attr1);
   var resultP = document.getElementById ('result');
-  if (result == attr1.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC |
-                attr1.DOCUMENT_POSITION_PRECEDING |
-                attr1.DOCUMENT_POSITION_FOLLOWING) {
+  if (result1 == (attr1.DOCUMENT_POSITION_FOLLOWING) &&
+      result2 == (attr1.DOCUMENT_POSITION_PRECEDING)) {
     resultP.className = 'PASS';
     resultP.firstChild.data = 'PASS';
   } else {
-    resultP.firstChild.data = 'FAIL (' + result + ')';
+    resultP.firstChild.data = 'FAIL (' + result1 + ', ' + result2 + ')';
   }
 </script>
