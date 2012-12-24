@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title>compareDocumentPosition</title>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<p id=test>
+
+<script>
+  var testP = document.getElementById ('test');
+  testP.setAttribute ('hoge', '12');
+
+  var attr1 = testP.getAttributeNode ('hoge');
+
+  var result = attr1.compareDocumentPosition (testP);
+  var resultP = document.getElementById ('result');
+  if (result == attr1.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC |
+                attr1.DOCUMENT_POSITION_PRECEDING |
+                attr1.DOCUMENT_POSITION_FOLLOWING) {
+    resultP.className = 'PASS';
+    resultP.firstChild.data = 'PASS';
+  } else {
+    resultP.firstChild.data = 'FAIL (' + result + ')';
+  }
+</script>
