@@ -1,0 +1,1649 @@
+#data escaped
+\uD800\uD801\uDFF0\uDFFF
+#errors
+no DOCTYPE
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\uD800\uD801\uDFF0\uDFFF"
+
+#data escaped
+<p>aaa\uD800\uD801\uDFF0\uDFFF
+#errors
+no DOCTYPE
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "aaa\uD800\uD801\uDFF0\uDFFF"
+
+#data
+<p>...&NotNestedGreaterGreater;?
+#errors
+no DOCTYPE
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "...\u2aa2\u0338?"
+
+#data escaped
+<p>\u0003
+#errors
+no DOCTYPE
+U+0003
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "\u0003"
+
+#data escaped
+<p>\u000B
+#errors
+no DOCTYPE
+U+000B
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "\u000b"
+
+#data escaped
+<title>a\u0000</title>
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <html>
+|   <head>
+|     <title>
+|       "a\uFFFD"
+|   <body>
+
+#data escaped
+<xmp>a\u0000</xmp>
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <xmp>
+|       "a\uFFFD"
+
+#data escaped
+<script>a\u0000</script>
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <html>
+|   <head>
+|     <script>
+|       "a\uFFFD"
+|   <body>
+
+#data escaped
+<plaintext>a\u0000
+#errors
+no DOCTYPE
+NULL
+EOF
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <plaintext>
+|       "a\uFFFD"
+
+#data escaped
+<a\u0000></a\u0000>b
+#errors
+no DOCTYPE
+NULL
+NULL
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <a\uFFFD>
+|     "b"
+
+#data escaped
+<\u0000>
+#errors
+no DOCTYPE
+bogus <
+NULL (tokenizer)
+NULL (in body)
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "<>"
+
+#data escaped
+</\u0000>
+#errors
+no DOCTYPE
+bogus </
+#document escaped
+| <!-- \uFFFD -->
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<![ \u0000 ]>
+#errors
+no DOCTYPE
+bogus comment
+#document escaped
+| <!-- [ \uFFFD ] -->
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<script><!--\u0000--></script>
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <html>
+|   <head>
+|     <script>
+|       "<!--\uFFFD-->"
+|   <body>
+
+#data escaped
+<script><!---\u0000--></script>
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <html>
+|   <head>
+|     <script>
+|       "<!---\uFFFD-->"
+|   <body>
+
+#data escaped
+<script><!----\u0000--></script>
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <html>
+|   <head>
+|     <script>
+|       "<!----\uFFFD-->"
+|   <body>
+
+#data escaped
+<script><!--<script>\u0000--></script>
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script>\uFFFD-->"
+|   <body>
+
+#data escaped
+<script><!--<script>-\u0000--></script>
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script>-\uFFFD-->"
+|   <body>
+
+#data escaped
+<script><!--<script>--\u0000--></script>
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script>--\uFFFD-->"
+|   <body>
+
+#data escaped
+<a \u0000b>
+#errors
+no DOCTYPE
+NULL
+EOF
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <a>
+|       \uFFFDb=""
+
+#data escaped
+<a c\u0000b>
+#errors
+no DOCTYPE
+NULL
+EOF
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <a>
+|       c\uFFFDb=""
+
+#data escaped
+<a c \u0000b>
+#errors
+no DOCTYPE
+NULL
+EOF
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <a>
+|       c=""
+|       \uFFFDb=""
+
+#data escaped
+<a c=\u0000b>
+#errors
+no DOCTYPE
+NULL
+EOF
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <a>
+|       c="\uFFFDb"
+
+#data escaped
+<a c=d\u0000b>
+#errors
+no DOCTYPE
+NULL
+EOF
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <a>
+|       c="d\uFFFDb"
+
+#data escaped
+<a c="d\u0000b">
+#errors
+no DOCTYPE
+NULL
+EOF
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <a>
+|       c="d\uFFFDb"
+
+#data escaped
+<a c='d\u0000b'>
+#errors
+no DOCTYPE
+NULL
+EOF
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <a>
+|       c="d\uFFFDb"
+
+#data escaped
+<!--\u0000-->
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <!-- \uFFFD -->
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!---\u0000-->
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <!-- -\uFFFD -->
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!----\u0000-->
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <!-- --\uFFFD -->
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!-----\u0000-->
+#errors
+no DOCTYPE
+--
+NULL
+#document escaped
+| <!-- ---\uFFFD -->
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!------\u0000-->
+#errors
+no DOCTYPE
+--
+--
+NULL
+#document escaped
+| <!-- ----\uFFFD -->
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!------!\u0000-->
+#errors
+no DOCTYPE
+--
+--
+!
+NULL
+#document escaped
+| <!-- ----!\uFFFD -->
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!--a\u0000-->
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <!-- a\uFFFD -->
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!--a-\u0000-->
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <!-- a-\uFFFD -->
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!--a--\u0000-->
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <!-- a--\uFFFD -->
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!--a---\u0000-->
+#errors
+no DOCTYPE
+--
+NULL
+#document escaped
+| <!-- a---\uFFFD -->
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!--a----\u0000-->
+#errors
+no DOCTYPE
+--
+--
+NULL
+#document escaped
+| <!-- a----\uFFFD -->
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!--a----!\u0000-->
+#errors
+no DOCTYPE
+--
+--
+!
+NULL
+#document escaped
+| <!-- a----!\uFFFD -->
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!DOCTYPE \u0000>
+#errors
+NULL
+DOCTYPE not HTML5
+#document escaped
+| <!DOCTYPE \uFFFD>
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!DOCTYPE a\u0000>
+#errors
+NULL
+DOCTYPE not HTML5
+#document escaped
+| <!DOCTYPE a\uFFFD>
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!DOCTYPE html PUBLIC "a\u0000">
+#errors
+NULL
+DOCTYPE not HTML5
+#document escaped
+| <!DOCTYPE html "a\uFFFD" "">
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!DOCTYPE html PUBLIC 'a\u0000'>
+#errors
+NULL
+DOCTYPE not HTML5
+#document escaped
+| <!DOCTYPE html "a\uFFFD" "">
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!DOCTYPE html PUBLIC "x" "a\u0000">
+#errors
+NULL
+DOCTYPE not HTML5
+#document escaped
+| <!DOCTYPE html "x" "a\uFFFD">
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!DOCTYPE html PUBLIC "x" 'a\u0000'>
+#errors
+NULL
+DOCTYPE not HTML5
+#document escaped
+| <!DOCTYPE html "x" "a\uFFFD">
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!DOCTYPE html SYSTEM "a\u0000">
+#errors
+NULL
+DOCTYPE not HTML5
+#document escaped
+| <!DOCTYPE html "" "a\uFFFD">
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<!DOCTYPE html SYSTEM 'a\u0000'>
+#errors
+NULL
+DOCTYPE not HTML5
+#document escaped
+| <!DOCTYPE html "" "a\uFFFD">
+| <html>
+|   <head>
+|   <body>
+
+#data escaped
+<svg><![CDATA[a\u0000b]]></svg>
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <svg svg>
+|       "a\uFFFDb"
+
+#data escaped
+<svg><desc><![CDATA[a\u0000b]]></desc></svg>
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <svg svg>
+|       <svg desc>
+|         "ab"
+
+#data escaped
+<svg><desc><p>\u0000</p></desc></svg>
+#errors
+no DOCTYPE
+NULL (tokenizer)
+NULL
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <svg svg>
+|       <svg desc>
+|         <p>
+
+#data escaped
+<table>\u0000</table>
+#errors
+no DOCTYPE
+NULL (tokenizer)
+NULL
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <table>
+
+#data escaped
+<table>a\u0000b</table>
+#errors
+no DOCTYPE
+text in <table>
+NULL (tokenizer)
+NULL
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "ab"
+|     <table>
+
+#data escaped
+<table><span>\u0000</span></table>
+#errors
+no DOCTYPE
+<span> in table
+NULL (tokenizer)
+NULL
+</span> in table
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <span>
+|     <table>
+
+#data escaped
+<table>\u0000\u0000</table>
+#errors
+no DOCTYPE
+NULL (tokenizer)
+NULL
+NULL (tokenizer)
+NULL
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <table>
+
+#data escaped
+<table><svg>\u0000</svg></table>
+#errors
+no DOCTYPE
+<svg> in table
+NULL
+</svg> in table
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <svg svg>
+|       "\uFFFD"
+|     <table>
+
+#data escaped
+<table><tbody>\u0000\u0000</table>
+#errors
+no DOCTYPE
+NULL (tokenizer)
+NULL
+NULL (tokenizer)
+NULL
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+
+#data escaped
+<table><tr>\u0000\u0000</table>
+#errors
+no DOCTYPE
+NULL (tokenizer)
+NULL
+NULL (tokenizer)
+NULL
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+|         <tr>
+
+#data escaped
+<table><caption>\u0000</caption></table>
+#errors
+no DOCTYPE
+NULL (tokenizer)
+NULL (in body)
+#document
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <caption>
+
+#data escaped
+<table><caption>a\u0000b</caption></table>
+#errors
+no DOCTYPE
+NULL (tokenizer)
+NULL (in body)
+#document
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <caption>
+|         "ab"
+
+#data escaped
+<table><tr><th>\u0000</table>
+#errors
+no DOCTYPE
+NULL (tokenizer)
+NULL (in body)
+#document
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+|         <tr>
+|           <th>
+
+#data escaped
+<table><tr><th>a\u0000b</table>
+#errors
+no DOCTYPE
+NULL (tokenizer)
+NULL (in body)
+#document
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+|         <tr>
+|           <th>
+|             "ab"
+
+#data escaped
+<select>\u0000</select>
+#errors
+no DOCTYPE
+NULL (tokenizer)
+NULL (in select)
+#document
+| <html>
+|   <head>
+|   <body>
+|     <select>
+
+#data escaped
+<select>a\u0000b</select>
+#errors
+no DOCTYPE
+NULL (tokenizer)
+NULL (in select)
+#document
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       "ab"
+
+#data escaped
+<table><tr><td><select>\u0000</select></table>
+#errors
+no DOCTYPE
+NULL (tokenizer)
+NULL (in select)
+#document
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+|         <tr>
+|           <td>
+|             <select>
+
+#data escaped
+<table><tr><td><select>a\u0000b</select></table>
+#errors
+no DOCTYPE
+NULL (tokenizer)
+NULL (in select)
+#document
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+|         <tr>
+|           <td>
+|             <select>
+|               "ab"
+
+#data escaped
+a</body>\u0000
+#errors
+no DOCTYPE
+NULL (tokenizer)
+NULL
+after body
+#document
+| <html>
+|   <head>
+|   <body>
+|     "a"
+
+#data escaped
+a</body></html>\u0000
+#errors
+no DOCTYPE
+NULL (tokenizer)
+NULL
+after after body
+#document
+| <html>
+|   <head>
+|   <body>
+|     "a"
+
+#data escaped
+<!DOCTYPE html>a\u0001b
+#errors
+U+0001
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0001b"
+
+#data escaped
+<!DOCTYPE html>a\u0002b
+#errors
+U+0002
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0002b"
+
+#data escaped
+<!DOCTYPE html>a\u0003b
+#errors
+U+0003
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0003b"
+
+#data escaped
+<!DOCTYPE html>a\u0004b
+#errors
+U+0004
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0004b"
+
+#data escaped
+<!DOCTYPE html>a\u0005b
+#errors
+U+0005
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0005b"
+
+#data escaped
+<!DOCTYPE html>a\u0006b
+#errors
+U+0006
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0006b"
+
+#data escaped
+<!DOCTYPE html>a\u0007b
+#errors
+U+0007
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0007b"
+
+#data escaped
+<!DOCTYPE html>a\u0008b
+#errors
+U+0008
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0008b"
+
+#data escaped
+<!DOCTYPE html>a\u0009b
+#errors
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0009b"
+
+#data escaped
+<!DOCTYPE html>a\u000Ab
+#errors
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u000Ab"
+
+#data escaped
+<!DOCTYPE html>a\u000Bb
+#errors
+U+000B
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u000Bb"
+
+#data escaped
+<!DOCTYPE html>a\u000Cb
+#errors
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u000Cb"
+
+#data escaped
+<!DOCTYPE html>a\u000Db
+#errors
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u000Ab"
+
+#data escaped
+<!DOCTYPE html>a\u000Eb
+#errors
+U+000E
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u000Eb"
+
+#data escaped
+<!DOCTYPE html>a\u000Fb
+#errors
+U+000F
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u000Fb"
+
+#data escaped
+<!DOCTYPE html>a\u0010b
+#errors
+U+0010
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0010b"
+
+#data escaped
+<!DOCTYPE html>a\u0011b
+#errors
+U+0011
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0011b"
+
+#data escaped
+<!DOCTYPE html>a\u0012b
+#errors
+U+0012
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0012b"
+
+#data escaped
+<!DOCTYPE html>a\u0013b
+#errors
+U+0013
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0013b"
+
+#data escaped
+<!DOCTYPE html>a\u0014b
+#errors
+U+0014
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0014b"
+
+#data escaped
+<!DOCTYPE html>a\u0015b
+#errors
+U+0015
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0015b"
+
+#data escaped
+<!DOCTYPE html>a\u0016b
+#errors
+U+0016
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0016b"
+
+#data escaped
+<!DOCTYPE html>a\u0017b
+#errors
+U+0017
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0017b"
+
+#data escaped
+<!DOCTYPE html>a\u0018b
+#errors
+U+0018
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0018b"
+
+#data escaped
+<!DOCTYPE html>a\u0019b
+#errors
+U+0019
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0019b"
+
+#data escaped
+<!DOCTYPE html>a\u001Ab
+#errors
+U+001A
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u001Ab"
+
+#data escaped
+<!DOCTYPE html>a\u001Bb
+#errors
+U+001B
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u001Bb"
+
+#data escaped
+<!DOCTYPE html>a\u001Cb
+#errors
+U+001C
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u001Cb"
+
+#data escaped
+<!DOCTYPE html>a\u001Db
+#errors
+U+001D
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u001Db"
+
+#data escaped
+<!DOCTYPE html>a\u001Eb
+#errors
+U+001E
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u001Eb"
+
+#data escaped
+<!DOCTYPE html>a\u001Fb
+#errors
+U+001F
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u001Fb"
+
+#data escaped
+<!DOCTYPE html>a\u007Fb
+#errors
+U+007F
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u007Fb"
+
+#data escaped
+<!DOCTYPE html>a\u0080b
+#errors
+U+0080
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0080b"
+
+#data escaped
+<!DOCTYPE html>a\u0081b
+#errors
+U+0081
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0081b"
+
+#data escaped
+<!DOCTYPE html>a\u0082b
+#errors
+U+0082
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0082b"
+
+#data escaped
+<!DOCTYPE html>a\u0083b
+#errors
+U+0083
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0083b"
+
+#data escaped
+<!DOCTYPE html>a\u0084b
+#errors
+U+0084
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0084b"
+
+#data escaped
+<!DOCTYPE html>a\u0085b
+#errors
+U+0085
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0085b"
+
+#data escaped
+<!DOCTYPE html>a\u0086b
+#errors
+U+0086
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0086b"
+
+#data escaped
+<!DOCTYPE html>a\u0087b
+#errors
+U+0087
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0087b"
+
+#data escaped
+<!DOCTYPE html>a\u0088b
+#errors
+U+0088
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0088b"
+
+#data escaped
+<!DOCTYPE html>a\u0089b
+#errors
+U+0089
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0089b"
+
+#data escaped
+<!DOCTYPE html>a\u008Ab
+#errors
+U+008A
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u008Ab"
+
+#data escaped
+<!DOCTYPE html>a\u008Bb
+#errors
+U+008B
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u008Bb"
+
+#data escaped
+<!DOCTYPE html>a\u008Cb
+#errors
+U+008C
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u008Cb"
+
+#data escaped
+<!DOCTYPE html>a\u008Db
+#errors
+U+008D
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u008Db"
+
+#data escaped
+<!DOCTYPE html>a\u008Eb
+#errors
+U+008E
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u008Eb"
+
+#data escaped
+<!DOCTYPE html>a\u008Fb
+#errors
+U+008F
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u008Fb"
+
+#data escaped
+<!DOCTYPE html>a\u0090b
+#errors
+U+0090
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0090b"
+
+#data escaped
+<!DOCTYPE html>a\u0091b
+#errors
+U+0091
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0091b"
+
+#data escaped
+<!DOCTYPE html>a\u0092b
+#errors
+U+0092
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0092b"
+
+#data escaped
+<!DOCTYPE html>a\u0093b
+#errors
+U+0093
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0093b"
+
+#data escaped
+<!DOCTYPE html>a\u0094b
+#errors
+U+0094
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0094b"
+
+#data escaped
+<!DOCTYPE html>a\u0095b
+#errors
+U+0095
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0095b"
+
+#data escaped
+<!DOCTYPE html>a\u0096b
+#errors
+U+0096
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0096b"
+
+#data escaped
+<!DOCTYPE html>a\u0097b
+#errors
+U+0097
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0097b"
+
+#data escaped
+<!DOCTYPE html>a\u0098b
+#errors
+U+0098
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0098b"
+
+#data escaped
+<!DOCTYPE html>a\u0099b
+#errors
+U+0099
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u0099b"
+
+#data escaped
+<!DOCTYPE html>a\u009Ab
+#errors
+U+009A
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u009Ab"
+
+#data escaped
+<!DOCTYPE html>a\u009Bb
+#errors
+U+009B
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u009Bb"
+
+#data escaped
+<!DOCTYPE html>a\u009Cb
+#errors
+U+009C
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u009Cb"
+
+#data escaped
+<!DOCTYPE html>a\u009Db
+#errors
+U+009D
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u009Db"
+
+#data escaped
+<!DOCTYPE html>a\u009Eb
+#errors
+U+009E
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u009Eb"
+
+#data escaped
+<!DOCTYPE html>a\u009Fb
+#errors
+U+009F
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u009Fb"
+
+#data escaped
+<!DOCTYPE html>a\u2028b
+#errors
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\u2028b"
+
+#data escaped
+<!DOCTYPE html>a\uD801b
+#errors
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\uD801b"
+
+#data escaped
+<!DOCTYPE html>a\uFDD0b
+#errors
+U+FDD0
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\uFDD0b"
+
+#data escaped
+<!DOCTYPE html>a\uFDE0b
+#errors
+U+FDE0
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\uFDE0b"
+
+#data escaped
+<!DOCTYPE html>a\uFDEFb
+#errors
+U+FDEF
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\uFDEFb"
+
+#data escaped
+<!DOCTYPE html>a\uFFFEb
+#errors
+U+FFFE
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\uFFFEb"
+
+#data escaped
+<!DOCTYPE html>a\uFFFFb
+#errors
+U+FFFF
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\uFFFFb"
+
+#data escaped
+<!DOCTYPE html>a\U0001FFFEb
+#errors
+U+1FFFE
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\U0001FFFEb"
+
+#data escaped
+<!DOCTYPE html>a\U0001FFFFb
+#errors
+U+1FFFF
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\U0001FFFFb"
+
+#data escaped
+<!DOCTYPE html>a\U0010FFFEb
+#errors
+U+10FFFE
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\U0010FFFEb"
+
+#data escaped
+<!DOCTYPE html>a\U0010FFFFb
+#errors
+U+10FFFF
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     "a\U0010FFFFb"

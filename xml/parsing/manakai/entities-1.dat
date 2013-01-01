@@ -1,0 +1,1198 @@
+#data
+<!DOCTYPE a[
+<!E>
+]><a/>
+#errors
+2;1;bogus comment;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!E
+#errors
+2;1;bogus comment;;;m
+2;3;unclosed internal subset;;;m
+2;3;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!EN>
+]><a/>
+#errors
+2;1;bogus comment;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!EN
+#errors
+2;1;bogus comment;;;m
+2;4;unclosed internal subset;;;m
+2;4;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENT>
+]><a/>
+#errors
+2;1;bogus comment;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENT
+#errors
+2;1;bogus comment;;;m
+2;5;unclosed internal subset;;;m
+2;5;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTIT>
+]><a/>
+#errors
+2;1;bogus comment;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTIT
+#errors
+2;1;bogus comment;;;m
+2;7;unclosed internal subset;;;m
+2;7;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY>
+]><a/>
+#errors
+2;9;no md name;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY
+#errors
+2;8;unclosed md;;;m
+2;8;unclosed internal subset;;;m
+2;8;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY >
+]><a/>
+#errors
+2;10;no md name;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+
+#data escaped
+<!DOCTYPE a[
+<!ENTITY\u0020
+#errors
+2;9;unclosed md;;;m
+2;9;unclosed internal subset;;;m
+2;9;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY b>
+]><a/>
+#errors
+2;11;no md def;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY b "" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc>
+]><a/>
+#errors
+2;12;no md def;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY bc "" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY abc
+#errors
+2;12;unclosed md;;;m
+2;12;unclosed internal subset;;;m
+2;12;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data escaped
+<!DOCTYPE a[
+<!ENTITY abc\u0020
+#errors
+2;13;unclosed md;;;m
+2;13;unclosed internal subset;;;m
+2;13;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+<!ENTITY abc "" "" "" >
+
+#data escaped
+<!DOCTYPE a[
+<!ENTITY abc  \u0009
+#errors
+2;15;unclosed md;;;m
+2;15;unclosed internal subset;;;m
+2;15;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+<!ENTITY abc "" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY abc  #
+#errors
+2;15;string after DOCTYPE name;;;m
+2;15;unclosed internal subset;;;m
+2;15;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY abc PUBLIC
+#errors
+2;19;unclosed md;;;m
+2;19;unclosed internal subset;;;m
+2;19;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+<!ENTITY abc "" "" "" >
+
+#data escaped
+<!DOCTYPE a[
+<!ENTITY abc PUBLIC\u0020
+#errors
+2;20;unclosed md;;;m
+2;20;unclosed internal subset;;;m
+2;20;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+<!ENTITY abc "" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY abc PUBLIC #
+#errors
+2;21;string after PUBLIC;;;m
+2;21;unclosed internal subset;;;m
+2;21;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY abc SYSTEM
+#errors
+2;19;unclosed md;;;m
+2;19;unclosed internal subset;;;m
+2;19;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+<!ENTITY abc "" "" "" >
+
+#data escaped
+<!DOCTYPE a[
+<!ENTITY abc SYSTEM\u0020
+#errors
+2;20;unclosed md;;;m
+2;20;unclosed internal subset;;;m
+2;20;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+<!ENTITY abc "" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY abc PUBLIC #
+#errors
+2;21;string after PUBLIC;;;m
+2;21;unclosed internal subset;;;m
+2;21;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY abc PUBLIC "a"x
+#errors
+2;24;string after PUBLIC literal;;;m
+2;24;unclosed internal subset;;;m
+2;24;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY abc PUBLIC "a" x
+#errors
+2;25;string after PUBLIC literal;;;m
+2;25;unclosed internal subset;;;m
+2;25;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY abc SYSTEM "a"x
+#errors
+2;24;string after SYSTEM literal;;;m
+2;24;unclosed internal subset;;;m
+2;24;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY abc SYSTEM "a" x
+#errors
+2;25;string after SYSTEM literal;;;m
+2;25;unclosed internal subset;;;m
+2;25;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY abc PUBLIC "a" "b"x
+#errors
+2;28;string after SYSTEM literal;;;m
+2;28;unclosed internal subset;;;m
+2;28;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY abc PUBLIC "a" "b" x
+#errors
+2;29;string after SYSTEM literal;;;m
+2;29;unclosed internal subset;;;m
+2;29;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY   bc PUBLIC>
+]><a/>
+#errors
+2;21;no PUBLIC literal;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY bc "" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY  bc PUBLIC >
+]><a/>
+#errors
+2;21;no PUBLIC literal;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY bc "" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY   bc SYSTEM>
+]><a/>
+#errors
+2;21;no SYSTEM literal;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY bc "" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY  bc SYSTEM >
+]><a/>
+#errors
+2;21;no SYSTEM literal;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY bc "" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc PUBLIC "x" "y">
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY bc "" "x" "y" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc SYSTEM "x" >
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY bc "" "" "x" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY   bc PUBLIC "x""y">
+]><a/>
+#errors
+2;25;no space before system literal;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY bc "" "x" "y" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY   bc PUBLIC "x"'y'>
+]><a/>
+#errors
+2;25;no space before system literal;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY bc "" "x" "y" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY   bc PUBLIC 'x'"y">
+]><a/>
+#errors
+2;25;no space before system literal;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY bc "" "x" "y" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY   bc PUBLIC 'x''y'>
+]><a/>
+#errors
+2;25;no space before system literal;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY bc "" "x" "y" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc PUBLIC "x" "y" NDATA#
+#errors
+2;29;string after literal;;;m
+2;33;no root element;;;m
+2;33;unclosed internal subset;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc PUBLIC "x" "y" NDATA #
+#errors
+2;34;no root element;;;m
+2;34;unclosed internal subset;;;m
+2;34;unclosed md;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc PUBLIC "x" "y" NDATA z#
+#errors
+2;35;no root element;;;m
+2;35;unclosed internal subset;;;m
+2;35;unclosed md;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc PUBLIC "x" "y" NDATA z #
+#errors
+2;36;no root element;;;m
+2;36;string after md def;;;m
+2;36;unclosed internal subset;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc PUBLIC "x" "y" NDATA z>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ENTITY bc "" "x" "y" z>
+| <{} a>
+#entities
+| <!ENTITY bc "" "x" "y" z>
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc SYSTEM "x" NDATA zz >
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ENTITY bc "" "" "x" zz>
+| <{} a>
+#entities
+| <!ENTITY bc "" "" "x" zz>
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc PUBLIC "x" "y" ndata zz>
+]><a/>
+#errors
+2;27;lowercase keyword;NDATA;;m
+#document
+| <!DOCTYPE a>
+|   <!ENTITY bc "" "x" "y" zz>
+| <{} a>
+#entities
+| <!ENTITY bc "" "x" "y" zz>
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc PUBLIC "x" "y" NDATA>
+]><a/>
+#errors
+2;33;no notation name;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY bc "" "x" "y" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc PUBLIC "x" "y" NDATA
+#errors
+2;32;no root element;;;m
+2;32;unclosed internal subset;;;m
+2;32;unclosed md;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc PUBLIC "x" "y" NDATA >
+]><a/>
+#errors
+2;34;no notation name;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY bc "" "x" "y" >
+
+#data escaped
+<!DOCTYPE a[
+<!ENTITY bc PUBLIC "x" "y" NDATA\u0020
+#errors
+2;33;no root element;;;m
+2;33;unclosed internal subset;;;m
+2;33;unclosed md;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc PUBLIC "x" "y" NDATA zz aaa>
+]><a/>
+#errors
+2;37;string after md def;;;m
+#document
+| <!DOCTYPE a>
+|   <!ENTITY bc "" "x" "y" zz>
+| <{} a>
+#entities
+| <!ENTITY bc "" "x" "y" zz>
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc PUBLIC "x" "y"NDATA z>
+]><a/>
+#errors
+2;27;no space before NDATA;;;m
+#document
+| <!DOCTYPE a>
+|   <!ENTITY bc "" "x" "y" z>
+| <{} a>
+#entities
+| <!ENTITY bc "" "x" "y" z>
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc PUBLIC "x" "y" NDATA a
+#errors
+2;34;no root element;;;m
+2;34;unclosed internal subset;;;m
+2;34;unclosed md;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc PUBLIC "x" "y" NDATA ac
+#errors
+2;35;no root element;;;m
+2;35;unclosed internal subset;;;m
+2;35;unclosed md;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data escaped
+<!DOCTYPE a[
+<!ENTITY bc PUBLIC "x" "y" NDATA ac\u0020
+#errors
+2;36;no root element;;;m
+2;36;unclosed internal subset;;;m
+2;36;unclosed md;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data escaped
+<!DOCTYPE a[
+<!ENTITY bc SYSTEM "x" NDATA \u0000zz >
+]><a/>
+#errors
+2;30;NULL;;;m
+#document escaped
+| <!DOCTYPE a>
+|   <!ENTITY bc "" "" "x" \uFFFDzz>
+| <{} a>
+#entities escaped
+| <!ENTITY bc "" "" "x" \uFFFDzz>
+
+#data escaped
+<!DOCTYPE a[
+<!ENTITY bc SYSTEM "x" NDATA a\u0000zz >
+]><a/>
+#errors
+2;31;NULL;;;m
+#document escaped
+| <!DOCTYPE a>
+|   <!ENTITY bc "" "" "x" a\uFFFDzz>
+| <{} a>
+#entities escaped
+| <!ENTITY bc "" "" "x" a\uFFFDzz>
+
+#data
+<!DOCTYPE a[
+<!ENTITY b ""
+#errors
+2;13;no root element;;;m
+2;13;unclosed internal subset;;;m
+2;13;unclosed md;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY b ''
+#errors
+2;13;no root element;;;m
+2;13;unclosed internal subset;;;m
+2;13;unclosed md;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data escaped
+<!DOCTYPE a[
+<!ENTITY b ""\u0020
+#errors
+2;14;no root element;;;m
+2;14;unclosed internal subset;;;m
+2;14;unclosed md;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data escaped
+<!DOCTYPE a[
+<!ENTITY b ''\u0020
+#errors
+2;14;no root element;;;m
+2;14;unclosed internal subset;;;m
+2;14;unclosed md;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY b "">
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+<!ENTITY b "" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY b ''>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+<!ENTITY b "" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY b "xxxxx">
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+<!ENTITY b "xxxxx" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY b 'xxxxx'>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+<!ENTITY b "xxxxx" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY b "yyy" >
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+<!ENTITY b "yyy" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY b 'yyy' >
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+<!ENTITY b "yyy" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY b "
+#errors
+2;12;unclosed entity value;;;m
+2;12;unclosed internal subset;;;m
+2;12;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY b "a
+#errors
+2;13;unclosed entity value;;;m
+2;13;unclosed internal subset;;;m
+2;13;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY b "xy
+#errors
+2;14;unclosed entity value;;;m
+2;14;unclosed internal subset;;;m
+2;14;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY b '
+#errors
+2;12;unclosed entity value;;;m
+2;12;unclosed internal subset;;;m
+2;12;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY b 'a
+#errors
+2;13;unclosed entity value;;;m
+2;13;unclosed internal subset;;;m
+2;13;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY b 'xy
+#errors
+2;14;unclosed entity value;;;m
+2;14;unclosed internal subset;;;m
+2;14;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY b "a&#x24;b">
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+<!ENTITY b "a$b" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY b '&#32;'>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+<!ENTITY b " " "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY b "&amp;abc">
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+<!ENTITY b "&amp;abc" "" "" >
+
+#data escaped
+<!DOCTYPE a[
+<!ENTITY b "\u0000">
+]><a/>
+#errors
+2;13;NULL;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities escaped
+<!ENTITY b "\uFFFD" "" "" >
+
+#data escaped
+<!DOCTYPE a[
+<!ENTITY b "a\u0000b">
+]><a/>
+#errors
+2;14;NULL;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities escaped
+<!ENTITY b "a\uFFFDb" "" "" >
+
+#data escaped
+<!DOCTYPE a[
+<!ENTITY b '\u0000'>
+]><a/>
+#errors
+2;13;NULL;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities escaped
+<!ENTITY b "\uFFFD" "" "" >
+
+#data escaped
+<!DOCTYPE a[
+<!ENTITY b 'a\u0000b'>
+]><a/>
+#errors
+2;14;NULL;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities escaped
+<!ENTITY b "a\uFFFDb" "" "" >
+
+#data escaped
+<!DOCTYPE a[
+<!ENTITY b  \u0000 >
+]><a/>
+#errors
+2;13;string after DOCTYPE name;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities escaped
+<!ENTITY b "" "" "" >
+
+#data escaped
+<!DOCTYPE a[
+<!ENTITY b  a\u0000b >
+]><a/>
+#errors
+2;13;string after DOCTYPE name;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities escaped
+<!ENTITY b "" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY b "c">
+<!ENTITY b "d">
+]><a/>
+#errors
+3;1;duplicate general entity decl;;b;w
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+<!ENTITY b "c" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY b "c">
+<!ENTITY b PUBLIC "d" "e" NDATA n>
+]><a/>
+#errors
+3;1;duplicate general entity decl;;b;w
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+<!ENTITY b "c" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY lt "&#x26;#x3C;">
+]>
+<a>&lt;</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "<"
+
+#data
+<!DOCTYPE a[
+<!ENTITY lt "&#x26;#60;">
+]>
+<a>&lt;</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "<"
+
+#data
+<!DOCTYPE a[
+<!ENTITY lt "&#38;#x3C;">
+]>
+<a>&lt;</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "<"
+
+#data
+<!DOCTYPE a[
+<!ENTITY lt "&#38;#60;">
+]>
+<a>&lt;</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "<"
+
+#data
+<!DOCTYPE a[
+<!ENTITY lt "&#x0000026;#x00003C;">
+]>
+<a>&lt;</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "<"
+
+#data
+<!DOCTYPE a[
+<!ENTITY lt "&#x3C;">
+]>
+<a>&lt;</a>
+#errors
+2;1;bad predefined entity decl;;lt;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "<"
+
+#data
+<!DOCTYPE a[
+<!ENTITY lt "lt">
+]>
+<a>&lt;</a>
+#errors
+2;1;bad predefined entity decl;;lt;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "<"
+
+#data
+<!DOCTYPE a[
+<!ENTITY amp "&#x26;#x26;">
+]>
+<a>&amp;</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "&"
+
+#data
+<!DOCTYPE a[
+<!ENTITY quot "&#x26;#x22;">
+]>
+<a>&quot;</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   """
+
+#data
+<!DOCTYPE a[
+<!ENTITY quot "&#x22;">
+]>
+<a>&quot;</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   """
+
+#data
+<!DOCTYPE a[
+<!ENTITY apos  "&#x26;#x27;">
+]>
+<a>&apos;</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "'"
+
+#data
+<!DOCTYPE a[
+<!ENTITY apos "&#x000027;">
+]>
+<a>&apos;</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "'"
+
+#data
+<!DOCTYPE a[
+<!ENTITY gt "&#x26;#x3e;">
+]>
+<a>&gt;</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   ">"
+
+#data
+<!DOCTYPE a[
+<!ENTITY gt "&#x0000000000003e;">
+]>
+<a>&gt;</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   ">"
+
+#data
+<!DOCTYPE a[
+<!ENTITY gt "&#x26;#x3C;">
+]>
+<a/>
+#errors
+2;1;bad predefined entity decl;;gt;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+<!ENTITY gt ">" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY gt ">">
+]>
+<a/>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+<!ENTITY gt ">" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY gt PUBLIC "x" "y">
+]>
+<a/>
+#errors
+2;1;bad predefined entity decl;;gt;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+<!ENTITY gt ">" "" "" >
+
+#data
+<!DOCTYPE a[
+<!ENTITY b SYSTEM "x" NDATA n>
+%c;
+<!ENTITY d SYSTEM "y" NDATA n>
+]><a/>
+#errors
+3;1;stop processing;;;i
+3;2;string in internal subset;;;m
+#document
+| <!DOCTYPE a>
+|   <!ENTITY b "" "" "x" n>
+| <{} a>
+
+#data
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE a[
+<!ENTITY b SYSTEM "x" NDATA n>
+%c;
+<!ENTITY d SYSTEM "y" NDATA n>
+]><a/>
+#errors
+4;2;string in internal subset;;;m
+#xml-standalone true
+#document
+| <!DOCTYPE a>
+|   <!ENTITY b "" "" "x" n>
+|   <!ENTITY d "" "" "y" n>
+| <{} a>

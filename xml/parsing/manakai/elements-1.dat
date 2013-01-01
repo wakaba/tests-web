@@ -1,0 +1,168 @@
+#data
+<a/>
+#errors
+#document
+| <{} a>
+
+#data
+<A/>
+#errors
+#document
+| <{} A>
+
+#data
+<ab/>
+#errors
+#document
+| <{} ab>
+
+#data
+<aB/>
+#errors
+#document
+| <{} aB>
+
+#data
+<ABCDEFG/>
+#errors
+#document
+| <{} ABCDEFG>
+
+#data
+<a></a>
+#errors
+#document
+| <{} a>
+
+#data
+<A></A>
+#errors
+#document
+| <{} A>
+
+#data
+<ABC></ABC>
+#errors
+#document
+| <{} ABC>
+
+#data
+<camelCase></camelCase>
+#errors
+#document
+| <{} camelCase>
+
+#data
+<abc></ABC>x
+#errors
+1;6;unmatched end tag;ABC;;m
+1;12;in body:#eof;;;m
+#document
+| <{} abc>
+|   "x"
+
+#data
+<ABC></abc>x
+#errors
+1;6;unmatched end tag;abc;;m
+1;12;in body:#eof;;;m
+#document
+| <{} ABC>
+|   "x"
+
+#data
+<[]abc/>
+#errors
+#document
+| <{} []abc>
+
+#data
+<{} abc/>
+#errors
+1;8;no attr value;;;m
+#document
+| <{} {}>
+|   abc=""
+
+#data escaped
+<\u4e00\u4e01/>
+#errors
+#document escaped
+| <{} \u4e00\u4e01>
+
+#data
+<[]a></[]a>
+#errors
+#document
+| <{} []a>
+
+#data escaped
+<\u4e00\u4e01></\u4e00\u4e01>
+#errors
+#document escaped
+| <{} \u4e00\u4e01>
+
+#data
+<:></:>
+#errors
+#document
+| <{} :>
+
+#data
+<:a:></:a:>
+#errors
+#document
+| <{} :a:>
+
+#data
+<a></><!---->
+#errors
+1;4;empty end tag;;;m
+#document
+| <{} a>
+| <!--  -->
+
+#data
+<a><b><c></></></a>
+#errors
+1;10;empty end tag;;;m
+1;13;empty end tag;;;m
+#document
+| <{} a>
+|   <{} b>
+|     <{} c>
+
+#data
+<a></ >
+#errors
+1;4;bogus end tag;;;m
+1;7;in body:#eof;;;m
+#document
+| <{} a>
+|   <!--   -->
+
+#data escaped
+<\u4e00\u4e01>a</\u3000\u3001>b</\u4e00\u4e01>
+#errors escaped
+1;6;unmatched end tag;\u3000\u3001;;m
+#document escaped
+| <{} \u4e00\u4e01>
+|   "ab"
+
+#data escaped
+<\u0000ab>a</\u0000ab>
+#errors
+1;2;NULL;;;m
+1;9;NULL;;;m
+#document escaped
+| <{} \uFFFDab>
+|   "a"
+
+#data escaped
+<a\u0000ab>a</a\u0000ab>
+#errors
+1;3;NULL;;;m
+1;11;NULL;;;m
+#document escaped
+| <{} a\uFFFDab>
+|   "a"

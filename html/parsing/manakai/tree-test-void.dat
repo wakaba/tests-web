@@ -1,0 +1,797 @@
+#data
+<command>a
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <command>
+|   <body>
+|     "a"
+
+#data
+<eventsource>a
+#errors
+no DOCTYPE
+no </eventsource>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <eventsource>
+|       "a"
+
+#data
+<event-source>a
+#errors
+no DOCTYPE
+unexpected EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <event-source>
+|       "a"
+
+#data
+<bgsound> a
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <bgsound>
+|     " "
+|   <body>
+|     "a"
+
+#data
+<basefont> a
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <basefont>
+|     " "
+|   <body>
+|     "a"
+
+#data
+<head><command>a
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <command>
+|   <body>
+|     "a"
+
+#data
+<head><eventsource>a
+#errors
+no DOCTYPE
+no </eventsource>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <eventsource>
+|       "a"
+
+#data
+<head><event-source>a
+#errors
+no DOCTYPE
+unexpected EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <event-source>
+|       "a"
+
+#data
+<head><bgsound> a
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <bgsound>
+|     " "
+|   <body>
+|     "a"
+
+#data
+<head><basefont> a
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <basefont>
+|     " "
+|   <body>
+|     "a"
+
+#data
+</head><command>a
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <command>
+|     "a"
+
+#data
+</head><eventsource>a
+#errors
+no DOCTYPE
+no </eventsource>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <eventsource>
+|       "a"
+
+#data
+</head><event-source>x
+#errors
+no DOCTYPE
+unexpected EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <event-source>
+|       "x"
+
+#data
+</head><bgsound> a
+#errors
+no DOCTYPE
+bgsound after </head>
+#document
+| <html>
+|   <head>
+|     <bgsound>
+|   " "
+|   <body>
+|     "a"
+
+#data
+</head><basefont> a
+#errors
+no DOCTYPE
+basefont after </head>
+#document
+| <html>
+|   <head>
+|     <basefont>
+|   " "
+|   <body>
+|     "a"
+
+#data
+<body><command>a
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <command>
+|     "a"
+
+#data
+<body><eventsource>x
+#errors
+no DOCTYPE
+no </eventsource>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <eventsource>
+|       "x"
+
+#data
+<body><event-source>x
+#errors
+no DOCTYPE
+unexpected EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <event-source>
+|       "x"
+
+#data
+<body><bgsound> a
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <bgsound>
+|     " a"
+
+#data
+<body><basefont> a
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <basefont>
+|     " a"
+
+#data
+<head><noscript><command>x
+#errors
+no DOCTYPE
+no </noscript>
+#document
+| <html>
+|   <head>
+|     <noscript>
+|   <body>
+|     <command>
+|     "x"
+
+#data
+<head><noscript><eventsource>x
+#errors
+no DOCTYPE
+no </noscript>
+no </eventsource>
+#document
+| <html>
+|   <head>
+|     <noscript>
+|   <body>
+|     <eventsource>
+|       "x"
+
+#data
+<head><noscript><event-source>x
+#errors
+no DOCTYPE
+no </noscript>
+unexpected EOF
+#document
+| <html>
+|   <head>
+|     <noscript>
+|   <body>
+|     <event-source>
+|       "x"
+
+#data
+<head><noscript><bgsound> a
+#errors
+no DOCTYPE
+no </noscript>
+#document
+| <html>
+|   <head>
+|     <noscript>
+|       <bgsound>
+|       " "
+|   <body>
+|     "a"
+
+#data
+<head><noscript><basefont> a
+#errors
+no DOCTYPE
+no </noscript>
+#document
+| <html>
+|   <head>
+|     <noscript>
+|       <basefont>
+|       " "
+|   <body>
+|     "a"
+
+#data
+<b><i></b><area>
+#errors
+no DOCTYPE
+no </i> before </b>
+unexpected EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|     <i>
+|       <area>
+
+#data
+<b><i></b><basefont>
+#errors
+no DOCTYPE
+no </i> before </b>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|     <basefont>
+
+#data
+<b><i></b><bgsound>
+#errors
+no DOCTYPE
+no </i> before </b>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|     <bgsound>
+
+#data
+<b><i></b><br>
+#errors
+no DOCTYPE
+no </i> before </b>
+unexpected EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|     <i>
+|       <br>
+
+#data
+<b><i></b></br>
+#errors
+no DOCTYPE
+no </i> before </b>
+</br>
+unexpected EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|     <i>
+|       <br>
+
+#data
+<b><i></b><embed>
+#errors
+no DOCTYPE
+no </i> before </b>
+unexpected EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|     <i>
+|       <embed>
+
+#data
+<b><i></b><img>
+#errors
+no DOCTYPE
+no </i> before </b>
+unexpected EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|     <i>
+|       <img>
+
+#data
+<b><i></b><spacer>
+#errors
+no DOCTYPE
+no </i> before </b>
+unexpected EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|     <i>
+|       <spacer>
+
+#data
+<b><i></b><wbr>
+#errors
+no DOCTYPE
+no </i> before </b>
+unexpected EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|     <i>
+|       <wbr>
+
+#data
+<b><i></b><param>
+#errors
+no DOCTYPE
+no </i> before </b>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|     <param>
+
+#data
+<b><i></b><source>
+#errors
+no DOCTYPE
+no </i> before </b>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|     <source>
+
+#data
+<command/>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <command>
+|   <body>
+
+#data
+<eventsource/>
+#errors
+no DOCTYPE
+nestc not allowed
+no </eventsource>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <eventsource>
+
+#data
+<event-source/>
+#errors
+no DOCTYPE
+/>
+unexpected EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <event-source>
+
+#data
+<param/>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <param>
+
+#data
+<source/>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <source>
+
+#data
+<body></area>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></base>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></basefont>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></bgsound>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></command>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></embed>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></eventsource>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></event-source>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></hr>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></image>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></img>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></input>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></isindex>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></link>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></meta>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></param>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></source>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></spacer>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body></wbr>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<body><keygen>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <keygen>
+
+#data
+<body><keygen/>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <keygen>
+
+#data
+<body><keygen><p>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <keygen>
+|     <p>
+
+#data
+<body></body><keygen><!---->
+#errors
+no DOCTYPE
+<keygen> after body
+#document
+| <html>
+|   <head>
+|   <body>
+|     <keygen>
+|     <!--  -->
+
+#data
+<!DOCTYPE html><spacer><a>b</a></spacer>c
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <spacer>
+|       <a>
+|         "b"
+|     "c"
+
+#data
+<!DOCTYPE HTML><track>a
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <track>
+|     "a"
+
+#data
+<!DOCTYPE HTML><video><track>a</video>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <video>
+|       <track>
+|       "a"
+
+#data
+<!DOCTYPE HTML><track>a</track>
+#errors
+bad end tag
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <track>
+|     "a"

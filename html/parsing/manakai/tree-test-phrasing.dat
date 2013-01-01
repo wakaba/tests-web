@@ -1,0 +1,1041 @@
+#data
+</sarcasm>
+#errors
+no DOCTYPE
+unmatched end tag
+#document
+| <html>
+|   <head>
+|   <body>
+
+#data
+<sarcasm>aaa</sarcasm>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <sarcasm>
+|       "aaa"
+
+#data
+<!DOCTYPE HTML><rt></body>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <rt>
+
+#data
+<!DOCTYPE HTML><rp></body>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <rp>
+
+#data
+<!DOCTYPE HTML><span><rp></body>
+#errors
+span not closed
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <span>
+|       <rp>
+
+#data
+<!DOCTYPE HTML><rp><span></body>
+#errors
+span not closed
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <rp>
+|       <span>
+
+#data
+<!DOCTYPE HTML>
+<cite><b><cite><code><cite><code><cite><code><div>X</b>TEST
+#errors
+aaa
+unexpected EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <cite>
+|       <b>
+|         <cite>
+|           <code>
+|             <cite>
+|               <code>
+|                 <cite>
+|                   <code>
+
+#data
+<!DOCTYPE HTML>
+<cite><b><cite><code><cite><code><cite><code>Y<div>X</b>TEST
+#errors
+aaa
+unexpected EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <cite>
+|       <b>
+|         <cite>
+|           <code>
+|             <cite>
+|               <code>
+|                 <cite>
+|                   <code>
+|                     "Y"
+
+#data
+<!DOCTYPE HTML>
+<cite><b><cite><code><cite><code><cite><code>Y<div>X</b>TEST<p>a
+#errors
+aaa
+unexpected EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <cite>
+|       <b>
+|         <cite>
+|           <code>
+|             <cite>
+|               <code>
+|                 <cite>
+|                   <code>
+|                     "Y"
+
+#data
+<!DOCTYPE html><i><b>a<button>b</i>c
+#errors
+AAA </i>
+no </button> before EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <i>
+|       <b>
+|         "a"
+|     <b>
+|       <button>
+|         <i>
+|           "b"
+|         "c"
+
+#data
+<!DOCTYPE html><i><b>a<button>b</i>c</b>d
+#errors
+AAA </i>
+AAA </b>
+no </button> before EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <i>
+|       <b>
+|         "a"
+|     <b>
+|     <button>
+|       <b>
+|         <i>
+|           "b"
+|         "c"
+|       "d"
+
+#data
+<!DOCTYPE html><p>a<button>c<div>
+#errors
+no </div></button> before EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "a"
+|       <button>
+|         "c"
+|         <div>
+
+#data
+<!DOCTYPE html><p>a<button>c<li>
+#errors
+no </button> before EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "a"
+|       <button>
+|         "c"
+|         <li>
+
+#data
+<!DOCTYPE html><p>a<button>c<dt>
+#errors
+no </button> before EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "a"
+|       <button>
+|         "c"
+|         <dt>
+
+#data
+<!DOCTYPE html><p>a<button>c<dd>
+#errors
+no </button> before EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "a"
+|       <button>
+|         "c"
+|         <dd>
+
+#data
+<!DOCTYPE html><p>a<button>c<plaintext>
+#errors
+no </plaintext></button> before EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "a"
+|       <button>
+|         "c"
+|         <plaintext>
+
+#data
+<!DOCTYPE html><p>a<button>c<nobr>
+#errors
+no </button></nobr> before EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "a"
+|       <button>
+|         "c"
+|         <nobr>
+
+#data
+<!DOCTYPE html><p>a<button>c<button>
+#errors
+no </button>
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "a"
+|       <button>
+|         "c"
+|       <button>
+
+#data
+<!DOCTYPE html><p>a<button>c<xmp>
+#errors
+no </button>
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "a"
+|       <button>
+|         "c"
+|         <xmp>
+
+#data
+<!DOCTYPE html><option>a<button>c<option>
+#errors
+no </button> before EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <option>
+|       "a"
+|       <button>
+|         "c"
+|         <option>
+
+#data
+<!DOCTYPE html><option>a<button>c<optgroup>
+#errors
+no </button> before EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <option>
+|       "a"
+|       <button>
+|         "c"
+|         <optgroup>
+
+#data
+<!DOCTYPE html><ruby>a<button>b<rt>
+#errors
+no </button>
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <ruby>
+|       "a"
+|       <button>
+|         "b"
+|         <rt>
+
+#data
+<!DOCTYPE html><ruby>a<button>b<rp>
+#errors
+no </button>
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <ruby>
+|       "a"
+|       <button>
+|         "b"
+|         <rp>
+
+#data
+<!DOCTYPE html><marquee>a</body><!---->
+#errors
+</body> in marquee
+no </marquee> before EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <marquee>
+|       "a"
+|       <!--  -->
+
+#data
+<!DOCTYPE html><button>a</body><!---->
+#errors
+no </button>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <button>
+|       "a"
+|   <!--  -->
+
+#data
+<!DOCTYPE html><div>a<button>b</div>c
+#errors
+no </button>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <div>
+|       "a"
+|       <button>
+|         "b"
+|     "c"
+
+#data
+<!DOCTYPE html><form>a<button>b</form>c
+#errors
+no </button>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <form>
+|       "a"
+|       <button>
+|         "b"
+|     "c"
+
+#data
+<!DOCTYPE html><h1>a<button>b</h1>c
+#errors
+no </button>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <h1>
+|       "a"
+|       <button>
+|         "b"
+|     "c"
+
+#data
+<!DOCTYPE html><p>a<button>b</p>c
+#errors
+no <p> before </p>
+no </button>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "a"
+|       <button>
+|         "b"
+|         <p>
+|         "c"
+
+#data
+<!DOCTYPE html><table><b><i>a</b><a>
+#errors
+<b> in table
+<i> in table
+"a" in table
+</b> in table
+<a> in table
+no </i> before </b>; reconstruction
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|         "a"
+|     <i>
+|       <a>
+|     <table>
+
+#data
+<!DOCTYPE html><table><b><i>a</b><nobr>
+#errors
+<b> in table
+<i> in table
+"a" in table
+</b> in table
+<nobr> in table
+no </i> before </b>; reconstruction
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|         "a"
+|     <i>
+|       <nobr>
+|     <table>
+
+#data
+<!DOCTYPE html><table><b><i>a</b><button>
+#errors
+<b> in table
+<i> in table
+"a" in table
+</b> in table
+<button> in table
+no </i> before </b>; reconstruction
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|         "a"
+|     <i>
+|       <button>
+|     <table>
+
+#data
+<!DOCTYPE html><table><b><i>a</b><xmp>
+#errors
+<b> in table
+<i> in table
+"a" in table
+</b> in table
+<xmp> in table
+no </i> before </b>; reconstruction
+EOF (RAWTEXT)
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|         "a"
+|     <i>
+|       <xmp>
+|     <table>
+
+#data
+<!DOCTYPE html><table><b><i>a</b><iframe>
+#errors
+<b> in table
+<i> in table
+"a" in table
+</b> in table
+no </i> before </b>; reconstruction
+<iframe> in table
+EOF (RAWTEXT)
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|         "a"
+|     <iframe>
+|     <table>
+
+#data
+<!DOCTYPE html><table><b><i>a</b><noframes>
+#errors
+<b> in table
+<i> in table
+"a" in table
+</b> in table
+no </i> before </b>; reconstruction
+<noframes> in table
+EOF (RAWTEXT)
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|         "a"
+|     <noframes>
+|     <table>
+
+#data
+<!DOCTYPE html><table><b><i>a</b><noembed>
+#errors
+<b> in table
+<i> in table
+"a" in table
+</b> in table
+no </i> before </b>; reconstruction
+<noembed> in table
+EOF (RAWTEXT)
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|         "a"
+|     <noembed>
+|     <table>
+
+#note When scripting is disabled.
+#data
+<!DOCTYPE html><table><b><i>a</b><noscript>
+#errors
+<b> in table
+<i> in table
+"a" in table
+</b> in table
+<noscript> in table
+no </i> before </b>; reconstruction
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|         "a"
+|     <i>
+|       <noscript>
+|     <table>
+
+#data
+<!DOCTYPE html><table><b><i>a</b><option>
+#errors
+<b> in table
+<i> in table
+"a" in table
+</b> in table
+<option> in table
+no </i> before </b>; reconstruction
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|         "a"
+|     <i>
+|       <option>
+|     <table>
+
+#data
+<!DOCTYPE html><table><b><i>a</b><optgroup>
+#errors
+<b> in table
+<i> in table
+"a" in table
+</b> in table
+<optgroup> in table
+no </i> before </b>; reconstruction
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|         "a"
+|     <i>
+|       <optgroup>
+|     <table>
+
+#data
+<!DOCTYPE html><table><b><i>a</b><img>
+#errors
+<b> in table
+<i> in table
+"a" in table
+</b> in table
+<img> in table
+no </i> before </b>; reconstruction
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|         "a"
+|     <i>
+|       <img>
+|     <table>
+
+#data
+<!DOCTYPE html><table><b><i>a</b><br>
+#errors
+<b> in table
+<i> in table
+"a" in table
+</b> in table
+<br> in table
+no </i> before </b>; reconstruction
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|         "a"
+|     <i>
+|       <br>
+|     <table>
+
+#data
+<!DOCTYPE html><table><b><i>a</b></br>
+#errors
+<b> in table
+<i> in table
+"a" in table
+</b> in table
+</br> in table
+</br>
+no </i> before </b>; reconstruction
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|         "a"
+|     <i>
+|       <br>
+|     <table>
+
+#data
+<!DOCTYPE html><p><b class=x><b class=x><b><b class=x><b class=x><b>X<p>X<p><b><b class=x><b>X<p></b></b></b></b></b></b>X
+#errors
+Unexpected start tag <p>
+Unexpected start tag <p>
+Unexpected start tag <p>
+Misnested </b>
+Misnested </b>
+Misnested </b>
+Misnested </b>
+Misnested </b>
+Misnested </b>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       <b>
+|         class="x"
+|         <b>
+|           class="x"
+|           <b>
+|             <b>
+|               class="x"
+|               <b>
+|                 class="x"
+|                 <b>
+|                   "X"
+|     <p>
+|       <b>
+|         class="x"
+|         <b>
+|           <b>
+|             class="x"
+|             <b>
+|               class="x"
+|               <b>
+|                 "X"
+|     <p>
+|       <b>
+|         class="x"
+|         <b>
+|           <b>
+|             class="x"
+|             <b>
+|               class="x"
+|               <b>
+|                 <b>
+|                   <b>
+|                     class="x"
+|                     <b>
+|                       "X"
+|     <p>
+|       "X"
+#comment
+<http://www.whatwg.org/specs/web-apps/current-work/complete.html#unclosed-formatting-elements>
+
+#data
+<!DOCTYPE html><p><b a=1><b a=1><b a=1><b a=1><b a=2><b a=1>a<p>b
+#errors
+Unexpected <p>
+Unexpected EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       <b>
+|         a="1"
+|         <b>
+|           a="1"
+|           <b>
+|             a="1"
+|             <b>
+|               a="1"
+|               <b>
+|                 a="2"
+|                 <b>
+|                   a="1"
+|                   "a"
+|     <p>
+|       <b>
+|         a="1"
+|         <b>
+|           a="1"
+|           <b>
+|             a="2"
+|             <b>
+|               a="1"
+|               "b"
+
+#data
+<!DOCTYPE html><p><b a=1><b a=1><b a=1><b a=1><b a=1 b=2><b a=1>a<p>b
+#errors
+Unexpected <p>
+Unexpected EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       <b>
+|         a="1"
+|         <b>
+|           a="1"
+|           <b>
+|             a="1"
+|             <b>
+|               a="1"
+|               <b>
+|                 a="1"
+|                 b="2"
+|                 <b>
+|                   a="1"
+|                   "a"
+|     <p>
+|       <b>
+|         a="1"
+|         <b>
+|           a="1"
+|           <b>
+|             a="1"
+|             b="2"
+|             <b>
+|               a="1"
+|               "b"
+
+#data
+<!DOCTYPE html><p><b a=1><b a=1><b a=1><marquee><p><b a=1><b a=1><b a=1><b a=1><b a=1 b=2><b a=1>a<p>b</marquee><p>c
+#errors
+Unexpected <p>
+Unexpected </marquee>
+Unexpected <p>
+Unexpected EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       <b>
+|         a="1"
+|         <b>
+|           a="1"
+|           <b>
+|             a="1"
+|             <marquee>
+|               <p>
+|                 <b>
+|                   a="1"
+|                   <b>
+|                     a="1"
+|                     <b>
+|                       a="1"
+|                       <b>
+|                         a="1"
+|                         <b>
+|                           a="1"
+|                           b="2"
+|                           <b>
+|                             a="1"
+|                             "a"
+|               <p>
+|                 <b>
+|                   a="1"
+|                   <b>
+|                     a="1"
+|                     <b>
+|                       a="1"
+|                       b="2"
+|                       <b>
+|                         a="1"
+|                         "b"
+|     <p>
+|       <b>
+|         a="1"
+|         <b>
+|           a="1"
+|           <b>
+|             a="1"
+|             "c"
+
+#data
+<!DOCTYPE HTML><a><b><big><code><em><font><i><nobr><s><small><strike><strong><tt><u><div>a</a>b</b>c</big>d</code>e</em>f</font>g</i>h</nobr>i</s>j</small>k</strike>l</strong>m</tt>n</u>o
+#errors
+unmatched </a>
+unmatched </b>
+unmatched </big>
+unmatched </code>
+unmatched </em>
+unmatched </font>
+unmatched </i>
+unmatched </nobr>
+unmatched </s>
+unmatched </small>
+unmatched </strike>
+unmatched </strong>
+unmatched </tt>
+unmatched </u>
+unexpected EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <a>
+|       <b>
+|         <big>
+|           <code>
+|             <em>
+|               <font>
+|                 <i>
+|                   <nobr>
+|                     <s>
+|                       <small>
+|                         <strike>
+|                           <strong>
+|                             <tt>
+|                               <u>
+|                           <tt>
+|                             <u>
+|                           <u>
+|                           <div>
+|                             <u>
+|                               <tt>
+|                                 <strong>
+|                                   "abcdefghijkl"
+|                                 "m"
+|                               "n"
+|                             "o"
+
+#data
+<!DOCTYPE HTML><a><div><div><div><div><div><div><div><div><div>b</a>c
+#errors
+AAA error
+AAA error
+AAA error
+AAA error
+AAA error
+AAA error
+AAA error
+AAA error
+unexpected EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <a>
+|     <div>
+|       <a>
+|       <div>
+|         <a>
+|         <div>
+|           <a>
+|           <div>
+|             <a>
+|             <div>
+|               <a>
+|               <div>
+|                 <a>
+|                 <div>
+|                   <a>
+|                   <div>
+|                     <a>
+|                       <div>
+|                         "bc"
+
+#data
+<!DOCTYPE HTML><a><div><div><div><div><div><div><div><div><div>b<a>c
+#errors
+unexpected <a>
+AAA error
+AAA error
+AAA error
+AAA error
+AAA error
+AAA error
+AAA error
+AAA error
+unexpected EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <a>
+|     <div>
+|       <a>
+|       <div>
+|         <a>
+|         <div>
+|           <a>
+|           <div>
+|             <a>
+|             <div>
+|               <a>
+|               <div>
+|                 <a>
+|                 <div>
+|                   <a>
+|                   <div>
+|                     <a>
+|                       <div>
+|                         "b"
+|                         <a>
+|                           "c"
+

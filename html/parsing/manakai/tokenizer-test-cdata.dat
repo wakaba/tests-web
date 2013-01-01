@@ -1,0 +1,1184 @@
+#data
+<!DOCTYPE html><style>abc</style
+#errors
+no </style>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <style>
+|       "abc</style"
+|   <body>
+
+#data
+<!DOCTYPE html><title>abc</title
+#errors
+no </title>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <title>
+|       "abc</title"
+|   <body>
+
+#data
+<!DOCTYPE html><textarea>abc</textarea
+#errors
+no </textarea>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <textarea>
+|       "abc</textarea"
+
+#data
+<!DOCTYPE html><xmp>abc</xmp
+#errors
+no </xmp>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <xmp>
+|       "abc</xmp"
+
+#data
+<!DOCTYPE html><iframe>abc</iframe
+#errors
+no </iframe>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <iframe>
+|       "abc</iframe"
+
+#data
+<!DOCTYPE html><noembed>abc</noembed
+#errors
+no </noembed>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <noembed>
+|       "abc</noembed"
+
+#data
+<!DOCTYPE html><noframes>abc</noframes
+#errors
+no </noframes>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <noframes>
+|       "abc</noframes"
+|   <body>
+
+#XXX when scripting is enabled
+#data
+<!DOCTYPE html><noscript>abc</noscript
+#errors
+no </noscript>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <noscript>
+|       "abc</noscript"
+
+#data
+<style><!-- </style> --></style>
+#errors
+unmatched </style>
+#document-fragment p
+| <style>
+|   "<!-- "
+| " -->"
+
+#data
+<style><!-- <style>abc</style> --></style>
+#errors
+unmatched </style>
+#document-fragment p
+| <style>
+|   "<!-- <style>abc"
+| " -->"
+
+#data
+<script><!-- </script> --></script>
+#errors
+unmatched </script>
+#document-fragment p
+| <script>
+|   "<!-- "
+| " -->"
+
+#data
+<script><!-- <script>abc</script> --></script>
+#errors
+#document-fragment p
+| <script>
+|   "<!-- <script>abc</script> -->"
+
+#data
+<script><!----x></script>foo
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <script>
+|       "<!----x>"
+|   <body>
+|     "foo"
+
+#data
+<script><!-- <script></script> --x></script>foo
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <script>
+|       "<!-- <script></script> --x>"
+|   <body>
+|     "foo"
+
+#data
+<!DOCTYPE html><script><
+#errors
+missing </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<"
+|   <body>
+
+#data
+<!DOCTYPE html><script>a<
+#errors
+missing </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "a<"
+|   <body>
+
+#data
+<!DOCTYPE html><script>
+#errors
+missing </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|   <body>
+
+#data
+<!DOCTYPE html><script>a
+#errors
+missing </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "a"
+|   <body>
+
+#data
+<!DOCTYPE html><script></
+#errors
+missing </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "</"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!
+#errors
+missing </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!"
+|   <body>
+
+#data
+<!DOCTYPE html><script><a
+#errors
+missing </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<a"
+|   <body>
+
+#data
+<!DOCTYPE html><script><<
+#errors
+missing </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<<"
+|   <body>
+
+#data
+<!DOCTYPE html><script><>
+#errors
+missing </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<>"
+|   <body>
+
+#data
+<!DOCTYPE html><script></ScrIPT>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|   <body>
+
+#data
+<!DOCTYPE html><script><abc>
+#errors
+missing </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<abc>"
+|   <body>
+
+#data
+<!DOCTYPE html><script></abc>
+#errors
+missing </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "</abc>"
+|   <body>
+
+#data
+<!DOCTYPE html><script></scriptable>
+#errors
+missing </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "</scriptable>"
+|   <body>
+
+#data
+<!DOCTYPE html><script><scriptable>
+#errors
+missing </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<scriptable>"
+|   <body>
+
+#data
+<!DOCTYPE html><script><SCRIPTing>
+#errors
+missing </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<SCRIPTing>"
+|   <body>
+
+#data
+<!DOCTYPE html><ScriPT></script>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|   <body>
+
+#data
+<!DOCTYPE html><scriptless><>
+#errors
+bare <
+no </scriptless>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <scriptless>
+|       "<>"
+
+#data
+<!DOCTYPE html><script>ab</scri()
+#errors
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "ab</scri()"
+|   <body>
+
+#data
+<!DOCTYPE html><script>ag</script
+#errors
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "ag</script"
+|   <body>
+
+#data escaped
+<!DOCTYPE html><script>ag</script\u0009
+#errors
+no >
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "ag"
+|   <body>
+
+#data escaped
+<!DOCTYPE html><script>ag</script\u000A
+#errors
+no >
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "ag"
+|   <body>
+
+#data escaped
+<!DOCTYPE html><script>ag</script\u000C
+#errors
+no >
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "ag"
+|   <body>
+
+#data escaped
+<!DOCTYPE html><script>ag</script\u0020
+#errors
+no >
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "ag"
+|   <body>
+
+#data
+<!DOCTYPE html><script>ag</script/
+#errors
+no >
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "ag"
+|   <body>
+
+#data
+<!DOCTYPE html><script>ag</script >
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "ag"
+|   <body>
+
+#data
+<!DOCTYPE html><script>ag</noscript>
+#errors
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "ag</noscript>"
+|   <body>
+
+#data escaped
+<!DOCTYPE html><script>ag</noscript\u0009
+#errors
+no </script>
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "ag</noscript\u0009"
+|   <body>
+
+#data escaped
+<!DOCTYPE html><script>ag</noscript\u000A
+#errors
+no </script>
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "ag</noscript\u000A"
+|   <body>
+
+#data escaped
+<!DOCTYPE html><script>ag</noscript\u000C
+#errors
+no </script>
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "ag</noscript\u000C"
+|   <body>
+
+#data escaped
+<!DOCTYPE html><script>ag</noscript\u0020
+#errors
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "ag</noscript "
+|   <body>
+
+#data
+<!DOCTYPE html><script><!abc
+#errors
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!abc"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!-
+#errors
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!-"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!-abc
+#errors
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!-abc"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--
+#errors
+EOF in escaped script data
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--abc
+#errors
+EOF in escaped script data
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--abc"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!-->
+#errors
+EOF in escaped script data
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!-->"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!---
+#errors
+EOF in escaped script data
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!---"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!----
+#errors
+EOF in escaped script data
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!----"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!---->
+#errors
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!---->"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!-- -->
+#errors
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!-- -->"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!----->
+#errors
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!----->"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!----<
+#errors
+EOF in escaped script data
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!----<"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--</script>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--<!--</script>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<!--"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!---</script>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!---"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--<!--></script>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<!-->"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!----<!--></script>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!----<!-->"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!----</script>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!----"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--<scripting></script>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<scripting>"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--<a>
+#errors
+EOF in escaped script data
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<a>"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--<noscript>
+#errors
+EOF in escaped script data
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<noscript>"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--</script>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--<script>
+#errors
+EOF in escaped script data
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script>"
+|   <body>
+
+#data escaped
+<!DOCTYPE html><script><!--<script\u0020
+#errors
+EOF in escaped script data
+no </script>
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script\u0020"
+|   <body>
+
+#data escaped
+<!DOCTYPE html><script><!--<script\u0009
+#errors
+EOF in escaped script data
+no </script>
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script\u0009"
+|   <body>
+
+#data escaped
+<!DOCTYPE html><script><!--<script\u000A
+#errors
+EOF in escaped script data
+no </script>
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script\u000A"
+|   <body>
+
+#data escaped
+<!DOCTYPE html><script><!--<script\u000C
+#errors
+EOF in escaped script data
+no </script>
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script\u000C"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--<script/
+#errors
+EOF in escaped script data
+no </script>
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script/"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--<script>
+#errors
+EOF in escaped script data
+no </script>
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script>"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--</scripting></script>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--</scripting>"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--</a>
+#errors
+EOF in escaped script data
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--</a>"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--</noscript>
+#errors
+EOF in escaped script data
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--</noscript>"
+|   <body>
+
+#data escaped
+<!DOCTYPE html><script><!--</script\u0020
+#errors
+no >
+no </script>
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--"
+|   <body>
+
+#data escaped
+<!DOCTYPE html><script><!--</script\u0009
+#errors
+no >
+no </script>
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--"
+|   <body>
+
+#data escaped
+<!DOCTYPE html><script><!--</script\u000A
+#errors
+no >
+no </script>
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--"
+|   <body>
+
+#data escaped
+<!DOCTYPE html><script><!--</script\u000C
+#errors
+no >
+no </script>
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--</script/
+#errors
+no >
+no </script>
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--</script>
+#errors
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--<script>aa
+#errors
+EOF in escaped script data
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script>aa"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--<script type>aa
+#errors
+EOF in escaped script data
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script type>aa"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--<script>aa-
+#errors
+EOF in escaped script data
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script>aa-"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--<script>aa--
+#errors
+EOF in escaped script data
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script>aa--"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--<script>aa---->
+#errors
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script>aa---->"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--<script>aa-->
+#errors
+no </script>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script>aa-->"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--<script>aa--><!--</script>-->
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script>aa--><!--"
+|   <body>
+|     "-->"
+
+#data
+<!DOCTYPE html><script><!--<script><!--<script>--></script>-->
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script><!--<script>-->"
+|   <body>
+|     "-->"
+
+#data
+<!DOCTYPE html><script><!--<script><!--<script></script>--></script>-->
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script><!--<script></script>-->"
+|   <body>
+|     "-->"
+
+#data
+<!DOCTYPE html><script><!--<script>--><!--<script></script>--></script>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<script>--><!--<script></script>-->"
+|   <body>
+
+#data
+<!DOCTYPE html><script><!--<Script>--><!--<sCriPt></ScripT>--></script>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "<!--<Script>--><!--<sCriPt></ScripT>-->"
+|   <body>
+
+#data
+</style>
+#errors
+#document-fragment style
+| "</style>"
+
+#data
+</xmp>
+#errors
+#document-fragment xmp
+| "</xmp>"
+
+#data
+</noembed>
+#errors
+#document-fragment noembed
+| "</noembed>"
+
+#data
+</noframes>
+#errors
+#document-fragment noframes
+| "</noframes>"
+
+#data
+</textarea>
+#errors
+#document-fragment textarea
+| "</textarea>"
+
+#data
+</title>
+#errors
+#document-fragment title
+| "</title>"
+
+#XXX when scripting is enabled
+#data
+</noscript>
+#errors
+#document-fragment noscript
+| "</noscript>"
+
+#data
+</plaintext>
+#errors
+#document-fragment plaintext
+| "</plaintext>"
+
+#data
+</script>
+#errors
+#document-fragment script
+| "</script>"
+
+#data
+<!--<script></script>--></script>
+#errors
+#document-fragment script
+| "<!--<script></script>--></script>"
+
+#data
+<!--
+#errors
+EOF in escaped script data
+#document-fragment script
+| "<!--"
