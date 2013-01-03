@@ -1,0 +1,648 @@
+#data escaped
+<!DOCTYPE HTML><html><head><title></title></head><body><p>\u0000</p></body>
+#errors
+NULL (tokenizer)
+NULL
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <title>
+|   <body>
+|     <p>
+
+#data escaped
+\u0000
+#errors
+NULL (tokenizer)
+NULL
+#document-fragment p escaped
+
+#data escaped
+\u0000
+#errors
+NULL (tokenizer)
+NULL
+#document-fragment
+svg svg
+#document
+
+#data escaped
+<svg>\u0000</svg>
+#errors
+NULL (tokenizer)
+NULL
+#document-fragment p escaped
+| <svg svg>
+|   "\uFFFD"
+
+#data escaped
+<svg><g>\u0000</g></svg>
+#errors
+NULL (tokenizer)
+NULL
+#document-fragment p escaped
+| <svg svg>
+|   <svg g>
+|     "\uFFFD"
+
+#data escaped
+<svg><g><![CDATA[\u0000]]></g></svg>
+#errors
+NULL
+#document-fragment p escaped
+| <svg svg>
+|   <svg g>
+|     "\uFFFD"
+
+#data escaped
+<svg><desc>\u0000</desc></svg>
+#errors
+NULL (tokenizer)
+NULL
+#document-fragment p escaped
+| <svg svg>
+|   <svg desc>
+
+#data escaped
+<svg><desc><![CDATA[\u0000]]></desc></svg>
+#errors
+NULL
+#document-fragment p escaped
+| <svg svg>
+|   <svg desc>
+
+#data escaped
+<!DOCTYPE HTML><p>\u000D
+#errors
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "\u000A"
+
+#data escaped
+<!DOCTYPE HTML><p>\u000D</p>
+#errors
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "\u000A"
+
+#data escaped
+<!DOCTYPE HTML><p>\u000D\u000D
+#errors
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "\u000A\u000A"
+
+#data escaped
+<!DOCTYPE HTML><p>\u000D\u0000
+#errors
+NULL (tokenizer)
+NULL
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "\u000A"
+
+#data escaped
+\u000D
+#errors
+#document-fragment p escaped
+| "\u000A"
+
+#data escaped
+\u000D\u000D
+#errors
+#document-fragment p escaped
+| "\u000A\u000A"
+
+#data escaped
+\u000Da
+#errors
+#document-fragment p escaped
+| "\u000Aa"
+
+#data escaped
+<!DOCTYPE HTML><p>\u000D\u000A</p>
+#errors
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "\u000A"
+
+#data escaped
+\u000D\u000A
+#errors
+#document-fragment p escaped
+| "\u000A"
+
+#data escaped
+<!DOCTYPE HTML><p>\u000A</p>
+#errors
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "\u000A"
+
+#data escaped
+<!DOCTYPE HTML><p>\u000D\u0000</p>
+#errors
+NULL (tokenizer)
+NULL
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "\u000A"
+
+#data escaped
+<!DOCTYPE HTML><p>\u000D\u000D</p>
+#errors
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "\u000A\u000A"
+
+#data escaped
+\u000A
+#errors
+#document-fragment p escaped
+| "\u000A"
+
+#data escaped
+\u000D\u0000
+#errors
+NULL (tokenizer)
+NULL
+#document-fragment p escaped
+| "\u000A"
+
+#data escaped
+\u000D\u000D
+#errors
+#document-fragment p escaped
+| "\u000A\u000A"
+
+#data
+&#x0D;&#x0A;
+#errors
+no DOCTYPE
+U+000D reference
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\u000D\u000A"
+
+#data
+&#13;&#10;
+#errors
+no DOCTYPE
+U+000D reference
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\u000D\u000A"
+
+#data escaped
+\u0001
+#errors
+no DOCTYPE
+control character
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\u0001"
+
+#data escaped
+\u0001
+#errors
+control character
+#document-fragment p escaped
+| "\u0001"
+
+#data escaped
+\u0002
+#errors
+no DOCTYPE
+control character
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\u0002"
+
+#data escaped
+\u0002
+#errors
+control character
+#document-fragment p escaped
+| "\u0002"
+
+#data escaped
+\u000b
+#errors
+no DOCTYPE
+U+000B
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\u000b"
+
+#data escaped
+\u000b
+#errors
+U+000B
+#document-fragment p escaped
+| "\u000b"
+
+#data escaped
+\u000e
+#errors
+no DOCTYPE
+control character
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\u000e"
+
+#data escaped
+\u000e
+#errors
+control character
+#document-fragment p escaped
+| "\u000e"
+
+#data escaped
+\u001f
+#errors
+no DOCTYPE
+control character
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\u001f"
+
+#data escaped
+\u001f
+#errors
+control character
+#document-fragment p escaped
+| "\u001f"
+
+#data escaped
+\u007f
+#errors
+no DOCTYPE
+control character
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\u007f"
+
+#data escaped
+\u007f
+#errors
+control character
+#document-fragment p escaped
+| "\u007f"
+
+#data escaped
+\u0080
+#errors
+no DOCTYPE
+control character
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\u0080"
+
+#data escaped
+\u0080
+#errors
+control character
+#document-fragment p escaped
+| "\u0080"
+
+#data escaped
+\u0085
+#errors
+no DOCTYPE
+control character
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\u0085"
+
+#data escaped
+\u0085
+#errors
+control character
+#document-fragment p escaped
+| "\u0085"
+
+#data escaped
+\u009f
+#errors
+no DOCTYPE
+control character
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\u009f"
+
+#data escaped
+\u009f
+#errors
+control character
+#document-fragment p escaped
+| "\u009f"
+
+#data escaped
+\ud800
+#errors
+no DOCTYPE
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\uD800"
+
+#data escaped
+\ud800
+#errors
+#document-fragment p escaped
+| "\uD800"
+
+#data escaped
+\udfff
+#errors
+no DOCTYPE
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\uDFFF"
+
+#data escaped
+\udfff
+#errors
+#document-fragment p escaped
+| "\uDFFF"
+
+#data escaped
+\ufdd0
+#errors
+no DOCTYPE
+control character
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\ufdd0"
+
+#data escaped
+\ufdd0
+#errors
+control character
+#document-fragment p escaped
+| "\ufdd0"
+
+#data escaped
+\ufddf
+#errors
+no DOCTYPE
+control character
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\ufddf"
+
+#data escaped
+\ufddf
+#errors
+control character
+#document-fragment p escaped
+| "\ufddf"
+
+#data escaped
+\ufffe
+#errors
+no DOCTYPE
+control character
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\ufffe"
+
+#data escaped
+\ufffe
+#errors
+control character
+#document-fragment p escaped
+| "\ufffe"
+
+#data escaped
+\uffff
+#errors
+no DOCTYPE
+control character
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\uffff"
+
+#data escaped
+\uffff
+#errors
+control character
+#document-fragment p escaped
+| "\uffff"
+
+#data escaped
+\U0010ffff
+#errors
+no DOCTYPE
+control character
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\U0010ffff"
+
+#data escaped
+\U0010ffff
+#errors
+control character
+#document-fragment p escaped
+| "\U0010ffff"
+
+#data escaped
+\U00110000
+#errors
+no DOCTYPE
+#document escaped
+| <html>
+|   <head>
+|   <body>
+|     "\U00110000"
+
+#data escaped
+\U00110000
+#errors
+#document-fragment p escaped
+| "\U00110000"
+
+#data
+<!DOCTYPE HTML SYSTEM "x"
+#errors
+unclosed DOCTYPE
+not HTML5
+#document
+| <!DOCTYPE html "" "x">
+| <html>
+|   <head>
+|   <body>
+
+#data
+<!DOCTYPE HTML SYSTEM "x"y>
+#errors
+string after SYSTEM literal
+not HTML5
+#document
+| <!DOCTYPE html "" "x">
+| <html>
+|   <head>
+|   <body>
+
+#data
+aa]]>bb
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     "aa]]>bb"
+
+#data
+aa]]]]>bb
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     "aa]]]]>bb"
+
+#data
+<hr/>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <hr>
+
+#data
+<hr b=Q`A` >
+#errors
+no DOCTYPE
+1;7;bad attribute value;;;m
+1;9;bad attribute value;;;m
+#document
+| <html>
+|   <head>
+|   <body>
+|     <hr>
+|       b="Q`A`"
+
+#data
+<hr b=Q=A= >
+#errors
+no DOCTYPE
+1;7;bad attribute value;;;m
+1;9;bad attribute value;;;m
+#document
+| <html>
+|   <head>
+|   <body>
+|     <hr>
+|       b="Q=A="
+
+#data
+<hr b=Q`A= >
+#errors
+no DOCTYPE
+1;7;bad attribute value;;;m
+1;9;bad attribute value;;;m
+#document
+| <html>
+|   <head>
+|   <body>
+|     <hr>
+|       b="Q`A="
+
+#data
+<hr b=Q<A< >
+#errors
+no DOCTYPE
+1;7;bad attribute value;;;m
+1;9;bad attribute value;;;m
+#document
+| <html>
+|   <head>
+|   <body>
+|     <hr>
+|       b="Q<A<"
+
+#data
+<hr b=Q<A= >
+#errors
+no DOCTYPE
+1;7;bad attribute value;;;m
+1;9;bad attribute value;;;m
+#document
+| <html>
+|   <head>
+|   <body>
+|     <hr>
+|       b="Q<A="

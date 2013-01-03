@@ -1,0 +1,253 @@
+diff --git a/t/data/html-tokenizer/domjs.test b/t/data/html-tokenizer/domjs.test
+index 74771e2..07a611e 100644
+--- a/t/data/html-tokenizer/domjs.test
++++ b/t/data/html-tokenizer/domjs.test
+@@ -15,7 +15,7 @@
+             "doubleEscaped":true,
+             "initialStates":["RCDATA state", "RAWTEXT state"],
+             "input":"\\u0000",
+-            "output":["ParseError", ["Character", "\\uFFFD"]]
++            "output":[["Character", "\\u0000"]]
+         },
+         {
+             "description":"skip first BOM but not later ones",
+diff --git a/t/data/html-tokenizer/entities.test b/t/data/html-tokenizer/entities.test
+index 1cb17a7..cf2cd6e 100644
+--- a/t/data/html-tokenizer/entities.test
++++ b/t/data/html-tokenizer/entities.test
+@@ -6,7 +6,7 @@
+ 
+ {"description": "Entity name followed by the equals sign in an attribute value.",
+ "input":"<h a='&lang='>",
+-"output": ["ParseError", ["StartTag", "h", {"a": "&lang="}]]},
++"output": [["StartTag", "h", {"a": "&lang="}]]},
+ 
+ {"description": "CR as numeric entity",
+ "input":"&#013;",
+diff --git a/t/data/html-tokenizer/test1.test b/t/data/html-tokenizer/test1.test
+index 5de66f5..78f7409 100644
+--- a/t/data/html-tokenizer/test1.test
++++ b/t/data/html-tokenizer/test1.test
+@@ -115,7 +115,7 @@
+ 
+ {"description":"Unfinished entity",
+ "input":"&f",
+-"output":["ParseError", ["Character", "&f"]]},
++"output":[["Character", "&f"]]},
+ 
+ {"description":"Ampersand, number sign",
+ "input":"&#",
+@@ -143,11 +143,11 @@
+ 
+ {"description":"Partial entity match at end of file",
+ "input":"I'm &no",
+-"output":[["Character","I'm "], "ParseError", ["Character", "&no"]]},
++"output":[["Character","I'm &no"]]},
+ 
+ {"description":"Non-ASCII character reference name",
+ "input":"&\u00AC;",
+-"output":["ParseError", ["Character", "&\u00AC;"]]},
++"output":[["Character", "&\u00AC;"]]},
+ 
+ {"description":"ASCII decimal entity",
+ "input":"&#0036;",
+@@ -163,19 +163,19 @@
+ 
+ {"description":"Entity in attribute without semicolon ending in x",
+ "input":"<h a='&notx'>",
+-"output":["ParseError", ["StartTag", "h", {"a":"&notx"}]]},
++"output":[["StartTag", "h", {"a":"&notx"}]]},
+ 
+ {"description":"Entity in attribute without semicolon ending in 1",
+ "input":"<h a='&not1'>",
+-"output":["ParseError", ["StartTag", "h", {"a":"&not1"}]]},
++"output":[["StartTag", "h", {"a":"&not1"}]]},
+ 
+ {"description":"Entity in attribute without semicolon ending in i",
+ "input":"<h a='&noti'>",
+-"output":["ParseError", ["StartTag", "h", {"a":"&noti"}]]},
++"output":[["StartTag", "h", {"a":"&noti"}]]},
+ 
+ {"description":"Entity in attribute without semicolon",
+ "input":"<h a='&COPY'>",
+-"output":["ParseError", ["StartTag", "h", {"a":"\u00A9"}]]},
++"output":["ParseError",["StartTag", "h", {"a":"\u00A9"}]]},
+ 
+ {"description":"Unquoted attribute ending in ampersand",
+ "input":"<s o=& t>",
+diff --git a/t/data/html-tokenizer/test2.test b/t/data/html-tokenizer/test2.test
+index e157514..87a8eba 100644
+--- a/t/data/html-tokenizer/test2.test
++++ b/t/data/html-tokenizer/test2.test
+@@ -2,7 +2,7 @@
+ 
+ {"description":"DOCTYPE without name",
+ "input":"<!DOCTYPE>",
+-"output":["ParseError", "ParseError", ["DOCTYPE", "", null, null, false]]},
++"output":["ParseError", "ParseError", ["DOCTYPE", null, null, null, false]]},
+ 
+ {"description":"DOCTYPE without space before name",
+ "input":"<!DOCTYPEhtml>",
+@@ -82,7 +82,7 @@
+ 
+ {"description":"Entity without a name",
+ "input":"&;",
+-"output":["ParseError", ["Character", "&;"]]},
++"output":[["Character", "&;"]]},
+ 
+ {"description":"Unescaped ampersand in attribute value",
+ "input":"<h a='&'>",
+diff --git a/t/data/html-tokenizer/test3.test b/t/data/html-tokenizer/test3.test
+index 58519e8..8fc529a 100644
+--- a/t/data/html-tokenizer/test3.test
++++ b/t/data/html-tokenizer/test3.test
+@@ -914,7 +914,7 @@
+ 
+ {"description":"<!DOCTYPE",
+ "input":"<!DOCTYPE",
+-"output":["ParseError", ["DOCTYPE", "", null, null, false]]},
++"output":["ParseError", ["DOCTYPE", null, null, null, false]]},
+ 
+ {"description":"<!DOCTYPE\\u0000",
+ "input":"<!DOCTYPE\u0000",
+@@ -926,11 +926,11 @@
+ 
+ {"description":"<!DOCTYPE\\u0009",
+ "input":"<!DOCTYPE\u0009",
+-"output":["ParseError", ["DOCTYPE", "", null, null, false]]},
++"output":["ParseError", ["DOCTYPE", null, null, null, false]]},
+ 
+ {"description":"<!DOCTYPE\\u000A",
+ "input":"<!DOCTYPE\u000A",
+-"output":["ParseError", ["DOCTYPE", "", null, null, false]]},
++"output":["ParseError", ["DOCTYPE", null, null, null, false]]},
+ 
+ {"description":"<!DOCTYPE\\u000B",
+ "input":"<!DOCTYPE\u000B",
+@@ -938,11 +938,11 @@
+ 
+ {"description":"<!DOCTYPE\\u000C",
+ "input":"<!DOCTYPE\u000C",
+-"output":["ParseError", ["DOCTYPE", "", null, null, false]]},
++"output":["ParseError", ["DOCTYPE", null, null, null, false]]},
+ 
+ {"description":"<!DOCTYPE\\u000D",
+ "input":"<!DOCTYPE\u000D",
+-"output":["ParseError", ["DOCTYPE", "", null, null, false]]},
++"output":["ParseError", ["DOCTYPE", null, null, null, false]]},
+ 
+ {"description":"<!DOCTYPE\\u001F",
+ "input":"<!DOCTYPE\u001F",
+@@ -950,7 +950,7 @@
+ 
+ {"description":"<!DOCTYPE ",
+ "input":"<!DOCTYPE ",
+-"output":["ParseError", ["DOCTYPE", "", null, null, false]]},
++"output":["ParseError", ["DOCTYPE", null, null, null, false]]},
+ 
+ {"description":"<!DOCTYPE \\u0000",
+ "input":"<!DOCTYPE \u0000",
+@@ -962,11 +962,11 @@
+ 
+ {"description":"<!DOCTYPE \\u0009",
+ "input":"<!DOCTYPE \u0009",
+-"output":["ParseError", ["DOCTYPE", "", null, null, false]]},
++"output":["ParseError", ["DOCTYPE", null, null, null, false]]},
+ 
+ {"description":"<!DOCTYPE \\u000A",
+ "input":"<!DOCTYPE \u000A",
+-"output":["ParseError", ["DOCTYPE", "", null, null, false]]},
++"output":["ParseError", ["DOCTYPE", null, null, null, false]]},
+ 
+ {"description":"<!DOCTYPE \\u000B",
+ "input":"<!DOCTYPE \u000B",
+@@ -974,11 +974,11 @@
+ 
+ {"description":"<!DOCTYPE \\u000C",
+ "input":"<!DOCTYPE \u000C",
+-"output":["ParseError", ["DOCTYPE", "", null, null, false]]},
++"output":["ParseError", ["DOCTYPE", null, null, null, false]]},
+ 
+ {"description":"<!DOCTYPE \\u000D",
+ "input":"<!DOCTYPE \u000D",
+-"output":["ParseError", ["DOCTYPE", "", null, null, false]]},
++"output":["ParseError", ["DOCTYPE", null, null, null, false]]},
+ 
+ {"description":"<!DOCTYPE \\u001F",
+ "input":"<!DOCTYPE \u001F",
+@@ -986,7 +986,7 @@
+ 
+ {"description":"<!DOCTYPE  ",
+ "input":"<!DOCTYPE  ",
+-"output":["ParseError", ["DOCTYPE", "", null, null, false]]},
++"output":["ParseError", ["DOCTYPE", null, null, null, false]]},
+ 
+ {"description":"<!DOCTYPE !",
+ "input":"<!DOCTYPE !",
+@@ -1034,7 +1034,7 @@
+ 
+ {"description":"<!DOCTYPE >",
+ "input":"<!DOCTYPE >",
+-"output":["ParseError", ["DOCTYPE", "", null, null, false]]},
++"output":["ParseError", ["DOCTYPE", null, null, null, false]]},
+ 
+ {"description":"<!DOCTYPE ?",
+ "input":"<!DOCTYPE ?",
+@@ -2626,7 +2626,7 @@
+ 
+ {"description":"<!DOCTYPE>",
+ "input":"<!DOCTYPE>",
+-"output":["ParseError", "ParseError", ["DOCTYPE", "", null, null, false]]},
++"output":["ParseError", "ParseError", ["DOCTYPE", null, null, null, false]]},
+ 
+ {"description":"<!DOCTYPE?",
+ "input":"<!DOCTYPE?",
+diff --git a/t/data/html-tokenizer/test4.test b/t/data/html-tokenizer/test4.test
+index 80f859e..a2aac0f 100644
+--- a/t/data/html-tokenizer/test4.test
++++ b/t/data/html-tokenizer/test4.test
+@@ -34,7 +34,7 @@
+ 
+ {"description":"Non-allowed ' after ampersand in attribute value",
+ "input":"<z z=\"&'\">",
+-"output":["ParseError", ["StartTag", "z", {"z": "&'"}]]},
++"output":[["StartTag", "z", {"z": "&'"}]]},
+ 
+ {"description":"Allowed ' after ampersand in attribute value",
+ "input":"<z z='&'>",
+@@ -42,11 +42,11 @@
+ 
+ {"description":"Non-allowed \" after ampersand in attribute value",
+ "input":"<z z='&\"'>",
+-"output":["ParseError", ["StartTag", "z", {"z": "&\""}]]},
++"output":[["StartTag", "z", {"z": "&\""}]]},
+ 
+ {"description":"Text after bogus character reference",
+ "input":"<z z='&xlink_xmlns;'>bar<z>",
+-"output":["ParseError",["StartTag","z",{"z":"&xlink_xmlns;"}],["Character","bar"],["StartTag","z",{}]]},
++"output":[["StartTag","z",{"z":"&xlink_xmlns;"}],["Character","bar"],["StartTag","z",{}]]},
+ 
+ {"description":"Text after hex character reference",
+ "input":"<z z='&#x0020; foo'>bar<z>",
+diff --git a/t/data/html-tokenizer/xmlViolation.test b/t/data/html-tokenizer/xmlViolation.test
+index 137d964..ad966be 100644
+--- a/t/data/html-tokenizer/xmlViolation.test
++++ b/t/data/html-tokenizer/xmlViolation.test
+@@ -3,7 +3,7 @@
+ {"description":"Non-XML character",
+ "input":"a\uFFFFb",
+ "ignoreErrorOrder":true,
+-"output":["ParseError",["Character","a\uFFFDb"]]},
++"output":["ParseError",["Character","a\uFFFFb"]]},
+ 
+ {"description":"Non-XML space",
+ "input":"a\u000Cb",
+@@ -12,7 +12,7 @@
+ 
+ {"description":"Double hyphen in comment",
+ "input":"<!-- foo -- bar -->",
+-"output":["ParseError",["Comment"," foo - - bar "]]},
++"output":["ParseError",["Comment"," foo -- bar "]]},
+ 
+ {"description":"FF between attributes",
+ "input":"<a b=''\u000Cc=''>",

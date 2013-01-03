@@ -1,0 +1,974 @@
+
+#data
+<link rel="a" href="b">
+#errors
+#document-fragment head
+| <link>
+|   href="b"
+|   rel="a"
+
+#data
+<meta name="a" content="b">
+#errors
+#document-fragment head
+| <meta>
+|   content="b"
+|   name="a"
+
+#data
+<base href="a" target="b">
+#errors
+#document-fragment head
+| <base>
+|   href="a"
+|   target="b"
+
+#data
+<base href="a" target="b">a
+#errors
+#document-fragment head
+| <base>
+|   href="a"
+|   target="b"
+| "a"
+
+#data
+</style>
+#errors
+#document-fragment style
+| "</style>"
+
+#data
+</style>abc
+#errors
+#document-fragment style
+| "</style>abc"
+
+#data
+<style>ABC</style>abc
+#errors
+#document-fragment style
+| "<style>ABC</style>abc"
+
+#data
+<style>ABC</style>abc
+#errors
+#document-fragment div
+| <style>
+|   "ABC"
+| "abc"
+
+#data
+</stylesheet
+#errors
+#document-fragment style
+| "</stylesheet"
+
+#data
+</title>
+#errors
+#document-fragment title
+| "</title>"
+
+#data
+</title>abc
+#errors
+#document-fragment title
+| "</title>abc"
+
+#data
+</titletext
+#errors
+#document-fragment title
+| "</titletext"
+
+#data
+<table><tr><td><table></table>
+#errors
+outer <table> not closed
+#document-fragment div
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         <table>
+
+#data
+<table><caption><table></table><tr><td>
+#errors
+outer <table> not closed
+<caption> not closed
+#document-fragment div
+| <table>
+|   <caption>
+|     <table>
+|   <tbody>
+|     <tr>
+|       <td>
+
+#data
+<title>a</title>
+#errors
+#document-fragment p
+| <title>
+|   "a"
+
+#data
+<table><title>a</title></table>
+#errors
+<title> in table
+#document-fragment div
+| <title>
+|   "a"
+| <table>
+
+#data
+<title>a</title>
+#errors
+<title> in table
+#document-fragment table
+| <title>
+|   "a"
+
+#data
+</table>
+#errors
+</table> in <caption>
+</caption> implied by </table> is ignored
+#document-fragment caption
+
+#data
+<tbody>
+#errors
+<tbody> in <caption>
+</caption> implied by <tbody> is ignored
+#document-fragment caption
+
+#data
+<tbody>a
+#errors
+<tbody> in <caption>
+</caption> implied by <tbody> is ignored
+#document-fragment caption
+| "a"
+
+#data
+<caption>x
+#errors
+<caption> in <caption>
+</caption> implied by <caption> is ignored
+#document-fragment caption
+| "x"
+
+#data
+<tr>
+#errors
+<tr> in <caption>
+</caption> implied by <tr> is ignored
+#document-fragment caption
+
+#data
+<tr>x
+#errors
+<tr> in <caption>
+</caption> implied by <tr> is ignored
+#document-fragment caption
+| "x"
+
+#data
+<td>
+#errors
+<td> in <caption>
+</caption> implied by <td> is ignored
+#document-fragment caption
+
+#data
+<td>x
+#errors
+<td> in <caption>
+</caption> implied by <td> is ignored
+#document-fragment caption
+| "x"
+
+#data
+<th>
+#errors
+<th> in <caption>
+</caption> implied by <th> is ignored
+#document-fragment caption
+
+#data
+<th>x
+#errors
+<th> in <caption>
+</caption> implied by <th> is ignored
+#document-fragment caption
+| "x"
+
+#data
+<col>
+#errors
+<col> in <caption>
+</caption> implied by <col> is ignored
+#document-fragment caption
+
+#data
+<col>x
+#errors
+<col> in <caption>
+</caption> implied by <col> is ignored
+#document-fragment caption
+| "x"
+
+#data
+<caption><tbody>
+#errors
+<caption> in <tbody>
+<tbody> in <tbody>
+#document-fragment tbody
+
+#data
+<caption>
+#errors
+<caption> in <tr>
+#document-fragment tr
+
+#data
+<caption>x
+#errors
+<caption> in <tr>
+char in <tr>
+#document-fragment tr
+| "x"
+
+#data
+</table>
+#errors
+</table> in <tr>.innerHTML
+#document-fragment tr
+
+#data
+</table><td>
+#errors
+</table> in <tr>.innerHTML
+#document-fragment tr
+| <td>
+
+#data
+</tbody>
+#errors
+</tbody> in <tr>.innerHTML
+#document-fragment tr
+
+#data
+<table>
+#errors
+no </table> before <table> (</table> implied before <table>)
+</table> but no opening <table> (</table> ignored, which causes <table> ignored)
+#document-fragment table
+
+#data
+<table><tr>
+#errors
+no </table> before <table>
+</table> but no opening <table>
+#document-fragment table
+| <tbody>
+|   <tr>
+
+#data
+</colgroup>
+#errors
+</colgroup> in <colgroup>.innerHTML
+#document-fragment colgroup
+
+#data
+</colgroup><col>
+#errors
+</colgroup> in <colgroup>.innerHTML
+#document-fragment colgroup
+| <col>
+
+#data
+</select>
+#errors
+</select> in <select>.innerHTML
+#document-fragment select
+
+#data
+</select><option>
+#errors
+</select> in <select>.innerHTML
+#document-fragment select
+| <option>
+
+#data
+<select>
+#errors
+<select> in <select> - treated as if </select>
+</select> in <select>.innerHTML
+#document-fragment select
+
+#data
+<select><option>
+#errors
+<select> in <select> - treated as if </select>
+</select> in <select>.innerHTML
+#document-fragment select
+| <option>
+
+#data
+</optgroup>
+#errors
+unmatched </optgroup>
+#document-fragment optgroup
+
+#data
+</optgroup><option>
+#errors
+unmatched </optgroup>
+#document-fragment optgroup
+| <option>
+
+#data
+</optgroup>
+#errors
+unmatched </optgroup>
+#document-fragment option
+
+#data
+</optgroup><option>
+#errors
+unmatched </optgroup>
+#document-fragment option
+| <option>
+
+#data
+</optgroup>a
+#errors
+unmatched </optgroup>
+#document-fragment option
+| "a"
+
+#data
+</optgroup>
+#errors
+unmatched </optgroup>
+#document-fragment select
+
+#data
+</option>
+#errors
+unmatched </option>
+#document-fragment select
+
+#data
+</option>
+#errors
+unmatched </option>
+#document-fragment option
+
+#data
+</table>
+#errors
+</table> in <select>
+#document-fragment select
+
+#data
+</tbody>
+#errors
+</tbody> in <select>
+#document-fragment select
+
+#data
+</thead>
+#errors
+</thead> in <select>
+#document-fragment select
+
+#data
+</tfoot>
+#errors
+</tfoot> in <select>
+#document-fragment select
+
+#data
+</tr>
+#errors
+</tr> in <select>
+#document-fragment select
+
+#data
+<option>
+#errors
+#document-fragment select
+| <option>
+
+#data
+<optgroup>
+#errors
+#document-fragment select
+| <optgroup>
+
+#data
+</tr><option>a
+#errors
+</tr> in <select>
+#document-fragment select
+| <option>
+|   "a"
+
+#data
+</caption>
+#errors
+</caption> in <select>
+#document-fragment select
+
+#data
+</td>
+#errors
+</td> in <select>
+#document-fragment select
+
+#data
+</th>
+#errors
+</th> in <select>
+#document-fragment select
+
+#data
+</th>aaa
+#errors
+unmatched </th>
+#document-fragment option
+| "aaa"
+
+#data
+</frameset>
+#errors
+unmatched </frameset>
+#document-fragment frameset
+
+#data
+</frameset></frameset>
+#errors
+unmatched </frameset>
+unmatched </frameset>
+#document-fragment frameset
+
+#data
+</frameset></frameset></frameset>
+#errors
+unmatched </frameset>
+unmatched </frameset>
+unmatched </frameset>
+#document-fragment frameset
+
+#data
+</frameset></html>
+#errors
+unmatched </frameset>
+unmatched </html>
+#document-fragment frameset
+
+#data
+</frameset></frameset></html>
+#errors
+unmatched </frameset>
+unmatched </frameset>
+unmatched </html>
+#document-fragment frameset
+
+#data
+</frameset><frame>
+#errors
+unmatched </frameset>
+#document-fragment frameset
+| <frame>
+
+#data
+</frameset><!---->
+#errors
+unmatched </frameset>
+#document-fragment frameset
+| <!--  -->
+
+#data
+</frameset></html><!---->
+#errors
+unmatched </frameset>
+unmatched </html>
+#document-fragment frameset
+| <!--  -->
+
+#data
+a
+#errors
+character in table body
+#document-fragment tbody
+| "a"
+
+#data
+a
+#errors
+character in table body
+#document-fragment thead
+| "a"
+
+#data
+a
+#errors
+character in table body
+#document-fragment tfoot
+| "a"
+
+#data
+a
+#errors
+#document-fragment html
+| <head>
+| <body>
+|   "a"
+
+#data
+<p>
+#errors
+#document-fragment html
+| <head>
+| <body>
+|   <p>
+
+#data
+<title>aa
+#errors
+EOF in <title>
+#document-fragment html
+| <head>
+|   <title>
+|     "aa"
+| <body>
+
+#data
+<title>aa</title>
+#errors
+#document-fragment html
+| <head>
+|   <title>
+|     "aa"
+| <body>
+
+#data
+<style></style>
+#errors
+#document-fragment html
+| <head>
+|   <style>
+| <body>
+
+#data
+#errors
+#document-fragment html
+| <head>
+| <body>
+
+#data
+<head>
+#errors
+#document-fragment html
+| <head>
+| <body>
+
+#data
+<link>
+#errors
+#document-fragment html
+| <head>
+|   <link>
+| <body>
+
+#data
+</html>
+#errors
+unmarched </html>
+#document-fragment html
+| <head>
+| <body>
+
+#data
+</html>a
+#errors
+</html> in the fragment parsing algorithm
+text after </body>
+#document-fragment html
+| <head>
+| <body>
+|   "a"
+
+#data
+<span></html>
+#errors
+</span> not closed at </body> implied by </html>
+</html> in the fragment parsing algorithm
+#document-fragment html
+| <head>
+| <body>
+|   <span>
+
+#data
+<span></html>a
+#errors
+</span> not closed at </body> implied by </html>
+</html> in the fragment parsing algorithm
+text after </body>
+unclosed </span> at the end-of-file
+#document-fragment html
+| <head>
+| <body>
+|   <span>
+|     "a"
+
+#data
+</html>
+#errors
+unmarched </body> (generated by the algorithm to process </html>)
+#document-fragment p
+
+#data
+</html>a
+#errors
+unmarched </body> (generated by the algorithm to process </html>)
+#document-fragment p
+| "a"
+
+#data
+<span></html>
+#errors
+unmarched </body> (generated by the algorithm to process </html>)
+unclosed </span> at the end-of-file
+#document-fragment p
+| <span>
+
+#data
+<span></html>a
+#errors
+unmatched </html>
+<span> not closed
+#document-fragment p
+| <span>
+|   "a"
+
+#data escaped
+aa\u0000b
+#errors
+NULL (tokenizer)
+NULL
+#document-fragment p escaped
+| "aab"
+
+#data escaped
+a\U12345678b
+#errors
+#document-fragment p escaped
+| "a\U12345678b"
+
+#data
+<input>
+#errors
+#document-fragment form
+| <input>
+
+#data
+<html>
+#errors
+<html> in <body>
+#document-fragment body
+
+#data
+<html>
+#errors
+<html> in <html>
+#document-fragment html
+| <head>
+| <body>
+
+#data
+                       
+#errors
+#document-fragment html
+| <head>
+| <body>
+
+#data
+             <head><body>
+#errors
+#document-fragment html
+| <head>
+| <body>
+
+#data
+                    a
+#errors
+#document-fragment html
+| <head>
+| <body>
+|   "a"
+
+#data
+           a        b
+#errors
+#document-fragment html
+| <head>
+| <body>
+|   "a        b"
+
+#data
+    <!---->    <body>
+#errors
+#document-fragment html
+| <!--  -->
+| <head>
+| <body>
+
+#data
+#errors
+#document-fragment pre
+
+#data
+#errors
+#document-fragment listing
+
+#data
+#errors
+#document-fragment textarea
+
+#data escaped
+\u000A
+#errors
+#document-fragment pre
+| "
+"
+
+#data escaped
+\u000A
+#errors
+#document-fragment listing
+| "
+"
+
+#data escaped
+\u000A
+#errors
+#document-fragment textarea
+| "
+"
+
+#data escaped
+\u000Aa
+#errors
+#document-fragment pre
+| "
+a"
+
+#data escaped
+\u000Aa
+#errors
+#document-fragment listing
+| "
+a"
+
+#data escaped
+\u000Aa
+#errors
+#document-fragment textarea
+| "
+a"
+
+#data
+<span>
+#errors
+unexpected end-of-file
+#document-fragment p
+| <span>
+
+#data
+<li>
+#errors
+#document-fragment p
+| <li>
+
+#data
+<dt>
+#errors
+#document-fragment p
+| <dt>
+
+#data
+<dd>
+#errors
+#document-fragment p
+| <dd>
+
+#data
+<p>
+#errors
+#document-fragment p
+| <p>
+
+#data
+<thead>
+#errors
+#document-fragment table
+| <thead>
+
+#data
+<tbody>
+#errors
+#document-fragment table
+| <tbody>
+
+#data
+<tfoot>
+#errors
+#document-fragment table
+| <tfoot>
+
+#data
+<tr>
+#errors
+#document-fragment table
+| <tbody>
+|   <tr>
+
+#data
+<tr>
+#errors
+#document-fragment tbody
+| <tr>
+
+#data
+<td>
+#errors
+#document-fragment tr
+| <td>
+
+#data
+<td><a>
+#errors
+unexpected end-of-file
+#document-fragment tr
+| <td>
+|   <a>
+
+#data
+<col>
+#errors
+#document-fragment colgroup
+| <col>
+
+#data
+<colgroup>
+#errors
+#document-fragment table
+| <colgroup>
+
+#data
+<col>
+#errors
+#document-fragment table
+| <colgroup>
+|   <col>
+
+#data
+<frameset>
+#errors
+unexpected end-of-file
+#document-fragment frameset
+| <frameset>
+
+#data
+<frame>
+#errors
+#document-fragment frameset
+| <frame>
+
+#data
+<noframes>
+#errors
+no </noframes>
+#document-fragment frameset
+| <noframes>
+
+## NOTE: Scripting is disabled.
+#data
+<span>
+#errors
+#document-fragment noscript
+| "<span>"
+
+## NOTE: Scripting is disabled.
+#data
+<span>
+#errors
+#document-fragment noframes
+| "<span>"
+
+#document-fragment
+{} table
+#data
+<tr><td>
+#errors
+<tr> in body
+<td> in body
+#document
+
+#document-fragment
+svg script
+#data
+<p>abc
+#errors
+#document
+| <p>
+|   "abc"
+
+#document-fragment
+math math
+#data
+<annotation-xml xlink:href="foo">a
+#errors
+no </annotation-xml>
+#document
+| <annotation-xml>
+|   xlink:href="foo"
+|   "a"
+
+#document-fragment
+svg svg
+#data
+<g xlink:href="foo">a
+#errors
+no </g>
+#document
+| <g>
+|   xlink:href="foo"
+|   "a"
+
+#document-fragment
+svg foreignObject
+#data
+<g xlink:href="foo">a
+#errors
+no </g>
+#document
+| <g>
+|   xlink:href="foo"
+|   "a"
+
+#document-fragment
+svg svg
+#data
+<![CDATA[<p>]]>
+#errors
+bogus comment
+#document
+| <!-- [CDATA[<p -->
+| "]]>"

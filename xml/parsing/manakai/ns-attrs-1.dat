@@ -1,0 +1,550 @@
+#data
+<a xmlns=""/>
+#errors
+#document
+| <{} a>
+|   xmlns xmlns=""
+
+#data
+<a xmlns="b"/>
+#errors
+#document
+| <{b} a>
+|   xmlns xmlns="b"
+
+#data
+<a xmlns="b" xmlns:c="d"/>
+#errors
+#document
+| <{b} a>
+|   xmlns c="d"
+|   xmlns xmlns="b"
+
+#data
+<a xmlns:xml="http://www.w3.org/XML/1998/namespace"/>
+#errors
+#document
+| <{} a>
+|   xmlns xml="http://www.w3.org/XML/1998/namespace"
+
+#data
+<a xmlns="http://www.w3.org/XML/1998/namespace"/>
+#errors
+#document
+| <{} a>
+|   xmlns xmlns="http://www.w3.org/XML/1998/namespace"
+
+#data
+<a xmlns="http://www.w3.org/2000/xmlns/"/>
+#errors
+#document
+| <{} a>
+|   xmlns xmlns="http://www.w3.org/2000/xmlns/"
+
+#data
+<a xmlns:xmlns="http://www.w3.org/2000/xmlns/"/>
+#errors
+#document
+| <{} a>
+|   xmlns:xmlns="http://www.w3.org/2000/xmlns/"
+
+#data
+<a xmlns:xml="http://www.w3.org/2000/xmlns/" xml:lang="en"/>
+#errors
+#document
+| <{} a>
+|   xml lang="en"
+|   xmlns xml="http://www.w3.org/2000/xmlns/"
+
+#data
+<x xmlns:a="http://www.w3.org/XML/1998/namespace" a:b="c"/>
+#errors
+#document
+| <{} x>
+|   a:b="c"
+|   xmlns a="http://www.w3.org/XML/1998/namespace"
+
+#data
+<x xmlns:a="http://www.w3.org/2000/xmlns/" a:b="c"/>
+#errors
+#document
+| <{} x>
+|   a:b="c"
+|   xmlns a="http://www.w3.org/2000/xmlns/"
+
+#data
+<a:b/>
+#errors
+#document
+| <{} a:b>
+
+#data
+<a:b xmlns:a="c"/>
+#errors
+#document
+| <{c} b>
+|   xmlns a="c"
+
+#data
+<a xmlns="b"/><b xmlns="c"/><c/>
+#errors
+1;15;second root element;;;m
+1;29;second root element;;;m
+#document
+| <{b} a>
+|   xmlns xmlns="b"
+| <{c} b>
+|   xmlns xmlns="c"
+| <{} c>
+
+#data
+<a xmlns:a=""/>
+#errors
+#document
+| <{} a>
+|   xmlns a=""
+
+#data
+<x xmlns:a="" a:b=""/>
+#errors
+#document
+| <{} x>
+|   a:b=""
+|   xmlns a=""
+
+#data
+<x xmlns:a="a" xmlns:b="a" a:m="1" b:m="2"/>
+#errors
+#document
+| <{} x>
+|   b:m="2"
+|   xmlns a="a"
+|   xmlns b="a"
+|   {a} m="1"
+
+#data
+<x xmlns:a="a" xmlns:b="a" b:m="2" a:m="1"/>
+#errors
+#document
+| <{} x>
+|   a:m="1"
+|   xmlns a="a"
+|   xmlns b="a"
+|   {a} m="2"
+
+#data
+<z><a xmlns=""/></z>
+#errors
+#document
+| <{} z>
+|   <{} a>
+|     xmlns xmlns=""
+
+#data
+<z><a xmlns="b"/></z>
+#errors
+#document
+| <{} z>
+|   <{b} a>
+|     xmlns xmlns="b"
+
+#data
+<z><a xmlns="b" xmlns:c="d"/></z>
+#errors
+#document
+| <{} z>
+|   <{b} a>
+|     xmlns c="d"
+|     xmlns xmlns="b"
+
+#data
+<z><a xmlns:xml="http://www.w3.org/XML/1998/namespace"/></z>
+#errors
+#document
+| <{} z>
+|   <{} a>
+|     xmlns xml="http://www.w3.org/XML/1998/namespace"
+
+#data
+<z><a xmlns="http://www.w3.org/XML/1998/namespace"/></z>
+#errors
+#document
+| <{} z>
+|   <{} a>
+|     xmlns xmlns="http://www.w3.org/XML/1998/namespace"
+
+#data
+<z><a xmlns="http://www.w3.org/2000/xmlns/"/></z>
+#errors
+#document
+| <{} z>
+|   <{} a>
+|     xmlns xmlns="http://www.w3.org/2000/xmlns/"
+
+#data
+<z><a xmlns:xmlns="http://www.w3.org/2000/xmlns/"/></z>
+#errors
+#document
+| <{} z>
+|   <{} a>
+|     xmlns:xmlns="http://www.w3.org/2000/xmlns/"
+
+#data
+<z><a xmlns:xml="http://www.w3.org/2000/xmlns/" xml:lang="en"/></z>
+#errors
+#document
+| <{} z>
+|   <{} a>
+|     xml lang="en"
+|     xmlns xml="http://www.w3.org/2000/xmlns/"
+
+#data
+<z><x xmlns:a="http://www.w3.org/XML/1998/namespace" a:b="c"/></z>
+#errors
+#document
+| <{} z>
+|   <{} x>
+|     a:b="c"
+|     xmlns a="http://www.w3.org/XML/1998/namespace"
+
+#data
+<z><x xmlns:a="http://www.w3.org/2000/xmlns/" a:b="c"/></z>
+#errors
+#document
+| <{} z>
+|   <{} x>
+|     a:b="c"
+|     xmlns a="http://www.w3.org/2000/xmlns/"
+
+#data
+<z><a:b/></z>
+#errors
+#document
+| <{} z>
+|   <{} a:b>
+
+#data
+<z><a:b xmlns:a="c"/></z>
+#errors
+#document
+| <{} z>
+|   <{c} b>
+|     xmlns a="c"
+
+#data
+<z><a xmlns="b"/><b xmlns="c"/><c/></z>
+#errors
+#document
+| <{} z>
+|   <{b} a>
+|     xmlns xmlns="b"
+|   <{c} b>
+|     xmlns xmlns="c"
+|   <{} c>
+
+#data
+<z><a xmlns:a=""/></z>
+#errors
+#document
+| <{} z>
+|   <{} a>
+|     xmlns a=""
+
+#data
+<z><x xmlns:a="" a:b=""/></z>
+#errors
+#document
+| <{} z>
+|   <{} x>
+|     a:b=""
+|     xmlns a=""
+
+#data
+<z><x xmlns:a="a" xmlns:b="a" a:m="1" b:m="2"/></z>
+#errors
+#document
+| <{} z>
+|   <{} x>
+|     b:m="2"
+|     xmlns a="a"
+|     xmlns b="a"
+|     {a} m="1"
+
+#data
+<z><x xmlns:a="a" xmlns:b="a" b:m="2" a:m="1"/></z>
+#errors
+#document
+| <{} z>
+|   <{} x>
+|     a:m="1"
+|     xmlns a="a"
+|     xmlns b="a"
+|     {a} m="2"
+
+#data
+<a xmlns="b"><c/></a>
+#errors
+#document
+| <{b} a>
+|   xmlns xmlns="b"
+|   <{b} c>
+
+#data
+<a xmlns="b"><c xmlns="d"/></a>
+#errors
+#document
+| <{b} a>
+|   xmlns xmlns="b"
+|   <{d} c>
+|     xmlns xmlns="d"
+
+#data
+<a xmlns:b="c"><b:d/></a>
+#errors
+#document
+| <{} a>
+|   xmlns b="c"
+|   <{c} d>
+
+#data
+<a xmlns:b="c"><b:d xmlns:b="e"/></a>
+#errors
+#document
+| <{} a>
+|   xmlns b="c"
+|   <{e} d>
+|     xmlns b="e"
+
+#data
+<a xmlns="b"><c><d/></c></a>
+#errors
+#document
+| <{b} a>
+|   xmlns xmlns="b"
+|   <{b} c>
+|     <{b} d>
+
+#data
+<a xmlns:a="b"><c><a:d/></c></a>
+#errors
+#document
+| <{} a>
+|   xmlns a="b"
+|   <{} c>
+|     <{b} d>
+
+#data
+<a xmlns="b"><b xmlns=""><d/></b></a>
+#errors
+#document
+| <{b} a>
+|   xmlns xmlns="b"
+|   <{} b>
+|     xmlns xmlns=""
+|     <{} d>
+
+#data
+<a xmlns:b="c"><d b:e=""><f b:g="" xmlns:b=""><h b:i=""/></f></d></a>
+#errors
+#document
+| <{} a>
+|   xmlns b="c"
+|   <{} d>
+|     {c} e=""
+|     <{} f>
+|       b:g=""
+|       xmlns b=""
+|       <{} h>
+|         b:i=""
+
+#data
+<p :="x"/>
+#errors
+#document
+| <{} p>
+|   :="x"
+
+#data
+<p a:b="x"/>
+#errors
+#document
+| <{} p>
+|   a:b="x"
+
+#data
+<p a:b="x" xmlns:a=""/>
+#errors
+#document
+| <{} p>
+|   a:b="x"
+|   xmlns a=""
+
+#data
+<p a:="x"/>
+#errors
+#document
+| <{} p>
+|   a:="x"
+
+#data
+<p a:="x" xmlns:a="y"/>
+#errors
+#document
+| <{} p>
+|   a:="x"
+|   xmlns a="y"
+
+#data
+<p :a="x"/>
+#errors
+#document
+| <{} p>
+|   :a="x"
+
+#data
+<p :a="x" xmlns:="y"/>
+#errors
+#document
+| <{} p>
+|   :a="x"
+|   xmlns:="y"
+
+#data
+<p a:b:c="x"/>
+#errors
+#document
+| <{} p>
+|   a:b:c="x"
+
+#data
+<p a:b:c="x" xmlns:a="y"/>
+#errors
+#document
+| <{} p>
+|   xmlns a="y"
+|   {y} b:c="x"
+
+#data
+<p a:b:c="x" xmlns:a:b="y"/>
+#errors
+#document
+| <{} p>
+|   a:b:c="x"
+|   xmlns a:b="y"
+
+#data
+<p xmlns::="x"/>
+#errors
+#document
+| <{} p>
+|   xmlns :="x"
+
+#data
+<p xmlns::="x" ::a="y"/>
+#errors
+#document
+| <{} p>
+|   ::a="y"
+|   xmlns :="x"
+
+#data
+<z><p :="x"/></z>
+#errors
+#document
+| <{} z>
+|   <{} p>
+|     :="x"
+
+#data
+<z><p a:b="x"/></z>
+#errors
+#document
+| <{} z>
+|   <{} p>
+|     a:b="x"
+
+#data
+<z><p a:b="x" xmlns:a=""/></z>
+#errors
+#document
+| <{} z>
+|   <{} p>
+|     a:b="x"
+|     xmlns a=""
+
+#data
+<z><p a:="x"/></z>
+#errors
+#document
+| <{} z>
+|   <{} p>
+|     a:="x"
+
+#data
+<z><p a:="x" xmlns:a="y"/></z>
+#errors
+#document
+| <{} z>
+|   <{} p>
+|     a:="x"
+|     xmlns a="y"
+
+#data
+<z><p :a="x"/></z>
+#errors
+#document
+| <{} z>
+|   <{} p>
+|     :a="x"
+
+#data
+<z><p :a="x" xmlns:="y"/></z>
+#errors
+#document
+| <{} z>
+|   <{} p>
+|     :a="x"
+|     xmlns:="y"
+
+#data
+<z><p a:b:c="x"/></z>
+#errors
+#document
+| <{} z>
+|   <{} p>
+|     a:b:c="x"
+
+#data
+<z><p a:b:c="x" xmlns:a="y"/></z>
+#errors
+#document
+| <{} z>
+|   <{} p>
+|     xmlns a="y"
+|     {y} b:c="x"
+
+#data
+<z><p a:b:c="x" xmlns:a:b="y"/></z>
+#errors
+#document
+| <{} z>
+|   <{} p>
+|     a:b:c="x"
+|     xmlns a:b="y"
+
+#data
+<z><p xmlns::="x"/></z>
+#errors
+#document
+| <{} z>
+|   <{} p>
+|     xmlns :="x"
+
+#data
+<z><p xmlns::="x" ::a="y"/></z>
+#errors
+#document
+| <{} z>
+|   <{} p>
+|     ::a="y"
+|     xmlns :="x"

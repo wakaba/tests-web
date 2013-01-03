@@ -1,0 +1,1359 @@
+{"tests": [
+
+{"description":"<!DOCTYPE (HTML5 revision 3121)",
+"input":"<!DOCTYPE",
+"output":["ParseError",["DOCTYPE", null, null, null, false]]},
+
+{"description":"<!DOCTYPE ",
+"input":"<!DOCTYPE ",
+"output":["ParseError",["DOCTYPE", null, null, null, false]]},
+
+{"description":"<!DOCTYPE >",
+"input":"<!DOCTYPE >",
+"output":["ParseError",["DOCTYPE", null, null, null, false]]},
+
+{"description":"<!DOCTYPE h",
+"input":"<!DOCTYPE h",
+"output":["ParseError",["DOCTYPE", "h", null, null, false]]},
+
+{"description":"<!DOCTYPE H",
+"input":"<!DOCTYPE H",
+"output":["ParseError",["DOCTYPE", "h", null, null, false]]},
+
+{"description":"<!DOCTYPE h>",
+"input":"<!DOCTYPE h>",
+"output":[["DOCTYPE", "h", null, null, true]]},
+
+{"description":"<!DOCTYPE H>",
+"input":"<!DOCTYPE H>",
+"output":[["DOCTYPE", "h", null, null, true]]},
+
+{"description":"<!DOCTYPE ht",
+"input":"<!DOCTYPE ht",
+"output":["ParseError",["DOCTYPE", "ht", null, null, false]]},
+
+{"description":"<!DOCTYPE Ht",
+"input":"<!DOCTYPE Ht",
+"output":["ParseError",["DOCTYPE", "ht", null, null, false]]},
+
+{"description":"<!DOCTYPE hT",
+"input":"<!DOCTYPE hT",
+"output":["ParseError",["DOCTYPE", "ht", null, null, false]]},
+
+{"description":"<!DOCTYPE ht>",
+"input":"<!DOCTYPE ht>",
+"output":[["DOCTYPE", "ht", null, null, true]]},
+
+{"description":"<!DOCTYPE Ht>",
+"input":"<!DOCTYPE Ht>",
+"output":[["DOCTYPE", "ht", null, null, true]]},
+
+{"description":"<!DOCTYPE hT>",
+"input":"<!DOCTYPE hT>",
+"output":[["DOCTYPE", "ht", null, null, true]]},
+
+{"description":"<!DOCTYPE hT>",
+"input":"<!DOCTYPE hT>",
+"output":[["DOCTYPE", "ht", null, null, true]]},
+
+{"description":"<!DOCTYPE htm",
+"input":"<!DOCTYPE htm",
+"output":["ParseError",["DOCTYPE", "htm", null, null, false]]},
+
+{"description":"<!DOCTYPE Htm",
+"input":"<!DOCTYPE Htm",
+"output":["ParseError",["DOCTYPE", "htm", null, null, false]]},
+
+{"description":"<!DOCTYPE hTM",
+"input":"<!DOCTYPE hTM",
+"output":["ParseError",["DOCTYPE", "htm", null, null, false]]},
+
+{"description":"<!DOCTYPE htm>",
+"input":"<!DOCTYPE htm>",
+"output":[["DOCTYPE", "htm", null, null, true]]},
+
+{"description":"<!DOCTYPE Htm>",
+"input":"<!DOCTYPE Htm>",
+"output":[["DOCTYPE", "htm", null, null, true]]},
+
+{"description":"<!DOCTYPE hTM>",
+"input":"<!DOCTYPE hTM>",
+"output":[["DOCTYPE", "htm", null, null, true]]},
+
+{"description":"<!DOCTYPE html5",
+"input":"<!DOCTYPE html5",
+"output":["ParseError",["DOCTYPE", "html5", null, null, false]]},
+
+{"description":"<!DOCTYPE html5>",
+"input":"<!DOCTYPE html5>",
+"output":[["DOCTYPE", "html5", null, null, true]]},
+
+{"description": "VT in DOCTYPE state",
+"input": "<!DOCTYPE\u000b html>",
+"output": ["ParseError", "ParseError", "ParseError",
+          ["DOCTYPE", "\u000b", null, null, false]]},
+
+{"description": "VT in before DOCTYPE name state",
+"input": "<!DOCTYPE \u000bhtml>",
+"output": ["ParseError", ["DOCTYPE", "\u000bhtml", null, null, true]]},
+
+{"description": "VT in DOCTYPE name state",
+"input": "<!DOCTYPE html\u000babcd>",
+"output": ["ParseError", ["DOCTYPE", "html\u000babcd", null, null, true]]},
+
+{"description": "VT in after DOCTYPE name state",
+"input": "<!DOCTYPE html \u000b>",
+"output": ["ParseError", "ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "VT in before DOCTYPE public identifier state",
+"input": "<!DOCTYPE html PUBLIC \u000b\"xx\">",
+"output": ["ParseError", "ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "VT in after DOCTYPE public identifier state",
+"input": "<!DOCTYPE html PUBLIC \"x\"\u000b>",
+"output": ["ParseError", "ParseError", ["DOCTYPE", "html", "x", null, false]]},
+
+{"description": "VT in before DOCTYPE system identifier state",
+"input": "<!DOCTYPE html SYSTEM \u000b\"aa\">",
+"output": ["ParseError", "ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "VT in after DOCTYPE system identifier state",
+"input": "<!DOCTYPE html SYSTEM \"a\"\u000b>",
+"output": ["ParseError", "ParseError", ["DOCTYPE", "html", null, "a", true]]},
+
+{"description": "PUBLIC>",
+"input": "<!DOCTYPE html PUBLIC>",
+"output": ["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "PUBLIC{EOF}",
+"input": "<!DOCTYPE html PUBLIC",
+"output": ["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "PUBLIC\u0022\u0022",
+"input": "<!DOCTYPE html PUBLIC\u0022\u0022>",
+"output": ["ParseError", ["DOCTYPE", "html", "", null, true]]},
+
+{"description": "PUBLIC''",
+"input": "<!DOCTYPE html PUBLIC''>",
+"output": ["ParseError", ["DOCTYPE", "html", "", null, true]]},
+
+{"description":"PUBLICbogus",
+"input":"<!DOCTYPE html PUBLICbogus>",
+"output":["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description":"PUBLIC bogus",
+"input":"<!DOCTYPE html PUBLIC bogus>",
+"output":["ParseError",["DOCTYPE", "html", null, null, false]]},
+
+{"description":"PUBLIC \u0022\u0022bogus",
+"input":"<!DOCTYPE html PUBLIC \u0022\u0022bogus>",
+"output":["ParseError",["DOCTYPE", "html", "", null, false]]},
+
+{"description":"PUBLIC \u0022\u0022 bogus",
+"input":"<!DOCTYPE html PUBLIC \u0022\u0022 bogus>",
+"output":["ParseError",["DOCTYPE", "html", "", null, false]]},
+
+{"description":"PUBLIC \u0022\u0022 \u0022\u0022bogus",
+"input":"<!DOCTYPE html PUBLIC \u0022\u0022 \u0022\u0022bogus>",
+"output":["ParseError",["DOCTYPE", "html", "", "", true]]},
+
+{"description":"PUBLIC \u0022\u0022 \u0022\u0022 bogus",
+"input":"<!DOCTYPE html PUBLIC \u0022\u0022 \u0022\u0022 bogus>",
+"output":["ParseError",["DOCTYPE", "html", "", "", true]]},
+
+{"description":"PUBLIC \u0022\u0022\u0022\u0022>",
+"input":"<!DOCTYPE html PUBLIC \u0022\u0022\u0022\u0022>",
+"output":["ParseError", ["DOCTYPE", "html", "", "", true]]},
+
+{"description":"PUBLIC \u0022\u0022>",
+"input":"<!DOCTYPE html PUBLIC \u0022\u0022>",
+"output":[["DOCTYPE", "html", "", null, true]]},
+
+{"description":"PUBLIC ''>",
+"input":"<!DOCTYPE html PUBLIC ''>",
+"output":[["DOCTYPE", "html", "", null, true]]},
+
+{"description":"PUBLIC \u0022\u0022{EOF}",
+"input":"<!DOCTYPE html PUBLIC \u0022\u0022",
+"output":["ParseError", ["DOCTYPE", "html", "", null, false]]},
+
+{"description":"PUBLIC ''{EOF}",
+"input":"<!DOCTYPE html PUBLIC ''",
+"output":["ParseError", ["DOCTYPE", "html", "", null, false]]},
+
+{"description":"PUBLIC \u0022\u0022''>",
+"input":"<!DOCTYPE html PUBLIC \u0022\u0022''>",
+"output":["ParseError", ["DOCTYPE", "html", "", "", true]]},
+
+{"description":"SYSTEM>",
+"input":"<!DOCTYPE html SYSTEM>",
+"output":["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description":"SYSTEM{EOF}",
+"input":"<!DOCTYPE html SYSTEM",
+"output":["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description":"SYSTEM a",
+"input":"<!DOCTYPE html SYSTEM a>",
+"output":["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "garbage after SYSTEM literal",
+"input": "<!DOCTYPE html SYSTEM 'a' b>",
+"output": ["ParseError", ["DOCTYPE", "html", null, "a", true]]},
+
+{"description": "garbage after PUBLIC and SYSTEM literal",
+"input": "<!DOCTYPE html PUBLIC 'c' 'a' b>",
+"output": ["ParseError", ["DOCTYPE", "html", "c", "a", true]]},
+
+{"description": "garbage immediately after SYSTEM literal",
+"input": "<!DOCTYPE html SYSTEM 'a'b>",
+"output": ["ParseError", ["DOCTYPE", "html", null, "a", true]]},
+
+{"description": "garbage immediately after PUBLIC and SYSTEM literal",
+"input": "<!DOCTYPE html PUBLIC 'c' 'a'b>",
+"output": ["ParseError", ["DOCTYPE", "html", "c", "a", true]]},
+
+{"description": "DOCTYPe",
+"input": "<!DOCTYPe html>",
+"output": [["DOCTYPE", "html", null, null, true]]},
+
+{"description": "DOCTYPE Html",
+"input": "<!DOCTYPE Html>",
+"output": [["DOCTYPE", "html", null, null, true]]},
+
+{"description": "DOCTYPE hTml",
+"input": "<!DOCTYPE Html>",
+"output": [["DOCTYPE", "html", null, null, true]]},
+
+{"description": "PUBLIc",
+"input": "<!DOCTYPE html PUBLIc 'a' 'b'>",
+"output": [["DOCTYPE", "html", "a", "b", true]]},
+
+{"description": "SYSTEm",
+"input": "<!DOCTYPE html SYSTEm 'a'>",
+"output": [["DOCTYPE", "html", null, "a", true]]},
+
+{"description": "<!D>",
+"input": "<!D>",
+"output": ["ParseError", ["Comment", "D"]]},
+
+{"description": "<!DO>",
+"input": "<!DO>",
+"output": ["ParseError", ["Comment", "DO"]]},
+
+{"description": "<!DOc>",
+"input": "<!DOc>",
+"output": ["ParseError", ["Comment", "DOc"]]},
+
+{"description": "<!dOcT>",
+"input": "<!dOcT>",
+"output": ["ParseError", ["Comment", "dOcT"]]},
+
+{"description": "<!DoctY",
+"input": "<!DoctY",
+"output": ["ParseError", ["Comment", "DoctY"]]},
+
+{"description": "<!doctyp!>",
+"input": "<!doctyp!>",
+"output": ["ParseError", ["Comment", "doctyp!"]]},
+
+{"description": "<!Doc?>",
+"input": "<!Doc?>",
+"output": ["ParseError", ["Comment", "Doc?"]]},
+
+{"description": "<!Doc<type>>",
+"input": "<!Doc<type>>",
+"output": ["ParseError", ["Comment", "Doc<type"], ["Character", ">"]]},
+
+{"description": "<!DOCTYPE HTML P>",
+"input": "<!DOCTYPE HTML P>",
+"output": ["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "<!DOCTYPE HTML Pa>",
+"input": "<!DOCTYPE HTML Pa>",
+"output": ["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "<!DOCTYPE HTML Pua>",
+"input": "<!DOCTYPE HTML Pua>",
+"output": ["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "<!DOCTYPE HTML PUB>",
+"input": "<!DOCTYPE HTML PUB>",
+"output": ["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "<!DOCTYPE HTML pubL>",
+"input": "<!DOCTYPE HTML pubL>",
+"output": ["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "<!DOCTYPE HTML publication>",
+"input": "<!DOCTYPE HTML publication>",
+"output": ["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "<!DOCTYPE HTML publi>",
+"input": "<!DOCTYPE HTML publi>",
+"output": ["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "<!DOCTYPE HTML PUBLICID>",
+"input": "<!DOCTYPE HTML PUBLICID>",
+"output": ["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "<!DOCTYPE HTML S ''>",
+"input": "<!DOCTYPE HTML S ''>",
+"output": ["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "<!DOCTYPE HTML sy>",
+"input": "<!DOCTYPE HTML sy>",
+"output": ["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "<!DOCTYPE HTML sys ''>",
+"input": "<!DOCTYPE HTML sys ''>",
+"output": ["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "<!DOCTYPE HTML syst>",
+"input": "<!DOCTYPE HTML syst>",
+"output": ["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "<!DOCTYPE HTML SySter>",
+"input": "<!DOCTYPE HTML SySter>",
+"output": ["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description": "<!DOCTYPE HTML systemid>",
+"input": "<!DOCTYPE HTML systemid>",
+"output": ["ParseError", ["DOCTYPE", "html", null, null, false]]},
+
+{"description":"<!---x-->",
+"input":"<!---x-->",
+"output":[["Comment", "-x"]]},
+
+{"description":"<!----x-->",
+"input":"<!----x-->",
+"output":["ParseError", ["Comment", "--x"]]},
+
+{"description":"non-PCDATA content model flag, start tag-like string",
+"contentModelFlags":["PLAINTEXT","RCDATA","CDATA"],
+"input":"<div>",
+"output":[["Character", "<div>"]]},
+
+{"description":"end tag followed by character data",
+"contentModelFlags":["RCDATA","CDATA"],
+"lastStartTag":"xxx",
+"input":"AB</xxx>CD",
+"output":[["Character", "AB"],["EndTag", "xxx"],["Character", "CD"]]},
+
+{"description":"NULL character reference",
+"input":"&#0;",
+"output":["ParseError", ["Character", "\uFFFD"]]},
+
+{"description":"NULL character reference",
+"input":"&#x0;",
+"output":["ParseError", ["Character", "\uFFFD"]]},
+
+{"description": "U+0001 character reference",
+"input": "&#x1;",
+"output": ["ParseError", ["Character", "\u0001"]]},
+
+{"description": "U+0002 character reference",
+"input": "&#x2;",
+"output": ["ParseError", ["Character", "\u0002"]]},
+
+{"description": "U+0008 character reference",
+"input": "&#x8;",
+"output": ["ParseError", ["Character", "\u0008"]]},
+
+{"description": "U+0008 decimal character reference",
+"input": "&#8;",
+"output": ["ParseError", ["Character", "\u0008"]]},
+
+{"description": "U+0009 character reference",
+"input": "&#x9;",
+"output": [["Character", "\u0009"]]},
+
+{"description": "U+000A character reference",
+"input": "&#xa;",
+"output": [["Character", "\u000A"]]},
+
+{"description":"character entity &#13;",
+"input":"&#13;",
+"output":["ParseError", ["Character", "\u000D"]]},
+
+{"description":"character entity &#xd;",
+"input":"&#xd;",
+"output":["ParseError", ["Character", "\u000D"]]},
+
+{"description":"character entities &#13;&#10;",
+"input":"&#13;&#10;",
+"output":["ParseError", ["Character", "\u000D\u000A"]]},
+
+{"description":"character entity &#13; followed by a LF",
+"input":"&#13;\u000A",
+"output":["ParseError", ["Character", "\u000D\u000A"]]},
+
+{"description": "U+000B character reference",
+"input": "&#xb;",
+"output": ["ParseError", ["Character", "\u000B"]]},
+
+{"description": "U+000B decimal character reference",
+"input": "&#11;",
+"output": ["ParseError", ["Character", "\u000B"]]},
+
+{"description": "U+000C character reference",
+"input": "&#xc;",
+"output": [["Character", "\u000C"]]},
+
+{"description": "U+000E character reference",
+"input": "&#xe;",
+"output": ["ParseError", ["Character", "\u000E"]]},
+
+{"description": "U+000F character reference",
+"input": "&#xF;",
+"output": ["ParseError", ["Character", "\u000F"]]},
+
+{"description": "U+000F decimal character reference",
+"input": "&#15;",
+"output": ["ParseError", ["Character", "\u000F"]]},
+
+{"description": "U+0010 character reference",
+"input": "&#x10;",
+"output": ["ParseError", ["Character", "\u0010"]]},
+
+{"description": "U+001B character reference",
+"input": "&#x1b;",
+"output": ["ParseError", ["Character", "\u001B"]]},
+
+{"description": "U+001F character reference",
+"input": "&#x1F;",
+"output": ["ParseError", ["Character", "\u001F"]]},
+
+{"description": "U+0020 character reference",
+"input": "&#x20;",
+"output": [["Character", " "]]},
+
+{"description": "U+007F character reference",
+"input": "&#x7f;",
+"output": ["ParseError", ["Character", "\u007F"]]},
+
+{"description":"c1 character references",
+"input":"&#128;&#129;&#130;&#131;&#132;&#133;&#134;&#135;",
+"output":[
+  "ParseError", ["Character", "\u20AC"],
+  "ParseError", ["Character", "\u0081"],
+  "ParseError", ["Character", "\u201A"],
+  "ParseError", ["Character", "\u0192"],
+  "ParseError", ["Character", "\u201E"],
+  "ParseError", ["Character", "\u2026"],
+  "ParseError", ["Character", "\u2020"],
+  "ParseError", ["Character", "\u2021"]
+]},
+{"description":"c1 character references",
+"input":"&#136;&#137;&#138;&#139;&#140;&#141;&#142;&#143;",
+"output":[
+  "ParseError", ["Character", "\u02C6"],
+  "ParseError", ["Character", "\u2030"],
+  "ParseError", ["Character", "\u0160"],
+  "ParseError", ["Character", "\u2039"],
+  "ParseError", ["Character", "\u0152"],
+  "ParseError", ["Character", "\u008D"],
+  "ParseError", ["Character", "\u017D"],
+  "ParseError", ["Character", "\u008F"]
+]},
+{"description":"c1 character references",
+"input":"&#144;&#145;&#146;&#147;&#148;&#149;&#150;&#151;",
+"output":[
+  "ParseError", ["Character", "\u0090"],
+  "ParseError", ["Character", "\u2018"],
+  "ParseError", ["Character", "\u2019"],
+  "ParseError", ["Character", "\u201C"],
+  "ParseError", ["Character", "\u201D"],
+  "ParseError", ["Character", "\u2022"],
+  "ParseError", ["Character", "\u2013"],
+  "ParseError", ["Character", "\u2014"]
+]},
+{"description":"c1 character references",
+"input":"&#152;&#153;&#154;&#155;&#156;&#157;&#158;&#159;",
+"output":[
+  "ParseError", ["Character", "\u02DC"],
+  "ParseError", ["Character", "\u2122"],
+  "ParseError", ["Character", "\u0161"],
+  "ParseError", ["Character", "\u203A"],
+  "ParseError", ["Character", "\u0153"],
+  "ParseError", ["Character", "\u009D"],
+  "ParseError", ["Character", "\u017E"],
+  "ParseError", ["Character", "\u0178"]
+]},
+
+{"description":"c1 character references",
+"input":"&#x80;&#x81;&#x82;&#x83;&#x84;&#x85;&#x86;&#x87;",
+"output":[
+  "ParseError", ["Character", "\u20AC"],
+  "ParseError", ["Character", "\u0081"],
+  "ParseError", ["Character", "\u201A"],
+  "ParseError", ["Character", "\u0192"],
+  "ParseError", ["Character", "\u201E"],
+  "ParseError", ["Character", "\u2026"],
+  "ParseError", ["Character", "\u2020"],
+  "ParseError", ["Character", "\u2021"]
+]},
+{"description":"c1 character references",
+"input":"&#x88;&#x89;&#x8a;&#x8b;&#x8c;&#x8d;&#x8e;&#x8f;",
+"output":[
+  "ParseError", ["Character", "\u02C6"],
+  "ParseError", ["Character", "\u2030"],
+  "ParseError", ["Character", "\u0160"],
+  "ParseError", ["Character", "\u2039"],
+  "ParseError", ["Character", "\u0152"],
+  "ParseError", ["Character", "\u008D"],
+  "ParseError", ["Character", "\u017D"],
+  "ParseError", ["Character", "\u008F"]
+]},
+{"description":"c1 character references",
+"input":"&#x90;&#x91;&#x92;&#x93;&#x94;&#x95;&#x96;&#x97;",
+"output":[
+  "ParseError", ["Character", "\u0090"],
+  "ParseError", ["Character", "\u2018"],
+  "ParseError", ["Character", "\u2019"],
+  "ParseError", ["Character", "\u201C"],
+  "ParseError", ["Character", "\u201D"],
+  "ParseError", ["Character", "\u2022"],
+  "ParseError", ["Character", "\u2013"],
+  "ParseError", ["Character", "\u2014"]
+]},
+{"description":"c1 character references",
+"input":"&#x98;&#x99;&#x9a;&#x9b;&#x9c;&#x9d;&#x9e;&#x9f;",
+"output":[
+  "ParseError", ["Character", "\u02DC"],
+  "ParseError", ["Character", "\u2122"],
+  "ParseError", ["Character", "\u0161"],
+  "ParseError", ["Character", "\u203A"],
+  "ParseError", ["Character", "\u0153"],
+  "ParseError", ["Character", "\u009D"],
+  "ParseError", ["Character", "\u017E"],
+  "ParseError", ["Character", "\u0178"]
+]},
+
+{"description":"Numeric entity representing a Windows-1252 'codepoint'",
+"input":"&#137;",
+"output":["ParseError", ["Character", "\u2030"]]},
+
+{"description":"Hexadecimal entity representing a Windows-1252 'codepoint'",
+"input":"&#x89;",
+"output":["ParseError", ["Character", "\u2030"]]},
+
+{"description":"surrogate character reference",
+"input":"&#xD800;",
+"output":["ParseError", ["Character", "\uFFFD"]]},
+
+{"description":"surrogate character references",
+"input":"&#xD800;&#xDFFF;",
+"output":["ParseError", ["Character", "\uFFFD"],
+          "ParseError", ["Character", "\uFFFD"]]},
+
+{"description":"surrogate character reference",
+"input":"\uD800&#xDFFF;",
+"output":[["Character", "\uD800"],
+          "ParseError", ["Character", "\uFFFD"]]},
+
+{"description":"surrogate character reference",
+"input":"&#xD800;\uDFFF",
+"output":["ParseError", ["Character", "\uFFFD"],
+          ["Character", "\uDFFF"]]},
+
+{"description":"surrogate character reference",
+"input":"&#55296;",
+"output":["ParseError", ["Character", "\uFFFD"]]},
+
+{"description":"surrogate character reference",
+"input":"&#57343;",
+"output":["ParseError", ["Character", "\uFFFD"]]},
+
+{"description": "U+FDD0 character reference",
+"input": "&#xfdd0;",
+"output": ["ParseError", ["Character", "\uFDD0"]]},
+
+{"description": "U+FDD0 decimal character reference",
+"input": "&#64976;",
+"output": ["ParseError", ["Character", "\uFDD0"]]},
+
+{"description": "U+FDDF character reference",
+"input": "&#xfddf;",
+"output": ["ParseError", ["Character", "\uFDDF"]]},
+
+{"description": "U+FFFE character reference",
+"input": "&#xfffe;",
+"output": ["ParseError", ["Character", "\uFFFE"]]},
+
+{"description": "U+FFFE decimal character reference",
+"input": "&#65534;",
+"output": ["ParseError", ["Character", "\uFFFE"]]},
+
+{"description": "U+FFFF character reference",
+"input": "&#xffff;",
+"output": ["ParseError", ["Character", "\uFFFF"]]},
+
+{"description": "U+FFFF decimal character reference",
+"input": "&#65535;",
+"output": ["ParseError", ["Character", "\uFFFF"]]},
+
+{"description": "U+1FFFE character reference",
+"input": "&#x1fffe;",
+"output": ["ParseError", ["Character", "\uD83F\uDFFE"]]},
+
+{"description": "U+1FFFF character reference",
+"input": "&#x1ffff;",
+"output": ["ParseError", ["Character", "\uD83F\uDFFF"]]},
+
+{"description": "U+10FFFE character reference",
+"input": "&#x10fffe;",
+"output": ["ParseError", ["Character", "\uDBFF\uDFFE"]]},
+
+{"description": "U+10FFFE decimal character reference",
+"input": "&#1114110;",
+"output": ["ParseError", ["Character", "\uDBFF\uDFFE"]]},
+
+{"description": "U+10FFFF character reference",
+"input": "&#x10FFFF;",
+"output": ["ParseError", ["Character", "\uDBFF\uDFFF"]]},
+
+{"description": "U+10FFFF decimal character reference",
+"input": "&#1114111;",
+"output": ["ParseError", ["Character", "\uDBFF\uDFFF"]]},
+
+{"description":"non-Unicode character reference",
+"input":"&#1114112;",
+"output":["ParseError", ["Character", "\uFFFD"]]},
+
+{"description":"non-Unicode character reference",
+"input":"&#x110000;",
+"output":["ParseError", ["Character", "\uFFFD"]]},
+
+{"description":"Broken hcro (&#x)",
+"input":"&#x",
+"output":["ParseError", ["Character", "&#x"]]},
+
+{"description":"Broken hcro (&#X)",
+"input":"&#X",
+"output":["ParseError", ["Character", "&#X"]]},
+
+{"description":"Broken hcro (&#x;)",
+"input":"&#x;",
+"output":["ParseError", ["Character", "&#x;"]]},
+
+{"description":"Broken hcro (&#X;)",
+"input":"&#X;",
+"output":["ParseError", ["Character", "&#X;"]]},
+
+{"description":"Broken hcro (&#xg)",
+"input":"&#xg",
+"output":["ParseError", ["Character", "&#xg"]]},
+
+{"description":"Broken hcro (&#Xg)",
+"input":"&#Xg",
+"output":["ParseError", ["Character", "&#Xg"]]},
+
+{"description":"Broken hcro (&#xg;)",
+"input":"&#xg;",
+"output":["ParseError", ["Character", "&#xg;"]]},
+
+{"description":"Broken hcro (&#Xg;)",
+"input":"&#Xg;",
+"output":["ParseError", ["Character", "&#Xg;"]]},
+
+{"description":"Broken hcro (&#x!)",
+"input":"&#x!",
+"output":["ParseError", ["Character", "&#x!"]]},
+
+{"description":"Broken hcro (&#X!)",
+"input":"&#X!",
+"output":["ParseError", ["Character", "&#X!"]]},
+
+{"description":"NULL character",
+"input":"\u0000",
+"output":["ParseError",["Character", "\u0000"]]},
+
+{"description":"&TRADE;",
+"input":"&TRADE;",
+"output":[["Character", "\u2122"]]},
+
+{"description":"&lang;",
+"input":"&lang;",
+"output":[["Character", "\u27E8"]]},
+
+{"description":"&rang;",
+"input":"&rang;",
+"output":[["Character", "\u27E9"]]},
+
+{"description":"&amp;;",
+"input":"&amp;;",
+"output":[["Character", "&;"]]},
+
+{"description":"&HT",
+"input":"&\u0009",
+"output":[["Character", "&\u0009"]]},
+
+{"description":"&LF",
+"input":"&\u000A",
+"output":[["Character", "&\u000A"]]},
+
+{"description": "&VT",
+"input": "&\u000B",
+"output": ["ParseError", ["Character", "&\u000B"]]},
+
+{"description":"&FF",
+"input":"&\u000C",
+"output":[["Character", "&\u000C"]]},
+
+{"description":"&SP",
+"input":"& ",
+"output":[["Character", "& "]]},
+
+{"description":"&<",
+"input":"&<",
+"output":[["Character", "&"], "ParseError", ["Character", "<"]]},
+
+{"description":"&<p>",
+"input":"&<p>",
+"output":[["Character", "&"], ["StartTag", "p", {}]]},
+
+{"description":"&&",
+"input":"&&",
+"output":[["Character", "&&"]]},
+
+{"description":"&&amp;",
+"input":"&&amp;",
+"output":[["Character", "&&"]]},
+
+{"description":"&",
+"input":"&",
+"output":[["Character", "&"]]},
+
+{"description":"named character reference w/o refc",
+"input":"&ampabc",
+"output":["ParseError", ["Character", "&abc"]]},
+
+{"description":"named character reference",
+"input":"&amp;abc",
+"output":[["Character", "&abc"]]},
+
+{"description":"named character reference w/o refc",
+"input":"&abc",
+"output":[["Character", "&abc"]]},
+
+{"description":"unknown named character reference",
+"input":"&abc;",
+"output":["ParseError", ["Character", "&abc;"]]},
+
+{"description":"named character reference w/o refc in attr",
+"input":"<a href='&ampabc'>",
+"output":[["StartTag", "a", {"href": "&ampabc"}]]},
+
+{"description":"named character reference in attr",
+"input":"<a href='&amp;abc'>",
+"output":[["StartTag", "a", {"href": "&abc"}]]},
+
+{"description":"named character reference w/o refc in attr",
+"input":"<a href='&abc'>",
+"output":[["StartTag", "a", {"href": "&abc"}]]},
+
+{"description":"unknown named character reference in attr",
+"input":"<a href='&abc;'>",
+"output":["ParseError", ["StartTag", "a", {"href": "&abc;"}]]},
+
+{"description":"entity w/o refc at the end of unterminated attribute value",
+"input":"<a href='&COPY",
+"output":["ParseError", "ParseError"]},
+
+{"description":"entity w/o refc at the end of attribute value",
+"input":"<a href='&COPY'>",
+"output":["ParseError", ["StartTag", "a", {"href": "\u00A9"}]]},
+
+{"description":"entity w/refc at the end of attribute value",
+"input":"<a href='&COPY;'>",
+"output":[["StartTag", "a", {"href": "\u00A9"}]]},
+
+{"description":"entity w/o refc href='&COPY!'",
+"input":"<a href='&COPY!'>",
+"output":["ParseError", ["StartTag", "a", {"href": "\u00A9!"}]]},
+
+{"description":"entity w/o refc href='&COPY=ok'",
+"input":"<a href='&COPY=ok'>",
+"output":[["StartTag", "a", {"href": "&COPY=ok"}]]},
+
+{"description":"entity w/o refc href='&copy=ok'",
+"input":"<a href='&copy=ok'>",
+"output":[["StartTag", "a", {"href": "&copy=ok"}]]},
+
+{"description":"entity w/o refc href='&COPYright'",
+"input":"<a href='&COPYright'>",
+"output":[["StartTag", "a", {"href": "&COPYright"}]]},
+
+{"description":"entity w/o refc href='&COPYright;'",
+"input":"<a href='&COPYright;'>",
+"output":["ParseError", ["StartTag", "a", {"href": "&COPYright;"}]]},
+
+{"description":"entity w/o refc href='&COPYrightc'",
+"input":"<a href='&COPYrightc'>",
+"output":[["StartTag", "a", {"href": "&COPYrightc"}]]},
+
+{"description":"entity w/o refc href='&COPYrightcd'",
+"input":"<a href='&COPYrightcd'>",
+"output":[["StartTag", "a", {"href": "&COPYrightcd"}]]},
+
+{"description":"charref in attrvalue, followed by ;=",
+"input":"<a href='&COPY;=ok'>",
+"output":[["StartTag", "a", {"href": "\u00A9=ok"}]]},
+
+{"description":"entity w/o refc href='&COPYed=ok'",
+"input":"<a href='&COPYed=ok'>",
+"output":[["StartTag", "a", {"href": "&COPYed=ok"}]]},
+
+{"description":"&= in attrvalue",
+"input":"<a href='&='>",
+"output":[["StartTag", "a", {"href": "&="}]]},
+
+{"description":"&#x70= in attrvalue",
+"input":"<a href='&#x70='>",
+"output":["ParseError", ["StartTag", "a", {"href": "p="}]]},
+
+{"description":"&#70= in attrvalue",
+"input":"<a href='&#70='>",
+"output":["ParseError", ["StartTag", "a", {"href": "F="}]]},
+
+{"description":"&amp= in unquoted attrvalue",
+"input":"<a href=&amp=>",
+"output":["ParseError", ["StartTag", "a", {"href": "&amp="}]]},
+
+{"description":"&amp;= in unquoted attrvalue",
+"input":"<a href=&amp;=>",
+"output":["ParseError", ["StartTag", "a", {"href": "&="}]]},
+
+{"description":"entity without refc followed by = in content",
+"input":"&amp=",
+"output":["ParseError", ["Character", "&="]]},
+
+{"description":"entity with refc followed by = in content",
+"input":"&amp;=",
+"output":[["Character", "&="]]},
+
+{"description":"entity without refc followed by = in RCDATA content",
+"contentModelFlags":["RCDATA"],
+"input":"&amp=",
+"output":["ParseError", ["Character", "&="]]},
+
+{"description":"entity with refc followed by = in RCDATA content",
+"contentModelFlags":["RCDATA"],
+"input":"&amp;=",
+"output":[["Character", "&="]]},
+
+{"description":"cdata end tag containing <",
+"contentModelFlags":["RCDATA","CDATA"],
+"lastStartTag":"xxx",
+"input":"</xxx<div>",
+"output":[["Character", "</xxx<div>"]]},
+
+{"description":"cdata end tag containing VT",
+"contentModelFlags":["RCDATA","CDATA"],
+"lastStartTag":"xxx",
+"input":"</xxx\u000Babc",
+"output":["ParseError", ["Character", "</xxx\u000Babc"]]},
+
+{"description":"< in tag name state",
+"input":"<p<div>",
+"output":[["StartTag", "p<div", {}]]},
+
+{"description":"VT in tag name state",
+"input":"<p\u000ba>",
+"output":["ParseError", ["StartTag", "p\u000Ba", {}]]},
+
+{"description":"< in before attribute name state",
+"input":"<p <div>",
+"output":["ParseError", ["StartTag", "p", {"<div":""}]]},
+
+{"description":"VT in before attribute name state",
+"input":"<p \u000bx>",
+"output":["ParseError", ["StartTag", "p", {"\u000Bx":""}]]},
+
+{"description":"< in attribute name state",
+"input":"<p align<div>",
+"output":["ParseError", ["StartTag", "p", {"align<div":""}]]},
+
+{"description":"VT in attribute name state",
+"input":"<p a\u000bc>",
+"output":["ParseError", ["StartTag", "p", {"a\u000bc":""}]]},
+
+{"description":"< in after attribute name state",
+"input":"<p align <div>",
+"output":["ParseError", ["StartTag", "p", {"align":"","<div":""}]]},
+
+{"description":"VT in after attribute name state",
+"input":"<p a \u000bb>",
+"output":["ParseError", ["StartTag", "p", {"a":"","\u000bb":""}]]},
+
+{"description":"< in before attribute value state",
+"input":"<p align=<div>",
+"output":["ParseError", ["StartTag", "p", {"align":"<div"}]]},
+
+{"description":"VT in before attribute value state",
+"input":"<p a=\u000bc>",
+"output":["ParseError", ["StartTag", "p", {"a":"\u000bc"}]]},
+
+{"description":"< in attribute value (unquoted) state",
+"input":"<p align=left<div>",
+"output":["ParseError", ["StartTag", "p", {"align":"left<div"}]]},
+
+{"description":"VT in attribute value (unquoted) state",
+"input":"<p align=left\u000bc>",
+"output":["ParseError",["StartTag", "p", {"align":"left\u000bc"}]]},
+
+{"description":"< in attribute value (single-unquoted) state",
+"input":"<p align='left<div>",
+"output":["ParseError"]},
+
+{"description":"< in attribute value (double-unquoted) state",
+"input":"<p align=\u0022left<div>",
+"output":["ParseError"]},
+
+{"description": "< in after attribute value (quoted) state",
+"input": "<p a=\"b\"\u000bc>",
+"output": ["ParseError", "ParseError", ["StartTag", "p", {"a":"b", "\u000bc": ""}]]},
+
+{"description":"/''b=\"\"",
+"input": "<a /''b=\"\">",
+"output": ["ParseError", "ParseError", "ParseError",
+    ["StartTag", "a", {"''b": ""}]]},
+
+{"description":"/\"\"b=\"\"",
+"input": "<a /\"\"b=\"\">",
+"output": ["ParseError", "ParseError", "ParseError",
+    ["StartTag", "a", {"\"\"b": ""}]]},
+
+{"description":"\"b=\"\"",
+"input": "<a \"b=\"\">",
+"output": ["ParseError", ["StartTag", "a", {"\"b": ""}]]},
+
+{"description":"\"\"b=\"\"",
+"input": "<a \"\"b=\"\">",
+"output": ["ParseError", "ParseError", ["StartTag", "a", {"\"\"b": ""}]]},
+
+{"description":"'b=\"\"",
+"input": "<a 'b=\"\">",
+"output": ["ParseError", ["StartTag", "a", {"'b": ""}]]},
+
+{"description":"''b=\"\"",
+"input": "<a ''b=\"\">",
+"output": ["ParseError", "ParseError", ["StartTag", "a", {"''b": ""}]]},
+
+{"description":"/b=\"\"",
+"input": "<a /b=\"\">",
+"output": ["ParseError", ["StartTag", "a", {"b": ""}]]},
+
+{"description":"b/=\"\"",
+"input": "<a b/=\"\">",
+"output": ["ParseError", "ParseError", "ParseError", "ParseError",
+    ["StartTag", "a", {"b": "", "=\"\"": ""}]]},
+
+{"description":"b/c=\"\"",
+"input": "<a b/c=\"\">",
+"output": ["ParseError", ["StartTag", "a", {"b": "", "c": ""}]]},
+
+{"description":"bc[NULL]=\"\"",
+"input": "<a bc\u0000=\"\">",
+"output": ["ParseError", ["StartTag", "a", {"bc\uFFFD": ""}]]},
+
+{"description":"b[NULL]c=\"\"",
+"input": "<a b\u0000c=\"\">",
+"output": ["ParseError", ["StartTag", "a", {"b\uFFFDc": ""}]]},
+
+{"description":"[NULL]bc=\"\"",
+"input": "<a \u0000bc=\"\">",
+"output": ["ParseError", ["StartTag", "a", {"\uFFFDbc": ""}]]},
+
+{"description": "<span ===>",
+"input": "<span ===>",
+"output": ["ParseError", "ParseError", ["StartTag", "span", {"=": "="}]]},
+
+{"description": "<span a==>",
+"input": "<span a==>",
+"output": ["ParseError", ["StartTag", "span", {"a": "="}]]},
+
+{"description": "<span ==a>",
+"input": "<span ==a>",
+"output": ["ParseError", ["StartTag", "span", {"=": "a"}]]},
+
+{"description": "<span a=b=>",
+"input": "<span a=b=>",
+"output": ["ParseError", ["StartTag", "span", {"a": "b="}]]},
+
+{"description": "<span a=<> (HTML5 revision 3206)",
+"input": "<span a=<>",
+"output": ["ParseError", ["StartTag", "span", {"a": "<"}]]},
+
+{"description": "<span a=b<> (HTML5 revision 3206)",
+"input": "<span a=b<>",
+"output": ["ParseError", ["StartTag", "span", {"a": "b<"}]]},
+
+{"description": "<span =x\"=\"x>",
+"input": "<span =x\"=\"x>",
+"output": ["ParseError", "ParseError", "ParseError"]},
+
+{"description": "<span =x\"=\"x\">",
+"input": "<span =x\"=\"x\">",
+"output": ["ParseError", "ParseError", ["StartTag", "span", {"=x\"": "x"}]]},
+
+{"description": "bad attribute name (HTML5 revision 2123), '",
+"input": "<foo bar '>",
+"output": ["ParseError", ["StartTag", "foo", {"bar": "", "'": ""}]]},
+
+{"description": "bad attribute name (HTML5 revision 2123), \"",
+"input": "<foo bar \">",
+"output": ["ParseError", ["StartTag", "foo", {"bar": "", "\"": ""}]]},
+
+{"description": "bad attribute name (HTML5 revision 2123), 'x",
+"input": "<foo bar 'x>",
+"output": ["ParseError", ["StartTag", "foo", {"bar": "", "'x": ""}]]},
+
+{"description": "bad attribute name (HTML5 revision 2123), \"x",
+"input": "<foo bar \"x>",
+"output": ["ParseError", ["StartTag", "foo", {"bar": "", "\"x": ""}]]},
+
+{"description": "empty unquoted attribute value (HTML5 revision 2122)",
+"input": "<foo bar=>",
+"output": ["ParseError", ["StartTag", "foo", {"bar": ""}]]},
+
+{"description": "empty unquoted attribute value (HTML5 revision 2122)",
+"input": "</foo bar=>",
+"output": ["ParseError", "ParseError", ["EndTag", "foo"]]},
+
+{"description": "empty unquoted attribute value followed by another attr",
+"input": "<foo bar= baz=>",
+"output": ["ParseError", ["StartTag", "foo", {"bar": "baz="}]]},
+
+{"description": "Unquoted attribute value containing two =s",
+"input": "<foo bar=a=b=>",
+"output": ["ParseError", "ParseError", ["StartTag", "foo", {"bar": "a=b="}]]},
+
+{"description": "Unquoted attribute value containing two `s",
+"input": "<foo bar=a`b`>",
+"output": ["ParseError", "ParseError", ["StartTag", "foo", {"bar": "a`b`"}]]},
+
+{"description": "Unquoted attribute value containing ` and =",
+"input": "<foo bar=a`b=>",
+"output": ["ParseError", "ParseError", ["StartTag", "foo", {"bar": "a`b="}]]},
+
+{"description":"&\"",
+"input": "&\"",
+"output": [["Character", "&\""]]},
+
+{"description":"&'",
+"input": "&'",
+"output": [["Character", "&'"]]},
+
+{"description":"<a href=\"&\">",
+"input": "<a href=\"&\">",
+"output": [["StartTag", "a", {"href": "&"}]]},
+
+{"description":"<a href=\"&'\">",
+"input": "<a href=\"&'\">",
+"output": [["StartTag", "a", {"href": "&'"}]]},
+
+{"description":"<a href='&'>",
+"input": "<a href='&'>",
+"output": [["StartTag", "a", {"href": "&"}]]},
+
+{"description":"<a href='&\"'>",
+"input": "<a href='&\"'>",
+"output": [["StartTag", "a", {"href": "&\""}]]},
+
+{"description":"<a href=&\">",
+"input": "<a href=&\">",
+"output": ["ParseError", ["StartTag", "a", {"href": "&\""}]]},
+
+{"description":"<a href=&'>",
+"input": "<a href=&'>",
+"output": ["ParseError", ["StartTag", "a", {"href": "&'"}]]},
+
+{"description":"<a href=&>",
+"input": "<a href=&>",
+"output": [["StartTag", "a", {"href": "&"}]]},
+
+{"description":"<a href=`abc>",
+"input": "<a href=`abc>",
+"output": ["ParseError", ["StartTag", "a", {"href": "`abc"}]]},
+
+{"description":"<a href=x`abc>",
+"input": "<a href=x`abc>",
+"output": ["ParseError", ["StartTag", "a", {"href": "x`abc"}]]},
+
+{"description":"<a href=``>",
+"input": "<a href=``>",
+"output": ["ParseError", "ParseError", ["StartTag", "a", {"href": "``"}]]},
+
+{"description": "<!->-->",
+"input": "<!->-->",
+"output": ["ParseError", ["Comment", "-"], ["Character", "-->"]]},
+
+{"description": "<!!--->-->",
+"input": "<!!--->-->",
+"output": ["ParseError", ["Comment", "!---"], ["Character", "-->"]]},
+
+{"description": "<!----!>",
+"input": "<!----!>",
+"output": ["ParseError", ["Comment", ""]]},
+
+{"description": "<!--a--!>",
+"input": "<!--a--!>",
+"output": ["ParseError", ["Comment", "a"]]},
+
+{"description": "<!----!-->",
+"input": "<!----!-->",
+"output": ["ParseError", ["Comment", "--!"]]},
+
+{"description": "<!--a--!-->",
+"input": "<!--a--!-->",
+"output": ["ParseError", ["Comment", "a--!"]]},
+
+{"description": "<!----!",
+"input": "<!----!",
+"output": ["ParseError", "ParseError", ["Comment", ""]]},
+
+{"description": "<!----!x-->",
+"input": "<!----!x-->",
+"output": ["ParseError", ["Comment", "--!x"]]},
+
+{"description": "<!---- > -- in comment, unclosed comment",
+"input": "<!---- >",
+"output": ["ParseError", "ParseError", ["Comment", "-- >"]]},
+
+{"description": "<!--a-- > -- in comment, unclosed comment",
+"input": "<!--a-- >",
+"output": ["ParseError", "ParseError", ["Comment", "a-- >"]]},
+
+{"description": "<!--a--\u000A> -- in comment, unclosed comment",
+"input": "<!--a--\u000A>",
+"output": ["ParseError", "ParseError", ["Comment", "a--\u000A>"]]},
+
+{"description": "<!--a-- a> -- in comment, unclosed comment",
+"input": "<!--a-- a>",
+"output": ["ParseError", "ParseError", ["Comment", "a-- a>"]]},
+
+{"description": "<!--a-- -> -- in comment, unclosed comment",
+"input": "<!--a-- ->",
+"output": ["ParseError", "ParseError", ["Comment", "a-- ->"]]},
+
+{"description": "<!--a-- --> -- in comment",
+"input": "<!--a-- -->",
+"output": ["ParseError", ["Comment", "a-- "]]},
+
+{"description": "<!--a--  -- in comment, unclosed comment",
+"input": "<!--a-- ",
+"output": ["ParseError", "ParseError", ["Comment", "a-- "]]},
+
+{"description": "<!--a-- --b-- > -- in comment x 3, unclosed comment",
+"input": "<!--a-- --b-- >",
+"output": ["ParseError", "ParseError", "ParseError", "ParseError", 
+           ["Comment", "a-- --b-- >"]]},
+
+{"description": "<a href=''rel=''>",
+"input": "<a href=''rel=''>",
+"output": ["ParseError", ["StartTag", "a", {"href": "", "rel": ""}]]},
+
+{"description": "<a href=\"\"rel=''>",
+"input": "<a href=\"\"rel=''>",
+"output": ["ParseError", ["StartTag", "a", {"href": "", "rel": ""}]]},
+
+{"description": "<a href=''/rel=''>",
+"input": "<a href=''/rel=''>",
+"output": ["ParseError", ["StartTag", "a", {"href": "", "rel": ""}]]},
+
+{"description": "<a href=''rel=''/>",
+"input": "<a href=''rel=''/>",
+"output": ["ParseError",
+    ["StartTag", "a", {"href": "", "rel": ""}, true]]},
+
+{"description": "<link href=''rel=''/>",
+"input": "<link href=''rel=''/>",
+"output": ["ParseError", ["StartTag", "link", {"href": "", "rel": ""}, true]]},
+
+{"description": "permitted slash after a space",
+"input": "<br />",
+"output": [["StartTag", "br", {}, true]]},
+
+{"description": "slash in tag after a space",
+"input": "<br / >",
+"output": ["ParseError", ["StartTag", "br", {}]]},
+
+{"description": "non-permitted slash after a space",
+"input": "<b />",
+"output": [["StartTag", "b", {}, true]]},
+
+{"description": "end tag (non-)permitted slash after a space",
+"input": "</br />",
+"output": ["ParseError", ["EndTag", "br"]]},
+
+{"description": "permitted slash after attribute name",
+"input": "<br class/>",
+"output": [["StartTag", "br", {"class": ""}, true]]},
+
+{"description": "slash in tag after attribute name",
+"input": "<br class/ >",
+"output": ["ParseError", ["StartTag", "br", {"class": ""}]]},
+
+{"description": "non permitted slash after attribute name",
+"input": "<b class/>",
+"output": [["StartTag", "b", {"class": ""}, true]]},
+
+{"description": "end tag (non-)permitted slash after attribute name",
+"input": "</br class/>",
+"output": ["ParseError", "ParseError", ["EndTag", "br"]]},
+
+{"description": "permitted slash in after attribute name state",
+"input": "<br class />",
+"output": [["StartTag", "br", {"class": ""}, true]]},
+
+{"description": "non permitted slash in after attribute name state",
+"input": "<b class />",
+"output": [["StartTag", "b", {"class": ""}, true]]},
+
+{"description": "end tag (non-)permitted slash in after attribute name state",
+"input": "</br class />",
+"output": ["ParseError", "ParseError", ["EndTag", "br"]]},
+
+{"description": "<a \">",
+"input": "<a \">",
+"output": ["ParseError", ["StartTag", "a", {"\"": ""}]]},
+
+{"description": "<a \"\">",
+"input": "<a \"\">",
+"output": ["ParseError", "ParseError", ["StartTag", "a", {"\"\"": ""}]]},
+
+{"description": "<a '>",
+"input": "<a '>",
+"output": ["ParseError", ["StartTag", "a", {"'": ""}]]},
+
+{"description": "<a ''>",
+"input": "<a ''>",
+"output": ["ParseError", "ParseError", ["StartTag", "a", {"''": ""}]]},
+
+{"description": "<a a\">",
+"input": "<a a\">",
+"output": ["ParseError", ["StartTag", "a", {"a\"": ""}]]},
+
+{"description": "<a a'>",
+"input": "<a a'>",
+"output": ["ParseError", ["StartTag", "a", {"a'": ""}]]},
+
+{"description": "<a a\"'>",
+"input": "<a a\"'>",
+"output": ["ParseError", "ParseError", ["StartTag", "a", {"a\"'": ""}]]},
+
+{"description": "<a a=\">",
+"input": "<a a=\">",
+"output": ["ParseError"]},
+
+{"description": "<a a='>",
+"input": "<a a='>",
+"output": ["ParseError"]},
+
+{"description": "<a a=a\">",
+"input": "<a a=a\">",
+"output": ["ParseError", ["StartTag", "a", {"a": "a\""}]]},
+
+{"description": "<a a=a'>",
+"input": "<a a=a'>",
+"output": ["ParseError", ["StartTag", "a", {"a": "a'"}]]},
+
+{"description": "<a a=>",
+"input": "<a a=>",
+"output": ["ParseError", ["StartTag", "a", {"a": ""}]]},
+
+{"description": "end tag attribute (before attribute, >)",
+"input": "</p class=\"\"  >",
+"output": ["ParseError", ["EndTag", "p"]]},
+
+{"description": "end tag attribute (before attribute, EOF)",
+"input": "</p class=\"\"  ",
+"output": ["ParseError"]},
+
+{"description": "end tag not closed (before attribute)",
+"input": "</p >",
+"output": [["EndTag", "p"]]},
+
+{"description": "end tag not closed (attribute name)",
+"input": "</p class",
+"output": ["ParseError"]},
+
+{"description": "end tag attribute (after attribute name)",
+"input": "</p class >",
+"output": ["ParseError", ["EndTag", "p"]]},
+
+{"description": "end tag attributes uc (after attribute name)",
+"input": "</p class Title>",
+"output": ["ParseError", ["EndTag", "p"]]},
+
+{"description": "end tag attributes lc (after attribute name)",
+"input": "</p class title>",
+"output": ["ParseError", ["EndTag", "p"]]},
+
+{"description": "end tag not closed (after attribute name)",
+"input": "</p class ",
+"output": ["ParseError"]},
+
+{"description": "end tag attribute (before attribute value)",
+"input": "</p class=>",
+"output": ["ParseError", "ParseError", ["EndTag", "p"]]},
+
+{"description": "end tag not closed (before attribute value)",
+"input": "</p class=",
+"output": ["ParseError"]},
+
+{"description": "end tag not closed (attribute value double quote)",
+"input": "</p class=\"",
+"output": ["ParseError"]},
+
+{"description": "end tag not closed (attribute value single quote)",
+"input": "</p class='",
+"output": ["ParseError"]},
+
+{"description": "end tag attribute (attribute value unquoted)",
+"input": "</p class=a>",
+"output": ["ParseError", ["EndTag", "p"]]},
+
+{"description": "end tag not closed (attribute value unquoted)",
+"input": "</p class=a",
+"output": ["ParseError"]},
+
+{"description": "end tag attribute (after attribute value double quoted)",
+"input": "</p class=\"a\" >",
+"output": ["ParseError", ["EndTag", "p"]]},
+
+{"description": "end tag attribute (after attribute value single quoted)",
+"input": "</p class='a' >",
+"output": ["ParseError", ["EndTag", "p"]]},
+
+{"description": "end tag not closed (after attribute value double quoted)",
+"input": "</p class=\"a\" ",
+"output": ["ParseError"]},
+
+{"description": "end tag not closed (after attribute value single quoted)",
+"input": "</p class='a' ",
+"output": ["ParseError"]},
+
+{"description": "start tag not closed (after attribute value (quoted))",
+"input": "<p class='a'",
+"output": ["ParseError"]},
+
+{"description": "end tag not closed (after attribute value (quoted))",
+"input": "</p class='a'",
+"output": ["ParseError"]},
+
+{"description": "start tag not closed (self-closing start tag)",
+"input": "<p class='a'/",
+"output": ["ParseError"]},
+
+{"description": "end tag not closed (self-closing start tag)",
+"input": "</p/",
+"output": ["ParseError"]},
+
+{"description": "end tag not closed (self-closing start tag)",
+"input": "</p class='a'/",
+"output": ["ParseError"]}
+
+]}

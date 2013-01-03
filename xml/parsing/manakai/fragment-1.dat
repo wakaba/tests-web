@@ -1,0 +1,74 @@
+#data
+hoge
+#document-fragment
+p
+#errors
+#document
+| "hoge"
+
+#data
+<foo>aa</foo>bar
+#document-fragment
+div
+#errors
+#document
+| <foo>
+|   "aa"
+| "bar"
+
+#data
+<aa/>bb
+#document-fragment
+div
+#errors
+#document
+| <aa>
+| "bb"
+
+#data
+<foo xmlns=""/>
+#document-fragment
+div
+#errors
+#document
+| <{} foo>
+|   xmlns=""
+
+#data
+<hoge/>
+#document-fragment
+{} div
+#errors
+#document
+| <{} hoge>
+
+#data
+<hoge>aaaa
+#document-fragment
+foo
+#errors
+1;10;in body:#eof;;;m
+#document
+| <hoge>
+|   "aaaa"
+
+#data
+<hoge/>aaaa</foo>bb
+#document-fragment
+foo
+#errors
+1;12;unmatched end tag;foo;;m
+#document
+| <hoge>
+| "aaaabb"
+
+#data
+<hoge/>aaaa</>bb
+#document-fragment
+foo
+#errors
+1;12;unmatched end tag;;;m
+1;12;empty end tag;;;m
+#document
+| <hoge>
+| "aaaabb"

@@ -1,0 +1,424 @@
+#data
+<option>x
+#errors
+no DOCTYPE
+no </option> before EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <option>
+|       "x"
+
+#data
+<option></option>x
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <option>
+|     "x"
+
+#data
+<optgroup>x
+#errors
+no DOCTYPE
+no </optgroup> before EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <optgroup>
+|       "x"
+
+#data
+<optgroup></optgroup>x
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <optgroup>
+|     "x"
+
+#data
+<optgroup><option>x
+#errors
+no DOCTYPE
+no </option></optgroup> before EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <optgroup>
+|       <option>
+|         "x"
+
+#data
+<optgroup><optgroup>
+#errors
+no DOCTYPE
+no </optgroup> before EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <optgroup>
+|       <optgroup>
+
+#data
+<option><option>
+#errors
+no DOCTYPE
+no </option> before EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <option>
+|     <option>
+
+#data
+<option><optgroup>
+#errors
+no DOCTYPE
+no </optgroup> before EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <option>
+|     <optgroup>
+
+#data
+<option><span><optgroup>
+#errors
+no DOCTYPE
+no </span>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <option>
+|       <span>
+|         <optgroup>
+
+#data
+<optgroup><span><option>
+#errors
+no DOCTYPE
+no </span>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <optgroup>
+|       <span>
+|         <option>
+
+#data
+<b><i></b><option>
+#errors
+no DOCTYPE
+no </i> before </b>
+unexpected EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|     <i>
+|       <option>
+
+#data
+<b><i></b><optgroup>
+#errors
+no DOCTYPE
+no </i> before </b>
+unexpected EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|     <i>
+|       <optgroup>
+
+#data
+<option><marquee><option>
+#errors
+no DOCTYPE
+no </marquee>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <option>
+|       <marquee>
+|         <option>
+
+#data
+<option><marquee><optgroup>
+#errors
+no DOCTYPE
+no </marquee>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <option>
+|       <marquee>
+|         <optgroup>
+
+#data
+<!DOCTYPE HTML><option></body>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <option>
+
+#data
+<!DOCTYPE HTML><optgroup></body>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <optgroup>
+
+#data
+<!DOCTYPE HTML><select><input>
+#errors
+no </select>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|     <input>
+
+#data
+<!DOCTYPE HTML><select><textarea></textarea>
+#errors
+no </select>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|     <textarea>
+
+#data
+<!DOCTYPE HTML><select><keygen></keygen>
+#errors
+no </select>
+unmatched </keygen>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|     <keygen>
+
+#data
+<!DOCTYPE HTML><select><option><input>
+#errors
+no </select>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       <option>
+|     <input>
+
+#data
+<!DOCTYPE HTML><select><option><textarea></textarea>
+#errors
+no </select>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       <option>
+|     <textarea>
+
+#data
+<!DOCTYPE HTML><select><option><keygen></keygen>
+#errors
+no </select>
+unmatched </keygen>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       <option>
+|     <keygen>
+
+#data
+<input>a
+#errors
+<input> in select
+#document-fragment select
+| "a"
+
+#data
+<textarea>a
+#errors
+<textarea> in select
+#document-fragment select
+| "a"
+
+#data
+<keygen>a
+#errors
+<keygen> in select
+#document-fragment select
+| "a"
+
+#data
+<!DOCTYPE HTML>
+<select><script>a<b>c</script></select>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       <script>
+|         "a<b>c"
+
+#data
+<!DOCTYPE HTML>
+<table><tr><td><select><script>a<b>c</script></select></table>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+|         <tr>
+|           <td>
+|             <select>
+|               <script>
+|                 "a<b>c"
+
+#data
+<!DOCTYPE html>
+<table><form><!--a--></form><!--b--></table>
+#errors
+<form> in table
+</form> in table
+ubmatched </form>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <form>
+|       <!-- a -->
+|       <!-- b -->
+
+#data
+<!DOCTYPE html>
+<table><form><!--a--><form><!--b--></form><!--c--></table>
+#errors
+<form> in table
+<form> in table
+</form> in table
+ubmatched </form>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <form>
+|       <!-- a -->
+|       <!-- b -->
+|       <!-- c -->
+
+#data
+<!DOCTYPE html>
+<table><form><!--a--><tr><td><form><!--b--></td></tr><form><!--c--></table>
+#errors
+<form> in table
+<form> in form
+<form> in form
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <form>
+|       <!-- a -->
+|       <tbody>
+|         <tr>
+|           <td>
+|             <!-- b -->
+|         <!-- c -->
+
+#data
+<!DOCTYPE html>
+<table><form><!--a--><tr></form><td><form><!--b--></td></tr><form><!--c--></table>
+#errors
+<form> in table
+</form> in table
+unmatched </form>
+no </form>
+<form> in form
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <form>
+|       <!-- a -->
+|       <tbody>
+|         <tr>
+|           <td>
+|             <form>
+|               <!-- b -->
+|         <!-- c -->
+
+#data
+<!DOCTYPE html>
+<table><div><form><!--a--></form><!--b--></table>
+#errors
+<div> in table
+<form> in table
+</form> in table
+unmatched </form>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <div>
+|       <form>
+|       <!-- a -->
+|       <!-- b -->
+|     <table>
