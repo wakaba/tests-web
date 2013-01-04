@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>innerHTML</title>
+</head>
+<body>
+<p id="result">(noscript)</p>
+
+<script>
+  var resultP = document.getElementById ('result');
+
+  var doc = document;
+  var el1 = doc.createElementNS ('http://www.w3.org/1999/xhtml', 'hoge');
+  var el2 = doc.createElementNS (null, 'fuga');
+  el1.appendChild (el2);
+  doc.body.appendChild (el1);
+  el2.setAttributeNS (null, 'foo', 'abc');
+  el2.setAttributeNS ('http://ns1/', 'foo', 'def');
+
+  resultP.firstChild.data = el1.innerHTML;
+</script>
+</body>
+</html>

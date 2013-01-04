@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>specified</title>
+</head>
+<body>
+
+  <p id="result" class="FAIL">FAIL (noscript)</p>
+
+  <script>
+    var result = document.getElementById ('result');
+    result.firstChild.data = 'FAIL (script)';
+
+    var attr = document.createAttributeNS ('http://www.w3.org/1999/xhtml', 'id');
+    if (attr.isId === false) {
+      result.firstChild.data = 'PASS';
+      result.className = 'PASS';
+    } else {
+      result.firstChild.data = 'FAIL (' + attr.isId + ')';
+    }
+  </script>
+
+</body>
+</html>
+

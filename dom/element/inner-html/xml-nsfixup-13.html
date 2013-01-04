@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<Title>innerHTML</title>
+
+<p id=result>(noscript)</p>
+
+<script>
+  var resultP = document.getElementById ('result');
+
+  var doc = document.implementation.createDocument (null, 'p', null);
+  var el1 = doc.createElementNS ('http://www.w3.org/1999/xhtml', 'hoge');
+  var el2 = doc.createElementNS ('http://ns3/', 'bb:fuga');
+  el1.appendChild (el2);
+  el2.setAttributeNS ('http://www.w3.org/2000/xmlns/', 'xmlns:aa', 'http://ns1/');
+  el2.setAttributeNS ('http://www.w3.org/2000/xmlns/', 'xmlns:bb', 'http://ns3/');
+  el2.setAttributeNS (null, 'foo', 'abc');
+  el2.setAttributeNS ('http://ns1/', 'foo', 'def');
+  el2.setAttributeNS ('http://ns2/', 'foo', 'def');
+  el2.setAttributeNS ('http://ns1/', 'aaa:bar', 'def');
+
+  resultP.firstChild.data = el1.innerHTML;
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>specified</title>
+</head>
+<body>
+
+  <foo id="hoge" xmlns=""/>
+
+  <p id="result" class="FAIL">FAIL (noscript)</p>
+
+  <script>
+    var result = document.getElementById ('result');
+    result.firstChild.data = 'FAIL (script)';
+
+    var hoge = document.getElementById ('hoge');
+    var attr = result.getAttributeNode ('id');
+    if (attr.isId === true) {
+      result.firstChild.data = 'PASS';
+      result.className = 'PASS';
+    } else {
+      result.firstChild.data = 'FAIL (' + attr.isId + ')';
+    }
+  </script>
+
+</body>
+</html>
+

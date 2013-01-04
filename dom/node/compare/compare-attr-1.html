@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>compareDocumentPosition</title>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<p id=test>
+
+<script>
+  var testP = document.getElementById ('test');
+  testP.setAttribute ('hoge', '12');
+  testP.setAttribute ('fuga', '21');
+
+  var attr1 = testP.getAttributeNode ('hoge');
+  var attr2 = testP.getAttributeNode ('fuga');
+
+  var result1 = attr1.compareDocumentPosition (attr2);
+  var result2 = attr2.compareDocumentPosition (attr1);
+  var resultP = document.getElementById ('result');
+  if (result1 == (attr1.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC |
+                  attr1.DOCUMENT_POSITION_FOLLOWING) &&
+      result2 == (attr1.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC |
+                  attr1.DOCUMENT_POSITION_PRECEDING)) {
+    resultP.className = 'PASS';
+    resultP.firstChild.data = 'PASS';
+  } else {
+    resultP.firstChild.data = 'FAIL (' + result1 + ', ' + result2 + ')';
+  }
+</script>
