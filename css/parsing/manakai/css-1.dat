@@ -1,0 +1,347 @@
+#data
+#cssom
+#csstext
+
+#data
+p
+#errors
+;1;2;m;no declaration block
+#cssom
+#csstext
+
+#data
+p {
+#errors
+;1;4;m;block not closed
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {}
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p /**/ {}
+#cssom
+| <p>
+
+#data
+p /**/ q {}
+#cssom
+| <p q>
+
+#data
+p /**/ ! {}
+#errors
+;1;8;m;no sss
+#cssom
+
+#data
+p /**/ + /**/ q {}
+#cssom
+| <p + q>
+
+#data
+p {;}
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {!;}
+#errors
+;1;4;m;no property name
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {a;}
+#errors
+;1;5;m;no property colon
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {color:!}
+#errors
+;1;10;m;CSS syntax error;color
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {color:blue}
+#cssom
+| <p>
+|   color: blue
+#csstext
+p {
+  color: blue;
+}
+
+#data
+p {color:blue!}
+#errors
+;1;15;m;priority syntax error
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {color:blue!i}
+#errors
+;1;15;m;priority syntax error
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {color:blue!important}
+#errors
+#cssom
+| <p>
+|   color: blue !important
+#csstext
+p {
+  color: blue ! important;
+}
+
+#data
+p {color:blue!importants}
+#errors
+;1;15;m;priority syntax error
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {color:blue!important!}
+#errors
+;1;24;m;no property semicolon
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {color:blue!important;}
+#errors
+#cssom
+| <p>
+|   color: blue !important
+#csstext
+p {
+  color: blue ! important;
+}
+
+#data
+p {color:blue~}
+#errors
+;1;14;m;no property semicolon
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {
+  color: blue;
+}
+q {
+  color: green;
+}
+#cssom
+| <p>
+|   color: blue
+| <q>
+|   color: green
+#csstext
+p {
+  color: blue;
+}
+q {
+  color: green;
+}
+
+#data
+p {
+  color: blue !important;
+}
+#cssom
+| <p>
+|   color: blue !important
+#csstext
+p {
+  color: blue ! important;
+}
+
+#data
+p {
+  margin: 1px;
+}
+#cssom
+| <p>
+|   margin: 1px
+|   margin-bottom: 1px
+|   margin-left: 1px
+|   margin-right: 1px
+|   margin-top: 1px
+#csstext
+p {
+  margin: 1px;
+}
+
+#html 1
+<!DOCTYPE HTML><p>
+
+#data
+p {
+  color: blue;
+}
+#computed 1 p
+-| color: -manakai-default
++| color: rgb(0, 0, 255)
+-| border: 0px none -manakai-default
++| border: 0px none rgb(0, 0, 255)
+-| border-bottom: 0px none -manakai-default
++| border-bottom: 0px none rgb(0, 0, 255)
+-| border-bottom-color: -manakai-default
++| border-bottom-color: rgb(0, 0, 255)
+-| border-color: -manakai-default
++| border-color: rgb(0, 0, 255)
+-| border-left: 0px none -manakai-default
++| border-left: 0px none rgb(0, 0, 255)
+-| border-left-color: -manakai-default
++| border-left-color: rgb(0, 0, 255)
+-| border-right: 0px none -manakai-default
++| border-right: 0px none rgb(0, 0, 255)
+-| border-right-color: -manakai-default
++| border-right-color: rgb(0, 0, 255)
+-| border-top: 0px none -manakai-default
++| border-top: 0px none rgb(0, 0, 255)
+-| border-top-color: -manakai-default
++| border-top-color: rgb(0, 0, 255)
+#computedtext 1 p
+-  color: -manakai-default;
++  color: rgb(0, 0, 255);
+-  border: 0px none -manakai-default;
++  border: 0px none rgb(0, 0, 255);
+
+#data
+p {
+  margin-top: 1px;
+  margin-top: 2px;
+}
+#cssom
+| <p>
+|   margin-top: 2px
+
+#data
+p {
+  margin-top: 1px;
+  margin-top: 2px;
+  margin-top: 3px;
+}
+#cssom
+| <p>
+|   margin-top: 3px
+
+#data
+p {
+  margin-top: 1px!important;
+  margin-top: 2px!important;
+}
+#cssom
+| <p>
+|   margin-top: 2px !important
+
+#data
+p {
+  margin-top: 1px ! important;
+  margin-top: 2px;
+}
+#cssom
+| <p>
+|   margin-top: 1px !important
+
+#data
+p {
+  margin-top: 1px;
+  margin-top: 2px !important;
+}
+#cssom
+| <p>
+|   margin-top: 2px !important
+
+#data
+p {
+  margin-top: invalid;
+  margin-top: 1px;
+}
+#errors
+;2;15;m;CSS syntax error;'margin-top'
+#cssom
+| <p>
+|   margin-top: 1px
+
+#data
+p {
+  margin-top: 1px;
+  margin-top: invalid;
+}
+#errors
+;3;15;m;CSS syntax error;'margin-top'
+#cssom
+| <p>
+|   margin-top: 1px
+
+#data
+p {
+  margin-top: invalid !important;
+  margin-top: 1px;
+}
+#errors
+;2;15;m;CSS syntax error;'margin-top'
+#cssom
+| <p>
+|   margin-top: 1px
+
+#data
+p {
+  margin-top: 1px;
+  margin-top: invalid !important;
+}
+#errors
+;3;15;m;CSS syntax error;'margin-top'
+#cssom
+| <p>
+|   margin-top: 1px
+
+
+
+

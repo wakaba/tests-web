@@ -1,0 +1,333 @@
+#data
+p {
+  caption-side: left
+}
+#cssom
+| <p>
+|   caption-side: left
+
+#data
+p {
+  caption-side: right
+}
+#cssom
+| <p>
+|   caption-side: right
+
+#data
+p {
+  border-collapse  : collapse;
+}
+#cssom
+| <p>
+|   border-collapse: collapse
+#csstext
+p {
+  border-collapse: collapse;
+}
+
+#data
+p {
+  border-collapse: separate;
+}
+#cssom
+| <p>
+|   border-collapse: separate
+#csstext
+p {
+  border-collapse: separate;
+}
+
+#data
+p {
+  border-collapse: inherit;
+}
+#cssom
+| <p>
+|   border-collapse: inherit
+#csstext
+p {
+  border-collapse: inherit;
+}
+
+#data
+p {
+  border-collapse: collapase;
+}
+#errors
+;2;20;m;CSS syntax error;'border-collapse'
+#cssom
+| <p>
+
+#data
+p {
+  border-collapse: separated;
+}
+#errors
+;2;20;m;CSS syntax error;'border-collapse'
+#cssom
+| <p>
+
+#data
+p {
+  border-collapse: cllapase;
+}
+#errors
+;2;20;m;CSS syntax error;'border-collapse'
+#cssom
+| <p>
+
+#data
+p {
+  border-collapase: collapse;
+}
+#errors
+;2;3;u;unknown property
+#cssom
+| <p>
+
+#data
+p {
+  border-spacing: 12px;
+}
+#cssom
+| <p>
+|   -manakai-border-spacing-x: 12px
+|   -manakai-border-spacing-y: 12px
+|   border-spacing: 12px
+#csstext
+p {
+  border-spacing: 12px;
+}
+
+#data
+p {
+  border-spacing: 12px 34px;
+}
+#cssom
+| <p>
+|   -manakai-border-spacing-x: 12px
+|   -manakai-border-spacing-y: 34px
+|   border-spacing: 12px 34px
+#csstext
+p {
+  border-spacing: 12px 34px;
+}
+
+#data
+p {
+  border-spacing: +12px;
+}
+#cssom
+| <p>
+|   -manakai-border-spacing-x: 12px
+|   -manakai-border-spacing-y: 12px
+|   border-spacing: 12px
+#csstext
+p {
+  border-spacing: 12px;
+}
+
+#data
+p {
+  border-spacing: 12px +34px;
+}
+#cssom
+| <p>
+|   -manakai-border-spacing-x: 12px
+|   -manakai-border-spacing-y: 34px
+|   border-spacing: 12px 34px
+#csstext
+p {
+  border-spacing: 12px 34px;
+}
+
+#data
+p {
+  border-spacing: 12;
+}
+#errors
+;2;19;m;CSS syntax error;'border-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  border-spacing: 12;
+}
+#option q
+#cssom
+| <p>
+|   -manakai-border-spacing-x: 12px
+|   -manakai-border-spacing-y: 12px
+|   border-spacing: 12px
+
+#data
+p {
+  border-spacing: -12;
+}
+#errors
+;2;20;m;CSS syntax error;'border-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  border-spacing: -12;
+}
+#option q
+#errors
+;2;20;m;CSS syntax error;'border-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  border-spacing: 12px 34;
+}
+#errors
+;2;24;m;no property semicolon
+#cssom
+| <p>
+
+#data
+p {
+  border-spacing: 12px 34;
+}
+#option q
+#cssom
+| <p>
+|   -manakai-border-spacing-x: 12px
+|   -manakai-border-spacing-y: 34px
+|   border-spacing: 12px 34px
+
+#data
+p {
+  border-spacing: 12px -34;
+}
+#errors
+;2;25;m;CSS syntax error;'border-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  border-spacing: 12px -34;
+}
+#option q
+#errors
+;2;25;m;CSS syntax error;'border-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  border-spacing: -12px;
+}
+#errors
+;2;20;m;CSS syntax error;'border-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  border-spacing: 12px -34px;
+}
+#errors
+;2;25;m;CSS syntax error;'border-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  border-spacing: inherit;
+}
+#cssom
+| <p>
+|   -manakai-border-spacing-x: inherit
+|   -manakai-border-spacing-y: inherit
+|   border-spacing: inherit
+#csstext
+p {
+  border-spacing: inherit;
+}
+
+#data
+p {
+  border-spacing: +inherit;
+}
+#errors
+;2;20;m;CSS syntax error;'border-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  border-spacing: inherit inherit;
+}
+#errors
+;2;27;m;no property semicolon
+#cssom
+| <p>
+
+#data
+p {
+  -manakai-border-spacing-x: inherit;
+  -manakai-border-spacing-y: 23px;
+}
+#cssom
+| <p>
+|   -manakai-border-spacing-x: inherit
+|   -manakai-border-spacing-y: 23px
+#csstext
+p {
+  -manakai-border-spacing-x: inherit;
+  -manakai-border-spacing-y: 23px;
+}
+
+#data
+p {
+  -manakai-border-spacing-y: inherit;
+  -manakai-border-spacing-x: 23px;
+}
+#cssom
+| <p>
+|   -manakai-border-spacing-x: 23px
+|   -manakai-border-spacing-y: inherit
+#csstext
+p {
+  -manakai-border-spacing-x: 23px;
+  -manakai-border-spacing-y: inherit;
+}
+
+#data
+p {
+  -manakai-border-spacing-x: 23px !important;
+  -manakai-border-spacing-y: 23px;
+}
+#cssom
+| <p>
+|   -manakai-border-spacing-x: 23px !important
+|   -manakai-border-spacing-y: 23px
+#csstext
+p {
+  -manakai-border-spacing-x: 23px ! important;
+  -manakai-border-spacing-y: 23px;
+}
+
+#data
+p {
+  -manakai-border-spacing-x: inherit ! important;
+  -manakai-border-spacing-y: inherit ! important;
+}
+#cssom
+| <p>
+|   -manakai-border-spacing-x: inherit !important
+|   -manakai-border-spacing-y: inherit !important
+|   border-spacing: inherit !important
+#csstext
+p {
+  border-spacing: inherit ! important;
+}
+
+
