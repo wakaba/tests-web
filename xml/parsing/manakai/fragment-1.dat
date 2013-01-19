@@ -32,7 +32,25 @@ div
 #errors
 #document
 | <{} foo>
-|   xmlns=""
+|   xmlns xmlns=""
+
+#data
+<foo xmlns:hoge=""/>
+#document-fragment
+div
+#errors
+#document
+| <foo>
+|   xmlns hoge=""
+
+#data
+<foo xml:lang="abc"/>
+#document-fragment
+div
+#errors
+#document
+| <foo>
+|   xml lang="abc"
 
 #data
 <hoge/>

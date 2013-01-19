@@ -1,0 +1,483 @@
+#html 1
+<!DOCTYPE HTML><p>
+
+#data
+p {
+  color: rgb(1, 2, 3);
+}
+#cssom
+| <p>
+|   color: rgb(1, 2, 3)
+#csstext
+p {
+  color: rgb(1, 2, 3);
+}
+
+#data
+p {
+  color: rgb(1, 2, +3);
+}
+#cssom
+| <p>
+|   color: rgb(1, 2, 3)
+
+#data
+p {
+  color: rgb(1, +2, 3);
+}
+#cssom
+| <p>
+|   color: rgb(1, 2, 3)
+
+#data
+p {
+  color: rgb(+1, 2, 3);
+}
+#cssom
+| <p>
+|   color: rgb(1, 2, 3)
+
+#data
+p {
+  color: rgb(-1, -2, -3);
+}
+#cssom
+| <p>
+|   color: rgb(0, 0, 0)
+
+#data
+p {
+  color: hsl(1, 2%, 3%);
+}
+#cssom
+| <p>
+|   color: rgb(7.803, 7.5021, 7.497)
+
+#data
+p {
+  color: hsl(+1, +2%, +3%);
+}
+#cssom
+| <p>
+|   color: rgb(7.803, 7.5021, 7.497)
+
+#data
+p {
+  color: hsl(-1, -2%, -3%);
+}
+#cssom
+| <p>
+|   color: rgb(0, 0, 0)
+
+#data
+p {
+  text-indent: 12px
+}
+#cssom
+| <p>
+|   text-indent: 12px
+
+#data
+p {
+  text-indent: +12px
+}
+#cssom
+| <p>
+|   text-indent: 12px
+
+#data
+p {
+  text-indent: -12px
+}
+#cssom
+| <p>
+|   text-indent: -12px
+
+#data
+p {
+  letter-spacing: 12px
+}
+#cssom
+| <p>
+|   letter-spacing: 12px
+
+#data
+p {
+  letter-spacing: +12px
+}
+#cssom
+| <p>
+|   letter-spacing: 12px
+
+#data
+p {
+  letter-spacing: -12px
+}
+#cssom
+| <p>
+|   letter-spacing: -12px
+
+#data
+p {
+  letter-spacing: 12
+}
+#errors
+;2;19;m;CSS syntax error;'letter-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  letter-spacing: 12
+}
+#option q
+#cssom
+| <p>
+|   letter-spacing: 12px
+
+#data
+p {
+  letter-spacing: +12
+}
+#errors
+;2;20;m;CSS syntax error;'letter-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  letter-spacing: +12
+}
+#option q
+#cssom
+| <p>
+|   letter-spacing: 12px
+
+#data
+p {
+  letter-spacing: -12
+}
+#errors
+;2;20;m;CSS syntax error;'letter-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  letter-spacing: -12
+}
+#option q
+#cssom
+| <p>
+|   letter-spacing: -12px
+
+#data
+p {
+  letter-spacing: normal
+}
+#cssom
+| <p>
+|   letter-spacing: normal
+
+#data
+p {
+  letter-spacing: +normal
+}
+#errors
+;2;20;m;CSS syntax error;'letter-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  letter-spacing: inherit
+}
+#cssom
+| <p>
+|   letter-spacing: inherit
+
+#data
+p {
+  letter-spacing: +inherit
+}
+#errors
+;2;20;m;CSS syntax error;'letter-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  word-spacing: 12px
+}
+#cssom
+| <p>
+|   word-spacing: 12px
+
+#data
+p {
+  word-spacing: +12px
+}
+#cssom
+| <p>
+|   word-spacing: 12px
+
+#data
+p {
+  word-spacing: -12px
+}
+#cssom
+| <p>
+|   word-spacing: -12px
+
+#data
+p {
+  word-spacing: 12
+}
+#errors
+;2;17;m;CSS syntax error;'word-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  word-spacing: 12
+}
+#option q
+#cssom
+| <p>
+|   word-spacing: 12px
+
+#data
+p {
+  word-spacing: +12
+}
+#errors
+;2;18;m;CSS syntax error;'word-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  word-spacing: +12
+}
+#option q
+#cssom
+| <p>
+|   word-spacing: 12px
+
+#data
+p {
+  word-spacing: -12
+}
+#errors
+;2;18;m;CSS syntax error;'word-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  word-spacing: -12
+}
+#option q
+#cssom
+| <p>
+|   word-spacing: -12px
+
+#data
+p {
+  word-spacing: normal
+}
+#cssom
+| <p>
+|   word-spacing: normal
+
+#data
+p {
+  word-spacing: +normal
+}
+#errors
+;2;18;m;CSS syntax error;'word-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  word-spacing: inherit
+}
+#cssom
+| <p>
+|   word-spacing: inherit
+
+#data
+p {
+  word-spacing: +inherit
+}
+#errors
+;2;18;m;CSS syntax error;'word-spacing'
+#cssom
+| <p>
+
+#data
+p {
+  white-space: -moz-pre-wrap;
+}
+#cssom
+| <p>
+|   white-space: pre-wrap
+#csstext
+p {
+  white-space: pre-wrap;
+}
+
+#data
+p {
+  white-space: -O-pre-wrap;
+}
+#cssom
+| <p>
+|   white-space: pre-wrap
+#csstext
+p {
+  white-space: pre-wrap;
+}
+
+#data
+p {
+  writing-mode: lr-tb;
+}
+#cssom
+| <p>
+|   writing-mode: lr-tb
+#csstext
+p {
+  writing-mode: lr-tb;
+}
+#computed 1 p
+
+#data
+p {
+  writing-mode: rl-tb;
+}
+#cssom
+| <p>
+|   writing-mode: rl-tb
+#computed 1 p
+-| writing-mode: lr-tb
++| writing-mode: rl-tb
+
+#data
+p {
+  writing-mode: tb-rl;
+}
+#cssom
+| <p>
+|   writing-mode: tb-rl
+#computed 1 p
+-| writing-mode: lr-tb
++| writing-mode: tb-rl
+
+#data
+p {
+ writing-mode: lr;
+}
+#cssom
+| <p>
+|   writing-mode: lr
+#computed 1 p
+
+#data
+p {
+  writing-mode: rl;
+}
+#cssom
+| <p>
+|   writing-mode: rl
+#computed 1 p
+-| writing-mode: lr-tb
++| writing-mode: rl-tb
+
+#data
+p {
+  writing-mode: tb
+}
+#cssom
+| <p>
+|   writing-mode: tb
+#computed 1 p
+-| writing-mode: lr-tb
++| writing-mode: tb-rl
+
+#data
+p {
+  writing-mode: inherit
+}
+#cssom
+| <p>
+|   writing-mode: inherit
+#computed 1 p
+
+#data
+p {
+  text-anchor: start;
+}
+#cssom
+| <p>
+|   text-anchor: start
+#csstext
+p {
+  text-anchor: start;
+}
+#computed 1 p
+
+#data
+p {
+  text-anchor: middle;
+}
+#cssom
+| <p>
+|   text-anchor: middle
+#computed 1 p
+-| text-anchor: start
++| text-anchor: middle
+
+#data
+p {
+  text-anchor: end
+}
+#cssom
+| <p>
+|   text-anchor: end
+#computed 1 p
+-| text-anchor: start
++| text-anchor: end
+
+#data
+p {
+  text-anchor: inherit
+}
+#cssom
+| <p>
+|   text-anchor: inherit
+#computed 1 p
+
+#data
+p {
+  text-anchor: begin;
+}
+#errors
+;2;16;m;CSS syntax error;'text-anchor'
+#cssom
+| <p>
+
+#data
+p {
+  text-amchor: start;
+}
+#errors
+;2;3;u;unknown property
+#cssom
+| <p>
+
+
+
+

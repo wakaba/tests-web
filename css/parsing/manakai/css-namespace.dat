@@ -1,0 +1,1060 @@
+#xml nullns
+<o>
+  <x/>
+</o>
+
+#xml ns1
+<o>
+  <x xmlns="http://ns1/"/>
+</o>
+
+#xml ns2
+<o>
+  <x xmlns="http://ns2/"/>
+</o>
+
+#data
+@namespace
+a {}
+#errors
+;2;3;m;at-rule syntax error;namespace
+#cssom
+
+#data
+@namespace;
+a{}
+#errors
+;1;11;m;at-rule syntax error;namespace
+#cssom
+<a>
+
+#data
+  @namespace;
+a{}
+#errors
+;1;13;m;at-rule syntax error;namespace
+#cssom
+<a>
+
+#data escaped
+\u000A@namespace;
+a{}
+#errors
+;2;11;m;at-rule syntax error;namespace
+#cssom
+<a>
+
+#data
+@namespace
+;
+a{}
+#errors
+;2;1;m;at-rule syntax error;namespace
+#cssom
+<a>
+
+#data escaped
+@namespace \u0009;
+a{}
+#errors
+;1;13;m;at-rule syntax error;namespace
+#cssom
+<a>
+
+#data
+@namespace "";
+a{}
+#errors
+#cssom
+@namespace <>
+<|a>
+
+#data
+@namespace "abc";
+a{}
+#errors
+#cssom
+@namespace <abc>
+<a>
+
+#data
+@namespace " xyz \000A";
+a{}
+#errors
+#cssom escaped
+@namespace < xyz \u000A>
+<a>
+
+#data
+@namespace url();
+a{}
+#errors
+#cssom
+@namespace <>
+<|a>
+
+#data
+@namespace url( );
+a{}
+#errors
+#cssom
+@namespace <>
+<|a>
+
+#data
+@namespace url( abc );
+a{}
+#errors
+#cssom
+@namespace <abc>
+<a>
+
+#data escaped
+@namespace url( "ha aer  fae\u0009");
+a{}
+#errors
+#cssom escaped
+@namespace <ha aer  fae\u0009>
+<a>
+
+#data
+@namespace url( )
+a{}
+#errors
+;2;1;m;at-rule syntax error;namespace
+#cssom
+
+#data
+@namespace "abc"
+a{}
+#errors
+;2;1;m;at-rule syntax error;namespace
+#cssom
+
+#data
+@namespace 'abc';
+a{}
+#errors
+#cssom
+@namespace <abc>
+<a>
+
+#data
+@namespace abc;
+a{}
+#errors
+;1;15;m;at-rule syntax error;namespace
+#cssom
+<a>
+
+#data
+@namespace abc ;
+a{}
+#errors
+;1;16;m;at-rule syntax error;namespace
+#cssom
+<a>
+
+#data
+@namespace abc "";
+a{}
+#errors
+#cssom
+@namespace abc: <>
+<*|a>
+
+#data
+@namespace abc "def";
+a{}
+#errors
+#cssom
+@namespace abc: <def>
+<*|a>
+
+#data
+@namespace abc url(x);
+a{}
+#errors
+#cssom
+@namespace abc: <x>
+<*|a>
+
+#data
+@namespace abc "a" b;
+a{}
+#errors
+;1;20;m;at-rule syntax error;namespace
+#cssom
+<a>
+
+#data
+@namespace "b" "a";
+a{}
+#errors
+;1;16;m;at-rule syntax error;namespace
+#cssom
+<a>
+
+#data
+@namespace a "b";@namespace "c";a{}
+#errors
+#cssom
+@namespace a: <b>
+@namespace <c>
+<a>
+
+#data
+@namespace 123 "abc";
+a {}
+#errors
+;1;12;m;at-rule syntax error;namespace
+#cssom
+<a>
+
+#data
+@namespace {
+  a {}
+}
+b{}
+#errors
+;1;12;m;at-rule syntax error;namespace
+#cssom
+<b>
+
+#data
+@namespace zyz {
+  a {}
+}
+b{}
+#errors
+;1;16;m;at-rule syntax error;namespace
+#cssom
+<b>
+
+#data
+@namespace zyz {
+  a {}
+};
+b{}
+#errors
+;1;16;m;at-rule syntax error;namespace
+;3;2;m;no sss
+#cssom
+
+#data
+x|y {}
+#errors
+;1;1;m;namespace prefix:not declared
+#cssom
+
+#data
+xYz|y {}
+#errors
+;1;1;m;namespace prefix:not declared
+#cssom
+
+#data
+x|* {}
+#errors
+;1;1;m;namespace prefix:not declared
+#cssom
+
+#data
+xYz|* {}
+#errors
+;1;1;m;namespace prefix:not declared
+#cssom
+
+#data
+[x|y] {}
+#errors
+;1;2;m;namespace prefix:not declared
+#cssom
+
+#data
+[xYz|y] {}
+#errors
+;1;2;m;namespace prefix:not declared
+#cssom
+
+#data
+p {
+  content: attr(x|y);
+}
+#errors
+;2;17;m;namespace prefix:not declared
+#cssom
+| <p>
+
+#data
+p {
+  content: attr(xYz|y);
+}
+#errors
+;2;17;m;namespace prefix:not declared
+#cssom
+| <p>
+
+#data
+@namespace x 'about:';
+x|y {}
+#cssom
+| @namespace x: <about:>
+| <x|y>
+#csstext
+@namespace x url(about:);
+x|y {
+}
+
+#data
+@namespace X 'about:';
+X|y {}
+#cssom
+| @namespace X: <about:>
+| <X|y>
+#csstext
+@namespace X url(about:);
+X|y {
+}
+
+#data
+@namespace x 'about:';
+@namespace X 'opera:';
+x|y {}
+#cssom
+| @namespace x: <about:>
+| @namespace X: <opera:>
+| <x|y>
+#csstext
+@namespace x url(about:);
+@namespace X url(opera:);
+x|y {
+}
+
+#data
+@namespace x 'about:';
+@namespace X 'opera:';
+x|y {}
+X|y {}
+#cssom
+| @namespace x: <about:>
+| @namespace X: <opera:>
+| <x|y>
+| <X|y>
+#csstext
+@namespace x url(about:);
+@namespace X url(opera:);
+x|y {
+}
+X|y {
+}
+
+#data
+| x { color : blue; border-color: -manakai-default }
+#cssom
+| <x>
+|   border-bottom-color: -manakai-default
+|   border-color: -manakai-default
+|   border-left-color: -manakai-default
+|   border-right-color: -manakai-default
+|   border-top-color: -manakai-default
+|   color: blue
+#csstext
+| x {
+|   border-color: -manakai-default;
+|   color: blue;
+| }
+#computed nullns x
+-color: -manakai-default
++color: rgb(0, 0, 255)
+
+#data
+| |x { color : blue; border-color: -manakai-default }
+#cssom
+| <|x>
+|   border-bottom-color: -manakai-default
+|   border-color: -manakai-default
+|   border-left-color: -manakai-default
+|   border-right-color: -manakai-default
+|   border-top-color: -manakai-default
+|   color: blue
+#csstext
+| |x {
+|   border-color: -manakai-default;
+|   color: blue;
+| }
+#computed nullns x
+-color: -manakai-default
++color: rgb(0, 0, 255)
+
+#data
+@namespace '';
+x { color : blue; border-color: -manakai-default }
+#cssom
+| @namespace <>
+| <|x>
+|   border-bottom-color: -manakai-default
+|   border-color: -manakai-default
+|   border-left-color: -manakai-default
+|   border-right-color: -manakai-default
+|   border-top-color: -manakai-default
+|   color: blue
+#csstext
+@namespace url();
+| |x {
+|   border-color: -manakai-default;
+|   color: blue;
+| }
+#computed nullns x
+-color: -manakai-default
++color: rgb(0, 0, 255)
+
+#data
+@namespace url();
+x { color : blue; border-color: -manakai-default }
+#cssom
+| @namespace <>
+| <|x>
+|   border-bottom-color: -manakai-default
+|   border-color: -manakai-default
+|   border-left-color: -manakai-default
+|   border-right-color: -manakai-default
+|   border-top-color: -manakai-default
+|   color: blue
+#csstext
+@namespace url();
+| |x {
+|   border-color: -manakai-default;
+|   color: blue;
+| }
+#computed nullns x
+-color: -manakai-default
++color: rgb(0, 0, 255)
+
+#data
+@namespace '';
+x { color : blue; border-color: -manakai-default }
+#computed ns1 x
+
+#data
+| @namespace 'http://ns1/';
+| @namespace '';
+| x { color : blue; border-color: -manakai-default }
+#errors
+;2;1;m;duplicate @namespace
+#cssom
+| @namespace <http://ns1/>
+| @namespace <>
+| <|x>
+|   border-bottom-color: -manakai-default
+|   border-color: -manakai-default
+|   border-left-color: -manakai-default
+|   border-right-color: -manakai-default
+|   border-top-color: -manakai-default
+|   color: blue
+#csstext
+| @namespace url(http://ns1/);
+| @namespace url();
+| |x {
+|   border-color: -manakai-default;
+|   color: blue;
+| }
+#computed nullns x
+-color: -manakai-default
++color: rgb(0, 0, 255)
+
+#data
+| @namespace 'http://ns1/';
+| @namespace '';
+| x { color : blue; border-color: -manakai-default }
+#errors
+;2;1;m;duplicate @namespace
+#computed ns1 x
+
+#data
+| @namespace '';
+| @namespace 'http://ns1/';
+| x { color : blue; border-color: -manakai-default }
+#errors
+;2;1;m;duplicate @namespace
+#cssom
+| @namespace <>
+| @namespace <http://ns1/>
+| <x>
+|   border-bottom-color: -manakai-default
+|   border-color: -manakai-default
+|   border-left-color: -manakai-default
+|   border-right-color: -manakai-default
+|   border-top-color: -manakai-default
+|   color: blue
+#csstext
+| @namespace url();
+| @namespace url(http://ns1/);
+| x {
+|   border-color: -manakai-default;
+|   color: blue;
+| }
+#computed ns1 x
+-color: -manakai-default
++color: rgb(0, 0, 255)
+
+#data
+| @namespace '';
+| @namespace 'http://ns1/';
+| x { color : blue; border-color: -manakai-default }
+#errors
+;2;1;m;duplicate @namespace
+#computed nullns x
+
+#data
+@namespace hoge '';
+hoge|x { color : blue; border-color: -manakai-default }
+#cssom
+| @namespace hoge: <>
+| <|x>
+|   border-bottom-color: -manakai-default
+|   border-color: -manakai-default
+|   border-left-color: -manakai-default
+|   border-right-color: -manakai-default
+|   border-top-color: -manakai-default
+|   color: blue
+#csstext
+@namespace hoge url();
+| |x {
+|   border-color: -manakai-default;
+|   color: blue;
+| }
+#computed nullns x
+-color: -manakai-default
++color: rgb(0, 0, 255)
+
+#data
+@namespace hoge url();
+hoge|x { color : blue; border-color: -manakai-default }
+#cssom
+| @namespace hoge: <>
+| <|x>
+|   border-bottom-color: -manakai-default
+|   border-color: -manakai-default
+|   border-left-color: -manakai-default
+|   border-right-color: -manakai-default
+|   border-top-color: -manakai-default
+|   color: blue
+#csstext
+@namespace hoge url();
+| |x {
+|   border-color: -manakai-default;
+|   color: blue;
+| }
+#computed nullns x
+-color: -manakai-default
++color: rgb(0, 0, 255)
+
+#data
+@namespace hoge '';
+hoge|x { color : blue; border-color: -manakai-default }
+#computed ns1 x
+
+#data
+| @namespace hoge 'http://ns1/';
+| @namespace hoge '';
+| hoge|x { color : blue; border-color: -manakai-default }
+#errors
+;2;1;m;duplicate @namespace
+#cssom
+| @namespace hoge: <http://ns1/>
+| @namespace hoge: <>
+| <|x>
+|   border-bottom-color: -manakai-default
+|   border-color: -manakai-default
+|   border-left-color: -manakai-default
+|   border-right-color: -manakai-default
+|   border-top-color: -manakai-default
+|   color: blue
+#csstext
+| @namespace hoge url(http://ns1/);
+| @namespace hoge url();
+| |x {
+|   border-color: -manakai-default;
+|   color: blue;
+| }
+#computed nullns x
+-color: -manakai-default
++color: rgb(0, 0, 255)
+
+#data
+| @namespace hoge 'http://ns1/';
+| @namespace hoge '';
+| hoge|x { color : blue; border-color: -manakai-default }
+#errors
+;2;1;m;duplicate @namespace
+#computed ns1 x
+
+#data
+| @namespace hoge '';
+| @namespace hoge 'http://ns1/';
+| hoge|x { color : blue; border-color: -manakai-default }
+#errors
+;2;1;m;duplicate @namespace
+#cssom
+| @namespace hoge: <>
+| @namespace hoge: <http://ns1/>
+| <hoge|x>
+|   border-bottom-color: -manakai-default
+|   border-color: -manakai-default
+|   border-left-color: -manakai-default
+|   border-right-color: -manakai-default
+|   border-top-color: -manakai-default
+|   color: blue
+#csstext
+| @namespace hoge url();
+| @namespace hoge url(http://ns1/);
+| hoge|x {
+|   border-color: -manakai-default;
+|   color: blue;
+| }
+#computed ns1 x
+-color: -manakai-default
++color: rgb(0, 0, 255)
+
+#data
+| @namespace hoge '';
+| @namespace hoge 'http://ns1/';
+| hoge|x { color : blue; border-color: -manakai-default }
+#errors
+;2;1;m;duplicate @namespace
+#computed nullns x
+
+#data
+| @namespace hoge '';
+| hoge|* { color : blue; border-color: -manakai-default }
+#computed nullns x
+-color: -manakai-default
++color: rgb(0, 0, 255)
+
+#xml nullnsattr
+<o>
+  <x y=""/>
+</o>
+
+#xml ns1attr
+<o xmlns:ns1="http://ns1/">
+  <x ns1:y=""/>
+</o>
+
+#data
+| @namespace hoge '';
+| [hoge|y] { color : blue; border-color: -manakai-default }
+#cssom
+| @namespace hoge: <>
+| <[y]>
+|   border-bottom-color: -manakai-default
+|   border-color: -manakai-default
+|   border-left-color: -manakai-default
+|   border-right-color: -manakai-default
+|   border-top-color: -manakai-default
+|   color: blue
+#csstext
+| @namespace hoge url();
+| [y] {
+|   border-color: -manakai-default;
+|   color: blue;
+| }
+#computed nullnsattr x
+-color: -manakai-default
++color: rgb(0, 0, 255)
+
+#data
+| @namespace hoge '';
+| [hoge|y] { color : blue; border-color: -manakai-default }
+#computed ns1attr x
+
+#data
+@namespace abc;
+abc|def { }
+a{}
+#errors
+;1;15;m;at-rule syntax error;namespace
+;2;1;m;namespace prefix:not declared
+#cssom
+<a>
+
+#data
+@namespace url(
+a{}
+b{}
+#errors
+;1;12;m;at-rule syntax error;namespace
+#cssom
+
+#data
+@NAMESPACE hoge "a";
+a{}
+#errors
+#cssom
+@namespace hoge: <a>
+<*|a>
+
+#data
+@NAMeSPAcE hoge "a";
+a{}
+#errors
+#cssom
+@namespace hoge: <a>
+<*|a>
+
+#data
+@NAM\0045SPACE hoge "a";
+a{}
+#errors
+#cssom
+@namespace hoge: <a>
+<*|a>
+
+#data
+@NAMESPAC\45  hoge "a";
+a{}
+#errors
+#cssom
+@namespace hoge: <a>
+<*|a>
+
+#data
+@NAMESPAC\45 hoge "a";
+a{}
+#errors
+;1;1;u;unknown at-rule
+#cssom
+<a>
+
+#data
+@namespace \63 "abc";
+c|d{}
+#errors
+#cssom
+@namespace c: <abc>
+<c|d>
+
+#data
+@namespace hoge "\0049";
+#errors
+#cssom
+@namespace hoge: <I>
+
+#data
+@namespace hoge url("\0049");
+#errors
+#cssom
+@namespace hoge: <I>
+
+#data
+@namespace hoge UrL("\0049");
+#errors
+#cssom
+@namespace hoge: <I>
+
+#data
+@namespace hoge \75 rl("\0049");
+#errors
+#cssom
+@namespace hoge: <I>
+
+#data
+@namespace hoge /**/\75 rl("\0049");
+#errors
+#cssom
+@namespace hoge: <I>
+
+#data
+@namespace/**/hoge"foo";
+#errors
+#cssom
+@namespace hoge: <foo>
+
+#data
+@namespace url/**/(foo);
+a{}
+#errors
+;1;19;m;at-rule syntax error;namespace
+#cssom
+<a>
+
+#data
+@namespace/**/url(aa)/**/;
+#errors
+#cssom
+@namespace <aa>
+
+#data
+@charset 'utf-8';
+@import 'foo';
+@namespace 'hoge';
+@media screen {
+  a{}
+}
+#errors
+#cssom
+@charset utf-8
+@import <foo> 
+@namespace <hoge>
+@media screen
+  <a>
+
+#data
+@charset 'utf-8';
+@namespace 'hoge';
+@import 'foo';
+@media screen {
+  a{}
+}
+#errors
+;3;1;m;at-rule not allowed;import
+#cssom
+@charset utf-8
+@namespace <hoge>
+@media screen
+  <a>
+
+#data
+@namespace 'hoge';
+@charset 'utf-8';
+@import 'foo';
+@media screen {
+  a{}
+}
+#errors
+;2;1;m;at-rule not allowed;charset
+;3;1;m;at-rule not allowed;import
+#cssom
+@namespace <hoge>
+@media screen
+  <a>
+
+#data
+@charset 'utf-8';
+@import 'foo';
+@media screen {
+  a{}
+}
+@namespace 'hoge';
+b{}
+#errors
+;6;18;m;at-rule not allowed;namespace
+#cssom escaped
+@charset utf-8
+@import <foo>\u0020
+@media screen
+  <a>
+<b>
+
+#data
+@charset 'utf-8';
+@import 'foo';
+@media screen {
+@namespace 'hoge';
+  a{}
+}
+b{}
+#errors
+;4;18;m;at-rule not allowed;namespace
+#cssom escaped
+@charset utf-8
+@import <foo>\u0020
+@media screen
+  <a>
+<b>
+
+#data
+@charset 'utf-8';
+@import 'foo';
+@media screen {
+  a{}
+}
+@namespace 'hoge';
+b{}
+#errors
+;6;18;m;at-rule not allowed;namespace
+#cssom escaped
+@charset utf-8
+@import <foo>\u0020
+@media screen
+  <a>
+<b>
+
+#data
+<!--@namespace 'hoge';-->
+a{}
+#errors
+#cssom
+@namespace <hoge>
+<a>
+
+#data
+<!--@namespace 'hoge'-->
+a{}
+#errors
+;1;22;m;at-rule syntax error;namespace
+#cssom
+
+#data
+a|b{}
+@namespace a "hoge";
+a|c{}
+#errors
+;1;1;m;namespace prefix:not declared
+;2;20;m;at-rule not allowed;namespace
+;3;1;m;namespace prefix:not declared
+#cssom
+
+#data
+@namespace aBc 'http://ns1/';
+@namespace abc 'http://ns2/';
+abc|x { color : blue; border-color: -manakai-default }
+#computed ns1 x
+
+#data
+@namespace aBc 'http://ns1/';
+@namespace abc 'http://ns2/';
+aBc|x { color : blue; border-color: -manakai-default }
+#computed ns1 x
+-color: -manakai-default
++color: rgb(0, 0, 255)
+
+#data
+@namespace aBc 'http://ns1/';
+abc|x { color : blue; border-color: -manakai-default }
+#errors
+;2;1;m;namespace prefix:not declared
+#cssom
+@namespace aBc: <http://ns1/>
+
+#data
+@namespace aBc 'http://ns1/';
+@namespace abc 'http://ns2/';
+aBc|o abc|x {  }
+#errors
+#cssom
+@namespace aBc: <http://ns1/>
+@namespace abc: <http://ns2/>
+<aBc|o abc|x>
+
+#data
+@namespace hoge 'h';
+@namespace 'h';
+p {
+  content:attr(hoge|fuga);
+}
+#errors
+#cssom
+@namespace hoge: <h>
+@namespace <h>
+<hoge|p>
+  content: attr(hoge|fuga)
+
+#data
+@namespace hoge 'h';
+@namespace fuga 'h';
+p {
+  content:attr(hoge|fuga);
+}
+#errors
+#cssom
+@namespace hoge: <h>
+@namespace fuga: <h>
+<*|p>
+  content: attr(hoge|fuga)
+
+#data
+@namespace fuga 'h';
+@namespace hoge 'h';
+p {
+  content:attr(hoge|fuga);
+}
+#errors
+#cssom
+@namespace fuga: <h>
+@namespace hoge: <h>
+<*|p>
+  content: attr(fuga|fuga)
+
+#data
+@namespace 'h';
+@namespace hoge 'h';
+p {
+  content:attr(hoge|fuga);
+}
+#errors
+#cssom
+@namespace <h>
+@namespace hoge: <h>
+<p>
+  content: attr(hoge|fuga)
+
+#data
+p {
+  content:attr(hoge|fuga);
+}
+#errors
+;2;16;m;namespace prefix:not declared
+#cssom
+<p>
+
+#data
+@namespace foo '';
+p {
+  content:attr(foo|bar);
+}
+#errors
+#cssom
+@namespace foo: <>
+<*|p>
+  content: attr(bar)
+
+#data
+@namespace foo 'hoge';
+p {
+  content:attr(foo|bar);
+}
+#errors
+#cssom
+@namespace foo: <hoge>
+<*|p>
+  content: attr(foo|bar)
+
+#data
+p {
+  content:attr(bar);
+}
+#errors
+#cssom
+<p>
+  content: attr(bar)
+
+#data
+p {
+  content:attr(|bar);
+}
+#errors
+#cssom
+<p>
+  content: attr(bar)
+
+#data
+p {
+  content:attr(*|bar);
+}
+#errors
+;2;16;m;CSS syntax error;'content'
+#cssom
+<p>
+
+#data
+@namespace 'hoge';
+p {
+  content: attr(hoge);
+}
+#errors
+#cssom
+@namespace <hoge>
+<p>
+  content: attr(hoge)

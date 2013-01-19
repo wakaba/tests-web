@@ -1,0 +1,2940 @@
+
+#data
+:link
+#supported
+:link
+#parsed
+:link
+
+#data
+:lINk
+#supported
+:link
+#parsed
+:link
+
+#data
+:l\0130nk
+#supported
+:link
+#errors escaped
+1;2;selectors:pseudo-class:ident:unknown;;l\u0130nk;m
+
+#data
+:l\0131nk
+#supported
+:link
+#errors escaped
+1;2;selectors:pseudo-class:ident:unknown;;l\u0131nk;m
+
+#data
+:link()
+#supported
+:link
+#errors
+1;2;selectors:pseudo-class:function:unknown;;link;m
+
+#data
+:not(:link)
+#supported
+:not
+:link
+#parsed
+:not
+  :link
+
+#data
+:visiTed
+#supported
+:visited
+#parsed
+:visited
+
+#data
+:not(:visited)
+#supported
+:not
+:visited
+#parsed
+:not
+  :visited
+
+#data
+:visited()
+#supported
+:visited
+#errors
+1;2;selectors:pseudo-class:function:unknown;;visited;m
+
+#data
+:/**/hover
+#supported
+:hover
+#parsed
+:hover
+
+#data
+:not(:hover)
+#supported
+:not
+:hover
+#parsed
+:not
+  :hover
+
+#data
+:hover()
+#supported
+:hover
+#errors
+1;2;selectors:pseudo-class:function:unknown;;hover;m
+
+#data
+:\41 ctive
+#supported
+:active
+#parsed
+:active
+
+#data
+:active()
+#supported
+:active
+#errors
+1;2;selectors:pseudo-class:function:unknown;;active;m
+
+#data
+:foc\u\s
+#supported
+:focus
+#parsed
+:focus
+
+#data
+:focus()
+#supported
+:focus
+#errors
+1;2;selectors:pseudo-class:function:unknown;;focus;m
+
+#data
+:target
+#supported
+:target
+#parsed
+:target
+
+#data
+:target(hoge)
+#supported
+:target
+#errors
+1;2;selectors:pseudo-class:function:unknown;;target;m
+
+#data
+:lang
+#supported
+:lang
+#errors
+1;2;selectors:pseudo-class:ident:unknown;;lang;m
+
+#data
+:lang(
+#supported
+:lang
+#errors
+1;7;no lang tag;;;m
+
+#data
+:lang()
+#supported
+:lang
+#errors
+1;7;no lang tag;;;m
+
+#data
+:lang(
+#supported
+#errors
+1;2;selectors:pseudo-class:function:not supported;;lang;w
+
+#data
+:lang() !!
+#supported
+#errors
+1;2;selectors:pseudo-class:function:not supported;;lang;w
+
+#data
+:lang(en)
+#supported
+:lang
+#parsed
+:lang
+  "en"
+
+#data
+:lang(EN)
+#supported
+:lang
+#parsed
+:lang
+  "EN"
+
+#data
+:lang(en)
+#supported
+#errors
+1;2;selectors:pseudo-class:function:not supported;;lang;w
+
+#data
+:lang(  en  )
+#supported
+:lang
+#parsed
+:lang
+  "en"
+
+#data
+:/**/lang(en)
+#supported
+:lang
+#parsed
+:lang
+  "en"
+
+#data
+:lang/**/(en)
+#supported
+:lang
+#errors
+1;2;selectors:pseudo-class:ident:unknown;;lang;m
+
+#data
+:lang\(en)
+#supported
+:lang
+#errors
+1;2;selectors:pseudo-class:ident:unknown;;lang(en;m
+
+#data
+:lang("en")
+#supported
+:lang
+#errors
+1;7;no lang tag;;;m
+
+#data
+:lang(/**/en/**/)
+#supported
+:lang
+#parsed
+:lang
+  "en"
+
+#data
+:lang((ja))
+#supported
+:lang
+#errors
+1;7;no lang tag;;;m
+#parsed
+
+#data
+:LANG(ja)
+#supported
+:lang
+#parsed
+:lang
+  "ja"
+
+#data
+:\lang(ja)
+#supported
+:lang
+#parsed
+:lang
+  "ja"
+
+#data
+:lang(en-fr)
+#supported
+:lang
+#parsed
+:lang
+  "en-fr"
+
+#data
+:lang(-foo)
+#supported
+:lang
+#parsed
+:lang
+  "-foo"
+
+#data
+:lang(\41)
+#supported
+:lang
+#parsed
+:lang
+  "A"
+
+#data
+:lang(ja jp)
+#supported
+:lang
+#errors
+1;10;selectors:pseudo:argument not closed;;;m
+
+#data
+:lang(ja/**/jp)
+#supported
+:lang
+#errors
+1;13;selectors:pseudo:argument not closed;;;m
+
+#data
+:enabled
+#supported
+:enabled
+#parsed
+:enabled
+
+#data
+:enabled()
+#supported
+:enabled
+#errors
+1;2;selectors:pseudo-class:function:unknown;;enabled;m
+
+#data
+:disabled
+#supported
+:disabled
+#parsed
+:disabled
+
+#data
+:disabled()
+#supported
+:disabled
+#errors
+1;2;selectors:pseudo-class:function:unknown;;disabled;m
+
+#data
+:checked
+#supported
+:checked
+#parsed
+:checked
+
+#data
+:checked()
+#supported
+:checked
+#errors
+1;2;selectors:pseudo-class:function:unknown;;checked;m
+
+#data
+:indeterminate
+#supported
+:indeterminate
+#parsed
+:indeterminate
+
+#data
+:indeterminate()
+#supported
+:indeterminate
+#errors
+1;2;selectors:pseudo-class:function:unknown;;indeterminate;m
+
+#data
+:root
+#supported
+:root
+#parsed
+:root
+
+#data
+:root()
+#supported
+:root
+#errors
+1;2;selectors:pseudo-class:function:unknown;;root;m
+
+#data
+:nth-child
+#supported
+:nth-child
+#errors
+1;2;selectors:pseudo-class:ident:unknown;;nth-child;m
+
+#data
+:nth-child(
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child()
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(abc)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(4)
+#supported
+#errors
+1;2;selectors:pseudo-class:function:not supported;;nth-child;w
+
+#data
+:nth-child(4)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "4"
+
+#data
+:nth-child(+4)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "4"
+
+#data
+:nth-child(-4)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "-4"
+
+#data
+:nth-child(/**/10/**/)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "10"
+
+#data
+:nth-child(  /**/  10  /**/  )
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "10"
+
+#data
+:nth-child(/**/+/**/10/**/)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "10"
+
+#data
+:nth-child(/**/-/**/10/**/)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "-10"
+
+#data
+:nth-child(+ 10)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(- 10)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(+)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(-)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(10.0)
+#supported
+:nth-child
+#errors
+1;12;an+b not integer;;10.0;m
+
+#data
+:nth-child(10.1)
+#supported
+:nth-child
+#errors
+1;12;an+b not integer;;10.1;m
+
+#data
+:nth-child(0001)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "1"
+
+#data
+:nth-child(-0001)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "-1"
+
+#data
+:nth-child(0)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "0"
+
+#data
+:nth-child(00000000)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "0"
+
+#data
+:nth-child(+0)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "0"
+
+#data
+:nth-child(-0)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "0"
+
+#data
+:nth-child(3n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "3"
+  "0"
+
+#data
+:nth-child(-3n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "-3"
+  "0"
+
+#data
+:nth-child(+3n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "3"
+  "0"
+
+#data
+:nth-child(0n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "0"
+
+#data
+:nth-child(+0n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "0"
+
+#data
+:nth-child(-0n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "0"
+
+#data
+:nth-child(+/**/3n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "3"
+  "0"
+
+#data
+:nth-child(-/**/3n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "-3"
+  "0"
+
+#data
+:nth-child(+ 3n)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(- 3n)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(10.2n)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(10.000n)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(+10.2n)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(+10.000n)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(-10.2n)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(-10.000n)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(+/**/10.2n)
+#supported
+:nth-child
+#errors
+1;17;an+b syntax error;;;m
+
+#data
+:nth-child(+/**/10.000n)
+#supported
+:nth-child
+#errors
+1;17;an+b syntax error;;;m
+
+#data
+:nth-child(-/**/10.2n)
+#supported
+:nth-child
+#errors
+1;17;an+b syntax error;;;m
+
+#data
+:nth-child(-/**/10.000n)
+#supported
+:nth-child
+#errors
+1;17;an+b syntax error;;;m
+
+#data
+:nth-child(000n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "0"
+
+#data
+:nth-child(+000n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "0"
+
+#data
+:nth-child(-000n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "0"
+  "0"
+
+#data
+:nth-child(10/**/n)
+#supported
+:nth-child
+#errors
+1;18;an+b not closed;;;m
+
+#data
+:nth-child(+10/**/n)
+#supported
+:nth-child
+#errors
+1;19;an+b not closed;;;m
+
+#data
+:nth-child(-10/**/n)
+#supported
+:nth-child
+#errors
+1;19;an+b not closed;;;m
+
+#data
+:nth-child(10N)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "10"
+  "0"
+
+#data
+:nth-child(+10N)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "10"
+  "0"
+
+#data
+:nth-child(-10N)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "-10"
+  "0"
+
+#data
+:nth-child(10\N)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "10"
+  "0"
+
+#data
+:nth-child(+10\N)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "10"
+  "0"
+
+#data
+:nth-child(-10\N)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "-10"
+  "0"
+
+#data
+:nth-child(10\4e)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "10"
+  "0"
+
+#data
+:nth-child(-10\4e)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "-10"
+  "0"
+
+#data
+:nth-child(-10/**/\4e)
+#supported
+:nth-child
+#errors
+1;19;an+b not closed;;;m
+
+#data
+:nth-child(n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "1"
+  "0"
+
+#data
+:nth-child(N)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "1"
+  "0"
+
+#data
+:nth-child(\N)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "1"
+  "0"
+
+#data
+:nth-child(\6e)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "1"
+  "0"
+
+#data
+:nth-child(+n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "1"
+  "0"
+
+#data
+:nth-child(-n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "-1"
+  "0"
+
+#data
+:nth-child(+/**/n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "1"
+  "0"
+
+#data
+:nth-child(-/**/n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "-1"
+  "0"
+
+#data
+:nth-child(+N)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "1"
+  "0"
+
+#data
+:nth-child(-N)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "-1"
+  "0"
+
+#data
+:nth-child(-\6e)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "-1"
+  "0"
+
+#data
+:nth-child(+ n)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(- n)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(nm)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(10nm)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(-nm)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(-10nm)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(\-n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "-1"
+  "0"
+
+#data
+:nth-child(\-\n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "-1"
+  "0"
+
+#data
+:nth-child(\+n)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(\+10n)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(\-10n)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(10\30n)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(-10\30n)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(+10\30n)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(+12n/**/)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "12"
+  "0"
+
+#data
+:nth-child(2n+)
+#supported
+:nth-child
+#errors
+1;15;an+b syntax error;;;m
+
+#data
+:nth-child(2n-)
+#supported
+:nth-child
+#errors
+1;15;an+b syntax error;;;m
+
+#data
+:nth-child(2n/**/+)
+#supported
+:nth-child
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:nth-child(2n/**/-)
+#supported
+:nth-child
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:nth-child(2n  +)
+#supported
+:nth-child
+#errors
+1;17;an+b syntax error;;;m
+
+#data
+:nth-child(2n  -)
+#supported
+:nth-child
+#errors
+1;17;an+b syntax error;;;m
+
+#data
+:nth-child(2n+1)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "1"
+
+#data
+:nth-child(2n+120)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "120"
+
+#data
+:nth-child(2n+000001)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "1"
+
+#data
+:nth-child(2n-1)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "-1"
+
+#data
+:nth-child(2n-00001)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "-1"
+
+#data
+:nth-child(2n-120)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "-120"
+
+#data
+:nth-child(2n+0)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "0"
+
+#data
+:nth-child(2n-0)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "0"
+
+#data
+:nth-child(2n/**/+1)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "1"
+
+#data
+:nth-child(2n/**/-1)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "-1"
+
+#data
+:nth-child(2n+/**/1)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "1"
+
+#data
+:nth-child(2n-/**/1)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "-1"
+
+#data
+:nth-child(2n+/**/+1)
+#supported
+:nth-child
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:nth-child(2n-/**/+1)
+#supported
+:nth-child
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:nth-child(2n+/**/+1)
+#supported
+:nth-child
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:nth-child(2n+/**/-1)
+#supported
+:nth-child
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:nth-child(2n-/**/+1)
+#supported
+:nth-child
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:nth-child(2n-/**/-1)
+#supported
+:nth-child
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:nth-child(2n+1.0)
+#supported
+:nth-child
+#errors
+1;15;an+b syntax error;;;m
+
+#data
+:nth-child(2n-1.0)
+#supported
+:nth-child
+#errors
+1;16;an+b not closed;;;m
+
+#data
+:nth-child(2n/**/+1.0)
+#supported
+:nth-child
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:nth-child(2n/**/-1.0)
+#supported
+:nth-child
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:nth-child(2n+/**/1.0)
+#supported
+:nth-child
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:nth-child(2n-/**/1.0)
+#supported
+:nth-child
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:nth-child(2n/**/-/**/ /**/ 1)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "-1"
+
+#data
+:nth-child(2n-/**/ /**/ 1)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "-1"
+
+#data
+:nth-child(4n +  1)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "4"
+  "1"
+
+#data
+:nth-child(4n - 1)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "4"
+  "-1"
+
+#data
+:nth-child(4n /**/ + /**/ 1)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "4"
+  "1"
+
+#data
+:nth-child(4n /**/ - /**/ 1)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "4"
+  "-1"
+
+#data
+:nth-child(4n /**/ + /**/ 1 /**/ )
+#supported
+:nth-child
+#parsed
+:nth-child
+  "4"
+  "1"
+
+#data
+:nth-child(4n /**/ + /**/ +1)
+#supported
+:nth-child
+#errors
+1;27;an+b syntax error;;;m
+
+#data
+:nth-child(4n /**/ + /**/ -1)
+#supported
+:nth-child
+#errors
+1;27;an+b syntax error;;;m
+
+#data
+:nth-child(\-n)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "-1"
+  "0"
+
+#data
+:nth-child(2n-\31)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "-1"
+
+#data
+:nth-child(odd)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "1"
+
+#data
+:nth-child(\odd)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "1"
+
+#data
+:nth-child(ODD)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "1"
+
+#data
+:nth-child(/**/ /**/ odd/**/ /**/)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "1"
+
+#data escaped
+:nth-child(o\44\u000Dd)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "1"
+
+#data
+:nth-child(even)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "0"
+
+#data
+:nth-child(EvEn)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "0"
+
+#data
+:nth-child(/**/e\ven/**/ /**/ /**/)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "2"
+  "0"
+
+#data
+:nth-child(event)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(add)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(even+2)
+#supported
+:nth-child
+#errors
+1;16;an+b not closed;;;m
+
+#data
+:nth-child(an+b)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(3
+#supported
+:nth-child
+#errors
+1;13;an+b not closed;;;m
+
+#data
+:nth-child(3n
+#supported
+:nth-child
+#errors
+1;14;an+b syntax error;;;m
+
+#data
+:nth-child(3+
+#supported
+:nth-child
+#errors
+1;13;an+b not closed;;;m
+
+#data
+:nth-child(3n+6
+#supported
+:nth-child
+#errors
+1;16;an+b not closed;;;m
+
+#data
+:nth-last-child
+#supported
+:nth-last-child
+#errors
+1;2;selectors:pseudo-class:ident:unknown;;nth-last-child;m
+
+#data
+:nth-last-child(5n+30)
+#supported
+:nth-last-child
+#parsed
+:nth-last-child
+  "5"
+  "30"
+
+#data
+:nth-last-child(/**/-5n)
+#supported
+:nth-last-child
+#parsed
+:nth-last-child
+  "-5"
+  "0"
+
+#data
+:nth-of-type
+#supported
+:nth-of-type
+#errors
+1;2;selectors:pseudo-class:ident:unknown;;nth-of-type;m
+
+#data
+:nth-of-type(5n+30)
+#supported
+:nth-of-type
+#parsed
+:nth-of-type
+  "5"
+  "30"
+
+#data
+:nth-last-of-type
+#supported
+:nth-last-of-type
+#errors
+1;2;selectors:pseudo-class:ident:unknown;;nth-last-of-type;m
+
+#data
+:nth-last-of-type(5n+30)
+#supported
+:nth-last-of-type
+#parsed
+:nth-last-of-type
+  "5"
+  "30"
+
+#data
+:nth-last-of-type(45+32)
+#supported
+:nth-last-of-type
+#errors
+1;21;an+b not closed;;;m
+
+#data
+:nth-last-of-type(4n+25+32)
+#supported
+:nth-last-of-type
+#errors
+1;24;an+b not closed;;;m
+
+#data
+:nth-last-of-type(45m+32)
+#supported
+:nth-last-of-type
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:first-child
+#ns
+http://hoge/
+#supported
+:first-child
+#parsed
+{http://hoge/}
+:first-child
+
+#data
+:first-child()
+#supported
+:first-child
+#errors
+1;2;selectors:pseudo-class:function:unknown;;first-child;m
+
+#data
+:first-of-type
+#supported
+:first-of-type
+#parsed
+:first-of-type
+
+#data
+:first-of-type()
+#supported
+:first-of-type
+#errors
+1;2;selectors:pseudo-class:function:unknown;;first-of-type;m
+
+#data
+:last-child
+#supported
+:last-child
+#parsed
+:last-child
+
+#data
+:LAST-child
+#supported
+:last-child
+#parsed
+:last-child
+
+#data
+:last-child()
+#supported
+:last-child
+#errors
+1;2;selectors:pseudo-class:function:unknown;;last-child;m
+
+#data
+:last-of-type
+#supported
+:last-of-type
+#parsed
+:last-of-type
+
+#data
+:last-of-type()
+#supported
+:last-of-type
+#errors
+1;2;selectors:pseudo-class:function:unknown;;last-of-type;m
+
+#data
+:only-child
+#supported
+:only-child
+#parsed
+:only-child
+
+#data
+:only-child()
+#supported
+:only-child
+#errors
+1;2;selectors:pseudo-class:function:unknown;;only-child;m
+
+#data
+:only-of-type
+#supported
+:only-of-type
+#parsed
+:only-of-type
+
+#data
+:only-of-type()
+#supported
+:only-of-type
+#errors
+1;2;selectors:pseudo-class:function:unknown;;only-of-type;m
+
+#data
+:/*  */only-of-type
+#supported
+:only-of-type
+#parsed
+:only-of-type
+
+#data
+:only/**/-of-type
+#supported
+:only-of-type
+#errors
+1;2;selectors:pseudo-class:ident:unknown;;only;m
+
+#data
+:empty
+#supported
+:empty
+#parsed
+:empty
+
+#data
+:empty()
+#supported
+:empty
+#errors
+1;2;selectors:pseudo-class:function:unknown;;empty;m
+
+#data
+:contains
+#errors
+1;2;selectors:pseudo-class:ident:unknown;;contains;m
+
+#data
+:contains()
+#errors
+1;2;selectors:pseudo-class:function:unknown;;contains;m
+
+#data
+:contains(abc)
+#errors
+1;2;selectors:pseudo-class:function:unknown;;contains;m
+
+#data
+:contains("abc")
+#errors
+1;2;selectors:pseudo-class:function:unknown;;contains;m
+
+#data
+:-manakai-contains(abc)
+#supported
+:-manakai-contains
+#parsed
+:-manakai-contains
+  "abc"
+
+#data
+:-manakai-contains("abc")
+#supported
+:-manakai-contains
+#parsed
+:-manakai-contains
+  "abc"
+
+#data
+:past
+#supported
+:past
+#parsed
+:past
+
+#data
+:past(hoge)
+#supported
+:past
+#errors
+1;2;selectors:pseudo-class:function:unknown;;past;m
+
+#data
+:future
+#supported
+:future
+#parsed
+:future
+
+#data
+:future(hoge)
+#supported
+:future
+#errors
+1;2;selectors:pseudo-class:function:unknown;;future;m
+
+#data
+:not(a)
+#errors
+1;2;selectors:pseudo-class:function:not supported;;not;w
+
+#data
+:not(a)
+#supported
+:not
+#parsed
+:not
+  <a>
+
+#data
+:not(*)
+#supported
+:not
+#parsed
+:not
+  *
+
+#data
+:not(*|a)
+#supported
+:not
+#parsed
+:not
+  <a>
+
+#data
+:not(*|*)
+#supported
+:not
+#parsed
+:not
+  *
+
+#data
+:not(a)
+#ns
+http://foo/
+#supported
+:not
+#parsed
+{http://foo/}
+:not
+  {http://foo/}
+  <a>
+
+#data
+:not(*)
+#ns
+http://foo/
+#supported
+:not
+#parsed
+{http://foo/}
+:not
+  {http://foo/}
+
+#data
+:not(*|a)
+#ns
+http://foo/
+#supported
+:not
+#parsed
+{http://foo/}
+:not
+  <a>
+
+#data
+:not(*|*)
+#ns
+http://foo/
+#supported
+:not
+#parsed
+{http://foo/}
+:not
+  *
+
+#data
+:not(a|b)
+#ns
+a http://foo/bar
+#supported
+:not
+#parsed
+:not
+  {http://foo/bar}
+  <b>
+
+#data
+:not(a|*)
+#ns
+a http://foo/
+#supported
+:not
+#parsed
+:not
+  {http://foo/}
+
+#data
+*|*:not(.foo)
+#ns
+http://hoge/
+#supported
+:not
+#parsed
+:not
+  .foo
+
+#data
+*|*:not(#foo)
+#ns
+http://hoge/
+#supported
+:not
+#parsed
+:not
+  #foo
+
+#data
+*|*:not(:first-child)
+#ns
+http://hoge/
+#supported
+:not
+:first-child
+#parsed
+:not
+  :first-child
+
+#data
+*|*:not([a])
+#ns
+http://hoge/
+#supported
+:not
+#parsed
+:not
+  [{}a]
+
+#data
+:not(a|b)
+#supported
+:not
+#errors
+1;6;namespace prefix:not declared;;a;m
+
+#data
+:not(.foo)
+#supported
+:not
+#parsed
+:not
+  .foo
+
+#data
+:not(#foo)
+#supported
+:not
+#parsed
+:not
+  #foo
+
+#data
+:not([foo])
+#supported
+:not
+#parsed
+:not
+  [{}foo]
+
+#data
+:not([foo^="bar"])
+#supported
+:not
+#parsed
+:not
+  [{}foo]
+  ^=bar
+
+#data
+:not([foo)
+#supported
+:not
+#errors
+1;10;no attr match;;;m
+
+#data
+:not(:first-child)
+#supported
+:not
+#errors
+1;7;selectors:pseudo-class:ident:not supported;;first-child;w
+
+#data
+:not(:first-child)
+#supported
+:not
+:first-child
+#parsed
+:not
+  :first-child
+
+#data
+:not(:nth-child(3n+5))
+#supported
+:not
+:nth-child
+#parsed
+:not
+  :nth-child
+    "3"
+    "5"
+
+#data
+:not(:lang(en))
+#supported
+:not
+:lang
+#parsed
+:not
+  :lang
+    "en"
+
+#data
+:not(:not(a))
+#supported
+:not
+#errors
+1;7;selectors:pseudo-class:function:unknown;;not;m
+
+#data
+:not(:not)
+#supported
+:not
+#errors
+1;7;selectors:pseudo-class:ident:unknown;;not;m
+
+#data
+:not
+#supported
+:not
+#errors
+1;2;selectors:pseudo-class:ident:unknown;;not;m
+
+#data
+:not(:before)
+#supported
+:not
+::before
+#errors
+1;7;selectors:pseudo-class:ident:unknown;;before;m
+
+#data
+:not(::before)
+#supported
+:not
+::before
+#errors
+1;7;no pseudo-class name;;;m
+
+#data
+:not(a.b)
+#supported
+:not
+#errors
+1;7;not not closed;;;m
+
+#data
+:not(.a.b)
+#supported
+:not
+#errors
+1;8;not not closed;;;m
+
+#data
+:not(a):not(b)
+#supported
+:not
+#errors
+#parsed
+:not
+  <a>
+:not
+  <b>
+
+#data
+:not(/**/a/**/)
+#supported
+:not
+#parsed
+:not
+  <a>
+
+#data escaped
+:not(\u0009 abc \u000c)
+#supported
+:not
+#parsed
+:not
+  <abc>
+
+#data
+:NOT(abc)
+#supported
+:not
+#parsed
+:not
+  <abc>
+
+#data
+:n\ot(abc)
+#supported
+:not
+#parsed
+:not
+  <abc>
+
+#data
+:/**/not(abc)
+#supported
+:not
+#parsed
+:not
+  <abc>
+
+#data
+:n\4ft(abc)
+#supported
+:not
+#parsed
+:not
+  <abc>
+
+#data
+:not/**/(abc)
+#supported
+:not
+#errors
+1;2;selectors:pseudo-class:ident:unknown;;not;m
+
+#data
+::active
+#supported
+:active
+::active
+#errors
+1;3;selectors:pseudo-element:ident:unknown;;active;m
+
+#data
+::lang()
+#supported
+:lang
+::lang
+#errors
+1;3;selectors:pseudo-element:function:unknown;;lang;m
+
+#data
+:before
+#errors
+1;2;selectors:pseudo-element:ident:not supported;;before;w
+
+#data
+:before
+#supported
+::before
+#parsed
+::before
+#errors
+1;2;selectors:pseudo-element:one colon;;before;w
+
+#data
+:befoRE
+#supported
+::before
+#parsed
+::before
+#errors
+1;2;selectors:pseudo-element:one colon;;before;w
+
+#data
+::before
+#supported
+::before
+#parsed
+::before
+
+#data
+::BEFORE
+#supported
+::before
+#parsed
+::before
+
+#data
+::before
+#errors
+1;3;selectors:pseudo-element:ident:not supported;;before;w
+
+#data
+:/**/before
+#supported
+::before
+#parsed
+::before
+#errors
+1;6;selectors:pseudo-element:one colon;;before;w
+
+#data
+::/**/before
+#supported
+::before
+#parsed
+::before
+
+#data
+:/**/:before
+#supported
+::before
+#parsed
+::before
+
+#data
+:before()
+#supported
+::before
+#errors
+1;2;selectors:pseudo-class:function:unknown;;before;m
+
+#data
+::before()
+#supported
+::before
+#errors
+1;3;selectors:pseudo-element:function:unknown;;before;m
+
+#data
+:after
+#errors
+1;2;selectors:pseudo-element:ident:not supported;;after;w
+
+#data
+:after
+#supported
+::after
+#parsed
+::after
+#errors
+1;2;selectors:pseudo-element:one colon;;after;w
+
+#data
+:after
+#supported
+::after
+#parsed
+::after
+#errors
+1;2;selectors:pseudo-element:one colon;;after;w
+
+#data
+::after
+#supported
+::after
+#parsed
+::after
+
+#data
+::AFTER
+#supported
+::after
+#parsed
+::after
+
+#data
+::after
+#errors
+1;3;selectors:pseudo-element:ident:not supported;;after;w
+
+#data
+:/**/after
+#supported
+::after
+#parsed
+::after
+#errors
+1;6;selectors:pseudo-element:one colon;;after;w
+
+#data
+::/**/after
+#supported
+::after
+#parsed
+::after
+
+#data
+:/**/:after
+#supported
+::after
+#parsed
+::after
+
+#data
+:after()
+#supported
+::after
+#errors
+1;2;selectors:pseudo-class:function:unknown;;after;m
+
+#data
+::after()
+#supported
+::after
+#errors
+1;3;selectors:pseudo-element:function:unknown;;after;m
+
+#data
+:first-line
+#errors
+1;2;selectors:pseudo-element:ident:not supported;;first-line;w
+
+#data
+:first-line
+#supported
+::first-line
+#parsed
+::first-line
+#errors
+1;2;selectors:pseudo-element:one colon;;first-line;w
+
+#data
+:first-line
+#supported
+::first-line
+#parsed
+::first-line
+#errors
+1;2;selectors:pseudo-element:one colon;;first-line;w
+
+#data
+::first-line
+#supported
+::first-line
+#parsed
+::first-line
+
+#data
+::FIRST-LINE
+#supported
+::first-line
+#parsed
+::first-line
+
+#data
+::first-line
+#errors
+1;3;selectors:pseudo-element:ident:not supported;;first-line;w
+
+#data
+:/**/first-line
+#supported
+::first-line
+#parsed
+::first-line
+#errors
+1;6;selectors:pseudo-element:one colon;;first-line;w
+
+#data
+::/**/first-line
+#supported
+::first-line
+#parsed
+::first-line
+
+#data
+:/**/:first-line
+#supported
+::first-line
+#parsed
+::first-line
+
+#data
+:first-line()
+#supported
+::first-line
+#errors
+1;2;selectors:pseudo-class:function:unknown;;first-line;m
+
+#data
+::first-line()
+#supported
+::first-line
+#errors
+1;3;selectors:pseudo-element:function:unknown;;first-line;m
+
+#data
+:first-letter
+#errors
+1;2;selectors:pseudo-element:ident:not supported;;first-letter;w
+
+#data
+:first-letter
+#supported
+::first-letter
+#parsed
+::first-letter
+#errors
+1;2;selectors:pseudo-element:one colon;;first-letter;w
+
+#data
+:first-letter
+#supported
+::first-letter
+#parsed
+::first-letter
+#errors
+1;2;selectors:pseudo-element:one colon;;first-letter;w
+
+#data
+::first-letter
+#supported
+::first-letter
+#parsed
+::first-letter
+
+#data
+::FIRST-LETTER
+#supported
+::first-letter
+#parsed
+::first-letter
+
+#data
+::first-letter
+#errors
+1;3;selectors:pseudo-element:ident:not supported;;first-letter;w
+
+#data
+:/**/first-letter
+#supported
+::first-letter
+#parsed
+::first-letter
+#errors
+1;6;selectors:pseudo-element:one colon;;first-letter;w
+
+#data
+::/**/first-letter
+#supported
+::first-letter
+#parsed
+::first-letter
+
+#data
+:/**/:first-letter
+#supported
+::first-letter
+#parsed
+::first-letter
+
+#data
+:first-letter()
+#supported
+::first-letter
+#errors
+1;2;selectors:pseudo-class:function:unknown;;first-letter;m
+
+#data
+::first-letter()
+#supported
+::first-letter
+#errors
+1;3;selectors:pseudo-element:function:unknown;;first-letter;m
+
+#data
+*:before
+#supported
+::before
+#parsed
+::before
+#errors
+1;3;selectors:pseudo-element:one colon;;before;w
+
+#data
+*::before
+#supported
+::before
+#parsed
+::before
+
+#data
+:before
+#ns
+http://foo/
+#supported
+::before
+#parsed
+{http://foo/}
+::before
+#errors
+1;2;selectors:pseudo-element:one colon;;before;w
+
+#data
+::before
+#ns
+http://foo/
+#supported
+::before
+#parsed
+{http://foo/}
+::before
+
+#data
+*:before
+#ns
+http://foo/
+#supported
+::before
+#parsed
+{http://foo/}
+::before
+#errors
+1;3;selectors:pseudo-element:one colon;;before;w
+
+#data
+*::before
+#ns
+http://foo/
+#supported
+::before
+#parsed
+{http://foo/}
+::before
+
+#data
+:selection
+#errors
+1;2;selectors:pseudo-class:ident:unknown;;selection;m
+
+#data
+::selection
+#errors
+1;3;selectors:pseudo-element:ident:unknown;;selection;m
+
+#data
+:cue
+#errors
+1;2;selectors:pseudo-class:ident:unknown;;cue;m
+
+#data
+:cue
+#supported
+:cue
+::cue
+#errors
+1;2;selectors:pseudo-class:ident:unknown;;cue;m
+
+#data
+::cue
+#errors
+1;3;selectors:pseudo-element:ident:not supported;;cue;w
+
+#data
+::cue
+#supported
+::cue
+#parsed
+::cue
+
+#data
+::CUE
+#supported
+::cue
+#parsed
+::cue
+
+#data
+:cue()
+#errors
+1;2;selectors:pseudo-class:function:unknown;;cue;m
+
+#data
+::cue()
+#errors
+1;3;selectors:pseudo-element:function:not supported;;cue;w
+
+#data
+::cue(abc)
+#errors
+1;3;selectors:pseudo-element:function:not supported;;cue;w
+
+#data
+::cue(),hoge
+#errors
+1;3;selectors:pseudo-element:function:not supported;;cue;w
+
+#data
+hoge,
+::cue()
+#errors
+2;3;selectors:pseudo-element:function:not supported;;cue;w
+
+#data
+::cue()
+#supported
+::cue
+#errors
+1;7;no sss;;;m
+
+#data
+::cue(  )
+#supported
+::cue
+#errors
+1;9;no sss;;;m
+
+#data
+::cue/**/()
+#errors
+1;3;selectors:pseudo-element:ident:not supported;;cue;w
+
+#data
+::cue/**/()
+#supported
+::cue
+#errors
+1;10;no combinator;;;m
+
+#data
+::cue/**/(abc)
+#supported
+::cue
+#errors
+1;10;no combinator;;;m
+
+#data
+::CUE()
+#errors
+1;3;selectors:pseudo-element:function:not supported;;cue;w
+
+#data
+::CUE()
+#supported
+::cue
+#errors
+1;7;no sss;;;m
+
+#data
+::cue(*)
+#errors
+1;3;selectors:pseudo-element:function:not supported;;cue;w
+
+#data
+::cue(*)
+#supported
+::cue
+#parsed
+::cue
+  *
+
+#data
+::cue(*)
+#supported
+::cue
+#ns 
+http://foo/
+#parsed
+{http://foo/}
+::cue
+  {http://foo/}
+
+#data
+::cue(foo)
+#supported
+::cue
+#parsed
+::cue
+  <foo>
+
+#data
+::cue(bar)
+#supported
+::cue
+#ns 
+http://foo/
+#parsed
+{http://foo/}
+::cue
+  {http://foo/}
+  <bar>
+
+#data
+::cue(/**/bar/**/)
+#supported
+::cue
+#ns 
+http://foo/
+#parsed
+{http://foo/}
+::cue
+  {http://foo/}
+  <bar>
+
+#data escaped
+::cue( \u0009bar\u000A\u000C)
+#supported
+::cue
+#ns 
+http://foo/
+#parsed
+{http://foo/}
+::cue
+  {http://foo/}
+  <bar>
+
+#data
+::cue(a):first-child
+#supported
+::cue
+#errors
+1;9;ss after pseudo-element;;;m
+
+#data
+::cue(a):before
+#supported
+::cue
+#errors
+1;9;ss after pseudo-element;;;m
+
+#data
+::cue(a).abc
+#supported
+::cue
+#errors
+1;9;ss after pseudo-element;;;m
+
+#data
+::cue(a)::cue(a)
+#supported
+::cue
+#errors
+1;9;ss after pseudo-element;;;m
+
+#data
+::cue(abc
+#supported
+::cue
+#errors
+1;10;function not closed;;;m
+
+#data escaped
+::cue(abc  \u0020
+#supported
+::cue
+#errors
+1;13;function not closed;;;m
+
+#data
+::cue(abc xyz
+#supported
+::cue
+#errors
+1;14;function not closed;;;m
+
+#data
+::cue(abc(
+#supported
+::cue
+#errors
+1;7;no sss;;;m
+
+#data
+::cue(abc (
+#supported
+::cue
+#errors
+1;11;no sss;;;m
+
+#data
+::cue([not])
+#supported
+::cue
+#parsed
+::cue
+  [{}not]
+
+#data
+::cue([not ^= "xyz"])
+#supported
+::cue
+#parsed
+::cue
+  [{}not]
+  ^=xyz
+
+#data
+::cue(.foo)
+#supported
+::cue
+#parsed
+::cue
+  .foo
+
+#data
+::cue(.foo.bar)
+#supported
+::cue
+#parsed
+::cue
+  .foo
+  .bar
+
+#data
+::cue(.foo .bar)
+#supported
+::cue
+#parsed
+::cue
+  .foo
+  ***
+  .bar
+
+#data
+::cue(:first-child)
+#supported
+::cue
+:first-child
+#parsed
+::cue
+  :first-child
+
+#data
+::cue(:target)
+#supported
+::cue
+#errors
+1;8;selectors:pseudo-class:ident:not supported;;target;w
+
+#data
+::cue(::before),abc
+#supported
+::cue
+#errors
+1;9;selectors:pseudo-element:ident:not supported;;before;w
+
+#data
+::cue(::before),abc
+#supported
+::cue
+::before
+#parsed
+::cue
+  ::before
+------
+<abc>
+
+#data
+::cue(hoge|fuga)
+#supported
+::cue
+#ns
+hoge http://foo/
+#parsed
+::cue
+  {http://foo/}
+  <fuga>
+
+#data
+::cue(foo > bar)
+#supported
+::cue
+#parsed
+::cue
+  <foo>
+  >
+  <bar>
+
+#data
+::cue(foo > bar >)
+#supported
+::cue
+#errors
+1;18;no sss;;;m
+
+#data
+::cue(foo,bar)
+#supported
+::cue
+#parsed
+::cue
+  <foo>
+  ------
+  <bar>
+
+#data
+::cue(foo > bar,)
+#supported
+::cue
+#errors
+1;17;no sss;;;m
+
+#data
+::cue(::cue(hoge,fuga))
+#supported
+::cue
+#parsed
+::cue
+  ::cue
+    <hoge>
+    ------
+    <fuga>
+
+#data
+::cue(::cue(::cue(::cue())))
+#supported
+::cue
+#errors
+1;25;no sss;;;m
+
+#data
+::cue(::cue(::cue(::cue(*))))
+#supported
+::cue
+#parsed
+::cue
+  ::cue
+    ::cue
+      ::cue
+        *
+
+#data
+::cue(:lang(ja))
+#supported
+:lang
+::cue
+#parsed
+::cue
+  :lang
+    "ja"
+
+#data
+::cue(:not(foo))
+#supported
+:not
+::cue
+#parsed
+::cue
+  :not
+    <foo>
+
+#data
+:not(::cue)
+#supported
+:not
+::cue
+#errors
+1;7;no pseudo-class name;;;m
+
+#data
+:not(::cue(foo))
+#supported
+:not
+::cue
+#errors
+1;7;no pseudo-class name;;;m

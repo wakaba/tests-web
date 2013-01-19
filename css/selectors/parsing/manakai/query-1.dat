@@ -1,0 +1,2023 @@
+#html 1
+<!DOCTYPE HTML>
+<p></p>
+
+#html 2
+<!DOCTYPE HTML>
+<q></q>
+
+#html 3
+<!DOCTYPE HTML>
+<p></p><p></p>
+
+#html 4
+<!DOCTYPE HTML>
+<p><q></q></p>
+
+#html 5
+<!DOCTYPE HTML>
+<p><p><p><p>
+
+#html 6
+<!DOCTYPE HTML>
+<p><p><p></p><q></q>
+
+#data
+*
+#result 1
+/2
+/2/1
+/2/2
+/2/2/1
+#result 1 /2/2
+/2/2/1
+#result 2
+/2
+/2/1
+/2/2
+/2/2/1
+#result 2 /2/2
+/2/2/1
+#result 3
+/2
+/2/1
+/2/2
+/2/2/1
+/2/2/2
+#result 3 /2/2
+/2/2/1
+/2/2/2
+#result 3 /2/2/1
+#result 4
+/2
+/2/1
+/2/2
+/2/2/1
+/2/2/1/1
+#result 4 /2/2
+/2/2/1
+/2/2/1/1
+#result 4 /2/2/1
+/2/2/1/1
+
+#data
+*
+#ns
+http://www.w3.org/1999/xhtml
+#result 1
+/2
+/2/1
+/2/2
+/2/2/1
+
+#data
+*
+#ns
+http://www.w3.org/2000/svg
+#result 1
+
+#data
+*|*
+#result 1
+/2
+/2/1
+/2/2
+/2/2/1
+
+#data
+h|*
+#ns
+h http://www.w3.org/1999/xhtml
+#result 1
+/2
+/2/1
+/2/2
+/2/2/1
+
+#data
+s|*
+#ns
+s http://www.w3.org/2000/svg
+#result 1
+
+#data
+|*
+#result 1
+
+#data
+p
+#result 1
+/2/2/1
+#result 2
+#result 3
+/2/2/1
+/2/2/2
+#result 4
+/2/2/1
+
+#data
+q
+#result 1
+#result 2
+/2/2/1
+#result 3
+#result 4
+/2/2/1/1
+
+#data
+*|p
+#result 1
+/2/2/1
+
+#data
+p
+#ns
+http://www.w3.org/1999/xhtml
+#result 1
+/2/2/1
+
+#data
+p
+#ns
+http://www.w3.org/2000/svg
+#result 1
+
+#data
+|p
+#result 1
+
+#data
+h|p
+#ns
+h http://www.w3.org/1999/xhtml
+#result 1
+/2/2/1
+
+#data
+s|p
+#ns
+s http://www.w3.org/2000/svg
+#result 1
+
+#xml nullns
+<foo><bar/></foo>
+
+#xml nonnullns
+<foo xmlns="http://foo/bar"><bar/></foo>
+
+#data
+|foo
+#result nullns
+/1
+#result nonnullns
+
+#data
+foo
+#result nullns
+/1
+#result nonnullns
+/1
+
+#data
+foo
+#ns
+<null>
+#result nullns
+/1
+#result nonnullns
+
+#data
+foo
+#ns
+http://foo/bar
+#result nullns
+#result nonnullns
+/1
+
+#data
+foo
+#ns
+http://foo/baz
+#result nullns
+#result nonnullns
+
+#data
+a|foo
+#ns
+a <null>
+#result nullns
+/1
+#result nonnullns
+
+#data
+a|foo
+#ns
+a http://foo/bar
+#result nullns
+#result nonnullns
+/1
+
+#data
+a|foo
+#ns
+a http://foo/baz
+#result nullns
+#result nonnullns
+
+#data
+*|foo
+#result nullns
+/1
+#result nonnullns
+/1
+
+#data
+*
+#result nullns
+/1
+/1/1
+#result nonnullns
+/1
+/1/1
+
+#data
+|*
+#result nullns
+/1
+/1/1
+#result nonnullns
+
+#data
+*|*
+#result nullns
+/1
+/1/1
+#result nonnullns
+/1
+/1/1
+
+#data
+*
+#ns
+http://foo/
+#result nullns
+#result nonnullns
+
+#data
+*
+#ns
+http://foo/bar
+#result nullns
+#result nonnullns
+/1
+/1/1
+
+#data
+*
+#ns
+<null>
+#result nullns
+/1
+/1/1
+#result nonnullns
+
+#data
+a|*
+#ns
+a http://foo/
+#result nullns
+#result nonnullns
+
+#data
+a|*
+#ns
+a http://foo/bar
+#result nullns
+#result nonnullns
+/1
+/1/1
+
+#data
+a|*
+#ns
+a <null>
+#result nullns
+/1
+/1/1
+#result nonnullns
+
+#data
+* *
+#result 1
+/2/1
+/2/2
+/2/2/1
+#result 2
+/2/1
+/2/2
+/2/2/1
+#result 3
+/2/1
+/2/2
+/2/2/1
+/2/2/2
+#result 4
+/2/1
+/2/2
+/2/2/1
+/2/2/1/1
+#result 4 /2/2
+/2/2/1
+/2/2/1/1
+#result 4 /2/2/1
+/2/2/1/1
+#result 4 /2/2/1/1
+
+#data
+* > *
+#result 1
+/2/1
+/2/2
+/2/2/1
+#result 1 /2/2
+/2/2/1
+#result 2
+/2/1
+/2/2
+/2/2/1
+#result 2 /2/2
+/2/2/1
+#result 3
+/2/1
+/2/2
+/2/2/1
+/2/2/2
+#result 3 /2/2
+/2/2/1
+/2/2/2
+#result 4
+/2/1
+/2/2
+/2/2/1
+/2/2/1/1
+#result 4 /2/2
+/2/2/1
+/2/2/1/1
+#result 4 /2/2/1
+/2/2/1/1
+#result 4 /2/2/1/1
+
+#data
+* + *
+#result 1
+/2/2
+#result 2
+/2/2
+#result 3
+/2/2
+/2/2/2
+#result 4
+/2/2
+#result 5
+/2/2
+/2/2/2
+/2/2/3
+/2/2/4
+#result 5 /2/2
+/2/2/2
+/2/2/3
+/2/2/4
+
+#data
+* ~ *
+#result 1
+/2/2
+#result 2
+/2/2
+#result 3
+/2/2
+/2/2/2
+#result 3 /2/2
+/2/2/2
+#result 3 /2/2/1
+#result 4
+/2/2
+#result 5
+/2/2
+/2/2/2
+/2/2/3
+/2/2/4
+#result 5 /2/2
+/2/2/2
+/2/2/3
+/2/2/4
+#result 5 /2/2/1
+#result 5 /2/2/2
+
+#data
+* + p
+#result 1
+#result 2
+#result 3
+/2/2/2
+#result 3 /2/2
+/2/2/2
+#result 3 /2/2/2
+#result 4
+#result 5
+/2/2/2
+/2/2/3
+/2/2/4
+#result 6
+/2/2/2
+/2/2/3
+
+#data
+* ~ p
+#result 1
+#result 2
+#result 3
+/2/2/2
+#result 4
+#result 5
+/2/2/2
+/2/2/3
+/2/2/4
+#result 6
+/2/2/2
+/2/2/3
+
+#data
+* + q
+#result 6
+/2/2/4
+
+#data
+* ~ q
+#result 6
+/2/2/4
+
+#data
+p + q
+#result 6
+/2/2/4
+
+#data
+p ~ q
+#result 6
+/2/2/4
+
+#html lists
+<!DOCTYPE HTML>
+<ul><li>ul1
+<li>ul2
+<li>ul3
+<ol><li>ul3ol1
+</ol>
+</ul><ol><li>ol1
+<li>ol2
+</ol><menu><li>menu1
+</menu>
+
+#data
+menu li,ul ol, menu
+#result lists
+/2/2/1/3/2
+/2/2/3
+/2/2/3/1
+#result lists /2/2/2
+#result lists /2/2/3
+/2/2/3/1
+#result lists /2/2/3/1
+
+#data
+menu li,ul ol, menu::first-line
+#result lists
+/2/2/1/3/2
+/2/2/3/1
+#result lists /2/2/2
+#result lists /2/2/3
+/2/2/3/1
+#result lists /2/2/3/1
+
+#data
+::before
+#result 1
+
+#data
+p, ::before
+#result 1
+/2/2/1
+
+#data
+::before, p
+#result 1
+/2/2/1
+
+#data
+* * p
+#result 3 /2/2
+/2/2/1
+/2/2/2
+
+#data
+* > * p
+#result 3 /2/2
+/2/2/1
+/2/2/2
+
+#data
+* > * > p
+#result 3 /2/2
+/2/2/1
+/2/2/2
+
+#data
+* + * p
+#result 3 /2/2
+/2/2/1
+/2/2/2
+#result 3 /2/2/1
+
+#data
+* ~ * p
+#result 3 /2/2
+/2/2/1
+/2/2/2
+#result 3 /2/2/1
+
+#html 7
+<!DOCTYPE HTML>
+<p><a></a><p><b></b><p><i></i>
+
+#data
+p + p *
+#result 7 /2/2
+/2/2/2/1
+/2/2/3/1
+
+#data
+p ~ p *
+#result 7 /2/2
+/2/2/2/1
+/2/2/3/1
+
+#data
+:-manakai-current
+#result 7 /2
+#result 7 /2/1
+#result 7 /2/2
+#result 7 /2/2/1
+#result 7 /2/2/1/1
+
+#data
+* :-manakai-current
+#result 7 /2
+#result 7 /2/1
+#result 7 /2/2
+#result 7 /2/2/1
+#result 7 /2/2/1/1
+
+#data
+:-manakai-current *
+#result 7 /2/2
+/2/2/1
+/2/2/1/1
+/2/2/2
+/2/2/2/1
+/2/2/3
+/2/2/3/1
+
+#data
+:-manakai-current > *
+#result 7 /2/2
+/2/2/1
+/2/2/2
+/2/2/3
+
+#data
+:-manakai-current > * > *
+#result 7 /2/2
+/2/2/1/1
+/2/2/2/1
+/2/2/3/1
+
+#html 8
+<!DOCTYPE HTML>
+<p align>
+
+#html 9
+<!DOCTYPE HTML>
+<p align=left>
+
+#data
+[align]
+#result 7
+#result 8
+/2/2/1
+#result 9
+/2/2/1
+
+#data
+[align][align]
+#result 7
+#result 8
+/2/2/1
+#result 9
+/2/2/1
+
+#data
+[align]
+#ns
+http://www.w3.org/1999/xhtml
+#result 7
+#result 8
+/2/2/1
+#result 9
+/2/2/1
+
+#data
+[*|align]
+#result 7
+#result 8
+/2/2/1
+#result 9
+/2/2/1
+
+#data
+[|align]
+#result 7
+#result 8
+/2/2/1
+#result 9
+/2/2/1
+
+#data
+[html|align]
+#ns
+html http://www.w3.org/1999/xhtml
+#result 7
+#result 8
+#result 9
+
+#data
+[|Align]
+#result 7
+#result 8
+/2/2/1
+#result 9
+/2/2/1
+
+#data
+[*|Align]
+#result 7
+#result 8
+/2/2/1
+#result 9
+/2/2/1
+
+#data
+[|ALIGN]
+#result 7
+#result 8
+/2/2/1
+#result 9
+/2/2/1
+
+#data
+[*|ALIGN]
+#result 7
+#result 8
+/2/2/1
+#result 9
+/2/2/1
+
+#data
+[|align=""]
+#result 8
+/2/2/1
+#result 9
+
+#data
+[*|align=""]
+#result 8
+/2/2/1
+#result 9
+
+#data
+[|align="lef"]
+#result 8
+#result 9
+
+#data
+[*|align="lef"]
+#result 8
+#result 9
+
+#data
+[|align="left"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[*|align="left"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[|align="leftright"]
+#result 8
+#result 9
+
+#data
+[*|align="leftright"]
+#result 8
+#result 9
+
+#data
+[|align="center"]
+#result 8
+#result 9
+
+#data
+[*|align="center"]
+#result 8
+#result 9
+
+#data
+[|align^="l"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[*|align^="l"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[|align^="left"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[*|align^="left"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[|align^="leff"]
+#result 8
+#result 9
+
+#data
+[*|align^="leff"]
+#result 8
+#result 9
+
+#data
+[|align^="leftright"]
+#result 8
+#result 9
+
+#data
+[*|align^="leftright"]
+#result 8
+#result 9
+
+#data
+[|align^="t"]
+#result 8
+#result 9
+
+#data
+[*|align^="t"]
+#result 8
+#result 9
+
+#data
+[|align$="t"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[*|align$="t"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[|align$="l"]
+#result 8
+#result 9
+
+#data
+[*|align$="l"]
+#result 8
+#result 9
+
+#data
+[|align$="left"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[*|align$="left"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[|align$="leff"]
+#result 8
+#result 9
+
+#data
+[*|align$="leff"]
+#result 8
+#result 9
+
+#data
+[|align$="rightleft"]
+#result 8
+#result 9
+
+#data
+[*|align$="rightleft"]
+#result 8
+#result 9
+
+#data
+[|align*="l"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[*|align*="l"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[|align*="t"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[*|align*="t"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[|align*="ef"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[*|align*="ef"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[|align*="eg"]
+#result 8
+#result 9
+
+#data
+[*|align*="eg"]
+#result 8
+#result 9
+
+#data
+[|align*="x"]
+#result 8
+#result 9
+
+#data
+[*|align*="x"]
+#result 8
+#result 9
+
+#data
+[|align*="left"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[*|align*="left"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[|align*="leftright"]
+#result 8
+#result 9
+
+#data
+[*|align*="leftright"]
+#result 8
+#result 9
+
+#data
+[|align|="l"]
+#result 8
+#result 9
+
+#data
+[*|align|="l"]
+#result 8
+#result 9
+
+#data
+[|align|="x"]
+#result 8
+#result 9
+
+#data
+[*|align|="x"]
+#result 8
+#result 9
+
+#data
+[|align|="left"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[*|align|="left"]
+#result 8
+#result 9
+/2/2/1
+
+#data
+[|align|="lefa"]
+#result 8
+#result 9
+
+#data
+[*|align|="lefa"]
+#result 8
+#result 9
+
+#html 10
+<!DOCTYPE HTML>
+<p lang=en-US>
+
+#data
+[|lang|="en"]
+#result 10
+/2/2/1
+
+#data
+[*|lang|="en"]
+#result 10
+/2/2/1
+
+#data
+[|lang|="en-"]
+#result 10
+
+#data
+[*|lang|="en-"]
+#result 10
+
+#data
+[|lang|="en-US"]
+#result 10
+/2/2/1
+
+#data
+[*|lang|="en-US"]
+#result 10
+/2/2/1
+
+#html 11
+<!DOCTYPE HTML>
+<p class="aaa bbb ccc"><p class=aaa><p class=aaa-bbb>
+
+#data
+[|class~=a]
+#result 11
+
+#data
+[*|class~=a]
+#result 11
+
+#data
+[|class~=aaa]
+#result 11
+/2/2/1
+/2/2/2
+
+#data
+[*|class~=aaa]
+#result 11
+/2/2/1
+/2/2/2
+
+#data
+[|class~=bbb]
+#result 11
+/2/2/1
+
+#data
+[*|class~=bbb]
+#result 11
+/2/2/1
+
+#data
+[|class~=ccc]
+#result 11
+/2/2/1
+
+#data
+[*|class~=ccc]
+#result 11
+/2/2/1
+
+#xml nullnsattr
+<abc foo=""><abc foo="" xmlns="http://hoge/"/></abc>
+
+#xml nonnullnsattr
+<abc a:foo="" xmlns:a="http://a/"><abc foo="" xmlns="http://hoge/"/></abc>
+
+#data
+[foo]
+#result nullnsattr
+/1
+/1/1
+#result nonnullnsattr
+/1/1
+
+#data
+[foo]
+#ns
+http://foo/bar
+#result nullnsattr
+
+#data
+[foo]
+#ns
+http://hoge/
+#result nullnsattr
+/1/1
+
+#data
+[foo]
+#ns
+<null>
+#result nullnsattr
+/1
+
+#data
+[|foo]
+#result nullnsattr
+/1
+/1/1
+#result nonnullnsattr
+/1/1
+
+#data
+[*|foo]
+#result nullnsattr
+/1
+/1/1
+#result nonnullnsattr
+/1
+/1/1
+
+#data
+[a|foo]
+#ns
+a http://a/
+#result nullnsattr
+#result nonnullnsattr
+/1
+
+#data
+[a|foo]
+#ns
+a http://b/
+#result nullnsattr
+#result nonnullnsattr
+
+#data
+[a|foo]
+#ns
+a <null>
+#result nullnsattr
+/1
+/1/1
+#result nonnullnsattr
+/1/1
+
+#data
+[|xmlns]
+#result nullnsattr
+#result nonnullnsattr
+
+#data
+[*|xmlns]
+#result nullnsattr
+/1/1
+#result nonnullnsattr
+/1/1
+
+#data
+[a|xmlns]
+#ns
+a http://www.w3.org/2000/xmlns/
+#result nullnsattr
+/1/1
+#result nonnullnsattr
+/1/1
+
+#data
+[*|a]
+#result nullnsattr
+#result nonnullnsattr
+/1
+
+#data
+:not([foo])
+#ns
+http://foo/bar
+#result nullnsattr
+
+#data
+:not([foo])
+#ns
+http://hoge/
+#result nullnsattr
+
+#data
+:not([foo])
+#ns
+<null>
+#result nullnsattr
+
+#data
+:not([bar])
+#ns
+http://foo/bar
+#result nullnsattr
+
+#data
+:not([bar])
+#ns
+http://hoge/
+#result nullnsattr
+/1/1
+
+#data
+:not([bar])
+#ns
+<null>
+#result nullnsattr
+/1
+
+#xml attr1
+<hoge><fuga foo="bar"/><fuga foo="BAR"/><fuga foo=" bar&#x9;"
+/><abc foo=""/><abc foo="hoge fuga xyz &#xc;&#xb;&#xa;&#xd;"
+/><fuga foo="bar-"/><fuga foo="bar-baz"
+/><hoge foo="-"/><fuga foo="-abc"/><fuga foo="barbaz"/></hoge>
+
+#data
+[foo=bar]
+#result attr1
+/1/1
+
+#data
+[foo="bar"]
+#result attr1
+/1/1
+
+#data
+[foo=BAR]
+#result attr1
+/1/2
+
+#data escaped
+[foo=" bar\u0009"]
+#result attr1
+/1/3
+
+#data
+[foo=""]
+#result attr1
+/1/4
+
+#data
+[foo~=""]
+#result attr1
+
+#data
+[foo~=hoge]
+#result attr1
+/1/5
+
+#data
+[foo~=fuga]
+#result attr1
+/1/5
+
+#data
+[foo~=xyz]
+#result attr1
+/1/5
+
+#data
+[foo~=bar]
+#result attr1
+/1/1
+/1/3
+
+#data
+[foo~=BAR]
+#result attr1
+/1/2
+
+#data
+[foo~="hoge fuga"]
+#result attr1
+
+#data
+[foo~=" "]
+#result attr1
+
+#data escaped
+[foo~=\000b]
+#result attr1
+/1/5
+
+#data
+[foo|=bar]
+#result attr1
+/1/1
+/1/6
+/1/7
+
+#data
+[foo|=""]
+#result attr1
+/1/4
+/1/8
+/1/9
+
+#data
+[foo^=bar]
+#result attr1
+/1/1
+/1/6
+/1/7
+/1/10
+
+#data
+[foo^=""]
+#result attr1
+
+#data
+[foo$="bar"]
+#result attr1
+/1/1
+
+#data
+[foo$="-"]
+#result attr1
+/1/6
+/1/8
+
+#data
+[foo$=""]
+#result attr1
+
+#data
+[foo*=bar]
+#result attr1
+/1/1
+/1/3
+/1/6
+/1/7
+/1/10
+
+#data
+[foo*="-"]
+#result attr1
+/1/6
+/1/7
+/1/8
+/1/9
+
+#data
+[foo*=""]
+#result attr1
+
+#xml defaultattr
+<!DOCTYPE hoge [
+  <!ATTLIST foo bar CDATA "xyz">
+]>
+<hoge><foo/></hoge>
+
+#data
+[bar=xyz]
+#result defaultattr
+/2/1
+
+#html htmlclass1
+<!DOCTYPE HTML>
+<p class=foo>
+<p class="foo bar">
+<p class="&#x09;&#xa;hoge &#xb;&#xc;&#xd;  xyz  ">
+<p class=BAR>
+<p class=ho.ge>
+
+#data
+.foo
+#result htmlclass1
+/2/2/1
+/2/2/2
+
+#data
+.foo.bar
+#result htmlclass1
+/2/2/2
+
+#data
+.bar.foo
+#result htmlclass1
+/2/2/2
+
+#data
+.bar
+#result htmlclass1
+/2/2/2
+
+#data
+.\b
+#result htmlclass1
+/2/2/3
+
+#data
+.xyz
+#result htmlclass1
+/2/2/3
+
+#data
+.BAR
+#result htmlclass1
+/2/2/4
+
+#data
+.ho\.ge
+#result htmlclass1
+/2/2/5
+
+#data
+.foo\ bar
+#result htmlclass1
+
+#html htmlid1
+<!DOCTYPE HTML>
+<p id=foo>
+<p id="foo bar">
+<p id=" foo ">
+<p id=foo>
+
+#data
+| #foo
+#result htmlid1
+/2/2/1
+
+#data
+| #foo\ bar
+#result htmlid1
+/2/2/2
+
+#data
+| #\ foo\20
+#result htmlid1
+/2/2/3
+
+#data
+| #bar
+#result htmlid1
+
+#xml xmlid1
+<!DOCTYPE hoge [
+  <!ATTLIST foo bar ID #IMPLIED>
+]>
+<hoge><foo bar="abc"/><foo id="xyz"/><foo xml:id="aaa"/><foo
+id="html1" xmlns="http://www.w3.org/1999/xhtml"/></hoge>
+
+#data
+| #abc
+#result xmlid1
+
+#data
+| #xyz
+#result xmlid1
+/2/2
+
+#data
+| #aaa
+#result xmlid1
+
+#data
+| #html1
+#result xmlid1
+/2/4
+
+#html 12
+<!DOCTYPE HTML>
+<p>aaaaaaaaaaaaaaaaaaaaaaaaaa
+<p>abcdefghijklmnopqrstuvwxyz
+<p>
+
+#html 13
+<!DOCTYPE HTML>
+<p>a<span>aa<!--xyz-->aaaaaaaaaaaaaaa</span>aaa<em>aaa</em>aa
+<p>ab<span><em>c</em>defghijklm</span>nopq<b>rstuvwx</b>y<img>z
+<p>
+
+#data
+:root
+#result 13
+/2
+#result 13 /2
+#result 13 /2/2
+
+#data
+span:root
+#result 13
+
+#data
+p:nth-child(1)
+#result 13
+/2/2/1
+
+#data
+p:nth-child(2)
+#result 13
+/2/2/2
+
+#data
+p:nth-child(-10)
+#result 13
+
+#data
+p:nth-child(0)
+#result 13
+
+#data
+p:nth-child(2n)
+#result 13
+/2/2/2
+
+#data
+p:nth-child(2n+1)
+#result 13
+/2/2/1
+/2/2/3
+
+#data
+p:nth-child(3n)
+#result 13
+/2/2/3
+
+#data
+p:nth-child(3n-1)
+#result 13
+/2/2/2
+
+#data
+p:nth-child(n)
+#result 13
+/2/2/1
+/2/2/2
+/2/2/3
+
+#data
+p:nth-child(n+3)
+#result 13
+/2/2/3
+
+#data
+p:nth-child(n+4)
+#result 13
+
+#data
+p:nth-child(-n)
+#result 13
+
+#data
+p:nth-child(-3n)
+#result 13
+
+#data
+p:nth-child(n-10)
+#result 13
+/2/2/1
+/2/2/2
+/2/2/3
+
+#data
+p:nth-child(-n+2)
+#result 13
+/2/2/1
+/2/2/2
+
+#data
+p:nth-last-child(1)
+#result 13
+/2/2/3
+
+#data
+p:nth-last-child(2)
+#result 13
+/2/2/2
+
+#data
+p:nth-last-child(3)
+#result 13
+/2/2/1
+
+#data
+p:nth-last-child(4)
+#result 13
+
+#data
+p:nth-last-child(12)
+#result 13
+
+#data
+p:nth-last-child(0)
+#result 13
+
+#data
+p:nth-last-child(-1)
+#result 13
+
+#data
+p:nth-last-child(2n)
+#result 13
+/2/2/2
+
+#data
+p:nth-last-child(2n+1)
+#result 13
+/2/2/1
+/2/2/3
+
+#data
+p:nth-last-child(2n+2)
+#result 13
+/2/2/2
+
+#data
+p:nth-last-child(2n+3)
+#result 13
+/2/2/1
+
+#data
+p:nth-last-child(2n+4)
+#result 13
+
+#data
+p:nth-last-child(3n)
+#result 13
+/2/2/1
+
+#data
+p:nth-last-child(3n+2)
+#result 13
+/2/2/2
+
+#data
+p:nth-last-child(2n-1)
+#result 13
+/2/2/1
+/2/2/3
+
+#data
+p:nth-last-child(2n-2)
+#result 13
+/2/2/2
+
+#data
+p:nth-last-child(2n-3)
+#result 13
+/2/2/1
+/2/2/3
+
+#data
+p:nth-last-child(-n)
+#result 13
+
+#data
+p:nth-last-child(n)
+#result 13
+/2/2/1
+/2/2/2
+/2/2/3
+
+#data
+p:nth-last-child(-n+3)
+#result 13
+/2/2/1
+/2/2/2
+/2/2/3
+
+#data
+p:nth-last-child(-n-2)
+#result 13
+
+#data
+p:nth-last-child(-2n)
+#result 13
+
+#data
+p:nth-last-child(-2n+2)
+#result 13
+/2/2/2
+
+#data
+p:nth-last-child(-2n+1)
+#result 13
+/2/2/3
+
+#data
+p:nth-last-child(-12n)
+#result 13
+
+#html types
+<!DOCTYPE html><div
+  ><p>para1
+  <li>list1
+  </li><dt>dt1
+  </dt><p>para2
+  <p>para3
+  <li>list2
+  </li><dd>dd1
+  <dd>dd2
+</div>
+
+#data
+div :nth-of-type(1)
+#result types
+/2/2/1/1
+/2/2/1/2
+/2/2/1/3
+/2/2/1/7
+
+#data
+div p:nth-of-type(1)
+#result types
+/2/2/1/1
+
+#data
+div p:nth-of-type(n)
+#result types
+/2/2/1/1
+/2/2/1/4
+/2/2/1/5
+
+#data
+div li:nth-of-type(1)
+#result types
+/2/2/1/2
+
+#data
+div li:nth-of-type(2n)
+#result types
+/2/2/1/6
+
+#data
+div li:nth-of-type(-2n+2)
+#result types
+/2/2/1/6
+
+#data
+div li:nth-of-type(-4n+2)
+#result types
+/2/2/1/6
+
+#data
+div li:nth-of-type(-4n+4)
+#result types
+
+#data
+div p:nth-last-of-type(n)
+#result types
+/2/2/1/1
+/2/2/1/4
+/2/2/1/5
+
+#data
+div p:nth-last-of-type(1)
+#result types
+/2/2/1/5
+
+#data
+div p:nth-last-of-type(2n)
+#result types
+/2/2/1/4
+
+#data
+div p:nth-last-of-type(2n+1)
+#result types
+/2/2/1/1
+/2/2/1/5
+
+#data
+div p:nth-last-of-type(-2n+1)
+#result types
+/2/2/1/5
+
+#data
+div :first-child
+#result types
+/2/2/1/1
+
+#data
+:first-child
+#result types
+/2
+/2/1
+/2/2/1
+/2/2/1/1
+
+#data
+:last-child
+#result types
+/2
+/2/2
+/2/2/1
+/2/2/1/8
+
+#data
+p:last-child
+#result types
+
+#data
+dd:last-child
+#result types
+/2/2/1/8
+
+#data
+dd:first-of-type
+#results types
+/2/2/1/7
+
+#data
+dd:last-of-type
+#results types
+/2/2/1/8
+
+#data
+:last-of-type
+#results types
+/2
+/2/1
+/2/2
+/2/2/1
+/2/2/1/3
+/2/2/1/5
+/2/2/1/6
+/2/2/1/8
+
+#data
+:only-child
+#results types
+/2
+/2/2/1
+
+#data
+div :only-child
+#results types
+
+#data
+div:only-child
+#results types
+/2/2/1
+
+#data
+div:only-of-type
+#results types
+/2/2/1
+
+#data
+div :only-of-type
+#results types
+/2/2/1/3
+
+#data
+:only-of-type
+#results
+/2
+/2/2/1
+/2/2/1/3
+
+#data
+:only-of-type:only-child
+#results
+/2
+/2/2/1
+
+#html empty
+<!DOCTYPE HTML>
+<p></p
+><p> </p
+><p><!----></p
+><p>a</p
+><p><span></span></p>
+
+#data
+:empty
+#result empty
+/2/1
+/2/2/1
+/2/2/3
+/2/2/5/1
+
+#data
+p:empty
+#result empty
+/2/2/1
+/2/2/3
+
+#xml emptyxml
+<hoge><p/><p><![CDATA[]]></p><p></p><p><!----></p><p><q/></p></hoge>
+
+#data
+:empty
+#result emptyxml
+/1/1
+/1/2
+/1/3
+/1/4
+/1/5/1
+
+#data
+:not(p)
+#result emptyxml
+/1
+/1/5/1
+
+#data
+:not(*)
+#result types
+
+#data
+:not(hoge|*)
+#ns
+hoge http://foo/
+#result emptyxml /1/5
+/1/5/1
+
+#data
+:not(dd) ~ dd
+#result types
+/2/2/1/7
+/2/2/1/8
+
+#data
+:not(dd) + dd
+#result types
+/2/2/1/7
+
+#data
+:not(:first-child) + dd
+#result types
+/2/2/1/7
+/2/2/1/8
+
+#data
+:not(:first-child) ~ dd
+#result types
+/2/2/1/7
+/2/2/1/8
+
+#data
+:not(:first-of-type) + dd
+#result types
+/2/2/1/7
+
+#data
+:not(:first-of-type) ~ dd
+#result types
+/2/2/1/7
+/2/2/1/8
+
+#data
+:not(:first-of-type):not(dd) + dd
+#result types
+/2/2/1/7
+
+#data
+:not(html|p) + p
+#ns
+html http://www.w3.org/1999/xhtml
+#result types
+/2/2/1/4
+
+#data
+p:-manakai-contains("")
+#result 12
+/2/2/1
+/2/2/2
+/2/2/3
+#result 13
+/2/2/1
+/2/2/2
+/2/2/3
+
+#data
+p:-manakai-contains("aaa")
+#result 12
+/2/2/1
+#result 13
+/2/2/1
+
+#data
+p:-manakai-contains("abc")
+#result 12
+/2/2/2
+#result 13
+/2/2/2
+
+#data
+p:-manakai-contains("qrstu")
+#result 12
+/2/2/2
+#result 13
+/2/2/2
+
+#data
+p:-manakai-contains("xyz")
+#result 12
+/2/2/2
+#result 13
+/2/2/2
+
+#data
+p:-manakai-contains("ABC")
+#result 12
+#result 13
+
+#data
+p:-manakai-contains("yza")
+#result 12
+#result 13
+
+#data
+:-manakai-contains("xyz") em
+#result 12
+#result 13
+/2/2/1/4
+/2/2/2/2/1
+
+#data
+:-manakai-contains("xyz") > em
+#result 12
+#result 13
+
+#data
+:-manakai-contains("xyz") > :-manakai-contains("cde") > em
+#result 12
+#result 13
+/2/2/2/2/1
+
+#data
+::before
+#result 12
+
+#data
+p::before
+#result 12
+
+#data
+::after
+#result 12
+
+#data
+::first-line
+#result 12
+
+#data
+::first-letter
+#result 12

@@ -1,0 +1,1365 @@
+#html 1
+<!DOCTYPE HTML><p>
+
+#data
+p {
+  content: normal;
+}
+#cssom
+| <p>
+|   content: normal
+#csstext
+p {
+  content: normal;
+}
+
+#data
+p {
+  content: normal "none";
+}
+#errors
+;2;19;m;no property semicolon
+#cssom
+| <p>
+
+#data
+p {
+  content: none;
+}
+#cssom
+| <p>
+|   content: none
+#csstext
+p {
+  content: none;
+}
+
+#data
+p {
+  content: inherit;
+}
+#cssom
+| <p>
+|   content: inherit
+#csstext
+p {
+  content: inherit;
+}
+
+#data
+p {
+  content: "a";
+}
+#cssom
+| <p>
+|   content: "a"
+#csstext
+p {
+  content: "a";
+}
+
+#data
+p {
+  content: "a" "" "n";
+}
+#cssom
+| <p>
+|   content: "a" "" "n"
+#csstext
+p {
+  content: "a" "" "n";
+}
+
+#data
+p {
+  content: """";
+}
+#cssom
+| <p>
+|   content: "" ""
+#csstext
+p {
+  content: "" "";
+}
+
+#data
+p {
+  content: "normal", "none";
+}
+#errors
+;2;20;m;no property semicolon
+#cssom
+| <p>
+
+#data
+p {
+  content: url(a);
+}
+#cssom
+| <p>
+|   content: url(a)
+#csstext
+p {
+  content: url(a);
+}
+
+#data
+p {
+  content: "IMAGE: " url(image);
+}
+#cssom
+| <p>
+|   content: "IMAGE: " url(image)
+#csstext
+p {
+  content: "IMAGE: " url(image);
+}
+
+#data
+p {
+  content: counter(aBc);
+}
+#cssom
+| <p>
+|   content: counter(aBc, decimal)
+#csstext
+p {
+  content: counter(aBc, decimal);
+}
+
+#data
+p {
+  content: counter(inherit);
+}
+#cssom
+| <p>
+|   content: counter(inherit, decimal)
+#csstext
+p {
+  content: counter(inherit, decimal);
+}
+
+#data
+p {
+  content: counter(a, circlE);
+}
+#cssom
+| <p>
+|   content: counter(a, circle)
+#csstext
+p {
+  content: counter(a, circle);
+}
+
+#data
+p {
+  content: counter(a, normal);
+}
+#errors
+;2;23;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p {
+  content: counter(chapter/* Chapter # */ ) "." counter(section /* # */ );
+}
+#cssom
+| <p>
+|   content: counter(chapter, decimal) "." counter(section, decimal)
+#csstext
+p {
+  content: counter(chapter, decimal) "." counter(section, decimal);
+}
+
+#data
+p {
+  content: counter(a, "b");
+}
+#errors
+;2;23;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p {
+  content: counter(a, "b", decimal);
+}
+#errors
+;2;23;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p {
+  content: counters(a);
+}
+#errors
+;2;22;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p {
+  content: counters(a, decimal);
+}
+#errors
+;2;24;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p {
+  content: counters(a, "b");
+}
+#cssom
+| <p>
+|   content: counters(a, "b", decimal)
+#csstext
+p {
+  content: counters(a, "b", decimal);
+}
+
+#data
+p {
+  content: counters(inherit, "x");
+}
+#cssom
+| <p>
+|   content: counters(inherit, "x", decimal)
+#csstext
+p {
+  content: counters(inherit, "x", decimal);
+}
+
+#data
+p {
+  content: counters(a, "b", SQUARE);
+}
+#cssom
+| <p>
+|   content: counters(a, "b", square)
+#csstext
+p {
+  content: counters(a, "b", square);
+}
+
+#data
+p {
+  content: counters(a, "b", none);
+}
+#cssom
+| <p>
+|   content: counters(a, "b", none)
+#csstext
+p {
+  content: counters(a, "b", none);
+}
+
+#data
+p {
+  content: counters(a, "b", c);
+}
+#errors
+;2;29;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p {
+  content: counters(a, "b", inherit);
+}
+#errors
+;2;29;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p {
+  content: attr(a);
+}
+#cssom
+| <p>
+|   content: attr(a)
+#csstext
+p {
+  content: attr(a);
+}
+
+#data
+p {
+  content: attr(aLign);
+}
+#cssom
+| <p>
+|   content: attr(aLign)
+#csstext
+p {
+  content: attr(aLign);
+}
+
+#data
+p {
+  content: attr(inherit);
+}
+#cssom
+| <p>
+|   content: attr(inherit)
+#csstext
+p {
+  content: attr(inherit);
+}
+
+#data
+p {
+  content: attr(a, b);
+}
+#errors
+;2;18;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p {
+  content: attr(|a);
+}
+#cssom
+| <p>
+|   content: attr(a)
+#csstext
+p {
+  content: attr(a);
+}
+
+#data
+p {
+  content: attr(a|);
+}
+#errors
+;2;19;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p {
+  content: attr(a||b);
+}
+#errors
+;2;19;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p {
+  content: "[title:"attr(title )"]";
+}
+#cssom
+| <p>
+|   content: "[title:" attr(title) "]"
+#csstext
+p {
+  content: "[title:" attr(title) "]";
+}
+
+#data
+p {
+  content: open-quote;
+}
+#cssom
+| <p>
+|   content: open-quote
+#csstext
+p {
+  content: open-quote;
+}
+
+#data
+p {
+  content: close-quote;
+}
+#cssom
+| <p>
+|   content: close-quote
+#csstext
+p {
+  content: close-quote;
+}
+
+#data
+p {
+  content: no-open-quote;
+}
+#cssom
+| <p>
+|   content: no-open-quote
+#csstext
+p {
+  content: no-open-quote;
+}
+
+#data
+p {
+  content: no-close-quote;
+}
+#cssom
+| <p>
+|   content: no-close-quote
+#csstext
+p {
+  content: no-close-quote;
+}
+
+#data
+p {
+  content: open-quote"QUOTE:";
+}
+#cssom
+| <p>
+|   content: open-quote "QUOTE:"
+#csstext
+p {
+  content: open-quote "QUOTE:";
+}
+
+#data
+p {
+  quotes:;
+}
+#errors
+;2;10;m;CSS syntax error;'quotes'
+#cssom
+| <p>
+
+#data
+p {
+  quotes: none;
+}
+#cssom
+| <p>
+|   quotes: none
+#csstext
+p {
+  quotes: none;
+}
+#computed 1 p
+-| quotes: -manakai-default
++| quotes: none
+#computedtext 1 p
+-  quotes: -manakai-default;
++  quotes: none;
+
+#data
+p {
+  quotes: none !important;
+}
+#cssom
+| <p>
+|   quotes: none !important
+#csstext
+p {
+  quotes: none ! important;
+}
+
+#data
+p {
+  quotes: noNe;
+}
+#cssom
+| <p>
+|   quotes: none
+#csstext
+p {
+  quotes: none;
+}
+
+#data
+p {
+  quotes: -manakai-default;
+}
+#cssom
+| <p>
+|   quotes: -manakai-default
+#csstext
+p {
+  quotes: -manakai-default;
+}
+#computed 1 p
+#computedtext 1 p
+
+#data
+p {
+  quotes: -MANAKAI-default;
+}
+#cssom
+| <p>
+|   quotes: -manakai-default
+#csstext
+p {
+  quotes: -manakai-default;
+}
+
+#data
+p {
+  quotes: -manakai-default ! important;
+}
+#cssom
+| <p>
+|   quotes: -manakai-default !important
+#csstext
+p {
+  quotes: -manakai-default ! important;
+}
+
+#data
+p {
+  quotes: inherit;
+}
+#cssom
+| <p>
+|   quotes: inherit
+#csstext
+p {
+  quotes: inherit;
+}
+#computed 1 p
+#computedtext 1 p
+
+#data
+p {
+  quotes: INHERIt;
+}
+#cssom
+| <p>
+|   quotes: inherit
+#csstext
+p {
+  quotes: inherit;
+}
+
+#data
+p {
+  quotes: inherit ! important;
+}
+#cssom
+| <p>
+|   quotes: inherit !important
+#csstext
+p {
+  quotes: inherit ! important;
+}
+
+#data
+p {
+  quotes: "1";
+}
+#errors
+;2;14;m;CSS syntax error;'quotes'
+#cssom
+| <p>
+
+#data
+p {
+  quotes: "1" "2";
+}
+#cssom
+| <p>
+|   quotes: "1" "2"
+#csstext
+p {
+  quotes: "1" "2";
+}
+#computed 1 p
+-| quotes: -manakai-default
++| quotes: "1" "2"
+#computedtext 1 p
+-  quotes: -manakai-default;
++  quotes: "1" "2";
+
+#data
+p {
+  quotes: "1""2";
+}
+#cssom
+| <p>
+|   quotes: "1" "2"
+#csstext
+p {
+  quotes: "1" "2";
+}
+
+#data
+p {
+  quotes: "1"/**/"2";
+}
+#cssom
+| <p>
+|   quotes: "1" "2"
+#csstext
+p {
+  quotes: "1" "2";
+}
+
+#data
+p {
+  quotes: "1", "2";
+}
+#errors
+;2;14;m;CSS syntax error;'quotes'
+#cssom
+| <p>
+
+#data
+p {
+  quotes: "「" "」" "『" "』";
+}
+#cssom
+| <p>
+|   quotes: "「" "」" "『" "』"
+#csstext
+p {
+  quotes: "「" "」" "『" "』";
+}
+
+#data
+p {
+  quotes: '"' '"' "'" "'";
+}
+#cssom
+| <p>
+|   quotes: """ """ "'" "'"
+#csstext
+p {
+  quotes: """ """ "'" "'";
+}
+
+#data
+p {
+  quotes: "1" "2" "3";
+}
+#errors
+;2;22;m;CSS syntax error;'quotes'
+#cssom
+| <p>
+
+#data
+p {
+  quotes: "1" "2" "3" "4";
+}
+#cssom
+| <p>
+|   quotes: "1" "2" "3" "4"
+#csstext
+p {
+  quotes: "1" "2" "3" "4";
+}
+
+#data
+p {
+  quotes: "1" "2" "3" "4" "5" "6";
+}
+#cssom
+| <p>
+|   quotes: "1" "2" "3" "4" "5" "6"
+#csstext
+p {
+  quotes: "1" "2" "3" "4" "5" "6";
+}
+
+#data
+p {
+  quotes: 1 2;
+}
+#errors
+;2;11;m;CSS syntax error;'quotes'
+#cssom
+| <p>
+
+#data
+p {
+  counter-reset: ;
+}
+#errors
+;2;18;m;CSS syntax error;'counter-reset'
+#cssom
+| <p>
+
+#data
+p {
+  counter-reset: none;
+}
+#cssom
+| <p>
+|   counter-reset: none
+#csstext
+p {
+  counter-reset: none;
+}
+#computed 1 p
+#computedtext 1 p
+
+#data
+p {
+  COUNTER-RESET: NONE;
+}
+#cssom
+| <p>
+|   counter-reset: none
+
+#data
+p {
+  counter-reset: none!important;
+}
+#cssom
+| <p>
+|   counter-reset: none !important
+
+#data
+p {
+  counter-reset: inherit;
+}
+#cssom
+| <p>
+|   counter-reset: inherit
+#csstext
+p {
+  counter-reset: inherit;
+}
+#computed 1 p
+#computedtext 1 p
+
+#data
+p {
+  COUNTER-reset: INHERIT;
+}
+#cssom
+| <p>
+|   counter-reset: inherit
+
+#data
+p {
+  counter-reset: inherit ! important;
+}
+#cssom
+| <p>
+|   counter-reset: inherit !important
+
+#data
+p {
+  counter-reset: 4
+}
+#errors
+;2;18;m;CSS syntax error;'counter-reset'
+#cssom
+| <p>
+
+#data
+p {
+  counter-reset: a;
+}
+#cssom
+| <p>
+|   counter-reset: a 0
+#csstext
+p {
+  counter-reset: a 0;
+}
+#computed 1 p
+-| counter-reset: none
++| counter-reset: a 0
+
+#data
+p {
+  counter-reset: aBc;
+}
+#cssom
+| <p>
+|   counter-reset: aBc 0
+#csstext
+p {
+  counter-reset: aBc 0;
+}
+
+#data
+p {
+  counter-reset: a 12;
+}
+#cssom
+| <p>
+|   counter-reset: a 12
+#csstext
+p {
+  counter-reset: a 12;
+}
+
+#data
+p {
+  counter-reset: a 1 2
+}
+#errors
+;2;22;m;no property semicolon
+
+#data
+p {
+  counter-reset: a b;
+}
+#cssom
+| <p>
+|   counter-reset: a 0 b 0
+#csstext
+p {
+  counter-reset: a 0 b 0;
+}
+
+#data
+p {
+  counter-reset: a,b
+}
+#errors
+;2;19;m;no property semicolon
+#cssom
+| <p>
+
+#data
+p {
+  counter-reset: a b !important;
+}
+#cssom
+| <p>
+|   counter-reset: a 0 b 0 !important
+#csstext
+p {
+  counter-reset: a 0 b 0 ! important;
+}
+
+#data
+p {
+  counter-reset: a 1 b 2 a 23;
+}
+#cssom
+| <p>
+|   counter-reset: a 1 b 2 a 23
+
+#data
+p {
+  counter-reset: a +23 b +55;
+}
+#cssom
+| <p>
+|   counter-reset: a 23 b 55
+
+#data
+p {
+  counter-reset: a -10 b -20
+}
+#cssom
+| <p>
+|   counter-reset: a -10 b -20
+
+#data
+p {
+  counter-reset: a 10.23 b 5665.4 c -53.4
+}
+#cssom
+| <p>
+|   counter-reset: a 10 b 5665 c -53
+
+#data
+p {
+  counter-reset: a 00000244 b 0000004
+}
+#cssom
+| <p>
+|   counter-reset: a 244 b 4
+
+#data
+p {
+  counter-reset: none 1;
+}
+#cssom
+| <p>
+|   counter-reset: none 1
+
+#data
+p {
+  counter-RESET: None 1;
+}
+#cssom
+| <p>
+|   counter-reset: None 1
+
+#data
+p {
+  counter-reset: none a;
+}
+#cssom
+| <p>
+|   counter-reset: none 0 a 0
+
+#data
+p {
+  counter-reset: inherit 2;
+}
+#cssom
+| <p>
+|   counter-reset: inherit 2
+
+#data
+p {
+  Counter-Reset: Inherit 2;
+}
+#cssom
+| <p>
+|   counter-reset: Inherit 2
+
+#data
+p {
+  counter-reset: inherit a;
+}
+#cssom
+| <p>
+|   counter-reset: inherit 0 a 0
+
+#data
+p {
+  counter-increment: ;
+}
+#errors
+;2;22;m;CSS syntax error;'counter-increment'
+#cssom
+| <p>
+
+#data
+p {
+  counter-increment: none;
+}
+#cssom
+| <p>
+|   counter-increment: none
+#csstext
+p {
+  counter-increment: none;
+}
+#computed 1 p
+#computedtext 1 p
+
+#data
+p {
+  COUNTER-INCREMENT: NONE;
+}
+#cssom
+| <p>
+|   counter-increment: none
+
+#data
+p {
+  counter-increment: none!important;
+}
+#cssom
+| <p>
+|   counter-increment: none !important
+
+#data
+p {
+  counter-increment: inherit;
+}
+#cssom
+| <p>
+|   counter-increment: inherit
+#csstext
+p {
+  counter-increment: inherit;
+}
+#computed 1 p
+#computedtext 1 p
+
+#data
+p {
+  COUNTER-increment: INHERIT;
+}
+#cssom
+| <p>
+|   counter-increment: inherit
+
+#data
+p {
+  counter-increment: inherit ! important;
+}
+#cssom
+| <p>
+|   counter-increment: inherit !important
+
+#data
+p {
+  counter-increment: 4
+}
+#errors
+;2;22;m;CSS syntax error;'counter-increment'
+#cssom
+| <p>
+
+#data
+p {
+  counter-increment: a;
+}
+#cssom
+| <p>
+|   counter-increment: a 1
+#csstext
+p {
+  counter-increment: a 1;
+}
+#computed 1 p
+-| counter-increment: none
++| counter-increment: a 1
+
+#data
+p {
+  counter-increment: aBc;
+}
+#cssom
+| <p>
+|   counter-increment: aBc 1
+#csstext
+p {
+  counter-increment: aBc 1;
+}
+
+#data
+p {
+  counter-increment: a 12;
+}
+#cssom
+| <p>
+|   counter-increment: a 12
+#csstext
+p {
+  counter-increment: a 12;
+}
+
+#data
+p {
+  counter-increment: a 1 2
+}
+#errors
+;2;26;m;no property semicolon
+
+#data
+p {
+  counter-increment: a b;
+}
+#cssom
+| <p>
+|   counter-increment: a 1 b 1
+#csstext
+p {
+  counter-increment: a 1 b 1;
+}
+
+#data
+p {
+  counter-increment: a,b
+}
+#errors
+;2;23;m;no property semicolon
+#cssom
+| <p>
+
+#data
+p {
+  counter-increment: a b !important;
+}
+#cssom
+| <p>
+|   counter-increment: a 1 b 1 !important
+#csstext
+p {
+  counter-increment: a 1 b 1 ! important;
+}
+
+#data
+p {
+  counter-increment: a 1 b 2 a 23;
+}
+#cssom
+| <p>
+|   counter-increment: a 1 b 2 a 23
+
+#data
+p {
+  counter-increment: a +23 b +55;
+}
+#cssom
+| <p>
+|   counter-increment: a 23 b 55
+
+#data
+p {
+  counter-increment: a -10 b -20
+}
+#cssom
+| <p>
+|   counter-increment: a -10 b -20
+
+#data
+p {
+  counter-increment: a 10.23 b 5665.4 c -53.4
+}
+#cssom
+| <p>
+|   counter-increment: a 10 b 5665 c -53
+
+#data
+p {
+  counter-increment: a 00000244 b 0000004
+}
+#cssom
+| <p>
+|   counter-increment: a 244 b 4
+
+#data
+p {
+  counter-increment: none 1;
+}
+#cssom
+| <p>
+|   counter-increment: none 1
+
+#data
+p {
+  counter-INCREMENT: None 1;
+}
+#cssom
+| <p>
+|   counter-increment: None 1
+
+#data
+p {
+  counter-increment: none a;
+}
+#cssom
+| <p>
+|   counter-increment: none 1 a 1
+
+#data
+p {
+  counter-increment: inherit 2;
+}
+#cssom
+| <p>
+|   counter-increment: inherit 2
+
+#data
+p {
+  Counter-Increment: Inherit 2;
+}
+#cssom
+| <p>
+|   counter-increment: Inherit 2
+
+#data
+p {
+  counter-increment: inherit a;
+}
+#cssom
+| <p>
+|   counter-increment: inherit 1 a 1
+
+#data
+p {
+  marker-offset: auto
+}
+#cssom
+| <p>
+|   marker-offset: auto
+#csstext
+p {
+  marker-offset: auto;
+}
+#computed 1 p
+#computedtext 1 p
+
+#data
+p {
+  marker-offset: inherit;
+}
+#cssom
+| <p>
+|   marker-offset: inherit
+#csstext
+p {
+  marker-offset: inherit;
+}
+#computed 1 p
+#computedtext 1 p
+
+#data
+p {
+  marker-offset: 1px;
+}
+#cssom
+| <p>
+|   marker-offset: 1px
+#csstext
+p {
+  marker-offset: 1px;
+}
+#computed 1 p
+-| marker-offset: auto
++| marker-offset: 1px
+
+#data
+p {
+  marker-offset: +10em;
+}
+#cssom
+| <p>
+|   marker-offset: 10em
+#csstext
+p {
+  marker-offset: 10em;
+}
+
+#data
+p {
+  marker-offset: -0px;
+}
+#cssom
+| <p>
+|   marker-offset: 0px
+
+#data
+p {
+  marker-offset: -100cm;
+}
+#cssom
+| <p>
+|   marker-offset: -100cm
+
+#data
+p {
+  marker-offset: 0;
+}
+#cssom
+| <p>
+|   marker-offset: 0px
+
+#data
+p {
+  marker-offset: 10cml;
+}
+#errors
+;2;18;m;CSS syntax error;'marker-offset'
+#cssom
+| <p>
+
+#data
+p {
+  marker-offset: 0010.345000px;
+}
+#cssom
+| <p>
+|   marker-offset: 10.345px
+
+#data
+p {
+  marker-offset: 3;
+}
+#errors
+;2;18;m;CSS syntax error;'marker-offset'
+#cssom
+| <p>
+
+#data
+p {
+  marker-offset: 3;
+}
+#option q
+#cssom
+| <p>
+|   marker-offset: 3px
+
+#data
+p {
+  list-style-type: hebrew;
+}
+#cssom
+| <p>
+|   list-style-type: hebrew
+
+#data
+p {
+  list-style-type: CJK-ideographic
+}
+#cssom
+| <p>
+|   list-style-type: cjk-ideographic
+
+#data
+p {
+  list-style-type: kana
+}
+#errors
+;2;20;m;CSS syntax error;'list-style-type'
+#cssom
+| <p>
+
+#data
+p {
+  list-style-type: hiragana;
+}
+#cssom
+| <p>
+|   list-style-type: hiragana
+
+#data
+p {
+  list-style-type: Hirakana;
+} 
+#errors
+;2;20;m;CSS syntax error;'list-style-type'
+#cssom
+| <p>
+
+#data
+p {
+  list-style-type: iroha;
+}
+#errors
+;2;20;m;CSS syntax error;'list-style-type'
+#cssom
+| <p>
+
+#data
+p {
+  list-style-type: hiragana-iroha;
+}
+#cssom
+| <p>
+|   list-style-type: hiragana-iroha
+
+#data
+p {
+  list-style-type: katakana-iroha
+}
+#cssom
+| <p>
+|   list-style-type: katakana-iroha
+
+#data
+p {
+  list-style: none;
+}
+#cssom
+| <p>
+|   list-style: none none outside
+|   list-style-image: none
+|   list-style-position: outside
+|   list-style-type: none
+#csstext
+p {
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+}
+
+
