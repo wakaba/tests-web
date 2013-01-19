@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>baseURI</title>
+</head>
+<body>
+
+<div xml:base="mailto:abc@def.test">
+<div xml:base="hoge/fuga">
+  <p id="result" class="FAIL">FAIL (noscript)</p>
+</div>
+</div>
+
+<script>
+  var p = document.getElementById ('result');
+  p.firstChild.data = 'FAIL (script)';
+
+  p.firstChild.data = p.baseURI === '' ? '(empty)' : '';
+  p.className = '';
+</script>
+
+</body>
+</html>

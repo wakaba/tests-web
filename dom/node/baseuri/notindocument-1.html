@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<title>baseURI</title>
+
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+  var p = document.getElementById ('result');
+  p.firstChild.data = 'FAIL (script)';
+
+  var el = document.createElement ('hoge');
+  p.firstChild.data = el.baseURI === '' ? '(empty)' : el.baseURI;
+  p.className = '';
+</script>
