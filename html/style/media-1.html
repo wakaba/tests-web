@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<title>media</title>
+<style></style>
+
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+  var p = document.getElementById ('result');
+  p.firstChild.data = 'FAIL (script)';
+
+  var link = document.getElementsByTagName ('style')[0];
+  if (link.media === '') {
+    p.firstChild.data = 'PASS';
+    p.className = 'PASS';
+  } else {
+    p.firstChild.data = 'FAIL (' + link.media + ')';
+  }
+</script>
