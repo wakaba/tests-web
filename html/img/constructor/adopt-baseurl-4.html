@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>new Image ()</title>
+<base href="data-2/">
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<p><iframe src="../adopt-baseurl-4-inner.html" onload="
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script error)';
+
+  var loaded = false;
+  var img = this.contentWindow.getImage (function () { loaded = true });
+  document.body.appendChild (img);
+  var code = function () {
+    if (img.naturalWidth === 2) {
+      result.firstChild.data = 'PASS';
+      result.className = 'PASS';
+    } else {
+      result.firstChild.data = 'FAIL (' + img.naturalWidth + ')';
+    }
+  };
+  if (loaded) {
+    code ();
+  } else {
+    result.firstChild.data = 'FAIL (no onload)';
+    img.onload = function () { code () };
+  }
+" style="visibility:hidden"></iframe>

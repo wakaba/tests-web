@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>new Image ()</title>
+<base href="data-1/">
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script error)';
+
+  var img = new Image;
+  img.onload = function () {
+    if (img.naturalWidth === 1) {
+      result.firstChild.data = 'PASS';
+      result.className = 'PASS';
+    } else {
+      result.firstChild.data = 'FAIL (' + img.naturalWidth + ')';
+    }
+  };
+  img.src = 'image1.png';
+  document.getElementsByTagName ('base')[0].href = document.URL + '/../data-2/';
+  document.body.appendChild (img);
+
+  result.firstChild.data = 'FAIL (no onload)';
+</script>
