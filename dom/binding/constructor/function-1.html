@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>constructor</title>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script error)';
+
+  try {
+    var option = Option ();
+    if (option instanceof HTMLOptionElement) {
+      result.className = 'PASS';
+      result.firstChild.data = 'PASS';
+    } else {
+      result.firstChild.data = 'FAIL (' + option + ')';
+    }
+  } catch (e) {
+    result.firstChild.data = 'FAIL (Exception = ' + e + ')';
+  }
+</script>
