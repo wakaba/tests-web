@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<title>base</title>
+<!--<base href="http://1.example.com/">-->
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script)';
+  var dir = location.href.replace(/[^\/]+$/, '');
+  var url = dir + 'entrybase-1-inner.html';
+  var iframe = document.createElement ('iframe');
+  iframe.src = url;
+  iframe.onload = function () {
+    iframe.onload = function () {
+      if (dir + 'hoge/fuga' === iframe.contentWindow.location.href) {
+        result.firstChild.data = 'PASS';
+        result.className = 'PASS';
+      } else {
+        result.firstChild.data = 'FAIL (' + iframe.contentWindow.location.href + ')';
+      }
+      iframe.onload = null;
+      iframe.style.display = 'none';
+    };
+    iframe.contentWindow.go ('hoge');
+  };
+  document.body.appendChild (iframe);
+</script>

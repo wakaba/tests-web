@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>baseURI</title>
+
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script>
+  var p = document.getElementById ('result');
+  p.firstChild.data = 'FAIL (script)';
+
+  if (p.firstChild.baseURI === location.href) {
+    p.firstChild.data = 'PASS'
+    p.className = 'PASS';
+  } else {
+    p.firstChild.data = 'FAIL (' + p.firstChild.baseURI + ')';
+  }
+</script>

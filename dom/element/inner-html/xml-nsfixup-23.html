@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<Title>innerHTML</title>
+
+<p id=result>(noscript)</p>
+
+<script>
+  var resultP = document.getElementById ('result');
+
+  var doc = document.implementation.createDocument (null, 'p', null);
+  var el1 = doc.createElementNS ('http://www.w3.org/1999/xhtml', 'hoge');
+  var el2 = doc.createElementNS ('http://ns1/', 'fuga');
+  var el3 = doc.createElementNS ('http://ns2/', 'fuga');
+  var el4 = doc.createElementNS (null, 'hoge');
+  var el5 = doc.createElementNS ('http://ns1/', 'hoge');
+  el1.appendChild (el2);
+  el2.appendChild (el3);
+  el3.appendChild (el4);
+  el4.appendChild (el5);
+
+  resultP.firstChild.data = el1.innerHTML;
+</script>
