@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<title>pushState</title>
+
+<p class=FAIL id=result>FAIL (noscript)
+<p><a id=test href=referer-1-linked.html#2></a>
+
+<script>
+  var test = document.getElementById ('test');
+  test.href = test.href;
+  history.replaceState ({}, '', '/hoge/fuga');
+  test.click ();
+</script>
