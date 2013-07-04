@@ -1,0 +1,10 @@
+<!DOCTYPe html>
+<title>mousedown</title>
+
+<p><a href="logger-result.html" onmousedown="
+  var key = 'linkclick' + Math.random ().toString ().replace (/\./, '');
+  var value = Math.random ().toString ().replace (/\./, '');
+  this.href += '?' + key + '=' + value;
+  var img = new Image();
+  img.src = 'logger.cgi?' + key + '=' + value;
+">Follow this link and check the result</a>

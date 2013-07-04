@@ -1,0 +1,16 @@
+<!DOCTYPe html>
+<title>beforeunload</title>
+<body onpageshow="
+  window.loggerKey = '';
+  window.loggerValue = '';
+" onbeforeunload="
+  var xhr = new XMLHttpRequest ();
+  xhr.open ('GET', 'logger.cgi?' + window.loggerKey + '=' + window.loggerValue, false);
+  xhr.send (null);
+">
+
+<p><a href="logger-result.html" onclick="
+  window.loggerKey = 'linkclick' + Math.random ().toString ().replace (/\./, '');
+  window.loggerValue = Math.random ().toString ().replace (/\./, '');
+  this.href += '?' + window.loggerKey + '=' + window.loggerValue;
+">Follow this link and check the result</a>

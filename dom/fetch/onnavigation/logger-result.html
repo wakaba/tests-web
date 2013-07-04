@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<title>Result</title>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script error)';
+
+  var q = location.search.match (/^\?([A-Za-z0-9]+)=([A-Za-z0-9]*)$/) || [];
+  var r = document.cookie.match (new RegExp ('\\btest-logger-' + q[1] + '=' + '([^;]*)')) || [];
+
+  if (q[1] != null && r[1] === q[2]) {
+    result.firstChild.data = '(Matched)';
+    result.className = '';
+  } else if (r[1] === '') {
+    result.firstChild.data = 'FAIL (empty string)';
+  } else if (r[1] === null) {
+    result.firstChild.data = 'FAIL (null)';
+  } else if (r[1] === undefined) {
+    result.firstChild.data = '(undefined)';
+    result.className = '';
+  } else {
+    result.firstChild.data = 'FAIL ("' + r[1] + '")';
+  }
+</script>
+

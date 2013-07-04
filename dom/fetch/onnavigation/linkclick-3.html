@@ -1,0 +1,15 @@
+<!DOCTYPe html>
+<title>beforeunload</title>
+<body onpageshow="
+  window.loggerKey = '';
+  window.loggerValue = '';
+" onbeforeunload="
+  var img = new Image();
+  img.src = 'logger.cgi?' + window.loggerKey + '=' + window.loggerValue;
+">
+
+<p><a href="logger-result.html" onclick="
+  window.loggerKey = 'linkclick' + Math.random ().toString ().replace (/\./, '');
+  window.loggerValue = Math.random ().toString ().replace (/\./, '');
+  this.href += '?' + window.loggerKey + '=' + window.loggerValue;
+">Follow this link and check the result</a>
