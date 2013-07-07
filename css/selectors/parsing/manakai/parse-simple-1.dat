@@ -201,6 +201,7 @@ a\ \,\ b
 #data escaped
 a\\u000Ab
 #errors
+1;2;css:escape:broken;;;m
 1;2;no combinator;;;m
 
 #data
@@ -376,7 +377,7 @@ a http://foo/
 #ns
 a http://foo/
 #errors
-1;4;no attr local name;;;m
+1;3;no attr match;;;m
 
 #data
 [a = b]
@@ -634,9 +635,10 @@ foo http://foo/
 #data escaped
 [ab="\u0000"]
 #errors
+1;6;NULL;;;w
 #parsed escaped
 [{}ab]
-=\u0000
+=\uFFFD
 
 #data escaped
 [ab="\uD800"]
@@ -665,7 +667,7 @@ foo http://foo/
 1;10;css:escape:null;;;m
 #parsed escaped
 [{}ab]
-=\u0000
+=\uFFFD
 
 #data escaped
 [ab="\110000"]
@@ -716,6 +718,7 @@ foo http://foo/
 [a="bc\"]
 #errors
 1;10;attr selector not closed;;;m
+1;10;css:string:eof;;;w
 
 #data
 [a='b\'c']
@@ -727,15 +730,18 @@ foo http://foo/
 [a="bc']
 #errors
 1;9;attr selector not closed;;;m
+1;9;css:string:eof;;;w
 
 #data escaped
 [abc="de\u000Af"]
 #errors
+2;0;css:string:newline;;;m
 1;6;no attr value;;;m
 
 #data escaped
 [abc='de\u000Af']
 #errors
+2;0;css:string:newline;;;m
 1;6;no attr value;;;m
 
 #data
