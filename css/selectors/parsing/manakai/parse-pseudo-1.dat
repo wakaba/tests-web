@@ -446,19 +446,15 @@
 :nth-child(/**/+/**/10/**/)
 #supported
 :nth-child
-#parsed
-:nth-child
-  "0"
-  "10"
+#errors
+1;21;an+b syntax error;;;m
 
 #data
 :nth-child(/**/-/**/10/**/)
 #supported
 :nth-child
-#parsed
-:nth-child
-  "0"
-  "-10"
+#errors
+1;16;an+b syntax error;;;m
 
 #data
 :nth-child(+ 10)
@@ -472,7 +468,7 @@
 #supported
 :nth-child
 #errors
-1;13;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(+)
@@ -486,7 +482,7 @@
 #supported
 :nth-child
 #errors
-1;13;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(10.0)
@@ -614,19 +610,15 @@
 :nth-child(+/**/3n)
 #supported
 :nth-child
-#parsed
-:nth-child
-  "3"
-  "0"
+#errors
+1;17;an+b syntax error;;;m
 
 #data
 :nth-child(-/**/3n)
 #supported
 :nth-child
-#parsed
-:nth-child
-  "-3"
-  "0"
+#errors
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(+ 3n)
@@ -640,7 +632,7 @@
 #supported
 :nth-child
 #errors
-1;13;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(10.2n)
@@ -661,28 +653,28 @@
 #supported
 :nth-child
 #errors
-1;13;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(+10.000n)
 #supported
 :nth-child
 #errors
-1;13;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(-10.2n)
 #supported
 :nth-child
 #errors
-1;13;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(-10.000n)
 #supported
 :nth-child
 #errors
-1;13;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(+/**/10.2n)
@@ -703,14 +695,14 @@
 #supported
 :nth-child
 #errors
-1;17;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(-/**/10.000n)
 #supported
 :nth-child
 #errors
-1;17;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(000n)
@@ -906,10 +898,8 @@
 :nth-child(-/**/n)
 #supported
 :nth-child
-#parsed
-:nth-child
-  "-1"
-  "0"
+#errors
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(+N)
@@ -950,7 +940,7 @@
 #supported
 :nth-child
 #errors
-1;13;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(nm)
@@ -978,7 +968,7 @@
 #supported
 :nth-child
 #errors
-1;13;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(\-n)
@@ -1031,14 +1021,14 @@
 #supported
 :nth-child
 #errors
-1;13;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(+10\30n)
 #supported
 :nth-child
 #errors
-1;13;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(+12n/**/)
@@ -1246,7 +1236,7 @@
 #supported
 :nth-child
 #errors
-1;15;an+b syntax error;;;m
+1;14;an+b syntax error;;;m
 
 #data
 :nth-child(2n-1.0)
@@ -1260,14 +1250,14 @@
 #supported
 :nth-child
 #errors
-1;19;an+b syntax error;;;m
+1;18;an+b syntax error;;;m
 
 #data
 :nth-child(2n/**/-1.0)
 #supported
 :nth-child
 #errors
-1;19;an+b syntax error;;;m
+1;18;an+b syntax error;;;m
 
 #data
 :nth-child(2n+/**/1.0)
@@ -1583,6 +1573,145 @@
 :nth-last-of-type
 #errors
 1;19;an+b syntax error;;;m
+
+#data
+:nth-child(10e0)
+#supported
+:nth-child
+#errors
+1;12;an+b not integer;;10e0;m
+
+#data
+:nth-child(++10)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(+-10)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(--10)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(-+10)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(10e0n)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(++10N)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(+-10N)
+#supported
+:nth-child
+#errors
+1;13;an+b syntax error;;;m
+
+#data
+:nth-child(--10\n)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(-+10n)
+#supported
+:nth-child
+#errors
+1;12;an+b syntax error;;;m
+
+#data
+:nth-child(10N/**/+12)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "10"
+  "12"
+
+#data
+:nth-child(10N/**/-12)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "10"
+  "-12"
+
+#data
+:nth-child(10N/**/+12.0)
+#supported
+:nth-child
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:nth-child(10N/**/-12.0)
+#supported
+:nth-child
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:nth-child(10N/**/+12e0)
+#supported
+:nth-child
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:nth-child(10N/**/-12e0)
+#supported
+:nth-child
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:nth-child(10N/**/-/**/12)
+#supported
+:nth-child
+#parsed
+:nth-child
+  "10"
+  "-12"
+
+#data
+:nth-child(10N/**/12)
+#supported
+:nth-child
+#errors
+1;19;an+b syntax error;;;m
+
+#data
+:nth-child(+/**/10N-12)
+#supported
+:nth-child
+#errors
+1;17;an+b syntax error;;;m
 
 #data
 :first-child
