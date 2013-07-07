@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>Image</title>
+<base href="data-1/">
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<img src="image1.png" onload="
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script)';
+  document.getElementsByTagName ('base')[0].href = 'data-2/';
+  var img = this;
+  document.body.appendChild (img);
+  setTimeout (function () {
+    if (img.naturalWidth == 1) {
+      result.firstChild.data = 'PASS';
+      result.className = 'PASS';
+    } else {
+      result.firstChild.data = 'FAIL (' + img.naturalWidth + ')';
+    }
+  }, 1000);
+">

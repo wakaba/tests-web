@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title>document.write</title>
+<style>
+  #external { visibility: hidden }
+  .PASS { color: green }
+  .FAIL { color: red }
+</style>
+
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+<script><!--
+  document.write ('<script src="write-in-external-script-1.js"></script>');
+// --></script>
+
+<script>
+  var el = document.getElementById ('external');
+  var result = document.getElementById ('result');
+  if (el) {
+    result.firstChild.data = 'PASS';
+    result.className = 'PASS';
+  } else {
+    result.firstChild.data = 'FAIL (not written)';
+  }
+</script>

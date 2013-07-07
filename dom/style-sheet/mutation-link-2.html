@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title>sheet</title>
+
+<link rel=stylesheet href=empty.css>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var result = document.getElementById ('result');
+
+  var link = document.getElementsByTagName ('link')[0];
+  var sheet1 = link.sheet;
+  link.parentNode.removeChild (link);
+  var sheet2 = link.sheet;
+
+  if (sheet2 === null) {
+    result.firstChild.data = 'PASS';
+    result.className = 'PASS';
+  } else if (sheet2 === sheet1) {
+    result.firstChild.data = 'FAIL (equal to old |sheet|)';
+  } else {
+    result.firstChild.data = 'FAIL (|sheet| is not |null|, not equal to old |sheet|)';
+  }
+</script>

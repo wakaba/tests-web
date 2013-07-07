@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<title>pushState</title>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var result = document.getElementById ('result');
+  var referrer = document.referrer;
+  if (referrer === location.protocol + '//' + location.host + '/hoge/fuga') {
+    result.firstChild.data = 'PASS';
+    result.className = 'PASS';
+  } else {
+    result.firstChild.data = 'FAIL (' + referrer + ')';
+  }
+</script>

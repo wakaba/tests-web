@@ -1,0 +1,11 @@
+<!DOCTYPe html>
+<title>click</title>
+
+<p><a href="logger-result.html" onclick="
+  var key = 'linkclick' + Math.random ().toString ().replace (/\./, '');
+  var value = Math.random ().toString ().replace (/\./, '');
+  this.href += '?' + key + '=' + value;
+  var xhr = new XMLHttpRequest ();
+  xhr.open ('GET', 'logger.cgi?' + key + '=' + value, false);
+  xhr.send (null);
+">Follow this link and check the result</a>
