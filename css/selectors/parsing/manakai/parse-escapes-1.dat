@@ -509,7 +509,7 @@ y
 | b
 #errors
 1;2;css:escape:broken;;;m
-1;1;selectors:id:empty;;;m
+1;1;no sss;;;m
 
 #data
 | #-\
@@ -592,8 +592,10 @@ y
 #data
 [a=\]
 #errors
-1;6;attr selector not closed;;;m
+1;6;css:block:eof;;;w
 #parsed escaped
+[{}a]
+=]
 
 #data
 [a=\]]
@@ -894,7 +896,8 @@ x\U00900000y http://fuga/
 #data
 [a="b"c"]
 #errors
-1;7;attr selector not closed;;;m
+1;10;css:string:eof;;;w
+1;7;selectors:attr:broken;;;m
 #parsed
 
 #data
@@ -903,12 +906,15 @@ c"]
 #errors
 1;4;no attr value;;;m
 2;0;css:string:newline;;;m
+2;4;css:string:eof;;;w
 
 #data
 [a="b
 #errors
-1;6;attr selector not closed;;;m
 1;6;css:string:eof;;;w
+#parsed
+[{}a]
+=b
 
 #data
 [a='b
@@ -916,12 +922,15 @@ c']
 #errors
 1;4;no attr value;;;m
 2;0;css:string:newline;;;m
+2;4;css:string:eof;;;w
 
 #data
 [a='b
 #errors
-1;6;attr selector not closed;;;m
 1;6;css:string:eof;;;w
+#parsed
+[{}a]
+=b
 
 #data escaped
 [a="b\\u000Dc"]
@@ -1079,7 +1088,7 @@ x)
 :-manakai-contains
 #errors
 1;23;css:escape:broken;;;m
-1;23;selectors:pseudo:argument not closed;;;m
+1;23;selectors:pseudo:argument broken;;;m
 #parsed escaped
 
 #data
@@ -1100,6 +1109,7 @@ def")
 #errors
 1;20;no contains string;;;m
 2;0;css:string:newline;;;m
+2;6;css:string:eof;;;w
 #parsed
 
 #data
@@ -1107,6 +1117,7 @@ def")
 #supported
 :-manakai-contains
 #errors
-1;24;selectors:pseudo:argument not closed;;;m
 1;24;css:string:eof;;;w
 #parsed
+:-manakai-contains
+  "abc"

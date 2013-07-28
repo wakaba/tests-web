@@ -278,7 +278,7 @@ hoge about:
 #data
 [a|*]
 #errors
-1;2;namespace prefix:not declared;;a;m
+1;4;no attr local name;;;m
 
 #data
 [a|*]
@@ -299,22 +299,28 @@ http://hooge/
 #data
 [
 #errors
+1;2;css:block:eof;;;w
 1;2;no attr name;;;m
 
 #data escaped
 [\u0020
 #errors
+1;3;css:block:eof;;;w
 1;3;no attr name;;;m
 
 #data
 [hoge
 #errors
-1;6;no attr match;;;m
+1;6;css:block:eof;;;w
+#parsed
+[{}hoge]
 
 #data escaped
 [hoge \u0009
 #errors
-1;8;no attr match;;;m
+1;8;css:block:eof;;;w
+#parsed
+[{}hoge]
 
 #data escaped
 [  \u000D\u0009\u000A\u000C   hoge    \u000D\u0009\u000C\u000A]
@@ -325,7 +331,7 @@ http://hooge/
 #data
 [hoge|]
 #errors
-1;2;namespace prefix:not declared;;hoge;m
+1;7;no attr local name;;;m
 #parsed
 
 #data
@@ -351,7 +357,7 @@ hoge http://foo/
 #data
 [    hoge|]
 #errors
-1;6;namespace prefix:not declared;;hoge;m
+1;11;no attr local name;;;m
 
 #data
 [?hoge]
@@ -428,9 +434,14 @@ a http://foo/
 ^=b
 
 #data
+[a $= b/**/cc]
+#errors
+1;12;selectors:attr:broken;;;m
+
+#data
 [a $= b cc]
 #errors
-1;9;attr selector not closed;;;m
+1;9;selectors:attr:broken;;;m
 
 #data
 [^=a]
@@ -695,7 +706,7 @@ foo http://foo/
 #data
 [ab="x""y"]
 #errors
-1;8;attr selector not closed;;;m
+1;8;selectors:attr:broken;;;m
 
 #data
 ["ab"=de]
@@ -717,8 +728,10 @@ foo http://foo/
 #data
 [a="bc\"]
 #errors
-1;10;attr selector not closed;;;m
 1;10;css:string:eof;;;w
+#parsed
+[{}a]
+=bc"]
 
 #data
 [a='b\'c']
@@ -729,19 +742,23 @@ foo http://foo/
 #data
 [a="bc']
 #errors
-1;9;attr selector not closed;;;m
 1;9;css:string:eof;;;w
+#parsed
+[{}a]
+=bc']
 
 #data escaped
 [abc="de\u000Af"]
 #errors
 2;0;css:string:newline;;;m
+2;4;css:string:eof;;;w
 1;6;no attr value;;;m
 
 #data escaped
 [abc='de\u000Af']
 #errors
 2;0;css:string:newline;;;m
+2;4;css:string:eof;;;w
 1;6;no attr value;;;m
 
 #data
@@ -779,6 +796,7 @@ foo http://foo/
 [a=b(]
 #errors
 1;4;no attr value;;;m
+1;7;css:block:eof;;;w
 
 #data
 [*]
@@ -896,8 +914,8 @@ foo http://foo/
 #ns
 http://foo/
 #parsed
-{http://foo/}
-.class
+| {http://foo/}
+| .class
 
 #data
 *|*.class
@@ -952,6 +970,7 @@ foo
 #data
 .foo(
 #errors
+1;6;css:block:eof;;;w
 1;2;no class name;;;m
 
 #data
@@ -982,7 +1001,7 @@ foo
 #data
 | # a
 #errors
-1;1;selectors:id:empty;;;m
+1;1;no sss;;;m
 
 #data
 | #b
@@ -1051,6 +1070,7 @@ http://hoge/
 | #foo(
 #errors
 1;5;no combinator;;;m
+1;6;css:block:eof;;;w
 
 #data
 | #HOGE

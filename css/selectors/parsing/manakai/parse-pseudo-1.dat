@@ -143,6 +143,7 @@
 #supported
 :lang
 #errors
+1;7;css:block:eof;;;w
 1;7;no lang tag;;;m
 
 #data
@@ -156,6 +157,7 @@
 :lang(
 #supported
 #errors
+1;7;css:block:eof;;;w
 1;2;selectors:pseudo-class:function:not supported;;lang;w
 
 #data
@@ -284,14 +286,14 @@
 #supported
 :lang
 #errors
-1;10;selectors:pseudo:argument not closed;;;m
+1;10;selectors:pseudo:argument broken;;;m
 
 #data
 :lang(ja/**/jp)
 #supported
 :lang
 #errors
-1;13;selectors:pseudo:argument not closed;;;m
+1;13;selectors:pseudo:argument broken;;;m
 
 #data
 :enabled
@@ -375,6 +377,7 @@
 #supported
 :nth-child
 #errors
+1;12;css:block:eof;;;w
 1;12;an+b syntax error;;;m
 
 #data
@@ -489,14 +492,14 @@
 #supported
 :nth-child
 #errors
-1;12;an+b not integer;;10.0;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(10.1)
 #supported
 :nth-child
 #errors
-1;12;an+b not integer;;10.1;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(0001)
@@ -736,21 +739,21 @@
 #supported
 :nth-child
 #errors
-1;18;an+b not closed;;;m
+1;18;selectors:pseudo:argument broken;;;m
 
 #data
 :nth-child(+10/**/n)
 #supported
 :nth-child
 #errors
-1;19;an+b not closed;;;m
+1;19;selectors:pseudo:argument broken;;;m
 
 #data
 :nth-child(-10/**/n)
 #supported
 :nth-child
 #errors
-1;19;an+b not closed;;;m
+1;19;selectors:pseudo:argument broken;;;m
 
 #data
 :nth-child(10N)
@@ -829,7 +832,7 @@
 #supported
 :nth-child
 #errors
-1;19;an+b not closed;;;m
+1;19;selectors:pseudo:argument broken;;;m
 
 #data
 :nth-child(n)
@@ -1051,7 +1054,7 @@
 #supported
 :nth-child
 #errors
-1;15;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(2n/**/+)
@@ -1184,10 +1187,8 @@
 :nth-child(2n-/**/1)
 #supported
 :nth-child
-#parsed
-:nth-child
-  "2"
-  "-1"
+#errors
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(2n+/**/+1)
@@ -1201,7 +1202,7 @@
 #supported
 :nth-child
 #errors
-1;19;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(2n+/**/+1)
@@ -1222,42 +1223,42 @@
 #supported
 :nth-child
 #errors
-1;19;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(2n-/**/-1)
 #supported
 :nth-child
 #errors
-1;19;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(2n+1.0)
 #supported
 :nth-child
 #errors
-1;14;an+b syntax error;;;m
+1;14;selectors:pseudo:argument broken;;;m
 
 #data
 :nth-child(2n-1.0)
 #supported
 :nth-child
 #errors
-1;16;an+b not closed;;;m
+1;16;selectors:pseudo:argument broken;;;m
 
 #data
 :nth-child(2n/**/+1.0)
 #supported
 :nth-child
 #errors
-1;18;an+b syntax error;;;m
+1;18;selectors:pseudo:argument broken;;;m
 
 #data
 :nth-child(2n/**/-1.0)
 #supported
 :nth-child
 #errors
-1;18;an+b syntax error;;;m
+1;18;selectors:pseudo:argument broken;;;m
 
 #data
 :nth-child(2n+/**/1.0)
@@ -1271,7 +1272,7 @@
 #supported
 :nth-child
 #errors
-1;19;an+b syntax error;;;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(2n/**/-/**/ /**/ 1)
@@ -1286,10 +1287,8 @@
 :nth-child(2n-/**/ /**/ 1)
 #supported
 :nth-child
-#parsed
-:nth-child
-  "2"
-  "-1"
+#errors
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(4n +  1)
@@ -1459,7 +1458,7 @@
 #supported
 :nth-child
 #errors
-1;16;an+b not closed;;;m
+1;16;selectors:pseudo:argument broken;;;m
 
 #data
 :nth-child(an+b)
@@ -1473,28 +1472,41 @@
 #supported
 :nth-child
 #errors
-1;13;an+b not closed;;;m
+1;13;css:block:eof;;;w
+#parsed
+:nth-child
+  "0"
+  "3"
 
 #data
 :nth-child(3n
 #supported
 :nth-child
 #errors
-1;14;an+b syntax error;;;m
+1;14;css:block:eof;;;w
+#parsed
+:nth-child
+  "3"
+  "0"
 
 #data
 :nth-child(3+
 #supported
 :nth-child
 #errors
-1;13;an+b not closed;;;m
+1;13;selectors:pseudo:argument broken;;;m
+1;14;css:block:eof;;;w
 
 #data
 :nth-child(3n+6
 #supported
 :nth-child
 #errors
-1;16;an+b not closed;;;m
+1;16;css:block:eof;;;w
+#parsed
+:nth-child
+  "3"
+  "6"
 
 #data
 :nth-last-child
@@ -1558,14 +1570,14 @@
 #supported
 :nth-last-of-type
 #errors
-1;21;an+b not closed;;;m
+1;21;selectors:pseudo:argument broken;;;m
 
 #data
 :nth-last-of-type(4n+25+32)
 #supported
 :nth-last-of-type
 #errors
-1;24;an+b not closed;;;m
+1;24;selectors:pseudo:argument broken;;;m
 
 #data
 :nth-last-of-type(45m+32)
@@ -1579,7 +1591,7 @@
 #supported
 :nth-child
 #errors
-1;12;an+b not integer;;10e0;m
+1;12;an+b syntax error;;;m
 
 #data
 :nth-child(++10)
@@ -1667,28 +1679,28 @@
 #supported
 :nth-child
 #errors
-1;19;an+b syntax error;;;m
+1;19;selectors:pseudo:argument broken;;;m
 
 #data
 :nth-child(10N/**/-12.0)
 #supported
 :nth-child
 #errors
-1;19;an+b syntax error;;;m
+1;19;selectors:pseudo:argument broken;;;m
 
 #data
 :nth-child(10N/**/+12e0)
 #supported
 :nth-child
 #errors
-1;19;an+b syntax error;;;m
+1;19;selectors:pseudo:argument broken;;;m
 
 #data
 :nth-child(10N/**/-12e0)
 #supported
 :nth-child
 #errors
-1;19;an+b syntax error;;;m
+1;19;selectors:pseudo:argument broken;;;m
 
 #data
 :nth-child(10N/**/-/**/12)
@@ -1704,7 +1716,7 @@
 #supported
 :nth-child
 #errors
-1;19;an+b syntax error;;;m
+1;19;selectors:pseudo:argument broken;;;m
 
 #data
 :nth-child(+/**/10N-12)
@@ -2088,6 +2100,7 @@ http://hoge/
 #supported
 :not
 #errors
+1;11;css:block:eof;;;w
 1;10;no attr match;;;m
 
 #data
@@ -2154,7 +2167,7 @@ http://hoge/
 :not
 ::before
 #errors
-1;7;selectors:pseudo-class:ident:unknown;;before;m
+1;7;selectors:pseudo-element:in not;;before;m
 
 #data
 :not(::before)
@@ -2162,21 +2175,25 @@ http://hoge/
 :not
 ::before
 #errors
-1;7;no pseudo-class name;;;m
+1;8;selectors:pseudo-element:in not;;before;m
 
 #data
 :not(a.b)
 #supported
 :not
-#errors
-1;7;not not closed;;;m
+#parsed
+:not
+  <a>
+  .b
 
 #data
 :not(.a.b)
 #supported
 :not
-#errors
-1;8;not not closed;;;m
+#parsed
+:not
+  .a
+  .b
 
 #data
 :not(a):not(b)
@@ -2243,6 +2260,49 @@ http://hoge/
 :not
 #errors
 1;2;selectors:pseudo-class:ident:unknown;;not;m
+
+#data
+:not(::hoge())
+#supported
+:not
+#errors
+1;8;selectors:pseudo-element:in not;;hoge;m
+
+#data
+:not(foo,:hoge)
+#supported
+:not
+#errors
+1;11;selectors:pseudo-class:ident:unknown;;hoge;m
+
+#data
+:not(a b)
+#supported
+:not
+#parsed
+:not
+  <a>
+  ***
+  <b>
+
+#data
+:not(:first-child)
+#supported
+:not
+:first-child
+#parsed
+:not
+  :first-child
+
+#data
+:not(a > b)
+#supported
+:not
+#parsed
+:not
+  <a>
+  >
+  <b>
 
 #data
 ::active
@@ -2850,27 +2910,39 @@ http://foo/
 #supported
 ::cue
 #errors
-1;10;function not closed;;;m
+1;10;css:block:eof;;;w
+#parsed
+::cue
+  <abc>
 
 #data escaped
 ::cue(abc  \u0020
 #supported
 ::cue
 #errors
-1;13;function not closed;;;m
+1;13;css:block:eof;;;w
+#parsed
+::cue
+  <abc>
 
 #data
 ::cue(abc xyz
 #supported
 ::cue
 #errors
-1;14;function not closed;;;m
+1;14;css:block:eof;;;w
+#parsed
+::cue
+  <abc>
+  ***
+  <xyz>
 
 #data
 ::cue(abc(
 #supported
 ::cue
 #errors
+1;11;css:block:eof;;;w
 1;7;no sss;;;m
 
 #data
@@ -2878,6 +2950,7 @@ http://foo/
 #supported
 ::cue
 #errors
+1;12;css:block:eof;;;w
 1;11;no sss;;;m
 
 #data
@@ -3058,7 +3131,7 @@ hoge http://foo/
 :not
 ::cue
 #errors
-1;7;no pseudo-class name;;;m
+1;8;selectors:pseudo-element:in not;;cue;m
 
 #data
 :not(::cue(foo))
@@ -3066,4 +3139,4 @@ hoge http://foo/
 :not
 ::cue
 #errors
-1;7;no pseudo-class name;;;m
+1;8;selectors:pseudo-element:in not;;cue;m
