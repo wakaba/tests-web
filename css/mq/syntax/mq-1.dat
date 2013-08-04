@@ -1,6 +1,13 @@
 #data
-#errors
-;1;1;m;mq syntax error
+#mediatext
+
+#data
+|  
+#mediatext
+
+#data
+|    /**/
+#mediatext
 
 #data
 all
@@ -20,9 +27,9 @@ embossed
 #data
 emboss
 #errors
-;1;1;u;unknown media type
+;1;1;w;unknown media type
 #mediatext
-unknown
+emboss
 
 #data
  /**/  all   /**/ 	 
@@ -41,73 +48,150 @@ all, screen
 
 #data
 TV, Emacs
+#errors
+;1;5;w;unknown media type
 #mediatext
 tv, emacs
 
 #data
 TTY   ,  Screen,   dde-TV
+#errors
+;1;20;w;unknown media type
 #mediatext
 tty, screen, dde-tv
 
 #data
 ,
 #errors
-;1;1;m;mq syntax error
+;1;1;m;mq:query:empty
+;1;2;m;mq:query:empty
+#mediatext
+not all, not all
 
 #data
 all, 
 #errors
-;1;6;m;mq syntax error
+;1;6;m;mq:query:empty
+#mediatext
+all, not all
 
 #data
 all, !
 #errors
-;1;6;m;mq syntax error
+;1;6;m;mq:broken
+#mediatext
+all, not all
 
 #data
 screen saver
 #errors
-;1;8;m;mq syntax error
+;1;8;m;mq:broken
+#mediatext
+not all
 
 #data
 screen, 3d
 #errors
-;1;9;u;unknown media type
+;1;9;m;mq:broken
 #mediatext
-screen, unknown
+screen, not all
 
 #data
 unknown
 #errors
-;1;1;u;unknown media type
+;1;1;w;unknown media type
 #mediatext
 unknown
 
 #data
 screen {}
 #errors
-;1;8;m;mq syntax error
+;1;8;m;mq:broken
+#mediatext
+not all
 
 #data
 aural, braille, handheld, print, projection,screen,tty, tv 
+#errors
+;1;1;w;mq:type:deprecated
 #mediatext
 aural, braille, handheld, print, projection, screen, tty, tv
 
 #data
 aural,embossed, speech
+#errors
+;1;1;w;mq:type:deprecated
 #mediatext
 aural, embossed, speech
 
 #data escaped
 pr\u0130nt
 #errors
-;1;1;u;unknown media type
-#mediatext
-unknown
+;1;1;w;unknown media type
+#mediatext escaped
+pr\u0130nt
 
 #data escaped
 pr\u0131nt
 #errors
-;1;1;u;unknown media type
+;1;1;w;unknown media type
+#mediatext escaped
+pr\u0131nt
+
+#data
+120
+#errors
+;1;1;m;mq:broken
 #mediatext
-unknown
+not all
+
+#data
+3d
+#errors
+;1;1;m;mq:broken
+#mediatext
+not all
+
+#data
+and
+#errors
+;1;1;m;mq:not media type
+#mediatext
+not all
+
+#data
+OR
+#errors
+;1;1;m;mq:not media type
+#mediatext
+not all
+
+#data
+  NOT
+#errors
+;1;6;m;css:no s
+;1;6;m;mq:no mt
+#mediatext
+not all
+
+#data
+not   /**/
+#errors
+;1;11;m;mq:no mt
+#mediatext
+not all
+
+#data
+Only
+#errors
+;1;5;m;css:no s
+;1;5;m;mq:no mt
+#mediatext
+not all
+
+#data
+  only   /**/
+#errors
+;1;14;m;mq:no mt
+#mediatext
+not all
