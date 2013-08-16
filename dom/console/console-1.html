@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<title>console</title>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script error)';
+
+  if (window.console) {
+    result.firstChild.data = 'PASS (' + window.console + ')';
+    result.className = 'PASS';
+  } else if (window.console === undefined) {
+    result.firstChild.data = 'FAIL (undefined)';
+  } else {
+    result.firstChild.data = 'FAIL (' + window.console + ')';
+  }
+</script>
