@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>Incremental parsing of CSS</title>
+<link rel="alternate stylesheet" href="incremental-style-1.css.cgi" title=A>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var result = document.getElementById ('result');
+  var sheet = document.getElementsByTagName ('link')[0].sheet;
+  if (sheet === null) {
+    result.firstChild.data = 'PASS';
+    result.className = 'PASS';
+  } else {
+    result.firstChild.data = 'FAIL (' + sheet + ')';
+  }
+</script>
