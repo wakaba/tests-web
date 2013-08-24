@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<title>adoptNode</title>
+
+<style>
+</style>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<p><iframe src="about:blank" name=iframe style="width:1px;height:1px"></iframe>
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script)';
+
+  var el = document.getElementsByTagName ('style')[0];
+  var css = el.sheet;
+  var doc2 = window.iframe.document;
+
+  doc2.adoptNode (el);
+
+  if (css.ownerNode === null) {
+    result.className = 'PASS';
+    result.firstChild.data = 'PASS';
+  } else {
+    result.firstChild.data = 'FAIL (' + css.ownerNode + ')';
+  }
+</script>
