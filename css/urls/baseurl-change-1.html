@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<title>Base URL</title>
+<script>
+  history.pushState ({}, '', '../../support/pass/');
+</script>
+
+<style>
+.review-result { color: blue }
+
+.image {
+  background: url(image.png) no-repeat;
+  min-width: 90px;
+  min-height: 40px;
+}
+</style>
+
+<p class=review-result>Pass if the following image says "PASS":
+
+<p id=test>FAIL (noscript)
+
+<script>
+  history.pushState ({}, '', '../../support/fail/');
+
+  var el = document.getElementById ('test');
+  el.firstChild.data = '';
+  el.className = 'image';
+</script>
