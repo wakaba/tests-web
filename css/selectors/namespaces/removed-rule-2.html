@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>Namespaces</title>
+
+<style>
+  @namespace hoge "http://hoge/";
+  p { }
+</style>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var result = document.getElementById ('result');
+
+  var style = document.getElementsByTagName ('style')[0];
+  var rule = style.sheet.cssRules[style.sheet.cssRules.length-1];
+  style.sheet.deleteRule (style.sheet.cssRules.length-1);
+
+  rule.selectorText = 'hoge|p';
+
+  var selectors = rule.selectorText;
+  if (selectors === '') {
+    result.firstChild.data = '(empty)';
+    result.className = '';
+  } else {
+    result.firstChild.data = '(' + selectors + ')';
+    result.className = '';
+  }
+</script>
