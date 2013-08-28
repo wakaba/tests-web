@@ -17,7 +17,7 @@ p {}
 q{}
 r{}
 #errors
-;1;9;m;at-rule syntax error;import
+;1;10;m;css:at-rule:block not allowed
 ;1;12;m;no sss
 #cssom
 | <r>
@@ -27,7 +27,7 @@ r{}
 q{}
 r{}
 #errors
-;1;9;m;at-rule syntax error;import
+;1;10;m;css:at-rule:block not allowed
 #cssom
 | <q>
 | <r>
@@ -37,7 +37,7 @@ r{}
 q{}
 r{}
 #errors
-;1;9;m;at-rule syntax error;import
+;1;20;m;css:at-rule:block not allowed
 #cssom
 | <q>
 | <r>
@@ -57,7 +57,7 @@ p{}
 | @import <> 
 | <p>
 #csstext
-@import url();
+@import url("");
 p {
 }
 
@@ -68,7 +68,7 @@ p{}
 | @import <aBc> 
 | <p>
 #csstext
-@import url(aBc);
+@import url("aBc");
 p {
 }
 
@@ -107,7 +107,7 @@ p{}
 | @import <abc> screen
 | <p>
 #csstext
-@import url(abc) screen;
+@import url("abc") screen;
 p {
 }
 
@@ -135,7 +135,7 @@ p{}
 #cssom
 | @import <abc> all
 #csstext
-@import url(abc) all;
+@import url("abc") all;
 
 #data
 @import 'abc' a, b, c, screen, d, e, screen;

@@ -39,11 +39,95 @@ p {
 
 #data
 p {
+  color: rgb( /**/ +1 /**/ , /**/ 2 /**/ , /**/  3 /**/ );
+}
+#cssom
+| <p>
+|   color: rgb(1, 2, 3)
+
+#data
+p {
+  color: rgb(+1, 2);
+}
+#errors
+;2;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p {
+  color: rgb();
+}
+#errors
+;2;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p {
+  color: rgb(+1, 2, 3, a);
+}
+#errors
+;2;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p {
+  color: rgb(+1, 2, 3) aa;
+}
+#errors
+;2;23;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p {
   color: rgb(-1, -2, -3);
 }
 #cssom
 | <p>
 |   color: rgb(0, 0, 0)
+
+#data
+p {
+  color: rgba(10, 44, 5, -1);
+}
+#cssom
+| <p>
+|   color: rgba(10, 44, 5, 0)
+
+#data
+p {
+  color: rgba(10, 44, 5, 0.5);
+}
+#cssom
+| <p>
+|   color: rgba(10, 44, 5, 0.5)
+
+#data
+p {
+  color: rgbA(10, 44, 5, 0.5);
+}
+#cssom
+| <p>
+|   color: rgba(10, 44, 5, 0.5)
+
+#data
+p {
+  color: \rgba(10, 44, 5, 0.5);
+}
+#cssom
+| <p>
+|   color: rgba(10, 44, 5, 0.5)
+
+#data
+p {
+  color: rgba(10, 44, 5, 130);
+}
+#cssom
+| <p>
+|   color: rgb(10, 44, 5)
 
 #data
 p {
@@ -63,11 +147,449 @@ p {
 
 #data
 p {
+  color: hsla(+1, +2%, +3%, 1.4);
+}
+#cssom
+| <p>
+|   color: rgb(7.803, 7.5021, 7.497)
+
+#data
+p {
+  color: hsla(+1, +2%, +3%, 0.6);
+}
+#cssom
+| <p>
+|   color: rgba(7.803, 7.5021, 7.497, 0.6)
+
+#data
+p {
+  color:HSLA( +1, +2%, +3%, 0.6);
+}
+#cssom
+| <p>
+|   color: rgba(7.803, 7.5021, 7.497, 0.6)
+
+#data
+p {
+  color: hsl(+1, +2%, +3%, -10);
+}
+#errors
+;2;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p {
   color: hsl(-1, -2%, -3%);
 }
 #cssom
 | <p>
 |   color: rgb(0, 0, 0)
+
+#data
+p{color:inherit}
+#cssom
+| <p>
+|   color: inherit
+
+#data
+p{color:initial}
+#cssom
+| <p>
+|   color: initial
+
+#data
+p{color:-moz-initial}
+#errors
+;1;9;m;css:obsolete;-moz-initial
+#cssom
+| <p>
+|   color: initial
+
+#data
+p{color:unset}
+#cssom
+| <p>
+|   color: unset
+
+#data
+p{color:-manakai-default}
+#ccerrors
+XXX
+#cssom
+| <p>
+|   color: -manakai-default
+
+#data
+p {color: invert}
+#errors
+;1;11;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color:TransPARENT}
+#cssom
+| <p>
+|   color: transparent
+
+#data
+p{color: TRANSPARENT}
+#unsupported
+prop_value color transparent
+#errors
+;1;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color:TransPARENT}
+#unsupported
+function rgba
+#cssom
+| <p>
+|   color: transparent
+
+#data
+p{color: rgba(0,0,0,0)}
+#unsupported
+prop_value color transparent
+#errors
+;1;23;m;css:color:alpha:not supported
+#cssom
+| <p>
+
+#data
+p{color: HSLa(0,0%,0%,0)}
+#unsupported
+prop_value color transparent
+#errors
+;1;25;m;css:color:alpha:not supported
+#cssom
+| <p>
+
+#data
+p{color: rgba(0%,0%,0%,0.5)}
+#unsupported
+function rgba
+#errors
+;1;28;m;css:color:alpha:not supported
+#cssom
+| <p>
+
+#data
+p{color: HSLa(0,0%,0%,0.5)}
+#unsupported
+function rgba
+#errors
+;1;27;m;css:color:alpha:not supported
+#cssom
+| <p>
+
+#data
+p{color: \Rgba(0,0,0 ,4)}
+#unsupported
+function rgba
+#cssom
+| <p>
+|   color: rgb(0, 0, 0)
+
+#data
+p{color: HSLa(0,0%,0%,4)}
+#unsupported
+function rgba
+#cssom
+| <p>
+|   color: rgb(0, 0, 0)
+
+#data
+p{color:flavor}
+#cssom
+| <p>
+|   color: flavor
+
+#data
+p{color:flavor}
+#unsupported
+prop_value color flavor
+#errors
+;1;9;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color: -moz-use-text-color}
+#errors
+;1;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p {color: invert}
+#errors
+;1;11;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p {color: -manakai-invert-or-currentcolor}
+#errors
+;1;11;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color: currentcolor}
+#cssom
+| <p>
+|   color: currentcolor
+
+#data
+p{color: aaffcc}
+#errors
+;1;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color: aaffcc}
+#option q
+#errors
+;1;10;w;css:color:quirky
+#cssom
+| <p>
+|   color: rgb(170, 255, 204)
+
+#data
+p{color: #aaffcc}
+#cssom
+| <p>
+|   color: rgb(170, 255, 204)
+
+#data
+p{color: afc}
+#errors
+;1;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color: afc}
+#option q
+#errors
+;1;10;w;css:color:quirky
+#cssom
+| <p>
+|   color: rgb(170, 255, 204)
+
+#data
+p{color: AFC}
+#option q
+#errors
+;1;10;w;css:color:quirky
+#cssom
+| <p>
+|   color: rgb(170, 255, 204)
+
+#data
+p{color: #afc}
+#cssom
+| <p>
+|   color: rgb(170, 255, 204)
+
+#data
+p{color: 12ffcc}
+#errors
+;1;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color: 12ffcc}
+#option q
+#errors
+;1;10;w;css:color:quirky
+#cssom
+| <p>
+|   color: rgb(18, 255, 204)
+
+#data
+p{color: 12fFCc}
+#option q
+#errors
+;1;10;w;css:color:quirky
+#cssom
+| <p>
+|   color: rgb(18, 255, 204)
+
+#data
+p{color: #12ffcc}
+#cssom
+| <p>
+|   color: rgb(18, 255, 204)
+
+#data
+p{color: 123939}
+#errors
+;1;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color: 123939}
+#option q
+#errors
+;1;10;w;css:color:quirky
+#cssom
+| <p>
+|   color: rgb(18, 57, 57)
+
+#data
+p{color: #123939}
+#cssom
+| <p>
+|   color: rgb(18, 57, 57)
+
+#data
+p{color: 003939}
+#errors
+;1;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color: 003939}
+#option q
+#errors
+;1;10;w;css:color:quirky
+#cssom
+| <p>
+|   color: rgb(0, 57, 57)
+
+#data
+p{color: #003939}
+#cssom
+| <p>
+|   color: rgb(0, 57, 57)
+
+#data
+p{color: 003}
+#errors
+;1;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color: 003}
+#option q
+#errors
+;1;10;w;css:color:quirky
+#cssom
+| <p>
+|   color: rgb(0, 0, 51)
+
+#data
+p{color: #003}
+#cssom
+| <p>
+|   color: rgb(0, 0, 51)
+
+#data
+p{color: \30 03}
+#option q
+#errors
+;1;10;w;css:color:quirky
+#cssom
+| <p>
+|   color: rgb(0, 0, 51)
+
+#data
+p{color: #\30 03}
+#cssom
+| <p>
+|   color: rgb(0, 0, 51)
+
+#data
+p{color: #aaa001}
+#cssom
+| <p>
+|   color: rgb(170, 160, 1)
+
+#data
+p{color: #aCaDF1}
+#cssom
+| <p>
+|   color: rgb(172, 173, 241)
+
+#data
+p{color: #aC3}
+#cssom
+| <p>
+|   color: rgb(170, 204, 51)
+
+#data
+p{color: 12px}
+#errors
+;1;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color: 0}
+#errors
+;1;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color: 00}
+#errors
+;1;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color: 00340}
+#errors
+;1;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color: 003.0}
+#errors
+;1;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color: -122}
+#errors
+;1;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color: #abz}
+#errors
+;1;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color: hogeho}
+#errors
+;1;10;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{color: hogeho}
+#option q
+#errors
+;1;10;m;css:color:syntax error
+#cssom
+| <p>
 
 #data
 p {

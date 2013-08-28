@@ -65,3 +65,64 @@ p {
 ;2;12;m;CSS syntax error;'outline'
 #cssom
 | <p>
+
+#data
+p{outline-color:red}
+#cssom
+| <p>
+|   outline-color: red
+
+#data
+p{outline-color:123456}
+#errors
+;1;17;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{outline-color:123456}
+#option q
+#errors
+;1;17;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{outline-color:flavor}
+#errors
+#cssom
+| <p>
+|   outline-color: flavor
+
+#data
+p{outline-color:invert}
+#errors
+#cssom
+| <p>
+|   outline-color: invert
+
+#data
+p{outline-color:invert}
+#unsupported
+prop_value outline-color invert
+#errors
+;1;17;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{outline-color: -manakai-invert-or-currentcolor}
+#csserrors
+XXX
+#cssom
+| <p>
+|   outline-color: -manakai-invert-or-currentcolor
+
+#data
+p{outline-color: -manakai-invert-or-currentcolor}
+#unsupported
+prop_value outline-color invert
+#errors
+;1;18;m;css:color:syntax error
+#cssom
+| <p>

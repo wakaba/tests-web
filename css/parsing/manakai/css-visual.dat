@@ -26,7 +26,7 @@ p {
 |   margin-top: inherit !important
 #csstext
 p {
-  margin-top: inherit ! important;
+  margin-top: inherit !important;
 }
 #computed 1 p
 #computedtext 1 p
@@ -69,7 +69,7 @@ p {
 p {
   margin-bottom: inherit;
   margin-left: inherit;
-  margin-right: inherit ! important;
+  margin-right: inherit !important;
   margin-top: inherit;
 }
 #computed 1 p
@@ -91,7 +91,7 @@ p {
 |   margin-top: inherit !important
 #csstext
 p {
-  margin: inherit ! important;
+  margin: inherit !important;
 }
 #computed 1 p
 #computedtext 1 p
@@ -303,7 +303,7 @@ p {
 |   margin-bottom: 50px !important
 #csstext
 p {
-  margin-bottom: 50px ! important;
+  margin-bottom: 50px !important;
 }
 
 #data
@@ -453,7 +453,7 @@ p {
 |   margin-left: auto !important
 #csstext
 p {
-  margin-left: auto ! important;
+  margin-left: auto !important;
 }
 
 #data
@@ -749,7 +749,7 @@ p {
 |   margin-top: 0px !important
 #csstext
 p {
-  margin: 0px ! important;
+  margin: 0px !important;
 }
 
 #data
@@ -766,7 +766,7 @@ p {
 #csstext
 p {
   margin-bottom: 0px;
-  margin-left: 1px ! important;
+  margin-left: 1px !important;
   margin-right: 0px;
   margin-top: 0px;
 }
@@ -787,7 +787,7 @@ p {
   margin-bottom: 0px;
   margin-left: 0px;
   margin-right: 0px;
-  margin-top: 0px ! important;
+  margin-top: 0px !important;
 }
 
 #data
@@ -805,7 +805,7 @@ p {
 p {
   margin-bottom: 0px;
   margin-left: 0px;
-  margin-right: 0px ! important;
+  margin-right: 0px !important;
   margin-top: 0px;
 }
 
@@ -822,7 +822,7 @@ p {
 |   margin-top: 0px
 #csstext
 p {
-  margin-bottom: 0px ! important;
+  margin-bottom: 0px !important;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
@@ -842,7 +842,7 @@ p {
 #csstext
 p {
   margin-bottom: 0px;
-  margin-left: 0px ! important;
+  margin-left: 0px !important;
   margin-right: 0px;
   margin-top: 0px;
 }
@@ -861,7 +861,7 @@ p {
 |   margin-top: 0px !important
 #csstext
 p {
-  margin: 0px ! important;
+  margin: 0px !important;
 }
 
 #data
@@ -878,7 +878,7 @@ p {
 |   margin-top: 0px !important
 #csstext
 p {
-  margin: 0px ! important;
+  margin: 0px !important;
 }
 
 #data
@@ -1053,15 +1053,16 @@ p {
 #cssom
 | <p>
 |   border-bottom-color: blue
+|   border-color: blue
 |   border-left-color: blue
 |   border-right-color: blue !important
 |   border-top-color: blue
 #csstext
 p {
+  border-top-color: blue;
   border-bottom-color: blue;
   border-left-color: blue;
-  border-right-color: blue ! important;
-  border-top-color: blue;
+  border-right-color: blue !important;
 }
 
 #data
@@ -1077,10 +1078,10 @@ p {
 |   border-top-color: inherit
 #csstext
 p {
+  border-top-color: inherit;
   border-bottom-color: inherit;
   border-left-color: inherit;
-  border-right-color: blue ! important;
-  border-top-color: inherit;
+  border-right-color: blue !important;
 }
 
 #data
@@ -1107,15 +1108,16 @@ p {
 #cssom
 | <p>
 |   border-bottom-color: green !important
+|   border-color: blue red green
 |   border-left-color: red
 |   border-right-color: red
 |   border-top-color: blue
 #csstext
 p {
-  border-bottom-color: green ! important;
-  border-left-color: red;
-  border-right-color: red;
   border-top-color: blue;
+  border-right-color: red;
+  border-left-color: red;
+  border-bottom-color: green !important;
 }
 
 #data
@@ -1131,10 +1133,10 @@ p {
 |   border-top-color: blue
 #csstext
 p {
-  border-bottom-color: inherit;
-  border-left-color: red;
-  border-right-color: red;
   border-top-color: blue;
+  border-right-color: red;
+  border-left-color: red;
+  border-bottom-color: inherit;
 }
 
 #data
@@ -1148,17 +1150,18 @@ p {
 |   border-bottom-color: green !important
 |   border-bottom-style: dotted
 |   border-bottom-width: 1px
+|   border-color: blue red green
 |   border-left-color: red
 |   border-right-color: red
 |   border-top-color: blue
 #csstext
 p {
-  border-bottom-color: green ! important;
+  border-top-color: blue;
+  border-right-color: red;
+  border-left-color: red;
+  border-bottom-color: green !important;
   border-bottom-style: dotted;
   border-bottom-width: 1px;
-  border-left-color: red;
-  border-right-color: red;
-  border-top-color: blue;
 }
 
 #data
@@ -1179,10 +1182,100 @@ p {
 |   border-top-color: blue
 #csstext
 p {
-  border-bottom: 1px dotted black;
-  border-left-color: red;
-  border-right-color: red;
   border-top-color: blue;
+  border-right-color: red;
+  border-left-color: red;
+  border-bottom: 1px dotted black;
+}
+
+#data
+p{border-color: red blue #ccc}
+#cssom
+| <p>
+|   border-bottom-color: rgb(204, 204, 204)
+|   border-color: red blue rgb(204, 204, 204)
+|   border-left-color: blue
+|   border-right-color: blue
+|   border-top-color: red
+
+#data
+p{border-color: red inherit #ccc a}
+#errors
+;1;21;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-color: red 120 #ccc}
+#errors
+;1;21;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-color: red 120 #ccc}
+#option q
+#errors
+;1;21;w;css:color:quirky
+#cssom
+| <p>
+|   border-bottom-color: rgb(204, 204, 204)
+|   border-color: red rgb(17, 34, 0) rgb(204, 204, 204)
+|   border-left-color: rgb(17, 34, 0)
+|   border-right-color: rgb(17, 34, 0)
+|   border-top-color: red
+
+#data
+p{border-color:     120 }
+#errors
+;1;21;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-color: red 120 }
+#errors
+;1;21;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-color: red 120 #ccc rgb(1,2,4)}
+#errors
+;1;21;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+P{border-color:red/**/blue/**/green/**/orange}
+#cssom
+| <P>
+|   border-bottom-color: green
+|   border-color: red blue green orange
+|   border-left-color: orange
+|   border-right-color: blue
+|   border-top-color: red
+
+#data
+P {
+  border-bottom-color: inherit !important;
+  border-top-color: inherit;
+  border-right-color: inherit;
+  border-left-color: inherit;
+}
+#cssom
+| <P>
+|   border-bottom-color: inherit !important
+|   border-color: inherit
+|   border-left-color: inherit
+|   border-right-color: inherit
+|   border-top-color: inherit
+#csstext
+P {
+  border-bottom-color: inherit !important;
+  border-top-color: inherit;
+  border-right-color: inherit;
+  border-left-color: inherit;
 }
 
 #data
@@ -1231,10 +1324,10 @@ p {
 |   border-top-style: solid
 #csstext
 p {
+  border-top-style: solid;
   border-bottom-style: solid;
   border-left-style: none;
-  border-right-style: none ! important;
-  border-top-style: solid;
+  border-right-style: none !important;
 }
 
 #data
@@ -1266,9 +1359,9 @@ p {
 |   border-top-style: none
 #csstext
 p {
+  border-right-style: inherit;
   border-bottom-style: inherit;
   border-left-style: inherit;
-  border-right-style: inherit;
   border-top-style: none;
 }
 
@@ -1457,10 +1550,10 @@ p {
 |   border-top-width: 5px
 #csstext
 p {
+  border-top-width: 5px;
   border-bottom-width: 5px;
   border-left-width: 5px;
   border-right-width: inherit;
-  border-top-width: 5px;
 }
 
 #data
@@ -1476,10 +1569,10 @@ p {
 |   border-top-width: 5px
 #csstext
 p {
-  border-bottom-width: 5px;
-  border-left-width: 5px ! important;
-  border-right-width: 5px;
   border-top-width: 5px;
+  border-right-width: 5px;
+  border-bottom-width: 5px;
+  border-left-width: 5px !important;
 }
 
 #data
@@ -1770,7 +1863,7 @@ p {
 p {
   border-top-color: inherit;
   border-top-style: inherit;
-  border-top-width: inherit ! important;
+  border-top-width: inherit !important;
 }
 
 #data
@@ -1883,7 +1976,7 @@ p {
   border-bottom: 2px solid red;
   border-left: 2px solid red;
   border-right: 2px solid red;
-  border-top-color: green ! important;
+  border-top-color: green !important;
   border-top-style: solid;
   border-top-width: 2px;
 }
@@ -1914,6 +2007,101 @@ p {
 |   border-top-style: inherit
 |   border-top-width: inherit
 |   border-width: inherit
+
+#data
+p{border-top-color:red}
+#cssom
+| <p>
+|   border-top-color: red
+
+#data
+p{border-top-color:abc}
+#errors
+;1;20;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-top-color:abc}
+#option q
+#errors
+;1;20;w;css:color:quirky
+#cssom
+| <p>
+|   border-top-color: rgb(170, 187, 204)
+
+#data
+p{border-right-color:red}
+#cssom
+| <p>
+|   border-right-color: red
+
+#data
+p{border-right-color:abc}
+#errors
+;1;22;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-right-color:abc}
+#option q
+#errors
+;1;22;w;css:color:quirky
+#cssom
+| <p>
+|   border-right-color: rgb(170, 187, 204)
+
+#data
+p{border-right-color: invert}
+#errors
+;1;23;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-bottom-color:red}
+#cssom
+| <p>
+|   border-bottom-color: red
+
+#data
+p{border-bottom-color:abc}
+#errors
+;1;23;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-bottom-color:abc}
+#option q
+#errors
+;1;23;w;css:color:quirky
+#cssom
+| <p>
+|   border-bottom-color: rgb(170, 187, 204)
+
+#data
+p{border-left-color:red}
+#cssom
+| <p>
+|   border-left-color: red
+
+#data
+p{border-left-color:abc}
+#errors
+;1;21;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-left-color:abc}
+#option q
+#errors
+;1;21;w;css:color:quirky
+#cssom
+| <p>
+|   border-left-color: rgb(170, 187, 204)
 
 #data
 p {
@@ -2013,7 +2201,7 @@ p {
 |   padding-top: 1px !important
 #csstext
 p {
-  padding: 1px 2px 3px 4px ! important;
+  padding: 1px 2px 3px 4px !important;
 }
 
 #data
@@ -2080,7 +2268,7 @@ p {
   padding-bottom: 1px;
   padding-left: 1px;
   padding-right: 1px;
-  padding-top: 1px ! important;
+  padding-top: 1px !important;
 }
 
 #data
@@ -3371,7 +3559,7 @@ p {
 |   overflow-y: auto
 #csstext
 p {
-  overflow-x: auto ! important;
+  overflow-x: auto !important;
   overflow-y: auto;
 }
 
@@ -3387,7 +3575,7 @@ p {
 #csstext
 p {
   overflow-x: auto;
-  overflow-y: auto ! important;
+  overflow-y: auto !important;
 }
 
 #data
@@ -3733,7 +3921,7 @@ p {
 #csstext
 p {
   background-position-x: inherit;
-  background-position-y: inherit ! important;
+  background-position-y: inherit !important;
 }
 
 #data
@@ -3792,7 +3980,7 @@ p {
 #csstext
 p {
   background-position-x: 12.3%;
-  background-position-y: 3px ! important;
+  background-position-y: 3px !important;
 }
 
 #data
@@ -3806,7 +3994,7 @@ p {
 |   background-position-y: 3px
 #csstext
 p {
-  background-position-x: 12.3% ! important;
+  background-position-x: 12.3% !important;
   background-position-y: 3px;
 }
 
@@ -3822,7 +4010,7 @@ p {
 |   background-position-y: 3px !important
 #csstext
 p {
-  background-position: 12.3% 3px ! important;
+  background-position: 12.3% 3px !important;
 }
 
 #data
@@ -4457,7 +4645,7 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
-  background-attachment: scroll ! important;
+  background-attachment: scroll !important;
   background-color: transparent;
   background-image: none;
   background-position: 0% 0%;
@@ -4511,7 +4699,7 @@ p {
 #csstext
 p {
   background-attachment: scroll;
-  background-color: red ! important;
+  background-color: red !important;
   background-image: none;
   background-position: 0% 0%;
   background-repeat: repeat;
@@ -4534,7 +4722,7 @@ p {
 |   background-repeat: repeat !important
 #csstext
 p {
-  background: transparent none repeat scroll 0% 0% ! important;
+  background: transparent none repeat scroll 0% 0% !important;
 }
 
 #data
@@ -4554,7 +4742,7 @@ p {
 |   background-repeat: repeat !important
 #csstext
 p {
-  background: transparent none repeat scroll 0% 0% ! important;
+  background: transparent none repeat scroll 0% 0% !important;
 }
 
 #data
@@ -4575,7 +4763,7 @@ p {
 p {
   background-attachment: scroll;
   background-color: transparent;
-  background-image: none ! important;
+  background-image: none !important;
   background-position: 0% 0%;
   background-repeat: repeat;
 }
@@ -4599,7 +4787,7 @@ p {
   background-attachment: scroll;
   background-color: transparent;
   background-image: none;
-  background-position: left top ! important;
+  background-position: left top !important;
   background-repeat: repeat;
 }
 
@@ -4621,7 +4809,7 @@ p {
   background-attachment: scroll;
   background-color: transparent;
   background-image: none;
-  background-position-x: left ! important;
+  background-position-x: left !important;
   background-position-y: 0%;
   background-repeat: repeat;
 }
@@ -4645,7 +4833,7 @@ p {
   background-color: transparent;
   background-image: none;
   background-position-x: 0%;
-  background-position-y: 12% ! important;
+  background-position-y: 12% !important;
   background-repeat: repeat;
 }
 
@@ -4669,7 +4857,7 @@ p {
   background-color: transparent;
   background-image: none;
   background-position: 0% 0%;
-  background-repeat: no-repeat ! important;
+  background-repeat: no-repeat !important;
 }
 
 #data
@@ -4688,7 +4876,7 @@ p {
 |   background-repeat: repeat !important
 #csstext
 p {
-  background: transparent none repeat scroll 0% 0% ! important;
+  background: transparent none repeat scroll 0% 0% !important;
 }
 
 #data
@@ -4891,7 +5079,7 @@ p {
   background-color: blue;
   background-image: none;
   background-position-x: inherit;
-  background-position-y: inherit ! important;
+  background-position-y: inherit !important;
   background-repeat: repeat;
 }
 
@@ -4917,6 +5105,82 @@ p {
   background-position: 0% 0%;
   background-repeat: inherit;
 }
+
+#data
+p{
+background-color: red;
+}
+#cssom
+| <p>
+|   background-color: red
+
+#data
+p{
+background-color: #red;
+}
+#errors
+;2;19;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{
+background-color: #124;
+}
+#cssom
+| <p>
+|   background-color: rgb(17, 34, 68)
+
+#data
+p{
+background-color: rgb( 20%, 12%, 5%);
+}
+#cssom
+| <p>
+|   background-color: rgb(51, 30.6, 12.75)
+
+#data
+p{
+background-color: 124;
+}
+#errors
+;2;19;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{
+background-color: 124;
+}
+#option q
+#errors
+;2;19;w;css:color:quirky
+#cssom
+| <p>
+|   background-color: rgb(17, 34, 68)
+
+#data
+p{bacKground-color: invert}
+#errors
+;1;21;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{background-color: -moz-rgba(1, 42, 55, 0.45)}
+#errors
+;1;21;m;css:obsolete;-moz-rgba()
+#cssom
+| <p>
+|   background-color: rgba(1, 42, 55, 0.45)
+
+#data
+p{background-color: -moz-hsla(1, 42%, 55%, 0.45)}
+#errors
+;1;21;m;css:obsolete;-moz-hsla()
+#cssom
+| <p>
+|   background-color: rgba(188.445, 93.6615, 92.055, 0.45)
 
 #data
 p {
