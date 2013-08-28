@@ -843,25 +843,55 @@ p {
 p {
   white-space: -moz-pre-wrap;
 }
+#errors
+;2;16;m;css:keyword:not allowed
 #cssom
 | <p>
-|   white-space: pre-wrap
 #csstext
 p {
-  white-space: pre-wrap;
 }
 
 #data
 p {
   white-space: -O-pre-wrap;
 }
+#errors
+;2;16;m;css:keyword:not allowed
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p{white-space: normal}
+#cssom
+| <p>
+|   white-space: normal
+
+#data
+p{white-space: pre}
+#cssom
+| <p>
+|   white-space: pre
+
+#data
+p{white-space: nowrap}
+#cssom
+| <p>
+|   white-space: nowrap
+
+#data
+p{white-space: pre-wrap}
 #cssom
 | <p>
 |   white-space: pre-wrap
-#csstext
-p {
-  white-space: pre-wrap;
-}
+
+#data
+p{white-space: pre-line}
+#cssom
+| <p>
+|   white-space: pre-line
 
 #data
 p{direction: ltr}
@@ -991,6 +1021,66 @@ p {
 | <p>
 |   writing-mode: inherit
 #computed 1 p
+
+#data
+p{text-align: start}
+#cssom
+| <p>
+|   text-align: start
+
+#data
+p{text-align: END}
+#cssom
+| <p>
+|   text-align: end
+
+#data
+p{text-align: left}
+#cssom
+| <p>
+|   text-align: left
+
+#data
+p{text-align: right}
+#cssom
+| <p>
+|   text-align: right
+
+#data
+p{text-align: center}
+#cssom
+| <p>
+|   text-align: center
+
+#data
+p{text-align: justify}
+#cssom
+| <p>
+|   text-align: justify
+
+#data
+p{text-transform: none}
+#cssom
+| <p>
+|   text-transform: none
+
+#data
+p{text-transform: capitalize}
+#cssom
+| <p>
+|   text-transform: capitalize
+
+#data
+p{text-transform: uppercase}
+#cssom
+| <p>
+|   text-transform: uppercase
+
+#data
+p{text-transform: lowercase}
+#cssom
+| <p>
+|   text-transform: lowercase
 
 #data
 p {

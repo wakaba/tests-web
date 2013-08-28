@@ -15,6 +15,18 @@ p {
 |   caption-side: right
 
 #data
+p{caption-side:top}
+#cssom
+| <p>
+|   caption-side: top
+
+#data
+P{caption-side: bottom}
+#cssom
+| <P>
+|   caption-side: bottom
+
+#data
 p {
   border-collapse  : collapse;
 }
@@ -55,7 +67,7 @@ p {
   border-collapse: collapase;
 }
 #errors
-;2;20;m;CSS syntax error;'border-collapse'
+;2;20;m;css:keyword:not allowed
 #cssom
 | <p>
 
@@ -64,7 +76,7 @@ p {
   border-collapse: separated;
 }
 #errors
-;2;20;m;CSS syntax error;'border-collapse'
+;2;20;m;css:keyword:not allowed
 #cssom
 | <p>
 
@@ -73,7 +85,7 @@ p {
   border-collapse: cllapase;
 }
 #errors
-;2;20;m;CSS syntax error;'border-collapse'
+;2;20;m;css:keyword:not allowed
 #cssom
 | <p>
 
@@ -82,7 +94,7 @@ p {
   border-collapase: collapse;
 }
 #errors
-;2;3;u;unknown property
+;2;3;m;css:prop:unknown
 #cssom
 | <p>
 
@@ -147,7 +159,7 @@ p {
   border-spacing: 12;
 }
 #errors
-;2;19;m;CSS syntax error;'border-spacing'
+;2;20;m;css:keyword:not allowed
 #cssom
 | <p>
 
@@ -167,7 +179,7 @@ p {
   border-spacing: -12;
 }
 #errors
-;2;19;m;CSS syntax error;'border-spacing'
+;2;20;m;css:keyword:not allowed
 #cssom
 | <p>
 
@@ -177,7 +189,7 @@ p {
 }
 #option q
 #errors
-;2;19;m;CSS syntax error;'border-spacing'
+;2;20;m;css:keyword:not allowed
 #cssom
 | <p>
 
@@ -216,7 +228,7 @@ p {
 }
 #option q
 #errors
-;2;24;m;CSS syntax error;'border-spacing'
+;2;20;m;css:keyword:not allowed
 #cssom
 | <p>
 
@@ -330,4 +342,26 @@ p {
   border-spacing: inherit ! important;
 }
 
+#data
+p{table-layout: auto}
+#cssom
+| <p>
+|   table-layout: auto
 
+#data
+P{table-layout: fixed}
+#cssom
+| <P>
+|   table-layout: fixed
+
+#data
+p{empty-cells: show}
+#cssom
+| <p>
+|   empty-cells: show
+
+#data
+p{empty-cells: hide}
+#cssom
+| <p>
+|   empty-cells: hide
