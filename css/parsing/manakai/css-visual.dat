@@ -2380,6 +2380,164 @@ p {
 #computedtext 1 p
 
 #data
+p{display:list-item}
+#cssom
+| <p>
+|   display: list-item
+#csstext
+p {
+  display: list-item;
+}
+
+#data
+p{DISPLAY:INLINE-BLOCK}
+#cssom
+| <p>
+|   display: inline-block
+
+#data
+p{display: inline-block}
+#unsupported
+prop_value display inline-block
+#errors
+;1;12;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{display: Table}
+#cssom
+| <p>
+|   display: table
+
+#data
+p { display: inline-TABLE }
+#cssom
+| <p>
+|   display: inline-table
+
+#data
+p{display: table-cell}
+#cssom
+| <p>
+|   display: table-cell
+
+#data
+p{display: table-caption}
+#cssom
+| <p>
+|   display: table-caption
+
+#data
+p{display: table-row-group}
+#cssom
+| <p>
+|   display: table-row-group
+
+#data
+p{display: table-header-Group}
+#cssom
+| <p>
+|   display: table-header-group
+
+#data
+p{display: table-footer-group}
+#cssom
+| <p>
+|   display: table-footer-group
+
+#data
+p{display: table-row}
+#cssom
+| <p>
+|   display: table-row
+
+#data
+p{display: table-column-group}
+#cssom
+| <p>
+|   display: table-column-group
+
+#data
+p{display: table-column}
+#cssom
+| <p>
+|   display: table-column
+
+#data
+p{display: table-cell block}
+#errors
+;1;12;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{display: 12px }
+#errors
+;1;12;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{display: }
+#errors
+;1;11;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{display: -moz-inline-block}
+#errors
+;1;12;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{display:hoge}
+#errors
+;1;11;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{position:STatic}
+#cssom
+| <p>
+|   position: static
+
+#data
+p{position:RELATIVE}
+#cssom
+| <p>
+|   position: relative
+
+#data
+p{position:absolute}
+#cssom
+| <p>
+|   position: absolute
+
+#data
+p{position:Fixed}
+#cssom
+| <p>
+|   position: fixed
+
+#data
+p{position:hoge}
+#errors
+;1;12;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{position:hoge.1}
+#errors
+;1;12;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
 p {
   top: 12px;
 }
@@ -2613,6 +2771,56 @@ p {
 |   right: 0px
 |   top: auto
 |   width: 100%
+
+#data
+p{float: left}
+#cssom
+| <p>
+|   float: left
+
+#data
+p { float: right}
+#cssom
+| <p>
+|   float: right
+
+#data
+p { float : none
+}
+#cssom
+| <p>
+|   float: none
+
+#data
+p{clear: left}
+#cssom
+| <p>
+|   clear: left
+
+#data
+p {clear: right}
+#cssom
+| <p>
+|   clear: right
+
+#data
+p{clear: both}
+#cssom
+| <p>
+|   clear: both
+
+#data
+p{clear: NONE}
+#cssom
+| <p>
+|   clear: none
+
+#data
+p{clear: all}
+#errors
+;1;10;m;css:keyword:not allowed
+#cssom
+| <p>
 
 #data
 p {
@@ -3509,14 +3717,12 @@ p {
 p {
   overflow: -webkit-marquee;
 }
+#errors
+;2;13;m;css:keyword:not allowed
 #cssom
 | <p>
-|   overflow: -webkit-marquee
-|   overflow-x: -webkit-marquee
-|   overflow-y: -webkit-marquee
 #csstext
 p {
-  overflow: -webkit-marquee;
 }
 
 #data
@@ -3555,6 +3761,7 @@ p {
 }
 #cssom
 | <p>
+|   overflow: auto
 |   overflow-x: auto !important
 |   overflow-y: auto
 #csstext
@@ -3570,12 +3777,13 @@ p {
 }
 #cssom
 | <p>
+|   overflow: auto
 |   overflow-x: auto
 |   overflow-y: auto !important
 #csstext
 p {
-  overflow-x: auto;
   overflow-y: auto !important;
+  overflow-x: auto;
 }
 
 #data
@@ -3624,12 +3832,12 @@ p {
 p {
   overflow-y: -webkit-marquee;
 }
+#errors
+;2;15;m;css:keyword:not allowed
 #cssom
 | <p>
-|   overflow-y: -webkit-marquee
 #csstext
 p {
-  overflow-y: -webkit-marquee;
 }
 
 #data
@@ -5188,7 +5396,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: 0.4
 |   opacity: 0.4
 #csstext
 p {
@@ -5201,7 +5408,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: 0.4
 |   opacity: 0.4
 #csstext
 p {
@@ -5214,7 +5420,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: 0.4
 |   opacity: 0.4
 #csstext
 p {
@@ -5227,7 +5432,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: 0.4
 |   opacity: 0.4
 #csstext
 p {
@@ -5240,7 +5444,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: 0
 |   opacity: 0
 #csstext
 p {
@@ -5253,7 +5456,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: 0
 |   opacity: 0
 #csstext
 p {
@@ -5266,7 +5468,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: 0
 |   opacity: 0
 #csstext
 p {
@@ -5279,7 +5480,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: 0
 |   opacity: 0
 #csstext
 p {
@@ -5292,7 +5492,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: inherit
 |   opacity: inherit
 #csstext
 p {
@@ -5304,17 +5503,18 @@ p {
   opacity: +inherit;
 }
 #errors
-;2;13;m;CSS syntax error;'opacity'
+;2;12;m;css:value:not number
 #cssom
 | <p>
 
 #data
 p {
-  -moz-opacity: 0;
+  -webkit-opacity: 0;
 }
+#errors
+;2;19;m;css:obsolete;-webkit-opacity
 #cssom
 | <p>
-|   -moz-opacity: 0
 |   opacity: 0
 #csstext
 p {
@@ -5323,11 +5523,12 @@ p {
 
 #data
 p {
-  -moz-opacity: 0.4;
+  -webkit-opacity: 0.4;
 }
+#errors
+;2;19;m;css:obsolete;-webkit-opacity
 #cssom
 | <p>
-|   -moz-opacity: 0.4
 |   opacity: 0.4
 #csstext
 p {
@@ -5336,11 +5537,12 @@ p {
 
 #data
 p {
-  -moz-opacity: inherit;
+  -webkit-opacity: inherit;
 }
+#errors
+;2;19;m;css:obsolete;-webkit-opacity
 #cssom
 | <p>
-|   -moz-opacity: inherit
 |   opacity: inherit
 #csstext
 p {
@@ -5349,9 +5551,28 @@ p {
 
 #data
 p {
-  -moz-opacity: +inherit;
+  -webkit-opacity: +inherit;
 }
 #errors
-;2;18;m;CSS syntax error;'-moz-opacity'
+;2;19;m;css:obsolete;-webkit-opacity
+;2;20;m;css:value:not number
 #cssom
 | <p>
+
+#data
+p{opacity: +42.4}
+#cssom
+| <p>
+|   opacity: 42.4
+
+#data
+p{opacity: -134}
+#cssom
+| <p>
+|   opacity: -134
+
+#data
+p{opacity: UNSET}
+#cssom
+| <p>
+|   opacity: unset

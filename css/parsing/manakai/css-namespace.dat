@@ -67,7 +67,7 @@ a{}
 #errors
 #cssom
 @namespace <>
-<|a>
+<a>
 
 #data
 @namespace "abc";
@@ -91,7 +91,7 @@ a{}
 #errors
 #cssom
 @namespace <>
-<|a>
+<a>
 
 #data
 @namespace url( );
@@ -99,7 +99,7 @@ a{}
 #errors
 #cssom
 @namespace <>
-<|a>
+<a>
 
 #data
 @namespace url( abc );
@@ -694,7 +694,7 @@ a{}
 #errors
 #cssom
 @namespace hoge: <a>
-<*|a>
+<a>
 
 #data
 @NAMeSPAcE hoge "a";
@@ -702,7 +702,7 @@ a{}
 #errors
 #cssom
 @namespace hoge: <a>
-<*|a>
+<a>
 
 #data
 @NAM\0045SPACE hoge "a";
@@ -710,7 +710,7 @@ a{}
 #errors
 #cssom
 @namespace hoge: <a>
-<*|a>
+<a>
 
 #data
 @NAMESPAC\45  hoge "a";
@@ -718,13 +718,13 @@ a{}
 #errors
 #cssom
 @namespace hoge: <a>
-<*|a>
+<a>
 
 #data
 @NAMESPAC\45 hoge "a";
 a{}
 #errors
-;1;1;u;unknown at-rule
+;1;1;m;unknown at-rule
 #cssom
 <a>
 
@@ -840,7 +840,7 @@ a{}
 @namespace 'hoge';
 b{}
 #errors
-;6;18;m;at-rule not allowed;namespace
+;6;1;m;at-rule not allowed;namespace
 #cssom escaped
 @charset utf-8
 @import <foo>\u0020
@@ -857,7 +857,7 @@ b{}
 }
 b{}
 #errors
-;4;18;m;at-rule not allowed;namespace
+;4;1;m;at-rule not allowed;namespace
 #cssom escaped
 @charset utf-8
 @import <foo>\u0020
@@ -874,7 +874,7 @@ b{}
 @namespace 'hoge';
 b{}
 #errors
-;6;18;m;at-rule not allowed;namespace
+;6;1;m;at-rule not allowed;namespace
 #cssom escaped
 @charset utf-8
 @import <foo>\u0020
@@ -894,7 +894,7 @@ a{}
 <!--@namespace 'hoge'-->
 a{}
 #errors
-;1;22;m;at-rule syntax error;namespace
+;2;2;m;css:at-rule:block not allowed
 #cssom
 
 #data
@@ -903,9 +903,19 @@ a|b{}
 a|c{}
 #errors
 ;1;1;m;namespace prefix:not declared
-;2;20;m;at-rule not allowed;namespace
+#cssom
+| @namespace a: <hoge>
+| <a|c>
+
+#data
+@media{}
+@namespace a "hoge";
+a|c{}
+#errors
+;2;1;m;at-rule not allowed;namespace
 ;3;1;m;namespace prefix:not declared
 #cssom
+| @media 
 
 #data
 @namespace aBc 'http://ns1/';

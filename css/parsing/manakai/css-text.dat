@@ -864,6 +864,60 @@ p {
 }
 
 #data
+p{direction: ltr}
+#cssom
+| <p>
+|   direction: ltr
+
+#data
+p{direction: RTL}
+#cssom
+| <p>
+|   direction: rtl
+
+#data
+p{direction: initial}
+#cssom
+| <p>
+|   direction: initial
+
+#data
+p{unicode-BIDI:normal}
+#cssom
+| <p>
+|   unicode-bidi: normal
+
+#data
+P{unicode-bidi : embed}
+#cssom
+| <P>
+|   unicode-bidi: embed
+
+#data
+p{unicode-bidi: isolate}
+#cssom
+| <p>
+|   unicode-bidi: isolate
+
+#data
+p{unicode-bidi: bidi-override}
+#cssom
+| <p>
+|   unicode-bidi: bidi-override
+
+#data
+P{unicode-bidi:isolate-override}
+#cssom
+| <P>
+|   unicode-bidi: isolate-override
+
+#data
+p{unicode-bidi: plaintext}
+#cssom
+| <p>
+|   unicode-bidi: plaintext
+
+#data
 p {
   writing-mode: lr-tb;
 }
