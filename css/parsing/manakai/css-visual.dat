@@ -61,16 +61,17 @@ p {
 }
 #cssom
 | <p>
+|   margin: inherit
 |   margin-bottom: inherit
 |   margin-left: inherit
 |   margin-right: inherit !important
 |   margin-top: inherit
 #csstext
 p {
+  margin-top: inherit;
+  margin-right: inherit !important;
   margin-bottom: inherit;
   margin-left: inherit;
-  margin-right: inherit !important;
-  margin-top: inherit;
 }
 #computed 1 p
 #computedtext 1 p
@@ -273,7 +274,7 @@ p {
   margin-bottom: 50;
 }
 #errors
-;2;18;m;CSS syntax error;'margin-bottom'
+;2;18;m;css:value:not length
 #cssom
 | <p>
 #csstext
@@ -311,7 +312,7 @@ p {
   margin-bottom: -50
 #option q
 #errors
-;2;21;m;block not closed
+;2;21;w;css:block:eof
 #cssom
 | <p>
 |   margin-bottom: -50px
@@ -392,24 +393,24 @@ p {
 p {
   margin-top: -/**/12%;
 }
+#errors
+;2;15;m;CSS syntax error;'margin-*'
 #cssom
 | <p>
-|   margin-top: -12%
 #csstext
 p {
-  margin-top: -12%;
 }
 
 #data
 p {
   margin-top: +/**/12%;
 }
+#errors
+;2;15;m;CSS syntax error;'margin-*'
 #cssom
 | <p>
-|   margin-top: 12%
 #csstext
 p {
-  margin-top: 12%;
 }
 
 #data
@@ -417,7 +418,7 @@ p {
   margin-top: - 12%;
 }
 #errors
-;2;16;m;CSS syntax error;'margin-top'
+;2;15;m;CSS syntax error;'margin-*'
 #cssom
 | <p>
 #csstext
@@ -461,7 +462,7 @@ p {
   margin-left: -auto;
 }
 #errors
-;2;16;m;CSS syntax error;'margin-left'
+;2;16;m;CSS syntax error;'margin-*'
 #cssom
 | <p>
 #csstext
@@ -473,7 +474,7 @@ p {
   margin-left: -/**/auto;
 }
 #errors
-;2;21;m;CSS syntax error;'margin-left'
+;2;16;m;CSS syntax error;'margin-*'
 #cssom
 | <p>
 #csstext
@@ -485,7 +486,7 @@ p {
   margin-left: +auto;
 }
 #errors
-;2;17;m;CSS syntax error;'margin-left'
+;2;16;m;CSS syntax error;'margin-*'
 #cssom
 | <p>
 #csstext
@@ -545,7 +546,7 @@ p {
   margin: +0 +;
 }
 #errors
-;2;15;m;CSS syntax error;'margin'
+;2;14;m;CSS syntax error;'margin-*'
 #cssom
 | <p>
 #csstext
@@ -557,7 +558,7 @@ p {
   margin: +0 +auto;
 }
 #errors
-;2;15;m;CSS syntax error;'margin'
+;2;14;m;CSS syntax error;'margin-*'
 #cssom
 | <p>
 #csstext
@@ -569,7 +570,7 @@ p {
   margin: +0 +0 +;
 }
 #errors
-;2;18;m;CSS syntax error;'margin'
+;2;17;m;CSS syntax error;'margin-*'
 #cssom
 | <p>
 #csstext
@@ -581,7 +582,7 @@ p {
   margin: +0 +0 +auto;
 }
 #errors
-;2;18;m;CSS syntax error;'margin'
+;2;17;m;CSS syntax error;'margin-*'
 #cssom
 | <p>
 #csstext
@@ -593,7 +594,7 @@ p {
   margin: +0 +0 +0 +;
 }
 #errors
-;2;21;m;CSS syntax error;'margin'
+;2;20;m;CSS syntax error;'margin-*'
 #cssom
 | <p>
 #csstext
@@ -605,7 +606,7 @@ p {
   margin: +0 +0 +0 +auto;
 }
 #errors
-;2;21;m;CSS syntax error;'margin'
+;2;11;m;CSS syntax error;'margin'
 #cssom
 | <p>
 #csstext
@@ -617,7 +618,7 @@ p {
   margin: +0 +0 +0 +0 +;
 }
 #errors
-;2;23;m;no property semicolon
+;2;11;m;CSS syntax error;'margin'
 #cssom
 | <p>
 #csstext
@@ -759,16 +760,17 @@ p {
 }
 #cssom
 | <p>
+|   margin: 0px 0px 0px 1px
 |   margin-bottom: 0px
 |   margin-left: 1px !important
 |   margin-right: 0px
 |   margin-top: 0px
 #csstext
 p {
+  margin-top: 0px;
+  margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 1px !important;
-  margin-right: 0px;
-  margin-top: 0px;
 }
 
 #data
@@ -778,15 +780,16 @@ p {
 }
 #cssom
 | <p>
+|   margin: 0px
 |   margin-bottom: 0px
 |   margin-left: 0px
 |   margin-right: 0px
 |   margin-top: 0px !important
 #csstext
 p {
+  margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
-  margin-right: 0px;
   margin-top: 0px !important;
 }
 
@@ -797,16 +800,17 @@ p {
 }
 #cssom
 | <p>
+|   margin: 0px
 |   margin-bottom: 0px
 |   margin-left: 0px
 |   margin-right: 0px !important
 |   margin-top: 0px
 #csstext
 p {
+  margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
   margin-right: 0px !important;
-  margin-top: 0px;
 }
 
 #data
@@ -816,16 +820,17 @@ p {
 }
 #cssom
 | <p>
+|   margin: 0px
 |   margin-bottom: 0px !important
 |   margin-left: 0px
 |   margin-right: 0px
 |   margin-top: 0px
 #csstext
 p {
-  margin-bottom: 0px !important;
-  margin-left: 0px;
-  margin-right: 0px;
   margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: 0px !important;
 }
 
 #data
@@ -835,16 +840,17 @@ p {
 }
 #cssom
 | <p>
+|   margin: 0px
 |   margin-bottom: 0px
 |   margin-left: 0px !important
 |   margin-right: 0px
 |   margin-top: 0px
 #csstext
 p {
+  margin-top: 0px;
+  margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 0px !important;
-  margin-right: 0px;
-  margin-top: 0px;
 }
 
 #data
@@ -852,6 +858,8 @@ p {
   margin: 0 !important;
   margin-top: 1px;
 }
+#errors
+;3;3;w;css:prop:ignored
 #cssom
 | <p>
 |   margin: 0px !important
@@ -894,9 +902,9 @@ p {
 |   margin-top: 0px
 #csstext
 p {
+  margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
-  margin-top: 0px;
 }
 
 #data
@@ -912,9 +920,9 @@ p {
 |   margin-top: inherit
 #csstext
 p {
+  margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
-  margin-right: 0px;
   margin-top: inherit;
 }
 
@@ -931,10 +939,10 @@ p {
 |   margin-top: 0px
 #csstext
 p {
+  margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
   margin-right: inherit;
-  margin-top: 0px;
 }
 
 #data
@@ -950,10 +958,10 @@ p {
 |   margin-top: 0px
 #csstext
 p {
-  margin-bottom: inherit;
-  margin-left: 0px;
-  margin-right: 0px;
   margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: inherit;
 }
 
 #data
@@ -969,10 +977,10 @@ p {
 |   margin-top: 0px
 #csstext
 p {
+  margin-top: 0px;
+  margin-right: 0px;
   margin-bottom: 0px;
   margin-left: inherit;
-  margin-right: 0px;
-  margin-top: 0px;
 }
 
 #data
@@ -989,10 +997,10 @@ p {
 |   margin-top: inherit
 #csstext
 p {
-  margin-bottom: inherit;
-  margin-left: 0px;
   margin-right: 0px;
+  margin-left: 0px;
   margin-top: inherit;
+  margin-bottom: inherit;
 }
 
 #data
@@ -1000,7 +1008,7 @@ p {
   margin: inherit 0;
 }
 #errors
-;2;19;m;no property semicolon
+;2;11;m;CSS syntax error;'margin-*'
 #cssom
 | <p>
 #csstext
@@ -1008,9 +1016,35 @@ p {
 }
 
 #data
-/*
-  TODO: border properties
-*/
+p{margin: 12 42 1 5}
+#errors
+;1;11;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{margin: 12 -42 1.2 5}
+#option q
+#errors
+#cssom
+| <p>
+|   margin: 12px -42px 1.2px 5px
+|   margin-bottom: 1.2px
+|   margin-left: 5px
+|   margin-right: -42px
+|   margin-top: 12px
+
+#data
+p{margin: 12 -42 1.2cm 5}
+#option q
+#errors
+#cssom
+| <p>
+|   margin: 12px -42px 1.2cm 5px
+|   margin-bottom: 1.2cm
+|   margin-left: 5px
+|   margin-right: -42px
+|   margin-top: 12px
 
 #data
 p {
@@ -2160,7 +2194,7 @@ p {
   padding-top: -12px;
 }
 #errors
-;2;16;m;CSS syntax error;'padding-top'
+;2;16;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -2171,6 +2205,46 @@ p {
 #cssom
 | <p>
 |   padding-top: 120.001px
+
+#data
+p{padding-right: 20px}
+#cssom
+| <p>
+|   padding-right: 20px
+
+#data
+p{padding-bottom: 10}
+#errors
+;1;19;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{padding-right: 10.4}
+#option q
+#cssom
+| <p>
+|   padding-right: 10.4px
+
+#data
+p{padding-bottom: -20px}
+#errors
+;1;19;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{padding-right: -20.5%}
+#errors
+;1;18;m;CSS syntax error;'padding-*'
+#cssom
+| <p>
+
+#data
+p{padding-left: -0%}
+#cssom
+| <p>
+|   padding-left: 0%
 
 #data
 p {
@@ -2259,15 +2333,16 @@ p {
 }
 #cssom
 | <p>
+|   padding: 1px
 |   padding-bottom: 1px
 |   padding-left: 1px
 |   padding-right: 1px
 |   padding-top: 1px !important
 #csstext
 p {
+  padding-right: 1px;
   padding-bottom: 1px;
   padding-left: 1px;
-  padding-right: 1px;
   padding-top: 1px !important;
 }
 
