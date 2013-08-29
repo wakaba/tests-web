@@ -404,12 +404,19 @@ p {
   font-size: 12;
 }
 #errors
-;2;14;m;CSS syntax error;'font-size'
+;2;14;m;css:value:not nnlength
 #cssom
 | <p>
 #csstext
 p {
 }
+
+#data
+P{font-size: -30}
+#errors
+;1;14;m;css:value:not nnlength
+#cssom
+| <P>
 
 #data
 p {
@@ -429,7 +436,7 @@ p {
   font-size: +12;
 }
 #errors
-;2;14;m;CSS syntax error;'font-size'
+;2;14;m;css:value:not nnlength
 #cssom
 | <p>
 #csstext
@@ -486,7 +493,7 @@ p {
   font-size: -12px
 }
 #errors
-;2;14;m;CSS syntax error;'font-size'
+;2;14;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -499,7 +506,7 @@ p {
 |   font-size: 12px !important
 #csstext
 p {
-  font-size: 12px ! important;
+  font-size: 12px !important;
 }
 
 #data
@@ -559,7 +566,7 @@ p {
 |   font-size: inherit !important
 #csstext
 p {
-  font-size: inherit ! important;
+  font-size: inherit !important;
 }
 
 #data
@@ -567,7 +574,7 @@ p {
   font-size: +inherit;
 }
 #errors
-;2;15;m;CSS syntax error;'font-size'
+;2;14;m;CSS syntax error;'font-size'
 #cssom
 | <p>
 
@@ -585,7 +592,7 @@ p {
   font-size: -/**/inherit;
 }
 #errors
-;2;19;m;CSS syntax error;'font-size'
+;2;14;m;CSS syntax error;'font-size'
 #cssom
 | <p>
 
@@ -679,10 +686,10 @@ p {
 }
 #cssom
 | <p>
-|   font-size: -manakai-xxx-large
+|   font-size: -webkit-xxx-large
 #csstext
 p {
-  font-size: -manakai-xxx-large;
+  font-size: -webkit-xxx-large;
 }
 
 #data
@@ -719,6 +726,18 @@ p {
 #csstext
 p {
   font-size: smaller;
+}
+
+#data
+p {
+  font-size: smaller abc
+}
+#errors
+;2;14;m;CSS syntax error;'font-size'
+#cssom
+| <p>
+#csstext
+p {
 }
 
 #data
@@ -796,7 +815,7 @@ p {
   font-size-ajust: none;
 }
 #errors
-;2;3;u;unknown property
+;2;3;m;css:prop:unknown
 #cssom
 | <p>
 
@@ -805,7 +824,7 @@ p {
   font-size-adjast: none;
 }
 #errors
-;2;3;u;unknown property
+;2;3;m;css:prop:unknown
 #cssom
 | <p>
 
@@ -883,14 +902,14 @@ p {
 |   line-height: normal !important
 #csstext
 p {
-  font-family: serif ! important;
-  font-size: 1px ! important;
-  font-size-adjust: none ! important;
-  font-stretch: normal ! important;
-  font-style: normal ! important;
-  font-variant: normal ! important;
-  font-weight: normal ! important;
-  line-height: normal ! important;
+  font-family: serif !important;
+  font-size: 1px !important;
+  font-size-adjust: none !important;
+  font-stretch: normal !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: normal !important;
+  line-height: normal !important;
 }
 
 #data
@@ -1018,14 +1037,14 @@ p {
 |   line-height: inherit !important
 #csstext
 p {
-  font-family: inherit ! important;
-  font-size: inherit ! important;
-  font-size-adjust: inherit ! important;
-  font-stretch: inherit ! important;
-  font-style: inherit ! important;
-  font-variant: inherit ! important;
-  font-weight: inherit ! important;
-  line-height: inherit ! important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-size-adjust: inherit !important;
+  font-stretch: inherit !important;
+  font-style: inherit !important;
+  font-variant: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
 }
 
 #data
@@ -1104,7 +1123,7 @@ p {
   font-size-adjust: inherit;
   font-stretch: inherit;
   font-style: inherit;
-  font-variant: inherit ! important;
+  font-variant: inherit !important;
   font-weight: inherit;
   line-height: inherit;
 }

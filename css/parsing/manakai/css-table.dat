@@ -104,8 +104,8 @@ p {
 }
 #cssom
 | <p>
-|   -manakai-border-spacing-x: 12px
-|   -manakai-border-spacing-y: 12px
+|   -webkit-border-horizontal-spacing: 12px
+|   -webkit-border-vertical-spacing: 12px
 |   border-spacing: 12px
 #csstext
 p {
@@ -118,8 +118,8 @@ p {
 }
 #cssom
 | <p>
-|   -manakai-border-spacing-x: 12px
-|   -manakai-border-spacing-y: 34px
+|   -webkit-border-horizontal-spacing: 12px
+|   -webkit-border-vertical-spacing: 34px
 |   border-spacing: 12px 34px
 #csstext
 p {
@@ -132,8 +132,8 @@ p {
 }
 #cssom
 | <p>
-|   -manakai-border-spacing-x: 12px
-|   -manakai-border-spacing-y: 12px
+|   -webkit-border-horizontal-spacing: 12px
+|   -webkit-border-vertical-spacing: 12px
 |   border-spacing: 12px
 #csstext
 p {
@@ -146,8 +146,8 @@ p {
 }
 #cssom
 | <p>
-|   -manakai-border-spacing-x: 12px
-|   -manakai-border-spacing-y: 34px
+|   -webkit-border-horizontal-spacing: 12px
+|   -webkit-border-vertical-spacing: 34px
 |   border-spacing: 12px 34px
 #csstext
 p {
@@ -159,7 +159,7 @@ p {
   border-spacing: 12;
 }
 #errors
-;2;20;m;css:keyword:not allowed
+;2;19;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -168,18 +168,17 @@ p {
   border-spacing: 12;
 }
 #option q
+#errors
+;2;19;m;css:value:not nnlength
 #cssom
 | <p>
-|   -manakai-border-spacing-x: 12px
-|   -manakai-border-spacing-y: 12px
-|   border-spacing: 12px
 
 #data
 p {
   border-spacing: -12;
 }
 #errors
-;2;20;m;css:keyword:not allowed
+;2;19;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -189,7 +188,7 @@ p {
 }
 #option q
 #errors
-;2;20;m;css:keyword:not allowed
+;2;19;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -198,7 +197,7 @@ p {
   border-spacing: 12px 34;
 }
 #errors
-;2;24;m;no property semicolon
+;2;24;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -207,18 +206,17 @@ p {
   border-spacing: 12px 34;
 }
 #option q
+#errors
+;2;24;m;css:value:not nnlength
 #cssom
 | <p>
-|   -manakai-border-spacing-x: 12px
-|   -manakai-border-spacing-y: 34px
-|   border-spacing: 12px 34px
 
 #data
 p {
   border-spacing: 12px -34;
 }
 #errors
-;2;24;m;no property semicolon
+;2;24;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -228,7 +226,7 @@ p {
 }
 #option q
 #errors
-;2;20;m;css:keyword:not allowed
+;2;24;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -237,7 +235,7 @@ p {
   border-spacing: -12px;
 }
 #errors
-;2;19;m;CSS syntax error;'border-spacing'
+;2;19;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -246,7 +244,7 @@ p {
   border-spacing: 12px -34px;
 }
 #errors
-;2;24;m;CSS syntax error;'border-spacing'
+;2;24;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -256,8 +254,8 @@ p {
 }
 #cssom
 | <p>
-|   -manakai-border-spacing-x: inherit
-|   -manakai-border-spacing-y: inherit
+|   -webkit-border-horizontal-spacing: inherit
+|   -webkit-border-vertical-spacing: inherit
 |   border-spacing: inherit
 #csstext
 p {
@@ -269,7 +267,7 @@ p {
   border-spacing: +inherit;
 }
 #errors
-;2;20;m;CSS syntax error;'border-spacing'
+;2;19;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -278,7 +276,7 @@ p {
   border-spacing: inherit inherit;
 }
 #errors
-;2;27;m;no property semicolon
+;2;19;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -287,14 +285,17 @@ p {
   -manakai-border-spacing-x: inherit;
   -manakai-border-spacing-y: 23px;
 }
+#errors
+;2;29;m;css:obsolete;-manakai-border-spacing-x
+;3;29;m;css:obsolete;-manakai-border-spacing-y
 #cssom
 | <p>
-|   -manakai-border-spacing-x: inherit
-|   -manakai-border-spacing-y: 23px
+|   -webkit-border-horizontal-spacing: inherit
+|   -webkit-border-vertical-spacing: 23px
 #csstext
 p {
-  -manakai-border-spacing-x: inherit;
-  -manakai-border-spacing-y: 23px;
+  -webkit-border-horizontal-spacing: inherit;
+  -webkit-border-vertical-spacing: 23px;
 }
 
 #data
@@ -302,14 +303,17 @@ p {
   -manakai-border-spacing-y: inherit;
   -manakai-border-spacing-x: 23px;
 }
+#errors
+;2;29;m;css:obsolete;-manakai-border-spacing-y
+;3;29;m;css:obsolete;-manakai-border-spacing-x
 #cssom
 | <p>
-|   -manakai-border-spacing-x: 23px
-|   -manakai-border-spacing-y: inherit
+|   -webkit-border-horizontal-spacing: 23px
+|   -webkit-border-vertical-spacing: inherit
 #csstext
 p {
-  -manakai-border-spacing-x: 23px;
-  -manakai-border-spacing-y: inherit;
+  -webkit-border-vertical-spacing: inherit;
+  -webkit-border-horizontal-spacing: 23px;
 }
 
 #data
@@ -317,14 +321,18 @@ p {
   -manakai-border-spacing-x: 23px !important;
   -manakai-border-spacing-y: 23px;
 }
+#errors
+;2;29;m;css:obsolete;-manakai-border-spacing-x
+;3;29;m;css:obsolete;-manakai-border-spacing-y
 #cssom
 | <p>
-|   -manakai-border-spacing-x: 23px !important
-|   -manakai-border-spacing-y: 23px
+|   -webkit-border-horizontal-spacing: 23px !important
+|   -webkit-border-vertical-spacing: 23px
+|   border-spacing: 23px
 #csstext
 p {
-  -manakai-border-spacing-x: 23px ! important;
-  -manakai-border-spacing-y: 23px;
+  -webkit-border-horizontal-spacing: 23px !important;
+  -webkit-border-vertical-spacing: 23px;
 }
 
 #data
@@ -332,15 +340,106 @@ p {
   -manakai-border-spacing-x: inherit ! important;
   -manakai-border-spacing-y: inherit ! important;
 }
+#errors
+;2;29;m;css:obsolete;-manakai-border-spacing-x
+;3;29;m;css:obsolete;-manakai-border-spacing-y
 #cssom
 | <p>
-|   -manakai-border-spacing-x: inherit !important
-|   -manakai-border-spacing-y: inherit !important
+|   -webkit-border-horizontal-spacing: inherit !important
+|   -webkit-border-vertical-spacing: inherit !important
 |   border-spacing: inherit !important
 #csstext
 p {
-  border-spacing: inherit ! important;
+  border-spacing: inherit !important;
 }
+
+#data
+p{
+  -webkit-border-horizontal-spacing: 109px;
+}
+#cssom
+| <p>
+|   -webkit-border-horizontal-spacing: 109px
+
+#data
+p{
+  -webkit-border-horizontal-spacing: -109px;
+}
+#errors
+;2;38;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{
+  -webkit-border-horizontal-spacing: 00;
+}
+#cssom
+| <p>
+|   -webkit-border-horizontal-spacing: 0px
+
+#data
+p{
+  -webkit-border-horizontal-spacing: 109;
+}
+#option q
+#errors
+;2;38;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{
+  -webkit-border-horizontal-spacing: 109%;
+}
+#errors
+;2;38;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{
+  -webkit-border-vertical-spacing: 109px;
+}
+#cssom
+| <p>
+|   -webkit-border-vertical-spacing: 109px
+
+#data
+p{
+  -webkit-border-vertical-spacing: -109px;
+}
+#errors
+;2;36;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{
+  -webkit-border-vertical-spacing: 00;
+}
+#cssom
+| <p>
+|   -webkit-border-vertical-spacing: 0px
+
+#data
+p{
+  -webkit-border-vertical-spacing: 109;
+}
+#option q
+#errors
+;2;36;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{
+  -webkit-border-vertical-spacing: 109%;
+}
+#errors
+;2;36;m;css:value:not nnlength
+#cssom
+| <p>
 
 #data
 p{table-layout: auto}
