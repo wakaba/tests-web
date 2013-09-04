@@ -27,7 +27,60 @@ p {
   outline-width: -12px;
 }
 #errors
-;2;18;m;CSS syntax error;'outline-width'
+;2;18;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{outline-width: thin}
+#cssom
+| <p>
+|   outline-width: thin
+
+#data
+p{outline-width: thick}
+#cssom
+| <p>
+|   outline-width: thick
+
+#data
+p{outline-width: medium}
+#cssom
+| <p>
+|   outline-width: medium
+
+#data
+p{outline-width: 0}
+#cssom
+| <p>
+|   outline-width: 0px
+
+#data
+p{outline-width: 12}
+#errors
+;1;18;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{outline-width: 12}
+#option q
+#errors
+;1;18;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{outline-width: 12%}
+#errors
+;1;18;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{outline-width: -12cm}
+#errors
+;1;18;m;css:value:not nnlength
 #cssom
 | <p>
 

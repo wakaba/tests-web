@@ -1428,7 +1428,7 @@ p {
   border-top-width: -5px
 }
 #errors
-;2;21;m;CSS syntax error;'border-top-width'
+;2;21;m;css:value:not nnlength
 #cssom
 | <p>
 #csstext
@@ -1488,7 +1488,7 @@ p {
   border-top-width: 12;
 }
 #errors
-;2;21;m;CSS syntax error;'border-top-width'
+;2;21;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1506,7 +1506,7 @@ p {
   border-top-width: +12;
 }
 #errors
-;2;21;m;CSS syntax error;'border-top-width'
+;2;21;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1524,7 +1524,7 @@ p {
   border-top-width: -12;
 }
 #errors
-;2;21;m;CSS syntax error;'border-top-width'
+;2;21;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1534,9 +1534,526 @@ p {
 }
 #option q
 #errors
-;2;21;m;CSS syntax error;'border-top-width'
+;2;21;m;css:value:not nnlength
 #cssom
 | <p>
+
+#data
+p{border-top-width: 0%}
+#errors
+;1;21;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-top-width: THIN}
+#cssom
+| <p>
+|   border-top-width: thin
+
+#data
+p{border-top-width: MEDIUM}
+#cssom
+| <p>
+|   border-top-width: medium
+
+#data
+p{border-top-width: THick}
+#cssom
+| <p>
+|   border-top-width: thick
+
+#data
+p {
+  border-right-width: 5px
+}
+#cssom
+| <p>
+|   border-right-width: 5px
+#csstext
+p {
+  border-right-width: 5px;
+}
+
+#data
+p {
+  border-right-width: +5px
+}
+#cssom
+| <p>
+|   border-right-width: 5px
+#csstext
+p {
+  border-right-width: 5px;
+}
+
+#data
+p {
+  border-right-width: -5px
+}
+#errors
+;2;23;m;css:value:not nnlength
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {
+  border-right-width: 0;
+}
+#cssom
+| <p>
+|   border-right-width: 0px
+
+#data
+p {
+  border-right-width: +0;
+}
+#cssom
+| <p>
+|   border-right-width: 0px
+
+#data
+p {
+  border-right-width: -0;
+}
+#cssom
+| <p>
+|   border-right-width: 0px
+
+#data
+p {
+  border-right-width: 0.0000;
+}
+#cssom
+| <p>
+|   border-right-width: 0px
+
+#data
+p {
+  border-right-width: 00000012px;
+}
+#cssom
+| <p>
+|   border-right-width: 12px
+
+#data
+p {
+  border-right-width: 12.012000px;
+}
+#cssom
+| <p>
+|   border-right-width: 12.012px
+
+#data
+p {
+  border-right-width: 12;
+}
+#errors
+;2;23;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-right-width: 12;
+}
+#option q
+#cssom
+| <p>
+|   border-right-width: 12px
+
+#data
+p {
+  border-right-width: +12;
+}
+#errors
+;2;23;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-right-width: +12;
+}
+#option q
+#cssom
+| <p>
+|   border-right-width: 12px
+
+#data
+p {
+  border-right-width: -12;
+}
+#errors
+;2;23;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-right-width: -12;
+}
+#option q
+#errors
+;2;23;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-right-width: 0%}
+#errors
+;1;23;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-right-width: THIN}
+#cssom
+| <p>
+|   border-right-width: thin
+
+#data
+p{border-right-width: MEDIUM}
+#cssom
+| <p>
+|   border-right-width: medium
+
+#data
+p{border-right-width: THick}
+#cssom
+| <p>
+|   border-right-width: thick
+
+#data
+p {
+  border-bottom-width: 5px
+}
+#cssom
+| <p>
+|   border-bottom-width: 5px
+#csstext
+p {
+  border-bottom-width: 5px;
+}
+
+#data
+p {
+  border-bottom-width: +5px
+}
+#cssom
+| <p>
+|   border-bottom-width: 5px
+#csstext
+p {
+  border-bottom-width: 5px;
+}
+
+#data
+p {
+  border-bottom-width: -5px
+}
+#errors
+;2;24;m;css:value:not nnlength
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {
+  border-bottom-width: 0;
+}
+#cssom
+| <p>
+|   border-bottom-width: 0px
+
+#data
+p {
+  border-bottom-width: +0;
+}
+#cssom
+| <p>
+|   border-bottom-width: 0px
+
+#data
+p {
+  border-bottom-width: -0;
+}
+#cssom
+| <p>
+|   border-bottom-width: 0px
+
+#data
+p {
+  border-bottom-width: 0.0000;
+}
+#cssom
+| <p>
+|   border-bottom-width: 0px
+
+#data
+p {
+  border-bottom-width: 00000012px;
+}
+#cssom
+| <p>
+|   border-bottom-width: 12px
+
+#data
+p {
+  border-bottom-width: 12.012000px;
+}
+#cssom
+| <p>
+|   border-bottom-width: 12.012px
+
+#data
+p {
+  border-bottom-width: 12;
+}
+#errors
+;2;24;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-bottom-width: 12;
+}
+#option q
+#cssom
+| <p>
+|   border-bottom-width: 12px
+
+#data
+p {
+  border-bottom-width: +12;
+}
+#errors
+;2;24;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-bottom-width: +12;
+}
+#option q
+#cssom
+| <p>
+|   border-bottom-width: 12px
+
+#data
+p {
+  border-bottom-width: -12;
+}
+#errors
+;2;24;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-bottom-width: -12;
+}
+#option q
+#errors
+;2;24;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-bottom-width: 0%}
+#errors
+;1;24;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-bottom-width: THIN}
+#cssom
+| <p>
+|   border-bottom-width: thin
+
+#data
+p{border-bottom-width: MEDIUM}
+#cssom
+| <p>
+|   border-bottom-width: medium
+
+#data
+p{border-bottom-width: THick}
+#cssom
+| <p>
+|   border-bottom-width: thick
+
+#data
+p {
+  border-left-width: 5px
+}
+#cssom
+| <p>
+|   border-left-width: 5px
+#csstext
+p {
+  border-left-width: 5px;
+}
+
+#data
+p {
+  border-left-width: +5px
+}
+#cssom
+| <p>
+|   border-left-width: 5px
+#csstext
+p {
+  border-left-width: 5px;
+}
+
+#data
+p {
+  border-left-width: -5px
+}
+#errors
+;2;22;m;css:value:not nnlength
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {
+  border-left-width: 0;
+}
+#cssom
+| <p>
+|   border-left-width: 0px
+
+#data
+p {
+  border-left-width: +0;
+}
+#cssom
+| <p>
+|   border-left-width: 0px
+
+#data
+p {
+  border-left-width: -0;
+}
+#cssom
+| <p>
+|   border-left-width: 0px
+
+#data
+p {
+  border-left-width: 0.0000;
+}
+#cssom
+| <p>
+|   border-left-width: 0px
+
+#data
+p {
+  border-left-width: 00000012px;
+}
+#cssom
+| <p>
+|   border-left-width: 12px
+
+#data
+p {
+  border-left-width: 12.012000px;
+}
+#cssom
+| <p>
+|   border-left-width: 12.012px
+
+#data
+p {
+  border-left-width: 12;
+}
+#errors
+;2;22;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-left-width: 12;
+}
+#option q
+#cssom
+| <p>
+|   border-left-width: 12px
+
+#data
+p {
+  border-left-width: +12;
+}
+#errors
+;2;22;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-left-width: +12;
+}
+#option q
+#cssom
+| <p>
+|   border-left-width: 12px
+
+#data
+p {
+  border-left-width: -12;
+}
+#errors
+;2;22;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-left-width: -12;
+}
+#option q
+#errors
+;2;22;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-left-width: 0%}
+#errors
+;1;22;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-left-width: THIN}
+#cssom
+| <p>
+|   border-left-width: thin
+
+#data
+p{border-left-width: MEDIUM}
+#cssom
+| <p>
+|   border-left-width: medium
+
+#data
+p{border-left-width: THick}
+#cssom
+| <p>
+|   border-left-width: thick
 
 #data
 p {
@@ -1601,6 +2118,7 @@ p {
 |   border-left-width: 5px !important
 |   border-right-width: 5px
 |   border-top-width: 5px
+|   border-width: 5px
 #csstext
 p {
   border-top-width: 5px;
@@ -1650,7 +2168,7 @@ p {
   border-width: 12;
 }
 #errors
-;2;17;m;CSS syntax error;'border-width'
+;2;17;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1672,7 +2190,7 @@ p {
   border-width: +12;
 }
 #errors
-;2;17;m;CSS syntax error;'border-width'
+;2;17;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1718,7 +2236,7 @@ p {
   border-width: -5px;
 }
 #errors
-;2;17;m;CSS syntax error;'border-width'
+;2;17;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1751,7 +2269,7 @@ p {
   border-width: 5px -6px;
 }
 #errors
-;2;21;m;CSS syntax error;'border-width'
+;2;21;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1784,7 +2302,7 @@ p {
   border-width: 5px 6px -7px;
 }
 #errors
-;2;25;m;CSS syntax error;'border-width'
+;2;25;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1817,9 +2335,23 @@ p {
   border-width: 5px 6px 7px -8px;
 }
 #errors
-;2;29;m;CSS syntax error;'border-width'
+;2;29;m;css:value:not nnlength
 #cssom
 | <p>
+
+#data
+p{border-width: thin thick medium}
+#cssom
+| <p>
+|   border-bottom-width: medium
+|   border-left-width: thick
+|   border-right-width: thick
+|   border-top-width: thin
+|   border-width: thin thick medium
+#csstext
+p {
+  border-width: thin thick medium;
+}
 
 #data
 p {
@@ -4205,7 +4737,7 @@ p {
   line-height: -12px
 }
 #errors
-;2;16;m;CSS syntax error;'line-height'
+;2;16;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -4293,6 +4825,12 @@ p {
 |   line-height: 0
 
 #data
+p{line-height:NONE}
+#cssom
+| <p>
+|   line-height: none
+
+#data
 p {
   vertical-align: baseline;
 }
@@ -4375,6 +4913,18 @@ p {
 |   vertical-align: text-bottom
 
 #data
+p{vertical-align: auto}
+#cssom
+| <p>
+|   vertical-align: auto
+
+#data
+p{vertical-align : central}
+#cssom
+| <p>
+|   vertical-align: central
+
+#data
 p {
   vertical-align: 12%;
 }
@@ -4421,6 +4971,20 @@ p {
 #cssom
 | <p>
 |   vertical-align: -12px
+
+#data
+p{vertical-align : 0}
+#cssom
+| <p>
+|   vertical-align: 0px
+
+#data
+p{vertical-align: 21}
+#option q
+#errors
+;1;19;m;css:value:not length
+#cssom
+| <p>
 
 #data
 p {
@@ -4929,6 +5493,7 @@ p {
 }
 #cssom
 | <p>
+|   background-position: inherit
 |   background-position-x: inherit
 |   background-position-y: inherit !important
 #csstext
@@ -4988,6 +5553,7 @@ p {
 }
 #cssom
 | <p>
+|   background-position: 12.3% 3px
 |   background-position-x: 12.3%
 |   background-position-y: 3px !important
 #csstext
@@ -5003,6 +5569,7 @@ p {
 }
 #cssom
 | <p>
+|   background-position: 12.3% 3px
 |   background-position-x: 12.3% !important
 |   background-position-y: 3px
 #csstext
@@ -5058,6 +5625,26 @@ p {
 
 #data
 p {
+  background-position: right +34px;
+}
+#cssom
+| <p>
+|   background-position: right 34px
+|   background-position-x: right
+|   background-position-y: 34px
+
+#data
+p {
+  background-position: center/**/+34px;
+}
+#cssom
+| <p>
+|   background-position: center 34px
+|   background-position-x: center
+|   background-position-y: 34px
+
+#data
+p {
   background-position: +12px bottom
 }
 #cssom
@@ -5081,16 +5668,35 @@ p {
   background-position: +12px left;
 }
 #errors
-;2;30;m;no property semicolon
+;2;30;m;CSS syntax error;position
 #cssom
 | <p>
+
+#data
+p {
+  background-position: +12px right;
+}
+#errors
+;2;30;m;CSS syntax error;position
+#cssom
+| <p>
+
+#data
+p {
+  background-position: +12px center;
+}
+#cssom
+| <p>
+|   background-position: 12px center
+|   background-position-x: 12px
+|   background-position-y: center
 
 #data
 p {
   background-position: 12px +top;
 }
 #errors
-;2;30;m;CSS syntax error;'background-position'
+;2;24;m;CSS syntax error;position
 #cssom
 | <p>
 
@@ -5153,6 +5759,193 @@ p {
 |   background-position: right center
 |   background-position-x: right
 |   background-position-y: center
+
+#data
+p{background-position: 12 center}
+#errors
+;1;24;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{background-position: left 12}
+#errors
+;1;29;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{background-position: hoge 12px}
+#errors
+;1;24;m;CSS syntax error;position
+#cssom
+| <p>
+
+#data
+p{background-position: 20em hoge}
+#errors
+;1;29;m;CSS syntax error;position
+#cssom
+| <p>
+
+#data
+p{background-position: hoge fuga}
+#errors
+;1;24;m;CSS syntax error;position
+#cssom
+| <p>
+
+#data
+p{background: center center}
+#cssom
+| <p>
+|   background-position: center
+|   background-position-x: center
+|   background-position-y: center
+
+#data
+p{background-position-x: 0}
+#cssom
+| <p>
+|   background-position-x: 0px
+
+#data
+p{background-position-x: 0%}
+#cssom
+| <p>
+|   background-position-x: 0%
+
+#data
+p{background-position-x: -120cm}
+#cssom
+| <p>
+|   background-position-x: -120cm
+
+#data
+p{background-position-x: 42}
+#errors
+;1;26;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{background-position-x: 42}
+#option q
+#errors
+;1;26;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{background-position-x: 42px 52px}
+#errors
+;1;26;m;CSS syntax error;'background-position-x'
+#cssom
+| <p>
+
+#data
+p{background-position-x:LEFT}
+#cssom
+| <p>
+|   background-position-x: left
+
+#data
+p{background-position-x: right}
+#cssom
+| <p>
+|   background-position-x: right
+
+#data
+p{background-position-x:center}
+#cssom
+| <p>
+|   background-position-x: center
+
+#data
+p{background-position-x:top}
+#errors
+;1;25;m;CSS syntax error;'background-position-x'
+#cssom
+| <p>
+
+#data
+p{background-position-x: bottom}
+#errors
+;1;26;m;CSS syntax error;'background-position-x'
+#cssom
+| <p>
+
+#data
+p{background-position-Y: 0}
+#cssom
+| <p>
+|   background-position-y: 0px
+
+#data
+p{background-position-y: 0%}
+#cssom
+| <p>
+|   background-position-y: 0%
+
+#data
+p{background-position-y: -120cm}
+#cssom
+| <p>
+|   background-position-y: -120cm
+
+#data
+p{background-position-Y: 42}
+#errors
+;1;26;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{background-position-y: 42}
+#option q
+#errors
+;1;26;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{background-position-y: 42px 52px}
+#errors
+;1;26;m;CSS syntax error;'background-position-y'
+#cssom
+| <p>
+
+#data
+p{background-position-y:top}
+#cssom
+| <p>
+|   background-position-y: top
+
+#data
+p{background-position-y:bottom}
+#cssom
+| <p>
+|   background-position-y: bottom
+
+#data
+p{background-position-y:center}
+#cssom
+| <p>
+|   background-position-y: center
+
+#data
+p{background-position-y:left}
+#errors
+;1;25;m;CSS syntax error;'background-position-y'
+#cssom
+| <p>
+
+#data
+p{background-position-y: right}
+#errors
+;1;26;m;CSS syntax error;'background-position-y'
+#cssom
+| <p>
 
 #data
 p {

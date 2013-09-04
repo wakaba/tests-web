@@ -616,6 +616,32 @@ p {
 |   text-indent: -12px
 
 #data
+p{text-indent: -0}
+#cssom
+| <p>
+|   text-indent: 0px
+
+#data
+p{text-indent: -31}
+#option q
+#errors
+;1;16;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{text-indent: 31%}
+#cssom
+| <p>
+|   text-indent: 31%
+
+#data
+p{text-indent: -31.3%}
+#cssom
+| <p>
+|   text-indent: -31.3%
+
+#data
 p {
   letter-spacing: 12px
 }
