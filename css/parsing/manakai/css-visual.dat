@@ -6002,6 +6002,22 @@ p {
 }
 
 #data
+p{background-position: TOP}
+#cssom
+| <p>
+|   background-position: 50% top
+|   background-position-x: 50%
+|   background-position-y: top
+
+#data
+p{background-position: BOTTOM}
+#cssom
+| <p>
+|   background-position: 50% bottom
+|   background-position-x: 50%
+|   background-position-y: bottom
+
+#data
 p {
   background-position-x: inherit;
 }
@@ -6264,6 +6280,24 @@ p {
 
 #data
 p {
+  background-position: top 12%;
+}
+#errors
+;2;24;m;CSS syntax error;position
+#cssom
+| <p>
+
+#data
+p {
+  background-position: bottom 12%;
+}
+#errors
+;2;24;m;CSS syntax error;position
+#cssom
+| <p>
+
+#data
+p {
   background-position: bottom left;
 }
 #cssom
@@ -6338,10 +6372,10 @@ p{background-position: hoge fuga}
 | <p>
 
 #data
-p{background: center center}
+p{background-position: center center}
 #cssom
 | <p>
-|   background-position: center
+|   background-position: center center
 |   background-position-x: center
 |   background-position-y: center
 
@@ -6502,8 +6536,8 @@ p {
 p {
   background:
 #errors
+;2;14;w;css:block:eof
 ;2;14;m;CSS syntax error;'background'
-;2;14;m;block not closed
 #cssom
 | <p>
 
@@ -6512,7 +6546,7 @@ p {
   background: -;
 }
 #errors
-;2;16;m;CSS syntax error;'background'
+;2;15;m;CSS syntax error;'background'
 #cssom
 | <p>
 
@@ -6521,7 +6555,7 @@ p {
   background: +;
 }
 #errors
-;2;16;m;CSS syntax error;'background'
+;2;15;m;CSS syntax error;'background'
 #cssom
 | <p>
 
@@ -6529,8 +6563,8 @@ p {
 p {
   background: +
 #errors
-;2;16;m;CSS syntax error;'background'
-;2;16;m;block not closed
+;2;16;w;css:block:eof
+;2;15;m;CSS syntax error;'background'
 #cssom
 | <p>
 
@@ -6540,7 +6574,7 @@ p {
 }
 #cssom
 | <p>
-|   background: transparent none repeat scroll 0% 0%
+|   background: none repeat scroll 0% 0% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -6550,7 +6584,7 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
-  background: transparent none repeat scroll 0% 0%;
+  background: none repeat scroll 0% 0% transparent;
 }
 
 #data
@@ -6559,17 +6593,17 @@ p {
 }
 #cssom
 | <p>
-|   background: url(bg)
+|   background: url("bg") repeat scroll 0% 0% transparent
 |   background-attachment: scroll
 |   background-color: transparent
-|   background-image: url(bg)
+|   background-image: url("bg")
 |   background-position: 0% 0%
 |   background-position-x: 0%
 |   background-position-y: 0%
 |   background-repeat: repeat
 #csstext
 p {
-  background: url(bg);
+  background: url("bg") repeat scroll 0% 0% transparent;
 }
 #computed 1 p
 -| background: transparent none repeat scroll 0% 0%
@@ -6582,7 +6616,7 @@ p {
   background: -url(bg);
 }
 #errors
-;2;15;m;CSS syntax error;'background'
+;2;15;m;css:color:syntax error
 #cssom
 | <p>
 
@@ -6591,7 +6625,7 @@ p {
   background: -/**/url(bg);
 }
 #errors
-;2;20;m;CSS syntax error;'background'
+;2;15;m;CSS syntax error;'background'
 #cssom
 | <p>
 
@@ -6600,7 +6634,7 @@ p {
   background: +url(bg);
 }
 #errors
-;2;16;m;CSS syntax error;'background'
+;2;15;m;CSS syntax error;'background'
 #cssom
 | <p>
 
@@ -6610,10 +6644,10 @@ p {
 }
 #cssom
 | <p>
-|   background: url(a) 12% 50%
+|   background: url("a") repeat scroll 12% 50% transparent
 |   background-attachment: scroll
 |   background-color: transparent
-|   background-image: url(a)
+|   background-image: url("a")
 |   background-position: 12% 50%
 |   background-position-x: 12%
 |   background-position-y: 50%
@@ -6624,7 +6658,7 @@ p {
   background: url(a) url(b);
 }
 #errors
-;2;22;m;no property semicolon
+;2;22;m;CSS syntax error;'background'
 #cssom
 | <p>
 
@@ -6634,17 +6668,17 @@ p {
 }
 #cssom
 | <p>
-|   background: fixed center center
+|   background: none repeat fixed center 50% transparent
 |   background-attachment: fixed
 |   background-color: transparent
 |   background-image: none
-|   background-position: center center
+|   background-position: center 50%
 |   background-position-x: center
-|   background-position-y: center
+|   background-position-y: 50%
 |   background-repeat: repeat
 #csstext
 p {
-  background: fixed center center;
+  background: none repeat fixed center 50% transparent;
 }
 
 #data
@@ -6653,13 +6687,13 @@ p {
 }
 #cssom
 | <p>
-|   background: left center
+|   background: none repeat scroll left 50% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
-|   background-position: left center
+|   background-position: left 50%
 |   background-position-x: left
-|   background-position-y: center
+|   background-position-y: 50%
 |   background-repeat: repeat
 
 #data
@@ -6668,7 +6702,7 @@ p {
 }
 #cssom
 | <p>
-|   background: left 1px
+|   background: none repeat scroll left 1px transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -6683,7 +6717,7 @@ p {
 }
 #cssom
 | <p>
-|   background: left 1%
+|   background: none repeat scroll left 1% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -6698,13 +6732,13 @@ p {
 }
 #cssom
 | <p>
-|   background: left center
+|   background: none repeat scroll left 50% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
-|   background-position: left center
+|   background-position: left 50%
 |   background-position-x: left
-|   background-position-y: center
+|   background-position-y: 50%
 |   background-repeat: repeat
 
 #data
@@ -6713,13 +6747,13 @@ p {
 }
 #cssom
 | <p>
-|   background: url(a) left center
+|   background: url("a") repeat scroll left 50% transparent
 |   background-attachment: scroll
 |   background-color: transparent
-|   background-image: url(a)
-|   background-position: left center
+|   background-image: url("a")
+|   background-position: left 50%
 |   background-position-x: left
-|   background-position-y: center
+|   background-position-y: 50%
 |   background-repeat: repeat
 
 #data
@@ -6728,7 +6762,7 @@ p {
 }
 #cssom
 | <p>
-|   background: left -12px
+|   background: none repeat scroll left -12px transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -6743,7 +6777,7 @@ p {
 }
 #cssom
 | <p>
-|   background: left 12px
+|   background: none repeat scroll left 12px transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -6757,7 +6791,7 @@ p {
   background: left +;
 }
 #errors
-;2;21;m;CSS syntax error;'background'
+;2;20;m;CSS syntax error;'background'
 #cssom
 | <p>
 
@@ -6766,7 +6800,7 @@ p {
   background: left -;
 }
 #errors
-;2;21;m;CSS syntax error;'background'
+;2;20;m;CSS syntax error;'background'
 #cssom
 | <p>
 
@@ -6776,7 +6810,7 @@ p {
 }
 #cssom
 | <p>
-|   background: left top
+|   background: none repeat scroll left top transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -6791,7 +6825,7 @@ p {
 }
 #cssom
 | <p>
-|   background: center top
+|   background: none repeat scroll center top transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -6806,7 +6840,7 @@ p {
 }
 #cssom
 | <p>
-|   background: right top
+|   background: none repeat scroll right top transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -6821,7 +6855,7 @@ p {
 }
 #cssom
 | <p>
-|   background: left bottom
+|   background: none repeat scroll left bottom transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -6836,7 +6870,7 @@ p {
 }
 #cssom
 | <p>
-|   background: center bottom
+|   background: none repeat scroll center bottom transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -6851,7 +6885,7 @@ p {
 }
 #cssom
 | <p>
-|   background: right bottom
+|   background: none repeat scroll right bottom transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -6866,7 +6900,7 @@ p {
 }
 #cssom
 | <p>
-|   background: right center
+|   background: none repeat scroll right center transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -6881,7 +6915,7 @@ p {
 }
 #cssom
 | <p>
-|   background: left center
+|   background: none repeat scroll left center transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -6896,7 +6930,7 @@ p {
 }
 #cssom
 | <p>
-|   background: center center
+|   background: none repeat scroll center center transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -6910,7 +6944,7 @@ p {
   background: top -12px;
 }
 #errors
-;2;19;m;no property semicolon
+;2;15;m;CSS syntax error;position
 #cssom
 | <p>
 
@@ -6919,7 +6953,7 @@ p {
   background: top +12px;
 }
 #errors
-;2;19;m;no property semicolon
+;2;15;m;CSS syntax error;position
 #cssom
 | <p>
 
@@ -6929,7 +6963,7 @@ p {
 }
 #cssom
 | <p>
-|   background: -12px 50%
+|   background: none repeat scroll -12px 50% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -6944,7 +6978,7 @@ p {
 }
 #cssom
 | <p>
-|   background: 12px 50%
+|   background: none repeat scroll 12px 50% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -6959,7 +6993,7 @@ p {
 }
 #cssom
 | <p>
-|   background: 2% bottom
+|   background: none repeat scroll 2% bottom transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -6973,7 +7007,7 @@ p {
   background: 2% left;
 }
 #errors
-;2;18;m;CSS syntax error;color
+;2;18;m;CSS syntax error;position
 #cssom
 | <p>
 
@@ -6984,6 +7018,7 @@ p {
 }
 #cssom
 | <p>
+|   background: none repeat scroll 0% 0% transparent
 |   background-attachment: scroll !important
 |   background-color: transparent
 |   background-image: none
@@ -6993,11 +7028,11 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
-  background-attachment: scroll !important;
-  background-color: transparent;
   background-image: none;
-  background-position: 0% 0%;
   background-repeat: repeat;
+  background-position: 0% 0%;
+  background-color: transparent;
+  background-attachment: scroll !important;
 }
 
 #data
@@ -7006,7 +7041,7 @@ p {
 }
 #cssom
 | <p>
-|   background: 0px -12px
+|   background: none repeat scroll 0px -12px transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -7021,7 +7056,7 @@ p {
 }
 #cssom
 | <p>
-|   background: 0px 12px
+|   background: none repeat scroll 0px 12px transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -7037,6 +7072,7 @@ p {
 }
 #cssom
 | <p>
+|   background: none repeat scroll 0% 0% red
 |   background-attachment: scroll
 |   background-color: red !important
 |   background-image: none
@@ -7046,11 +7082,11 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
-  background-attachment: scroll;
-  background-color: red !important;
   background-image: none;
-  background-position: 0% 0%;
   background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  background-color: red !important;
 }
 
 #data
@@ -7060,7 +7096,7 @@ p {
 }
 #cssom
 | <p>
-|   background: transparent none repeat scroll 0% 0% !important
+|   background: none repeat scroll 0% 0% transparent !important
 |   background-attachment: scroll !important
 |   background-color: transparent !important
 |   background-image: none !important
@@ -7070,7 +7106,7 @@ p {
 |   background-repeat: repeat !important
 #csstext
 p {
-  background: transparent none repeat scroll 0% 0% !important;
+  background: none repeat scroll 0% 0% transparent !important;
 }
 
 #data
@@ -7078,9 +7114,11 @@ p {
   background: none !important;
   background-color: blue;
 }
+#errors
+;3;3;w;css:prop:ignored
 #cssom
 | <p>
-|   background: transparent none repeat scroll 0% 0% !important
+|   background: none repeat scroll 0% 0% transparent !important
 |   background-attachment: scroll !important
 |   background-color: transparent !important
 |   background-image: none !important
@@ -7090,7 +7128,7 @@ p {
 |   background-repeat: repeat !important
 #csstext
 p {
-  background: transparent none repeat scroll 0% 0% !important;
+  background: none repeat scroll 0% 0% transparent !important;
 }
 
 #data
@@ -7100,6 +7138,7 @@ p {
 }
 #cssom
 | <p>
+|   background: none repeat scroll 0% 0% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none !important
@@ -7109,11 +7148,11 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
+  background-repeat: repeat;
   background-attachment: scroll;
+  background-position: 0% 0%;
   background-color: transparent;
   background-image: none !important;
-  background-position: 0% 0%;
-  background-repeat: repeat;
 }
 
 #data
@@ -7123,6 +7162,7 @@ p {
 }
 #cssom
 | <p>
+|   background: none repeat scroll left top transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -7132,11 +7172,11 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
+  background-image: none;
+  background-repeat: repeat;
   background-attachment: scroll;
   background-color: transparent;
-  background-image: none;
   background-position: left top !important;
-  background-repeat: repeat;
 }
 
 #data
@@ -7146,20 +7186,22 @@ p {
 }
 #cssom
 | <p>
+|   background: none repeat scroll left 0% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
+|   background-position: left 0%
 |   background-position-x: left !important
 |   background-position-y: 0%
 |   background-repeat: repeat
 #csstext
 p {
-  background-attachment: scroll;
-  background-color: transparent;
   background-image: none;
-  background-position-x: left !important;
-  background-position-y: 0%;
   background-repeat: repeat;
+  background-attachment: scroll;
+  background-position-y: 0%;
+  background-color: transparent;
+  background-position-x: left !important;
 }
 
 #data
@@ -7169,20 +7211,22 @@ p {
 }
 #cssom
 | <p>
+|   background: none repeat scroll 0% 12% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
+|   background-position: 0% 12%
 |   background-position-x: 0%
 |   background-position-y: 12% !important
 |   background-repeat: repeat
 #csstext
 p {
-  background-attachment: scroll;
-  background-color: transparent;
   background-image: none;
-  background-position-x: 0%;
-  background-position-y: 12% !important;
   background-repeat: repeat;
+  background-attachment: scroll;
+  background-position-x: 0%;
+  background-color: transparent;
+  background-position-y: 12% !important;
 }
 
 #data
@@ -7192,6 +7236,7 @@ p {
 }
 #cssom
 | <p>
+|   background: none no-repeat scroll 0% 0% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -7201,10 +7246,10 @@ p {
 |   background-repeat: no-repeat !important
 #csstext
 p {
-  background-attachment: scroll;
-  background-color: transparent;
   background-image: none;
+  background-attachment: scroll;
   background-position: 0% 0%;
+  background-color: transparent;
   background-repeat: no-repeat !important;
 }
 
@@ -7214,7 +7259,7 @@ p {
 }
 #cssom
 | <p>
-|   background: transparent none repeat scroll 0% 0% !important
+|   background: none repeat scroll 0% 0% transparent !important
 |   background-attachment: scroll !important
 |   background-color: transparent !important
 |   background-image: none !important
@@ -7224,7 +7269,7 @@ p {
 |   background-repeat: repeat !important
 #csstext
 p {
-  background: transparent none repeat scroll 0% 0% !important;
+  background: none repeat scroll 0% 0% transparent !important;
 }
 
 #data
@@ -7243,11 +7288,11 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
+  background-repeat: repeat;
   background-attachment: scroll;
+  background-position: 0% 0%;
   background-color: transparent;
   background-image: inherit;
-  background-position: 0% 0%;
-  background-repeat: repeat;
 }
 
 #data
@@ -7285,11 +7330,11 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
-  background-attachment: scroll;
-  background-color: inherit;
   background-image: none;
-  background-position: 0% 0%;
   background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  background-color: inherit;
 }
 
 #data
@@ -7308,11 +7353,11 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
+  background-image: none;
+  background-repeat: repeat;
   background-attachment: scroll;
   background-color: transparent;
-  background-image: none;
   background-position: inherit;
-  background-repeat: repeat;
 }
 
 #data
@@ -7330,12 +7375,12 @@ p {
 |   background-repeat: inherit
 #csstext
 p {
-  background-attachment: inherit;
-  background-color: inherit;
   background-image: inherit;
-  background-position-x: inherit;
-  background-position-y: -13%;
   background-repeat: inherit;
+  background-attachment: inherit;
+  background-position-x: inherit;
+  background-color: inherit;
+  background-position-y: -13%;
 }
 
 #data
@@ -7354,11 +7399,11 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
+  background-image: none;
+  background-repeat: repeat;
   background-attachment: scroll;
   background-color: blue;
-  background-image: none;
   background-position: inherit;
-  background-repeat: repeat;
 }
 
 #data
@@ -7376,12 +7421,12 @@ p {
 |   background-repeat: inherit
 #csstext
 p {
-  background-attachment: inherit;
-  background-color: inherit;
   background-image: inherit;
-  background-position-x: -13%;
-  background-position-y: inherit;
   background-repeat: inherit;
+  background-attachment: inherit;
+  background-position-y: inherit;
+  background-color: inherit;
+  background-position-x: -13%;
 }
 
 #data
@@ -7399,12 +7444,12 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
-  background-attachment: scroll;
-  background-color: blue;
   background-image: none;
-  background-position-x: 0%;
-  background-position-y: inherit;
   background-repeat: repeat;
+  background-attachment: scroll;
+  background-position-x: 0%;
+  background-color: blue;
+  background-position-y: inherit;
 }
 
 #data
@@ -7418,17 +7463,18 @@ p {
 |   background-attachment: scroll
 |   background-color: blue
 |   background-image: none
+|   background-position: inherit
 |   background-position-x: inherit
 |   background-position-y: inherit !important
 |   background-repeat: repeat
 #csstext
 p {
+  background-image: none;
+  background-repeat: repeat;
   background-attachment: scroll;
   background-color: blue;
-  background-image: none;
   background-position-x: inherit;
   background-position-y: inherit !important;
-  background-repeat: repeat;
 }
 
 #data
@@ -7447,11 +7493,112 @@ p {
 |   background-repeat: inherit
 #csstext
 p {
-  background-attachment: scroll;
-  background-color: transparent;
   background-image: none;
+  background-attachment: scroll;
   background-position: 0% 0%;
+  background-color: transparent;
   background-repeat: inherit;
+}
+
+#data
+p{background:#fa1}
+#csstext
+p {
+  background: none repeat scroll 0% 0% rgb(255, 170, 17);
+}
+
+#data
+p{background:red}
+#csstext
+p {
+  background: none repeat scroll 0% 0% red;
+}
+
+#data
+p{background:0}
+#csstext
+p {
+  background: none repeat scroll 0px 50% transparent;
+}
+
+#data
+p{background:30}
+#option q
+#errors
+;1;14;m;css:value:not length
+#csstext
+p {
+}
+
+#data
+p{background: red 20cm}
+#csstext
+p {
+  background: none repeat scroll 20cm 50% red;
+}
+
+#data
+p{backgroud: red 20cm}
+#errors
+;1;3;m;css:prop:unknown
+#csstext
+p {
+}
+
+#data
+p{background: url(ho/ge) fixed currentcolor}
+#csstext
+p {
+  background: url("ho/ge") repeat fixed 0% 0% currentcolor;
+}
+
+#data
+p{background: 30px 320% 21px}
+#errors
+;1;15;m;CSS syntax error;position
+#cssom
+| <p>
+
+#data
+p{background: red fixed blue}
+#errors
+;1;25;m;CSS syntax error;'background'
+#cssom
+| <p>
+
+#data
+p{background: fixed scroll}
+#errors
+;1;21;m;CSS syntax error;'background'
+#cssom
+| <p>
+
+#data
+p{background: red top fixed 20%}
+#errors
+;1;29;m;CSS syntax error;'background'
+#cssom
+| <p>
+
+#data
+p{background: red top fixed none}
+#csstext
+p {
+  background: none repeat fixed 50% top red;
+}
+
+#data
+p{background: red TOP fixed none}
+#csstext
+p {
+  background: none repeat fixed 50% top red;
+}
+
+#data
+p{background: red BOTTOM fixed none}
+#csstext
+p {
+  background: none repeat fixed 50% bottom red;
 }
 
 #data
