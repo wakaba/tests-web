@@ -157,13 +157,13 @@ p {
 }
 #cssom
 | <p>
-|   outline: 12px none -manakai-invert-or-currentcolor
+|   outline: 12px none
 |   outline-color: -manakai-invert-or-currentcolor
 |   outline-style: none
 |   outline-width: 12px
 #csstext
 p {
-  outline: 12px none -manakai-invert-or-currentcolor;
+  outline: 12px none;
 }
 
 #data
@@ -172,7 +172,7 @@ p {
 }
 #cssom
 | <p>
-|   outline: 12px none -manakai-invert-or-currentcolor
+|   outline: 12px none
 |   outline-color: -manakai-invert-or-currentcolor
 |   outline-style: none
 |   outline-width: 12px
@@ -182,9 +182,88 @@ p {
   outline: -12px;
 }
 #errors
-;2;12;m;CSS syntax error;'outline'
+;2;12;m;css:value:not nnlength
 #cssom
 | <p>
+
+#data
+p{outline: 31}
+#errors
+;1;12;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{outline: 0}
+#cssom
+| <p>
+|   outline: 0px none
+|   outline-color: -manakai-invert-or-currentcolor
+|   outline-style: none
+|   outline-width: 0px
+
+#data
+p{
+  outline: solid;
+  outline-color: currentColor;
+}
+#cssom
+| <p>
+|   outline: medium solid currentcolor
+|   outline-color: currentcolor
+|   outline-style: solid
+|   outline-width: medium
+
+#data
+p{
+  outline: solid !important;
+  outline-color: currentColor;
+}
+#errors
+;3;3;w;css:prop:ignored
+#cssom
+| <p>
+|   outline: medium solid !important
+|   outline-color: -manakai-invert-or-currentcolor !important
+|   outline-style: solid !important
+|   outline-width: medium !important
+
+#data
+p{
+  outline: solid !important;
+  outline-color: currentColor !important;
+}
+#cssom
+| <p>
+|   outline: medium solid currentcolor !important
+|   outline-color: currentcolor !important
+|   outline-style: solid !important
+|   outline-width: medium !important
+
+#data
+p{outline: none}
+#cssom
+| <p>
+|   outline: medium none
+|   outline-color: -manakai-invert-or-currentcolor
+|   outline-style: none
+|   outline-width: medium
+
+#data
+p{outline: hidden 2px}
+#errors
+;1;12;m;CSS syntax error;'outline'
+#cssom
+| <p>
+
+#data
+p{outline: auto}
+#cssom
+| <p>
+|   outline: medium auto
+|   outline-color: -manakai-invert-or-currentcolor
+|   outline-style: auto
+|   outline-width: medium
 
 #data
 p{outline-color:red}

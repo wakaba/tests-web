@@ -1179,8 +1179,11 @@ p {
   border-bottom-color: green ! important;
   border-bottom: 1px black dotted;
 }
+#errors
+;4;3;w;css:prop:ignored
 #cssom
 | <p>
+|   border-bottom: 1px dotted green
 |   border-bottom-color: green !important
 |   border-bottom-style: dotted
 |   border-bottom-width: 1px
@@ -1194,8 +1197,8 @@ p {
   border-right-color: red;
   border-left-color: red;
   border-bottom-color: green !important;
-  border-bottom-style: dotted;
   border-bottom-width: 1px;
+  border-bottom-style: dotted;
 }
 
 #data
@@ -1216,10 +1219,9 @@ p {
 |   border-top-color: blue
 #csstext
 p {
-  border-top-color: blue;
-  border-right-color: red;
-  border-left-color: red;
-  border-bottom: 1px dotted black;
+  border-color: blue red black;
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
 }
 
 #data
@@ -2719,8 +2721,8 @@ p {
 |   border-top-width: 3px
 #csstext
 p {
-  border-top-color: inherit;
   border-top-style: inherit;
+  border-top-color: inherit;
   border-top-width: 3px;
 }
 
@@ -2731,13 +2733,14 @@ p {
 }
 #cssom
 | <p>
+|   border-top: inherit
 |   border-top-color: inherit
 |   border-top-style: inherit
 |   border-top-width: inherit !important
 #csstext
 p {
-  border-top-color: inherit;
   border-top-style: inherit;
+  border-top-color: inherit;
   border-top-width: inherit !important;
 }
 
@@ -2753,8 +2756,8 @@ p {
 |   border-bottom-width: 3px
 #csstext
 p {
-  border-bottom-color: inherit;
   border-bottom-style: inherit;
+  border-bottom-color: inherit;
   border-bottom-width: 3px;
 }
 
@@ -2833,6 +2836,7 @@ p {
 |   border-bottom-color: red
 |   border-bottom-style: solid
 |   border-bottom-width: 2px
+|   border-color: green red red
 |   border-left: 2px solid red
 |   border-left-color: red
 |   border-left-style: solid
@@ -2842,18 +2846,19 @@ p {
 |   border-right-style: solid
 |   border-right-width: 2px
 |   border-style: solid
+|   border-top: 2px solid green
 |   border-top-color: green !important
 |   border-top-style: solid
 |   border-top-width: 2px
 |   border-width: 2px
 #csstext
 p {
+  border-right: 2px solid red;
   border-bottom: 2px solid red;
   border-left: 2px solid red;
-  border-right: 2px solid red;
-  border-top-color: green !important;
   border-top-style: solid;
   border-top-width: 2px;
+  border-top-color: green !important;
 }
 
 #data
@@ -2888,6 +2893,41 @@ p{border-top-color:red}
 #cssom
 | <p>
 |   border-top-color: red
+
+#data
+p{border: 2px thin auto}
+#errors
+;1;15;m;CSS syntax error;'border'
+#cssom
+| <p>
+
+#data
+p{border: 2px red auto}
+#errors
+;1;19;m;CSS syntax error;'border'
+#cssom
+| <p>
+
+#data
+p{border: 2px red hidden}
+#csstext
+p {
+  border: 2px hidden red;
+}
+
+#data
+p{border: 2px rgb(3,5,1) hidden}
+#csstext
+p {
+  border: 2px hidden rgb(3, 5, 1);
+}
+
+#data
+p{border: #aa31aa}
+#csstext
+p {
+  border: medium none rgb(170, 49, 170);
+}
 
 #data
 p{border-top-color:abc}
@@ -2977,6 +3017,199 @@ p{border-left-color:abc}
 #cssom
 | <p>
 |   border-left-color: rgb(170, 187, 204)
+
+#data
+p{border-top: 2px}
+#cssom
+| <p>
+|   border-top: 2px none
+|   border-top-color: currentcolor
+|   border-top-style: none
+|   border-top-width: 2px
+
+#data
+p{border-top: 2}
+#option q
+#errors
+;1;15;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-top: ffabcd}
+#option q
+#errors
+;1;15;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-top: 3px ffabcd}
+#option q
+#errors
+;1;19;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-top: 124441}
+#option q
+#errors
+;1;15;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-top: 3px 124441}
+#option q
+#errors
+;1;19;m;CSS syntax error;'border-top'
+#cssom
+| <p>
+
+#data
+p{border-top: red blue}
+#option q
+#errors
+;1;19;m;CSS syntax error;'border-top'
+#cssom
+| <p>
+
+#data
+p{border-top: 2px thick}
+#option q
+#errors
+;1;19;m;CSS syntax error;'border-top'
+#cssom
+| <p>
+
+#data
+p{border-top: 2px thick red blue}
+#option q
+#errors
+;1;19;m;CSS syntax error;'border-top'
+#cssom
+| <p>
+
+#data
+p{border-right: 2px red}
+#cssom
+| <p>
+|   border-right: 2px none red
+|   border-right-color: red
+|   border-right-style: none
+|   border-right-width: 2px
+
+#data
+p{border-right: 2px }
+#cssom
+| <p>
+|   border-right: 2px none
+|   border-right-color: currentcolor
+|   border-right-style: none
+|   border-right-width: 2px
+
+#data
+p{border-right: ridge}
+#cssom
+| <p>
+|   border-right: medium ridge
+|   border-right-color: currentcolor
+|   border-right-style: ridge
+|   border-right-width: medium
+
+#data
+p{border-right: thick}
+#cssom
+| <p>
+|   border-right: thick none
+|   border-right-color: currentcolor
+|   border-right-style: none
+|   border-right-width: thick
+
+#data
+p{border-right: 2px inherit}
+#errors
+;1;21;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-right: unset}
+#cssom
+| <p>
+|   border-right: unset
+|   border-right-color: unset
+|   border-right-style: unset
+|   border-right-width: unset
+
+#data
+p{border-left: none}
+#cssom
+| <p>
+|   border-left: medium none
+|   border-left-color: currentcolor
+|   border-left-style: none
+|   border-left-width: medium
+
+#data
+p{border-left: none red}
+#cssom
+| <p>
+|   border-left: medium none red
+|   border-left-color: red
+|   border-left-style: none
+|   border-left-width: medium
+
+#data
+p{border-left: groove 2px}
+#cssom
+| <p>
+|   border-left: 2px groove
+|   border-left-color: currentcolor
+|   border-left-style: groove
+|   border-left-width: 2px
+
+#data
+p{border-left: none; border-left-style: INHERIT}
+#cssom
+| <p>
+|   border-left-color: currentcolor
+|   border-left-style: inherit
+|   border-left-width: medium
+
+#data
+p{border-left: groove 2px! important}
+#cssom
+| <p>
+|   border-left: 2px groove !important
+|   border-left-color: currentcolor !important
+|   border-left-style: groove !important
+|   border-left-width: 2px !important
+
+#data
+p{border-top: -moz-use-text-color}
+#option q
+#errors
+;1;15;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border: 2px thick red blue}
+#option q
+#errors
+;1;15;m;CSS syntax error;'border'
+#cssom
+| <p>
+
+#data
+p{border: -moz-use-text-color}
+#option q
+#errors
+;1;11;m;css:color:syntax error
+#cssom
+| <p>
 
 #data
 p {
