@@ -208,12 +208,12 @@ p {
 p {
   font-weight: +100.0;
 }
+#errors
+;2;16;m;CSS syntax error;'font-weight'
 #cssom
 | <p>
-|   font-weight: 100
 #csstext
 p {
-  font-weight: 100;
 }
 
 #data
@@ -239,10 +239,22 @@ p {
 
 #data
 p {
+  font-weight: +000100;
+}
+#cssom
+| <p>
+|   font-weight: 100
+#csstext
+p {
+  font-weight: 100;
+}
+
+#data
+p {
   font-weight: +bold
 }
 #errors
-;2;17;m;CSS syntax error;'font-weight'
+;2;16;m;CSS syntax error;'font-weight'
 #cssom
 | <p>
 
@@ -251,7 +263,34 @@ p {
   font-weight: +inherit;
 }
 #errors
-;2;17;m;CSS syntax error;'font-weight'
+;2;16;m;CSS syntax error;'font-weight'
+#cssom
+| <p>
+
+#data
+p {
+  font-weight: 0
+}
+#errors
+;2;16;m;CSS syntax error;'font-weight'
+#cssom
+| <p>
+
+#data
+p {
+  font-weight: -300;
+}
+#errors
+;2;16;m;CSS syntax error;'font-weight'
+#cssom
+| <p>
+
+#data
+p {
+  font-weight: 100e0;
+}
+#errors
+;2;16;m;CSS syntax error;'font-weight'
 #cssom
 | <p>
 

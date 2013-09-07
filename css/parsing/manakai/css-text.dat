@@ -1080,6 +1080,39 @@ p {
 #computed 1 p
 
 #data
+P{writing-mode: vertical-lr}
+#cssom
+| <P>
+|   writing-mode: vertical-lr
+
+#data
+p{writing-mode: vertical-rl}
+#cssom
+| <p>
+|   writing-mode: vertical-rl
+
+#data
+p{writing-mode:horizontal-tb}
+#cssom
+| <p>
+|   writing-mode: horizontal-tb
+
+#data
+p{writing-mode: horizontal-lr}
+#errors
+;1;17;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{-ms-writing-mode: lr}
+#errors
+;1;20;m;css:obsolete;-ms-writing-mode
+#cssom
+| <p>
+|   writing-mode: lr
+
+#data
 p{text-align: start}
 #cssom
 | <p>
@@ -1188,7 +1221,7 @@ p {
   text-anchor: begin;
 }
 #errors
-;2;16;m;CSS syntax error;'text-anchor'
+;2;16;m;css:keyword:not allowed
 #cssom
 | <p>
 
@@ -1197,10 +1230,144 @@ p {
   text-amchor: start;
 }
 #errors
-;2;3;u;unknown property
+;2;3;m;css:prop:unknown
 #cssom
 | <p>
 
+#data
+p{dominant-baseline:auto}
+#cssom
+| <p>
+|   dominant-baseline: auto
 
+#data
+p{dominant-baseline:use-script}
+#cssom
+| <p>
+|   dominant-baseline: use-script
 
+#data
+p{dominant-baseline:no-change}
+#cssom
+| <p>
+|   dominant-baseline: no-change
 
+#data
+p{dominant-baseline:reset-size}
+#cssom
+| <p>
+|   dominant-baseline: reset-size
+
+#data
+p{dominant-baseline:ideographic}
+#cssom
+| <p>
+|   dominant-baseline: ideographic
+
+#data
+p{dominant-baseline: alphabetic}
+#cssom
+| <p>
+|   dominant-baseline: alphabetic
+
+#data
+p{dominant-baseline: hanging}
+#cssom
+| <p>
+|   dominant-baseline: hanging
+
+#data
+p{dominant-baseline:mathematical}
+#cssom
+| <p>
+|   dominant-baseline: mathematical
+
+#data
+p{dominant-baseline:central}
+#cssom
+| <p>
+|   dominant-baseline: central
+
+#data
+p{dominant-baseline:middle}
+#cssom
+| <p>
+|   dominant-baseline: middle
+
+#data
+p{dominant-baseline:text-after-edge}
+#cssom
+| <p>
+|   dominant-baseline: text-after-edge
+
+#data
+p{dominant-baseline:text-before-edge}
+#cssom
+| <p>
+|   dominant-baseline: text-before-edge
+
+#data
+p{alignment-baseline : auto}
+#cssom
+| <p>
+|   alignment-baseline: auto
+
+#data
+p{alignment-baseline : baseline}
+#cssom
+| <p>
+|   alignment-baseline: baseline
+
+#data
+p{alignment-baseline : before-edge}
+#cssom
+| <p>
+|   alignment-baseline: before-edge
+
+#data
+p{alignment-baseline : text-before-edge}
+#cssom
+| <p>
+|   alignment-baseline: text-before-edge
+
+#data
+p{alignment-baseline : middle}
+#cssom
+| <p>
+|   alignment-baseline: middle
+
+#data
+p{alignment-baseline : central}
+#cssom
+| <p>
+|   alignment-baseline: central
+
+#data
+p{alignment-baseline : after-edge}
+#cssom
+| <p>
+|   alignment-baseline: after-edge
+
+#data
+p{alignment-baseline :text-after-edge}
+#cssom
+| <p>
+|   alignment-baseline: text-after-edge
+
+#data
+p{alignment-baseline : ideographic}
+#cssom
+| <p>
+|   alignment-baseline: ideographic
+
+#data
+p{alignment-baseline : hanging}
+#cssom
+| <p>
+|   alignment-baseline: hanging
+
+#data
+p{alignment-baseline : mathematical}
+#cssom
+| <p>
+|   alignment-baseline: mathematical

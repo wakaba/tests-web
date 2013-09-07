@@ -108,6 +108,51 @@ p{list-style-position: OUTSIDE}
 |   list-style-position: outside
 
 #data
+p{list-style-image: url()}
+#cssom
+| <p>
+|   list-style-image: url("")
+
+#data
+p{list-style-image: url(hoge\ fuga)}
+#cssom
+| <p>
+|   list-style-image: url("hoge fuga")
+
+#data
+p{list-style-image: url( http://foo/bar )}
+#cssom
+| <p>
+|   list-style-image: url("http://foo/bar")
+
+#data
+p{list-style-image: url( http://foo:AA/bar )}
+#cssom
+| <p>
+|   list-style-image: url("http://foo:AA/bar")
+
+#data escaped
+p{list-style-image: url( HTtp://foo/bar\u4e00?\uDC00#\uFFFF )}
+#cssom escaped
+| <p>
+|   list-style-image: url("HTtp://foo/bar\u4E00?\uDC00#\uFFFF")
+
+#data
+p{list-style-image: url(hoge fuga)}
+#errors
+;1;30;w;css:url:bad
+;1;21;m;css:url:syntax error
+#cssom
+| <p>
+
+#data
+p{list-style-image: ""}
+#errors
+;1;21;m;css:url:syntax error
+#cssom
+| <p>
+
+#data
 p {
   list-style: none;
 }
