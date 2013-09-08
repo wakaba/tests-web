@@ -959,7 +959,7 @@ p {
 #cssom
 @namespace hoge: <h>
 @namespace <h>
-<hoge|p>
+<p>
   content: attr(hoge|fuga)
 
 #data
@@ -972,7 +972,7 @@ p {
 #cssom
 @namespace hoge: <h>
 @namespace fuga: <h>
-<*|p>
+<p>
   content: attr(hoge|fuga)
 
 #data
@@ -985,8 +985,8 @@ p {
 #cssom
 @namespace fuga: <h>
 @namespace hoge: <h>
-<*|p>
-  content: attr(fuga|fuga)
+<p>
+  content: attr(hoge|fuga)
 
 #data
 @namespace 'h';
@@ -1018,8 +1018,8 @@ p {
 #errors
 #cssom
 @namespace foo: <>
-<*|p>
-  content: attr(bar)
+<p>
+  content: attr(foo|bar)
 
 #data
 @namespace foo 'hoge';
@@ -1029,7 +1029,7 @@ p {
 #errors
 #cssom
 @namespace foo: <hoge>
-<*|p>
+<p>
   content: attr(foo|bar)
 
 #data
@@ -1048,14 +1048,14 @@ p {
 #errors
 #cssom
 <p>
-  content: attr(bar)
+  content: attr(|bar)
 
 #data
 p {
   content:attr(*|bar);
 }
 #errors
-;2;16;m;CSS syntax error;'content'
+;2;11;m;CSS syntax error;'content'
 #cssom
 <p>
 

@@ -1371,3 +1371,93 @@ p{alignment-baseline : mathematical}
 #cssom
 | <p>
 |   alignment-baseline: mathematical
+
+#data
+p{text-decoration: none}
+#cssom
+| <p>
+|   text-decoration: none
+
+#data
+p{text-decoration: overline}
+#cssom
+| <p>
+|   text-decoration: overline
+
+#data
+p{text-decoration: underLine}
+#cssom
+| <p>
+|   text-decoration: underline
+
+#data
+p{text-decoration: lINE-through}
+#cssom
+| <p>
+|   text-decoration: line-through
+
+#data
+p{text-decoration: blink}
+#cssom
+| <p>
+|   text-decoration: blink
+
+#data
+p{text-decoration: hoagfe}
+#errors
+;1;20;m;CSS syntax error;'text-decoration'
+#cssom
+| <p>
+
+#data
+p{text-decoration: blink overline}
+#cssom
+| <p>
+|   text-decoration: blink overline
+
+#data
+p{text-decoration: underline line-Through blink overline}
+#cssom
+| <p>
+|   text-decoration: blink underline overline line-through
+
+#data
+p{text-decoration: underline line-Throught blink overline}
+#errors
+;1;30;m;CSS syntax error;'text-decoration'
+#cssom
+| <p>
+
+#data
+p{text-decoration: underline underLine}
+#errors
+;1;30;m;CSS syntax error;'text-decoration'
+#cssom
+| <p>
+
+#data
+p{text-decoration: underline none}
+#errors
+;1;30;m;CSS syntax error;'text-decoration'
+#cssom
+| <p>
+
+#data
+p{text-decoration: NONE underline }
+#errors
+;1;24;m;CSS syntax error;'text-decoration'
+#cssom
+| <p>
+
+#data
+p{text-decoration: NONE none }
+#errors
+;1;24;m;CSS syntax error;'text-decoration'
+#cssom
+| <p>
+
+#data
+p{text-decoration:line-through blink }
+#cssom
+| <p>
+|   text-decoration: blink line-through

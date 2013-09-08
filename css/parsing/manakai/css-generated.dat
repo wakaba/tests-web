@@ -18,7 +18,7 @@ p {
   content: normal "none";
 }
 #errors
-;2;19;m;no property semicolon
+;2;18;m;CSS syntax error;'content'
 #cssom
 | <p>
 
@@ -87,7 +87,7 @@ p {
   content: "normal", "none";
 }
 #errors
-;2;20;m;no property semicolon
+;2;20;m;CSS syntax error;'content'
 #cssom
 | <p>
 
@@ -97,10 +97,10 @@ p {
 }
 #cssom
 | <p>
-|   content: url(a)
+|   content: url("a")
 #csstext
 p {
-  content: url(a);
+  content: url("a");
 }
 
 #data
@@ -109,10 +109,10 @@ p {
 }
 #cssom
 | <p>
-|   content: "IMAGE: " url(image)
+|   content: "IMAGE: " url("image")
 #csstext
 p {
-  content: "IMAGE: " url(image);
+  content: "IMAGE: " url("image");
 }
 
 #data
@@ -156,7 +156,7 @@ p {
   content: counter(a, normal);
 }
 #errors
-;2;23;m;CSS syntax error;'content'
+;2;23;m;css:keyword:not allowed
 #cssom
 | <p>
 
@@ -177,7 +177,7 @@ p {
   content: counter(a, "b");
 }
 #errors
-;2;23;m;CSS syntax error;'content'
+;2;23;m;css:value:not keyword
 #cssom
 | <p>
 
@@ -186,7 +186,56 @@ p {
   content: counter(a, "b", decimal);
 }
 #errors
-;2;23;m;CSS syntax error;'content'
+;2;23;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{content: counter()}
+#errors
+;1;20;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p{content: counter(123)}
+#errors
+;1;20;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p{content: counter(hoGe,)}
+#errors
+;1;25;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{content: counter(hoGe,decimal,)}
+#errors
+;1;25;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{content: counter(hoGe, 12px )}
+#errors
+;1;26;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{content: counter( /**/ /**/ hoGe /**/ , /**/ decimal,)}
+#errors
+;1;48;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{content: counter(hoGe,"")}
+#errors
+;1;25;m;css:value:not keyword
 #cssom
 | <p>
 
@@ -261,7 +310,7 @@ p {
   content: counters(a, "b", c);
 }
 #errors
-;2;29;m;CSS syntax error;'content'
+;2;29;m;css:keyword:not allowed
 #cssom
 | <p>
 
@@ -270,7 +319,71 @@ p {
   content: counters(a, "b", inherit);
 }
 #errors
-;2;29;m;CSS syntax error;'content'
+;2;29;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p {
+  content: counters(a, "b", iniTIAL);
+}
+#errors
+;2;29;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{content: COunters()}
+#errors
+;1;21;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p{content: COunters(,)}
+#errors
+;1;21;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p{content: COunters(DA,)}
+#errors
+;1;24;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p{content: COunters(afw, not)}
+#errors
+;1;26;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p{content: COunters(awe, "")}
+#cssom
+| <p>
+|   content: counters(awe, "", decimal)
+
+#data
+p{content: COunters(afw, "aa" aa)}
+#errors
+;1;31;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p{content: COunters(afw, "aa" ,aa)}
+#errors
+;1;32;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{content: COunters(afw, "aa" ,   upper-roman 41)}
+#errors
+;1;35;m;css:value:not keyword
 #cssom
 | <p>
 
@@ -315,7 +428,7 @@ p {
   content: attr(a, b);
 }
 #errors
-;2;18;m;CSS syntax error;'content'
+;2;12;m;CSS syntax error;'content'
 #cssom
 | <p>
 
@@ -325,10 +438,10 @@ p {
 }
 #cssom
 | <p>
-|   content: attr(a)
+|   content: attr(|a)
 #csstext
 p {
-  content: attr(a);
+  content: attr(|a);
 }
 
 #data
@@ -336,7 +449,7 @@ p {
   content: attr(a|);
 }
 #errors
-;2;19;m;CSS syntax error;'content'
+;2;12;m;CSS syntax error;'content'
 #cssom
 | <p>
 
@@ -345,7 +458,7 @@ p {
   content: attr(a||b);
 }
 #errors
-;2;18;m;CSS syntax error;'content'
+;2;12;m;CSS syntax error;'content'
 #cssom
 | <p>
 
@@ -422,6 +535,47 @@ p {
 }
 
 #data
+p{content: "aa" "" open-Quote   at\tr(vc)
+ url(foo)
+}
+#cssom
+| <p>
+|   content: "aa" "" open-quote attr(vc) url("foo")
+
+#data
+p{content:
+counter(aa) counter(BacD1)}
+#cssom
+| <p>
+|   content: counter(aa, decimal) counter(BacD1, decimal)
+
+#data
+@namespace  afe "a";
+@namespace foo "b";
+p{
+content: attr(afe|aa) attr(foo|Bar) attr(a)
+}
+#cssom
+| @namespace afe: <a>
+| @namespace foo: <b>
+| <p>
+|   content: attr(afe|aa) attr(foo|Bar) attr(a)
+
+#data
+p{content: hoge()}
+#errors
+;1;12;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p{content: counter(aa), counter(bb)}
+#errors
+;1;23;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
 p {
   quotes:;
 }
@@ -457,7 +611,7 @@ p {
 |   quotes: none !important
 #csstext
 p {
-  quotes: none ! important;
+  quotes: none !important;
 }
 
 #data
@@ -507,7 +661,7 @@ p {
 |   quotes: -manakai-default !important
 #csstext
 p {
-  quotes: -manakai-default ! important;
+  quotes: -manakai-default !important;
 }
 
 #data
@@ -545,7 +699,7 @@ p {
 |   quotes: inherit !important
 #csstext
 p {
-  quotes: inherit ! important;
+  quotes: inherit !important;
 }
 
 #data
@@ -626,10 +780,10 @@ p {
 }
 #cssom
 | <p>
-|   quotes: """ """ "'" "'"
+|   quotes: "\"" "\"" "'" "'"
 #csstext
 p {
-  quotes: """ """ "'" "'";
+  quotes: "\"" "\"" "'" "'";
 }
 
 #data
@@ -671,6 +825,27 @@ p {
 }
 #errors
 ;2;11;m;CSS syntax error;'quotes'
+#cssom
+| <p>
+
+#data
+p{quotes: none "a"}
+#errors
+;1;15;m;CSS syntax error;'quotes'
+#cssom
+| <p>
+
+#data
+p{quotes: none "a" "b"}
+#errors
+;1;15;m;CSS syntax error;'quotes'
+#cssom
+| <p>
+
+#data
+p{quotes:  "a" "b" none}
+#errors
+;1;20;m;CSS syntax error;'quotes'
 #cssom
 | <p>
 
@@ -737,7 +912,7 @@ p {
 
 #data
 p {
-  counter-reset: inherit ! important;
+  counter-reset: inherit !important;
 }
 #cssom
 | <p>
@@ -828,7 +1003,7 @@ p {
 |   counter-reset: a 0 b 0 !important
 #csstext
 p {
-  counter-reset: a 0 b 0 ! important;
+  counter-reset: a 0 b 0 !important;
 }
 
 #data
@@ -1073,7 +1248,7 @@ p {
 |   counter-increment: a 1 b 1 !important
 #csstext
 p {
-  counter-increment: a 1 b 1 ! important;
+  counter-increment: a 1 b 1 !important;
 }
 
 #data

@@ -158,13 +158,222 @@ p {
 }
 #cssom
 | <p>
-|   list-style: none none outside
+|   list-style: none outside none
 |   list-style-image: none
 |   list-style-position: outside
 |   list-style-type: none
 #csstext
 p {
-  list-style-image: none;
-  list-style-position: outside;
-  list-style-type: none;
+  list-style: none outside none;
 }
+
+#data
+p {
+  list-style: none none;
+}
+#cssom
+| <p>
+|   list-style: none outside none
+|   list-style-image: none
+|   list-style-position: outside
+|   list-style-type: none
+#csstext
+p {
+  list-style: none outside none;
+}
+
+#data
+p{list-style: none none none}
+#errors
+;1;25;m;CSS syntax error;'list-style'
+#cssom
+| <p>
+
+#data
+p {
+  list-style: none none/**/inside;
+}
+#cssom
+| <p>
+|   list-style: none inside none
+|   list-style-image: none
+|   list-style-position: inside
+|   list-style-type: none
+#csstext
+p {
+  list-style: none inside none;
+}
+
+#data
+p {
+  list-style: OUTSIde none none;
+}
+#cssom
+| <p>
+|   list-style: none outside none
+|   list-style-image: none
+|   list-style-position: outside
+|   list-style-type: none
+#csstext
+p {
+  list-style: none outside none;
+}
+
+#data
+p {
+  list-style: Square none;
+}
+#cssom
+| <p>
+|   list-style: square outside none
+|   list-style-image: none
+|   list-style-position: outside
+|   list-style-type: square
+#csstext
+p {
+  list-style: square outside none;
+}
+
+#data
+p {
+  list-style:CIRCLE;
+}
+#cssom
+| <p>
+|   list-style: circle outside none
+|   list-style-image: none
+|   list-style-position: outside
+|   list-style-type: circle
+#csstext
+p {
+  list-style: circle outside none;
+}
+
+#data
+p {
+  list-style:inside;
+}
+#cssom
+| <p>
+|   list-style: disc inside none
+|   list-style-image: none
+|   list-style-position: inside
+|   list-style-type: disc
+#csstext
+p {
+  list-style: disc inside none;
+}
+
+#data
+p {
+  list-style:inherit;
+}
+#cssom
+| <p>
+|   list-style: inherit
+|   list-style-image: inherit
+|   list-style-position: inherit
+|   list-style-type: inherit
+#csstext
+p {
+  list-style: inherit;
+}
+
+#data
+p {
+  list-style:inside inherit;
+}
+#errors
+;2;21;m;css:keyword:not allowed
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {
+  list-style:URL("a");
+}
+#cssom
+| <p>
+|   list-style: disc outside url("a")
+|   list-style-image: url("a")
+|   list-style-position: outside
+|   list-style-type: disc
+#csstext
+p {
+  list-style: disc outside url("a");
+}
+
+#data
+p {
+  list-style:URL("a") none;
+}
+#cssom
+| <p>
+|   list-style: none outside url("a")
+|   list-style-image: url("a")
+|   list-style-position: outside
+|   list-style-type: none
+#csstext
+p {
+  list-style: none outside url("a");
+}
+
+#data
+p {
+  list-style:URL("a") none none;
+}
+#errors
+;2;28;m;CSS syntax error;'list-style'
+#cssom
+| <p>
+
+#data
+p{list-style: 20px}
+#errors
+;1;15;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{list-style : circle url("") outside}
+#cssom
+| <p>
+|   list-style: circle outside url("")
+|   list-style-image: url("")
+|   list-style-position: outside
+|   list-style-type: circle
+
+#data
+p{list-style: disc circle upper-latin}
+#errors
+;1;20;m;CSS syntax error;'list-style'
+#cssom
+| <p>
+
+#data
+p{list-style: inside outside}
+#errors
+;1;22;m;CSS syntax error;'list-style'
+#cssom
+| <p>
+
+#data
+p{list-style: disc none}
+#cssom
+| <p>
+|   list-style: disc outside none
+|   list-style-image: none
+|   list-style-position: outside
+|   list-style-type: disc
+
+#data
+p{list-style: outside none}
+#cssom
+| <p>
+|   list-style: none outside none
+|   list-style-image: none
+|   list-style-position: outside
+|   list-style-type: none
