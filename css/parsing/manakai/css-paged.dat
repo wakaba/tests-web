@@ -68,6 +68,18 @@ p {
 
 #data
 p {
+  size: lANDSCape
+}
+#cssom
+| <p>
+|   size: landscape
+#csstext
+p {
+  size: landscape;
+}
+
+#data
+p {
   size: inherit;
 }
 #cssom
@@ -111,7 +123,7 @@ p {
   size: 10cm auto;
 }
 #errors
-;2;14;m;no property semicolon
+;2;14;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -120,7 +132,7 @@ p {
   size: auto 10px;
 }
 #errors
-;2;14;m;no property semicolon
+;2;9;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -134,18 +146,28 @@ p {
 
 #data
 p {
-  size: -10in -20pt;
+  size: 10in -20pt;
 }
+#errors
+;2;14;m;css:value:not nnlength
 #cssom
 | <p>
-|   size: -10in -20pt
+
+#data
+p {
+  size: -10in -20pt;
+}
+#errors
+;2;9;m;css:value:not nnlength
+#cssom
+| <p>
 
 #data
 p {
   size: 1 4
 }
 #errors
-;2;9;m;CSS syntax error;'size'
+;2;9;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -154,16 +176,17 @@ p {
   size: 1 4;
 }
 #option q
+#errors
+;2;9;m;css:value:not nnlength
 #cssom
 | <p>
-|   size: 1px 4px
 
 #data
 p {
   size: 10%;
 }
 #errors
-;2;9;m;CSS syntax error;'size'
+;2;9;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -172,7 +195,7 @@ p {
   size: 1px 2px 3px;
 }
 #errors
-;2;17;m;no property semicolon
+;2;9;m;CSS syntax error;'size'
 #cssom
 | <p>
 
@@ -205,7 +228,16 @@ p {
   marks: cross cross;
 }
 #errors
-;2;16;m;no property semicolon
+;2;16;m;CSS syntax error;'marks'
+#cssom
+| <p>
+
+#data
+p {
+  marks: cross Hige;
+}
+#errors
+;2;16;m;CSS syntax error;'marks'
 #cssom
 | <p>
 
@@ -270,7 +302,7 @@ p {
   marks: crop crop;
 }
 #errors
-;2;15;m;no property semicolon
+;2;15;m;CSS syntax error;'marks'
 #cssom
 | <p>
 
@@ -279,7 +311,7 @@ p {
   marks: crop cross crop;
 }
 #errors
-;2;21;m;no property semicolon
+;2;21;m;CSS syntax error;'marks'
 #cssom
 | <p>
 
@@ -288,7 +320,7 @@ p {
   marks: crop inherit;
 }
 #errors
-;2;15;m;no property semicolon
+;2;15;m;CSS syntax error;'marks'
 #cssom
 | <p>
 
@@ -309,7 +341,16 @@ p {
   marks: none cross;
 }
 #errors
-;2;15;m;no property semicolon
+;2;15;m;CSS syntax error;'marks'
+#cssom
+| <p>
+
+#data
+p {
+  marks: crop none;
+}
+#errors
+;2;15;m;CSS syntax error;'marks'
 #cssom
 | <p>
 
@@ -330,7 +371,7 @@ p {
   marks: inherit crop;
 }
 #errors
-;2;18;m;no property semicolon
+;2;10;m;CSS syntax error;'marks'
 #cssom
 | <p>
 
@@ -372,10 +413,10 @@ p {
 }
 #cssom
 | <p>
-|   page: InhErit
+|   page: inherit
 #csstext
 p {
-  page: InhErit;
+  page: inherit;
 }
 
 #data
@@ -389,6 +430,26 @@ p {
 p {
   page: pageName;
 }
+
+#data
+p{page: INITIAL}
+#cssom
+| <p>
+|   page: initial
+
+#data
+p{page: -MOZ-initial}
+#errors
+;1;9;m;css:obsolete;-moz-initial
+#cssom
+| <p>
+|   page: initial
+
+#data
+p{page: DEFauLt}
+#cssom
+| <p>
+|   page: DEFauLt
 
 #data
 p {
