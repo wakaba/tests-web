@@ -27,12 +27,13 @@ q{}
 |   <p>
 |   <q>
 #csstext
-@media all {
-p {
-}
-q {
-}
-}
+| @media all {
+|   
+|   p {
+| }
+|   q {
+| }
+| }
 
 #data
 @media all {
@@ -44,12 +45,13 @@ q{}
 |   <p>
 | <q>
 #csstext
-@media all {
-p {
-}
-}
-q {
-}
+| @media all {
+|   
+|   p {
+| }
+| }
+| q {
+| }
 
 #data
 @media screen, tv {
@@ -59,27 +61,31 @@ q {
 | @media screen, tv
 |   <p>
 #csstext
-@media screen, tv {
-p {
-}
-}
+| @media screen, tv {
+|   
+|   p {
+| }
+| }
 
 #data
 @media
 #errors
-;1;7;m;mq syntax error
+;1;7;w;css:at-rule:eof
+;1;7;m;css:at-rule:block missing
 #cssom
 
 #data
 @media   /**/  
 #errors
-;1;16;m;mq syntax error
+;1;16;w;css:at-rule:eof
+;1;16;m;css:at-rule:block missing
 #cssom
 
 #data
 @media tty
 #errors
-;1;11;m;at-rule syntax error;media
+;1;11;w;css:at-rule:eof
+;1;11;m;css:at-rule:block missing
 #cssom
 
 #data
@@ -89,29 +95,30 @@ p {
 
 #data
 @media {}
-#errors
-;1;8;m;mq syntax error
 #cssom
+| @media 
 
 #data
 @media {}p{}
-#errors
-;1;8;m;mq syntax error
 #cssom
+| @media 
 | <p>
 
 #data
 @media{}}p{}
 #errors
-;1;7;m;mq syntax error
 ;1;9;m;no sss
 #cssom
+| @media 
 
 #data
 @media tv {
 p{}
 #errors
-;2;4;m;block not closed
+;2;4;w;css:block:eof
+#cssom
+| @media tv
+|   <p>
 
 #data
 @media screen{}
@@ -124,19 +131,15 @@ p{}
 @media a, b {
 p{}
 }
-#errors
-;1;8;u;unknown media type
-;1;11;u;unknown media type
 #cssom
-| @media unknown, unknown
+| @media a, b
 |   <p>
 
 #data
 @media all {
 }}
 #errors
-;2;2;m;no sss
-;2;3;m;no declaration block
+;2;3;m;css:qrule:no block
 #cssom
 | @media all
 
@@ -146,8 +149,10 @@ p{}
 }
 q{}
 #errors
-;1;8;m;mq syntax error
+;1;8;m;mq:broken
 #cssom
+| @media not all
+|   <p>
 | <q>
 
 #data
@@ -159,11 +164,11 @@ q{}
 r{}
 }
 s{}
-#errors
-;3;1;m;at-rule not allowed;media
 #cssom
 | @media screen
 |   <p>
+|   @media screen
+|     <q>
 |   <r>
 | <s>
 

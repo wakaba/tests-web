@@ -2,14 +2,14 @@
 @import;
 p {}
 #errors
-;1;8;m;at-rule syntax error;import
+;1;8;m;css:import:url missing
 #cssom
 | <p>
 
 #data
 @i '';
 #errors
-;1;1;u;unknown at-rule
+;1;1;m;unknown at-rule
 #cssom
 
 #data
@@ -46,7 +46,7 @@ r{}
 @import a;
 p{}
 #errors
-;1;9;m;at-rule syntax error;import
+;1;9;m;css:import:url missing
 #cssom
 | <p>
 
@@ -141,13 +141,8 @@ p{}
 @import 'abc' a, b, c, screen, d, e, screen;
 p{}
 #errors
-;1;15;u;unknown media type
-;1;18;u;unknown media type
-;1;21;u;unknown media type
-;1;32;u;unknown media type
-;1;35;u;unknown media type
 #cssom
-| @import <abc> unknown, unknown, unknown, screen, unknown, unknown, screen
+| @import <abc> a, b, c, screen, d, e, screen
 | <p>
 
 #data
@@ -167,26 +162,31 @@ p{}
 #data
 @import 'abc'
 #errors
-;1;14;m;at-rule syntax error;import
+;1;14;w;css:at-rule:eof
 #cssom
+| @import <abc> 
 
 #data
 @import 'abc' all
 #errors
-;1;18;m;at-rule syntax error;import
+;1;18;w;css:at-rule:eof
 #cssom
+| @import <abc> all
 
 #data
 @import 'abc', all;
 #errors
-;1;14;m;at-rule syntax error;import
+;1;14;m;mq:query:empty
 #cssom
+| @import <abc> not all, all
 
 #data
 @import 'abc' all,
 #errors
-;1;19;m;mq syntax error
+;1;19;w;css:at-rule:eof
+;1;19;m;mq:query:empty
 #cssom
+@import <abc> all, not all
 
 #data
 @charset 'us-ascii';
@@ -236,6 +236,7 @@ p{}
 @media all {}
 @import 'abc'
 #errors
+;2;14;w;css:at-rule:eof
 ;2;1;m;at-rule not allowed;import
 #cssom
 | @media all

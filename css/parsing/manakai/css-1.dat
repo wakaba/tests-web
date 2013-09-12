@@ -1,18 +1,20 @@
 #data
 #cssom
 #csstext
+| 
 
 #data
 p
 #errors
-;1;2;m;no declaration block
+;1;2;m;css:qrule:no block
 #cssom
 #csstext
+| 
 
 #data
 p {
 #errors
-;1;4;m;block not closed
+;1;4;w;css:block:eof
 #cssom
 | <p>
 #csstext
@@ -59,7 +61,7 @@ p {
 #data
 p {!;}
 #errors
-;1;4;m;no property name
+;1;4;m;css:decl:bad name
 #cssom
 | <p>
 #csstext
@@ -69,7 +71,7 @@ p {
 #data
 p {a;}
 #errors
-;1;5;m;no property colon
+;1;5;m;css:decl:no colon
 #cssom
 | <p>
 #csstext
