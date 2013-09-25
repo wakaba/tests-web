@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<title>XPath string-length()</title>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script)';
+
+  var r = document.evaluate ('string-length("\uD800\uDC00")', document, null, null, null);
+  var value = r.numberValue;
+  
+  if (value == 2) {
+    result.className = 'PASS';
+    result.firstChild.data = 'PASS';
+  } else {
+    result.firstChild.data = 'FAIL (' + value + ')';
+  }
+</script>
