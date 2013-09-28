@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Empty namespace</title>
+</head>
+<body>
+
+<p id="result" class="FAIL">FAIL (noscript)</p>
+
+<p id="data"><hoge></hoge></p>
+
+<script>
+  var result = document.getElementById ('result');
+  var data = document.getElementById ('data');
+  var el1 = document.createElementNS (null, 'hoge');
+  data.appendChild (el1);
+
+  var r = document.evaluate ('aa:hoge', document, function () { return '' }, 0, null);
+  var node = r.iterateNext ();
+  if (node === null) {
+    result.firstChild.data = 'PASS';
+    result.className = 'PASS';
+  } else {
+    result.firstChild.data = 'FAIL (' + node + ')';
+  }
+</script>
+</body></html>
