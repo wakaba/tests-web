@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>NSResolver</title>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var invoked = 0;
+  try {
+    document.evaluate ('aa:bb', document, function () {
+      invoked++;
+      throw "hoge";
+    }, 0, null);
+  } catch (e) {
+    window.result.firstChild.data = '(exception = ' + e.name + ', # = ' + invoked + ')';
+  }
+</script>

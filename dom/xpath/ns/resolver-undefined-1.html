@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<title>NSResolver</title>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var invoked = 0;
+  try {
+    document.evaluate ('aa:bb/bb:cc', document, function () {
+      invoked++;
+      return undefined;
+    }, 0, null);
+  } catch (e) {
+    window.result.firstChild.data = 'FAIL (exception = ' + e.name + ', # = ' + invoked + ')';
+    invoked = -1;
+  }
+  if (invoked === 2) {
+    window.result.firstChild.data = 'PASS';
+    window.result.className = 'PASS';
+  } else if (invoked >= 0) {
+    window.result.firstChild.data = 'FAIL (# = ' + invoked + ')';
+  }
+</script>
