@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>DOCTYPE node</title>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var result = document.getElementById ('result');
+
+  var r = document.evaluate ('/child::node ()[position () = 1]', document, null, 0, null);
+  var node = r.iterateNext ();
+  if (node === document.doctype) {
+    result.firstChild.data = 'PASS';
+    result.className = 'PASS';
+  } else {
+    result.firstChild.data = 'FAIL (' + node + ')';
+  }
+</script>
