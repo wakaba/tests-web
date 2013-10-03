@@ -1,0 +1,409 @@
+#data
+1 and 1
+#result
+true
+
+#data
+1 and 0
+#result
+false
+
+#data
+0 and 1
+#result
+false
+
+#data
+0 and 0
+#result
+false
+
+#data
+1 or 0
+#result
+true
+
+#data
+0 or 1
+#result
+true
+
+#data
+0 or 0
+#result
+false
+
+#data
+1 or 1
+#result
+true
+
+#data
+3 > 2 > 1
+#result
+false
+
+#data
+3 < 2 > 1
+#result
+false
+
+#data
+52 < 5
+#result
+false
+
+#data
+5 > .52
+#result
+true
+
+#data
+10 < 10
+#result
+false
+
+#data
+0.000000000000000000000001 < 0
+#result
+false
+
+#data
+0.053 < 1.3
+#result
+true
+
+#data
+10.0 <= 10
+#result
+true
+
+#data
+20.01133 > 20
+#result
+true
+
+#data
+10.00000000000000000000000000000001 <= 10
+#result
+true
+
+#data
+30 <= 10
+#result
+false
+
+#data
+10 >= 20
+#result
+false
+
+#data
+10 >= 10
+#result
+true
+
+#data
+6 >= 3
+#result
+true
+
+#data
+"134" >= 55
+#result
+true
+
+#data
+55 <= "12"
+#result
+false
+
+#data
+"-Infinity" < 52
+#result
+false
+
+#data
+"hoge" < "fuga"
+#result
+false
+
+#data
+"hoge" > "fuga"
+#result
+false
+
+#data
+"hoge" < "hoge"
+#result
+false
+
+#data
+(1 = 1) < 0
+#result
+false
+
+#data
+(1 = 1) > 0
+#result
+true
+
+#data
+(1 = 1) > (1 = 0)
+#result
+true
+
+#data
+(12 > 21) <= 0
+#result
+true
+
+#data
+44 <= 42 < 12
+#result
+true
+
+#data
+4 - 4 < 1
+#result
+true
+
+#data
+0 < 12 - 5
+#result
+true
+
+#data
+12 = 42
+#result
+false
+
+#data
+10.0 = 10
+#result
+true
+
+#data
+55 = -55
+#result
+false
+
+#data
+10.0000000000000001 = 10
+#result
+true
+
+#data
+41040000000000000000 = 41040000000000000001
+#result
+true
+
+#data
+"aa" = "ba"
+#result
+false
+
+#data
+"12.0" = "12"
+#result
+false
+
+#data escaped
+"ea\u0004\u5F01" = "ea\u0004\u5F01"
+#result
+true
+
+#data escaped
+"\uD800\u1000" = "\uD800\u1000"
+#result
+true
+
+#data escaped
+"\uD800\uDC00\u1000" = "\uD800\u1000"
+#result
+false
+
+#data escaped
+"\uD800\uDC00\u1000" = "\uD800\uDC00\u1000"
+#result
+true
+
+#data escaped
+"\uD800\uDC00\u1000" = "\U00010000\u1000"
+#result
+false
+
+#data escaped
+"\uD800\u1000x" = "\uD800\u1000"
+#result
+false
+
+#data escaped
+"\uD800\uFFFD" = "\uD800\uFFFF"
+#result
+false
+
+#data escaped
+"12" = 12
+#result
+true
+
+#data
+"12.0" = 12
+#result
+true
+
+#data
+55.05 = "55.05"
+#result
+true
+
+#data
+0.0001 = (1 = 1)
+#result
+true
+
+#data
+10 - 10 = 0
+#result
+true
+
+#data
+10 - 10 = (1 < 0)
+#result
+true
+
+#data
+(10 > 5) = (-20 <= 40)
+#result
+true
+
+#data
+43 != 55
+#result
+true
+
+#data
+10 != 10
+#result
+false
+
+#data
+13.5 != "13.5"
+#result
+false
+
+#data
+13.5 != "13.50"
+#result
+false
+
+#data
+-12 != -12
+#result
+false
+
+#data
+-12 != 12
+#result
+true
+
+#data
+"abc" != "abc"
+#result
+false
+
+#data
+"ABC" != "abc"
+#result
+true
+
+#data
+"\u4E00" != "\u4E01"
+#result
+true
+
+#data
+(1 = 1) != 0
+#result
+true
+
+#data
+(1 = 1) != 12
+#result
+false
+
+#data
+(1 = 0) != 1
+#result
+true
+
+#data
+(1 = 0) != 0
+#result
+false
+
+#data
+(1 = 0) != 12
+#result
+true
+
+#data
+(1 = 0) != (1 = 1)
+#result
+true
+
+#data
+12 and 55
+#result
+true
+
+#data
+0 and 1
+#result
+false
+
+#data
+0 and 4 or 1
+#result
+true
+
+#data
+0 or 6 and 5
+#result
+true
+
+#data
+0 or 0 and 1
+#result
+false
+
+#data
+45 <= 5 and 0
+#result
+false
+
+#data
+55 or 5 <= 0
+#result
+true
+
+#data
+(44 = 0)
+#result
+false
+
+#data
+(40 = 40)
+#result
+true
+
+#data
+(44 < 500)
+#result
+true
+
+#data
+((44 < 0))
+#result
+false
