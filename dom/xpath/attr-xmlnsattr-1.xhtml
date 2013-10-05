@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>XPath</title>
+  </head>
+  <body>
+    <p id="result" class="FAIL">FAIL (noscript)</p>
+
+    <p id="data"><q xmlns="http://a/"/></p>
+
+    <script>
+      var result = document.getElementById ('result');
+      var data = document.getElementById ('data');
+      data.removeAttribute ('id');
+      var r = document.evaluate ('child::*[@xmlns]', data, null, 0, null);
+      var node = r.iterateNext ();
+      if (node === null) {
+        result.firstChild.data = 'PASS';
+        result.className = 'PASS';
+      } else {
+        result.firstChild.data = 'FAIL (' + node + ')';
+      }
+    </script>
+  </body>
+</html>
