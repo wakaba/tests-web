@@ -1,0 +1,167 @@
+#xml 1
+<hoge><a></a><a><b><a>x</a></b></a>abc</hoge>
+
+#data
+/child::fuga
+#result 1
+
+#data
+/child::hoge
+#result 1
+/1
+
+#data
+child::hoge
+#result 1
+/1
+
+#data
+child::a
+#result 1
+
+#data
+child::a
+#result 1 /1
+/1/1
+/1/2
+
+#data
+child::hoge/child::a
+#result 1
+/1/1
+/1/2
+
+#data
+/child::node()/child::a
+#result 1
+/1/1
+/1/2
+
+#data
+child::a/child::b
+#result 1
+
+#data
+child::ax
+#result 1 /1
+
+#data
+/child::*
+#result 1
+/1
+
+#data
+/child::a:*
+#ns
+a http://a/
+#result 1
+
+#data
+/child::a:*
+#ns
+a <empty>
+#result 1
+
+#data
+/child::a:hoge
+#ns
+a <empty>
+#result 1
+
+#xml 2
+<!--hoge--><p><!----><q><!----></q><?abc?><?x?><?abc?>dde<!---->da</p> 
+
+#data
+/child::comment()
+#result 1
+#result 1 /1
+#result 2 /
+/1
+#result 2 /2
+/1
+
+#data
+child::comment()
+#result 1
+#result 1 /1
+#result 2 /
+/1
+#result 2 /2
+/2/1
+/2/7
+
+#data
+child::processing-instruction()
+#result 1
+#result 2
+#result 2 /2
+/2/3
+/2/4
+/2/5
+
+#data
+child::processing-instruction("")
+#result 1
+#result 2
+#result 2 /2
+
+#data
+child::processing-instruction("abc")
+#result 1
+#result 2
+#result 2 /2
+/2/3
+/2/5
+
+#data
+child::processing-instruction("abc")/child::node()
+#result 1
+#result 2
+#result 2 /2
+
+#data
+child::text ()
+#result 1
+#result 2
+#result 2 /2
+/2/6
+/2/8
+
+#xml 3
+<!DOCTYPE hoge>
+<hoge></hoge>
+
+#data
+child::*
+#result 3
+/2
+
+#data
+child::node ()
+#result 3
+/1
+/2
+
+#xml ns1
+<hoge xmlns="http://a/"><b><c></c></b><hoge/></hoge>
+
+#data
+hoge
+#result ns1
+
+#data
+child::a:hoge
+#ns
+a http://a/
+#result ns1
+/1
+
+#xml ns2
+<hoge xmlns="http://a/"><a/><a xmlns="http://b/"/></hoge>
+
+#data
+child::b:*
+#ns
+b http://b/
+#result ns2 /1
+/1/2
