@@ -177,3 +177,44 @@ m;xpath:incompat with node-set;string
 #result 3
 /1/2/@a
 /1/2/@b
+
+#data
+//q | //@a
+#result 3
+/1/2
+/1/2/@a
+/1/3/@a
+
+#data
+(//q | //@a)/self::node()
+#result 3
+/1/2
+/1/2/@a
+/1/3/@a
+
+#data
+(//q | //@a)/self::node()[2]
+#result 3
+/1/2/@a
+
+#data
+(//q | //@a)/self::*
+#result 3
+/1/2
+
+#data
+(//r | //@a)/self::node()
+#result 3
+/1/2/@a
+/1/3
+/1/3/@a
+
+#data
+(//r | //@a)[2]
+#result 3
+/1/3
+
+#data
+(//r | //@a)/self::node()[2]
+#result 3
+/1/3
