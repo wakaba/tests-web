@@ -1,0 +1,57 @@
+#html html1
+<!DOCTYPE html>
+<p>aaa<span>aaa</span><p>hoge<div><p>foo</div>
+
+#xml xml2
+<p>foo<q>aaa</q><p/><p/><p xmlns="http://www.w3.org/1999/xhtml"/></p>
+
+#xml xml3
+<p xmlns="http://www.w3.org/1999/xhtml"><p xmlns=""/><p xmlns="http://www.w3.org/1999/xhtml/"/><p/></p>
+
+#data
+//p
+#result html1
+/2/2/1
+/2/2/2
+/2/2/3/1
+#result xml2
+/1
+/1/3
+/1/4
+#result xml3
+/1/1
+
+#data
+//P
+#result html1
+
+#html html4
+<p class=foo>aa<p class=bar>
+
+#html html5
+<p><svg><g/></svg><g></g>
+
+#data
+//p/@class
+#result html4
+/1/2/1/@class
+/1/2/2/@class
+
+#data
+//g
+#result html5
+/1/2/1/2
+
+#data
+//html:g
+#ns
+html http://www.w3.org/1999/xhtml
+#result html5
+/1/2/1/2
+
+#data
+//svg:g
+#ns
+svg http://www.w3.org/2000/svg
+#result html5
+/1/2/1/1/1
