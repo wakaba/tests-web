@@ -1,0 +1,115 @@
+#data
+string("abc")
+#result
+"abc"
+
+#data
+string(10.2100)
+#result
+"10.21"
+
+#data
+string(1 = 4)
+#result
+"false"
+
+#data
+string(1 = 1.000)
+#result
+"true"
+
+#data
+string(1 div 0)
+#result
+"Infinity"
+
+#data
+string(-1 div 0)
+#result
+"-Infinity"
+
+#data
+string (1 div (1 div -0))
+#result
+"0"
+
+#data
+string (1 div (1 div (1 div 0)))
+#result
+"Infinity"
+
+#data
+string (1 div (1 div (1 div -0)))
+#result
+"-Infinity"
+
+#data
+string ( "abc" div 0 )
+#result
+"NaN"
+
+#data
+string ( 12 mod 0 )
+#result
+"NaN"
+
+#data
+string ( -12 mod 0 )
+#result
+"NaN"
+
+#data
+string(4532533300000062 + 1)
+#result
+"4532533300000063"
+
+#data
+string(0.0000000555004)
+#result
+"0.0000000555004"
+
+#data
+string(99999999999999999999999999999999999999999999999999999999999999999)
+#result
+"99999999999999999209038626283633850822756121694230455365568299008"
+
+#xml 1
+<p>aa<q x="xX">b<!--c--></q><q y="yY">cc</q></p><!-- bb--><?abc  xyz ?>
+
+#data
+string(//q[@y] | //q[@x])
+#result 1
+"bcc"
+
+#data
+string(/hoge)
+#result 1
+""
+
+#data
+string()
+#result 1
+"aabcc"
+#result 1 /1
+"aabcc"
+#result 1 /1/1
+"aa"
+#result 1 /1/2/@x
+"xX"
+#result 1 /2
+" bb"
+#result 1 /3
+"xyz "
+
+#xml 2
+<!DOCTYPE hoge><hoge>aa</hoge>
+
+#data
+string(/child::node () [1])
+#result 2
+""
+
+#data
+string(/child::* | /child::*)
+#result 2
+"aa"
