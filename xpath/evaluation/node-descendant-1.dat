@@ -135,3 +135,24 @@ p/descendant::*/comment ()
 /1/5
 /1/5/1
 /1/5/2
+
+#xml 3
+<p>aaa<q xml:lang="en">f<x>o</x>o</q>as<q xml:lang="en-">aa</q><r xml:lang="fr-fr">zz</r>e</p>
+
+#data
+//self::*
+#result 3
+/1
+/1/2
+/1/2/2
+/1/4
+/1/5
+
+#data
+//*
+#result 3
+/1
+/1/2
+/1/2/2
+/1/4
+/1/5
