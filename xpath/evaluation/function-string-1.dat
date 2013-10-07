@@ -305,6 +305,26 @@ substring("12345", -1 div 0, 1 div 0)
 ""
 
 #data
+substring("352geagfw", 3, 5)
+#result
+"2geag"
+
+#data escaped
+substring("352gea\U00010000fw", 3, 5)
+#result escaped
+"2gea\uD800"
+
+#data escaped
+substring("3\U0010FFFFgeagfw", 3, 5)
+#result escaped
+"\uDFFFgeag"
+
+#data escaped
+substring("35\U00020000geagfw", 3, 5)
+#result escaped
+"\U00020000gea"
+
+#data
 string-length ("")
 #result
 0
@@ -328,6 +348,16 @@ string-length ("\u4E00\u4E01")
 string-length ("\uD800\uFFFF")
 #result
 2
+
+#data escaped
+string-length("agew\U0002000Fag")
+#result
+8
+
+#data escaped
+string-length("agew\U0002000F\U000F0000ag")
+#result
+10
 
 #xml 3
 <p>aaa<!--cc--><p>bbbx</p>ddd  <q xx="ab cf e"/></p>
