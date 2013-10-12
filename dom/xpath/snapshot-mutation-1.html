@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>XPathResult</title>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var result = document.evaluate ('/', document, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+  document.body.appendChild (document.createComment (''));
+
+  var resultEl = document.getElementById ('result');
+  if (result.invalidIteratorState) {
+    resultEl.firstChild.data = 'PASS';
+    resultEl.class = 'PASS';
+  } else {
+    resultEl.firstChild.data = 'FAIL (' + result.invalidIteratorState + ')';
+  }
+</script>
