@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<title>Referrer</title>
+
+<p id=referrer>(noscript)
+
+<script>
+  var p = document.getElementById ('referrer');
+  if (document.referrer === null) {
+    p.firstChild.data = '(null)';
+  } else if (document.referrer === '') {
+    p.firstChild.data = '(empty)';
+  } else {
+    p.firstChild.data = document.referrer;
+  }
+</script>
