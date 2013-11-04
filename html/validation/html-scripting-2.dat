@@ -1,0 +1,574 @@
+#data
+<script defer="" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+/script;attribute missing;src;m
+/script;SUBDOC;text/javascript
+
+#data
+<script src="" defer="" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+
+#data
+| <script src="xyz" xmlns="http://www.w3.org/1999/xhtml">
+| 
+| </script>
+#errors
+/script;SUBDOC;text/x-script-inline-documentation
+/script;SUBDOC;text/x-script-element-text
+
+#data
+| <script src="xyz" xmlns="http://www.w3.org/1999/xhtml">
+| <!--
+| -->
+| </script>
+#errors
+/script;SUBDOC;text/x-script-inline-documentation
+/script;SUBDOC;text/x-script-element-text
+
+#data
+| <script src="xyz" xmlns="http://www.w3.org/1999/xhtml">
+| /*
+|   abc
+| */
+| </script>
+#errors
+/script;SUBDOC;text/x-script-inline-documentation
+/script;SUBDOC;text/x-script-element-text
+
+#data
+| <script src="xyz" xmlns="http://www.w3.org/1999/xhtml">
+|    // abc
+| </script>
+#errors
+/script;SUBDOC;text/x-script-inline-documentation
+/script;SUBDOC;text/x-script-element-text
+
+#data
+<script xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script;SUBDOC;text/javascript
+
+#data
+<script type="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@type;IMT:no type;m
+/script;SUBDOC;text/javascript
+
+#data
+<script type="text" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@type;IMT:no /;m
+/script;SUBDOC;text
+
+#data
+<script type="text/plain; a=b" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@type;IMT:parameter not allowed;m
+/script;SUBDOC;text/plain
+
+#data
+<script type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script;SUBDOC;text/javascript
+
+#data
+<script type="text/javascript;e4x=1" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@type;IMT:parameter not allowed;m
+/script;SUBDOC;text/javascript
+
+#data
+<script type="text/JavaScript;E4X=1" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@type;IMT:parameter not allowed;m
+/script;SUBDOC;text/javascript
+
+#data
+<script type="text/javascript;e4x=&quot;1&quot;"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@type;IMT:parameter not allowed;m
+/script;SUBDOC;text/javascript
+
+#data
+<script type="text/javascript;e4x=&quot;\1&quot;"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@type;IMT:parameter not allowed;m
+/script;SUBDOC;text/javascript
+
+#data
+<script type="text/javascript; ~=a"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@type;IMT:attribute syntax error;m
+/script;SUBDOC;text/javascript
+
+#data
+<script type="text~/javascript"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@type;IMT:type syntax error;m
+/script;SUBDOC;text~/javascript
+
+#data
+<script type="text/javascript~"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@type;IMT:subtype syntax error;m
+/script;SUBDOC;text/javascript~
+
+#data
+<script src="http://test/" type="text/javascript"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<script src="http://test/" type="text/javascript; charset=us-ascii"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@type;IMT:parameter not allowed;m
+
+#data
+<script src="http://test/" type="text/javascript; charSet=us-ascii"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@type;IMT:parameter not allowed;m
+
+#data
+<script src="http://test/%" type="text/javascript"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@src;syntax error:iriref3987;m
+
+#data
+<script defer="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script;SUBDOC;text/javascript
+/script;attribute missing;src;m
+
+#data
+<script src="http://test/" defer=""
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<script defer="defer" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script;SUBDOC;text/javascript
+/script;attribute missing;src;m
+
+#data
+<script src="http://test/" defer="defer"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<script defer="DEFER" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script;SUBDOC;text/javascript
+/script;attribute missing;src;m
+
+#data
+<script defer="true" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@defer;boolean:invalid;m
+/script;SUBDOC;text/javascript
+/script;attribute missing;src;m
+
+#data
+<script src="http://test/" defer="true"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@defer;boolean:invalid;m
+
+#data
+<script async="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script;SUBDOC;text/javascript
+
+#data
+<script src="http://test/" async=""
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<script async="async" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script;SUBDOC;text/javascript
+
+#data
+<script src="http://test/" async="async"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<script async="true" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@async;boolean:invalid;m
+/script;SUBDOC;text/javascript
+
+#data
+<script src="http://test/" async="true"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@async;boolean:invalid;m
+
+#data
+<script src="http://test/" async="aSync"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<script defer="" async="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script;SUBDOC;text/javascript
+/script;attribute missing;src;m
+
+#data
+<script defer="defer" async="async" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script;SUBDOC;text/javascript
+/script;attribute missing;src;m
+
+#data
+<script src="" defer="" async="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<script language="javascript" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@language;script language;s
+/script;SUBDOC;text/javascript
+
+#data
+<script langauge="javascript" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@langauge;attribute not defined;m
+/script;SUBDOC;text/javascript
+
+#data
+<script langage="javascript" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@langage;attribute not defined;m
+/script;SUBDOC;text/javascript
+
+#data
+<script languege="javascript" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@languege;attribute not defined;m
+/script;SUBDOC;text/javascript
+
+#data
+<script language="JavaScript" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@language;script language;s
+/script;SUBDOC;text/javascript
+
+#data
+<script language="jscript" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@language;script language:not js;m
+/script;SUBDOC;text/jscript
+
+#data
+<script language="javascript1.2" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@language;script language:not js;m
+/script;SUBDOC;text/javascript1.2
+
+#data
+<script language="vbscript" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@language;script language:not js;m
+/script;SUBDOC;text/vbscript
+
+#data
+<script language="XML" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@language;script language:not js;m
+/script;XML script lang;text/xml;u
+
+#data
+<script langage="javascript" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@langage;attribute not defined;m
+/script;SUBDOC;text/javascript
+
+#data
+<script langage="JavaScript" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@langage;attribute not defined;m
+/script;SUBDOC;text/javascript
+
+#data
+<script language="javascript" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@language;script language;s
+/script;SUBDOC;text/javascript
+
+#data
+<script language="JavaScript" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@language;script language;s
+/script;SUBDOC;text/javascript
+
+#data
+<script language="javascript" type="TEXt/javaScript" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@language;script language;s
+/script;SUBDOC;text/javascript
+
+#data
+<script language="java script" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@language;script language:not js;m
+/script;SUBDOC;text/javascript
+
+#data
+<script language="javascript" type="text/vbscript" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@language;script language:ne type;m
+/script;SUBDOC;text/vbscript
+/script/@type;IMT:unknown subtype;u
+
+#data
+<script language="jscript" type="text/vbscript" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@language;script language:not js;m
+/script;SUBDOC;text/vbscript
+/script/@type;IMT:unknown subtype;u
+
+#data
+<script language="jscript" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@language;script language:not js;m
+/script;SUBDOC;text/javascript
+
+#data
+<script charset="us-ascii" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@charset;attribute not allowed;m
+/script;SUBDOC;text/javascript
+
+#data
+<script src="" charset="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@charset;charset:syntax error;m
+/script/@charset;charset:not registered;w
+
+#data
+<script src="" charset="us-ascii" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<script event="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@event;attribute not defined;m
+/script;SUBDOC;text/javascript
+
+#data
+<script event="abc" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@event;attribute not defined;m
+/script;SUBDOC;text/javascript
+
+#data
+<script event="onload" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@event;attribute not defined;m
+/script;SUBDOC;text/javascript
+
+#data
+<script event="onload()" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@event;attribute not defined;m
+/script;SUBDOC;text/javascript
+
+#data
+<script for="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@for;attribute not defined;m
+/script/@for;no referenced element;m
+/script;SUBDOC;text/javascript
+
+#data
+<script for="abc" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@for;attribute not defined;m
+/script/@for;no referenced element;m
+/script;SUBDOC;text/javascript
+
+#data
+<script id="abc" for="abc" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@for;attribute not defined;m
+/script;SUBDOC;text/javascript
+
+#data
+<script for="abc" xmlns="http://www.w3.org/1999/xhtml"><b id="abc">a</b></script>
+#errors
+/script/@for;attribute not defined;m
+/script;SUBDOC;text/javascript
+/script/b;attribute missing;class;w
+/script/b;last resort;s
+
+#data
+<div id="a" xmlns="http://www.w3.org/1999/xhtml">
+  <script for="a"></script>b
+</div>
+#errors
+/div/script;SUBDOC;text/javascript
+/div/script/@for;attribute not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <span id="a">c</span>
+  <script for="a"></script>b
+</div>
+#errors
+/div/script;SUBDOC;text/javascript
+/div/script/@for;attribute not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <script for="a"></script>b
+  <span id="a">c</span>
+</div>
+#errors
+/div/script;SUBDOC;text/javascript
+/div/script/@for;attribute not defined;m
+
+#data
+<script for="#xyz" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@for;attribute not defined;m
+/script/@for;no referenced element;m
+/script;SUBDOC;text/javascript
+
+#data
+<script for="[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@for;attribute not defined;m
+/script/@for;no referenced element;m
+/script;SUBDOC;text/javascript
+
+#data
+<a language="" xmlns="http://www.w3.org/1999/xhtml">a</a>
+#errors
+/a/@language;attribute not defined;m
+/a/@language;script language;m
+
+#data
+<a language="  " xmlns="http://www.w3.org/1999/xhtml">a</a>
+#errors
+/a/@language;attribute not defined;m
+/a/@language;script language;m
+
+#data
+<a language="javascript" xmlns="http://www.w3.org/1999/xhtml">a</a>
+#errors
+/a/@language;attribute not defined;m
+
+#data
+<a language="JavaScript" xmlns="http://www.w3.org/1999/xhtml">a</a>
+#errors
+/a/@language;attribute not defined;m
+
+#data
+<a language="JAVASCRIPT" xmlns="http://www.w3.org/1999/xhtml">a</a>
+#errors
+/a/@language;attribute not defined;m
+
+#data
+<a language="javascript " xmlns="http://www.w3.org/1999/xhtml">a</a>
+#errors
+/a/@language;attribute not defined;m
+/a/@language;script language;m
+
+#data
+<a language="js" xmlns="http://www.w3.org/1999/xhtml">a</a>
+#errors
+/a/@language;attribute not defined;m
+/a/@language;script language;m
+
+#data
+<a language="javascript1.1" xmlns="http://www.w3.org/1999/xhtml">a</a>
+#errors
+/a/@language;attribute not defined;m
+/a/@language;script language;m
+
+#data
+<a language="jscript" xmlns="http://www.w3.org/1999/xhtml">a</a>
+#errors
+/a/@language;attribute not defined;m
+/a/@language;script language;m
+
+#data
+<a language="ecmascript" xmlns="http://www.w3.org/1999/xhtml">a</a>
+#errors
+/a/@language;attribute not defined;m
+/a/@language;script language;m
+
+#data
+<a language="vbScript" xmlns="http://www.w3.org/1999/xhtml">a</a>
+#errors
+/a/@language;attribute not defined;m
+/a/@language;script language;m
+
+#data
+<a language="xml" xmlns="http://www.w3.org/1999/xhtml">a</a>
+#errors
+/a/@language;attribute not defined;m
+/a/@language;script language;m
+
+#data
+<a language="language" xmlns="http://www.w3.org/1999/xhtml">a</a>
+#errors
+/a/@language;attribute not defined;m
+/a/@language;script language;m
+
+#data
+<unknown language="" xmlns="http://www.w3.org/1999/xhtml">a</unknown>
+#errors
+/unknown;element not defined;m
+/unknown/@language;attribute not defined;m
+/unknown/@language;script language;m
+
+#data
+<a html:language="" xmlns:html="http://www.w3.org/1999/xhtml">a</a>
+#errors
+/a;unknown element;u
+/a/@language;attribute not defined;m
+
+#data
+<script archive="" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+/script/@archive;attribute not defined;m
+/script/@archive;url:empty;m
+/script;SUBDOC;text/javascript
+
+#data
+<script archive="abc" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+/script/@archive;attribute not defined;m
+/script;SUBDOC;text/javascript
+
+#data
+<script archive="[]" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+/script/@archive;attribute not defined;m
+/script/@archive;syntax error:iriref3987;m
+/script;SUBDOC;text/javascript
+
+#data
+<script implements="" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+/script/@implements;attribute not defined;m
+/script;SUBDOC;text/javascript
+
+#data
+<script implement="" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+/script/@implement;attribute not defined;m
+/script;SUBDOC;text/javascript

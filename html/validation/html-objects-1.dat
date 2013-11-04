@@ -1,0 +1,3266 @@
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data=""></object>
+#errors
+/object;no significant content;s
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+</object>
+#errors
+/object;no significant content;s
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">xxxx</object>
+#errors
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data=""><p>xx</p></object>
+#errors
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data=""><p></p></object>
+#errors
+/object;no significant content;s
+/object/p;no significant content;s
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+<param name="x" value="y"/>
+</object>
+#errors
+/object;no significant content;s
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+<param name="x" value="y"/>
+<param name="v" value="w"/>
+</object>
+#errors
+/object;no significant content;s
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+<param name="x" value="y"/>
+<param name="v" value="w"/>
+<param name="a" value="b"/>
+</object>
+#errors
+/object;no significant content;s
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+<param name="x" value="y"/>
+zzz
+</object>
+#errors
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+<param name="x" value="y"/>
+<p>zzz</p>
+</object>
+#errors
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+<param name="x" value="y"/><p>
+zzz</p><img src="" alt="a"/>
+</object>
+#errors
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+<param name="x" value="y"/>
+<param name="z" value="w"/>
+zzz
+</object>
+#errors
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+<param name="x" value="y"/>
+zzz
+<param name="a" value="y"/>
+</object>
+#errors
+/object/param;element not allowed:flow;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+aaa
+<param name="x" value="y"/>
+</object>
+#errors
+/object/param;element not allowed:flow;m
+
+#data
+<?xml version="1.1"?>
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+&#x0b;
+<param name="x" value="y"/>
+</object>
+#errors
+/object/param;element not allowed:flow;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+<p>zxx</p>
+<param name="x" value="y"/>
+</object>
+#errors
+/object/param;element not allowed:flow;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+<param name="x" value="y"/>
+<style scoped=""/>
+</object>
+#errors
+/object/style;SUBDOC;text/css
+/object;no significant content;s
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+<param name="x" value="y"/>
+<style scoped=""/>
+aaa
+</object>
+#errors
+/object/style;SUBDOC;text/css
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+<param name="x" value="y"/>
+<style scoped=""/>
+<p>xxx</p>
+</object>
+#errors
+/object/style;SUBDOC;text/css
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+<param name="x" value="y"/>
+<style scoped=""/>
+<param name="xz" value=""/>
+</object>
+#errors
+/object/style;SUBDOC;text/css
+/object/param;element not allowed:flow;m
+/object;no significant content;s
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+<style scoped=""/>
+<param name="x" value="y"/>
+</object>
+#errors
+/object/style;SUBDOC;text/css
+/object;no significant content;s
+/object/param;element not allowed:flow;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+<param name="x" value="y"/>
+<p>xxx</p>
+<style scoped=""/>
+</object>
+#errors
+/object/style;SUBDOC;text/css
+/object/style;element not allowed:flow style;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="">
+<param name="x" value="y"/>
+<style/>
+</object>
+#errors
+/object/style;SUBDOC;text/css
+/object;no significant content;s
+/object/style;element not allowed:flow style;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+<object data="">
+<param name="x" value="y"/>
+<style scoped=""/>
+</object>
+</p>
+#errors
+/p/object;no significant content;s
+/p/object/style;SUBDOC;text/css
+/p/object/style;element not allowed:phrasing;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+<object data="">
+<param name="x" value="y"/>
+xxxx
+</object>
+</p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+<object data="">
+<param name="x" value="y"/>
+<p>xxxx</p>
+</object>
+</p>
+#errors
+/p/object/p;element not allowed:phrasing;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<object data="">
+<param name="x" value="y"/>
+<p>xxxx</p>
+</object>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<object data="">
+<p>xxxx</p>
+<param name="x" value="y"/>
+</object>
+</div>
+#errors
+/div/object/param;element not allowed:flow;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<object data="">
+<object data="">
+<param name="x" value="y"/>
+<p>xxxx</p>
+</object>
+</object>
+</div>
+#errors
+
+#data
+<span xmlns="http://www.w3.org/1999/xhtml">
+<object data="">
+<param name="x" value="y"/>
+<p>xxxx</p>
+</object>
+</span>
+#errors
+/span/object/p;element not allowed:phrasing;m
+
+#data
+<span xmlns="http://www.w3.org/1999/xhtml">
+<ins>
+<object data="">
+<param name="x" value="y"/>
+<p>xxxx</p>
+</object>
+</ins>
+</span>
+#errors
+/span/ins/object/p;element not allowed:phrasing;m
+
+#data
+<span xmlns="http://www.w3.org/1999/xhtml">
+<object data="">
+<object data="">
+<param name="x" value="y"/>
+<p>xxxx</p>
+</object>
+</object>
+</span>
+#errors
+/span/object/object/p;element not allowed:phrasing;m
+
+#data
+<span xmlns="http://www.w3.org/1999/xhtml">
+<object data="">
+<object data="">
+<p>xxxx</p>
+<param name="x" value="y"/>
+</object>
+</object>
+</span>
+#errors
+/span/object/object/p;element not allowed:phrasing;m
+/span/object/object/param;element not allowed:phrasing;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"><object data=""><p>xx</p></object></p>
+#errors
+/p/object/p;element not allowed:phrasing;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"><object data=""><style scoped=""></style>xx</object></p>
+#errors
+/p/object/style;element not allowed:phrasing;m
+/p/object/style;SUBDOC;text/css
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml"
+    data="a" type="text/plain"
+    typemustmatch="">b</object>
+#errors
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml"
+    data="a" type="text/plain"
+    typemustmatch="typemustmatch">b</object>
+#errors
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml"
+    data="a" type="text/plain"
+    typemustmatch="TypeMUSTMatch">b</object>
+#errors
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml"
+    data="a" type="text/plain"
+    typemustmatch="true">b</object>
+#errors
+/object/@typemustmatch;boolean:invalid;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml"
+    data="a"
+    typemustmatch="">b</object>
+#errors
+/object/@typemustmatch;attribute not allowed;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml"
+    type="text/plain"
+    typemustmatch="">b</object>
+#errors
+/object/@typemustmatch;attribute not allowed;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml"
+    typemustmatch="">b</object>
+#errors
+/object/@typemustmatch;attribute not allowed;m
+/object;attribute missing:data|type;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml"
+    data="a" type="text/plain"
+    >b</object>
+#errors
+/object;attribute missing;typemustmatch;w
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc"></applet>
+#errors
+/applet;no significant content;s
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+</applet>
+#errors
+/applet;no significant content;s
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">xxxx</applet>
+#errors
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc"><p>xx</p></applet>
+#errors
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc"><p></p></applet>
+#errors
+/applet;no significant content;s
+/applet/p;no significant content;s
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+<param name="x" value="y"/>
+</applet>
+#errors
+/applet;no significant content;s
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+<param name="x" value="y"/>
+<param name="v" value="w"/>
+</applet>
+#errors
+/applet;no significant content;s
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+<param name="x" value="y"/>
+<param name="v" value="w"/>
+<param name="a" value="b"/>
+</applet>
+#errors
+/applet;no significant content;s
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+<param name="x" value="y"/>
+zzz
+</applet>
+#errors
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+<param name="x" value="y"/>
+<p>zzz</p>
+</applet>
+#errors
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+<param name="x" value="y"/><p>
+zzz</p><img src="" alt="a"/>
+</applet>
+#errors
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+<param name="x" value="y"/>
+<param name="z" value="w"/>
+zzz
+</applet>
+#errors
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+<param name="x" value="y"/>
+zzz
+<param name="a" value="y"/>
+</applet>
+#errors
+/applet/param;element not allowed:flow;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+aaa
+<param name="x" value="y"/>
+</applet>
+#errors
+/applet/param;element not allowed:flow;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<?xml version="1.1"?>
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+&#x0b;
+<param name="x" value="y"/>
+</applet>
+#errors
+/applet/param;element not allowed:flow;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+<p>zxx</p>
+<param name="x" value="y"/>
+</applet>
+#errors
+/applet/param;element not allowed:flow;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+<param name="x" value="y"/>
+<style scoped=""/>
+</applet>
+#errors
+/applet/style;SUBDOC;text/css
+/applet;no significant content;s
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+<param name="x" value="y"/>
+<style scoped=""/>
+aaa
+</applet>
+#errors
+/applet/style;SUBDOC;text/css
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+<param name="x" value="y"/>
+<style scoped=""/>
+<p>xxx</p>
+</applet>
+#errors
+/applet/style;SUBDOC;text/css
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+<param name="x" value="y"/>
+<style scoped=""/>
+<param name="xz" value=""/>
+</applet>
+#errors
+/applet/style;SUBDOC;text/css
+/applet/param;element not allowed:flow;m
+/applet;no significant content;s
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+<style scoped=""/>
+<param name="x" value="y"/>
+</applet>
+#errors
+/applet/style;SUBDOC;text/css
+/applet;no significant content;s
+/applet/param;element not allowed:flow;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+<param name="x" value="y"/>
+<p>xxx</p>
+<style scoped=""/>
+</applet>
+#errors
+/applet/style;SUBDOC;text/css
+/applet/style;element not allowed:flow style;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
+<param name="x" value="y"/>
+<style/>
+</applet>
+#errors
+/applet/style;SUBDOC;text/css
+/applet;no significant content;s
+/applet/style;element not allowed:flow style;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+<applet code="abc">
+<param name="x" value="y"/>
+<style scoped=""/>
+</applet>
+</p>
+#errors
+/p/applet;no significant content;s
+/p/applet/style;SUBDOC;text/css
+/p/applet/style;element not allowed:phrasing;m
+/p/applet;element not defined;m
+/p/applet/@code;attribute not defined;m
+/p/applet;element not allowed:phrasing;m
+/p;no significant content;s
+/p/applet;attribute missing;width;m
+/p/applet;attribute missing;height;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+<applet code="abc">
+<param name="x" value="y"/>
+xxxx
+</applet>
+</p>
+#errors
+/p/applet;element not defined;m
+/p/applet/@code;attribute not defined;m
+/p/applet;element not allowed:phrasing;m
+/p/applet;attribute missing;width;m
+/p/applet;attribute missing;height;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+<applet code="abc">
+<param name="x" value="y"/>
+<p>xxxx</p>
+</applet>
+</p>
+#errors
+/p/applet/p;element not allowed:phrasing;m
+/p/applet;element not defined;m
+/p/applet/@code;attribute not defined;m
+/p/applet;element not allowed:phrasing;m
+/p/applet;attribute missing;width;m
+/p/applet;attribute missing;height;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<applet code="abc">
+<param name="x" value="y"/>
+<p>xxxx</p>
+</applet>
+</div>
+#errors
+/div/applet;element not defined;m
+/div/applet/@code;attribute not defined;m
+/div/applet;element not allowed:flow;m
+/div/applet;attribute missing;width;m
+/div/applet;attribute missing;height;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<applet code="abc">
+<p>xxxx</p>
+<param name="x" value="y"/>
+</applet>
+</div>
+#errors
+/div/applet/param;element not allowed:flow;m
+/div/applet;element not defined;m
+/div/applet/@code;attribute not defined;m
+/div/applet;element not allowed:flow;m
+/div/applet;attribute missing;width;m
+/div/applet;attribute missing;height;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<applet code="abc">
+<applet code="abc">
+<param name="x" value="y"/>
+<p>xxxx</p>
+</applet>
+</applet>
+</div>
+#errors
+/div/applet;element not defined;m
+/div/applet/@code;attribute not defined;m
+/div/applet/applet;element not defined;m
+/div/applet/applet/@code;attribute not defined;m
+/div/applet;element not allowed:flow;m
+/div/applet/applet;element not allowed:flow;m
+/div/applet;attribute missing;width;m
+/div/applet;attribute missing;height;m
+/div/applet/applet;attribute missing;width;m
+/div/applet/applet;attribute missing;height;m
+
+#data
+<span xmlns="http://www.w3.org/1999/xhtml">
+<applet code="abc">
+<param name="x" value="y"/>
+<p>xxxx</p>
+</applet>
+</span>
+#errors
+/span/applet/p;element not allowed:phrasing;m
+/span/applet;element not defined;m
+/span/applet/@code;attribute not defined;m
+/span/applet;element not allowed:phrasing;m
+/span/applet;attribute missing;width;m
+/span/applet;attribute missing;height;m
+
+#data
+<span xmlns="http://www.w3.org/1999/xhtml">
+<ins>
+<applet code="abc">
+<param name="x" value="y"/>
+<p>xxxx</p>
+</applet>
+</ins>
+</span>
+#errors
+/span/ins/applet/p;element not allowed:phrasing;m
+/span/ins/applet;element not defined;m
+/span/ins/applet/@code;attribute not defined;m
+/span/ins/applet;element not allowed:phrasing;m
+/span/ins/applet;attribute missing;width;m
+/span/ins/applet;attribute missing;height;m
+
+#data
+<span xmlns="http://www.w3.org/1999/xhtml">
+<applet code="abc">
+<applet code="abc">
+<param name="x" value="y"/>
+<p>xxxx</p>
+</applet>
+</applet>
+</span>
+#errors
+/span/applet/applet/p;element not allowed:phrasing;m
+/span/applet/applet;element not allowed:phrasing;m
+/span/applet/applet;element not defined;m
+/span/applet/applet/@code;attribute not defined;m
+/span/applet;element not defined;m
+/span/applet/@code;attribute not defined;m
+/span/applet;element not allowed:phrasing;m
+/span/applet;attribute missing;width;m
+/span/applet;attribute missing;height;m
+/span/applet/applet;attribute missing;width;m
+/span/applet/applet;attribute missing;height;m
+
+#data
+<span xmlns="http://www.w3.org/1999/xhtml">
+<applet code="abc">
+<applet code="abc">
+<p>xxxx</p>
+<param name="x" value="y"/>
+</applet>
+</applet>
+</span>
+#errors
+/span/applet/applet/param;element not allowed:phrasing;m
+/span/applet;element not defined;m
+/span/applet/@code;attribute not defined;m
+/span/applet/applet;element not allowed:phrasing;m
+/span/applet/applet;element not defined;m
+/span/applet/applet/@code;attribute not defined;m
+/span/applet;element not allowed:phrasing;m
+/span/applet/applet/p;element not allowed:phrasing;m
+/span/applet;attribute missing;width;m
+/span/applet;attribute missing;height;m
+/span/applet/applet;attribute missing;width;m
+/span/applet/applet;attribute missing;height;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"><applet code="abc"><p>xx</p></applet></p>
+#errors
+/p/applet/p;element not allowed:phrasing;m
+/p/applet;element not defined;m
+/p/applet/@code;attribute not defined;m
+/p/applet;element not allowed:phrasing;m
+/p/applet;attribute missing;width;m
+/p/applet;attribute missing;height;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"><applet code="abc"><style scoped=""></style>xx</applet></p>
+#errors
+/p/applet/style;element not allowed:phrasing;m
+/p/applet/style;SUBDOC;text/css
+/p/applet;element not defined;m
+/p/applet/@code;attribute not defined;m
+/p/applet;element not allowed:phrasing;m
+/p/applet;attribute missing;width;m
+/p/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml">a</applet>
+#errors
+/applet;element not defined;m
+/applet;attribute missing:code|object;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" object="aa">a</applet>
+#errors
+/applet;element not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+/applet/@object;attribute not defined;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="a" object="">a</applet>
+#errors
+/applet;element not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+/applet/@code;attribute not defined;m
+/applet/@object;attribute not defined;m
+/applet/@object;url:empty;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="a" object="b">a</applet>
+#errors
+/applet;element not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+/applet/@code;attribute not defined;m
+/applet/@object;attribute not defined;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="a" object="[]">a</applet>
+#errors
+/applet;element not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+/applet/@code;attribute not defined;m
+/applet/@object;attribute not defined;m
+/applet/@object;syntax error:iriref3987;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="aa" alt="">a</applet>
+#errors
+/applet;element not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" data="aa" alt="">a</applet>
+#errors
+/applet;element not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+/applet/@data;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet;attribute missing:code|object;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" hspace="0" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet/@hspace;attribute not defined;m
+/applet;no significant content;s
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" hspace="10%" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet/@hspace;attribute not defined;m
+/applet;no significant content;s
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" hspace="none" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet/@hspace;attribute not defined;m
+/applet;no significant content;s
+/applet/@hspace;length:syntax error;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" hspace="%" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet/@hspace;attribute not defined;m
+/applet;no significant content;s
+/applet/@hspace;length:syntax error;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" vspace="0" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@vspace;attribute not defined;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" vspace="10%" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@vspace;attribute not defined;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" vspace="none" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@vspace;attribute not defined;m
+/applet/@vspace;length:syntax error;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" vspace="%" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@vspace;attribute not defined;m
+/applet/@vspace;length:syntax error;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" align="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@align;attribute not defined;m
+/applet/@align;enumerated:invalid;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" align="char" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@align;attribute not defined;m
+/applet/@align;enumerated:invalid;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" align="justify" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@align;attribute not defined;m
+/applet/@align;enumerated:invalid;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" align="center" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@align;attribute not defined;m
+/applet/@align;enumerated:non-conforming;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" align="bottom" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@align;attribute not defined;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" align="middle" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@align;attribute not defined;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" align="top" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@align;attribute not defined;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" align="left" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@align;attribute not defined;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" align="right" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@align;attribute not defined;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data escaped
+<applet code="a" alt="b" width="1" height="1" align="r\u0130ght" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@align;attribute not defined;m
+/applet/@align;enumerated:invalid;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data escaped
+<applet code="a" alt="b" width="1" height="1" align="r\u0131ght" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@align;attribute not defined;m
+/applet/@align;enumerated:invalid;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1"
+    align="texttop" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@align;attribute not defined;m
+/applet/@align;enumerated:non-conforming;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1"
+    align="text-top" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@align;attribute not defined;m
+/applet/@align;enumerated:invalid;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1"
+    align="absmiddle" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@align;attribute not defined;m
+/applet/@align;enumerated:non-conforming;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1"
+    align="abscenter" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@align;attribute not defined;m
+/applet/@align;enumerated:non-conforming;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1"
+    align="baseline" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;no significant content;s
+/applet/@align;attribute not defined;m
+/applet/@align;enumerated:non-conforming;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" xmlns="http://www.w3.org/1999/xhtml"
+    height="">x</applet>
+#errors
+/applet/@height;nninteger:syntax error;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" xmlns="http://www.w3.org/1999/xhtml"
+    height="0">x</applet>
+#errors
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" xmlns="http://www.w3.org/1999/xhtml"
+    height="120">x</applet>
+#errors
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" height="1" xmlns="http://www.w3.org/1999/xhtml"
+    width="">x</applet>
+#errors
+/applet/@width;nninteger:syntax error;m
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" height="1" xmlns="http://www.w3.org/1999/xhtml"
+    width="0">x</applet>
+#errors
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" height="1" xmlns="http://www.w3.org/1999/xhtml"
+    width="120">x</applet>
+#errors
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" codebase="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet/@codebase;attribute not defined;m
+/applet/@codebase;url:empty;m
+/applet;no significant content;s
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<applet code="a" alt="b" width="1" height="1" codebase="[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet/@codebase;attribute not defined;m
+/applet/@codebase;syntax error:iriref3987;m
+/applet;no significant content;s
+/applet;element not defined;m
+/applet/@code;attribute not defined;m
+/applet/@alt;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@height;attribute not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <applet src="" alt="a" name="">a</applet>
+</div>
+#errors
+/div/applet/@name;attribute not defined;m
+/div/applet/@name;anchor name:empty;m
+/div/applet;element not defined;m
+/div/applet/@src;attribute not defined;m
+/div/applet/@alt;attribute not defined;m
+/div/applet;attribute missing:code|object;m
+/div/applet;attribute missing;height;m
+/div/applet;attribute missing;width;m
+/div/applet;element not allowed:flow;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <applet src="" alt="a" name="  ">a</applet>
+</div>
+#errors
+/div/applet/@name;attribute not defined;m
+/div/applet/@src;attribute not defined;m
+/div/applet/@alt;attribute not defined;m
+/div/applet;attribute missing:code|object;m
+/div/applet;attribute missing;height;m
+/div/applet;attribute missing;width;m
+/div/applet;element not allowed:flow;m
+/div/applet;element not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <applet src="" alt="a" name="aaa">a</applet>
+</div>
+#errors
+/div/applet/@name;attribute not defined;m
+/div/applet/@src;attribute not defined;m
+/div/applet/@alt;attribute not defined;m
+/div/applet;attribute missing:code|object;m
+/div/applet;attribute missing;height;m
+/div/applet;attribute missing;width;m
+/div/applet;element not allowed:flow;m
+/div/applet;element not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <applet src="" alt="a" name="abc">a</applet>
+  <a name="abc">aa</a>
+</div>
+#errors
+/div/applet/@name;attribute not defined;m
+/div/a/@name;duplicate anchor name;m
+/div/applet/@src;attribute not defined;m
+/div/applet/@alt;attribute not defined;m
+/div/applet;attribute missing:code|object;m
+/div/applet;attribute missing;height;m
+/div/applet;attribute missing;width;m
+/div/applet;element not allowed:flow;m
+/div/applet;element not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <a name="abc">aa</a>
+  <applet src="" alt="a" name="abc">a</applet>
+</div>
+#errors
+/div/a/@name;anchor name;s
+/div/applet/@name;attribute not defined;m
+/div/applet/@name;duplicate anchor name;m
+/div/applet/@src;attribute not defined;m
+/div/applet/@alt;attribute not defined;m
+/div/applet;attribute missing:code|object;m
+/div/applet;attribute missing;height;m
+/div/applet;attribute missing;width;m
+/div/applet;element not allowed:flow;m
+/div/applet;element not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <applet src="" alt="a" name="abc">a</applet>
+  <img src="" alt="x" name="abc"/>
+</div>
+#errors
+/div/applet/@name;attribute not defined;m
+/div/img/@name;duplicate anchor name;m
+/div/img/@name;attribute not defined;m
+/div/applet/@src;attribute not defined;m
+/div/applet/@alt;attribute not defined;m
+/div/applet;attribute missing:code|object;m
+/div/applet;attribute missing;height;m
+/div/applet;attribute missing;width;m
+/div/applet;element not allowed:flow;m
+/div/applet;element not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <img src="" alt="x" name="abc"/>
+  <applet src="" alt="a" name="abc">a</applet>
+</div>
+#errors
+/div/img/@name;attribute not defined;m
+/div/applet/@name;attribute not defined;m
+/div/applet/@name;duplicate anchor name;m
+/div/applet/@src;attribute not defined;m
+/div/applet/@alt;attribute not defined;m
+/div/applet;attribute missing:code|object;m
+/div/applet;attribute missing;height;m
+/div/applet;attribute missing;width;m
+/div/applet;element not allowed:flow;m
+/div/applet;element not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <span id="abc">aa</span>
+  <applet src="" alt="a" name="abc">a</applet>
+</div>
+#errors
+/div/applet/@name;id name confliction;m
+/div/applet/@name;attribute not defined;m
+/div/applet/@src;attribute not defined;m
+/div/applet/@alt;attribute not defined;m
+/div/applet;attribute missing:code|object;m
+/div/applet;attribute missing;height;m
+/div/applet;attribute missing;width;m
+/div/applet;element not allowed:flow;m
+/div/applet;element not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <span xml:id="abc">aa</span>
+  <applet src="" alt="a" name="abc">a</applet>
+</div>
+#errors
+/div/applet/@name;id name confliction;m
+/div/applet/@name;attribute not defined;m
+/div/applet/@src;attribute not defined;m
+/div/applet/@alt;attribute not defined;m
+/div/applet;attribute missing:code|object;m
+/div/applet;attribute missing;height;m
+/div/applet;attribute missing;width;m
+/div/applet;element not allowed:flow;m
+/div/applet;element not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <applet src="" alt="a" name="abc">a</applet>
+  <span id="abc">aa</span>
+</div>
+#errors
+/div/applet/@name;attribute not defined;m
+/div/span/@id;id name confliction;m
+/div/applet/@src;attribute not defined;m
+/div/applet/@alt;attribute not defined;m
+/div/applet;attribute missing:code|object;m
+/div/applet;attribute missing;height;m
+/div/applet;attribute missing;width;m
+/div/applet;element not allowed:flow;m
+/div/applet;element not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <applet src="" alt="a" name="abc">a</applet>
+  <span xml:id="abc">aa</span>
+</div>
+#errors
+/div/applet/@name;attribute not defined;m
+/div/span/@id;id name confliction;m
+/div/applet/@src;attribute not defined;m
+/div/applet/@alt;attribute not defined;m
+/div/applet;attribute missing:code|object;m
+/div/applet;attribute missing;height;m
+/div/applet;attribute missing;width;m
+/div/applet;element not allowed:flow;m
+/div/applet;element not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <applet src="" alt="a" name="abc" id="abd">a</applet>
+</div>
+#errors
+/div/applet/@name;attribute not defined;m
+/div/applet/@src;attribute not defined;m
+/div/applet/@alt;attribute not defined;m
+/div/applet;attribute missing:code|object;m
+/div/applet;attribute missing;height;m
+/div/applet;attribute missing;width;m
+/div/applet;element not allowed:flow;m
+/div/applet;element not defined;m
+/div/applet/@name;id name mismatch;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <applet src="" alt="a" name="abc" xml:id="abd">a</applet>
+</div>
+#errors
+/div/applet/@name;attribute not defined;m
+/div/applet/@src;attribute not defined;m
+/div/applet/@alt;attribute not defined;m
+/div/applet;attribute missing:code|object;m
+/div/applet;attribute missing;height;m
+/div/applet;attribute missing;width;m
+/div/applet;element not allowed:flow;m
+/div/applet;element not defined;m
+/div/applet/@name;id name mismatch;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <applet src="" alt="a" name="abc" xml:id="abd" id="abe">a</applet>
+</div>
+#errors
+/div/applet/@name;attribute not defined;m
+/div/applet/@src;attribute not defined;m
+/div/applet/@alt;attribute not defined;m
+/div/applet;attribute missing:code|object;m
+/div/applet;attribute missing;height;m
+/div/applet;attribute missing;width;m
+/div/applet;element not allowed:flow;m
+/div/applet;element not defined;m
+/div/applet/@name;id name mismatch;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <applet src="" alt="a" name="abc" xml:id="abd" id="abc">a</applet>
+</div>
+#errors
+/div/applet/@name;attribute not defined;m
+/div/applet/@src;attribute not defined;m
+/div/applet/@alt;attribute not defined;m
+/div/applet;attribute missing:code|object;m
+/div/applet;attribute missing;height;m
+/div/applet;attribute missing;width;m
+/div/applet;element not allowed:flow;m
+/div/applet;element not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <applet src="" alt="a" name="abc" xml:id="abc" id="abd">a</applet>
+</div>
+#errors
+/div/applet/@name;attribute not defined;m
+/div/applet/@src;attribute not defined;m
+/div/applet/@alt;attribute not defined;m
+/div/applet;attribute missing:code|object;m
+/div/applet;attribute missing;height;m
+/div/applet;attribute missing;width;m
+/div/applet;element not allowed:flow;m
+/div/applet;element not defined;m
+
+#data
+<applet code="a" width="1" height="1" archive="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;element not defined;m
+/applet/@archive;attribute not defined;m
+/applet/@code;attribute not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet;no significant content;s
+
+#data
+<applet code="a" width="1" height="1" archive="  " xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;element not defined;m
+/applet/@archive;attribute not defined;m
+/applet/@archive;url:empty;m
+/applet/@code;attribute not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet;no significant content;s
+
+#data
+<applet code="a" width="1" height="1" archive="  abc ,  cdef " xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;element not defined;m
+/applet/@archive;attribute not defined;m
+/applet/@code;attribute not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet;no significant content;s
+
+#data
+<applet code="a" width="1" height="1" archive="a,,b" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;element not defined;m
+/applet/@archive;attribute not defined;m
+/applet/@archive;url:empty;m
+/applet/@code;attribute not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet;no significant content;s
+
+#data
+<applet code="a" width="1" height="1" archive="[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;element not defined;m
+/applet/@archive;attribute not defined;m
+/applet/@archive;syntax error:iriref3987;m
+/applet/@code;attribute not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet;no significant content;s
+
+#data
+<applet code="a" width="1" height="1" archive="a,[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;element not defined;m
+/applet/@archive;attribute not defined;m
+/applet/@archive;syntax error:iriref3987;m
+/applet/@code;attribute not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet;no significant content;s
+
+#data
+<applet code="a" width="1" height="1" archive="[],[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;element not defined;m
+/applet/@archive;attribute not defined;m
+/applet/@archive;syntax error:iriref3987;m
+/applet/@archive;syntax error:iriref3987;m
+/applet/@code;attribute not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet;no significant content;s
+
+#data
+<applet code="a" width="1" height="1" archive="a a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;element not defined;m
+/applet/@archive;attribute not defined;m
+/applet/@archive;syntax error:iriref3987;m
+/applet/@code;attribute not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet;no significant content;s
+
+#data
+<applet code="a" width="1" height="1" archives="[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/applet;element not defined;m
+/applet/@archives;attribute not defined;m
+/applet/@code;attribute not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet;no significant content;s
+
+#data
+<applet code="" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml">a</applet>
+#errors
+/applet;element not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@code;attribute not defined;m
+/applet/@code;url:empty;m
+
+#data
+<applet code="[]" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml">a</applet>
+#errors
+/applet;element not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@code;attribute not defined;m
+/applet/@code;syntax error:iriref3987;m
+
+#data
+<applet code="abc/def" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml">a</applet>
+#errors
+/applet;element not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@code;attribute not defined;m
+
+#data
+<applet code="http://foo.test/" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml">a</applet>
+#errors
+/applet;element not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@code;attribute not defined;m
+
+#data
+<applet code="a" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml"
+    mayscript="">a</applet>
+#errors
+/applet;element not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@code;attribute not defined;m
+/applet/@mayscript;attribute not defined;m
+
+#data
+<applet code="a" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml"
+    mayscript="  ">a</applet>
+#errors
+/applet;element not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@code;attribute not defined;m
+/applet/@mayscript;attribute not defined;m
+/applet/@mayscript;boolean:invalid;m
+
+#data
+<applet code="a" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml"
+    mayscript="mayscript">a</applet>
+#errors
+/applet;element not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@code;attribute not defined;m
+/applet/@mayscript;attribute not defined;m
+
+#data
+<applet code="a" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml"
+    mayscript="MayScript">a</applet>
+#errors
+/applet;element not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@code;attribute not defined;m
+/applet/@mayscript;attribute not defined;m
+
+#data
+<applet code="a" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml"
+    mayscript="MAYSCRIPT">a</applet>
+#errors
+/applet;element not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@code;attribute not defined;m
+/applet/@mayscript;attribute not defined;m
+
+#data
+<applet code="a" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml"
+    mayscript="yes">a</applet>
+#errors
+/applet;element not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@code;attribute not defined;m
+/applet/@mayscript;attribute not defined;m
+/applet/@mayscript;boolean:invalid;m
+
+#data
+<applet code="a" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml"
+    mayscript="may">a</applet>
+#errors
+/applet;element not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@code;attribute not defined;m
+/applet/@mayscript;attribute not defined;m
+/applet/@mayscript;boolean:invalid;m
+
+#data
+<applet code="a" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml"
+    mayscript="true">a</applet>
+#errors
+/applet;element not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@code;attribute not defined;m
+/applet/@mayscript;attribute not defined;m
+/applet/@mayscript;boolean:invalid;m
+
+#data
+<applet code="a" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml"
+    mayscript=" mayscript ">a</applet>
+#errors
+/applet;element not defined;m
+/applet/@height;attribute not defined;m
+/applet/@width;attribute not defined;m
+/applet/@code;attribute not defined;m
+/applet/@mayscript;attribute not defined;m
+/applet/@mayscript;boolean:invalid;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed;attribute missing;src;i
+
+#data
+<embed src="http://test/" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<embed src="[http://test/]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@src;syntax error:iriref3987;m
+
+#data
+<embed src="http://test/" type="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@type;IMT:no type;m
+
+#data
+<embed src="http://test/" type="text"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@type;IMT:no /;m
+
+#data
+<embed src="http://test/" type="text/plain"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<embed src="http://test/" type="text/plain; a=b"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@type;IMT:parameter not allowed;m
+
+#data
+<embed src="http://test/" id=""
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@id;empty attribute value;m
+
+#data
+<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+    height=""/>
+#errors
+/embed/@height;nninteger:syntax error;m
+
+#data
+<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+    height="0"/>
+#errors
+
+#data
+<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+    height="120"/>
+#errors
+
+#data
+<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+    width=""/>
+#errors
+/embed/@width;nninteger:syntax error;m
+
+#data
+<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+    width="0"/>
+#errors
+
+#data
+<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+    width="120"/>
+#errors
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="a"
+    hspace=""/>
+#errors
+/embed/@hspace;attribute not defined;m
+/embed/@hspace;length:syntax error;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="a"
+    hspace="0"/>
+#errors
+/embed/@hspace;attribute not defined;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="a"
+    hspace="1"/>
+#errors
+/embed/@hspace;attribute not defined;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="a"
+    hspace="0%"/>
+#errors
+/embed/@hspace;attribute not defined;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="a"
+    hspace="10%"/>
+#errors
+/embed/@hspace;attribute not defined;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="a"
+    hspace="%"/>
+#errors
+/embed/@hspace;attribute not defined;m
+/embed/@hspace;length:syntax error;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="a"
+    hspace="auto"/>
+#errors
+/embed/@hspace;attribute not defined;m
+/embed/@hspace;length:syntax error;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="a"
+    vspace=""/>
+#errors
+/embed/@vspace;attribute not defined;m
+/embed/@vspace;length:syntax error;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="a"
+    vspace="0"/>
+#errors
+/embed/@vspace;attribute not defined;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="a"
+    vspace="1"/>
+#errors
+/embed/@vspace;attribute not defined;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="a"
+    vspace="0%"/>
+#errors
+/embed/@vspace;attribute not defined;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="a"
+    vspace="10%"/>
+#errors
+/embed/@vspace;attribute not defined;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="a"
+    vspace="%"/>
+#errors
+/embed/@vspace;attribute not defined;m
+/embed/@vspace;length:syntax error;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="a"
+    vspace="auto"/>
+#errors
+/embed/@vspace;attribute not defined;m
+/embed/@vspace;length:syntax error;m
+
+#data
+<embed src="http://test/" a="b" c="d" checked="checked"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<embed src="http://test/"
+    b:c>
+#errors
+/html/body/embed/@b:c;attribute not defined;m
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<embed src="http://test/"
+    xmlsucks>
+#errors
+/html/body/embed/@xmlsucks;attribute not defined;m
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<embed src="http://test/"
+    :>
+#errors
+/html/body/embed/@:;attribute not defined;m
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<embed src="http://test/"
+    a::b>
+#errors
+/html/body/embed/@a::b;attribute not defined;m
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<embed src="http://test/"
+    -manakai-attribute>
+#errors
+/html/body/embed/@-manakai-attribute;attribute not defined;m
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<embed src="http://test/"
+    xml:lang lang>
+#errors
+/html/body/embed/@xml:lang;in HTML:xml:lang;i
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<embed src="http://test/"
+    xmlns="http://www.w3.org/1999/xhtml">
+#errors
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<embed src="http://test/"
+    xml:space=preserve>
+#errors
+/html/body/embed/@xml:space;attribute not defined;m
+
+#data
+<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+    camelCase=""/>
+#errors
+/embed/@camelCase;attribute not defined;m
+
+#data
+<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+    Capital=""/>
+#errors
+/embed/@Capital;attribute not defined;m
+
+#data
+<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+    UPPERCASE=""/>
+#errors
+/embed/@UPPERCASE;attribute not defined;m
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<embed src="http://test/"
+    data->
+#errors
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<embed src="http://test/"
+    data-a>
+#errors
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<embed src="http://test/"
+    data-xml:space>
+#errors
+/html/body/embed/@data-xml:space;attribute not defined;m
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<embed src="http://test/"
+    data-xmlns>
+#errors
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<embed src="http://test/"
+    data--abc>
+#errors
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<embed src="http://test/"
+    data-!>
+#errors
+/html/body/embed/@data-!;attribute not defined;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    name="name1"/>
+#errors
+/embed/@name;attribute not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <embed src="a" name=""/>
+</div>
+#errors
+/div/embed/@name;attribute not defined;m
+/div/embed/@name;anchor name:empty;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <embed src="a" name="  "/>
+</div>
+#errors
+/div/embed/@name;attribute not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <embed src="a" name="aaa"/>
+</div>
+#errors
+/div/embed/@name;attribute not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <embed src="a" name="abc"/>
+  <a name="abc">aa</a>
+</div>
+#errors
+/div/embed/@name;attribute not defined;m
+/div/a/@name;duplicate anchor name;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <a name="abc">aa</a>
+  <embed src="a" name="abc"/>
+</div>
+#errors
+/div/a/@name;anchor name;s
+/div/embed/@name;attribute not defined;m
+/div/embed/@name;duplicate anchor name;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <span id="abc">aa</span>
+  <embed src="a" name="abc"/>
+</div>
+#errors
+/div/embed/@name;id name confliction;m
+/div/embed/@name;attribute not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <span xml:id="abc">aa</span>
+  <embed src="a" name="abc"/>
+</div>
+#errors
+/div/embed/@name;id name confliction;m
+/div/embed/@name;attribute not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <embed src="a" name="abc"/>
+  <span id="abc">aa</span>
+</div>
+#errors
+/div/embed/@name;attribute not defined;m
+/div/span/@id;id name confliction;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <embed src="a" name="abc"/>
+  <span xml:id="abc">aa</span>
+</div>
+#errors
+/div/embed/@name;attribute not defined;m
+/div/span/@id;id name confliction;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <embed src="a" name="abc" id="abd"/>
+</div>
+#errors
+/div/embed/@name;attribute not defined;m
+/div/embed/@name;id name mismatch;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <embed src="a" name="abc" id="abd" xml:id="abe"/>
+</div>
+#errors
+/div/embed/@name;attribute not defined;m
+/div/embed/@name;id name mismatch;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <embed src="a" name="abc" id="abd" xml:id="abc"/>
+</div>
+#errors
+/div/embed/@name;attribute not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <embed src="a" name="abc" id="abc" xml:id="abd"/>
+</div>
+#errors
+/div/embed/@name;attribute not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <embed src="a" name="abc" xml:id="abd"/>
+</div>
+#errors
+/div/embed/@name;attribute not defined;m
+/div/embed/@name;id name mismatch;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    align=""/>
+#errors
+/embed/@align;attribute not defined;m
+/embed/@align;enumerated:invalid;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    align="  "/>
+#errors
+/embed/@align;attribute not defined;m
+/embed/@align;enumerated:invalid;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    align="left"/>
+#errors
+/embed/@align;attribute not defined;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    align="center"/>
+#errors
+/embed/@align;attribute not defined;m
+/embed/@align;enumerated:non-conforming;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    align="right"/>
+#errors
+/embed/@align;attribute not defined;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    align="TOP"/>
+#errors
+/embed/@align;attribute not defined;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    align="middle"/>
+#errors
+/embed/@align;attribute not defined;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    align="bottom"/>
+#errors
+/embed/@align;attribute not defined;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    align="texttop"/>
+#errors
+/embed/@align;attribute not defined;m
+/embed/@align;enumerated:non-conforming;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    align="absmiddle"/>
+#errors
+/embed/@align;attribute not defined;m
+/embed/@align;enumerated:non-conforming;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    align="abscenter"/>
+#errors
+/embed/@align;attribute not defined;m
+/embed/@align;enumerated:non-conforming;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    align="baseline"/>
+#errors
+/embed/@align;attribute not defined;m
+/embed/@align;enumerated:non-conforming;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    align="none"/>
+#errors
+/embed/@align;attribute not defined;m
+/embed/@align;enumerated:invalid;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    align="text-top"/>
+#errors
+/embed/@align;attribute not defined;m
+/embed/@align;enumerated:invalid;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    align="ALIGN"/>
+#errors
+/embed/@align;attribute not defined;m
+/embed/@align;enumerated:invalid;m
+
+#data escaped
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    align="r\u0130ght"/>
+#errors
+/embed/@align;attribute not defined;m
+/embed/@align;enumerated:invalid;m
+
+#data escaped
+<embed xmlns="http://www.w3.org/1999/xhtml" src="x"
+    align="r\u0131ght"/>
+#errors
+/embed/@align;attribute not defined;m
+/embed/@align;enumerated:invalid;m
+
+#data
+<embed src="a" code="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@code;attribute not defined;m
+/embed/@code;url:empty;m
+
+#data
+<embed src="a" code="[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@code;attribute not defined;m
+/embed/@code;syntax error:iriref3987;m
+
+#data
+<embed src="a" code="abc/def" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@code;attribute not defined;m
+
+#data
+<embed src="a" code="http://foo.test/" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@code;attribute not defined;m
+
+#data
+<embed src="a" border="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@border;attribute not defined;m
+/embed/@border;nninteger:syntax error;m
+
+#data
+<embed src="a" border="  " xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@border;attribute not defined;m
+/embed/@border;nninteger:syntax error;m
+
+#data
+<embed src="a" border="abc" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@border;attribute not defined;m
+/embed/@border;nninteger:syntax error;m
+
+#data
+<embed src="a" border="0" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@border;attribute not defined;m
+
+#data
+<embed src="a" border="1" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@border;attribute not defined;m
+
+#data
+<embed src="a" border="120" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@border;attribute not defined;m
+
+#data
+<embed src="a" border="10px" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@border;attribute not defined;m
+/embed/@border;nninteger:syntax error;m
+
+#data
+<embed src="a" border="-20" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@border;attribute not defined;m
+/embed/@border;nninteger:syntax error;m
+
+#data
+<embed src="a" border="+20" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@border;attribute not defined;m
+/embed/@border;nninteger:syntax error;m
+
+#data
+<embed src="a" border="-20.0" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@border;attribute not defined;m
+/embed/@border;nninteger:syntax error;m
+
+#data
+<embed src="a" palette="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@palette;attribute not defined;m
+/embed/@palette;enumerated:invalid;m
+
+#data
+<embed src="a" palette=" " xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@palette;attribute not defined;m
+/embed/@palette;enumerated:invalid;m
+
+#data
+<embed src="a" palette="yes" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@palette;attribute not defined;m
+/embed/@palette;enumerated:invalid;m
+
+#data
+<embed src="a" palette="foreground" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@palette;attribute not defined;m
+
+#data
+<embed src="a" palette="background" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@palette;attribute not defined;m
+
+#data
+<embed src="a" palette="BackGROUND" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@palette;attribute not defined;m
+
+#data
+<embed src="a" palette="forground" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@palette;attribute not defined;m
+/embed/@palette;enumerated:invalid;m
+
+#data
+<embed src="a" palete="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<embed src="a" pluginpage="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@pluginpage;attribute not defined;m
+
+#data
+<embed src="a" pluginpage="[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@pluginpage;attribute not defined;m
+/embed/@pluginpage;syntax error:iriref3987;m
+
+#data
+<embed src="a" pluginspage="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@pluginspage;attribute not defined;m
+
+#data
+<embed src="a" pluginspage="[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@pluginspage;attribute not defined;m
+/embed/@pluginspage;syntax error:iriref3987;m
+
+#data
+<embed src="a" pluginurl="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@pluginurl;attribute not defined;m
+
+#data
+<embed src="a" pluginurl="[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@pluginurl;attribute not defined;m
+/embed/@pluginurl;syntax error:iriref3987;m
+
+#data
+<embed src="a" pluginsurl="[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<embed src="a" pluginuri="[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<embed src="a" pluginsuri="[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<embed src="a" units="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@units;attribute not defined;m
+/embed/@units;enumerated:invalid;m
+
+#data
+<embed src="a" units="pixels" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@units;attribute not defined;m
+
+#data
+<embed src="a" units="em" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@units;attribute not defined;m
+
+#data
+<embed src="a" units="en" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@units;attribute not defined;m
+
+#data
+<embed src="a" units="px" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@units;attribute not defined;m
+
+#data
+<embed src="a" units="EM" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@units;attribute not defined;m
+
+#data
+<embed src="a" units="pixel" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@units;attribute not defined;m
+/embed/@units;enumerated:invalid;m
+
+#data
+<embed src="a" units="none" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@units;attribute not defined;m
+/embed/@units;enumerated:invalid;m
+
+#data
+<embed src="a" units="cm" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@units;attribute not defined;m
+/embed/@units;enumerated:invalid;m
+
+#data
+<embed src="a" units="px,en" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@units;attribute not defined;m
+/embed/@units;enumerated:invalid;m
+
+#data
+<noembed xmlns="http://www.w3.org/1999/xhtml"></noembed>
+#errors
+/noembed;element not defined;m
+
+#data
+<noembed xmlns="http://www.w3.org/1999/xhtml">  </noembed>
+#errors
+/noembed;element not defined;m
+
+#data
+<noembed xmlns="http://www.w3.org/1999/xhtml">abccd</noembed>
+#errors
+/noembed;element not defined;m
+
+#data
+<noembed xmlns="http://www.w3.org/1999/xhtml"><p>abc</p>cd</noembed>
+#errors
+/noembed;element not defined;m
+/noembed/p;element not allowed:text;m
+
+#data
+<noembed xmlns="http://www.w3.org/1999/xhtml"><span>abc</span>cd</noembed>
+#errors
+/noembed;element not defined;m
+/noembed/span;element not allowed:text;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"><noembed>aa</noembed></p>
+#errors
+/p/noembed;element not allowed:phrasing;m
+/p/noembed;element not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"><noembed>aa</noembed></div>
+#errors
+/div/noembed;element not allowed:flow;m
+/div/noembed;element not defined;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;attribute missing:data|type;m
+/object;no significant content;s
+
+#data
+<object data="http://test/" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+
+#data
+<object data="`http://test/`" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@data;syntax error:iriref3987;m
+/object;no significant content;s
+
+#data
+<object type="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@type;IMT:no type;m
+/object;no significant content;s
+
+#data
+<object type="text" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@type;IMT:no /;m
+/object;no significant content;s
+
+#data
+<object type="text/css" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+
+#data
+<object type="text/css" data="http://test/"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object;attribute missing;typemustmatch;w
+
+#data
+<object type=" text/css " data="http://test/"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object;attribute missing;typemustmatch;w
+
+#data
+<object type="text/css; charset=us-ascii" data="http://test/"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object;attribute missing;typemustmatch;w
+
+#data
+<object type="text/css;a=b" data="http://test/"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@type;IMT:parameter not allowed;m
+/object;attribute missing;typemustmatch;w
+
+#data
+<object data="" xmlns="http://www.w3.org/1999/xhtml"
+    height="">x</object>
+#errors
+/object/@height;nninteger:syntax error;m
+
+#data
+<object data="" xmlns="http://www.w3.org/1999/xhtml"
+    height="0">x</object>
+#errors
+
+#data
+<object data="" xmlns="http://www.w3.org/1999/xhtml"
+    height="120">x</object>
+#errors
+
+#data
+<object data="" xmlns="http://www.w3.org/1999/xhtml"
+    width="">x</object>
+#errors
+/object/@width;nninteger:syntax error;m
+
+#data
+<object data="" xmlns="http://www.w3.org/1999/xhtml"
+    width="0">x</object>
+#errors
+
+#data
+<object data="" xmlns="http://www.w3.org/1999/xhtml"
+    width="120">x</object>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p><object data="http://test/" usemap="">x</object></p>
+</div>
+#errors
+/div/p/object/@usemap;hashref:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p><object data="http://test/" usemap="abc">x</object></p>
+</div>
+#errors
+/div/p/object/@usemap;hashref:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p><object data="http://test/" usemap="abc#">x</object></p>
+</div>
+#errors
+/div/p/object/@usemap;hashref:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p><object data="http://test/" usemap="&#x0A;#abc">x</object></p>
+</div>
+#errors
+/div/p/object/@usemap;hashref:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p><object data="http://test/" usemap="#aa">x</object></p>
+<map id="aa"/>
+</div>
+#errors
+/div/p/object/@usemap;no referenced map;m
+/div/map;attribute missing;name;m
+/div/map;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p><object data="http://test/" usemap="#aa">x</object></p>
+<map name="aa"/>
+</div>
+#errors
+/div/map;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<map name="aa"/>
+<p><object data="http://test/" usemap="#aa">x</object></p>
+</div>
+#errors
+/div/map;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<map name="&#x4E00;"/>
+<p><object data="http://test/" usemap="#&#x4E00;">x</object></p>
+</div>
+#errors
+/div/map;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<map name="aa"/>
+<p><object data="http://test/" usemap="#bb">x</object></p>
+</div>
+#errors
+/div/map;no significant content;s
+/div/p/object/@usemap;no referenced map;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<map name="aa"/>
+<p><object data="http://test/" usemap="#aa">x</object></p>
+<p><object data="http://test/" usemap="#aa">x</object></p>
+</div>
+#errors
+/div/map;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<map name="aa"/>
+<p><object data="http://test/" usemap="#AA">x</object></p>
+</div>
+#errors
+/div/map;no significant content;s
+/div/p/object/@usemap;hashref:wrong case;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<map name="AA"/>
+<p><object data="http://test/" usemap="#aa">x</object></p>
+</div>
+#errors
+/div/map;no significant content;s
+/div/p/object/@usemap;hashref:wrong case;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<object data="" usemap="#a">x</object><menu id="a">x</menu>
+</div>
+#errors
+/div/object/@usemap;no referenced map;m
+
+#data
+<object data="" declare="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@declare;attribute not defined;m
+/object;no significant content;s
+
+#data
+<object data="" declare="declare" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@declare;attribute not defined;m
+/object;no significant content;s
+
+#data
+<object data="" declare="yes" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@declare;attribute not defined;m
+/object/@declare;boolean:invalid;m
+/object;no significant content;s
+
+#data
+<object data="" declare="no" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@declare;attribute not defined;m
+/object/@declare;boolean:invalid;m
+/object;no significant content;s
+
+#data
+<object data="" declare="Declare" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@declare;attribute not defined;m
+/object;no significant content;s
+
+#data
+<object data="" classid="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@classid;attribute not defined;m
+/object;no significant content;s
+/object;attribute missing;codetype;s
+
+#data
+<object data="" classid="about:blank" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@classid;attribute not defined;m
+/object;no significant content;s
+/object;attribute missing;codetype;s
+
+#data
+<object data="" classid="about:blank" xmlns="http://www.w3.org/1999/xhtml"
+    codetype="text/plain"/>
+#errors
+/object/@classid;attribute not defined;m
+/object;no significant content;s
+/object/@codetype;attribute not defined;m
+
+#data
+<object data="" classid="[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@classid;attribute not defined;m
+/object/@classid;syntax error:iriref3987;m
+/object;no significant content;s
+/object;attribute missing;codetype;s
+
+#data
+<object data="" codebase="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@codebase;attribute not defined;m
+/object/@codebase;url:empty;m
+/object;no significant content;s
+
+#data
+<object data="" codebase="[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@codebase;attribute not defined;m
+/object/@codebase;syntax error:iriref3987;m
+/object;no significant content;s
+
+#data
+<object data="" archive="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@archive;attribute not defined;m
+/object;no significant content;s
+
+#data
+<object data="" archive="[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@archive;attribute not defined;m
+/object/@archive;syntax error:iriref3987;m
+/object;no significant content;s
+
+#data
+<object data="" archive="a,[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@archive;attribute not defined;m
+/object/@archive;syntax error:iriref3987;m
+/object;no significant content;s
+
+#data
+<object data="" archive="a a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@archive;attribute not defined;m
+/object/@archive;duplicate token;m
+/object;no significant content;s
+
+#data
+<object data="" archives="[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@archives;attribute not defined;m
+/object;no significant content;s
+
+#data
+<object data="" codetype="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@codetype;attribute not defined;m
+/object/@codetype;IMT:no type;m
+/object;no significant content;s
+
+#data
+<object data="" codetype="text/html" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@codetype;attribute not defined;m
+/object;no significant content;s
+
+#data
+<object data="" codetype="text/plain; a=b" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@codetype;attribute not defined;m
+/object/@codetype;IMT:parameter not allowed;m
+/object;no significant content;s
+
+#data
+<object data="" standby="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@standby;attribute not defined;m
+/object;no significant content;s
+
+#data
+<object data="" standby="[]" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@standby;attribute not defined;m
+/object;no significant content;s
+
+#data
+<object data="" border="0" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@border;attribute not defined;m
+
+#data
+<object data="" border="none" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object/@border;attribute not defined;m
+/object/@border;nninteger:syntax error;m
+/object;no significant content;s
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="a"
+    hspace="">a</object>
+#errors
+/object/@hspace;attribute not defined;m
+/object/@hspace;length:syntax error;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="a"
+    hspace="0">a</object>
+#errors
+/object/@hspace;attribute not defined;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="a"
+    hspace="1">a</object>
+#errors
+/object/@hspace;attribute not defined;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="a"
+    hspace="0%">a</object>
+#errors
+/object/@hspace;attribute not defined;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="a"
+    hspace="10%">a</object>
+#errors
+/object/@hspace;attribute not defined;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="a"
+    hspace="%">a</object>
+#errors
+/object/@hspace;attribute not defined;m
+/object/@hspace;length:syntax error;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="a"
+    hspace="auto">a</object>
+#errors
+/object/@hspace;attribute not defined;m
+/object/@hspace;length:syntax error;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="a"
+    vspace="">a</object>
+#errors
+/object/@vspace;attribute not defined;m
+/object/@vspace;length:syntax error;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="a"
+    vspace="0">a</object>
+#errors
+/object/@vspace;attribute not defined;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="a"
+    vspace="1">a</object>
+#errors
+/object/@vspace;attribute not defined;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="a"
+    vspace="0%">a</object>
+#errors
+/object/@vspace;attribute not defined;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="a"
+    vspace="10%">a</object>
+#errors
+/object/@vspace;attribute not defined;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="a"
+    vspace="%">a</object>
+#errors
+/object/@vspace;attribute not defined;m
+/object/@vspace;length:syntax error;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data="a"
+    vspace="auto">a</object>
+#errors
+/object/@vspace;attribute not defined;m
+/object/@vspace;length:syntax error;m
+
+#data
+<object data="" align="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@align;attribute not defined;m
+/object/@align;enumerated:invalid;m
+
+#data
+<object data="" align="char" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@align;attribute not defined;m
+/object/@align;enumerated:invalid;m
+
+#data
+<object data="" align="justify" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@align;attribute not defined;m
+/object/@align;enumerated:invalid;m
+
+#data
+<object data="" align="center" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@align;attribute not defined;m
+/object/@align;enumerated:non-conforming;m
+
+#data
+<object data="" align="abscenter" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@align;attribute not defined;m
+/object/@align;enumerated:non-conforming;m
+
+#data
+<object data="" align="absmiddle" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@align;attribute not defined;m
+/object/@align;enumerated:non-conforming;m
+
+#data
+<object data="" align="texttop" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@align;attribute not defined;m
+/object/@align;enumerated:non-conforming;m
+
+#data
+<object data="" align="baseline" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@align;attribute not defined;m
+/object/@align;enumerated:non-conforming;m
+
+#data
+<object data="" align="text-top" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@align;attribute not defined;m
+/object/@align;enumerated:invalid;m
+
+#data
+<object data="" align="bottom" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@align;attribute not defined;m
+
+#data
+<object data="" align="middle" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@align;attribute not defined;m
+
+#data
+<object data="" align="top" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@align;attribute not defined;m
+
+#data
+<object data="" align="left" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@align;attribute not defined;m
+
+#data
+<object data="" align="right" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@align;attribute not defined;m
+
+#data escaped
+<object data="" align="r\u0130ght" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@align;attribute not defined;m
+/object/@align;enumerated:invalid;m
+
+#data escaped
+<object data="" align="r\u0131ght" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/object;no significant content;s
+/object/@align;attribute not defined;m
+/object/@align;enumerated:invalid;m
+
+#data
+<object name="" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
+#errors
+/object/@name;window name:empty;m
+
+#data
+<object name="_" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
+#errors
+/object/@name;window name:reserved;m
+
+#data
+<object name="_a" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
+#errors
+/object/@name;window name:reserved;m
+
+#data
+<object name="_blank" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
+#errors
+/object/@name;window name:reserved;m
+
+#data
+<object name="_parent" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
+#errors
+/object/@name;window name:reserved;m
+
+#data
+<object name="_self" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
+#errors
+/object/@name;window name:reserved;m
+
+#data
+<object name="_top" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
+#errors
+/object/@name;window name:reserved;m
+
+#data
+<object name="abc" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
+#errors
+
+#data
+<object name="self" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
+#errors
+
+#data
+<object name="abc" id="xyz" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
+#errors
+
+#data
+<object data="a" code="" xmlns="http://www.w3.org/1999/xhtml">a</object>
+#errors
+/object/@code;attribute not defined;m
+/object/@code;url:empty;m
+
+#data
+<object data="a" code="[]" xmlns="http://www.w3.org/1999/xhtml">a</object>
+#errors
+/object/@code;attribute not defined;m
+/object/@code;syntax error:iriref3987;m
+
+#data
+<object data="a" code="abc/def" xmlns="http://www.w3.org/1999/xhtml">a</object>
+#errors
+/object/@code;attribute not defined;m
+
+#data
+<object data="a" code="http://foo.test/" xmlns="http://www.w3.org/1999/xhtml">a</object>
+#errors
+/object/@code;attribute not defined;m
+
+#data
+<object data="a" mayscript="yes" xmlns="http://www.w3.org/1999/xhtml">a</object>
+#errors
+/object/@mayscript;attribute not defined;m
+
+#data
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
+    private="">aa</object>
+#errors
+/object/@private;attribute not defined;m
+/object/@private;enumerated:invalid;m
+
+#data
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
+    private="yes">aa</object>
+#errors
+/object/@private;attribute not defined;m
+
+#data
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
+    private="No">aa</object>
+#errors
+/object/@private;attribute not defined;m
+
+#data
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
+    private="true">aa</object>
+#errors
+/object/@private;attribute not defined;m
+/object/@private;enumerated:invalid;m
+
+#data
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
+    mediaout="">aa</object>
+#errors
+/object/@mediaout;attribute not defined;m
+/object/@mediaout;enumerated:invalid;m
+
+#data
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
+    mediaout="yes">aa</object>
+#errors
+/object/@mediaout;attribute not defined;m
+
+#data
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
+    mediaout="No">aa</object>
+#errors
+/object/@mediaout;attribute not defined;m
+
+#data
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
+    mediaout="true">aa</object>
+#errors
+/object/@mediaout;attribute not defined;m
+/object/@mediaout;enumerated:invalid;m
+
+#data
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
+    copyright="">aa</object>
+#errors
+/object/@copyright;attribute not defined;m
+/object/@copyright;enumerated:invalid;m
+
+#data
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
+    copyright="yes">aa</object>
+#errors
+/object/@copyright;attribute not defined;m
+
+#data
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
+    copyright="No">aa</object>
+#errors
+/object/@copyright;attribute not defined;m
+
+#data
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
+    copyright="true">aa</object>
+#errors
+/object/@copyright;attribute not defined;m
+/object/@copyright;enumerated:invalid;m
+
+#data
+<param xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/param;attribute missing;name;m
+/param;attribute missing;value;m
+
+#data
+<param name="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/param;attribute missing;value;m
+
+#data
+<param value="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/param;attribute missing;name;m
+
+#data
+<param name="a" value="b" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<param name="" value="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<param name="a" value="b" valuetype="data" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/param/@valuetype;attribute not defined;m
+
+#data
+<param name="a" value="b" valuetype="ref" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/param/@valuetype;attribute not defined;m
+
+#data
+<param name="a" value="b" valuetype="object" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/param/@valuetype;attribute not defined;m
+
+#data
+<param name="a" value="b" valuetype="text" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/param/@valuetype;attribute not defined;m
+/param/@valuetype;enumerated:invalid;m
+
+#data
+<param name="a" value="b" type="text" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/param/@type;attribute not defined;m
+/param/@type;IMT:no /;m
+
+#data
+<param name="a" value="b" type="text/html" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/param/@type;attribute not defined;m
+
+#data
+<param name="a" value="b" type="text/html; a=b" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/param/@type;attribute not defined;m
+/param/@type;IMT:parameter not allowed;m

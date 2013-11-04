@@ -1,0 +1,185 @@
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"
+    data-1="" data-2="custom data">x</p>
+#errors
+
+#data
+<p xmlns="http://ww.w3.org/1999/xhtml" data="">x</p>
+#errors
+/p/@data;unknown attribute;u
+/p;unknown element;u
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml" data="">x</p>
+#errors
+/p/@data;attribute not defined;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml" data-A="">x</p>
+#errors
+/p/@data-A;attribute not defined;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"
+    data-="custom data">x</p>
+#errors
+/p/@data-;attribute not defined;m
+
+#data
+<unknown xmlns="http://www.w3.org/1999/xhtml"
+    data-1="" data-2="custom data">x</unknown>
+#errors
+/unknown;element not defined;m
+
+#data
+<unknown xmlns="http://www.w3.org/1999/xhtml"
+    data-="custom data">x</unknown>
+#errors
+/unknown;element not defined;m
+/unknown/@data-;attribute not defined;m
+
+#data
+<unknown xmlns="http://www.w3.org/1999/xhtml" data-A="">x</unknown>
+#errors
+/unknown;element not defined;m
+/unknown/@data-A;attribute not defined;m
+
+#data
+<p xmlns="http://www.example.com/non-html"
+    data-1="" data-2="custom data">x</p>
+#errors
+/p;unknown element;u
+/p/@data-1;unknown attribute;u
+/p/@data-2;unknown attribute;u
+
+#data
+<meta xmlns="http://www.w3.org/1999/xhtml"
+    data-1="" data-2="custom data"
+    name="keywords" content="a, b"/>
+#errors
+/meta/@name;metadata:proposed;keywords;w
+
+#data
+<meta name="keywords" content="a,b" xmlns="http://www.w3.org/1999/xhtml"
+    data-="custom data"/>
+#errors
+/meta/@data-;attribute not defined;m
+/meta/@name;metadata:proposed;keywords;w
+
+#data
+<meta xmlns="http://www.w3.org/1999/xhtml" data-A=""
+    name="keywords" content="x"/>
+#errors
+/meta/@data-A;attribute not defined;m
+/meta/@name;metadata:proposed;keywords;w
+
+#data
+<a xmlns="http://www.w3.org/1999/xhtml"
+    data-1="" data-2="custom data">x</a>
+#errors
+
+#data
+<a xmlns="http://www.w3.org/1999/xhtml"
+    data-="custom data">x</a>
+#errors
+/a/@data-;attribute not defined;m
+
+#data
+<a xmlns="http://www.w3.org/1999/xhtml" data-A="">x</a>
+#errors
+/a/@data-A;attribute not defined;m
+
+#data
+<area xmlns="http://www.w3.org/1999/xhtml"
+    href="" alt="x" shape="default"
+    data-1="" data-2="custom data"/>
+#errors
+
+#data
+<area xmlns="http://www.w3.org/1999/xhtml"
+    data-="custom data" href="" alt="x" shape="default"/>
+#errors
+/area/@data-;attribute not defined;m
+
+#data
+<area xmlns="http://www.w3.org/1999/xhtml" data-A=""
+    href="" alt="x" shape="default"/>
+#errors
+/area/@data-A;attribute not defined;m
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml"
+    src=""
+    data-1="" data-2="custom data"/>
+#errors
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml"
+    data-="custom data" src=""/>
+#errors
+
+#data
+<embed src="" xmlns="http://www.w3.org/1999/xhtml" data-A=""/>
+#errors
+/embed/@data-A;attribute not defined;m
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml"
+    data=""
+    data-1="" data-2="custom data">x</object>
+#errors
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml"
+    data-="custom data" data="">x</object>
+#errors
+/object/@data-;attribute not defined;m
+
+#data
+<object data="" xmlns="http://www.w3.org/1999/xhtml" data-A="">x</object>
+#errors
+/object/@data-A;attribute not defined;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"
+    data-a="">x</p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"
+    data-xml="">x</p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"
+    data-xmlns="">x</p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"
+    data--abc="">x</p>
+#errors
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<p data-a:b>x</p>
+#errors
+/html/body/p/@data-a:b;attribute not defined;m
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<p data-xml:lang>x</p>
+#errors
+/html/body/p/@data-xml:lang;attribute not defined;m
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<p data-?>x</p>
+#errors
+/html/body/p/@data-?;attribute not defined;m
+
+#data html
+<!DOCTYPE HTML><title>x</title>
+<p data-!!!>x</p>
+#errors
+/html/body/p/@data-!!!;attribute not defined;m

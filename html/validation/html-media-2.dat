@@ -1,0 +1,861 @@
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/track;attribute missing;src;m
+/track;attribute missing;srclang;m
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml">  </track>
+#errors
+/track;attribute missing;src;m
+/track;attribute missing;srclang;m
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml">aa</track>
+#errors
+/track;attribute missing;src;m
+/track;attribute missing;srclang;m
+/track/"aa";character not allowed:empty;m
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"><span>aa</span></track>
+#errors
+/track;attribute missing;src;m
+/track;attribute missing;srclang;m
+/track/span;element not allowed:empty;m
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"><div>aa</div></track>
+#errors
+/track;attribute missing;src;m
+/track;attribute missing;srclang;m
+/track/div;element not allowed:empty;m
+
+#data
+<video src="b" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="abc" srclang="ja"/>
+  aa
+</video>
+#errors
+
+#data
+<audio src="b" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="abc" srclang="ja"/>
+  aa
+</audio>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <video src="a">
+    <track src="abc" srclang="ja"/>
+    aa
+  </video>
+</p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="abc" srclang="ja"/>
+    aa
+  </audio>
+</p>
+#errors
+
+#data
+<video src="b" xmlns="http://www.w3.org/1999/xhtml">
+  aa <track src="abc" srclang="ja"/>
+</video>
+#errors
+/video/track;element not allowed:flow;m
+
+#data
+<audio src="b" xmlns="http://www.w3.org/1999/xhtml">
+  aa<track src="abc" srclang="ja"/>
+</audio>
+#errors
+/audio/track;element not allowed:flow;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <video src="a"> aa<track src="abc" srclang="ja"/> </video>
+</p>
+#errors
+/p/video/track;element not allowed:phrasing;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a"> aa<track src="abc" srclang="ja"/> </audio>
+</p>
+#errors
+/p/audio/track;element not allowed:phrasing;m
+
+#data
+<video src="b" xmlns="http://www.w3.org/1999/xhtml">
+  <u>aa</u><track src="abc" srclang="ja"/>
+</video>
+#errors
+/video/track;element not allowed:flow;m
+
+#data
+<audio src="b" xmlns="http://www.w3.org/1999/xhtml">
+  <u>aa</u><track src="abc" srclang="ja"/>
+</audio>
+#errors
+/audio/track;element not allowed:flow;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <video src="a"><u>aa</u><track src="abc" srclang="ja"/> </video>
+</p>
+#errors
+/p/video/track;element not allowed:phrasing;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a"><u>aa</u><track src="abc" srclang="ja"/> </audio>
+</p>
+#errors
+/p/audio/track;element not allowed:phrasing;m
+
+#data
+<video xmlns="http://www.w3.org/1999/xhtml">
+  <source src="a"/><track src="abc" srclang="ja"/>
+</video>
+#errors
+/video;no significant content;s
+
+#data
+<audio xmlns="http://www.w3.org/1999/xhtml">
+  <source src="a"/><track src="abc" srclang="ja"/>
+</audio>
+#errors
+/audio;no significant content;s
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <video><source src="a"/><track src="abc" srclang="ja"/> </video>
+</p>
+#errors
+/p/video;no significant content;s
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio><source src="a"/><track src="abc" srclang="ja"/> </audio>
+</p>
+#errors
+/p/audio;no significant content;s
+
+#data
+<video src="b" xmlns="http://www.w3.org/1999/xhtml">
+  <source src="a"/><track src="abc" srclang="ja"/>
+</video>
+#errors
+/video;no significant content;s
+/video/source;element not allowed:flow;m
+
+#data
+<audio src="b" xmlns="http://www.w3.org/1999/xhtml">
+  <source src="a"/><track src="abc" srclang="ja"/>
+</audio>
+#errors
+/audio;no significant content;s
+/audio/source;element not allowed:flow;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <video src="a"><source src="a"/><track src="abc" srclang="ja"/> </video>
+</p>
+#errors
+/p/video;no significant content;s
+/p/video/source;element not allowed:phrasing;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a"><source src="a"/><track src="abc" srclang="ja"/> </audio>
+</p>
+#errors
+/p/audio;no significant content;s
+/p/audio/source;element not allowed:phrasing;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <video src="a"><source src="a"/><track src="abc" srclang="ja"/> <div>a</div></video>
+</p>
+#errors
+/p/video/source;element not allowed:phrasing;m
+/p/video/div;element not allowed:phrasing;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a"><source src="a"/><track src="abc" srclang="ja"/> <div>a</div></audio>
+</p>
+#errors
+/p/audio/source;element not allowed:phrasing;m
+/p/audio/div;element not allowed:phrasing;m
+
+#data
+<video xmlns="http://www.w3.org/1999/xhtml">
+  <source src="a"/><track src="abc" srclang="ja"/>
+  <div>abc</div>
+</video>
+#errors
+
+#data
+<audio xmlns="http://www.w3.org/1999/xhtml">
+  <source src="c"/><track src="abc" srclang="ja"/>
+  <div>abc</div>
+</audio>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <video><source src="a"/><track src="abc" srclang="ja"/> </video>
+  <p>abc</p>
+</div>
+#errors
+/div/video;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <audio><source src="a"/><track src="abc" srclang="ja"/> </audio>
+  <p>abv</p>
+</div>
+#errors
+/div/audio;no significant content;s
+
+#data
+<video src="b" xmlns="http://www.w3.org/1999/xhtml">
+  <source src="a"/><track src="abc" srclang="ja"/>
+  <div>abc</div>
+</video>
+#errors
+/video/source;element not allowed:flow;m
+
+#data
+<audio src="b" xmlns="http://www.w3.org/1999/xhtml">
+  <source src="a"/><track src="abc" srclang="ja"/>
+  <div>abc</div>
+</audio>
+#errors
+/audio/source;element not allowed:flow;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <video src="a"><source src="a"/><track src="abc" srclang="ja"/> </video>
+  <p>abc</p>
+</div>
+#errors
+/div/video;no significant content;s
+/div/video/source;element not allowed:flow;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a"><source src="a"/><track src="abc" srclang="ja"/> </audio>
+  <p>abv</p>
+</div>
+#errors
+/div/audio;no significant content;s
+/div/audio/source;element not allowed:flow;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <video><source src="a"/><track src="abc" srclang="ja"/>
+  <p>abc</p></video>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <audio><source src="a"/><track src="abc" srclang="ja"/>
+  <p>abv</p></audio>
+</div>
+#errors
+
+#data
+<video xmlns="http://www.w3.org/1999/xhtml">
+  <source src="a"/><source src="a"/><track src="abc" srclang="ja"/>
+</video>
+#errors
+/video;no significant content;s
+
+#data
+<audio xmlns="http://www.w3.org/1999/xhtml">
+  <source src="a"/><source src="a"/><track src="abc" srclang="ja"/>
+</audio>
+#errors
+/audio;no significant content;s
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <video ><source src="a"/><source src="a"/>
+      <track src="abc" srclang="ja"/> </video>
+</p>
+#errors
+/p/video;no significant content;s
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio ><source src="a"/><source src="a"/>
+      <track src="abc" srclang="ja"/> </audio>
+</p>
+#errors
+/p/audio;no significant content;s
+
+#data
+<video xmlns="http://www.w3.org/1999/xhtml">
+  <track src="abc" srclang="ja"/><source src="a"/>
+</video>
+#errors
+/video/source;element not allowed:flow;m
+/video;no significant content;s
+
+#data
+<audio xmlns="http://www.w3.org/1999/xhtml">
+  <track src="abc" srclang="ja"/><source src="a"/>
+</audio>
+#errors
+/audio/source;element not allowed:flow;m
+/audio;no significant content;s
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <video><track src="abc" srclang="ja"/>
+      <source src="a"/></video>
+</p>
+#errors
+/p/video/source;element not allowed:phrasing;m
+/p/video;no significant content;s
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio><track src="abc" srclang="ja"/>
+      <source src="a"/></audio>
+</p>
+#errors
+/p/audio/source;element not allowed:phrasing;m
+/p/audio;no significant content;s
+
+#data
+<video src="b" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="abc" srclang="ja"/><source src="a"/>
+</video>
+#errors
+/video/source;element not allowed:flow;m
+/video;no significant content;s
+
+#data
+<audio src="b" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="abc" srclang="ja"/><source src="a"/>
+</audio>
+#errors
+/audio/source;element not allowed:flow;m
+/audio;no significant content;s
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <video src="a"><track src="abc" srclang="ja"/>
+      <source src="a"/></video>
+</p>
+#errors
+/p/video/source;element not allowed:phrasing;m
+/p/video;no significant content;s
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a"><track src="abc" srclang="ja"/>
+      <source src="a"/></audio>
+</p>
+#errors
+/p/audio/source;element not allowed:phrasing;m
+/p/audio;no significant content;s
+
+#data
+<video src="b" xmlns="http://www.w3.org/1999/xhtml">
+  <source src="a"/><track src="abc" srclang="ja"/><source src="a"/>
+</video>
+#errors
+/video/source;element not allowed:flow;m
+/video/source;element not allowed:flow;m
+/video;no significant content;s
+
+#data
+<audio src="b" xmlns="http://www.w3.org/1999/xhtml">
+  <source src="a"/><track src="abc" srclang="ja"/><source src="a"/>
+</audio>
+#errors
+/audio/source;element not allowed:flow;m
+/audio/source;element not allowed:flow;m
+/audio;no significant content;s
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <video src="a"><source src="a"/><track src="abc" srclang="ja"/>
+      <source src="a"/></video>
+</p>
+#errors
+/p/video/source;element not allowed:phrasing;m
+/p/video/source;element not allowed:phrasing;m
+/p/video;no significant content;s
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a"><source src="a"/><track src="abc" srclang="ja"/>
+      <source src="a"/></audio>
+</p>
+#errors
+/p/audio/source;element not allowed:phrasing;m
+/p/audio/source;element not allowed:phrasing;m
+/p/audio;no significant content;s
+
+#data
+<video xmlns="http://www.w3.org/1999/xhtml">
+  <track src="a" srclang="ja"/>
+  a
+</video>
+#errors
+/video;child element missing;source;w
+
+#data
+<audio xmlns="http://www.w3.org/1999/xhtml">
+  <track src="a" srclang="ja"/>
+  a
+</audio>
+#errors
+/audio;child element missing;source;w
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"><video>
+  <track src="a" srclang="ja"/>
+  a
+</video></p>
+#errors
+/p/video;child element missing;source;w
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"><audio>
+  <track src="a" srclang="ja"/>
+  a
+</audio></p>
+#errors
+/p/audio;child element missing;source;w
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc"/>
+#errors
+/track;child element missing;source;w
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc" srclang="ja"/>
+#errors
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="[abc]" srclang="ja"/>
+#errors
+/track/@src;syntax error:iriref3987;m
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc" srclang="!!"/>
+#errors
+/track/@srclang;langtag:illegal;m
+/track/@srclang;langtag:language:nosemantics;m
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc" srclang="ja"
+    kind="subtitles"/>
+#errors
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc" srclang="ja"
+    kind="captions"/>
+#errors
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc" srclang="ja"
+    kind="descriptions"/>
+#errors
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc" srclang="ja"
+    kind="chapters"/>
+#errors
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc" srclang="ja"
+    kind="metadata"/>
+#errors
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc" srclang="ja"
+    kind="SUBTITLES"/>
+#errors
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc" srclang="ja"
+    kind="Metadata"/>
+#errors
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc" srclang="ja"
+    kind=""/>
+#errors
+/track/@kind;enumerated:invalid;m
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc" srclang="ja"
+    kind=" subtitles "/>
+#errors
+/track/@kind;enumerated:invalid;m
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc" srclang="ja"
+    kind="subtitle"/>
+#errors
+/track/@kind;enumerated:invalid;m
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc" srclang="ja"
+    kind="sub-titles"/>
+#errors
+/track/@kind;enumerated:invalid;m
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc" srclang="ja"
+    kind="caption"/>
+#errors
+/track/@kind;enumerated:invalid;m
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc" srclang="ja"
+    kind="description"/>
+#errors
+/track/@kind;enumerated:invalid;m
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc" srclang="ja"
+    kind="chapter"/>
+#errors
+/track/@kind;enumerated:invalid;m
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc" srclang="ja"
+    kind="metadatum"/>
+#errors
+/track/@kind;enumerated:invalid;m
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc"
+    kind="captions"/>
+#errors
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc"
+    kind="descriptions"/>
+#errors
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc"
+    kind="chapters"/>
+#errors
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc"
+    kind="metadata"/>
+#errors
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc"
+    srclang=""/>
+#errors
+/track/@srclang;langtag:illegal;m
+/track/@srclang;langtag:language:nosemantics;m
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc"
+    kind="metadata"
+    label=""/>
+#errors
+/track/@label;empty attribute value;m
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc"
+    kind="metadata"
+    label="abc"/>
+#errors
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc"
+    kind="metadata"
+    label="aa be e a+qa"/>
+#errors
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc"
+    kind="metadata"
+    default=""/>
+#errors
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc"
+    kind="metadata"
+    default="default"/>
+#errors
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc"
+    kind="metadata"
+    default="DEFAult"/>
+#errors
+
+#data
+<track xmlns="http://www.w3.org/1999/xhtml"
+    src="abc"
+    kind="metadata"
+    default="true"/>
+#errors
+/track/@default;boolean:invalid;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track srclang="ja" src="a" default=""/>
+    <track srclang="ja" src="a" default=""/>
+    <track srclang="ja" src="a" default=""/>aa
+  </audio>
+</p>
+#errors
+/p/audio/track;duplicate track;m
+/p/audio/track;duplicate track;m
+/p/audio/track;duplicate default track;m
+/p/audio/track;duplicate default track;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <video src="a">
+    <track srclang="ja" src="a" default=""/>
+    <track srclang="ja" src="a" default=""/>
+    <track srclang="ja" src="a" default=""/>aa
+  </video>
+</p>
+#errors
+/p/video/track;duplicate track;m
+/p/video/track;duplicate track;m
+/p/video/track;duplicate default track;m
+/p/video/track;duplicate default track;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track srclang="ja" src="a" default=""/>
+    <track srclang="ja" src="a"/>
+    <track srclang="ja" src="a"/>aa
+  </audio>
+</p>
+#errors
+/p/audio/track;duplicate track;m
+/p/audio/track;duplicate track;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track srclang="ja" src="a" default=""/>
+    <ins>
+      <track srclang="ja" src="a" default=""/>
+      <track srclang="ja" src="a" default=""/>aa
+    </ins>
+  </audio>
+</p>
+#errors
+/p/audio/ins/track;element not allowed:phrasing;m
+/p/audio/ins/track;element not allowed:phrasing;m
+/p/audio/ins/track;duplicate track;m
+/p/audio/ins/track;duplicate default track;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="a" srclang="ja"/>
+    <track src="a" srclang="en"/>x
+  </audio>
+</p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="a" srclang="ja"/>
+    <track src="a" srclang="ja"/>
+    <track src="a" srclang="ja"/>x
+  </audio>
+</p>
+#errors
+/p/audio/track;duplicate track;m
+/p/audio/track;duplicate track;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="a" kind="subtitles" srclang="ja"/>
+    <track src="a" kind="subtitles" srclang="ja"/>x
+  </audio>
+</p>
+#errors
+/p/audio/track;duplicate track;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="a" kind="captions" srclang="ja"/>
+    <track src="a" kind="Captions" srclang="ja"/>x
+  </audio>
+</p>
+#errors
+/p/audio/track;duplicate track;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="a" kind="descriptions" srclang="ja"/>
+    <track src="a" kind="descriptions" srclang="ja"/>x
+  </audio>
+</p>
+#errors
+/p/audio/track;duplicate track;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="a" kind="chapters" srclang="ja"/>
+    <track src="a" kind="chapters" srclang="ja"/>x
+  </audio>
+</p>
+#errors
+/p/audio/track;duplicate track;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="a" kind="metadata" srclang="ja"/>
+    <track src="a" kind="metadata" srclang="ja"/>x
+  </audio>
+</p>
+#errors
+/p/audio/track;duplicate track;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="a" kind="metadata"/>
+    <track src="a" kind="metadata"/>x
+  </audio>
+</p>
+#errors
+/p/audio/track;duplicate track;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="a" kind="metadata"/>
+    <track src="a" kind="metadata" srclang="fr"/>x
+  </audio>
+</p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="a" kind="metadata" label="a"/>
+    <track src="a" kind="metadata"/>x
+  </audio>
+</p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="a" kind="metadata" label="a"/>
+    <track src="a" kind="metadata" label="A"/>x
+  </audio>
+</p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="a" kind="metadata" label="a"/>
+    <track src="a" kind="metadata" label="a"/>x
+  </audio>
+</p>
+#errors
+/p/audio/track;duplicate track;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="a" kind="metadata" srclang="ja"/>
+    <track src="a" kind="metadata" srclang="JA"/>x
+  </audio>
+</p>
+#errors
+/p/audio/track;duplicate track;m
+/p/audio/track/@srclang;langtag:language:case;w
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="a" kind="metadata" label="a"/>
+    <track src="a" kind="metadata" label="a "/>x
+  </audio>
+</p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="a" kind="metadata" label="a"/>
+    <track src="a" kind="metadata" label=""/>x
+  </audio>
+</p>
+#errors
+/p/audio/track/@label;empty attribute value;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="a" kind="metadata"/>
+    <track src="a" kind="metadata" label=""/>x
+  </audio>
+</p>
+#errors
+/p/audio/track/@label;empty attribute value;m
