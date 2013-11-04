@@ -243,6 +243,7 @@
 #errors
 /html/head;child element missing;title;m
 /html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;charset:not preferred;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -254,6 +255,7 @@
 #errors
 /html/head;child element missing;title;m
 /html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;charset:not preferred;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -265,6 +267,7 @@
 #errors
 /html/head;child element missing;title;m
 /html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;charset:not preferred;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -2313,6 +2316,9 @@ p {color: green}
     content="text/html; charset=utf-8"/>
 #errors
 /meta;element not allowed:meta charset;m
+/meta/@content;charset:not preferred;m
+/meta/@content;mismatched charset name not checked;u
+/meta;in XML:charset;m
 
 #data
 <meta xmlns="http://www.w3.org/1999/xhtml"
@@ -2320,6 +2326,9 @@ p {color: green}
     content="text/html; charset=UTF-8"/>
 #errors
 /meta;element not allowed:meta charset;m
+/meta/@content;charset:not preferred;m
+/meta/@content;mismatched charset name not checked;u
+/meta;in XML:charset;m
 
 #data
 <meta xmlns="http://www.w3.org/1999/xhtml"
@@ -2327,6 +2336,9 @@ p {color: green}
     content="text/html; charset=Utf-8"/>
 #errors
 /meta;element not allowed:meta charset;m
+/meta/@content;charset:not preferred;m
+/meta/@content;mismatched charset name not checked;u
+/meta;in XML:charset;m
 
 #data html
 <!DOCTYPE HTML>
