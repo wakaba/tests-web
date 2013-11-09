@@ -82,30 +82,41 @@
 #data
 <p xmlns="http://www.w3.org/1999/xhtml" xml:id="aa">x</p>
 #errors
+/p/@id;unknown attribute;u
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml" xml:id="aa" id="bb">x</p>
 #errors
+/p/@id;unknown attribute;u
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml" xml:id="aa">
   <span id="bb">x</span>
 </p>
 #errors
+/p/@id;unknown attribute;u
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml" xml:id="aa">
   <span id="aa">x</span>
 </p>
 #errors
-/p/span/@id;duplicate ID;m
+/p/@id;unknown attribute;u
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml" id="aa">
   <span xml:id="aa">x</span>
 </p>
 #errors
-/p/span/@id;duplicate ID;m
+/p/span/@id;unknown attribute;u
+
+#data html
+<!DOCTYPE html>
+<title>aa</title>
+<p xml:id=aa>a
+<p id=aa>b
+#errors
+/html/body/p/@xml:id;attribute not defined;m
 
 #data html
 <!DOCTYPE HTML>
