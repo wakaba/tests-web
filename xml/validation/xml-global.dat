@@ -82,33 +82,33 @@
 #data
 <p xmlns="http://www.w3.org/1999/xhtml" xml:id="aa">x</p>
 #errors
-/p/@id;unknown attribute;u
+/p/@id;attribute not defined;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml" xml:id="aa" id="bb">x</p>
 #errors
-/p/@id;unknown attribute;u
+/p/@id;attribute not defined;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml" xml:id="aa">
   <span id="bb">x</span>
 </p>
 #errors
-/p/@id;unknown attribute;u
+/p/@id;attribute not defined;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml" xml:id="aa">
   <span id="aa">x</span>
 </p>
 #errors
-/p/@id;unknown attribute;u
+/p/@id;attribute not defined;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml" id="aa">
   <span xml:id="aa">x</span>
 </p>
 #errors
-/p/span/@id;unknown attribute;u
+/p/span/@id;attribute not defined;m
 
 #data html
 <!DOCTYPE html>
@@ -124,3 +124,9 @@
 <svg xml:lang="ja"/>
 #errors
 /html/body/svg;unknown element;u
+
+#data
+<p xml:foo="bar"/>
+#errors
+/p;unknown element;u
+/p/@foo;attribute not defined;m
