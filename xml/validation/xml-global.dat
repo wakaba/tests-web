@@ -47,7 +47,7 @@
 <xmlns:a/>
 #errors
 /a;Reserved Prefixes and Namespace Names:<xmlns:>;m
-/a;unknown element;u
+/a;element not defined;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">foo
@@ -55,13 +55,13 @@
 </p>
 #errors
 /p/a;Reserved Prefixes and Namespace Names:<xmlns:>;m
-/p/a;unknown element;u
+/p/a;element not defined;m
 /p/a;element not allowed:phrasing;m
 
 #data
 <xmlns/>
 #errors
-/xmlns;unknown element;u
+/xmlns;element not defined;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml" xml:base="">x</p>
@@ -123,22 +123,22 @@
 <title>xxx</title>
 <svg xml:lang="ja"/>
 #errors
-/html/body/svg;unknown element;u
+/html/body/svg;element not defined;m
 
 #data
 <p xml:foo="bar"/>
 #errors
-/p;unknown element;u
+/p;element not defined;m
 /p/@foo;attribute not defined;m
 
 #data
 <hpoge xml:id=""/>
 #errors
-/hpoge;unknown element;u
+/hpoge;element not defined;m
 /hpoge/@id;attribute not defined;m
 
 #data
 <foo data-hoge="aa"/>
 #errors
-/foo;unknown element;u
+/foo;element not defined;m
 /foo/@data-hoge;attribute not defined;m
