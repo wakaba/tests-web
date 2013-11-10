@@ -1,4 +1,3 @@
-
 #data
 <area shape="default" href="" alt="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
@@ -964,7 +963,7 @@ aa<map name="x">b<map name="y">bb</map></map>
   <img src="" alt="a" name="abc"/>
 </div>
 #errors
-/div/img/@name;id name confliction;m
+/div/span/@id;attribute not defined;m
 /div/img/@name;attribute not defined;m
 
 #data
@@ -983,7 +982,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 </div>
 #errors
 /div/img/@name;attribute not defined;m
-/div/span/@id;id name confliction;m
+/div/span/@id;attribute not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1000,6 +999,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 #errors
 /div/img/@name;attribute not defined;m
 /div/img/@name;id name mismatch;m
+/div/img/@id;attribute not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1007,6 +1007,8 @@ aa<map name="x">b<map name="y">bb</map></map>
 </div>
 #errors
 /div/img/@name;attribute not defined;m
+/div/img/@name;id name mismatch;m
+/div/img/@id;attribute not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1014,6 +1016,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 </div>
 #errors
 /div/img/@name;attribute not defined;m
+/div/img/@id;attribute not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1021,7 +1024,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 </div>
 #errors
 /div/img/@name;attribute not defined;m
-/div/img/@name;id name mismatch;m
+/div/img/@id;attribute not defined;m
 
 #data
 <img src="a" alt="x" xmlns="http://www.w3.org/1999/xhtml"

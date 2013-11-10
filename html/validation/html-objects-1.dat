@@ -1383,7 +1383,7 @@ xxxx
   <applet src="" alt="a" name="abc">a</applet>
 </div>
 #errors
-/div/applet/@name;id name confliction;m
+/div/span/@id;attribute not defined;m
 /div/applet/@name;attribute not defined;m
 /div/applet/@src;attribute not defined;m
 /div/applet/@alt;attribute not defined;m
@@ -1416,7 +1416,7 @@ xxxx
 </div>
 #errors
 /div/applet/@name;attribute not defined;m
-/div/span/@id;id name confliction;m
+/div/span/@id;attribute not defined;m
 /div/applet/@src;attribute not defined;m
 /div/applet/@alt;attribute not defined;m
 /div/applet;attribute missing:code|object;m
@@ -1453,7 +1453,7 @@ xxxx
 /div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element not defined;m
-/div/applet/@name;id name mismatch;m
+/div/applet/@id;attribute not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1469,6 +1469,7 @@ xxxx
 /div/applet;element not allowed:flow;m
 /div/applet;element not defined;m
 /div/applet/@name;id name mismatch;m
+/div/applet/@id;attribute not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1483,6 +1484,7 @@ xxxx
 /div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element not defined;m
+/div/applet/@id;attribute not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1497,6 +1499,8 @@ xxxx
 /div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element not defined;m
+/div/applet/@id;attribute not defined;m
+/div/applet/@name;id name mismatch;m
 
 #data
 <applet code="a" width="1" height="1" archive="" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -1802,90 +1806,90 @@ xxxx
 <embed xmlns="http://www.w3.org/1999/xhtml" src="a"
     hspace=""/>
 #errors
-/embed/@hspace;attribute not defined;m
+/embed/@hspace;attribute not defined;w
 /embed/@hspace;length:syntax error;m
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="a"
     hspace="0"/>
 #errors
-/embed/@hspace;attribute not defined;m
+/embed/@hspace;attribute not defined;w
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="a"
     hspace="1"/>
 #errors
-/embed/@hspace;attribute not defined;m
+/embed/@hspace;attribute not defined;w
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="a"
     hspace="0%"/>
 #errors
-/embed/@hspace;attribute not defined;m
+/embed/@hspace;attribute not defined;w
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="a"
     hspace="10%"/>
 #errors
-/embed/@hspace;attribute not defined;m
+/embed/@hspace;attribute not defined;w
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="a"
     hspace="%"/>
 #errors
-/embed/@hspace;attribute not defined;m
+/embed/@hspace;attribute not defined;w
 /embed/@hspace;length:syntax error;m
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="a"
     hspace="auto"/>
 #errors
-/embed/@hspace;attribute not defined;m
+/embed/@hspace;attribute not defined;w
 /embed/@hspace;length:syntax error;m
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="a"
     vspace=""/>
 #errors
-/embed/@vspace;attribute not defined;m
+/embed/@vspace;attribute not defined;w
 /embed/@vspace;length:syntax error;m
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="a"
     vspace="0"/>
 #errors
-/embed/@vspace;attribute not defined;m
+/embed/@vspace;attribute not defined;w
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="a"
     vspace="1"/>
 #errors
-/embed/@vspace;attribute not defined;m
+/embed/@vspace;attribute not defined;w
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="a"
     vspace="0%"/>
 #errors
-/embed/@vspace;attribute not defined;m
+/embed/@vspace;attribute not defined;w
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="a"
     vspace="10%"/>
 #errors
-/embed/@vspace;attribute not defined;m
+/embed/@vspace;attribute not defined;w
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="a"
     vspace="%"/>
 #errors
-/embed/@vspace;attribute not defined;m
+/embed/@vspace;attribute not defined;w
 /embed/@vspace;length:syntax error;m
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="a"
     vspace="auto"/>
 #errors
-/embed/@vspace;attribute not defined;m
+/embed/@vspace;attribute not defined;w
 /embed/@vspace;length:syntax error;m
 
 #data
@@ -2008,14 +2012,14 @@ xxxx
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     name="name1"/>
 #errors
-/embed/@name;attribute not defined;m
+/embed/@name;attribute not defined;w
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <embed src="a" name=""/>
 </div>
 #errors
-/div/embed/@name;attribute not defined;m
+/div/embed/@name;attribute not defined;w
 /div/embed/@name;anchor name:empty;m
 
 #data
@@ -2023,14 +2027,14 @@ xxxx
   <embed src="a" name="  "/>
 </div>
 #errors
-/div/embed/@name;attribute not defined;m
+/div/embed/@name;attribute not defined;w
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <embed src="a" name="aaa"/>
 </div>
 #errors
-/div/embed/@name;attribute not defined;m
+/div/embed/@name;attribute not defined;w
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -2038,7 +2042,7 @@ xxxx
   <a name="abc">aa</a>
 </div>
 #errors
-/div/embed/@name;attribute not defined;m
+/div/embed/@name;attribute not defined;w
 /div/a/@name;duplicate anchor name;m
 
 #data
@@ -2048,7 +2052,7 @@ xxxx
 </div>
 #errors
 /div/a/@name;anchor name;s
-/div/embed/@name;attribute not defined;m
+/div/embed/@name;attribute not defined;w
 /div/embed/@name;duplicate anchor name;m
 
 #data
@@ -2058,7 +2062,7 @@ xxxx
 </div>
 #errors
 /div/embed/@name;id name confliction;m
-/div/embed/@name;attribute not defined;m
+/div/embed/@name;attribute not defined;w
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -2066,8 +2070,8 @@ xxxx
   <embed src="a" name="abc"/>
 </div>
 #errors
-/div/embed/@name;id name confliction;m
-/div/embed/@name;attribute not defined;m
+/div/span/@id;attribute not defined;m
+/div/embed/@name;attribute not defined;w
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -2075,7 +2079,7 @@ xxxx
   <span id="abc">aa</span>
 </div>
 #errors
-/div/embed/@name;attribute not defined;m
+/div/embed/@name;attribute not defined;w
 /div/span/@id;id name confliction;m
 
 #data
@@ -2084,15 +2088,15 @@ xxxx
   <span xml:id="abc">aa</span>
 </div>
 #errors
-/div/embed/@name;attribute not defined;m
-/div/span/@id;id name confliction;m
+/div/embed/@name;attribute not defined;w
+/div/span/@id;attribute not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <embed src="a" name="abc" id="abd"/>
 </div>
 #errors
-/div/embed/@name;attribute not defined;m
+/div/embed/@name;attribute not defined;w
 /div/embed/@name;id name mismatch;m
 
 #data
@@ -2100,261 +2104,254 @@ xxxx
   <embed src="a" name="abc" id="abd" xml:id="abe"/>
 </div>
 #errors
-/div/embed/@name;attribute not defined;m
+/div/embed/@name;attribute not defined;w
 /div/embed/@name;id name mismatch;m
+/div/embed/@id;attribute not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <embed src="a" name="abc" id="abd" xml:id="abc"/>
 </div>
 #errors
-/div/embed/@name;attribute not defined;m
+/div/embed/@name;attribute not defined;w
+/div/embed/@name;id name mismatch;m
+/div/embed/@id;attribute not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <embed src="a" name="abc" id="abc" xml:id="abd"/>
 </div>
 #errors
-/div/embed/@name;attribute not defined;m
+/div/embed/@name;attribute not defined;w
+/div/embed/@id;attribute not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <embed src="a" name="abc" xml:id="abd"/>
 </div>
 #errors
-/div/embed/@name;attribute not defined;m
-/div/embed/@name;id name mismatch;m
+/div/embed/@name;attribute not defined;w
+/div/embed/@id;attribute not defined;m
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     align=""/>
 #errors
-/embed/@align;attribute not defined;m
+/embed/@align;attribute not defined;w
 /embed/@align;enumerated:invalid;m
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     align="  "/>
 #errors
-/embed/@align;attribute not defined;m
+/embed/@align;attribute not defined;w
 /embed/@align;enumerated:invalid;m
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     align="left"/>
 #errors
-/embed/@align;attribute not defined;m
+/embed/@align;attribute not defined;w
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     align="center"/>
 #errors
-/embed/@align;attribute not defined;m
+/embed/@align;attribute not defined;w
 /embed/@align;enumerated:non-conforming;m
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     align="right"/>
 #errors
-/embed/@align;attribute not defined;m
+/embed/@align;attribute not defined;w
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     align="TOP"/>
 #errors
-/embed/@align;attribute not defined;m
+/embed/@align;attribute not defined;w
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     align="middle"/>
 #errors
-/embed/@align;attribute not defined;m
+/embed/@align;attribute not defined;w
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     align="bottom"/>
 #errors
-/embed/@align;attribute not defined;m
+/embed/@align;attribute not defined;w
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     align="texttop"/>
 #errors
-/embed/@align;attribute not defined;m
+/embed/@align;attribute not defined;w
 /embed/@align;enumerated:non-conforming;m
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     align="absmiddle"/>
 #errors
-/embed/@align;attribute not defined;m
+/embed/@align;attribute not defined;w
 /embed/@align;enumerated:non-conforming;m
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     align="abscenter"/>
 #errors
-/embed/@align;attribute not defined;m
+/embed/@align;attribute not defined;w
 /embed/@align;enumerated:non-conforming;m
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     align="baseline"/>
 #errors
-/embed/@align;attribute not defined;m
+/embed/@align;attribute not defined;w
 /embed/@align;enumerated:non-conforming;m
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     align="none"/>
 #errors
-/embed/@align;attribute not defined;m
+/embed/@align;attribute not defined;w
 /embed/@align;enumerated:invalid;m
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     align="text-top"/>
 #errors
-/embed/@align;attribute not defined;m
+/embed/@align;attribute not defined;w
 /embed/@align;enumerated:invalid;m
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     align="ALIGN"/>
 #errors
-/embed/@align;attribute not defined;m
+/embed/@align;attribute not defined;w
 /embed/@align;enumerated:invalid;m
 
 #data escaped
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     align="r\u0130ght"/>
 #errors
-/embed/@align;attribute not defined;m
+/embed/@align;attribute not defined;w
 /embed/@align;enumerated:invalid;m
 
 #data escaped
 <embed xmlns="http://www.w3.org/1999/xhtml" src="x"
     align="r\u0131ght"/>
 #errors
-/embed/@align;attribute not defined;m
+/embed/@align;attribute not defined;w
 /embed/@align;enumerated:invalid;m
 
 #data
 <embed src="a" code="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@code;attribute not defined;m
 /embed/@code;url:empty;m
 
 #data
 <embed src="a" code="[]" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@code;attribute not defined;m
 /embed/@code;syntax error:iriref3987;m
 
 #data
 <embed src="a" code="abc/def" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@code;attribute not defined;m
 
 #data
 <embed src="a" code="http://foo.test/" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@code;attribute not defined;m
 
 #data
 <embed src="a" border="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@border;attribute not defined;m
+/embed/@border;attribute not defined;w
 /embed/@border;nninteger:syntax error;m
 
 #data
 <embed src="a" border="  " xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@border;attribute not defined;m
+/embed/@border;attribute not defined;w
 /embed/@border;nninteger:syntax error;m
 
 #data
 <embed src="a" border="abc" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@border;attribute not defined;m
+/embed/@border;attribute not defined;w
 /embed/@border;nninteger:syntax error;m
 
 #data
 <embed src="a" border="0" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@border;attribute not defined;m
+/embed/@border;attribute not defined;w
 
 #data
 <embed src="a" border="1" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@border;attribute not defined;m
+/embed/@border;attribute not defined;w
 
 #data
 <embed src="a" border="120" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@border;attribute not defined;m
+/embed/@border;attribute not defined;w
 
 #data
 <embed src="a" border="10px" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@border;attribute not defined;m
+/embed/@border;attribute not defined;w
 /embed/@border;nninteger:syntax error;m
 
 #data
 <embed src="a" border="-20" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@border;attribute not defined;m
+/embed/@border;attribute not defined;w
 /embed/@border;nninteger:syntax error;m
 
 #data
 <embed src="a" border="+20" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@border;attribute not defined;m
+/embed/@border;attribute not defined;w
 /embed/@border;nninteger:syntax error;m
 
 #data
 <embed src="a" border="-20.0" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@border;attribute not defined;m
+/embed/@border;attribute not defined;w
 /embed/@border;nninteger:syntax error;m
 
 #data
 <embed src="a" palette="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@palette;attribute not defined;m
 /embed/@palette;enumerated:invalid;m
 
 #data
 <embed src="a" palette=" " xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@palette;attribute not defined;m
 /embed/@palette;enumerated:invalid;m
 
 #data
 <embed src="a" palette="yes" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@palette;attribute not defined;m
 /embed/@palette;enumerated:invalid;m
 
 #data
 <embed src="a" palette="foreground" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@palette;attribute not defined;m
 
 #data
 <embed src="a" palette="background" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@palette;attribute not defined;m
 
 #data
 <embed src="a" palette="BackGROUND" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@palette;attribute not defined;m
 
 #data
 <embed src="a" palette="forground" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@palette;attribute not defined;m
 /embed/@palette;enumerated:invalid;m
 
 #data
@@ -2364,34 +2361,28 @@ xxxx
 #data
 <embed src="a" pluginpage="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@pluginpage;attribute not defined;m
 
 #data
 <embed src="a" pluginpage="[]" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@pluginpage;attribute not defined;m
 /embed/@pluginpage;syntax error:iriref3987;m
 
 #data
 <embed src="a" pluginspage="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@pluginspage;attribute not defined;m
 
 #data
 <embed src="a" pluginspage="[]" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@pluginspage;attribute not defined;m
 /embed/@pluginspage;syntax error:iriref3987;m
 
 #data
 <embed src="a" pluginurl="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@pluginurl;attribute not defined;m
 
 #data
 <embed src="a" pluginurl="[]" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@pluginurl;attribute not defined;m
 /embed/@pluginurl;syntax error:iriref3987;m
 
 #data
@@ -2409,56 +2400,46 @@ xxxx
 #data
 <embed src="a" units="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@units;attribute not defined;m
 /embed/@units;enumerated:invalid;m
 
 #data
 <embed src="a" units="pixels" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@units;attribute not defined;m
 
 #data
 <embed src="a" units="em" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@units;attribute not defined;m
 
 #data
 <embed src="a" units="en" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@units;attribute not defined;m
 
 #data
 <embed src="a" units="px" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@units;attribute not defined;m
 
 #data
 <embed src="a" units="EM" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@units;attribute not defined;m
 
 #data
 <embed src="a" units="pixel" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@units;attribute not defined;m
 /embed/@units;enumerated:invalid;m
 
 #data
 <embed src="a" units="none" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@units;attribute not defined;m
 /embed/@units;enumerated:invalid;m
 
 #data
 <embed src="a" units="cm" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@units;attribute not defined;m
 /embed/@units;enumerated:invalid;m
 
 #data
 <embed src="a" units="px,en" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@units;attribute not defined;m
 /embed/@units;enumerated:invalid;m
 
 #data

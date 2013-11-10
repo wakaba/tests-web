@@ -1,4 +1,3 @@
-
 #data
 <label xmlns="http://www.w3.org/1999/xhtml"></label>
 #errors
@@ -451,12 +450,16 @@ x<datalist>x</datalist><input/>
 <input xml:id="a"/><label for="a">x</label>
 </div>
 #errors
+/div/input/@id;attribute not defined;m
+/div/label/@for;no referenced control;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <input xml:id=" a"/><label for="a">x</label>
 </div>
 #errors
+/div/input/@id;attribute not defined;m
+/div/label/@for;no referenced control;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">

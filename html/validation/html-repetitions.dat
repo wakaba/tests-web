@@ -156,9 +156,11 @@
 #errors
 /x;unknown element;u
 /x/y;unknown element;u
-/x/y/@repeat;attribute not defined;m
 /x/y;unknown element;u
 /x/y/@repeat-template;attribute not defined;m
+/x/y/@repeat-template;no referenced repeat-template;m
+/x/y/@repeat;attribute not defined;m
+/x/y/@id;attribute not defined;m
 
 #data
 <x xmlns:html="http://www.w3.org/1999/xhtml">
@@ -498,7 +500,7 @@
     xmlns:html="http://www.w3.org/1999/xhtml">a</x>
 #errors
 /x;unknown element;u
-/x/@repeat;unknown attribute;u
+/x/@repeat;attribute not defined;m
 /x/@repeat-min;attribute not defined;m
 /x/@repeat-min;attribute not allowed:repeat-*;m
 
@@ -507,7 +509,7 @@
     xmlns:html="http://www.w3.org/1999/xhtml">a</x>
 #errors
 /x;unknown element;u
-/x/@repeat;unknown attribute;u
+/x/@repeat;attribute not defined;m
 /x/@repeat-max;attribute not defined;m
 /x/@repeat-max;attribute not allowed:repeat-*;m
 
@@ -516,7 +518,7 @@
     xmlns:html="http://www.w3.org/1999/xhtml">a</x>
 #errors
 /x;unknown element;u
-/x/@repeat;unknown attribute;u
+/x/@repeat;attribute not defined;m
 /x/@repeat-start;attribute not defined;m
 /x/@repeat-start;attribute not allowed:repeat-*;m
 
@@ -604,8 +606,9 @@
 c="" xmlns:d="http://" d:e="" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
 /a;unknown element;u
-/a/@c;unknown attribute;u
-/a/@e;unknown attribute;u
 /a/@b;attribute not defined;m
+/a/@c;attribute not defined;m
+/a/@d;URL:empty path;w
+/a/@e;attribute not defined;m
 /a/@repeat;repeat:syntax error;m
 /a/@repeat;attribute not defined;m

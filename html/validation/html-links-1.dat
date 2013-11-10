@@ -1319,7 +1319,7 @@ a
     name="abc"><span xml:id="abc">a</span></a>
 #errors
 /a/@name;anchor name;s
-/a/span/@id;id name confliction;m
+/a/span/@id;attribute not defined;m
 
 #data
 <span xmlns="http://www.w3.org/1999/xhtml"
@@ -1331,7 +1331,8 @@ a
 <span xmlns="http://www.w3.org/1999/xhtml"
     xml:id="abc"><a name="abc">a</a></span>
 #errors
-/span/a/@name;id name confliction;m
+/span/@id;attribute not defined;m
+/span/a/@name;anchor name;s
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1353,7 +1354,7 @@ a
 <a xmlns="http://www.w3.org/1999/xhtml"
     name="b" xml:id="c">a</a>
 #errors
-/a/@name;id name mismatch;m
+/a/@id;attribute not defined;m
 /a/@name;anchor name;s
 
 #data
@@ -1362,18 +1363,22 @@ a
 #errors
 /a/@name;id name mismatch;m
 /a/@name;anchor name;s
+/a/@id;attribute not defined;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
     name="b" id="c" xml:id="b">a</a>
 #errors
 /a/@name;anchor name;s
+/a/@id;attribute not defined;m
+/a/@name;id name mismatch;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
     name="b" xml:id="c" id="b">a</a>
 #errors
 /a/@name;anchor name;s
+/a/@id;attribute not defined;m
 
 #data
 <p rel="" xmlns="http://www.w3.org/1999/xhtml">a</p>

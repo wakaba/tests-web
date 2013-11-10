@@ -1,4 +1,3 @@
-
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
 id="">a</p>
@@ -813,6 +812,7 @@ id=""><span id="">x</span></p>
 </html>
 #errors
 /html;unknown element;u
+/html/@xmlns;syntax error:iriref3987;m
 /html/head;unknown element;u
 /html/head/title;unknown element;u
 /html/body;unknown element;u
@@ -2296,14 +2296,12 @@ id=""><span id="">x</span></p>
 <p xml:space="">a</p>
 #errors
 /html/body/p/@xml:space;attribute not defined;m
-/html/body/p/@xml:space;enumerated:invalid;m
 
 #data html
 <!DOCTYPE html><title>a</title>
 <p xml:space="  ">a</p>
 #errors
 /html/body/p/@xml:space;attribute not defined;m
-/html/body/p/@xml:space;enumerated:invalid;m
 
 #data html
 <!DOCTYPE html><title>a</title>
@@ -2334,35 +2332,30 @@ id=""><span id="">x</span></p>
 <p xml:space="default ">a</p>
 #errors
 /html/body/p/@xml:space;attribute not defined;m
-/html/body/p/@xml:space;enumerated:invalid;m
 
 #data html
 <!DOCTYPE html><title>a</title>
 <p xml:space="xml:space">a</p>
 #errors
 /html/body/p/@xml:space;attribute not defined;m
-/html/body/p/@xml:space;enumerated:invalid;m
 
 #data html
 <!DOCTYPE html><title>a</title>
 <p xml:space="space">a</p>
 #errors
 /html/body/p/@xml:space;attribute not defined;m
-/html/body/p/@xml:space;enumerated:invalid;m
 
 #data html
 <!DOCTYPE html><title>a</title>
 <p xml:space="preserved">a</p>
 #errors
 /html/body/p/@xml:space;attribute not defined;m
-/html/body/p/@xml:space;enumerated:invalid;m
 
 #data html
 <!DOCTYPE html><title>a</title>
 <p xml:space="none">a</p>
 #errors
 /html/body/p/@xml:space;attribute not defined;m
-/html/body/p/@xml:space;enumerated:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="">a</p>

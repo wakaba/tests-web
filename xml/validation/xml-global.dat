@@ -130,3 +130,15 @@
 #errors
 /p;unknown element;u
 /p/@foo;attribute not defined;m
+
+#data
+<hpoge xml:id=""/>
+#errors
+/hpoge;unknown element;u
+/hpoge/@id;attribute not defined;m
+
+#data
+<foo data-hoge="aa"/>
+#errors
+/foo;unknown element;u
+/foo/@data-hoge;attribute not defined;m
