@@ -1,4 +1,3 @@
-
 #data
 <iframe xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
@@ -225,37 +224,43 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
+<iframe src="" seamless=""
+    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+#errors
+
+#data
+<iframe src="" seamless="  "
+    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+#errors
+/iframe/@seamless;boolean:invalid;m
+
+#data
+<iframe src="" seamless="seamless"
+    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+#errors
+
+#data
+<iframe src="" seamless="Seamless"
+    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+#errors
+
+#data
+<iframe src="" seamless="seamless "
+    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+#errors
+/iframe/@seamless;boolean:invalid;m
+
+#data
+<iframe src="" seamless="yes"
+    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+#errors
+/iframe/@seamless;boolean:invalid;m
+
+#data
 <iframe src="" seemless=""
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
-
-#data
-<iframe src="" seemless="  "
-    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
-#errors
-/iframe/@seemless;boolean:invalid;m
-
-#data
-<iframe src="" seemless="seemless"
-    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
-#errors
-
-#data
-<iframe src="" seemless="Seemless"
-    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
-#errors
-
-#data
-<iframe src="" seemless="seemless "
-    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
-#errors
-/iframe/@seemless;boolean:invalid;m
-
-#data
-<iframe src="" seemless="yes"
-    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
-#errors
-/iframe/@seemless;boolean:invalid;m
+/iframe/@seemless;attribute not defined;m
 
 #data
 <iframe src="" xmlns="http://www.w3.org/1999/xhtml"
