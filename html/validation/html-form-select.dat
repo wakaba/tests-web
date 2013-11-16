@@ -685,10 +685,29 @@
     label=""
 >x</option>
 #errors
+/option/@label;empty value;m
+
+#data
+<option xmlns="http://www.w3.org/1999/xhtml"
+    label="  "
+>x</option>
+#errors
+
+#data
+<option xmlns="http://www.w3.org/1999/xhtml"
+    label="aaaa"
+>x</option>
+#errors
 
 #data
 <option xmlns="http://www.w3.org/1999/xhtml"
     value=""
+>x</option>
+#errors
+
+#data
+<option xmlns="http://www.w3.org/1999/xhtml"
+    value=" "
 >x</option>
 #errors
 

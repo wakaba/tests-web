@@ -820,7 +820,6 @@
 <video autobuffer="true" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /video;no significant content;s
-/video/@autobuffer;boolean:invalid;m
 /video;child element missing;source;w
 /video/@autobuffer;attribute not defined;m
 
@@ -1077,7 +1076,6 @@
 #data
 <audio autobuffer="true" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/audio/@autobuffer;boolean:invalid;m
 /audio;no significant content;s
 /audio;child element missing;source;w
 /audio/@autobuffer;attribute not defined;m
@@ -1164,15 +1162,10 @@
     xmlns="http://www.w3.org/1999/xhtml">a</video>
 #errors
 /video/@start;attribute not defined;m
-/video/@start;temporal:syntax error;m
 /video/@end;attribute not defined;m
-/video/@end;temporal:syntax error;m
 /video/@loopstart;attribute not defined;m
-/video/@loopstart;temporal:syntax error;m
 /video/@loopend;attribute not defined;m
-/video/@loopend;temporal:syntax error;m
 /video/@playcount;attribute not defined;m
-/video/@playcount;integer:syntax error;m
 
 #data
 <video src="a" playcount="0" xmlns="http://www.w3.org/1999/xhtml">a</video>
@@ -1193,13 +1186,11 @@
 <video src="a" start="" xmlns="http://www.w3.org/1999/xhtml">a</video>
 #errors
 /video/@start;attribute not defined;m
-/video/@start;temporal:syntax error;m
 
 #data
 <video src="a" start="-20" xmlns="http://www.w3.org/1999/xhtml">a</video>
 #errors
 /video/@start;attribute not defined;m
-/video/@start;temporal:syntax error;m
 
 #data
 <video src="a" start="20" xmlns="http://www.w3.org/1999/xhtml">a</video>
@@ -1215,13 +1206,11 @@
 <video src="a" end="" xmlns="http://www.w3.org/1999/xhtml">a</video>
 #errors
 /video/@end;attribute not defined;m
-/video/@end;temporal:syntax error;m
 
 #data
 <video src="a" end="-20" xmlns="http://www.w3.org/1999/xhtml">a</video>
 #errors
 /video/@end;attribute not defined;m
-/video/@end;temporal:syntax error;m
 
 #data
 <video src="a" end="20" xmlns="http://www.w3.org/1999/xhtml">a</video>
@@ -1237,13 +1226,11 @@
 <video src="a" loopstart="" xmlns="http://www.w3.org/1999/xhtml">a</video>
 #errors
 /video/@loopstart;attribute not defined;m
-/video/@loopstart;temporal:syntax error;m
 
 #data
 <video src="a" loopstart="-20" xmlns="http://www.w3.org/1999/xhtml">a</video>
 #errors
 /video/@loopstart;attribute not defined;m
-/video/@loopstart;temporal:syntax error;m
 
 #data
 <video src="a" loopstart="20" xmlns="http://www.w3.org/1999/xhtml">a</video>
@@ -1259,13 +1246,11 @@
 <video src="a" loopend="" xmlns="http://www.w3.org/1999/xhtml">a</video>
 #errors
 /video/@loopend;attribute not defined;m
-/video/@loopend;temporal:syntax error;m
 
 #data
 <video src="a" loopend="-20" xmlns="http://www.w3.org/1999/xhtml">a</video>
 #errors
 /video/@loopend;attribute not defined;m
-/video/@loopend;temporal:syntax error;m
 
 #data
 <video src="a" loopend="20" xmlns="http://www.w3.org/1999/xhtml">a</video>
@@ -1282,15 +1267,10 @@
     xmlns="http://www.w3.org/1999/xhtml">a</audio>
 #errors
 /audio/@start;attribute not defined;m
-/audio/@start;temporal:syntax error;m
 /audio/@end;attribute not defined;m
-/audio/@end;temporal:syntax error;m
 /audio/@loopstart;attribute not defined;m
-/audio/@loopstart;temporal:syntax error;m
 /audio/@loopend;attribute not defined;m
-/audio/@loopend;temporal:syntax error;m
 /audio/@playcount;attribute not defined;m
-/audio/@playcount;integer:syntax error;m
 
 #data
 <audio src="a" playcount="0" xmlns="http://www.w3.org/1999/xhtml">a</audio>
@@ -1326,13 +1306,11 @@
 <audio src="a" start="" xmlns="http://www.w3.org/1999/xhtml">a</audio>
 #errors
 /audio/@start;attribute not defined;m
-/audio/@start;temporal:syntax error;m
 
 #data
 <audio src="a" start="-20" xmlns="http://www.w3.org/1999/xhtml">a</audio>
 #errors
 /audio/@start;attribute not defined;m
-/audio/@start;temporal:syntax error;m
 
 #data
 <audio src="a" start="20" xmlns="http://www.w3.org/1999/xhtml">a</audio>
@@ -1348,13 +1326,11 @@
 <audio src="a" end="" xmlns="http://www.w3.org/1999/xhtml">a</audio>
 #errors
 /audio/@end;attribute not defined;m
-/audio/@end;temporal:syntax error;m
 
 #data
 <audio src="a" end="-20" xmlns="http://www.w3.org/1999/xhtml">a</audio>
 #errors
 /audio/@end;attribute not defined;m
-/audio/@end;temporal:syntax error;m
 
 #data
 <audio src="a" end="20" xmlns="http://www.w3.org/1999/xhtml">a</audio>
@@ -1370,13 +1346,11 @@
 <audio src="a" loopstart="" xmlns="http://www.w3.org/1999/xhtml">a</audio>
 #errors
 /audio/@loopstart;attribute not defined;m
-/audio/@loopstart;temporal:syntax error;m
 
 #data
 <audio src="a" loopstart="-20" xmlns="http://www.w3.org/1999/xhtml">a</audio>
 #errors
 /audio/@loopstart;attribute not defined;m
-/audio/@loopstart;temporal:syntax error;m
 
 #data
 <audio src="a" loopstart="20" xmlns="http://www.w3.org/1999/xhtml">a</audio>
@@ -1392,13 +1366,11 @@
 <audio src="a" loopend="" xmlns="http://www.w3.org/1999/xhtml">a</audio>
 #errors
 /audio/@loopend;attribute not defined;m
-/audio/@loopend;temporal:syntax error;m
 
 #data
 <audio src="a" loopend="-20" xmlns="http://www.w3.org/1999/xhtml">a</audio>
 #errors
 /audio/@loopend;attribute not defined;m
-/audio/@loopend;temporal:syntax error;m
 
 #data
 <audio src="a" loopend="20" xmlns="http://www.w3.org/1999/xhtml">a</audio>
@@ -1583,7 +1555,6 @@
 <source src="http://test/" xmlns="http://www.w3.org/1999/xhtml"
     pixelratio=""/>
 #errors
-/source/@pixelratio;float:syntax error;m
 /source/@pixelratio;attribute not defined;m
 
 #data
@@ -1615,14 +1586,12 @@
     pixelratio="0.00"/>
 #errors
 /source/@pixelratio;attribute not defined;m
-/source/@pixelratio;float:out of range;m
 
 #data
 <source src="http://test/" xmlns="http://www.w3.org/1999/xhtml"
     pixelratio="-20"/>
 #errors
 /source/@pixelratio;attribute not defined;m
-/source/@pixelratio;float:out of range;m
 
 #data
 <source src="http://test/" xmlns="http://www.w3.org/1999/xhtml"
@@ -1641,63 +1610,54 @@
     pixelratio="1."/>
 #errors
 /source/@pixelratio;attribute not defined;m
-/source/@pixelratio;float:syntax error;m
 
 #data
 <source src="http://test/" xmlns="http://www.w3.org/1999/xhtml"
     pixelratio=".1"/>
 #errors
 /source/@pixelratio;attribute not defined;m
-/source/@pixelratio;float:syntax error;m
 
 #data
 <source src="http://test/" xmlns="http://www.w3.org/1999/xhtml"
     pixelratio="+0.2"/>
 #errors
 /source/@pixelratio;attribute not defined;m
-/source/@pixelratio;float:syntax error;m
 
 #data
 <source src="http://test/" xmlns="http://www.w3.org/1999/xhtml"
     pixelratio="43 "/>
 #errors
 /source/@pixelratio;attribute not defined;m
-/source/@pixelratio;float:syntax error;m
 
 #data
 <source src="http://test/" xmlns="http://www.w3.org/1999/xhtml"
     pixelratio="aaaa"/>
 #errors
 /source/@pixelratio;attribute not defined;m
-/source/@pixelratio;float:syntax error;m
 
 #data
 <source src="http://test/" xmlns="http://www.w3.org/1999/xhtml"
     pixelratio="4 + 0.2"/>
 #errors
 /source/@pixelratio;attribute not defined;m
-/source/@pixelratio;float:syntax error;m
 
 #data
 <source src="http://test/" xmlns="http://www.w3.org/1999/xhtml"
     pixelratio="0..3"/>
 #errors
 /source/@pixelratio;attribute not defined;m
-/source/@pixelratio;float:syntax error;m
 
 #data
 <source src="http://test/" xmlns="http://www.w3.org/1999/xhtml"
     pixelratio="0.4."/>
 #errors
 /source/@pixelratio;attribute not defined;m
-/source/@pixelratio;float:syntax error;m
 
 #data
 <source src="http://test/" xmlns="http://www.w3.org/1999/xhtml"
     pixelratio="."/>
 #errors
 /source/@pixelratio;attribute not defined;m
-/source/@pixelratio;float:syntax error;m
 
 #data
 <video src="a" xmlns="http://www.w3.org/1999/xhtml"
