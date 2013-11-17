@@ -7763,6 +7763,16 @@ a
 /layer/@background;attribute not defined;m
 
 #data
+<layer xmlns="http://www.w3.org/1999/xhtml">aa</layer>
+#errors
+/layer;element not defined;m
+
+#data
+<layer xmlns="http://www.w3.org/1999/xhtml">a<p>a</p></layer>
+#errors
+/layer;element not defined;m
+
+#data
 <ilayer xmlns="http://www.w3.org/1999/xhtml"
     background="">a</ilayer>
 #errors
@@ -7867,13 +7877,11 @@ a
 <nolayer xmlns="http://www.w3.org/1999/xhtml"></nolayer>
 #errors
 /nolayer;element not defined;m
-/nolayer;no significant content;s
 
 #data
 <nolayer xmlns="http://www.w3.org/1999/xhtml">  </nolayer>
 #errors
 /nolayer;element not defined;m
-/nolayer;no significant content;s
 
 #data
 <nolayer xmlns="http://www.w3.org/1999/xhtml">aa</nolayer>
@@ -7899,7 +7907,6 @@ a
 <nolayer xmlns="http://www.w3.org/1999/xhtml">aa<frame src="a"/></nolayer>
 #errors
 /nolayer;element not defined;m
-/nolayer/frame;element not allowed:flow;m
 /nolayer/frame;element not defined;m
 /nolayer/frame/@src;attribute not defined;m
 
