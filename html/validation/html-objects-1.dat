@@ -2,25 +2,30 @@
 <object xmlns="http://www.w3.org/1999/xhtml" data=""></object>
 #errors
 /object;no significant content;s
+/object/@data;url:empty;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data="">
 </object>
 #errors
 /object;no significant content;s
+/object/@data;url:empty;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data="">xxxx</object>
 #errors
+/object/@data;url:empty;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data=""><p>xx</p></object>
 #errors
+/object/@data;url:empty;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data=""><p></p></object>
 #errors
 /object;no significant content;s
+/object/@data;url:empty;m
 /object/p;no significant content;s
 
 #data
@@ -29,6 +34,7 @@
 </object>
 #errors
 /object;no significant content;s
+/object/@data;url:empty;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data="">
@@ -37,6 +43,7 @@
 </object>
 #errors
 /object;no significant content;s
+/object/@data;url:empty;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data="">
@@ -46,6 +53,7 @@
 </object>
 #errors
 /object;no significant content;s
+/object/@data;url:empty;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data="">
@@ -53,6 +61,7 @@
 zzz
 </object>
 #errors
+/object/@data;url:empty;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data="">
@@ -60,13 +69,15 @@ zzz
 <p>zzz</p>
 </object>
 #errors
+/object/@data;url:empty;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data="">
 <param name="x" value="y"/><p>
-zzz</p><img src="" alt="a"/>
+zzz</p><img src="ll" alt="a"/>
 </object>
 #errors
+/object/@data;url:empty;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data="">
@@ -75,6 +86,7 @@ zzz</p><img src="" alt="a"/>
 zzz
 </object>
 #errors
+/object/@data;url:empty;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data="">
@@ -83,6 +95,7 @@ zzz
 <param name="a" value="y"/>
 </object>
 #errors
+/object/@data;url:empty;m
 /object/param;element not allowed:flow;m
 
 #data
@@ -91,6 +104,7 @@ aaa
 <param name="x" value="y"/>
 </object>
 #errors
+/object/@data;url:empty;m
 /object/param;element not allowed:flow;m
 
 #data
@@ -100,6 +114,7 @@ aaa
 <param name="x" value="y"/>
 </object>
 #errors
+/object/@data;url:empty;m
 /object/param;element not allowed:flow;m
 
 #data
@@ -108,6 +123,7 @@ aaa
 <param name="x" value="y"/>
 </object>
 #errors
+/object/@data;url:empty;m
 /object/param;element not allowed:flow;m
 
 #data
@@ -116,6 +132,7 @@ aaa
 <style scoped=""/>
 </object>
 #errors
+/object/@data;url:empty;m
 /object/style;SUBDOC;text/css
 /object;no significant content;s
 
@@ -126,6 +143,7 @@ aaa
 aaa
 </object>
 #errors
+/object/@data;url:empty;m
 /object/style;SUBDOC;text/css
 
 #data
@@ -135,6 +153,7 @@ aaa
 <p>xxx</p>
 </object>
 #errors
+/object/@data;url:empty;m
 /object/style;SUBDOC;text/css
 
 #data
@@ -144,6 +163,7 @@ aaa
 <param name="xz" value=""/>
 </object>
 #errors
+/object/@data;url:empty;m
 /object/style;SUBDOC;text/css
 /object/param;element not allowed:flow;m
 /object;no significant content;s
@@ -154,6 +174,7 @@ aaa
 <param name="x" value="y"/>
 </object>
 #errors
+/object/@data;url:empty;m
 /object/style;SUBDOC;text/css
 /object;no significant content;s
 /object/param;element not allowed:flow;m
@@ -165,6 +186,7 @@ aaa
 <style scoped=""/>
 </object>
 #errors
+/object/@data;url:empty;m
 /object/style;SUBDOC;text/css
 /object/style;element not allowed:flow style;m
 
@@ -174,6 +196,7 @@ aaa
 <style/>
 </object>
 #errors
+/object/@data;url:empty;m
 /object/style;SUBDOC;text/css
 /object;no significant content;s
 /object/style;element not allowed:flow style;m
@@ -187,6 +210,7 @@ aaa
 </p>
 #errors
 /p/object;no significant content;s
+/p/object/@data;url:empty;m
 /p/object/style;SUBDOC;text/css
 /p/object/style;element not allowed:phrasing;m
 
@@ -198,6 +222,7 @@ xxxx
 </object>
 </p>
 #errors
+/p/object/@data;url:empty;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
@@ -207,6 +232,7 @@ xxxx
 </object>
 </p>
 #errors
+/p/object/@data;url:empty;m
 /p/object/p;element not allowed:phrasing;m
 
 #data
@@ -217,6 +243,7 @@ xxxx
 </object>
 </div>
 #errors
+/div/object/@data;url:empty;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -226,12 +253,13 @@ xxxx
 </object>
 </div>
 #errors
+/div/object/@data;url:empty;m
 /div/object/param;element not allowed:flow;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<object data="">
-<object data="">
+<object data="a">
+<object data="b">
 <param name="x" value="y"/>
 <p>xxxx</p>
 </object>
@@ -241,7 +269,7 @@ xxxx
 
 #data
 <span xmlns="http://www.w3.org/1999/xhtml">
-<object data="">
+<object data="a">
 <param name="x" value="y"/>
 <p>xxxx</p>
 </object>
@@ -252,7 +280,7 @@ xxxx
 #data
 <span xmlns="http://www.w3.org/1999/xhtml">
 <ins>
-<object data="">
+<object data="a">
 <param name="x" value="y"/>
 <p>xxxx</p>
 </object>
@@ -263,8 +291,8 @@ xxxx
 
 #data
 <span xmlns="http://www.w3.org/1999/xhtml">
-<object data="">
-<object data="">
+<object data="a">
+<object data="b">
 <param name="x" value="y"/>
 <p>xxxx</p>
 </object>
@@ -275,8 +303,8 @@ xxxx
 
 #data
 <span xmlns="http://www.w3.org/1999/xhtml">
-<object data="">
-<object data="">
+<object data="a">
+<object data="b">
 <p>xxxx</p>
 <param name="x" value="y"/>
 </object>
@@ -287,12 +315,12 @@ xxxx
 /span/object/object/param;element not allowed:phrasing;m
 
 #data
-<p xmlns="http://www.w3.org/1999/xhtml"><object data=""><p>xx</p></object></p>
+<p xmlns="http://www.w3.org/1999/xhtml"><object data="x"><p>xx</p></object></p>
 #errors
 /p/object/p;element not allowed:phrasing;m
 
 #data
-<p xmlns="http://www.w3.org/1999/xhtml"><object data=""><style scoped=""></style>xx</object></p>
+<p xmlns="http://www.w3.org/1999/xhtml"><object data="y"><style scoped=""></style>xx</object></p>
 #errors
 /p/object/style;element not allowed:phrasing;m
 /p/object/style;SUBDOC;text/css
@@ -456,7 +484,7 @@ zzz
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
 <param name="x" value="y"/><p>
-zzz</p><img src="" alt="a"/>
+zzz</p><img src="ll" alt="a"/>
 </applet>
 #errors
 /applet;element not defined;m
@@ -851,6 +879,16 @@ xxxx
 /applet;attribute missing;height;m
 /applet/@code;attribute not defined;m
 /applet/@object;attribute not defined;m
+
+#data
+<applet xmlns="http://www.w3.org/1999/xhtml" code="a" object="">a</applet>
+#errors
+/applet;element not defined;m
+/applet;attribute missing;width;m
+/applet;attribute missing;height;m
+/applet/@code;attribute not defined;m
+/applet/@object;attribute not defined;m
+/applet/@object;url:empty;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="a" object="[]">a</applet>
@@ -1253,7 +1291,7 @@ xxxx
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <applet src="" alt="a" name="">a</applet>
+  <applet src="ll" alt="a" name="">a</applet>
 </div>
 #errors
 /div/applet/@name;attribute not defined;m
@@ -1268,7 +1306,7 @@ xxxx
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <applet src="" alt="a" name="  ">a</applet>
+  <applet src="ll" alt="a" name="  ">a</applet>
 </div>
 #errors
 /div/applet/@name;attribute not defined;m
@@ -1282,7 +1320,7 @@ xxxx
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <applet src="" alt="a" name="aaa">a</applet>
+  <applet src="ll" alt="a" name="aaa">a</applet>
 </div>
 #errors
 /div/applet/@name;attribute not defined;m
@@ -1296,7 +1334,7 @@ xxxx
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <applet src="" alt="a" name="abc">a</applet>
+  <applet src="ll" alt="a" name="abc">a</applet>
   <a name="abc">aa</a>
 </div>
 #errors
@@ -1313,7 +1351,7 @@ xxxx
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <a name="abc">aa</a>
-  <applet src="" alt="a" name="abc">a</applet>
+  <applet src="ll" alt="a" name="abc">a</applet>
 </div>
 #errors
 /div/a/@name;anchor name;s
@@ -1329,8 +1367,8 @@ xxxx
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <applet src="" alt="a" name="abc">a</applet>
-  <img src="" alt="x" name="abc"/>
+  <applet src="ll" alt="a" name="abc">a</applet>
+  <img src="ll" alt="x" name="abc"/>
 </div>
 #errors
 /div/applet/@name;attribute not defined;m
@@ -1346,8 +1384,8 @@ xxxx
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <img src="" alt="x" name="abc"/>
-  <applet src="" alt="a" name="abc">a</applet>
+  <img src="ll" alt="x" name="abc"/>
+  <applet src="ll" alt="a" name="abc">a</applet>
 </div>
 #errors
 /div/img/@name;attribute not defined;m
@@ -1364,7 +1402,7 @@ xxxx
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <span id="abc">aa</span>
-  <applet src="" alt="a" name="abc">a</applet>
+  <applet src="ll" alt="a" name="abc">a</applet>
 </div>
 #errors
 /div/applet/@name;id name confliction;m
@@ -1380,7 +1418,7 @@ xxxx
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <span xml:id="abc">aa</span>
-  <applet src="" alt="a" name="abc">a</applet>
+  <applet src="ll" alt="a" name="abc">a</applet>
 </div>
 #errors
 /div/span/@id;attribute not defined;m
@@ -1395,7 +1433,7 @@ xxxx
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <applet src="" alt="a" name="abc">a</applet>
+  <applet src="ll" alt="a" name="abc">a</applet>
   <span id="abc">aa</span>
 </div>
 #errors
@@ -1411,7 +1449,7 @@ xxxx
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <applet src="" alt="a" name="abc">a</applet>
+  <applet src="ll" alt="a" name="abc">a</applet>
   <span xml:id="abc">aa</span>
 </div>
 #errors
@@ -1427,7 +1465,7 @@ xxxx
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <applet src="" alt="a" name="abc" id="abd">a</applet>
+  <applet src="ll" alt="a" name="abc" id="abd">a</applet>
 </div>
 #errors
 /div/applet/@name;attribute not defined;m
@@ -1442,7 +1480,7 @@ xxxx
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <applet src="" alt="a" name="abc" xml:id="abd">a</applet>
+  <applet src="ll" alt="a" name="abc" xml:id="abd">a</applet>
 </div>
 #errors
 /div/applet/@name;attribute not defined;m
@@ -1457,7 +1495,7 @@ xxxx
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <applet src="" alt="a" name="abc" xml:id="abd" id="abe">a</applet>
+  <applet src="ll" alt="a" name="abc" xml:id="abd" id="abe">a</applet>
 </div>
 #errors
 /div/applet/@name;attribute not defined;m
@@ -1473,7 +1511,7 @@ xxxx
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <applet src="" alt="a" name="abc" xml:id="abd" id="abc">a</applet>
+  <applet src="ll" alt="a" name="abc" xml:id="abd" id="abc">a</applet>
 </div>
 #errors
 /div/applet/@name;attribute not defined;m
@@ -1488,7 +1526,7 @@ xxxx
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <applet src="" alt="a" name="abc" xml:id="abc" id="abd">a</applet>
+  <applet src="ll" alt="a" name="abc" xml:id="abc" id="abd">a</applet>
 </div>
 #errors
 /div/applet/@name;attribute not defined;m
@@ -1738,6 +1776,11 @@ xxxx
 #errors
 
 #data
+<embed src="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@src;url:empty;m
+
+#data
 <embed src="[http://test/]" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /embed/@src;syntax error:iriref3987;m
@@ -1771,34 +1814,34 @@ xxxx
 /embed/@id;empty attribute value;m
 
 #data
-<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+<embed src="ll" xmlns="http://www.w3.org/1999/xhtml"
     height=""/>
 #errors
 /embed/@height;nninteger:syntax error;m
 
 #data
-<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+<embed src="ll" xmlns="http://www.w3.org/1999/xhtml"
     height="0"/>
 #errors
 
 #data
-<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+<embed src="ll" xmlns="http://www.w3.org/1999/xhtml"
     height="120"/>
 #errors
 
 #data
-<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+<embed src="ll" xmlns="http://www.w3.org/1999/xhtml"
     width=""/>
 #errors
 /embed/@width;nninteger:syntax error;m
 
 #data
-<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+<embed src="ll" xmlns="http://www.w3.org/1999/xhtml"
     width="0"/>
 #errors
 
 #data
-<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+<embed src="ll" xmlns="http://www.w3.org/1999/xhtml"
     width="120"/>
 #errors
 
@@ -1953,19 +1996,19 @@ xxxx
 /html/body/embed/@xml:space;attribute not defined;m
 
 #data
-<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+<embed src="ll" xmlns="http://www.w3.org/1999/xhtml"
     camelCase=""/>
 #errors
 /embed/@camelCase;attribute not defined;m
 
 #data
-<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+<embed src="ll" xmlns="http://www.w3.org/1999/xhtml"
     Capital=""/>
 #errors
 /embed/@Capital;attribute not defined;m
 
 #data
-<embed src="" xmlns="http://www.w3.org/1999/xhtml"
+<embed src="ll" xmlns="http://www.w3.org/1999/xhtml"
     UPPERCASE=""/>
 #errors
 /embed/@UPPERCASE;attribute not defined;m
@@ -2545,34 +2588,34 @@ xxxx
 /object;attribute missing;typemustmatch;w
 
 #data
-<object data="" xmlns="http://www.w3.org/1999/xhtml"
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
     height="">x</object>
 #errors
 /object/@height;nninteger:syntax error;m
 
 #data
-<object data="" xmlns="http://www.w3.org/1999/xhtml"
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
     height="0">x</object>
 #errors
 
 #data
-<object data="" xmlns="http://www.w3.org/1999/xhtml"
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
     height="120">x</object>
 #errors
 
 #data
-<object data="" xmlns="http://www.w3.org/1999/xhtml"
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
     width="">x</object>
 #errors
 /object/@width;nninteger:syntax error;m
 
 #data
-<object data="" xmlns="http://www.w3.org/1999/xhtml"
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
     width="0">x</object>
 #errors
 
 #data
-<object data="" xmlns="http://www.w3.org/1999/xhtml"
+<object data="a" xmlns="http://www.w3.org/1999/xhtml"
     width="120">x</object>
 #errors
 
@@ -2676,32 +2719,32 @@ xxxx
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<object data="" usemap="#a">x</object><menu id="a">x</menu>
+<object data="a" usemap="#a">x</object><menu id="a">x</menu>
 </div>
 #errors
 /div/object/@usemap;no referenced map;m
 
 #data
-<object data="" declare="" xmlns="http://www.w3.org/1999/xhtml"/>
+<object data="b" declare="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object/@declare;attribute not defined;m
 /object;no significant content;s
 
 #data
-<object data="" declare="declare" xmlns="http://www.w3.org/1999/xhtml"/>
+<object data="a" declare="declare" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object/@declare;attribute not defined;m
 /object;no significant content;s
 
 #data
-<object data="" declare="yes" xmlns="http://www.w3.org/1999/xhtml"/>
+<object data="s" declare="yes" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object/@declare;attribute not defined;m
 /object/@declare;boolean:invalid;m
 /object;no significant content;s
 
 #data
-<object data="" declare="no" xmlns="http://www.w3.org/1999/xhtml"/>
+<object data="a" declare="no" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object/@declare;attribute not defined;m
 /object/@declare;boolean:invalid;m
@@ -2711,19 +2754,23 @@ xxxx
 <object data="" declare="Declare" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object/@declare;attribute not defined;m
+/object/@data;url:empty;m
 /object;no significant content;s
 
 #data
 <object data="" classid="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/object/@classid;attribute not defined;m
 /object;no significant content;s
 /object;attribute missing;codetype;s
+/object/@data;url:empty;m
+/object/@classid;attribute not defined;m
+/object/@classid;url:empty;m
 
 #data
 <object data="" classid="about:blank" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object/@classid;attribute not defined;m
+/object/@data;url:empty;m
 /object;no significant content;s
 /object;attribute missing;codetype;s
 
@@ -2732,6 +2779,7 @@ xxxx
     codetype="text/plain"/>
 #errors
 /object/@classid;attribute not defined;m
+/object/@data;url:empty;m
 /object;no significant content;s
 /object/@codetype;attribute not defined;m
 
@@ -2740,6 +2788,7 @@ xxxx
 #errors
 /object/@classid;attribute not defined;m
 /object/@classid;syntax error:iriref3987;m
+/object/@data;url:empty;m
 /object;no significant content;s
 /object;attribute missing;codetype;s
 
@@ -2748,6 +2797,7 @@ xxxx
 #errors
 /object/@codebase;attribute not defined;m
 /object/@codebase;url:empty;m
+/object/@data;url:empty;m
 /object;no significant content;s
 
 #data
@@ -2755,12 +2805,14 @@ xxxx
 #errors
 /object/@codebase;attribute not defined;m
 /object/@codebase;syntax error:iriref3987;m
+/object/@data;url:empty;m
 /object;no significant content;s
 
 #data
 <object data="" archive="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object/@archive;attribute not defined;m
+/object/@data;url:empty;m
 /object;no significant content;s
 
 #data
@@ -2768,6 +2820,7 @@ xxxx
 #errors
 /object/@archive;attribute not defined;m
 /object/@archive;syntax error:iriref3987;m
+/object/@data;url:empty;m
 /object;no significant content;s
 
 #data
@@ -2775,6 +2828,7 @@ xxxx
 #errors
 /object/@archive;attribute not defined;m
 /object/@archive;syntax error:iriref3987;m
+/object/@data;url:empty;m
 /object;no significant content;s
 
 #data
@@ -2782,12 +2836,14 @@ xxxx
 #errors
 /object/@archive;attribute not defined;m
 /object/@archive;duplicate token;m
+/object/@data;url:empty;m
 /object;no significant content;s
 
 #data
 <object data="" archives="[]" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object/@archives;attribute not defined;m
+/object/@data;url:empty;m
 /object;no significant content;s
 
 #data
@@ -2795,12 +2851,14 @@ xxxx
 #errors
 /object/@codetype;attribute not defined;m
 /object/@codetype;IMT:no type;m
+/object/@data;url:empty;m
 /object;no significant content;s
 
 #data
 <object data="" codetype="text/html" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object/@codetype;attribute not defined;m
+/object/@data;url:empty;m
 /object;no significant content;s
 
 #data
@@ -2808,24 +2866,28 @@ xxxx
 #errors
 /object/@codetype;attribute not defined;m
 /object/@codetype;IMT:parameter not allowed;m
+/object/@data;url:empty;m
 /object;no significant content;s
 
 #data
 <object data="" standby="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object/@standby;attribute not defined;m
+/object/@data;url:empty;m
 /object;no significant content;s
 
 #data
 <object data="" standby="[]" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object/@standby;attribute not defined;m
+/object/@data;url:empty;m
 /object;no significant content;s
 
 #data
 <object data="" border="0" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object;no significant content;s
+/object/@data;url:empty;m
 /object/@border;attribute not defined;m
 
 #data
@@ -2833,6 +2895,7 @@ xxxx
 #errors
 /object/@border;attribute not defined;m
 /object/@border;nninteger:syntax error;m
+/object/@data;url:empty;m
 /object;no significant content;s
 
 #data
@@ -2931,6 +2994,7 @@ xxxx
 /object;no significant content;s
 /object/@align;attribute not defined;m
 /object/@align;enumerated:invalid;m
+/object/@data;url:empty;m
 
 #data
 <object data="" align="char" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -2938,6 +3002,7 @@ xxxx
 /object;no significant content;s
 /object/@align;attribute not defined;m
 /object/@align;enumerated:invalid;m
+/object/@data;url:empty;m
 
 #data
 <object data="" align="justify" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -2945,6 +3010,7 @@ xxxx
 /object;no significant content;s
 /object/@align;attribute not defined;m
 /object/@align;enumerated:invalid;m
+/object/@data;url:empty;m
 
 #data
 <object data="" align="center" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -2952,6 +3018,7 @@ xxxx
 /object;no significant content;s
 /object/@align;attribute not defined;m
 /object/@align;enumerated:non-conforming;m
+/object/@data;url:empty;m
 
 #data
 <object data="" align="abscenter" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -2959,6 +3026,7 @@ xxxx
 /object;no significant content;s
 /object/@align;attribute not defined;m
 /object/@align;enumerated:non-conforming;m
+/object/@data;url:empty;m
 
 #data
 <object data="" align="absmiddle" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -2966,6 +3034,7 @@ xxxx
 /object;no significant content;s
 /object/@align;attribute not defined;m
 /object/@align;enumerated:non-conforming;m
+/object/@data;url:empty;m
 
 #data
 <object data="" align="texttop" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -2973,6 +3042,7 @@ xxxx
 /object;no significant content;s
 /object/@align;attribute not defined;m
 /object/@align;enumerated:non-conforming;m
+/object/@data;url:empty;m
 
 #data
 <object data="" align="baseline" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -2980,6 +3050,7 @@ xxxx
 /object;no significant content;s
 /object/@align;attribute not defined;m
 /object/@align;enumerated:non-conforming;m
+/object/@data;url:empty;m
 
 #data
 <object data="" align="text-top" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -2987,36 +3058,42 @@ xxxx
 /object;no significant content;s
 /object/@align;attribute not defined;m
 /object/@align;enumerated:invalid;m
+/object/@data;url:empty;m
 
 #data
 <object data="" align="bottom" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object;no significant content;s
 /object/@align;attribute not defined;m
+/object/@data;url:empty;m
 
 #data
 <object data="" align="middle" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object;no significant content;s
 /object/@align;attribute not defined;m
+/object/@data;url:empty;m
 
 #data
 <object data="" align="top" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object;no significant content;s
 /object/@align;attribute not defined;m
+/object/@data;url:empty;m
 
 #data
 <object data="" align="left" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object;no significant content;s
 /object/@align;attribute not defined;m
+/object/@data;url:empty;m
 
 #data
 <object data="" align="right" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object;no significant content;s
 /object/@align;attribute not defined;m
+/object/@data;url:empty;m
 
 #data escaped
 <object data="" align="r\u0130ght" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -3024,6 +3101,7 @@ xxxx
 /object;no significant content;s
 /object/@align;attribute not defined;m
 /object/@align;enumerated:invalid;m
+/object/@data;url:empty;m
 
 #data escaped
 <object data="" align="r\u0131ght" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -3031,53 +3109,64 @@ xxxx
 /object;no significant content;s
 /object/@align;attribute not defined;m
 /object/@align;enumerated:invalid;m
+/object/@data;url:empty;m
 
 #data
 <object name="" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
 #errors
 /object/@name;window name:empty;m
+/object/@data;url:empty;m
 
 #data
 <object name="_" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
 #errors
 /object/@name;window name:reserved;m
+/object/@data;url:empty;m
 
 #data
 <object name="_a" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
 #errors
 /object/@name;window name:reserved;m
+/object/@data;url:empty;m
 
 #data
 <object name="_blank" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
 #errors
 /object/@name;window name:reserved;m
+/object/@data;url:empty;m
 
 #data
 <object name="_parent" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
 #errors
 /object/@name;window name:reserved;m
+/object/@data;url:empty;m
 
 #data
 <object name="_self" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
 #errors
 /object/@name;window name:reserved;m
+/object/@data;url:empty;m
 
 #data
 <object name="_top" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
 #errors
 /object/@name;window name:reserved;m
+/object/@data;url:empty;m
 
 #data
 <object name="abc" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
 #errors
+/object/@data;url:empty;m
 
 #data
 <object name="self" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
 #errors
+/object/@data;url:empty;m
 
 #data
 <object name="abc" id="xyz" data="" xmlns="http://www.w3.org/1999/xhtml">x</object>
 #errors
+/object/@data;url:empty;m
 
 #data
 <object data="a" code="" xmlns="http://www.w3.org/1999/xhtml">a</object>

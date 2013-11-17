@@ -642,8 +642,8 @@
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<base href=""/>
-<base href=""/>
+<base href="A"/>
+<base href="A"/>
 <title>x</title>
 </head>
 #errors
@@ -652,7 +652,7 @@
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<base href=""/>
+<base href="A"/>
 <base target=""/>
 <title>x</title>
 </head>
@@ -663,7 +663,7 @@
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
 <base target=""/>
-<base href=""/>
+<base href="A"/>
 <title>x</title>
 </head>
 #errors
@@ -677,7 +677,7 @@
 </head>
 <head>
 <title>b</title>
-<base href=""/>
+<base href="A"/>
 </head>
 <body>x</body>
 </html>
@@ -687,12 +687,12 @@
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<base href=""/>
+<base href="A"/>
 <title>a</title>
 </head>
 <head>
 <title>b</title>
-<base href=""/>
+<base href="A"/>
 </head>
 <body>x</body>
 </html>
@@ -889,7 +889,7 @@ a
 <head xmlns="http://www.w3.org/1999/xhtml">
 <title>x</title>
 <noscript>
-<link rel="stylesheet" href=""/>
+<link rel="stylesheet" href="A"/>
 </noscript>
 </head>
 #errors
@@ -899,7 +899,7 @@ a
 <head xmlns="http://www.w3.org/1999/xhtml">
 <title>x</title>
 <noscript>
-<link rel="alternate" type="text/html" href=""/>
+<link rel="alternate" type="text/html" href="A"/>
 </noscript>
 </head>
 #errors
@@ -1059,7 +1059,7 @@ a
 <head xmlns="http://www.w3.org/1999/xhtml">
 <title>x</title>
 <noscript>
-<base href=""/>
+<base href="A"/>
 </noscript>
 </head>
 #errors
@@ -1187,6 +1187,10 @@ p {color: green}
 /base;attribute missing:href|target;m
 
 #data
+<base href="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
 <base href="http://[test]/" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /base/@href;syntax error:iriref3987;m
@@ -1258,8 +1262,8 @@ p {color: green}
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<link rel="stylesheet" href=""/>
-<base href=""/>
+<link rel="stylesheet" href="A"/>
+<base href="A"/>
 <title/>
 </head>
 #errors
@@ -1267,15 +1271,15 @@ p {color: green}
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<base href=""/>
-<link rel="stylesheet" href=""/>
+<base href="A"/>
+<link rel="stylesheet" href="A"/>
 <title/>
 </head>
 #errors
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<link rel="stylesheet" href=""/>
+<link rel="stylesheet" href="A"/>
 <base target="_self"/>
 <title/>
 </head>
@@ -1284,32 +1288,15 @@ p {color: green}
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
 <base target="_self"/>
-<link rel="stylesheet" href=""/>
+<link rel="stylesheet" href="A"/>
 <title/>
 </head>
 #errors
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<link rel="stylesheet" href=""/>
-<base target="_self" href=""/>
-<title/>
-</head>
-#errors
-/head/base;basehref after URL attribute;m
-
-#data
-<head xmlns="http://www.w3.org/1999/xhtml">
-<base target="_self" href=""/>
-<link rel="stylesheet" href=""/>
-<title/>
-</head>
-#errors
-
-#data
-<head xmlns="http://www.w3.org/1999/xhtml">
-<link rel="up" href=""/>
-<base href=""/>
+<link rel="stylesheet" href="A"/>
+<base target="_self" href="A"/>
 <title/>
 </head>
 #errors
@@ -1317,15 +1304,32 @@ p {color: green}
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<base href=""/>
-<link rel="up" href=""/>
+<base target="_self" href="A"/>
+<link rel="stylesheet" href="A"/>
 <title/>
 </head>
 #errors
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<link rel="up" href=""/>
+<link rel="up" href="A"/>
+<base href="A"/>
+<title/>
+</head>
+#errors
+/head/base;basehref after URL attribute;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+<base href="A"/>
+<link rel="up" href="A"/>
+<title/>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+<link rel="up" href="A"/>
 <base target="_self"/>
 <title/>
 </head>
@@ -1335,15 +1339,15 @@ p {color: green}
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
 <base target="_self"/>
-<link rel="up" href=""/>
+<link rel="up" href="A"/>
 <title/>
 </head>
 #errors
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<link rel="up" href=""/>
-<base target="_self" href=""/>
+<link rel="up" href="A"/>
+<base target="_self" href="A"/>
 <title/>
 </head>
 #errors
@@ -1352,15 +1356,15 @@ p {color: green}
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<base target="_self" href=""/>
-<link rel="up" href=""/>
+<base target="_self" href="A"/>
+<link rel="up" href="A"/>
 <title/>
 </head>
 #errors
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<link rel="alternate stylesheet" href="" title="x"/>
+<link rel="alternate stylesheet" href="A" title="x"/>
 <base target="_self"/>
 <title/>
 </head>
@@ -1368,7 +1372,7 @@ p {color: green}
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<link rel="stylesheet alternate" href="" title="x"/>
+<link rel="stylesheet alternate" href="A" title="x"/>
 <base target="_self"/>
 <title/>
 </head>
@@ -1376,7 +1380,7 @@ p {color: green}
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<link rel="alternate stylesheet stylesheet" href="" title="x"/>
+<link rel="alternate stylesheet stylesheet" href="A" title="x"/>
 <base target="_self"/>
 <title/>
 </head>
@@ -1385,7 +1389,7 @@ p {color: green}
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<link rel="alternate" type="application/atom+xml" href=""/>
+<link rel="alternate" type="application/atom+xml" href="A"/>
 <base target="_self"/>
 <title/>
 </head>
@@ -1394,7 +1398,7 @@ p {color: green}
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<link rel="alternate up stylesheet" href="" title="x"/>
+<link rel="alternate up stylesheet" href="A" title="x"/>
 <base target="_self"/>
 <title/>
 </head>
@@ -1403,7 +1407,7 @@ p {color: green}
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<link rel="up stylesheet" href=""/>
+<link rel="up stylesheet" href="A"/>
 <base target="_self"/>
 <title/>
 </head>
@@ -1412,7 +1416,7 @@ p {color: green}
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<a href=""/>
+<a href="A"/>
 <base target="_self"/>
 <title/>
 </head>
@@ -1423,7 +1427,7 @@ p {color: green}
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<area shape="default" href="" alt=""/>
+<area shape="default" href="A" alt=""/>
 <base target="_self"/>
 <title/>
 </head>
@@ -1434,8 +1438,8 @@ p {color: green}
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<area shape="default" href="" alt=""/>
-<base href=""/>
+<area shape="default" href="A" alt=""/>
+<base href="A"/>
 <title/>
 </head>
 #errors
@@ -1445,8 +1449,8 @@ p {color: green}
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
-<video src=""/>
-<base href=""/>
+<video src="a"/>
+<base href="A"/>
 <title/>
 </head>
 #errors
@@ -1455,13 +1459,57 @@ p {color: green}
 /head/base;basehref after URL attribute;m
 
 #data
+<head xmlns="http://www.w3.org/1999/xhtml">
+<audio src="a"/>
+<base href="A"/>
+<title/>
+</head>
+#errors
+/head/audio;element not allowed:metadata;m
+/head/audio;no significant content;s
+/head/base;basehref after URL attribute;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+<form action=""/>
+<base href="A"/>
+<title/>
+</head>
+#errors
+/head/form;element not allowed:metadata;m
+/head/form;no significant content;s
+/head/form/@action;url:empty;m
+/head/base;basehref after URL attribute;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+<track src="" srclang="ja"/>
+<base href="A"/>
+<title/>
+</head>
+#errors
+/head/track;element not allowed:metadata;m
+/head/track/@src;url:empty;m
+/head/base;basehref after URL attribute;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+<track src="a" srclang="en"/>
+<base href="A"/>
+<title/>
+</head>
+#errors
+/head/track;element not allowed:metadata;m
+/head/base;basehref after URL attribute;m
+
+#data
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<base href=""/>
+<base href="A"/>
 <title/>
 </head>
 <body>
-<p><a href="">x</a></p>
+<p><a href="A">x</a></p>
 </body>
 </html>
 #errors
@@ -1486,6 +1534,18 @@ p {color: green}
 <link rel="stylesheet" href="http://www.test/"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+
+#data
+<link rel="alternate" href=""
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/link/@href;url:empty;m
+
+#data
+<link rel="stylesheet" href=""
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/link/@href;url:empty;m
 
 #data
 <link rel="stylesheet" href="://www.test/"
@@ -1721,60 +1781,59 @@ p {color: green}
 /head/link/@rel;unknown link type;u
 
 #data
-<link rel="alternate" href="" target="" xmlns="http://www.w3.org/1999/xhtml"/>
+<link rel="alternate" href="A" target="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link/@target;attribute not defined;m
 /link/@target;window name:empty;m
 
 #data
-<link rel="alternate" href="" target="_" xmlns="http://www.w3.org/1999/xhtml"/>
+<link rel="alternate" href="A" target="_" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link/@target;attribute not defined;m
 /link/@target;window name:reserved;m
 
 #data
-<link rel="alternate" href="" target="_self" xmlns="http://www.w3.org/1999/xhtml"/>
+<link rel="alternate" href="A" target="_self" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link/@target;attribute not defined;m
 
 #data
-<link rel="alternate" href="" target="_blank" xmlns="http://www.w3.org/1999/xhtml"/>
+<link rel="alternate" href="A" target="_blank" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link/@target;attribute not defined;m
 
 #data
-<link rel="alternate" href="" target="_b" xmlns="http://www.w3.org/1999/xhtml"/>
+<link rel="alternate" href="A" target="_b" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link/@target;attribute not defined;m
 /link/@target;window name:reserved;m
 
 #data
-<link href="" rev=" " xmlns="http://www.w3.org/1999/xhtml"/>
+<link href="A" rev=" " xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link/@rev;attribute not defined;m
 /link;attribute missing;rel;m
 
 #data
-<link href="" rev="made" xmlns="http://www.w3.org/1999/xhtml"/>
+<link href="A" rev="made" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link/@rev;attribute not defined;m
 /link;attribute missing;rel;m
 
 #data
-<link href="" rev="made made" xmlns="http://www.w3.org/1999/xhtml"/>
+<link href="A" rev="made made" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link/@rev;attribute not defined;m
-/link/@rev;duplicate token;m
 /link;attribute missing;rel;m
 
 #data
-<link href="" rel="alternate"
+<link href="A" rel="alternate"
     charset="us-ascii" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link/@charset;attribute not defined;m
 
 #data
-<link href="" rel="alternate"
+<link href="A" rel="alternate"
     charset="x-sjis" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link/@charset;attribute not defined;m
@@ -1782,21 +1841,21 @@ p {color: green}
 /link/@charset;charset:private;w
 
 #data
-<link href="" rel="alternate"
+<link href="A" rel="alternate"
     charset="not-registered" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link/@charset;attribute not defined;m
 /link/@charset;charset:not registered;w
 
 #data
-<link href="" rel="alternate"
+<link href="A" rel="alternate"
     charset="Shift JIS" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link/@charset;attribute not defined;m
 /link/@charset;charset:not registered;w
 
 #data
-<link href="" rel="alternate"
+<link href="A" rel="alternate"
     charset="Shift&#x4e00;JIS" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link/@charset;attribute not defined;m
@@ -1804,138 +1863,138 @@ p {color: green}
 /link/@charset;charset:not registered;w
 
 #data
-<link href="" rel="alternate"
+<link href="A" rel="alternate"
     charset="ascii" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link/@charset;attribute not defined;m
 /link/@charset;charset:not preferred;m
 
 #data
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"/>
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 
 #data
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes=""/>
 #errors
 
 #data
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes="    "/>
 #errors
 
 #data
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes="any"/>
 #errors
 
 #data
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes="1x1"/>
 #errors
 
 #data
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes="100x100 32x31"/>
 #errors
 
 #data
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes="any 100x200"/>
 #errors
 
 #data
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes="   16x16 "/>
 #errors
 
 #data
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes="ANY"/>
 #errors
 
 #data
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes="32X32"/>
 #errors
 
 #data
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes="any any"/>
 #errors
 /link/@sizes;duplicate token;m
 
 #data
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes="any AnY"/>
 #errors
 /link/@sizes;duplicate token;m
 
 #data
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes="16x16 16x16"/>
 #errors
 /link/@sizes;duplicate token;m
 
 #data
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes="16x16 16X16"/>
 #errors
 /link/@sizes;duplicate token;m
 
 #data
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes="032x032"/>
 #errors
 /link/@sizes;sizes:syntax error;m
 
 #data
 <?xml version="1.1"?>
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes="32x32&#x0b;"/>
 #errors
 /link/@sizes;sizes:syntax error;m
 
 #data
 <?xml version="1.1"?>
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes="&#x0b;32x32"/>
 #errors
 /link/@sizes;sizes:syntax error;m
 
 #data
 <?xml version="1.1"?>
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes="32x32&#x0b;44x44"/>
 #errors
 /link/@sizes;sizes:syntax error;m
 
 #data
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     size=""/>
 #errors
 /link/@size;attribute not defined;m
 
 #data
-<link rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     height="16" width="16"/>
 #errors
 /link/@height;attribute not defined;m
 /link/@width;attribute not defined;m
 
 #data
-<link rel="shortcut icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="shortcut icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes=""/>
 #errors
 
 #data
-<link rel="alternate" href="" xmlns="http://www.w3.org/1999/xhtml"
+<link rel="alternate" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes=""/>
 #errors
 /link/@sizes;attribute not allowed;m
 
 #data
-<a rel="icon" href="" xmlns="http://www.w3.org/1999/xhtml"
+<a rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
     sizes="">x</a>
 #errors
 /a/@rel;link type:bad context;m
@@ -2375,8 +2434,8 @@ p {color: green}
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
 <title>x</title>
-<link rel="stylesheet" href="" title="style1"/>		
-<link rel="stylesheet" href="" title="style2"/>		
+<link rel="stylesheet" href="A" title="style1"/>		
+<link rel="stylesheet" href="A" title="style2"/>		
 <meta http-equiv="Default-Style" content="style1"/>
 <meta http-equiv="default-style" content="style2"/>
 </head>
@@ -2524,7 +2583,7 @@ p {color: green}
 <head xmlns="http://www.w3.org/1999/xhtml">
 <title>x</title>
 <meta http-equiv="Refresh" content="4; url=http://www.example.com/"/>
-<base href=""/>
+<base href="A"/>
 </head>
 #errors
 /head/base;basehref after URL attribute;m

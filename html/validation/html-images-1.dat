@@ -1,10 +1,10 @@
 #data
-<area shape="default" href="" alt="a" xmlns="http://www.w3.org/1999/xhtml"/>
+<area shape="default" href="A" alt="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<area shape="default" href="" alt="a"/>
+<area shape="default" href="A" alt="a"/>
 </div>
 #errors
 /div;no significant content;s
@@ -12,7 +12,7 @@
 
 #data
 <map id="map1" xmlns="http://www.w3.org/1999/xhtml">
-<area shape="default" href="" alt="a"/>
+<area shape="default" href="A" alt="a"/>
 </map>
 #errors
 /map;no significant content;s
@@ -20,21 +20,21 @@
 
 #data
 <map name="map1" xmlns="http://www.w3.org/1999/xhtml">
-<area shape="default" href="" alt="a"/>
+<area shape="default" href="A" alt="a"/>
 </map>
 #errors
 /map;no significant content;s
 
 #data
 <map id="map1" name="map1" xmlns="http://www.w3.org/1999/xhtml">
-<area shape="default" href="" alt="a"/>
+<area shape="default" href="A" alt="a"/>
 </map>
 #errors
 /map;no significant content;s
 
 #data
 <map id="map1" xmlns="http://www.w3.org/1999/xhtml">
-<p><area shape="default" href="" alt="a"/></p>
+<p><area shape="default" href="A" alt="a"/></p>
 </map>
 #errors
 /map;no significant content;s
@@ -43,7 +43,7 @@
 
 #data
 <map name="map1" xmlns="http://www.w3.org/1999/xhtml">
-<p><area shape="default" href="" alt="a"/></p>
+<p><area shape="default" href="A" alt="a"/></p>
 </map>
 #errors
 /map;no significant content;s
@@ -51,7 +51,7 @@
 
 #data
 <map id="map1" xmlns="http://www.w3.org/1999/xhtml">
-<map id="map2"><p><area shape="default" href="" alt="a"/></p></map>
+<map id="map2"><p><area shape="default" href="A" alt="a"/></p></map>
 </map>
 #errors
 /map;no significant content;s
@@ -62,7 +62,7 @@
 
 #data
 <map name="map1" xmlns="http://www.w3.org/1999/xhtml">
-<map name="map2"><p><area shape="default" href="" alt="a"/></p></map>
+<map name="map2"><p><area shape="default" href="A" alt="a"/></p></map>
 </map>
 #errors
 /map;no significant content;s
@@ -74,7 +74,7 @@
 <map name="map1">
 <map name="map2"/>
 </map>
-<area shape="default" href="" alt="a"/></div>
+<area shape="default" href="A" alt="a"/></div>
 #errors
 /div;no significant content;s
 /div/area;element not allowed:area;m
@@ -83,7 +83,7 @@
 
 #data
 <map name="map1" xmlns="http://www.w3.org/1999/xhtml">
-<map name="map2"/><p><area shape="default" href="" alt="a"/></p>
+<map name="map2"/><p><area shape="default" href="A" alt="a"/></p>
 </map>
 #errors
 /map;no significant content;s
@@ -92,7 +92,7 @@
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<map name="map2"/><p><area shape="default" href="" alt="a"/></p>
+<map name="map2"/><p><area shape="default" href="A" alt="a"/></p>
 </div>
 #errors
 /div;no significant content;s
@@ -192,193 +192,198 @@ aa<map name="x">b<map name="y">bb</map></map>
 #errors
 
 #data
+<img alt="" src="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/img/@src;url:empty;m
+
+#data
 <img alt="" src="http://test/`" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@src;syntax error:iriref3987;m
 
 #data
-<img alt="" src="" longdesc="" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" longdesc="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@longdesc;attribute not defined;m
 
 #data
-<img alt="" src="" longdesc="http://www.example.com/"
+<img alt="" src="a" longdesc="http://www.example.com/"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@longdesc;attribute not defined;m
 
 #data
-<img alt="" src="" longdesc="[]" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" longdesc="[]" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@longdesc;attribute not defined;m
 /img/@longdesc;syntax error:iriref3987;m
 
 #data
-<img alt="" src="" hspace="" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" hspace="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@hspace;attribute not defined;m
 /img/@hspace;length:syntax error;m
 
 #data
-<img alt="" src="" vspace="" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" vspace="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@vspace;attribute not defined;m
 /img/@vspace;length:syntax error;m
 
 #data
-<img alt="" src="" hspace="  " xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" hspace="  " xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@hspace;attribute not defined;m
 /img/@hspace;length:syntax error;m
 
 #data
-<img alt="" src="" vspace="  " xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" vspace="  " xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@vspace;attribute not defined;m
 /img/@vspace;length:syntax error;m
 
 #data
-<img alt="" src="" hspace="0" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" hspace="0" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@hspace;attribute not defined;m
 
 #data
-<img alt="" src="" vspace="0" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" vspace="0" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@vspace;attribute not defined;m
 
 #data
-<img alt="" src="" hspace="120" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" hspace="120" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@hspace;attribute not defined;m
 
 #data
-<img alt="" src="" vspace="120" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" vspace="120" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@vspace;attribute not defined;m
 
 #data
-<img alt="" src="" hspace="120%" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" hspace="120%" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@hspace;attribute not defined;m
 
 #data
-<img alt="" src="" vspace="120%" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" vspace="120%" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@vspace;attribute not defined;m
 
 #data
-<img alt="" src="" hspace="1 %" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" hspace="1 %" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@hspace;attribute not defined;m
 /img/@hspace;length:syntax error;m
 
 #data
-<img alt="" src="" vspace="1 %" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" vspace="1 %" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@vspace;attribute not defined;m
 /img/@vspace;length:syntax error;m
 
 #data
-<img alt="" src="" hspace="1.0" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" hspace="1.0" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@hspace;attribute not defined;m
 /img/@hspace;length:syntax error;m
 
 #data
-<img alt="" src="" vspace="1.0" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" vspace="1.0" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@vspace;attribute not defined;m
 /img/@vspace;length:syntax error;m
 
 #data
-<img alt="" src="" hspace="10px" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" hspace="10px" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@hspace;attribute not defined;m
 /img/@hspace;length:syntax error;m
 
 #data
-<img alt="" src="" vspace="10px" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" vspace="10px" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@vspace;attribute not defined;m
 /img/@vspace;length:syntax error;m
 
 #data
-<img alt="" src="" hspace="0 " xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" hspace="0 " xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@hspace;attribute not defined;m
 /img/@hspace;length:syntax error;m
 
 #data
-<img alt="" src="" vspace=" 0" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" vspace=" 0" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@vspace;attribute not defined;m
 /img/@vspace;length:syntax error;m
 
 #data
-<img alt="" src="" hspace="0%" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" hspace="0%" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@hspace;attribute not defined;m
 
 #data
-<img alt="" src="" vspace="20%" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" vspace="20%" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@vspace;attribute not defined;m
 
 #data
-<img alt="" src="" hspace="-0" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" hspace="-0" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@hspace;attribute not defined;m
 /img/@hspace;length:syntax error;m
 
 #data
-<img alt="" src="" vspace="-0" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" vspace="-0" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@vspace;attribute not defined;m
 /img/@vspace;length:syntax error;m
 
 #data
-<img alt="" src="" border="0" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" border="0" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@border;img border:0;s
 
 #data
-<img alt="" src="" border="1" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" border="1" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@border;img border:nninteger;m
 
 #data
-<img alt="" src="" border="4563" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" border="4563" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@border;img border:nninteger;m
 
 #data
-<img alt="" src="" border="4563000" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" border="4563000" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@border;img border:nninteger;m
 
 #data
-<img alt="" src="" border="-0" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" border="-0" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@border;nninteger:syntax error;m
 
 #data
-<img alt="" src="" border="10-0" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" border="10-0" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@border;nninteger:syntax error;m
 
 #data
-<img alt="" src="" border="none" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" border="none" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@border;nninteger:syntax error;m
 
 #data
-<img alt="" src="" border="" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" border="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@border;nninteger:syntax error;m
 
 #data
-<img alt="" src="" noborder="" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" noborder="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@noborder;attribute not defined;m
 
@@ -388,34 +393,34 @@ aa<map name="x">b<map name="y">bb</map></map>
 /img/@ismap;attribute not allowed:ismap;m
 
 #data
-<img alt="x" src="" xmlns="http://www.w3.org/1999/xhtml"
+<img alt="x" src="a" xmlns="http://www.w3.org/1999/xhtml"
     height=""/>
 #errors
 /img/@height;nninteger:syntax error;m
 
 #data
-<img alt="x" src="" xmlns="http://www.w3.org/1999/xhtml"
+<img alt="x" src="a" xmlns="http://www.w3.org/1999/xhtml"
     height="0"/>
 #errors
 
 #data
-<img alt="x" src="" xmlns="http://www.w3.org/1999/xhtml"
+<img alt="x" src="a" xmlns="http://www.w3.org/1999/xhtml"
     height="120"/>
 #errors
 
 #data
-<img alt="x" src="" xmlns="http://www.w3.org/1999/xhtml"
+<img alt="x" src="a" xmlns="http://www.w3.org/1999/xhtml"
     width=""/>
 #errors
 /img/@width;nninteger:syntax error;m
 
 #data
-<img alt="x" src="" xmlns="http://www.w3.org/1999/xhtml"
+<img alt="x" src="a" xmlns="http://www.w3.org/1999/xhtml"
     width="0"/>
 #errors
 
 #data
-<img alt="x" src="" xmlns="http://www.w3.org/1999/xhtml"
+<img alt="x" src="a" xmlns="http://www.w3.org/1999/xhtml"
     width="120"/>
 #errors
 
@@ -758,7 +763,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <map name="">x</map>
-<img src="" alt="" usemap="#"/>
+<img src="a" alt="" usemap="#"/>
 </div>
 #errors
 /div/map/@name;empty attribute value;m
@@ -767,7 +772,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 <div xmlns="http://www.w3.org/1999/xhtml">
 <map name="a">x</map>
 <map name="a">x</map>
-<img src="" alt="" usemap="#a"/>
+<img src="a" alt="" usemap="#a"/>
 </div>
 #errors
 /div/map/@name;duplicate map name;m
@@ -776,7 +781,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 <div xmlns="http://www.w3.org/1999/xhtml">
 <map name="a">x</map>
 <map name="A">x</map>
-<img src="" alt="" usemap="#a"/>
+<img src="a" alt="" usemap="#a"/>
 </div>
 #errors
 /div/map/@name;duplicate map name;m
@@ -785,7 +790,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 <div xmlns="http://www.w3.org/1999/xhtml">
 <map name="A">x</map>
 <map name="a">x</map>
-<img src="" alt="" usemap="#a"/>
+<img src="a" alt="" usemap="#a"/>
 </div>
 #errors
 /div/map/@name;duplicate map name;m
@@ -795,7 +800,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 <map name="a">x
 <map name="a">x</map>
 </map>
-<img src="" alt="" usemap="#a"/>
+<img src="a" alt="" usemap="#a"/>
 </div>
 #errors
 /div/map/map/@name;duplicate map name;m
@@ -803,7 +808,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <map name="a">x</map>
-<img src="" alt="" usemap="#A"/>
+<img src="a" alt="" usemap="#A"/>
 </div>
 #errors
 /div/img/@usemap;hashref:wrong case;m
@@ -811,105 +816,105 @@ aa<map name="x">b<map name="y">bb</map></map>
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <map name="A">x</map>
-<img src="" alt="" usemap="#a"/>
+<img src="a" alt="" usemap="#a"/>
 </div>
 #errors
 /div/img/@usemap;hashref:wrong case;m
 
 #data
-<img alt="" src="" align="" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" align="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@align;attribute not defined;m
 /img/@align;enumerated:invalid;m
 
 #data
-<img alt="" src="" align="char" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" align="char" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@align;attribute not defined;m
 /img/@align;enumerated:invalid;m
 
 #data
-<img alt="" src="" align="justify" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" align="justify" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@align;attribute not defined;m
 /img/@align;enumerated:invalid;m
 
 #data
-<img alt="" src="" align="center" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" align="center" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@align;attribute not defined;m
 /img/@align;enumerated:non-conforming;m
 
 #data
-<img alt="" src="" align="abscenter" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" align="abscenter" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@align;attribute not defined;m
 /img/@align;enumerated:non-conforming;m
 
 #data
-<img alt="" src="" align="absmiddle" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" align="absmiddle" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@align;attribute not defined;m
 /img/@align;enumerated:non-conforming;m
 
 #data
-<img alt="" src="" align="texttop" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" align="texttop" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@align;attribute not defined;m
 /img/@align;enumerated:non-conforming;m
 
 #data
-<img alt="" src="" align="BASELINE" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" align="BASELINE" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@align;attribute not defined;m
 /img/@align;enumerated:non-conforming;m
 
 #data
-<img alt="" src="" align="text-top" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" align="text-top" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@align;attribute not defined;m
 /img/@align;enumerated:invalid;m
 
 #data
-<img alt="" src="" align="bottom" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" align="bottom" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@align;attribute not defined;m
 
 #data
-<img alt="" src="" align="middle" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" align="middle" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@align;attribute not defined;m
 
 #data
-<img alt="" src="" align="top" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" align="top" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@align;attribute not defined;m
 
 #data
-<img alt="" src="" align="left" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" align="left" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@align;attribute not defined;m
 
 #data
-<img alt="" src="" align="right" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" align="right" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@align;attribute not defined;m
 
 #data escaped
-<img alt="" src="" align="r\u0130ght" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" align="r\u0130ght" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@align;attribute not defined;m
 /img/@align;enumerated:invalid;m
 
 #data escaped
-<img alt="" src="" align="r\u0131ght" xmlns="http://www.w3.org/1999/xhtml"/>
+<img alt="" src="a" align="r\u0131ght" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /img/@align;attribute not defined;m
 /img/@align;enumerated:invalid;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <img src="" alt="a" name=""/>
+  <img src="a" alt="a" name=""/>
 </div>
 #errors
 /div/img/@name;attribute not defined;m
@@ -917,21 +922,21 @@ aa<map name="x">b<map name="y">bb</map></map>
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <img src="" alt="a" name="  "/>
+  <img src="a" alt="a" name="  "/>
 </div>
 #errors
 /div/img/@name;attribute not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <img src="" alt="a" name="aaa"/>
+  <img src="a" alt="a" name="aaa"/>
 </div>
 #errors
 /div/img/@name;attribute not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <img src="" alt="a" name="abc"/>
+  <img src="a" alt="a" name="abc"/>
   <a name="abc">aa</a>
 </div>
 #errors
@@ -941,7 +946,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <a name="abc">aa</a>
-  <img src="" alt="a" name="abc"/>
+  <img src="a" alt="a" name="abc"/>
 </div>
 #errors
 /div/a/@name;anchor name;s
@@ -951,7 +956,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <span id="abc">aa</span>
-  <img src="" alt="a" name="abc"/>
+  <img src="a" alt="a" name="abc"/>
 </div>
 #errors
 /div/img/@name;id name confliction;m
@@ -960,7 +965,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <span xml:id="abc">aa</span>
-  <img src="" alt="a" name="abc"/>
+  <img src="a" alt="a" name="abc"/>
 </div>
 #errors
 /div/span/@id;attribute not defined;m
@@ -968,7 +973,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <img src="" alt="a" name="abc"/>
+  <img src="a" alt="a" name="abc"/>
   <span id="abc">aa</span>
 </div>
 #errors
@@ -977,7 +982,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <img src="" alt="a" name="abc"/>
+  <img src="a" alt="a" name="abc"/>
   <span xml:id="abc">aa</span>
 </div>
 #errors
@@ -986,7 +991,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <img src="" alt="a" name="abc" id="abd"/>
+  <img src="a" alt="a" name="abc" id="abd"/>
 </div>
 #errors
 /div/img/@name;attribute not defined;m
@@ -994,16 +999,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <img src="" alt="a" name="abc" id="abd" xml:id="abe"/>
-</div>
-#errors
-/div/img/@name;attribute not defined;m
-/div/img/@name;id name mismatch;m
-/div/img/@id;attribute not defined;m
-
-#data
-<div xmlns="http://www.w3.org/1999/xhtml">
-  <img src="" alt="a" name="abc" id="abd" xml:id="abc"/>
+  <img src="a" alt="a" name="abc" id="abd" xml:id="abe"/>
 </div>
 #errors
 /div/img/@name;attribute not defined;m
@@ -1012,7 +1008,16 @@ aa<map name="x">b<map name="y">bb</map></map>
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <img src="" alt="a" name="abc" id="abc" xml:id="abd"/>
+  <img src="a" alt="a" name="abc" id="abd" xml:id="abc"/>
+</div>
+#errors
+/div/img/@name;attribute not defined;m
+/div/img/@name;id name mismatch;m
+/div/img/@id;attribute not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <img src="a" alt="a" name="abc" id="abc" xml:id="abd"/>
 </div>
 #errors
 /div/img/@name;attribute not defined;m
@@ -1020,7 +1025,7 @@ aa<map name="x">b<map name="y">bb</map></map>
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <img src="" alt="a" name="abc" xml:id="abd"/>
+  <img src="a" alt="a" name="abc" xml:id="abd"/>
 </div>
 #errors
 /div/img/@name;attribute not defined;m
@@ -1936,6 +1941,11 @@ aa<map name="x">b<map name="y">bb</map></map>
 #errors
 
 #data
+<area href="" alt="" coords="1,2,3,4"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
 <area href="%%http://test/" alt="" coords="1,2,3,4"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
@@ -2464,8 +2474,8 @@ aa<map name="x">b<map name="y">bb</map></map>
 
 #data
 <map name="m" xmlns="http://www.w3.org/1999/xhtml">
-<area shape="rect" coords="1,2,3,4" href="" alt=""/>
-x<area shape="rect" coords="5,6,7,8" href="" alt=""/>
+<area shape="rect" coords="1,2,3,4" href="A" alt=""/>
+x<area shape="rect" coords="5,6,7,8" href="A" alt=""/>
 </map>
 #errors
 /map/area/@alt;empty area alt;m
@@ -2473,30 +2483,30 @@ x<area shape="rect" coords="5,6,7,8" href="" alt=""/>
 
 #data
 <map name="m" xmlns="http://www.w3.org/1999/xhtml">
-<area shape="rect" coords="1,2,3,4" href="" alt=""/>
-<area shape="rect" coords="5,6,7,8" href="" alt="x"/>
+<area shape="rect" coords="1,2,3,4" href="A" alt=""/>
+<area shape="rect" coords="5,6,7,8" href="A" alt="x"/>
 x</map>
 #errors
 
 #data
 <map name="m" xmlns="http://www.w3.org/1999/xhtml">
-<area shape="rect" coords="1,2,3,4" href="" alt="x"/>
-<area shape="rect" coords="5,6,7,8" href="" alt=""/>
+<area shape="rect" coords="1,2,3,4" href="A" alt="x"/>
+<area shape="rect" coords="5,6,7,8" href="A" alt=""/>
 x</map>
 #errors
 
 #data
 <map name="m" xmlns="http://www.w3.org/1999/xhtml">
-<area shape="rect" coords="1,2,3,4" href="" alt=""/>
-<area shape="rect" coords="5,6,7,8" href="" alt=""/>
-<area shape="rect" coords="9,10,11,12" href="" alt="x"/>
+<area shape="rect" coords="1,2,3,4" href="A" alt=""/>
+<area shape="rect" coords="5,6,7,8" href="A" alt=""/>
+<area shape="rect" coords="9,10,11,12" href="A" alt="x"/>
 x</map>
 #errors
 
 #data
 <map name="m" xmlns="http://www.w3.org/1999/xhtml">
 <area shape="rect" coords="1,2,3,4" href="a" alt="x"/>
-<area shape="rect" coords="5,6,7,8" href="" alt=""/>
+<area shape="rect" coords="5,6,7,8" href="A" alt=""/>
 x</map>
 #errors
 /map/area/@alt;empty area alt;m
@@ -2519,18 +2529,18 @@ x</map>
 
 #data
 <map name="m" xmlns="http://www.w3.org/1999/xhtml">
-<area shape="rect" coords="1,2,3,4" href="" alt=""/>
+<area shape="rect" coords="1,2,3,4" href="A" alt=""/>
 <map name="n">
-<area shape="rect" coords="5,6,7,8" href="" alt="x"/>x
+<area shape="rect" coords="5,6,7,8" href="A" alt="x"/>x
 </map>
 </map>
 #errors
 
 #data
 <map name="m" xmlns="http://www.w3.org/1999/xhtml">
-<area shape="rect" coords="1,2,3,4" href="" alt="x"/>
+<area shape="rect" coords="1,2,3,4" href="A" alt="x"/>
 <map name="n">
-<area shape="rect" coords="5,6,7,8" href="" alt=""/>x
+<area shape="rect" coords="5,6,7,8" href="A" alt=""/>x
 </map>
 </map>
 #errors
@@ -2542,9 +2552,10 @@ x</map>
 /area/@rev;attribute not defined;m
 
 #data
-<area shape="default" nohref="" xmlns="http://www.w3.org/1999/xhtml"/>
+<area shape="default" nohref="A" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /area/@nohref;attribute not defined;m
+/area/@nohref;boolean:invalid;m
 
 #data
 <area shape="default" nohref="nohref" xmlns="http://www.w3.org/1999/xhtml"/>

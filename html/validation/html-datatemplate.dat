@@ -1897,7 +1897,7 @@
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><head><title/>
-<noscript><link rel="alternate" href=""/><nest/></noscript>
+<noscript><link rel="alternate" href="a"/><nest/></noscript>
 </head></rule>
 #errors
 /rule/head/noscript;in XML:noscript;m
@@ -1910,58 +1910,48 @@
 <datagrid><nest/></datagrid>
 </rule>
 #errors
-/rule/datagrid;no significant content;s
 /rule/datagrid;element not defined;m
 /rule;element not defined;m
 /rule/datagrid/nest;element not defined;m
-/rule/datagrid/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <datagrid><nest/><table/></datagrid>
 </rule>
 #errors
-/rule/datagrid;no significant content;s
 /rule/datagrid;element not defined;m
 /rule;element not defined;m
 /rule/datagrid/nest;element not defined;m
-/rule/datagrid/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <datagrid><nest/><table/><p/></datagrid>
 </rule>
 #errors
-/rule/datagrid;no significant content;s
 /rule/datagrid/p;no significant content;s
 /rule/datagrid;element not defined;m
 /rule;element not defined;m
 /rule/datagrid/nest;element not defined;m
-/rule/datagrid/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <datagrid><p/><nest/><table/></datagrid>
 </rule>
 #errors
-/rule/datagrid;no significant content;s
 /rule/datagrid/p;no significant content;s
 /rule/datagrid;element not defined;m
 /rule;element not defined;m
 /rule/datagrid/nest;element not defined;m
-/rule/datagrid/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <datagrid><table/><nest/><p/></datagrid>
 </rule>
 #errors
-/rule/datagrid;no significant content;s
 /rule/datagrid/p;no significant content;s
 /rule/datagrid;element not defined;m
 /rule;element not defined;m
 /rule/datagrid/nest;element not defined;m
-/rule/datagrid/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><bb>x</bb></rule>

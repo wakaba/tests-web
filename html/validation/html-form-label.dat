@@ -40,7 +40,7 @@
 /label;no significant content;s
 
 #data
-<label xmlns="http://www.w3.org/1999/xhtml"><video src=""/></label>
+<label xmlns="http://www.w3.org/1999/xhtml"><video src="a"/></label>
 #errors
 /label/video;no significant content;s
 
@@ -316,7 +316,6 @@ x<a>y</a><input/>
 x<datagrid/><input/>
 </label>
 #errors
-/label/datagrid;no significant content;s
 /label/datagrid;element not defined;m
 /label/datagrid;element not allowed:phrasing;m
 
@@ -485,15 +484,15 @@ x<datalist>x</datalist><input/>
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <label for="a">x</label>
-  <object data="" id="a">x</object>
+  <object data="a" id="a">x</object>
 </div>
 #errors
 /div/label/@for;no referenced control;m
 
 #data
 <label xmlns="http://www.w3.org/1999/xhtml">
-  <object data="">a</object>
-  <object data="">b</object>
+  <object data="b">a</object>
+  <object data="c">b</object>
 </label>
 #errors
 

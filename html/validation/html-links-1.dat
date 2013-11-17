@@ -153,82 +153,82 @@ x</div>
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
-<video src="">x</video>
+<video src="c">x</video>
 </a>
 #errors
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
-<span><video src="">x</video></span>
+<span><video src="d">x</video></span>
 </a>
 #errors
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<a><video src="">x</video></a>
-<video src="">y</video>
+<a><video src="e">x</video></a>
+<video src="f">y</video>
 </div>
 #errors
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
-<video src="" controls="">x</video>
+<video src="a" controls="">x</video>
 </a>
 #errors
 /a/video;element not allowed:minus;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
-<span><video src="" controls="">x</video></span>
+<span><video src="a" controls="">x</video></span>
 </a>
 #errors
 /a/span/video;element not allowed:minus;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<a><video src="" controls="">x</video></a>
-<video src="" controls="">y</video>
+<a><video src="a" controls="">x</video></a>
+<video src="a" controls="">y</video>
 </div>
 #errors
 /div/a/video;element not allowed:minus;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
-<audio src="">x</audio>
+<audio src="a">x</audio>
 </a>
 #errors
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
-<span><audio src="">x</audio></span>
+<span><audio src="a">x</audio></span>
 </a>
 #errors
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<a><audio src="">x</audio></a>
-<audio src="">y</audio>
+<a><audio src="a">x</audio></a>
+<audio src="a">y</audio>
 </div>
 #errors
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
-<audio src="" controls="">x</audio>
+<audio src="a" controls="">x</audio>
 </a>
 #errors
 /a/audio;element not allowed:minus;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
-<span><audio src="" controls="">x</audio></span>
+<span><audio src="a" controls="">x</audio></span>
 </a>
 #errors
 /a/span/audio;element not allowed:minus;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<a><audio src="" controls="">x</audio></a>
-<audio src="" controls="">y</audio>
+<a><audio src="a" controls="">x</audio></a>
+<audio src="a" controls="">y</audio>
 </div>
 #errors
 /div/a/audio;element not allowed:minus;m
@@ -408,40 +408,40 @@ x</div>
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
-<iframe src=""></iframe>
+<iframe src="a"></iframe>
 </a>
 #errors
 /a/iframe;element not allowed:minus;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
-<embed src=""/>
+<embed src="a"/>
 </a>
 #errors
 /a/embed;element not allowed:minus;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
-<object data="">xx</object>
+<object data="a">xx</object>
 </a>
 #errors
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
-<object data="" usemap="#map"><map name="map">xx</map></object>
+<object data="a" usemap="#map"><map name="map">xx</map></object>
 </a>
 #errors
 /a/object;element not allowed:minus;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
-<img src="" alt="x"/>y
+<img src="a" alt="x"/>y
 </a>
 #errors
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
-<img src="" usemap="#map" alt="x"/>
+<img src="b" usemap="#map" alt="x"/>
 <map name="map">aa</map>
 </a>
 #errors
@@ -523,7 +523,6 @@ x</div>
 /div/p;no significant content;s
 /div/p/a;no significant content;s
 /div/ol/li;no significant content;s
-/div/ol/li/datagrid;no significant content;s
 /div/ol/li/datagrid;element not defined;m
 /div/ol/li/datagrid;element not allowed:flow;m
 
@@ -550,6 +549,11 @@ x</div>
 /details/legend;no significant content;s
 /details/legend;element not allowed:flow;m
 /details/legend/a;no significant content;s
+
+#data
+<a href="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/a;no significant content;s
 
 #data
 <a href="http://test/" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -678,19 +682,19 @@ x</div>
 
 #data
 <area xmlns="http://www.w3.org/1999/xhtml" alt="x"
-    shape="default" href=""
+    shape="default" href="A"
     rel=""/>
 #errors
 
 #data
 <area xmlns="http://www.w3.org/1999/xhtml" alt="x"
-    shape="default" href=""
+    shape="default" href="A"
     rel="   "/>
 #errors
 
 #data
 <area xmlns="http://www.w3.org/1999/xhtml" alt="x"
-    shape="default" href=""
+    shape="default" href="A"
     rel="noreferrer up"/>
 #errors
 
@@ -757,25 +761,25 @@ x</div>
 
 #data
 <area xmlns="http://www.w3.org/1999/xhtml" alt="x"
-    shape="default" href=""
+    shape="default" href="A"
     ping=""/>
 #errors
 
 #data
 <area xmlns="http://www.w3.org/1999/xhtml" alt="x"
-    shape="default" href=""
+    shape="default" href="A"
     ping="    "/>
 #errors
 
 #data
 <area xmlns="http://www.w3.org/1999/xhtml" alt="x"
-    shape="default" href=""
+    shape="default" href="A"
     ping="a b"/>
 #errors
 
 #data
 <area xmlns="http://www.w3.org/1999/xhtml" alt="x"
-    shape="default" href=""
+    shape="default" href="A"
     ping="[]"/>
 #errors
 /area/@ping;syntax error:iriref3987;m
@@ -916,7 +920,6 @@ x</div>
 <a rev="made made" xmlns="http://www.w3.org/1999/xhtml">x</a>
 #errors
 /a/@rev;attribute not defined;m
-/a/@rev;duplicate token;m
 
 #data
 <a ping="a" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -958,7 +961,7 @@ x</div>
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
-  <b><a href="">a</a></b>
+  <b><a href="A">a</a></b>
   <i><a type="text/plain">x</a></i>
 </p>
 #errors
@@ -968,11 +971,11 @@ x</div>
 /p/i;attribute missing;class;w
 
 #data
-<link xmlns="http://www.w3.org/1999/xhtml" href="" rel=""/>
+<link xmlns="http://www.w3.org/1999/xhtml" href="A" rel=""/>
 #errors
 
 #data
-<link xmlns="http://www.w3.org/1999/xhtml" href="" rel="    "/>
+<link xmlns="http://www.w3.org/1999/xhtml" href="A" rel="    "/>
 #errors
 
 #data
@@ -1084,66 +1087,66 @@ x</div>
 #errors
 
 #data
-<a xmlns="http://www.w3.org/1999/xhtml" href="" rel="noreferer">.</a>
+<a xmlns="http://www.w3.org/1999/xhtml" href="A" rel="noreferer">.</a>
 #errors
 /a/@rel;unknown link type;u
 
 #data
-<a xmlns="http://www.w3.org/1999/xhtml" href="" rel="noreferrer">.</a>
+<a xmlns="http://www.w3.org/1999/xhtml" href="A" rel="noreferrer">.</a>
 #errors
 
 #data
-<area xmlns="http://www.w3.org/1999/xhtml" href="" rel="noreferer" alt="X"
+<area xmlns="http://www.w3.org/1999/xhtml" href="A" rel="noreferer" alt="X"
     coords="1,2,3,4"/>
 #errors
 /area/@rel;unknown link type;u
 
 #data
-<area xmlns="http://www.w3.org/1999/xhtml" href="" rel="noreferrer" alt="X"
+<area xmlns="http://www.w3.org/1999/xhtml" href="A" rel="noreferrer" alt="X"
     coords="1,2,3,4"/>
 #errors
 
 #data
-<link xmlns="http://www.w3.org/1999/xhtml" href="" rel="noreferer"/>
+<link xmlns="http://www.w3.org/1999/xhtml" href="A" rel="noreferer"/>
 #errors
 /link/@rel;unknown link type;u
 
 #data
-<link xmlns="http://www.w3.org/1999/xhtml" href="" rel="noreferrer"/>
+<link xmlns="http://www.w3.org/1999/xhtml" href="A" rel="noreferrer"/>
 #errors
 /link/@rel;link type:bad context;m
 
 #data
-<link xmlns="http://www.w3.org/1999/xhtml" href="" rel="openid.server"/>
+<link xmlns="http://www.w3.org/1999/xhtml" href="A" rel="openid.server"/>
 #errors
 /link/@rel;link type:proposed;s
 
 #data
-<a xmlns="http://www.w3.org/1999/xhtml" href="" rel="openid.server">a</a>
+<a xmlns="http://www.w3.org/1999/xhtml" href="A" rel="openid.server">a</a>
 #errors
 /a/@rel;link type:proposed;s
 /a/@rel;link type:bad context;m
 
 #data
-<area xmlns="http://www.w3.org/1999/xhtml" href="" shape="default"
+<area xmlns="http://www.w3.org/1999/xhtml" href="A" shape="default"
     alt="" rel="openid.server"/>
 #errors
 /area/@rel;link type:proposed;s
 /area/@rel;link type:bad context;m
 
 #data
-<link xmlns="http://www.w3.org/1999/xhtml" href="" rel="service"/>
+<link xmlns="http://www.w3.org/1999/xhtml" href="A" rel="service"/>
 #errors
 /link/@rel;link type:proposed;s
 
 #data
-<a xmlns="http://www.w3.org/1999/xhtml" href="" rel="service">a</a>
+<a xmlns="http://www.w3.org/1999/xhtml" href="A" rel="service">a</a>
 #errors
 /a/@rel;link type:proposed;s
 /a/@rel;link type:bad context;m
 
 #data
-<area xmlns="http://www.w3.org/1999/xhtml" href="" shape="default"
+<area xmlns="http://www.w3.org/1999/xhtml" href="A" shape="default"
     alt="" rel="service"/>
 #errors
 /area/@rel;link type:proposed;s
@@ -1151,7 +1154,7 @@ x</div>
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
-    href="" rel="http://foo.test/ http://FOO.test/">aa</a>
+    href="A" rel="http://foo.test/ http://FOO.test/">aa</a>
 #errors
 /a/@rel;URL:uppercase host;w
 /a/@rel;unknown link type;u
@@ -1159,26 +1162,26 @@ x</div>
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
-    href="" rel="[http://FOO.test/]">aa</a>
+    href="A" rel="[http://FOO.test/]">aa</a>
 #errors
 /a/@rel;URL:uppercase host;w
 /a/@rel;syntax error:iriref3987;m
 /a/@rel;unknown link type;u
 
 #data
-<link xmlns="http://www.w3.org/1999/xhtml" href="" rev=""/>
+<link xmlns="http://www.w3.org/1999/xhtml" href="A" rev=""/>
 #errors
 /link/@rev;attribute not defined;m
 /link;attribute missing;rel;m
 
 #data
-<link xmlns="http://www.w3.org/1999/xhtml" href="" rev="    "/>
+<link xmlns="http://www.w3.org/1999/xhtml" href="A" rev="    "/>
 #errors
 /link/@rev;attribute not defined;m
 /link;attribute missing;rel;m
 
 #data
-<link xmlns="http://www.w3.org/1999/xhtml" href="" rev="made"/>
+<link xmlns="http://www.w3.org/1999/xhtml" href="A" rev="made"/>
 #errors
 /link/@rev;attribute not defined;m
 /link;attribute missing;rel;m
@@ -1203,7 +1206,7 @@ x</div>
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
-    href=""
+    href="A"
     shape=""
 >a
 </a>
@@ -1214,7 +1217,7 @@ x</div>
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
-    href=""
+    href="A"
     shape="   "
 >a
 </a>
@@ -1225,7 +1228,7 @@ x</div>
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
-    href=""
+    href="A"
     shape="default"
 >a
 </a>
@@ -1234,7 +1237,7 @@ x</div>
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
-    href=""
+    href="A"
     shape="rect"
     coords="1,2,3,4"
 >a
@@ -1245,7 +1248,7 @@ x</div>
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
-    href=""
+    href="A"
     shape="rect"
     coords="1,2,3,4,5"
 >
@@ -1258,7 +1261,7 @@ a
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
-    href=""
+    href="A"
     coords="1,2,3,4,5"
 >
 a
@@ -1407,7 +1410,6 @@ a
 <p rel="a a" xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /p/@rel;attribute not defined;m
-/p/@rel;duplicate token;m
 
 #data
 <p rev="" xmlns="http://www.w3.org/1999/xhtml">a</p>
@@ -1423,7 +1425,6 @@ a
 <p rev="a a" xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /p/@rev;attribute not defined;m
-/p/@rev;duplicate token;m
 
 #data
 <unknown rel="" xmlns="http://www.w3.org/1999/xhtml">a</unknown>
@@ -1442,7 +1443,6 @@ a
 #errors
 /unknown;element not defined;m
 /unknown/@rel;attribute not defined;m
-/unknown/@rel;duplicate token;m
 
 #data
 <unknown rev="" xmlns="http://www.w3.org/1999/xhtml">a</unknown>
@@ -1461,7 +1461,6 @@ a
 #errors
 /unknown;element not defined;m
 /unknown/@rev;attribute not defined;m
-/unknown/@rev;duplicate token;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
@@ -2092,14 +2091,14 @@ a
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
-    href=""
+    href="A"
     ib="">a</a>
 #errors
 /a/@ib;attribute not defined;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
-    href=""
+    href="A"
     ib="[]">a</a>
 #errors
 /a/@ib;attribute not defined;m
@@ -2107,7 +2106,7 @@ a
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
-    href="" target="xyz"
+    href="A" target="xyz"
     ib="abc">a</a>
 #errors
 /a/@ib;attribute not defined;m
@@ -2122,14 +2121,14 @@ a
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
-    href=""
+    href="A"
     ifb="">a</a>
 #errors
 /a/@ifb;attribute not defined;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
-    href=""
+    href="A"
     ifb="[]">a</a>
 #errors
 /a/@ifb;attribute not defined;m
@@ -2137,7 +2136,7 @@ a
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
-    href="" target="xyz"
+    href="A" target="xyz"
     ifb="abc">a</a>
 #errors
 /a/@ifb;attribute not defined;m

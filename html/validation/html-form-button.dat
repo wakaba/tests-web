@@ -42,7 +42,7 @@
 /button/p;element not allowed:phrasing;m
 
 #data
-<button xmlns="http://www.w3.org/1999/xhtml"><video src=""/></button>
+<button xmlns="http://www.w3.org/1999/xhtml"><video src="a"/></button>
 #errors
 /button/video;no significant content;s
 
@@ -91,7 +91,7 @@
 /em/button/nest;element not defined;m
 
 #data
-<button xmlns="http://www.w3.org/1999/xhtml"><img src="" alt="x"/></button>
+<button xmlns="http://www.w3.org/1999/xhtml"><img src="b" alt="x"/></button>
 #errors
 
 #data
@@ -140,14 +140,14 @@
     type="add"
 >x</button>
 #errors
-/button/@type;enumerated:non-conforming;m
+/button/@type;enumerated:invalid;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
     type="remove"
 >x</button>
 #errors
-/button/@type;enumerated:non-conforming;m
+/button/@type;enumerated:invalid;m
 
 #data
 <button type="delete" xmlns="http://www.w3.org/1999/xhtml">x</button>
@@ -159,14 +159,14 @@
     type="move-up"
 >x</button>
 #errors
-/button/@type;enumerated:non-conforming;m
+/button/@type;enumerated:invalid;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
     type="move-down"
 >x</button>
 #errors
-/button/@type;enumerated:non-conforming;m
+/button/@type;enumerated:invalid;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -311,7 +311,6 @@
     action="[]"
 >a</button>
 #errors
-/button/@action;syntax error:iriref3987;m
 /button/@action;attribute not defined;m
 
 #data
@@ -319,7 +318,6 @@
     method=""
 >a</button>
 #errors
-/button/@method;enumerated:invalid;m
 /button/@method;attribute not defined;m
 
 #data
@@ -356,7 +354,6 @@
 >a</button>
 #errors
 /button/@method;attribute not defined;m
-/button/@method;enumerated:invalid;m
 
 #data
 <button type="submit" xmlns="http://www.w3.org/1999/xhtml"
@@ -364,7 +361,6 @@
 >a</button>
 #errors
 /button/@method;attribute not defined;m
-/button/@method;enumerated:invalid;m
 
 #data
 <button type="submit" xmlns="http://www.w3.org/1999/xhtml"
@@ -372,7 +368,6 @@
 >a</button>
 #errors
 /button/@method;attribute not defined;m
-/button/@method;enumerated:invalid;m
 
 #data
 <button type="submit" xmlns="http://www.w3.org/1999/xhtml"
@@ -380,7 +375,6 @@
 >a</button>
 #errors
 /button/@method;attribute not defined;m
-/button/@method;enumerated:invalid;m
 
 #data
 <button type="submit" xmlns="http://www.w3.org/1999/xhtml"
@@ -395,14 +389,12 @@
 >a</button>
 #errors
 /button/@method;attribute not defined;m
-/button/@method;enumerated:invalid;m
 
 #data
 <button type="submit" xmlns="http://www.w3.org/1999/xhtml"
     method="head"
 >a</button>
 #errors
-/button/@method;enumerated:invalid;m
 /button/@method;attribute not defined;m
 
 #data
@@ -410,7 +402,6 @@
     method="m-get"
 >a</button>
 #errors
-/button/@method;enumerated:invalid;m
 /button/@method;attribute not defined;m
 
 #data
@@ -418,7 +409,6 @@
     method="get "
 >a</button>
 #errors
-/button/@method;enumerated:invalid;m
 /button/@method;attribute not defined;m
 
 #data
@@ -426,7 +416,6 @@
     method="getall"
 >a</button>
 #errors
-/button/@method;enumerated:invalid;m
 /button/@method;attribute not defined;m
 
 #data
@@ -434,7 +423,6 @@
     method="push"
 >a</button>
 #errors
-/button/@method;enumerated:invalid;m
 /button/@method;attribute not defined;m
 
 #data
@@ -442,7 +430,6 @@
     method="method"
 >a</button>
 #errors
-/button/@method;enumerated:invalid;m
 /button/@method;attribute not defined;m
 
 #data
@@ -450,7 +437,6 @@
     enctype=""
 >a</button>
 #errors
-/button/@enctype;enumerated:invalid;m
 /button/@enctype;attribute not defined;m
 
 #data
@@ -507,7 +493,6 @@
     enctype="application/x-url-encoded"
 >a</button>
 #errors
-/button/@enctype;enumerated:invalid;m
 /button/@enctype;attribute not defined;m
 
 #data
@@ -515,7 +500,6 @@
     enctype="application/x-sgml-urlencoded"
 >a</button>
 #errors
-/button/@enctype;enumerated:invalid;m
 /button/@enctype;attribute not defined;m
 
 #data
@@ -523,7 +507,6 @@
     enctype="application/x-www-form-urlencoded; charset=utf-8"
 >a</button>
 #errors
-/button/@enctype;enumerated:invalid;m
 /button/@enctype;attribute not defined;m
 
 #data
@@ -531,7 +514,6 @@
     enctype=" text/plain "
 >a</button>
 #errors
-/button/@enctype;enumerated:invalid;m
 /button/@enctype;attribute not defined;m
 
 #data
@@ -539,7 +521,6 @@
     enctype="image/png"
 >a</button>
 #errors
-/button/@enctype;enumerated:invalid;m
 /button/@enctype;attribute not defined;m
 
 #data
@@ -547,7 +528,6 @@
     enctype="enctype"
 >a</button>
 #errors
-/button/@enctype;enumerated:invalid;m
 /button/@enctype;attribute not defined;m
 
 #data
@@ -555,7 +535,6 @@
     enctype="multipart/related"
 >a</button>
 #errors
-/button/@enctype;enumerated:invalid;m
 /button/@enctype;attribute not defined;m
 
 #data
@@ -563,7 +542,6 @@
     enctype="application/xml"
 >a</button>
 #errors
-/button/@enctype;enumerated:invalid;m
 /button/@enctype;attribute not defined;m
 
 #data
@@ -571,7 +549,6 @@
     enctype="text/xml"
 >a</button>
 #errors
-/button/@enctype;enumerated:invalid;m
 /button/@enctype;attribute not defined;m
 
 #data
@@ -579,7 +556,6 @@
     enctype="text/html"
 >a</button>
 #errors
-/button/@enctype;enumerated:invalid;m
 /button/@enctype;attribute not defined;m
 
 #data
@@ -741,6 +717,7 @@
     formaction=""
 >a</button>
 #errors
+/button/@formaction;url:empty;m
 
 #data
 <button type="submit" xmlns="http://www.w3.org/1999/xhtml"
@@ -1186,6 +1163,7 @@
 >x</button>
 #errors
 /button/@formaction;attribute not allowed;m
+/button/@formaction;url:empty;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1226,7 +1204,6 @@
 >x</button>
 #errors
 /button/@action;attribute not defined;m
-/button/@action;attribute not allowed;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1235,7 +1212,6 @@
 >x</button>
 #errors
 /button/@enctype;attribute not defined;m
-/button/@enctype;attribute not allowed;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1244,7 +1220,6 @@
 >x</button>
 #errors
 /button/@method;attribute not defined;m
-/button/@method;attribute not allowed;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1253,7 +1228,6 @@
 >x</button>
 #errors
 /button/@target;attribute not defined;m
-/button/@target;attribute not allowed;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1262,6 +1236,7 @@
 >x</button>
 #errors
 /button/@formaction;attribute not allowed;m
+/button/@formaction;url:empty;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1302,7 +1277,6 @@
 >x</button>
 #errors
 /button/@action;attribute not defined;m
-/button/@action;attribute not allowed;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1311,7 +1285,6 @@
 >x</button>
 #errors
 /button/@enctype;attribute not defined;m
-/button/@enctype;attribute not allowed;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1320,7 +1293,6 @@
 >x</button>
 #errors
 /button/@method;attribute not defined;m
-/button/@method;attribute not allowed;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1329,7 +1301,6 @@
 >x</button>
 #errors
 /button/@target;attribute not defined;m
-/button/@target;attribute not allowed;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1338,6 +1309,7 @@
 >x</button>
 #errors
 /button/@type;enumerated:invalid;m
+/button/@formaction;url:empty;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1378,7 +1350,6 @@
 >x</button>
 #errors
 /button/@target;attribute not defined;m
-/button/@target;attribute not allowed;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1387,7 +1358,6 @@
 >x</button>
 #errors
 /button/@target;attribute not defined;m
-/button/@target;attribute not allowed;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1396,8 +1366,7 @@
 >x</button>
 #errors
 /button/@target;attribute not defined;m
-/button/@target;attribute not allowed;m
-/button/@type;enumerated:non-conforming;m
+/button/@type;enumerated:invalid;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1447,7 +1416,7 @@
 >x</button>
 #errors
 /button/@template;attribute not defined;m
-/button/@type;enumerated:non-conforming;m
+/button/@type;enumerated:invalid;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1456,7 +1425,7 @@
 >x</button>
 #errors
 /button/@template;attribute not defined;m
-/button/@type;enumerated:non-conforming;m
+/button/@type;enumerated:invalid;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1465,7 +1434,7 @@
 >x</button>
 #errors
 /button/@template;attribute not defined;m
-/button/@type;enumerated:non-conforming;m
+/button/@type;enumerated:invalid;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1483,7 +1452,7 @@
 >x</button>
 #errors
 /button/@template;attribute not defined;m
-/button/@type;enumerated:non-conforming;m
+/button/@type;enumerated:invalid;m
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml"
@@ -1492,5 +1461,5 @@
 ><span repeat="template" id="a">x</span></button>
 #errors
 /button/@template;attribute not defined;m
-/button/@type;enumerated:non-conforming;m
+/button/@type;enumerated:invalid;m
 /button/span/@repeat;attribute not defined;m

@@ -28,7 +28,7 @@
 /select/a;element not allowed;m
 
 #data
-<select xmlns="http://www.w3.org/1999/xhtml"><img src="" alt="x"/></select>
+<select xmlns="http://www.w3.org/1999/xhtml"><img src="a" alt="x"/></select>
 #errors
 /select/img;element not allowed;m
 
@@ -251,7 +251,6 @@
     data=""/>
 #errors
 /select/@data;attribute not defined;m
-/select/@data;url:empty;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml"
@@ -264,7 +263,6 @@
     data="[]"/>
 #errors
 /select/@data;attribute not defined;m
-/select/@data;syntax error:iriref3987;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required=""/>
@@ -685,7 +683,7 @@
     label=""
 >x</option>
 #errors
-/option/@label;empty value;m
+/option/@label;empty attribute value;m
 
 #data
 <option xmlns="http://www.w3.org/1999/xhtml"

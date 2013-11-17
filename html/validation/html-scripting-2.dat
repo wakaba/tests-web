@@ -5,7 +5,7 @@
 /script;SUBDOC;text/javascript
 
 #data
-<script src="" defer="" xmlns="http://www.w3.org/1999/xhtml"></script>
+<script src="a" defer="" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
 
 #data
@@ -132,6 +132,12 @@
 /script/@type;IMT:parameter not allowed;m
 
 #data
+<script src="" type="text/javascript"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@src;url:empty;m
+
+#data
 <script src="http://test/%" type="text/javascript"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
@@ -228,7 +234,7 @@
 /script;attribute missing;src;m
 
 #data
-<script src="" defer="" async="" xmlns="http://www.w3.org/1999/xhtml"/>
+<script src="a" defer="" async="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 
 #data
@@ -348,13 +354,13 @@
 /script;SUBDOC;text/javascript
 
 #data
-<script src="" charset="" xmlns="http://www.w3.org/1999/xhtml"/>
+<script src="a" charset="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@charset;charset:syntax error;m
 /script/@charset;charset:not registered;w
 
 #data
-<script src="" charset="us-ascii" xmlns="http://www.w3.org/1999/xhtml"/>
+<script src="a" charset="us-ascii" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 
 #data

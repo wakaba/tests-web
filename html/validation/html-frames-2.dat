@@ -51,219 +51,224 @@
 #errors
 
 #data
+<iframe src="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/iframe/@src;url:empty;m
+
+#data
 <iframe src="&lt;http://test/>" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /iframe/@src;syntax error:iriref3987;m
 
 #data
-<iframe src="" sandbox="" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+<iframe src="a" sandbox="" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
-<iframe src="" sandbox="  " xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+<iframe src="a" sandbox="  " xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
-<iframe src="" sandbox="
+<iframe src="a" sandbox="
 " xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
-<iframe src="" sandbox="allow-same-origin" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+<iframe src="a" sandbox="allow-same-origin" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
-<iframe src="" sandbox="allow-same-origin
+<iframe src="a" sandbox="allow-same-origin
   " xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
-<iframe src="" sandbox="  allow-same-origin " xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+<iframe src="a" sandbox="  allow-same-origin " xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
-<iframe src="" sandbox="allow-scripts
+<iframe src="a" sandbox="allow-scripts
 " xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
-<iframe src="" sandbox="allow-same-origin
+<iframe src="a" sandbox="allow-same-origin
 allow-scripts" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
-<iframe src="" sandbox="allow-forms" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+<iframe src="a" sandbox="allow-forms" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
-<iframe src="" sandbox="allow-top-navigation" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+<iframe src="a" sandbox="allow-top-navigation" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
-<iframe src="" sandbox="allow-form"
+<iframe src="a" sandbox="allow-form"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@sandbox;word not allowed;m
 
 #data
-<iframe src="" sandbox="allow-script"
+<iframe src="a" sandbox="allow-script"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@sandbox;word not allowed;m
 
 #data
-<iframe src="" sandbox="allow-origin"
+<iframe src="a" sandbox="allow-origin"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@sandbox;word not allowed;m
 
 #data
-<iframe src="" sandbox="allow-script"
+<iframe src="a" sandbox="allow-script"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@sandbox;word not allowed;m
 
 #data
-<iframe src="" sandbox="allow-plugins"
+<iframe src="a" sandbox="allow-plugins"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@sandbox;word not allowed;m
 
 #data
-<iframe src="" sandbox="xxx_origin_please_suggest_a_better_name"
+<iframe src="a" sandbox="xxx_origin_please_suggest_a_better_name"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@sandbox;word not allowed;m
 
 #data
-<iframe src="" sandbox="unrestricted-forms"
+<iframe src="a" sandbox="unrestricted-forms"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@sandbox;word not allowed;m
 
 #data
-<iframe src="" sandbox="unrestricted-scripts"
+<iframe src="a" sandbox="unrestricted-scripts"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@sandbox;word not allowed;m
 
 #data
-<iframe src="" sandbox="Allow-Forms"
+<iframe src="a" sandbox="Allow-Forms"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
-<iframe src="" sandbox="allow"
-    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
-#errors
-/iframe/@sandbox;word not allowed;m
-
-#data
-<iframe src="" sandbox="disallow-form"
+<iframe src="a" sandbox="allow"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@sandbox;word not allowed;m
 
 #data
-<iframe src="" sandbox="allow-forms allow-forms"
+<iframe src="a" sandbox="disallow-form"
+    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+#errors
+/iframe/@sandbox;word not allowed;m
+
+#data
+<iframe src="a" sandbox="allow-forms allow-forms"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@sandbox;duplicate token;m
 
 #data
-<iframe src="" sandbox="allow-forms allow-Forms"
+<iframe src="a" sandbox="allow-forms allow-Forms"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@sandbox;duplicate token;m
 
 #data
-<iframe src="" sandbox="allow-forms allow-top-navigation allow-top-navigation"
+<iframe src="a" sandbox="allow-forms allow-top-navigation allow-top-navigation"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@sandbox;duplicate token;m
 
 #data
 <?xml version="1.1"?>
-<iframe src="" sandbox="allow-forms&#x000b;"
+<iframe src="a" sandbox="allow-forms&#x000b;"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@sandbox;word not allowed;m
 
 #data
 <?xml version="1.1"?>
-<iframe src="" sandbox="&#x000b;allow-forms"
+<iframe src="a" sandbox="&#x000b;allow-forms"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@sandbox;word not allowed;m
 
 #data
 <?xml version="1.1"?>
-<iframe src="" sandbox="allow-forms&#x000b;allow-scripts"
+<iframe src="a" sandbox="allow-forms&#x000b;allow-scripts"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@sandbox;word not allowed;m
 
 #data
-<iframe src="" sandbox="allow-forms allow-top-navigation"
+<iframe src="a" sandbox="allow-forms allow-top-navigation"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
-<iframe src="" sandbox="Allow-TOP-navigation"
+<iframe src="a" sandbox="Allow-TOP-navigation"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
-<iframe src="" sandbox="ALLOW-SAME-ORIGIN"
+<iframe src="a" sandbox="ALLOW-SAME-ORIGIN"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
-<iframe src="" sandbox="Allow-Scripts"
+<iframe src="a" sandbox="Allow-Scripts"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
-<iframe src="" seamless=""
+<iframe src="a" seamless=""
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
-<iframe src="" seamless="  "
-    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
-#errors
-/iframe/@seamless;boolean:invalid;m
-
-#data
-<iframe src="" seamless="seamless"
-    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
-#errors
-
-#data
-<iframe src="" seamless="Seamless"
-    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
-#errors
-
-#data
-<iframe src="" seamless="seamless "
+<iframe src="a" seamless="  "
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@seamless;boolean:invalid;m
 
 #data
-<iframe src="" seamless="yes"
+<iframe src="a" seamless="seamless"
+    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+#errors
+
+#data
+<iframe src="a" seamless="Seamless"
+    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+#errors
+
+#data
+<iframe src="a" seamless="seamless "
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@seamless;boolean:invalid;m
 
 #data
-<iframe src="" seemless=""
+<iframe src="a" seamless="yes"
+    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+#errors
+/iframe/@seamless;boolean:invalid;m
+
+#data
+<iframe src="a" seemless=""
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@seemless;attribute not defined;m
 
 #data
-<iframe src="" xmlns="http://www.w3.org/1999/xhtml"
+<iframe src="a" xmlns="http://www.w3.org/1999/xhtml"
     height="">x</iframe>
 #errors
 /iframe/@height;nninteger:syntax error;m
@@ -280,28 +285,28 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 /iframe/@srcdoc;SUBDOC;text/xml
 
 #data
-<iframe src="" xmlns="http://www.w3.org/1999/xhtml"
+<iframe src="a" xmlns="http://www.w3.org/1999/xhtml"
     height="0">x</iframe>
 #errors
 
 #data
-<iframe src="" xmlns="http://www.w3.org/1999/xhtml"
+<iframe src="a" xmlns="http://www.w3.org/1999/xhtml"
     height="120">x</iframe>
 #errors
 
 #data
-<iframe src="" xmlns="http://www.w3.org/1999/xhtml"
+<iframe src="a" xmlns="http://www.w3.org/1999/xhtml"
     width="">x</iframe>
 #errors
 /iframe/@width;nninteger:syntax error;m
 
 #data
-<iframe src="" xmlns="http://www.w3.org/1999/xhtml"
+<iframe src="a" xmlns="http://www.w3.org/1999/xhtml"
     width="0">x</iframe>
 #errors
 
 #data
-<iframe src="" xmlns="http://www.w3.org/1999/xhtml"
+<iframe src="a" xmlns="http://www.w3.org/1999/xhtml"
     width="120">x</iframe>
 #errors
 
@@ -421,92 +426,92 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 /iframe/@longdesc;syntax error:iriref3987;m
 
 #data
-<iframe src="" align="" xmlns="http://www.w3.org/1999/xhtml"></iframe>
+<iframe src="a" align="" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@align;attribute not defined;m
 /iframe/@align;enumerated:invalid;m
 
 #data
-<iframe src="" align="char" xmlns="http://www.w3.org/1999/xhtml"></iframe>
+<iframe src="a" align="char" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@align;attribute not defined;m
 /iframe/@align;enumerated:invalid;m
 
 #data
-<iframe src="" align="justify" xmlns="http://www.w3.org/1999/xhtml"></iframe>
+<iframe src="a" align="justify" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@align;attribute not defined;m
 /iframe/@align;enumerated:invalid;m
 
 #data
-<iframe src="" align="center" xmlns="http://www.w3.org/1999/xhtml"></iframe>
+<iframe src="a" align="center" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@align;attribute not defined;m
 /iframe/@align;enumerated:non-conforming;m
 
 #data
-<iframe src="" align="bottom" xmlns="http://www.w3.org/1999/xhtml"></iframe>
+<iframe src="a" align="bottom" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@align;attribute not defined;m
 
 #data
-<iframe src="" align="middle" xmlns="http://www.w3.org/1999/xhtml"></iframe>
+<iframe src="a" align="middle" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@align;attribute not defined;m
 
 #data
-<iframe src="" align="top" xmlns="http://www.w3.org/1999/xhtml"></iframe>
+<iframe src="a" align="top" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@align;attribute not defined;m
 
 #data
-<iframe src="" align="left" xmlns="http://www.w3.org/1999/xhtml"></iframe>
+<iframe src="a" align="left" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@align;attribute not defined;m
 
 #data
-<iframe src="" align="right" xmlns="http://www.w3.org/1999/xhtml"></iframe>
+<iframe src="a" align="right" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@align;attribute not defined;m
 
 #data
-<iframe src="" align="abscenter" xmlns="http://www.w3.org/1999/xhtml"></iframe>
+<iframe src="a" align="abscenter" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@align;attribute not defined;m
 /iframe/@align;enumerated:non-conforming;m
 
 #data
-<iframe src="" align="texttop" xmlns="http://www.w3.org/1999/xhtml"></iframe>
+<iframe src="a" align="texttop" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@align;attribute not defined;m
 /iframe/@align;enumerated:non-conforming;m
 
 #data
-<iframe src="" align="absmiddle" xmlns="http://www.w3.org/1999/xhtml"></iframe>
+<iframe src="a" align="absmiddle" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@align;attribute not defined;m
 /iframe/@align;enumerated:non-conforming;m
 
 #data
-<iframe src="" align="baseline" xmlns="http://www.w3.org/1999/xhtml"></iframe>
+<iframe src="a" align="baseline" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@align;attribute not defined;m
 /iframe/@align;enumerated:non-conforming;m
 
 #data
-<iframe src="" align="TEXT-top" xmlns="http://www.w3.org/1999/xhtml"></iframe>
-#errors
-/iframe/@align;attribute not defined;m
-/iframe/@align;enumerated:invalid;m
-
-#data escaped
-<iframe src="" align="r\u0130ght" xmlns="http://www.w3.org/1999/xhtml"></iframe>
+<iframe src="a" align="TEXT-top" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@align;attribute not defined;m
 /iframe/@align;enumerated:invalid;m
 
 #data escaped
-<iframe src="" align="r\u0131ght" xmlns="http://www.w3.org/1999/xhtml"></iframe>
+<iframe src="a" align="r\u0130ght" xmlns="http://www.w3.org/1999/xhtml"></iframe>
+#errors
+/iframe/@align;attribute not defined;m
+/iframe/@align;enumerated:invalid;m
+
+#data escaped
+<iframe src="a" align="r\u0131ght" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@align;attribute not defined;m
 /iframe/@align;enumerated:invalid;m

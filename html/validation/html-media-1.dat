@@ -31,72 +31,88 @@
 <video xmlns="http://www.w3.org/1999/xhtml" src=""></video>
 #errors
 /video;no significant content;s
+/video/@src;url:empty;m
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml" src="">  </video>
 #errors
 /video;no significant content;s
+/video/@src;url:empty;m
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml" src="">xx</video>
 #errors
+/video/@src;url:empty;m
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml" src=""><style scoped=""/>xx</video>
 #errors
+/video/@src;url:empty;m
 /video/style;SUBDOC;text/css
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml" src=""><style scoped=""/><p>xx</p></video>
 #errors
+/video/@src;url:empty;m
 /video/style;SUBDOC;text/css
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml"><source src=""/></video>
 #errors
 /video;no significant content;s
+/video/source/@src;url:empty;m
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml"><source src=""/>xx</video>
 #errors
+/video/source/@src;url:empty;m
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml"><source src=""/><style scoped=""/>xx</video>
 #errors
+/video/source/@src;url:empty;m
 /video/style;SUBDOC;text/css
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml"><source src=""/><style scoped=""/><p>xx</p></video>
 #errors
+/video/source/@src;url:empty;m
 /video/style;SUBDOC;text/css
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml"><source src=""/><source src=""/></video>
 #errors
 /video;no significant content;s
+/video/source/@src;url:empty;m
+/video/source/@src;url:empty;m
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml">x<source src=""/></video>
 #errors
 /video/source;element not allowed:flow;m
+/video/source/@src;url:empty;m
 
 #data
 <?xml version="1.1"?>
 <video xmlns="http://www.w3.org/1999/xhtml">&#x0b;<source src=""/></video>
 #errors
 /video/source;element not allowed:flow;m
+/video/source/@src;url:empty;m
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/><source src=""/></video>
 #errors
 /video/source;element not allowed:flow;m
 /video/style;SUBDOC;text/css
+/video/source/@src;url:empty;m
 /video;no significant content;s
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml"><source src=""/><style scoped=""/><source src=""/></video>
 #errors
 /video/source;element not allowed:flow;m
+/video/source/@src;url:empty;m
+/video/source/@src;url:empty;m
 /video/style;SUBDOC;text/css
 /video;no significant content;s
 
@@ -105,6 +121,9 @@
 #errors
 /video/source;element not allowed:flow;m
 /video/source;element not allowed:flow;m
+/video/source/@src;url:empty;m
+/video/source/@src;url:empty;m
+/video/source/@src;url:empty;m
 /video/style;SUBDOC;text/css
 /video;no significant content;s
 
@@ -144,20 +163,24 @@
 <div xmlns="http://www.w3.org/1999/xhtml"><video src=""></video></div>
 #errors
 /div/video;no significant content;s
+/div/video/@src;url:empty;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><video src="">  </video></div>
 #errors
 /div/video;no significant content;s
+/div/video/@src;url:empty;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><video src="">xx</video></div>
 #errors
+/div/video/@src;url:empty;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <video src=""><style scoped=""/>xx</video></div>
 #errors
+/div/video/@src;url:empty;m
 /div/video/style;element not allowed:flow style;m
 /div/video/style;SUBDOC;text/css
 
@@ -165,6 +188,7 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <video src=""><style scoped=""/><p>xx</p></video></div>
 #errors
+/div/video/@src;url:empty;m
 /div/video/style;element not allowed:flow style;m
 /div/video/style;SUBDOC;text/css
 
@@ -172,15 +196,18 @@
 <div xmlns="http://www.w3.org/1999/xhtml"><video><source src=""/></video></div>
 #errors
 /div/video;no significant content;s
+/div/video/source/@src;url:empty;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><video><source src=""/>xx</video></div>
 #errors
+/div/video/source/@src;url:empty;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <video><source src=""/><style scoped=""/>xx</video></div>
 #errors
+/div/video/source/@src;url:empty;m
 /div/video/style;SUBDOC;text/css
 /div/video/style;element not allowed:flow style;m
 
@@ -188,25 +215,29 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 <video><source src=""/><style scoped=""/><p>xx</p></video></div>
 #errors
+/div/video/source/@src;url:empty;m
 /div/video/style;SUBDOC;text/css
 /div/video/style;element not allowed:flow style;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<video><source src=""/><source src=""/></video></div>
+<video><source src=""/><source src="o"/></video></div>
 #errors
 /div/video;no significant content;s
+/div/video/source/@src;url:empty;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><video>x<source src=""/></video></div>
 #errors
 /div/video/source;element not allowed:flow;m
+/div/video/source/@src;url:empty;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <video><style scoped=""/><source src=""/></video></div>
 #errors
 /div/video/source;element not allowed:flow;m
+/div/video/source/@src;url:empty;m
 /div/video/style;element not allowed:flow style;m
 /div/video/style;SUBDOC;text/css
 /div/video;no significant content;s
@@ -216,16 +247,20 @@
 <video><source src=""/><style scoped=""/><source src=""/></video></div>
 #errors
 /div/video/source;element not allowed:flow;m
+/div/video/source/@src;url:empty;m
+/div/video/source/@src;url:empty;m
 /div/video/style;element not allowed:flow style;m
 /div/video/style;SUBDOC;text/css
 /div/video;no significant content;s
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<video><source src=""/><style scoped=""/><source src=""/><source src=""/></video></div>
+<video><source src=""/><style scoped=""/><source src="o"/><source src=""/></video></div>
 #errors
 /div/video/source;element not allowed:flow;m
 /div/video/source;element not allowed:flow;m
+/div/video/source/@src;url:empty;m
+/div/video/source/@src;url:empty;m
 /div/video/style;element not allowed:flow style;m
 /div/video/style;SUBDOC;text/css
 /div/video;no significant content;s
@@ -267,69 +302,72 @@
 <em xmlns="http://www.w3.org/1999/xhtml"><video src=""></video></em>
 #errors
 /em/video;no significant content;s
+/em/video/@src;url:empty;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml"><video src="">  </video></em>
 #errors
 /em/video;no significant content;s
+/em/video/@src;url:empty;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml"><video src="">xx</video></em>
 #errors
+/em/video/@src;url:empty;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
-<video src=""><style scoped=""/>xx</video></em>
+<video src="a"><style scoped=""/>xx</video></em>
 #errors
 /em/video/style;SUBDOC;text/css
 /em/video/style;element not allowed:phrasing;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
-<video src=""><style scoped=""/><p>xx</p></video></em>
-#errors
-/em/video/style;SUBDOC;text/css
-/em/video/style;element not allowed:phrasing;m
-/em/video/p;element not allowed:phrasing;m
-
-#data
-<em xmlns="http://www.w3.org/1999/xhtml"><video><source src=""/></video></em>
-#errors
-/em/video;no significant content;s
-
-#data
-<em xmlns="http://www.w3.org/1999/xhtml"><video><source src=""/>xx</video></em>
-#errors
-
-#data
-<em xmlns="http://www.w3.org/1999/xhtml">
-<video><source src=""/><style scoped=""/>xx</video></em>
-#errors
-/em/video/style;SUBDOC;text/css
-/em/video/style;element not allowed:phrasing;m
-
-#data
-<em xmlns="http://www.w3.org/1999/xhtml">
-<video><source src=""/><style scoped=""/><p>xx</p></video></em>
+<video src="a"><style scoped=""/><p>xx</p></video></em>
 #errors
 /em/video/style;SUBDOC;text/css
 /em/video/style;element not allowed:phrasing;m
 /em/video/p;element not allowed:phrasing;m
 
 #data
-<em xmlns="http://www.w3.org/1999/xhtml">
-<video><source src=""/><source src=""/></video></em>
+<em xmlns="http://www.w3.org/1999/xhtml"><video><source src="a"/></video></em>
 #errors
 /em/video;no significant content;s
 
 #data
-<em xmlns="http://www.w3.org/1999/xhtml"><video>x<source src=""/></video></em>
+<em xmlns="http://www.w3.org/1999/xhtml"><video><source src="a"/>xx</video></em>
+#errors
+
+#data
+<em xmlns="http://www.w3.org/1999/xhtml">
+<video><source src="a"/><style scoped=""/>xx</video></em>
+#errors
+/em/video/style;SUBDOC;text/css
+/em/video/style;element not allowed:phrasing;m
+
+#data
+<em xmlns="http://www.w3.org/1999/xhtml">
+<video><source src="a"/><style scoped=""/><p>xx</p></video></em>
+#errors
+/em/video/style;SUBDOC;text/css
+/em/video/style;element not allowed:phrasing;m
+/em/video/p;element not allowed:phrasing;m
+
+#data
+<em xmlns="http://www.w3.org/1999/xhtml">
+<video><source src="a"/><source src="a"/></video></em>
+#errors
+/em/video;no significant content;s
+
+#data
+<em xmlns="http://www.w3.org/1999/xhtml"><video>x<source src="a"/></video></em>
 #errors
 /em/video/source;element not allowed:phrasing;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
-<video><style scoped=""/><source src=""/></video></em>
+<video><style scoped=""/><source src="a"/></video></em>
 #errors
 /em/video;no significant content;s
 /em/video/source;element not allowed:phrasing;m
@@ -338,7 +376,7 @@
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
-<video><source src=""/><style scoped=""/><source src=""/></video></em>
+<video><source src="a"/><style scoped=""/><source src="a"/></video></em>
 #errors
 /em/video;no significant content;s
 /em/video/source;element not allowed:phrasing;m
@@ -347,7 +385,7 @@
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
-<video><source src=""/><style scoped=""/><source src=""/><source src=""/></video></em>
+<video><source src="a"/><style scoped=""/><source src="a"/><source src="a"/></video></em>
 #errors
 /em/video;no significant content;s
 /em/video/source;element not allowed:phrasing;m
@@ -385,80 +423,80 @@
 /audio/style;SUBDOC;text/css
 
 #data
-<audio xmlns="http://www.w3.org/1999/xhtml" src=""></audio>
+<audio xmlns="http://www.w3.org/1999/xhtml" src="a"></audio>
 #errors
 /audio;no significant content;s
 
 #data
-<audio xmlns="http://www.w3.org/1999/xhtml" src="">  </audio>
+<audio xmlns="http://www.w3.org/1999/xhtml" src="a">  </audio>
 #errors
 /audio;no significant content;s
 
 #data
-<audio xmlns="http://www.w3.org/1999/xhtml" src="">xx</audio>
+<audio xmlns="http://www.w3.org/1999/xhtml" src="a">xx</audio>
 #errors
 
 #data
-<audio xmlns="http://www.w3.org/1999/xhtml" src=""><style scoped=""/>xx</audio>
-#errors
-/audio/style;SUBDOC;text/css
-
-#data
-<audio xmlns="http://www.w3.org/1999/xhtml" src=""><style scoped=""/><p>xx</p></audio>
+<audio xmlns="http://www.w3.org/1999/xhtml" src="a"><style scoped=""/>xx</audio>
 #errors
 /audio/style;SUBDOC;text/css
 
 #data
-<audio xmlns="http://www.w3.org/1999/xhtml"><source src=""/></audio>
+<audio xmlns="http://www.w3.org/1999/xhtml" src="a"><style scoped=""/><p>xx</p></audio>
+#errors
+/audio/style;SUBDOC;text/css
+
+#data
+<audio xmlns="http://www.w3.org/1999/xhtml"><source src="a"/></audio>
 #errors
 /audio;no significant content;s
 
 #data
-<audio xmlns="http://www.w3.org/1999/xhtml"><source src=""/>xx</audio>
+<audio xmlns="http://www.w3.org/1999/xhtml"><source src="a"/>xx</audio>
 #errors
 
 #data
-<audio xmlns="http://www.w3.org/1999/xhtml"><source src=""/><style scoped=""/>xx</audio>
-#errors
-/audio/style;SUBDOC;text/css
-
-#data
-<audio xmlns="http://www.w3.org/1999/xhtml"><source src=""/><style scoped=""/><p>xx</p></audio>
+<audio xmlns="http://www.w3.org/1999/xhtml"><source src="a"/><style scoped=""/>xx</audio>
 #errors
 /audio/style;SUBDOC;text/css
 
 #data
-<audio xmlns="http://www.w3.org/1999/xhtml"><source src=""/><source src=""/></audio>
+<audio xmlns="http://www.w3.org/1999/xhtml"><source src="a"/><style scoped=""/><p>xx</p></audio>
+#errors
+/audio/style;SUBDOC;text/css
+
+#data
+<audio xmlns="http://www.w3.org/1999/xhtml"><source src="a"/><source src="a"/></audio>
 #errors
 /audio;no significant content;s
 
 #data
-<audio xmlns="http://www.w3.org/1999/xhtml">x<source src=""/></audio>
+<audio xmlns="http://www.w3.org/1999/xhtml">x<source src="a"/></audio>
 #errors
 /audio/source;element not allowed:flow;m
 
 #data
 <?xml version="1.1"?>
-<audio xmlns="http://www.w3.org/1999/xhtml">&#x0b;<source src=""/></audio>
+<audio xmlns="http://www.w3.org/1999/xhtml">&#x0b;<source src="a"/></audio>
 #errors
 /audio/source;element not allowed:flow;m
 
 #data
-<audio xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/><source src=""/></audio>
-#errors
-/audio/source;element not allowed:flow;m
-/audio/style;SUBDOC;text/css
-/audio;no significant content;s
-
-#data
-<audio xmlns="http://www.w3.org/1999/xhtml"><source src=""/><style scoped=""/><source src=""/></audio>
+<audio xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/><source src="a"/></audio>
 #errors
 /audio/source;element not allowed:flow;m
 /audio/style;SUBDOC;text/css
 /audio;no significant content;s
 
 #data
-<audio xmlns="http://www.w3.org/1999/xhtml"><source src=""/><style scoped=""/><source src=""/><source src=""/></audio>
+<audio xmlns="http://www.w3.org/1999/xhtml"><source src="a"/><style scoped=""/><source src="a"/></audio>
+#errors
+/audio/source;element not allowed:flow;m
+/audio/style;SUBDOC;text/css
+/audio;no significant content;s
+
+#data
+<audio xmlns="http://www.w3.org/1999/xhtml"><source src="a"/><style scoped=""/><source src="a"/><source src="a"/></audio>
 #errors
 /audio/source;element not allowed:flow;m
 /audio/source;element not allowed:flow;m
@@ -498,7 +536,7 @@
 /div/audio/style;SUBDOC;text/css
 
 #data
-<div xmlns="http://www.w3.org/1999/xhtml"><audio src=""></audio></div>
+<div xmlns="http://www.w3.org/1999/xhtml"><audio src="a"></audio></div>
 #errors
 /div/audio;no significant content;s
 
@@ -506,62 +544,63 @@
 <div xmlns="http://www.w3.org/1999/xhtml"><audio src="">  </audio></div>
 #errors
 /div/audio;no significant content;s
+/div/audio/@src;url:empty;m
 
 #data
-<div xmlns="http://www.w3.org/1999/xhtml"><audio src="">xx</audio></div>
+<div xmlns="http://www.w3.org/1999/xhtml"><audio src="a">xx</audio></div>
 #errors
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<audio src=""><style scoped=""/>xx</audio></div>
+<audio src="a"><style scoped=""/>xx</audio></div>
 #errors
 /div/audio/style;element not allowed:flow style;m
 /div/audio/style;SUBDOC;text/css
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<audio src=""><style scoped=""/><p>xx</p></audio></div>
+<audio src="a"><style scoped=""/><p>xx</p></audio></div>
 #errors
 /div/audio/style;element not allowed:flow style;m
 /div/audio/style;SUBDOC;text/css
 
 #data
-<div xmlns="http://www.w3.org/1999/xhtml"><audio><source src=""/></audio></div>
+<div xmlns="http://www.w3.org/1999/xhtml"><audio><source src="a"/></audio></div>
 #errors
 /div/audio;no significant content;s
 
 #data
-<div xmlns="http://www.w3.org/1999/xhtml"><audio><source src=""/>xx</audio></div>
+<div xmlns="http://www.w3.org/1999/xhtml"><audio><source src="a"/>xx</audio></div>
 #errors
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<audio><source src=""/><style scoped=""/>xx</audio></div>
-#errors
-/div/audio/style;element not allowed:flow style;m
-/div/audio/style;SUBDOC;text/css
-
-#data
-<div xmlns="http://www.w3.org/1999/xhtml">
-<audio><source src=""/><style scoped=""/><p>xx</p></audio></div>
+<audio><source src="a"/><style scoped=""/>xx</audio></div>
 #errors
 /div/audio/style;element not allowed:flow style;m
 /div/audio/style;SUBDOC;text/css
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<audio><source src=""/><source src=""/></audio></div>
+<audio><source src="a"/><style scoped=""/><p>xx</p></audio></div>
+#errors
+/div/audio/style;element not allowed:flow style;m
+/div/audio/style;SUBDOC;text/css
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<audio><source src="a"/><source src="a"/></audio></div>
 #errors
 /div/audio;no significant content;s
 
 #data
-<div xmlns="http://www.w3.org/1999/xhtml"><audio>x<source src=""/></audio></div>
+<div xmlns="http://www.w3.org/1999/xhtml"><audio>x<source src="a"/></audio></div>
 #errors
 /div/audio/source;element not allowed:flow;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<audio><style scoped=""/><source src=""/></audio></div>
+<audio><style scoped=""/><source src="a"/></audio></div>
 #errors
 /div/audio;no significant content;s
 /div/audio/source;element not allowed:flow;m
@@ -570,7 +609,7 @@
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<audio><source src=""/><style scoped=""/><source src=""/></audio></div>
+<audio><source src="a"/><style scoped=""/><source src="a"/></audio></div>
 #errors
 /div/audio;no significant content;s
 /div/audio/source;element not allowed:flow;m
@@ -579,7 +618,7 @@
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<audio><source src=""/><style scoped=""/><source src=""/><source src=""/></audio></div>
+<audio><source src="a"/><style scoped=""/><source src="a"/><source src="a"/></audio></div>
 #errors
 /div/audio;no significant content;s
 /div/audio/source;element not allowed:flow;m
@@ -621,72 +660,72 @@
 /em/audio/p;element not allowed:phrasing;m
 
 #data
-<em xmlns="http://www.w3.org/1999/xhtml"><audio src=""></audio></em>
+<em xmlns="http://www.w3.org/1999/xhtml"><audio src="a"></audio></em>
 #errors
 /em/audio;no significant content;s
 
 #data
-<em xmlns="http://www.w3.org/1999/xhtml"><audio src="">  </audio></em>
+<em xmlns="http://www.w3.org/1999/xhtml"><audio src="a">  </audio></em>
 #errors
 /em/audio;no significant content;s
 
 #data
-<em xmlns="http://www.w3.org/1999/xhtml"><audio src="">xx</audio></em>
+<em xmlns="http://www.w3.org/1999/xhtml"><audio src="a">xx</audio></em>
 #errors
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
-<audio src=""><style scoped=""/>xx</audio></em>
+<audio src="a"><style scoped=""/>xx</audio></em>
 #errors
 /em/audio/style;SUBDOC;text/css
 /em/audio/style;element not allowed:phrasing;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
-<audio src=""><style scoped=""/><p>xx</p></audio></em>
-#errors
-/em/audio/style;SUBDOC;text/css
-/em/audio/style;element not allowed:phrasing;m
-/em/audio/p;element not allowed:phrasing;m
-
-#data
-<em xmlns="http://www.w3.org/1999/xhtml"><audio><source src=""/></audio></em>
-#errors
-/em/audio;no significant content;s
-
-#data
-<em xmlns="http://www.w3.org/1999/xhtml"><audio><source src=""/>xx</audio></em>
-#errors
-
-#data
-<em xmlns="http://www.w3.org/1999/xhtml">
-<audio><source src=""/><style scoped=""/>xx</audio></em>
-#errors
-/em/audio/style;SUBDOC;text/css
-/em/audio/style;element not allowed:phrasing;m
-
-#data
-<em xmlns="http://www.w3.org/1999/xhtml">
-<audio><source src=""/><style scoped=""/><p>xx</p></audio></em>
+<audio src="a"><style scoped=""/><p>xx</p></audio></em>
 #errors
 /em/audio/style;SUBDOC;text/css
 /em/audio/style;element not allowed:phrasing;m
 /em/audio/p;element not allowed:phrasing;m
 
 #data
-<em xmlns="http://www.w3.org/1999/xhtml">
-<audio><source src=""/><source src=""/></audio></em>
+<em xmlns="http://www.w3.org/1999/xhtml"><audio><source src="a"/></audio></em>
 #errors
 /em/audio;no significant content;s
 
 #data
-<em xmlns="http://www.w3.org/1999/xhtml"><audio>x<source src=""/></audio></em>
+<em xmlns="http://www.w3.org/1999/xhtml"><audio><source src="a"/>xx</audio></em>
+#errors
+
+#data
+<em xmlns="http://www.w3.org/1999/xhtml">
+<audio><source src="a"/><style scoped=""/>xx</audio></em>
+#errors
+/em/audio/style;SUBDOC;text/css
+/em/audio/style;element not allowed:phrasing;m
+
+#data
+<em xmlns="http://www.w3.org/1999/xhtml">
+<audio><source src="a"/><style scoped=""/><p>xx</p></audio></em>
+#errors
+/em/audio/style;SUBDOC;text/css
+/em/audio/style;element not allowed:phrasing;m
+/em/audio/p;element not allowed:phrasing;m
+
+#data
+<em xmlns="http://www.w3.org/1999/xhtml">
+<audio><source src="a"/><source src="a"/></audio></em>
+#errors
+/em/audio;no significant content;s
+
+#data
+<em xmlns="http://www.w3.org/1999/xhtml"><audio>x<source src="a"/></audio></em>
 #errors
 /em/audio/source;element not allowed:phrasing;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
-<audio><style scoped=""/><source src=""/></audio></em>
+<audio><style scoped=""/><source src="a"/></audio></em>
 #errors
 /em/audio;no significant content;s
 /em/audio/source;element not allowed:phrasing;m
@@ -695,7 +734,7 @@
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
-<audio><source src=""/><style scoped=""/><source src=""/></audio></em>
+<audio><source src="a"/><style scoped=""/><source src="a"/></audio></em>
 #errors
 /em/audio;no significant content;s
 /em/audio/source;element not allowed:phrasing;m
@@ -704,7 +743,7 @@
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
-<audio><source src=""/><style scoped=""/><source src=""/><source src=""/></audio></em>
+<audio><source src="a"/><style scoped=""/><source src="a"/><source src="a"/></audio></em>
 #errors
 /em/audio;no significant content;s
 /em/audio/source;element not allowed:phrasing;m
@@ -766,6 +805,12 @@
 <video src="http://test/" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /video;no significant content;s
+
+#data
+<video src="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/video;no significant content;s
+/video/@src;url:empty;m
 
 #data
 <video src="``http://test/" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -926,6 +971,7 @@
 #errors
 /video;no significant content;s
 /video;child element missing;source;w
+/video/@poster;url:empty;m
 
 #data
 <video poster="abc" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -941,75 +987,75 @@
 /video;child element missing;source;w
 
 #data
-<video src="" xmlns="http://www.w3.org/1999/xhtml"
+<video src="a" xmlns="http://www.w3.org/1999/xhtml"
     height="">x</video>
 #errors
 /video/@height;nninteger:syntax error;m
 
 #data
-<video src="" xmlns="http://www.w3.org/1999/xhtml"
+<video src="a" xmlns="http://www.w3.org/1999/xhtml"
     height="0">x</video>
 #errors
 
 #data
-<video src="" xmlns="http://www.w3.org/1999/xhtml"
+<video src="a" xmlns="http://www.w3.org/1999/xhtml"
     height="120">x</video>
 #errors
 
 #data
-<video src="" xmlns="http://www.w3.org/1999/xhtml"
+<video src="a" xmlns="http://www.w3.org/1999/xhtml"
     width="">x</video>
 #errors
 /video/@width;nninteger:syntax error;m
 
 #data
-<video src="" xmlns="http://www.w3.org/1999/xhtml"
+<video src="a" xmlns="http://www.w3.org/1999/xhtml"
     width="0">x</video>
 #errors
 
 #data
-<video src="" xmlns="http://www.w3.org/1999/xhtml"
+<video src="a" xmlns="http://www.w3.org/1999/xhtml"
     width="120">x</video>
 #errors
 
 #data
-<video src="" xmlns="http://www.w3.org/1999/xhtml">
-  <video src="">aa</video>
+<video src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <video src="a">aa</video>
 </video>
 #errors
 /video/video;element not allowed:minus;m
 
 #data
-<video src="" xmlns="http://www.w3.org/1999/xhtml">
-  <p><video src="">aa</video></p>
+<video src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <p><video src="a">aa</video></p>
 </video>
 #errors
 /video/p/video;element not allowed:minus;m
 
 #data
-<video src="" xmlns="http://www.w3.org/1999/xhtml">
-  <ins><video src="">aa</video></ins>
+<video src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <ins><video src="a">aa</video></ins>
 </video>
 #errors
 /video/ins/video;element not allowed:minus;m
 
 #data
-<video src="" xmlns="http://www.w3.org/1999/xhtml">
-  <audio src="">aa</audio>
+<video src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">aa</audio>
 </video>
 #errors
 /video/audio;element not allowed:minus;m
 
 #data
-<video src="" xmlns="http://www.w3.org/1999/xhtml">
-  <p><audio src="">aa</audio></p>
+<video src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <p><audio src="a">aa</audio></p>
 </video>
 #errors
 /video/p/audio;element not allowed:minus;m
 
 #data
-<video src="" xmlns="http://www.w3.org/1999/xhtml">
-  <ins><audio src="">aa</audio></ins>
+<video src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <ins><audio src="a">aa</audio></ins>
 </video>
 #errors
 /video/ins/audio;element not allowed:minus;m
@@ -1019,6 +1065,12 @@
 #errors
 /audio;no significant content;s
 /audio;child element missing;source;w
+
+#data
+<audio src="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/audio;no significant content;s
+/audio/@src;url:empty;m
 
 #data
 <audio src="http://test/" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -1158,7 +1210,7 @@
 /audio;child element missing;source;w
 
 #data
-<video src="" start="" end="" loopstart="" loopend="" playcount=""
+<video src="a" start="" end="" loopstart="" loopend="" playcount=""
     xmlns="http://www.w3.org/1999/xhtml">a</video>
 #errors
 /video/@start;attribute not defined;m
@@ -1263,7 +1315,7 @@
 /video/@loopend;attribute not defined;m
 
 #data
-<audio src="" start="" end="" loopstart="" loopend="" playcount=""
+<audio src="a" start="" end="" loopstart="" loopend="" playcount=""
     xmlns="http://www.w3.org/1999/xhtml">a</audio>
 #errors
 /audio/@start;attribute not defined;m
@@ -1383,106 +1435,111 @@
 /audio/@loopend;attribute not defined;m
 
 #data
-<audio src="" xmlns="http://www.w3.org/1999/xhtml">
-  <video src="">aa</video>
+<audio src="a" poster="" xmlns="http://www.w3.org/1999/xhtml">a</audio>
+#errors
+/audio/@poster;attribute not defined;m
+
+#data
+<audio src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <video src="a">aa</video>
 </audio>
 #errors
 /audio/video;element not allowed:minus;m
 
 #data
-<audio src="" xmlns="http://www.w3.org/1999/xhtml">
-  <p><video src="">aa</video></p>
+<audio src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <p><video src="a">aa</video></p>
 </audio>
 #errors
 /audio/p/video;element not allowed:minus;m
 
 #data
-<audio src="" xmlns="http://www.w3.org/1999/xhtml">
-  <ins><video src="">aa</video></ins>
+<audio src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <ins><video src="a">aa</video></ins>
 </audio>
 #errors
 /audio/ins/video;element not allowed:minus;m
 
 #data
-<audio src="" xmlns="http://www.w3.org/1999/xhtml">
-  <audio src="">aa</audio>
+<audio src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">aa</audio>
 </audio>
 #errors
 /audio/audio;element not allowed:minus;m
 
 #data
-<audio src="" xmlns="http://www.w3.org/1999/xhtml">
-  <p><audio src="">aa</audio></p>
+<audio src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <p><audio src="a">aa</audio></p>
 </audio>
 #errors
 /audio/p/audio;element not allowed:minus;m
 
 #data
-<audio src="" xmlns="http://www.w3.org/1999/xhtml">
-  <ins><audio src="">aa</audio></ins>
+<audio src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <ins><audio src="a">aa</audio></ins>
 </audio>
 #errors
 /audio/ins/audio;element not allowed:minus;m
 
 #data
-<video src="" 
+<video src="a" 
     loop=""
     xmlns="http://www.w3.org/1999/xhtml">a</video>
 #errors
 
 #data
-<audio src="" 
+<audio src="a" 
     loop=""
     xmlns="http://www.w3.org/1999/xhtml">a</audio>
 #errors
 
 #data
-<video src="" 
+<video src="a" 
     loop="loop"
     xmlns="http://www.w3.org/1999/xhtml">a</video>
 #errors
 
 #data
-<audio src="" 
+<audio src="a" 
     loop="loop"
     xmlns="http://www.w3.org/1999/xhtml">a</audio>
 #errors
 
 #data
-<video src="" 
+<video src="a" 
     loop="Loop"
     xmlns="http://www.w3.org/1999/xhtml">a</video>
 #errors
 
 #data
-<audio src="" 
+<audio src="as" 
     loop="Loop"
     xmlns="http://www.w3.org/1999/xhtml">a</audio>
 #errors
 
 #data
-<video src="" 
+<video src="a" 
     loop="true"
     xmlns="http://www.w3.org/1999/xhtml">a</video>
 #errors
 /video/@loop;boolean:invalid;m
 
 #data
-<audio src="" 
+<audio src="a" 
     loop="true"
     xmlns="http://www.w3.org/1999/xhtml">a</audio>
 #errors
 /audio/@loop;boolean:invalid;m
 
 #data
-<video src="" 
+<video src="a" 
     loop="lop"
     xmlns="http://www.w3.org/1999/xhtml">a</video>
 #errors
 /video/@loop;boolean:invalid;m
 
 #data
-<audio src="" 
+<audio src="a" 
     loop="loop "
     xmlns="http://www.w3.org/1999/xhtml">a</audio>
 #errors
@@ -1492,6 +1549,11 @@
 <source xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /source;attribute missing;src;m
+
+#data
+<source src="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/source/@src;url:empty;m
 
 #data
 <source src="http://test/" xmlns="http://www.w3.org/1999/xhtml"/>

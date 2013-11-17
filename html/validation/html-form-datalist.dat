@@ -96,12 +96,12 @@
 /div;no significant content;s
 
 #data
-<video src="" xmlns="http://www.w3.org/1999/xhtml"><datalist/></video>
+<video src="a" xmlns="http://www.w3.org/1999/xhtml"><datalist/></video>
 #errors
 /video;no significant content;s
 
 #data
-<img src="" alt="x" xmlns="http://www.w3.org/1999/xhtml"><datalist/></img>
+<img src="b" alt="x" xmlns="http://www.w3.org/1999/xhtml"><datalist/></img>
 #errors
 /img/datalist;element not allowed:empty;m
 
@@ -115,7 +115,6 @@
     data=""/>
 #errors
 /datalist/@data;attribute not defined;m
-/datalist/@data;url:empty;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml"
@@ -128,7 +127,6 @@
     data="[]"/>
 #errors
 /datalist/@data;attribute not defined;m
-/datalist/@data;syntax error:iriref3987;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -327,7 +325,7 @@
 /input/@list;input attr not applicable;submit;m
 
 #data
-<input type="image" src="" alt="b" list="a" xmlns="http://www.w3.org/1999/xhtml"/>
+<input type="image" src="a" alt="b" list="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@list;input attr not applicable;image;m
 
