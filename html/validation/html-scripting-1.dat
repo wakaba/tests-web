@@ -628,3 +628,19 @@
 <p oncuechange="alert(1);" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
 /p/@oncuechange;event handler;u
+
+#data
+<p onreadystatechange="" xmlns="http://www.w3.org/1999/xhtml">a</p>
+#errors
+/p/@onreadystatechange;attribute not defined;m
+
+#data
+<body onreadystatechange="" xmlns="http://www.w3.org/1999/xhtml">a</body>
+#errors
+/body/@onreadystatechange;attribute not defined;m
+
+#data
+<script onreadystatechange="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@onreadystatechange;attribute not defined;m
+/script;SUBDOC;text/javascript
