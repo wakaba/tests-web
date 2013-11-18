@@ -469,8 +469,8 @@
 <track xmlns="http://www.w3.org/1999/xhtml"
     src="abc" srclang="!!"/>
 #errors
-/track/@srclang;langtag:illegal;m
-/track/@srclang;langtag:language:nosemantics;m
+/track/@srclang;langtag:language:invalid;m
+/track/@srclang;langtag:language:syntax;m
 
 #data
 <track xmlns="http://www.w3.org/1999/xhtml"
@@ -599,7 +599,8 @@
     src="abc"
     srclang=""/>
 #errors
-/track/@srclang;langtag:language:nosemantics;m
+/track/@srclang;langtag:language:invalid;m
+/track/@srclang;langtag:language:syntax;m
 
 #data
 <track xmlns="http://www.w3.org/1999/xhtml"
@@ -835,7 +836,7 @@
 </p>
 #errors
 /p/audio/track;duplicate track;m
-/p/audio/track/@srclang;langtag:language:case;w
+/p/audio/track/@srclang;langtag:language:case;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">

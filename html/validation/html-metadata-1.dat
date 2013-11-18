@@ -1734,7 +1734,8 @@ p {color: green}
 <link rel="author" href="http://test/" hreflang=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@hreflang;langtag:language:nosemantics;m
+/link/@hreflang;langtag:language:invalid;m
+/link/@hreflang;langtag:language:syntax;m
 
 #data
 <link rel="author" href="http://test/" hreflang="en"
@@ -2589,15 +2590,16 @@ p {color: green}
 <meta http-equiv="content-language" content=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta/@content;langtag:language:nosemantics;m
+/meta/@content;langtag:language:invalid;m
+/meta/@content;langtag:language:syntax;m
 /meta;content-language;m
 
 #data
 <meta http-equiv="content-language" content="!!"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta/@content;langtag:illegal;m
-/meta/@content;langtag:language:nosemantics;m
+/meta/@content;langtag:language:invalid;m
+/meta/@content;langtag:language:syntax;m
 /meta;content-language;m
 
 #data
@@ -2610,15 +2612,15 @@ p {color: green}
 <meta http-equiv="content-language" content="JA"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta/@content;langtag:language:case;w
+/meta/@content;langtag:language:case;s
 /meta;content-language;m
 
 #data
 <meta http-equiv="content-language" content="ja,en"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta/@content;langtag:illegal;m
-/meta/@content;langtag:language:nosemantics;m
+/meta/@content;langtag:language:invalid;m
+/meta/@content;langtag:language:syntax;m
 /meta;content-language;m
 
 #data

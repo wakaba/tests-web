@@ -788,14 +788,33 @@ x</div>
 <a href="http://test/" hreflang=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/a/@hreflang;langtag:language:nosemantics;m
+/a/@hreflang;langtag:language:invalid;m
+/a/@hreflang;langtag:language:syntax;m
 /a;no significant content;s
 
 #data
 <area hreflang="" alt="a" shape="default" href="http://test/"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/area/@hreflang;langtag:language:nosemantics;m
+/area/@hreflang;langtag:language:invalid;m
+/area/@hreflang;langtag:language:syntax;m
+
+#data
+<area hreflang="en-xyz" alt="a" shape="default" href="http://test/"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/area/@hreflang;langtag:extlang:invalid;m
+
+#data
+<area hreflang="en-u-tz-jptyo" alt="a" shape="default" href="http://test/"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<area hreflang="en-t-hoge" alt="a" shape="default" href="http://test/"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/area/@hreflang;langtag:language:invalid;m
 
 #data
 <a href="http://test/" hreflang="en"

@@ -142,3 +142,28 @@
 #errors
 /foo;element not defined;m
 /foo/@data-hoge;attribute not defined;m
+
+#data
+<hoge xml:lang=""/>
+#errors
+/hoge;element not defined;m
+
+#data
+<hoge xml:lang="!?"/>
+#errors
+/hoge;element not defined;m
+/hoge/@lang;langtag:language:syntax;m
+/hoge/@lang;langtag:language:invalid;m
+
+#data
+<hoge xml:lang="fuga"/>
+#errors
+/hoge;element not defined;m
+/hoge/@lang;langtag:language:invalid;m
+
+#data
+<hoge xml:lang="EN-jp"/>
+#errors
+/hoge;element not defined;m
+/hoge/@lang;langtag:language:case;s
+/hoge/@lang;langtag:region:case;s

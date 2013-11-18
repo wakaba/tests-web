@@ -5,14 +5,20 @@
 #data
 <feed xmlns="http://www.w3.org/2005/Atom"><link rel="self" hreflang="!" href="http://example.org/1"/><id>tag:example.org,1</id><title/><updated>2005-07-31T12:29:29Z</updated></feed>
 #errors
-/feed/link/@hreflang;langtag:illegal;m
-/feed/link/@hreflang;langtag:language:nosemantics;m
+/feed/link/@hreflang;langtag:language:invalid;m
+/feed/link/@hreflang;langtag:language:syntax;m
 
 #data
 <feed xmlns="http://www.w3.org/2005/Atom"><link rel="self" hreflang=" en " href="http://example.org/1"/><id>tag:example.org,1</id><title/><updated>2005-07-31T12:29:29Z</updated></feed>
 #errors
-/feed/link/@hreflang;langtag:illegal;m
-/feed/link/@hreflang;langtag:language:nosemantics;m
+/feed/link/@hreflang;langtag:language:invalid;m
+/feed/link/@hreflang;langtag:language:syntax;m
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom"><link rel="self" hreflang="pa-aa" href="http://example.org/1"/><id>tag:example.org,1</id><title/><updated>2005-07-31T12:29:29Z</updated></feed>
+#errors
+/feed/link/@hreflang;langtag:region:case;s
+/feed/link/@hreflang;langtag:region:private;w
 
 #data
 <feed xmlns="http://www.w3.org/2005/Atom"><updated>2005-07-31T12:29:29Z</updated><link rel="self" href="http://example.org/1"/><id>tag:example.org,1</id><title/></feed>
