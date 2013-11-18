@@ -40,22 +40,19 @@
 #data
 <th xmlns="http://www.w3.org/1999/xhtml"><p>xx</p></th>
 #errors
-/th/p;element not allowed:phrasing;m
 
 #data
 <th xmlns="http://www.w3.org/1999/xhtml"><ul><li>xx</li></ul></th>
 #errors
-/th/ul;element not allowed:phrasing;m
 
 #data
 <th xmlns="http://www.w3.org/1999/xhtml"><h1>aaa</h1></th>
 #errors
-/th/h1;element not allowed:phrasing;m
+/th/h1;element not allowed:minus;m
 
 #data
 <th xmlns="http://www.w3.org/1999/xhtml"><table/></th>
 #errors
-/th/table;element not allowed:phrasing;m
 /th;no significant content;s
 
 #data
@@ -71,12 +68,10 @@
 #data
 <th xmlns="http://www.w3.org/1999/xhtml"><ins><p>xx</p></ins></th>
 #errors
-/th/ins/p;element not allowed:phrasing;m
 
 #data
 <th xmlns="http://www.w3.org/1999/xhtml"><ins>xxx<p>xxx</p></ins></th>
 #errors
-/th/ins/p;element not allowed:phrasing;m
 
 #data
 <th xmlns="http://www.w3.org/1999/xhtml"><del></del></th>
@@ -93,19 +88,52 @@
 <th xmlns="http://www.w3.org/1999/xhtml"><del><p>xx</p></del></th>
 #errors
 /th;no significant content;s
-/th/del/p;element not allowed:phrasing;m
 
 #data
 <th xmlns="http://www.w3.org/1999/xhtml"><del><p>xxx</p>xxx</del></th>
 #errors
 /th;no significant content;s
-/th/del/p;element not allowed:phrasing;m
 
 #data
 <th xmlns="http://www.w3.org/1999/xhtml"><del><ins>xxx<p>xxx</p></ins></del></th>
 #errors
 /th;no significant content;s
-/th/del/ins/p;element not allowed:phrasing;m
+
+#data
+<th xmlns="http://www.w3.org/1999/xhtml"><header>a<h5>a</h5></header><p>bb</p></th>
+#errors
+/th/header;element not allowed:minus;m
+/th/header/h5;element not allowed:minus;m
+
+#data
+<th xmlns="http://www.w3.org/1999/xhtml"><footer>aa</footer><p>bb</p></th>
+#errors
+/th/footer;element not allowed:minus;m
+
+#data
+<th xmlns="http://www.w3.org/1999/xhtml"><section>aa</section><p>bb</p></th>
+#errors
+/th/section;element not allowed:minus;m
+
+#data
+<th xmlns="http://www.w3.org/1999/xhtml"><aside>aa</aside><p>bb</p></th>
+#errors
+/th/aside;element not allowed:minus;m
+
+#data
+<th xmlns="http://www.w3.org/1999/xhtml"><h1>aa</h1><p>bb</p></th>
+#errors
+/th/h1;element not allowed:minus;m
+
+#data
+<th xmlns="http://www.w3.org/1999/xhtml"><hgroup><h4>a</h4></hgroup><p>bb</p></th>
+#errors
+/th/hgroup;element not allowed:minus;m
+/th/hgroup/h4;element not allowed:minus;m
+
+#data
+<th xmlns="http://www.w3.org/1999/xhtml"><main>aa</main><p>bb</p></th>
+#errors
 
 #data
 <table xmlns="http://www.w3.org/1999/xhtml"/>
@@ -3623,7 +3651,6 @@ a</th>
   </tr>
 </thead>
 #errors
-/thead/tr/th/table;element not allowed:phrasing;m
 
 #data
 <th width="1" xmlns="http://www.w3.org/1999/xhtml">a</th>
