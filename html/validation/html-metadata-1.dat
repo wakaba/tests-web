@@ -702,6 +702,63 @@
 /html/head/base;basehref after URL attribute;m
 
 #data
+<html manifest="aa" xmlns="http://www.w3.org/1999/xhtml">
+<head><base href="bb"/><title>a</title></head>
+<body>a</body>
+</html>
+#errors
+
+#data
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="bb"><base href="bb"/><title>a</title></head>
+<body>a</body>
+</html>
+#errors
+/html/head/@profile;attribute not defined;m
+
+#data
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><a href="" ping="b">x</a><base href="bb"/><title>a</title></head>
+<body>a</body>
+</html>
+#errors
+/html/head/a;element not allowed:metadata;m
+/html/head/base;basehref after URL attribute;m
+
+#data
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><link href="a" xmlns="http://www.w3.org/2005/Atom"/><base href="bb"/><title>a</title></head>
+<body>a</body>
+</html>
+#errors
+/html/head/link;element not allowed:metadata;m
+/html/head/base;basehref after URL attribute;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+<html manifest="aa">
+<head><title>a</title></head>
+<body>a</body>
+</html>
+<base href="bb"/>
+</p>
+#errors
+/p/html;element not allowed:phrasing;m
+/p/base;element not allowed:phrasing;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+<a href="">aa</a>
+<html manifest="aa">
+<head><base href="bb"/><title>a</title></head>
+<body>a</body>
+</html>
+</p>
+#errors
+/p/html;element not allowed:phrasing;m
+/p/html/head/base;basehref after URL attribute;m
+
+#data
 <link rel="author" href="mailto:a@example.com"
     xmlns="http://www.w3.org/1999/xhtml"></link>
 #errors
