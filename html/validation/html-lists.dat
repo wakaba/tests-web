@@ -1,4 +1,36 @@
 #data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <ul></ul>
+</div>
+#errors
+/div;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <ul>
+    <li></li>
+  </ul>
+</div>
+#errors
+/div/ul/li;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <ol></ol>
+</div>
+#errors
+/div;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <ol>
+    <li></li>
+  </ol>
+</div>
+#errors
+/div/ol/li;no significant content;s
+
+#data
 <dt xmlns="http://www.w3.org/1999/xhtml"></dt>
 #errors
 /dt;no significant content;s
@@ -95,3 +127,87 @@
 <dd xmlns="http://www.w3.org/1999/xhtml">ab<body>aa</body></dd>
 #errors
 /dd/body;element not allowed:flow;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dl></dl>
+</div>
+#errors
+/div;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dl>
+    <dt></dt>
+  </dl>
+</div>
+#errors
+/div/dl/dt;no significant content;s
+/div/dl;child element missing;dd;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dl>
+    <dd></dd>
+  </dl>
+</div>
+#errors
+/div/dl/dd;ps element missing;dt;m
+/div/dl/dd;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dl>
+    <dt></dt>
+    <dd></dd>
+  </dl>
+</div>
+#errors
+/div/dl/dt;no significant content;s
+/div/dl/dd;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dl>
+    <dd></dd>
+    <dt></dt>
+  </dl>
+</div>
+#errors
+/div/dl/dd;no significant content;s
+/div/dl/dd;ps element missing;dt;m
+/div/dl/dt;no significant content;s
+/div/dl;child element missing;dd;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dl>
+    <p>a</p>
+  </dl>
+</div>
+#errors
+/div;no significant content;s
+/div/dl/p;element not allowed;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dl hidden="">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+</div>
+#errors
+/div;no significant content;s
+/div/dl/dt;no significant content;s
+/div/dl/dd;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dl>
+    <dt hidden=""></dt>
+    <dd hidden=""></dd>
+  </dl>
+</div>
+#errors
+/div/dl/dt;no significant content;s
+/div/dl/dd;no significant content;s

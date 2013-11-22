@@ -645,6 +645,19 @@ id=""><span id="">x</span></p>
 /p/@hidden;boolean:invalid;m
 
 #data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <p hidden="">a</p>
+</div>
+#errors
+/div;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <img src="a" alt="b"/>
+</div>
+#errors
+
+#data
 <p tabindex="-1" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
 
@@ -844,6 +857,7 @@ id=""><span id="">x</span></p>
 <title>x</title>
 <unknown xmlns="http://www.w3.org/1999/xhtml">x</unknown>
 #errors
+/html/body;no significant content;s
 /html/body/unknown;element not defined;m
 /html/body/unknown;element not allowed:flow;m
 
@@ -852,6 +866,7 @@ id=""><span id="">x</span></p>
 <title>x</title>
 <unknown xmlns="http://www.w3.org/1999/html">x</unknown>
 #errors
+/html/body;no significant content;s
 /html/body/unknown/@xmlns;invalid attribute value;m
 /html/body/unknown;element not defined;m
 /html/body/unknown;element not allowed:flow;m

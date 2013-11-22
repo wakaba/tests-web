@@ -23,7 +23,6 @@
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"><blockquote/></a>
 #errors
-/a;no significant content;s
 /a/blockquote;no significant content;s
 
 #data
@@ -134,10 +133,7 @@ x</div>
 <p><a></a></p><ul><li><a></a></li></ul>
 </div>
 #errors
-/div;no significant content;s
-/div/p;no significant content;s
 /div/p/a;no significant content;s
-/div/ul/li;no significant content;s
 /div/ul/li/a;no significant content;s
 
 #data
@@ -145,10 +141,7 @@ x</div>
 <p><a></a></p><ol><li><a></a></li></ol>
 </div>
 #errors
-/div;no significant content;s
-/div/p;no significant content;s
 /div/p/a;no significant content;s
-/div/ol/li;no significant content;s
 /div/ol/li/a;no significant content;s
 
 #data
@@ -197,12 +190,14 @@ x</div>
 <audio src="a">x</audio>
 </a>
 #errors
+/a;no significant content;s
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
 <span><audio src="a">x</audio></span>
 </a>
 #errors
+/a/span;no significant content;s
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -210,6 +205,7 @@ x</div>
 <audio src="a">y</audio>
 </div>
 #errors
+/div/a;no significant content;s
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
@@ -384,6 +380,7 @@ x</div>
 <datagrid>x</datagrid>
 </a>
 #errors
+/a;no significant content;s
 /a/datagrid;element not allowed:flow;m
 /a/datagrid;element not defined;m
 
@@ -392,6 +389,7 @@ x</div>
 <span><datagrid>x</datagrid></span>
 </a>
 #errors
+/a/span;no significant content;s
 /a/span/datagrid;element not allowed:phrasing;m
 /a/span/datagrid;element not defined;m
 
@@ -401,6 +399,7 @@ x</div>
 <datagrid>y</datagrid>
 </div>
 #errors
+/div/a;no significant content;s
 /div/a/datagrid;element not allowed:flow;m
 /div/a/datagrid;element not defined;m
 /div/datagrid;element not defined;m
@@ -452,6 +451,7 @@ x</div>
 <bb>x</bb>
 </a>
 #errors
+/a;no significant content;s
 /a/bb;element not allowed:flow;m
 /a/bb;element not defined;m
 
@@ -460,6 +460,7 @@ x</div>
 <span><bb>x</bb></span>
 </a>
 #errors
+/a/span;no significant content;s
 /a/span/bb;element not allowed:phrasing;m
 /a/span/bb;element not defined;m
 
@@ -469,6 +470,7 @@ x</div>
 <bb>y</bb>
 </div>
 #errors
+/div/a;no significant content;s
 /div/a/bb;element not allowed:flow;m
 /div/a/bb;element not defined;m
 /div/bb;element not defined;m
@@ -519,8 +521,6 @@ x</div>
 <p><a></a></p><ol><li><datagrid/></li></ol>
 </div>
 #errors
-/div;no significant content;s
-/div/p;no significant content;s
 /div/p/a;no significant content;s
 /div/ol/li;no significant content;s
 /div/ol/li/datagrid;element not defined;m
@@ -533,10 +533,8 @@ x</div>
 </details>
 #errors
 /details;child element missing;summary;m
-/details;no significant content;s
 /details/legend;no significant content;s
 /details/legend;element not allowed:flow;m
-/details/p;no significant content;s
 /details/p/a;no significant content;s
 
 #data
@@ -546,7 +544,6 @@ x</div>
 #errors
 /details;child element missing;summary;m
 /details;no significant content;s
-/details/legend;no significant content;s
 /details/legend;element not allowed:flow;m
 /details/legend/a;no significant content;s
 

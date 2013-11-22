@@ -317,6 +317,7 @@
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><head><title></title></head><body></body></html>
 #errors
+/html/head/title;no significant content;m
 /html/body;no significant content;s
 
 #data
@@ -325,6 +326,7 @@
 <title/>
 </head>
 #errors
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -332,6 +334,7 @@
 <base href="http://www.w3.org/"/>
 </head>
 #errors
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -341,6 +344,7 @@
 #errors
 /head/command;element not defined;m
 /head/command;element not allowed:metadata;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -348,6 +352,7 @@
 <command/>
 </head>
 #errors
+/head/title;no significant content;m
 /head/command;element not defined;m
 /head/command;element not allowed:metadata;m
 
@@ -359,6 +364,7 @@
 #errors
 /head/event-source;element not defined;m
 /head/event-source;element not allowed:metadata;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -368,6 +374,7 @@
 #errors
 /head/eventsource;element not defined;m
 /head/eventsource;element not allowed:metadata;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -377,6 +384,7 @@
 #errors
 /head/event-source;element not defined;m
 /head/event-source;element not allowed:metadata;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -386,6 +394,7 @@
 #errors
 /head/eventsource;element not defined;m
 /head/eventsource;element not allowed:metadata;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -393,6 +402,7 @@
 <title/>
 </head>
 #errors
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -400,6 +410,7 @@
 <link rel="author" href="mailto:a@example.com"/>
 </head>
 #errors
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -408,6 +419,7 @@
 </head>
 #errors
 /head/meta;attribute missing:name|http-equiv|charset;m
+/head/title;no significant content;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -441,6 +453,7 @@
 </head>
 #errors
 /head/meta/@name;metadata:proposed;keywords;w
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -448,6 +461,7 @@
 <meta name="keywords" content="html5"/>
 </head>
 #errors
+/head/title;no significant content;m
 /head/meta/@name;metadata:proposed;keywords;w
 
 #data
@@ -457,6 +471,7 @@
 </head>
 #errors
 /head/script;SUBDOC;text/javascript
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -464,6 +479,7 @@
 <script type="text/javascript"/>
 </head>
 #errors
+/head/title;no significant content;m
 /head/script;SUBDOC;text/javascript
 
 #data
@@ -473,6 +489,7 @@
 </head>
 #errors
 /head/style;SUBDOC;text/css
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -480,17 +497,21 @@
 <style type="text/css"/>
 </head>
 #errors
+/head/title;no significant content;m
 /head/style;SUBDOC;text/css
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><title></title></head><body></body></html>
 #errors
+/html/head/title;no significant content;m
+/html/head/title;no significant content;m
 /html/head/title;element not allowed:head title;m
 /html/body;no significant content;s
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><p></p></head><body></body></html>
 #errors
+/html/head/title;no significant content;m
 /html/head/p;element not allowed:metadata;m
 /html/head/p;no significant content;s
 /html/body;no significant content;s
@@ -575,6 +596,7 @@
 </head>
 #errors
 /head/meta/@name;metadata:proposed;keywords;w
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -583,6 +605,7 @@
 <meta name="keywords" content="html5"/>
 </head>
 #errors
+/head/title;no significant content;m
 /head/meta/@name;metadata:proposed;keywords;w
 
 #data
@@ -743,6 +766,7 @@
 <base href="bb"/>
 </p>
 #errors
+/p;no significant content;s
 /p/html;element not allowed:phrasing;m
 /p/base;element not allowed:phrasing;m
 
@@ -970,6 +994,7 @@ a
 </noscript>
 </head>
 #errors
+/head/title;no significant content;m
 /head/noscript;in XML:noscript;m
 /head/noscript/meta;element not allowed:head noscript;m
 /head/noscript/meta;element not allowed:meta charset;m
@@ -1035,6 +1060,7 @@ a
 </noscript>
 </head>
 #errors
+/head/title;no significant content;m
 /head/noscript;in XML:noscript;m
 /head/noscript/meta;element not allowed:head noscript;m
 /head/noscript/meta;attribute missing:name|http-equiv|charset;m
@@ -1047,6 +1073,7 @@ a
 </noscript>
 </head>
 #errors
+/head/title;no significant content;m
 /head/noscript;in XML:noscript;m
 /head/noscript/meta/@http-equiv;enumerated:invalid;m
 
@@ -1058,6 +1085,7 @@ a
 </noscript>
 </head>
 #errors
+/head/title;no significant content;m
 /head/noscript;in XML:noscript;m
 /head/noscript/meta;element not allowed:head noscript;m
 /head/noscript/meta/@name;metadata:proposed;keywords;w
@@ -1070,6 +1098,7 @@ a
 </noscript>
 </head>
 #errors
+/head/title;no significant content;m
 /head/noscript;in XML:noscript;m
 /head/noscript/meta/@http-equiv;attribute not allowed;m
 /head/noscript/meta/@http-equiv;enumerated:invalid;m
@@ -1188,6 +1217,7 @@ p {color: green}
 </head>
 #errors
 /head/@profile;attribute not defined;m
+/head/title;no significant content;m
 
 #data
 <head profile="  " xmlns="http://www.w3.org/1999/xhtml">
@@ -1195,6 +1225,7 @@ p {color: green}
 </head>
 #errors
 /head/@profile;attribute not defined;m
+/head/title;no significant content;m
 
 #data
 <head profile="http://www.test/" xmlns="http://www.w3.org/1999/xhtml">
@@ -1202,6 +1233,7 @@ p {color: green}
 </head>
 #errors
 /head/@profile;attribute not defined;m
+/head/title;no significant content;m
 
 #data
 <head profile="http://www.test/ http://www.test/2" xmlns="http://www.w3.org/1999/xhtml">
@@ -1209,6 +1241,7 @@ p {color: green}
 </head>
 #errors
 /head/@profile;attribute not defined;m
+/head/title;no significant content;m
 
 #data
 <head profile="[]" xmlns="http://www.w3.org/1999/xhtml">
@@ -1217,6 +1250,7 @@ p {color: green}
 #errors
 /head/@profile;attribute not defined;m
 /head/@profile;syntax error:iriref3987;m
+/head/title;no significant content;m
 
 #data
 <head profile="a b" xmlns="http://www.w3.org/1999/xhtml">
@@ -1224,6 +1258,7 @@ p {color: green}
 </head>
 #errors
 /head/@profile;attribute not defined;m
+/head/title;no significant content;m
 
 #data
 <head profile="a b a" xmlns="http://www.w3.org/1999/xhtml">
@@ -1232,6 +1267,7 @@ p {color: green}
 #errors
 /head/@profile;attribute not defined;m
 /head/@profile;duplicate token;m
+/head/title;no significant content;m
 
 #data
 <base xmlns="http://www.w3.org/1999/xhtml"/>
@@ -1325,6 +1361,7 @@ p {color: green}
 </head>
 #errors
 /head/base;basehref after URL attribute;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1333,6 +1370,7 @@ p {color: green}
 <title/>
 </head>
 #errors
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1341,6 +1379,7 @@ p {color: green}
 <title/>
 </head>
 #errors
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1349,6 +1388,7 @@ p {color: green}
 <title/>
 </head>
 #errors
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1358,6 +1398,7 @@ p {color: green}
 </head>
 #errors
 /head/base;basehref after URL attribute;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1366,6 +1407,7 @@ p {color: green}
 <title/>
 </head>
 #errors
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1375,6 +1417,7 @@ p {color: green}
 </head>
 #errors
 /head/base;basehref after URL attribute;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1383,6 +1426,7 @@ p {color: green}
 <title/>
 </head>
 #errors
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1392,6 +1436,7 @@ p {color: green}
 </head>
 #errors
 /head/base;basetarget after hyperlink;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1400,6 +1445,7 @@ p {color: green}
 <title/>
 </head>
 #errors
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1410,6 +1456,7 @@ p {color: green}
 #errors
 /head/base;basehref after URL attribute;m
 /head/base;basetarget after hyperlink;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1418,6 +1465,7 @@ p {color: green}
 <title/>
 </head>
 #errors
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1426,6 +1474,7 @@ p {color: green}
 <title/>
 </head>
 #errors
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1434,6 +1483,7 @@ p {color: green}
 <title/>
 </head>
 #errors
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1443,6 +1493,7 @@ p {color: green}
 </head>
 #errors
 /head/link/@rel;duplicate token;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1452,6 +1503,7 @@ p {color: green}
 </head>
 #errors
 /head/base;basetarget after hyperlink;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1461,6 +1513,7 @@ p {color: green}
 </head>
 #errors
 /head/base;basetarget after hyperlink;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1470,6 +1523,7 @@ p {color: green}
 </head>
 #errors
 /head/base;basetarget after hyperlink;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1481,6 +1535,7 @@ p {color: green}
 /head/a;element not allowed:metadata;m
 /head/a;no significant content;s
 /head/base;basetarget after hyperlink;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1492,6 +1547,7 @@ p {color: green}
 /head/area;element not allowed:metadata;m
 /head/area;element not allowed:area;m
 /head/base;basetarget after hyperlink;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1503,6 +1559,7 @@ p {color: green}
 /head/area;element not allowed:metadata;m
 /head/area;element not allowed:area;m
 /head/base;basehref after URL attribute;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1514,6 +1571,7 @@ p {color: green}
 /head/video;element not allowed:metadata;m
 /head/video;no significant content;s
 /head/base;basehref after URL attribute;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1525,6 +1583,7 @@ p {color: green}
 /head/audio;element not allowed:metadata;m
 /head/audio;no significant content;s
 /head/base;basehref after URL attribute;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1537,6 +1596,7 @@ p {color: green}
 /head/form;no significant content;s
 /head/form/@action;url:empty;m
 /head/base;basehref after URL attribute;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1548,6 +1608,7 @@ p {color: green}
 /head/track;element not allowed:metadata;m
 /head/track/@src;url:empty;m
 /head/base;basehref after URL attribute;m
+/head/title;no significant content;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1558,6 +1619,7 @@ p {color: green}
 #errors
 /head/track;element not allowed:metadata;m
 /head/base;basehref after URL attribute;m
+/head/title;no significant content;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -1570,6 +1632,7 @@ p {color: green}
 </body>
 </html>
 #errors
+/html/head/title;no significant content;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml"/>

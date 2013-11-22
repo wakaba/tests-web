@@ -41,17 +41,14 @@
 #data
 <em xmlns="http://www.w3.org/1999/xhtml"><input/></em>
 #errors
-/em;no significant content;s
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><input/></div>
 #errors
-/div;no significant content;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><input/></p>
 #errors
-/p;no significant content;s
 
 #data
 <title xmlns="http://www.w3.org/1999/xhtml"><input/></title>
@@ -66,7 +63,26 @@
 #data
 <ins xmlns="http://www.w3.org/1999/xhtml"><input/></ins>
 #errors
+
+#data
+<ins xmlns="http://www.w3.org/1999/xhtml"><input type="hidden"/></ins>
+#errors
 /ins;no significant content;s
+
+#data
+<ins xmlns="http://www.w3.org/1999/xhtml"><input type="HidDen"/></ins>
+#errors
+/ins;no significant content;s
+
+#data
+<ins xmlns="http://www.w3.org/1999/xhtml"><input type="HIDDEN"/></ins>
+#errors
+/ins;no significant content;s
+
+#data
+<ins xmlns="http://www.w3.org/1999/xhtml"><input type="hidden "/></ins>
+#errors
+/ins/input/@type;enumerated:invalid;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
@@ -4145,6 +4161,7 @@ min=""
 xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@min;float:syntax error;m
+
 #data
 <input type="number"
 max="12"
@@ -4398,6 +4415,7 @@ min=""
 xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@min;float:syntax error;m
+
 #data
 <input type="range"
 max="12"

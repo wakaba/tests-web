@@ -15,13 +15,11 @@
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"><p></p></form>
 #errors
-/form;no significant content;s
 /form/p;no significant content;s
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"><em></em></form>
 #errors
-/form;no significant content;s
 /form/em;no significant content;s
 
 #data
@@ -86,28 +84,23 @@
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"><form/></form>
 #errors
-/form;no significant content;s
 /form/form;element not allowed:minus;m
 /form/form;no significant content;s
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"><div><form/></div></form>
 #errors
-/form;no significant content;s
 /form/div/form;element not allowed:minus;m
-/form/div;no significant content;s
 /form/div/form;no significant content;s
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><form/></div>
 #errors
-/div;no significant content;s
 /div/form;no significant content;s
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml"><form/></em>
 #errors
-/em;no significant content;s
 /em/form;no significant content;s
 /em/form;element not allowed:phrasing;m
 
@@ -161,6 +154,7 @@
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml"><legend>y</legend></fieldset>
 #errors
+/fieldset;no significant content;s
 
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml"><legend></legend></fieldset>
@@ -184,7 +178,9 @@
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml"><del><legend>y</legend></del><ins><legend>z</legend></ins>x</fieldset>
 #errors
+/fieldset/del;no significant content;s
 /fieldset/del/legend;element not allowed:flow;m
+/fieldset/ins;no significant content;s
 /fieldset/ins/legend;element not allowed:flow;m
 
 #data
@@ -245,6 +241,7 @@ disabled="">
 <legend>x</legend>
 </fieldset>
 #errors
+/fieldset;no significant content;s
 
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml"
@@ -252,6 +249,7 @@ disabled="disabled">
 <legend>x</legend>
 </fieldset>
 #errors
+/fieldset;no significant content;s
 
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml"
@@ -259,6 +257,7 @@ disabled="DisableD">
 <legend>x</legend>
 </fieldset>
 #errors
+/fieldset;no significant content;s
 
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml"
@@ -266,6 +265,7 @@ disabled="no">
 <legend>x</legend>
 </fieldset>
 #errors
+/fieldset;no significant content;s
 /fieldset/@disabled;boolean:invalid;m
 
 #data
@@ -285,7 +285,6 @@ disabled="no">
 #data
 <output xmlns="http://www.w3.org/1999/xhtml"><span></span></output>
 #errors
-/output;no significant content;s
 /output/span;no significant content;s
 
 #data
@@ -300,6 +299,7 @@ disabled="no">
 #data
 <output xmlns="http://www.w3.org/1999/xhtml"><title>x</title></output>
 #errors
+/output;no significant content;s
 /output/title;element not allowed:phrasing;m
 
 #data
@@ -788,6 +788,7 @@ disabled="">z</output>
 <form xmlns="http://www.w3.org/1999/xhtml" id="a">
 <fieldset><legend form="a">a</legend></fieldset></form>
 #errors
+/form/fieldset;no significant content;s
 /form/fieldset/legend/@form;attribute not defined;m
 
 #data

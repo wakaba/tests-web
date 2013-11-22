@@ -24,9 +24,14 @@
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data=""><p></p></object>
 #errors
-/object;no significant content;s
 /object/@data;url:empty;m
 /object/p;no significant content;s
+
+#data
+<object xmlns="http://www.w3.org/1999/xhtml" data=""><br/></object>
+#errors
+/object;no significant content;s
+/object/@data;url:empty;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data="">
@@ -416,7 +421,6 @@ xxxx
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc"><p></p></applet>
 #errors
-/applet;no significant content;s
 /applet/p;no significant content;s
 /applet;element not defined;m
 /applet/@code;attribute not defined;m
@@ -658,13 +662,13 @@ aaa
 </applet>
 </p>
 #errors
+/p;no significant content;s
 /p/applet;no significant content;s
 /p/applet/style;SUBDOC;text/css
 /p/applet/style;element not allowed:phrasing;m
 /p/applet;element not defined;m
 /p/applet/@code;attribute not defined;m
 /p/applet;element not allowed:phrasing;m
-/p;no significant content;s
 /p/applet;attribute missing;width;m
 /p/applet;attribute missing;height;m
 
@@ -676,6 +680,7 @@ xxxx
 </applet>
 </p>
 #errors
+/p;no significant content;s
 /p/applet;element not defined;m
 /p/applet/@code;attribute not defined;m
 /p/applet;element not allowed:phrasing;m
@@ -690,6 +695,7 @@ xxxx
 </applet>
 </p>
 #errors
+/p;no significant content;s
 /p/applet/p;element not allowed:phrasing;m
 /p/applet;element not defined;m
 /p/applet/@code;attribute not defined;m
@@ -705,6 +711,7 @@ xxxx
 </applet>
 </div>
 #errors
+/div;no significant content;s
 /div/applet;element not defined;m
 /div/applet/@code;attribute not defined;m
 /div/applet;element not allowed:flow;m
@@ -719,6 +726,7 @@ xxxx
 </applet>
 </div>
 #errors
+/div;no significant content;s
 /div/applet/param;element not allowed:flow;m
 /div/applet;element not defined;m
 /div/applet/@code;attribute not defined;m
@@ -736,6 +744,8 @@ xxxx
 </applet>
 </div>
 #errors
+/div;no significant content;s
+/div/applet;no significant content;s
 /div/applet;element not defined;m
 /div/applet/@code;attribute not defined;m
 /div/applet/applet;element not defined;m
@@ -755,6 +765,7 @@ xxxx
 </applet>
 </span>
 #errors
+/span;no significant content;s
 /span/applet/p;element not allowed:phrasing;m
 /span/applet;element not defined;m
 /span/applet/@code;attribute not defined;m
@@ -772,6 +783,7 @@ xxxx
 </ins>
 </span>
 #errors
+/span/ins;no significant content;s
 /span/ins/applet/p;element not allowed:phrasing;m
 /span/ins/applet;element not defined;m
 /span/ins/applet/@code;attribute not defined;m
@@ -789,11 +801,13 @@ xxxx
 </applet>
 </span>
 #errors
+/span;no significant content;s
 /span/applet/applet/p;element not allowed:phrasing;m
 /span/applet/applet;element not allowed:phrasing;m
 /span/applet/applet;element not defined;m
 /span/applet/applet/@code;attribute not defined;m
 /span/applet;element not defined;m
+/span/applet;no significant content;s
 /span/applet/@code;attribute not defined;m
 /span/applet;element not allowed:phrasing;m
 /span/applet;attribute missing;width;m
@@ -811,8 +825,10 @@ xxxx
 </applet>
 </span>
 #errors
+/span;no significant content;s
 /span/applet/applet/param;element not allowed:phrasing;m
 /span/applet;element not defined;m
+/span/applet;no significant content;s
 /span/applet/@code;attribute not defined;m
 /span/applet/applet;element not allowed:phrasing;m
 /span/applet/applet;element not defined;m
@@ -827,6 +843,7 @@ xxxx
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><applet code="abc"><p>xx</p></applet></p>
 #errors
+/p;no significant content;s
 /p/applet/p;element not allowed:phrasing;m
 /p/applet;element not defined;m
 /p/applet/@code;attribute not defined;m
@@ -837,6 +854,7 @@ xxxx
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><applet code="abc"><style scoped=""></style>xx</applet></p>
 #errors
+/p;no significant content;s
 /p/applet/style;element not allowed:phrasing;m
 /p/applet/style;SUBDOC;text/css
 /p/applet;element not defined;m
@@ -1294,6 +1312,7 @@ xxxx
   <applet src="ll" alt="a" name="">a</applet>
 </div>
 #errors
+/div;no significant content;s
 /div/applet/@name;attribute not defined;m
 /div/applet/@name;anchor name:empty;m
 /div/applet;element not defined;m
@@ -1309,6 +1328,7 @@ xxxx
   <applet src="ll" alt="a" name="  ">a</applet>
 </div>
 #errors
+/div;no significant content;s
 /div/applet/@name;attribute not defined;m
 /div/applet/@src;attribute not defined;m
 /div/applet/@alt;attribute not defined;m
@@ -1323,6 +1343,7 @@ xxxx
   <applet src="ll" alt="a" name="aaa">a</applet>
 </div>
 #errors
+/div;no significant content;s
 /div/applet/@name;attribute not defined;m
 /div/applet/@src;attribute not defined;m
 /div/applet/@alt;attribute not defined;m
@@ -1468,6 +1489,7 @@ xxxx
   <applet src="ll" alt="a" name="abc" id="abd">a</applet>
 </div>
 #errors
+/div;no significant content;s
 /div/applet/@name;attribute not defined;m
 /div/applet/@src;attribute not defined;m
 /div/applet/@alt;attribute not defined;m
@@ -1483,6 +1505,7 @@ xxxx
   <applet src="ll" alt="a" name="abc" xml:id="abd">a</applet>
 </div>
 #errors
+/div;no significant content;s
 /div/applet/@name;attribute not defined;m
 /div/applet/@src;attribute not defined;m
 /div/applet/@alt;attribute not defined;m
@@ -1498,6 +1521,7 @@ xxxx
   <applet src="ll" alt="a" name="abc" xml:id="abd" id="abe">a</applet>
 </div>
 #errors
+/div;no significant content;s
 /div/applet/@name;attribute not defined;m
 /div/applet/@src;attribute not defined;m
 /div/applet/@alt;attribute not defined;m
@@ -1514,6 +1538,7 @@ xxxx
   <applet src="ll" alt="a" name="abc" xml:id="abd" id="abc">a</applet>
 </div>
 #errors
+/div;no significant content;s
 /div/applet/@name;attribute not defined;m
 /div/applet/@src;attribute not defined;m
 /div/applet/@alt;attribute not defined;m
@@ -1529,6 +1554,7 @@ xxxx
   <applet src="ll" alt="a" name="abc" xml:id="abc" id="abd">a</applet>
 </div>
 #errors
+/div;no significant content;s
 /div/applet/@name;attribute not defined;m
 /div/applet/@src;attribute not defined;m
 /div/applet/@alt;attribute not defined;m
@@ -2515,12 +2541,14 @@ xxxx
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><noembed>aa</noembed></p>
 #errors
+/p;no significant content;s
 /p/noembed;element not allowed:phrasing;m
 /p/noembed;element not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><noembed>aa</noembed></div>
 #errors
+/div;no significant content;s
 /div/noembed;element not allowed:flow;m
 /div/noembed;element not defined;m
 

@@ -37,7 +37,6 @@
 <p><area shape="default" href="A" alt="a"/></p>
 </map>
 #errors
-/map;no significant content;s
 /map/p;no significant content;s
 /map;attribute missing;name;m
 
@@ -46,7 +45,6 @@
 <p><area shape="default" href="A" alt="a"/></p>
 </map>
 #errors
-/map;no significant content;s
 /map/p;no significant content;s
 
 #data
@@ -54,19 +52,15 @@
 <map id="map2"><p><area shape="default" href="A" alt="a"/></p></map>
 </map>
 #errors
-/map;no significant content;s
 /map/map/p;no significant content;s
 /map;attribute missing;name;m
 /map/map;attribute missing;name;m
-/map/map;no significant content;s
 
 #data
 <map name="map1" xmlns="http://www.w3.org/1999/xhtml">
 <map name="map2"><p><area shape="default" href="A" alt="a"/></p></map>
 </map>
 #errors
-/map;no significant content;s
-/map/map;no significant content;s
 /map/map/p;no significant content;s
 
 #data
@@ -76,9 +70,7 @@
 </map>
 <area shape="default" href="A" alt="a"/></div>
 #errors
-/div;no significant content;s
 /div/area;element not allowed:area;m
-/div/map;no significant content;s
 /div/map/map;no significant content;s
 
 #data
@@ -86,7 +78,6 @@
 <map name="map2"/><p><area shape="default" href="A" alt="a"/></p>
 </map>
 #errors
-/map;no significant content;s
 /map/map;no significant content;s
 /map/p;no significant content;s
 
@@ -95,7 +86,6 @@
 <map name="map2"/><p><area shape="default" href="A" alt="a"/></p>
 </div>
 #errors
-/div;no significant content;s
 /div/map;no significant content;s
 /div/p;no significant content;s
 /div/p/area;element not allowed:area;m
@@ -1874,7 +1864,6 @@ aa<map name="x">b<map name="y">bb</map></map>
   <map name="x"></map>
 </map>
 #errors
-/map;no significant content;s
 /map/map;no significant content;s
 
 #data
@@ -1882,7 +1871,6 @@ aa<map name="x">b<map name="y">bb</map></map>
   <map name="x"></map>
 </div>
 #errors
-/div;no significant content;s
 /div/map;no significant content;s
 
 #data

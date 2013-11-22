@@ -34,7 +34,6 @@
 #data
 <th xmlns="http://www.w3.org/1999/xhtml"><a href=""></a></th>
 #errors
-/th;no significant content;s
 /th/a;no significant content;s
 
 #data
@@ -53,16 +52,14 @@
 #data
 <th xmlns="http://www.w3.org/1999/xhtml"><table/></th>
 #errors
-/th;no significant content;s
 
 #data
 <th xmlns="http://www.w3.org/1999/xhtml"><ins></ins></th>
 #errors
-/th;no significant content;s
 /th/ins;no significant content;s
 
 #data
-<th xmlns="http://www.w3.org/1999/xhtml"><ins>xxx</ins></th>
+<th xmlns="http://www.w3.org/1999/xhtml"><ins>xxy</ins></th>
 #errors
 
 #data
@@ -70,7 +67,7 @@
 #errors
 
 #data
-<th xmlns="http://www.w3.org/1999/xhtml"><ins>xxx<p>xxx</p></ins></th>
+<th xmlns="http://www.w3.org/1999/xhtml"><ins>xxy<p>xxy</p></ins></th>
 #errors
 
 #data
@@ -90,12 +87,12 @@
 /th;no significant content;s
 
 #data
-<th xmlns="http://www.w3.org/1999/xhtml"><del><p>xxx</p>xxx</del></th>
+<th xmlns="http://www.w3.org/1999/xhtml"><del><p>xxy</p>xxy</del></th>
 #errors
 /th;no significant content;s
 
 #data
-<th xmlns="http://www.w3.org/1999/xhtml"><del><ins>xxx<p>xxx</p></ins></del></th>
+<th xmlns="http://www.w3.org/1999/xhtml"><del><ins>xxy<p>xxy</p></ins></del></th>
 #errors
 /th;no significant content;s
 
@@ -145,7 +142,7 @@
 /table/@summary;attribute not defined;m
 
 #data
-<table xmlns="http://www.w3.org/1999/xhtml" summary="xxxx"/>
+<table xmlns="http://www.w3.org/1999/xhtml" summary="xxyx"/>
 #errors
 /table/@summary;attribute not defined;m
 
@@ -3593,7 +3590,7 @@ a</th>
 #data
 <thead xmlns="http://www.w3.org/1999/xhtml">
   <tr>
-    <th>xxx</th>
+    <th>xxy</th>
   </tr>
 </thead>
 #errors
@@ -3601,7 +3598,7 @@ a</th>
 #data
 <thead xmlns="http://www.w3.org/1999/xhtml">
   <tr>
-    <th>xxx</th>
+    <th>xxy</th>
     <td>yyy</td>
   </tr>
 </thead>
@@ -3611,13 +3608,13 @@ a</th>
 <table xmlns="http://www.w3.org/1999/xhtml">
   <thead>
     <tr>
-      <th>xxx</th>
+      <th>xxy</th>
       <td>yyy</td>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>xxx</th>
+      <th>xxy</th>
       <td>yyy</td>
     </tr>
   </tbody>
@@ -3627,18 +3624,19 @@ a</th>
 #data
 <thead xmlns="http://www.w3.org/1999/xhtml">
   <tr>
-    <th>xxx</th>
+    <th>xxy</th>
     <ins><td>yyy</td></ins>
   </tr>
 </thead>
 #errors
 /thead/tr/ins;element not allowed;m
+/thead/tr/ins;no significant content;s
 /thead/tr/ins/td;element not allowed:flow;m
 
 #data
 <tfoot xmlns="http://www.w3.org/1999/xhtml">
   <tr>
-    <th>xxx</th>
+    <th>xxy</th>
     <td>yyy</td>
   </tr>
 </tfoot>
@@ -3647,7 +3645,7 @@ a</th>
 #data
 <thead xmlns="http://www.w3.org/1999/xhtml">
   <tr>
-    <th>xxx<table><tr><td>zzz</td></tr></table></th>
+    <th>xxy<table><tr><td>zzz</td></tr></table></th>
   </tr>
 </thead>
 #errors

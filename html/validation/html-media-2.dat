@@ -62,6 +62,7 @@
   </audio>
 </p>
 #errors
+/p;no significant content;s
 
 #data
 <video src="b" xmlns="http://www.w3.org/1999/xhtml">
@@ -89,6 +90,7 @@
   <audio src="a"> aa<track src="abc" srclang="ja"/> </audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio/track;element not allowed:phrasing;m
 
 #data
@@ -117,6 +119,7 @@
   <audio src="a"><u>aa</u><track src="abc" srclang="ja"/> </audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio/track;element not allowed:phrasing;m
 
 #data
@@ -145,6 +148,7 @@
   <audio><source src="a"/><track src="abc" srclang="ja"/> </audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio;no significant content;s
 
 #data
@@ -176,6 +180,7 @@
   <audio src="a"><source src="a"/><track src="abc" srclang="ja"/> </audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio;no significant content;s
 /p/audio/source;element not allowed:phrasing;m
 
@@ -192,6 +197,7 @@
   <audio src="a"><source src="a"/><track src="abc" srclang="ja"/> <div>a</div></audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio/source;element not allowed:phrasing;m
 /p/audio/div;element not allowed:phrasing;m
 
@@ -268,10 +274,18 @@
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
+  <audio controls=""><source src="a"/><track src="abc" srclang="ja"/>
+  <p>abv</p></audio>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
   <audio><source src="a"/><track src="abc" srclang="ja"/>
   <p>abv</p></audio>
 </div>
 #errors
+/div;no significant content;s
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml">
@@ -301,6 +315,7 @@
       <track src="abc" srclang="ja"/> </audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio;no significant content;s
 
 #data
@@ -334,6 +349,7 @@
       <source src="a"/></audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio/source;element not allowed:phrasing;m
 /p/audio;no significant content;s
 
@@ -368,6 +384,7 @@
       <source src="a"/></audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio/source;element not allowed:phrasing;m
 /p/audio;no significant content;s
 
@@ -405,6 +422,7 @@
       <source src="a"/></audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio/source;element not allowed:phrasing;m
 /p/audio/source;element not allowed:phrasing;m
 /p/audio;no significant content;s
@@ -439,6 +457,7 @@
   a
 </audio></p>
 #errors
+/p;no significant content;s
 /p/audio;child element missing;source;w
 
 #data
@@ -662,6 +681,7 @@
   </audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio/track;duplicate track;m
 /p/audio/track;duplicate track;m
 /p/audio/track;duplicate default track;m
@@ -683,7 +703,7 @@
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
-  <audio src="a">
+  <audio src="a" controls="">
     <track srclang="ja" src="a" default=""/>
     <track srclang="ja" src="a"/>
     <track srclang="ja" src="a"/>aa
@@ -704,6 +724,7 @@
   </audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio/ins/track;element not allowed:phrasing;m
 /p/audio/ins/track;element not allowed:phrasing;m
 /p/audio/ins/track;duplicate track;m
@@ -717,6 +738,7 @@
   </audio>
 </p>
 #errors
+/p;no significant content;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
@@ -727,6 +749,7 @@
   </audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio/track;duplicate track;m
 /p/audio/track;duplicate track;m
 
@@ -738,6 +761,7 @@
   </audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio/track;duplicate track;m
 
 #data
@@ -748,6 +772,7 @@
   </audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio/track;duplicate track;m
 
 #data
@@ -758,6 +783,7 @@
   </audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio/track;duplicate track;m
 
 #data
@@ -768,6 +794,7 @@
   </audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio/track;duplicate track;m
 
 #data
@@ -778,11 +805,12 @@
   </audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio/track;duplicate track;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
-  <audio src="a">
+  <audio src="a" controls="">
     <track src="a" kind="metadata"/>
     <track src="a" kind="metadata"/>x
   </audio>
@@ -792,7 +820,7 @@
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
-  <audio src="a">
+  <audio src="a" controls="">
     <track src="a" kind="metadata"/>
     <track src="a" kind="metadata" srclang="fr"/>x
   </audio>
@@ -807,6 +835,7 @@
   </audio>
 </p>
 #errors
+/p;no significant content;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
@@ -816,6 +845,7 @@
   </audio>
 </p>
 #errors
+/p;no significant content;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
@@ -825,6 +855,7 @@
   </audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio/track;duplicate track;m
 
 #data
@@ -835,6 +866,7 @@
   </audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio/track;duplicate track;m
 /p/audio/track/@srclang;langtag:language:case;s
 
@@ -846,6 +878,7 @@
   </audio>
 </p>
 #errors
+/p;no significant content;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
@@ -855,6 +888,19 @@
   </audio>
 </p>
 #errors
+/p;no significant content;s
+/p/audio/track/@label;empty attribute value;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <audio src="a">
+    <track src="a" kind="metadata"/>
+    <track src="a" kind="metadata" label=""/>
+  </audio>
+</p>
+#errors
+/p;no significant content;s
+/p/audio;no significant content;s
 /p/audio/track/@label;empty attribute value;m
 
 #data
@@ -865,4 +911,5 @@
   </audio>
 </p>
 #errors
+/p;no significant content;s
 /p/audio/track/@label;empty attribute value;m

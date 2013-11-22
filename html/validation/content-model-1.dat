@@ -104,12 +104,14 @@ wormhole connection.</mark></p>
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><font>x</font></p>
 #errors
+/p;no significant content;s
 /p/font;element not defined;m
 /p/font;element not allowed:phrasing;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><span><font>x</font></span></p>
 #errors
+/p/span;no significant content;s
 /p/span/font;element not defined;m
 /p/span/font;element not allowed:phrasing;m
 
@@ -134,9 +136,11 @@ wormhole connection.</mark></p>
 </html>
 <!-- From old HTML5 draft -->
 #errors
+/html/head/title;no significant content;m
 /html/body/font;element not defined;m
 /html/body/font/@style;SUBDOC;text/x-css-inline
 /html/body/font;element not allowed:flow;m
+/html/body/p;no significant content;s
 /html/body/p/font;element not defined;m
 /html/body/p/font/@style;SUBDOC;text/x-css-inline
 /html/body/p/font;element not allowed:phrasing;m

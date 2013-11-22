@@ -15,7 +15,6 @@
 #data
 <em xmlns="http://www.w3.org/1999/xhtml"><blockquote/></em>
 #errors
-/em;no significant content;s
 /em/blockquote;no significant content;s
 /em/blockquote;element not allowed:phrasing;m
 
@@ -29,7 +28,6 @@
 <em xmlns="http://www.w3.org/1999/xhtml"><p/></em>
 #errors
 /em/p;element not allowed:phrasing;m
-/em;no significant content;s
 /em/p;no significant content;s
 
 #data
@@ -37,7 +35,6 @@
   <em></em>
 </code>
 #errors
-/code;no significant content;s
 /code/em;no significant content;s
 
 #data
@@ -45,7 +42,6 @@
   <em> </em>
 </code>
 #errors
-/code;no significant content;s
 /code/em;no significant content;s
 
 #data
@@ -76,7 +72,6 @@
   <em></em>
 </p>
 #errors
-/p;no significant content;s
 /p/em;no significant content;s
 
 #data
@@ -84,7 +79,6 @@
   <em> </em>
 </p>
 #errors
-/p;no significant content;s
 /p/em;no significant content;s
 
 #data
@@ -110,9 +104,26 @@
 /p/em/blockquote;element not allowed:phrasing;m
 
 #data
-<p xmlns="http://www.w3.org/1999/xhtml">
-@@ TODO: strong, small
-</p>
+<strong xmlns="http://www.w3.org/1999/xhtml"></strong>
+#errors
+/strong;no significant content;s
+
+#data
+<strong xmlns="http://www.w3.org/1999/xhtml"><mark hidden="">a</mark></strong>
+#errors
+/strong;no significant content;s
+
+#data
+<strong xmlns="http://www.w3.org/1999/xhtml"><span>a</span></strong>
+#errors
+
+#data
+<small xmlns="http://www.w3.org/1999/xhtml" > </small>
+#errors
+/small;no significant content;s
+
+#data
+<small xmlns="http://www.w3.org/1999/xhtml"><span>a</span></small>
 #errors
 
 #data
@@ -132,13 +143,11 @@
 #data
 <mark xmlns="http://www.w3.org/1999/xhtml"><em></em></mark>
 #errors
-/mark;no significant content;s
 /mark/em;no significant content;s
 
 #data
 <mark xmlns="http://www.w3.org/1999/xhtml"><ins></ins></mark>
 #errors
-/mark;no significant content;s
 /mark/ins;no significant content;s
 
 #data
@@ -204,7 +213,6 @@
 <dfn> </dfn>
 </p>
 #errors
-/p;no significant content;s
 /p/dfn;no significant content;s
 
 #data
@@ -225,9 +233,6 @@
 </p>
 #errors
 /p/dfn/em/blockquote;element not allowed:phrasing;m
-/p;no significant content;s
-/p/dfn;no significant content;s
-/p/dfn/em;no significant content;s
 /p/dfn/em/blockquote;no significant content;s
 
 #data
@@ -236,8 +241,6 @@
 </p>
 #errors
 /p/dfn/blockquote;element not allowed:phrasing;m
-/p;no significant content;s
-/p/dfn;no significant content;s
 /p/dfn/blockquote;no significant content;s
 
 #data
@@ -246,8 +249,6 @@
 </p>
 #errors
 /p/dfn/h1;element not allowed:phrasing;m
-/p;no significant content;s
-/p/dfn;no significant content;s
 /p/dfn/h1;no significant content;s
 
 #data
@@ -262,7 +263,6 @@
 <dfn></dfn><dfn/>
 </p>
 #errors
-/p;no significant content;s
 /p/dfn;no significant content;s
 /p/dfn;no significant content;s
 
@@ -272,9 +272,6 @@
 </p>
 #errors
 /p/dfn/em/dfn;element not allowed:minus;m
-/p;no significant content;s
-/p/dfn;no significant content;s
-/p/dfn/em;no significant content;s
 /p/dfn/em/dfn;no significant content;s
 
 #data
@@ -282,7 +279,6 @@
   <dfn/>
 </p>
 #errors
-/p;no significant content;s
 /p/dfn;no significant content;s
 
 #data
@@ -290,7 +286,6 @@
   <dfn> </dfn>
 </p>
 #errors
-/p;no significant content;s
 /p/dfn;no significant content;s
 
 #data
@@ -299,7 +294,6 @@
   <dfn></dfn>
 </p>
 #errors
-/p;no significant content;s
 /p/dfn;no significant content;s
 /p/dfn;no significant content;s
 
@@ -309,7 +303,6 @@
   <dfn> </dfn>
 </p>
 #errors
-/p;no significant content;s
 /p/dfn;no significant content;s
 /p/dfn;no significant content;s
 
@@ -375,8 +368,6 @@
 </p>
 #errors
 /p/dfn/dfn;element not allowed:minus;m
-/p;no significant content;s
-/p/dfn;no significant content;s
 /p/dfn/dfn;no significant content;s
 
 #data
@@ -454,8 +445,6 @@
   <dfn><span><abbr title="a"/></span></dfn>
 </p>
 #errors
-/p/dfn;no significant content;s
-/p/dfn/span;no significant content;s
 /p/dfn/span/abbr;no significant content;s
 
 #data
@@ -981,19 +970,25 @@
 <ruby xmlns="http://www.w3.org/1999/xhtml">xxxx<rt>yyyy</rt>zzzz</ruby>
 #errors
 /ruby;element missing;rt;m
+/ruby;no significant content at the end;s
 
 #data
 <ruby xmlns="http://www.w3.org/1999/xhtml">xx<rt>yy</rt>zz<rt>aa</rt></ruby>
 #errors
+/ruby/rt;no significant content before;s
 
 #data
 <ruby xmlns="http://www.w3.org/1999/xhtml">x<rt>y</rt>z<rt>w</rt>a</ruby>
 #errors
 /ruby;element missing;rt;m
+/ruby;no significant content at the end;s
+/ruby/rt;no significant content before;s
 
 #data
 <ruby xmlns="http://www.w3.org/1999/xhtml">x<rt>y</rt> a<rt> b </rt>c<rt>d</rt></ruby>
 #errors
+/ruby/rt;no significant content before;s
+/ruby/rt;no significant content before;s
 
 #data
 <ruby xmlns="http://www.w3.org/1999/xhtml">x<rt></rt></ruby>
@@ -1004,6 +999,7 @@
 <ruby xmlns="http://www.w3.org/1999/xhtml">x<rt>y</rt>z<rt></rt></ruby>
 #errors
 /ruby/rt;no significant content;s
+/ruby/rt;no significant content before;s
 
 #data
 <ruby xmlns="http://www.w3.org/1999/xhtml"><rt>y</rt></ruby>
@@ -1034,25 +1030,30 @@
 <ruby xmlns="http://www.w3.org/1999/xhtml">x<rp>(</rp><rt>y</rt><rp>)</rp>X</ruby>
 #errors
 /ruby;element missing;rt;m
+/ruby;no significant content at the end;s
 
 #data
 <ruby xmlns="http://www.w3.org/1999/xhtml">x<rp>(</rp><rt>y</rt><rp>)</rp>X<rt>Y</rt></ruby>
 #errors
+/ruby/rt;no significant content before;s
 
 #data
 <ruby xmlns="http://www.w3.org/1999/xhtml">x<rp>(</rp><rt>y</rt><rp>)</rp>X<rp>(</rp></ruby>
 #errors
 /ruby;element missing;rt;m
 /ruby;element missing;rp;m
+/ruby/rp;no significant content before;s
 
 #data
 <ruby xmlns="http://www.w3.org/1999/xhtml">x<rp>(</rp><rt>y</rt><rp>)</rp>X<rp>(</rp><rt>Y</rt></ruby>
 #errors
 /ruby;element missing;rp;m
+/ruby/rp;no significant content before;s
 
 #data
 <ruby xmlns="http://www.w3.org/1999/xhtml">x<rp>(</rp><rt>y</rt><rp>)</rp>X<rp>(</rp><rt>Y</rt><rp>)</rp></ruby>
 #errors
+/ruby/rp;no significant content before;s
 
 #data
 <ruby xmlns="http://www.w3.org/1999/xhtml">x<rp>(</rp><rp>)</rp></ruby>
@@ -1152,6 +1153,7 @@
 #errors
 /ruby/rb;element not defined;m
 /ruby/rb;element not allowed:ruby base;m
+/ruby/rp;no significant content before;s
 
 #data
 <ruby xmlns="http://www.w3.org/1999/xhtml"><p>x</p><rp>(</rp><rt>y</rt><rp>)</rp></ruby>
@@ -1173,6 +1175,7 @@
 /ruby/rbc/rb;element not defined;m
 /ruby/rtc;element not defined;m
 /ruby/rtc;element not allowed:ruby base;m
+/ruby/rt;no significant content before;s
 /ruby/rt;no significant content before;s
 
 #data
@@ -1204,7 +1207,6 @@
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><ruby><rt></rt></ruby></p>
 #errors
-/p;no significant content;s
 /p/ruby/rt;no significant content before;s
 /p/ruby/rt;no significant content;s
 
@@ -1248,7 +1250,6 @@
 <ruby><del>a<rp>b</rp><rt>c</rt><rp>d</rp></del></ruby>
 </p>
 #errors
-/p;no significant content;s
 /p/ruby;no significant content at the end;s
 /p/ruby;element missing;rt;m
 /p/ruby/del/rp;element not allowed:phrasing;m
@@ -1265,6 +1266,7 @@
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><rt>x</rt></p>
 #errors
+/p;no significant content;s
 /p/rt;element not allowed:phrasing;m
 
 #data
@@ -1295,16 +1297,19 @@
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><rp>x</rp></p>
 #errors
+/p;no significant content;s
 /p/rp;element not allowed:phrasing;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><rp>(</rp></p>
 #errors
+/p;no significant content;s
 /p/rp;element not allowed:phrasing;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><rp>)</rp></p>
 #errors
+/p;no significant content;s
 /p/rp;element not allowed:phrasing;m
 
 #data
@@ -1442,12 +1447,14 @@
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><rb>aa</rb></div>
 #errors
+/div;no significant content;s
 /div/rb;element not defined;m
 /div/rb;element not allowed:flow;m
 
 #data
 <span xmlns="http://www.w3.org/1999/xhtml"><rb>aa</rb></span>
 #errors
+/span;no significant content;s
 /span/rb;element not defined;m
 /span/rb;element not allowed:phrasing;m
 
@@ -1530,12 +1537,14 @@
 #data
 <span xmlns="http://www.w3.org/1999/xhtml"><big>xx</big></span>
 #errors
+/span;no significant content;s
 /span/big;element not allowed:phrasing;m
 /span/big;element not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><big>xx</big></div>
 #errors
+/div;no significant content;s
 /div/big;element not allowed:flow;m
 /div/big;element not defined;m
 
@@ -1583,12 +1592,14 @@
 #data
 <span xmlns="http://www.w3.org/1999/xhtml"><acronym>xx</acronym></span>
 #errors
+/span;no significant content;s
 /span/acronym;element not allowed:phrasing;m
 /span/acronym;element not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><acronym>xx</acronym></div>
 #errors
+/div;no significant content;s
 /div/acronym;element not allowed:flow;m
 /div/acronym;element not defined;m
 
@@ -2197,12 +2208,14 @@
 #data
 <span xmlns="http://www.w3.org/1999/xhtml"><tt>xx</tt></span>
 #errors
+/span;no significant content;s
 /span/tt;element not allowed:phrasing;m
 /span/tt;element not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><tt>xx</tt></div>
 #errors
+/div;no significant content;s
 /div/tt;element not allowed:flow;m
 /div/tt;element not defined;m
 
@@ -2292,12 +2305,14 @@
 #data
 <span xmlns="http://www.w3.org/1999/xhtml"><strike>xx</strike></span>
 #errors
+/span;no significant content;s
 /span/strike;element not allowed:phrasing;m
 /span/strike;element not defined;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><strike>xx</strike></div>
 #errors
+/div;no significant content;s
 /div/strike;element not allowed:flow;m
 /div/strike;element not defined;m
 
@@ -2380,12 +2395,14 @@
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><blink>aa</blink></p>
 #errors
+/p;no significant content;s
 /p/blink;element not defined;m
 /p/blink;element not allowed:phrasing;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><blink>aa</blink></div>
 #errors
+/div;no significant content;s
 /div/blink;element not defined;m
 /div/blink;element not allowed:flow;m
 
@@ -2420,12 +2437,14 @@
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><nobr>aa</nobr></p>
 #errors
+/p;no significant content;s
 /p/nobr;element not defined;m
 /p/nobr;element not allowed:phrasing;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><nobr>aa</nobr></div>
 #errors
+/div;no significant content;s
 /div/nobr;element not defined;m
 /div/nobr;element not allowed:flow;m
 

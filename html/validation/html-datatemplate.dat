@@ -49,6 +49,7 @@
 <datatemplate/>
 </head>
 #errors
+/head/title;no significant content;m
 /head/datatemplate;element not defined;m
 /head/datatemplate;element not allowed:metadata;m
 
@@ -142,6 +143,7 @@
 #data
 <head xmlns="http://www.w3.org/1999/xhtml"><title/><rule/></head>
 #errors
+/head/title;no significant content;m
 /head/rule;element not defined;m
 /head/rule;element not allowed:metadata;m
 
@@ -187,6 +189,7 @@
 #data
 <head xmlns="http://www.w3.org/1999/xhtml"><title/><nest/></head>
 #errors
+/head/title;no significant content;m
 /head/nest;element not defined;m
 /head/nest;element not allowed:metadata;m
 
@@ -228,6 +231,7 @@
 <rule xmlns="http://www.w3.org/1999/xhtml"><title><nest/></title></rule>
 #errors
 /rule;element not defined;m
+/rule/title;no significant content;m
 /rule/title/nest;element not defined;m
 /rule/title/nest;element not allowed:text;m
 
@@ -286,7 +290,6 @@
 #errors
 /rule/section/style;element not allowed:flow style;m
 /rule/section/style;SUBDOC;text/css
-/rule/section;no significant content;s
 /rule/section/p;no significant content;s
 /rule;element not defined;m
 /rule/section/nest;element not defined;m
@@ -299,7 +302,6 @@
 #errors
 /rule/section/style;element not allowed:flow style;m
 /rule/section/style;SUBDOC;text/css
-/rule/section;no significant content;s
 /rule/section/p;no significant content;s
 /rule;element not defined;m
 /rule/section/nest;element not defined;m
@@ -354,7 +356,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><em><nest/><i/></em></rule>
 #errors
-/rule/em;no significant content;s
 /rule/em/i;no significant content;s
 /rule/em/i;attribute missing;class;w
 /rule;element not defined;m
@@ -372,7 +373,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><sup><nest/><sub/></sup></rule>
 #errors
-/rule/sup;no significant content;s
 /rule/sup/sub;no significant content;s
 /rule;element not defined;m
 /rule/sup/nest;element not defined;m
@@ -381,7 +381,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><sub><em><nest/></em></sub></rule>
 #errors
-/rule/sub;no significant content;s
 /rule/sub/em;no significant content;s
 /rule;element not defined;m
 /rule/sub/em/nest;element not defined;m
@@ -398,7 +397,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><div><nest/><p/></div></rule>
 #errors
-/rule/div;no significant content;s
 /rule/div/p;no significant content;s
 /rule;element not defined;m
 /rule/div/nest;element not defined;m
@@ -407,7 +405,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><div><nest/><i/></div></rule>
 #errors
-/rule/div;no significant content;s
 /rule/div/i;no significant content;s
 /rule/div/i;attribute missing;class;w
 /rule;element not defined;m
@@ -424,7 +421,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><div><nest/><p/><i/></div></rule>
 #errors
-/rule/div;no significant content;s
 /rule/div/p;no significant content;s
 /rule/div/i;no significant content;s
 /rule/div/i;attribute missing;class;w
@@ -435,7 +431,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><div><p/><nest/></div></rule>
 #errors
-/rule/div;no significant content;s
 /rule/div/p;no significant content;s
 /rule;element not defined;m
 /rule/div/nest;element not defined;m
@@ -444,7 +439,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><div><i/><nest/></div></rule>
 #errors
-/rule/div;no significant content;s
 /rule/div/i;no significant content;s
 /rule/div/i;attribute missing;class;w
 /rule;element not defined;m
@@ -484,7 +478,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><aside><nest/><i/></aside></rule>
 #errors
-/rule/aside;no significant content;s
 /rule/aside/i;no significant content;s
 /rule/aside/i;attribute missing;class;w
 /rule;element not defined;m
@@ -494,7 +487,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><aside><nest/><p/></aside></rule>
 #errors
-/rule/aside;no significant content;s
 /rule/aside/p;no significant content;s
 /rule;element not defined;m
 /rule/aside/nest;element not defined;m
@@ -510,7 +502,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><aside><i/><nest/></aside></rule>
 #errors
-/rule/aside;no significant content;s
 /rule/aside/i;no significant content;s
 /rule/aside/i;attribute missing;class;w
 /rule;element not defined;m
@@ -520,7 +511,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><aside><p/><nest/></aside></rule>
 #errors
-/rule/aside;no significant content;s
 /rule/aside/p;no significant content;s
 /rule;element not defined;m
 /rule/aside/nest;element not defined;m
@@ -556,7 +546,6 @@
 #errors
 /rule/aside/style;element not allowed:flow style;m
 /rule/aside/style;SUBDOC;text/css
-/rule/aside;no significant content;s
 /rule/aside/i;no significant content;s
 /rule/aside/i;attribute missing;class;w
 /rule;element not defined;m
@@ -570,7 +559,6 @@
 #errors
 /rule/aside/style;element not allowed:flow style;m
 /rule/aside/style;SUBDOC;text/css
-/rule/aside;no significant content;s
 /rule/aside/blockquote;no significant content;s
 /rule;element not defined;m
 /rule/aside/nest;element not defined;m
@@ -583,7 +571,6 @@
 #errors
 /rule/aside/style;element not allowed:flow style;m
 /rule/aside/style;SUBDOC;text/css
-/rule/aside;no significant content;s
 /rule/aside/blockquote;no significant content;s
 /rule/aside/p;no significant content;s
 /rule;element not defined;m
@@ -597,7 +584,6 @@
 #errors
 /rule/aside/style;element not allowed:flow style;m
 /rule/aside/style;SUBDOC;text/css
-/rule/aside;no significant content;s
 /rule/aside/blockquote;no significant content;s
 /rule/aside/i;no significant content;s
 /rule/aside/i;attribute missing;class;w
@@ -612,7 +598,6 @@
 #errors
 /rule/aside/style;element not allowed:flow style;m
 /rule/aside/style;SUBDOC;text/css
-/rule/aside;no significant content;s
 /rule/aside/p;no significant content;s
 /rule;element not defined;m
 /rule/aside/nest;element not defined;m
@@ -636,7 +621,6 @@
 #errors
 /rule/aside/style;element not allowed:flow style;m
 /rule/aside/style;SUBDOC;text/css
-/rule/aside;no significant content;s
 /rule/aside/i;no significant content;s
 /rule/aside/i;attribute missing;class;w
 /rule;element not defined;m
@@ -650,7 +634,6 @@
 #errors
 /rule/aside/style;element not allowed:flow style;m
 /rule/aside/style;SUBDOC;text/css
-/rule/aside;no significant content;s
 /rule/aside/p;no significant content;s
 /rule;element not defined;m
 /rule/aside/nest;element not defined;m
@@ -670,7 +653,6 @@
 <aside><i/><nest/></aside>
 </rule>
 #errors
-/rule/aside;no significant content;s
 /rule/aside/i;no significant content;s
 /rule/aside/i;attribute missing;class;w
 /rule;element not defined;m
@@ -682,7 +664,6 @@
 <aside><blockquote/><nest/></aside>
 </rule>
 #errors
-/rule/aside;no significant content;s
 /rule/aside/blockquote;no significant content;s
 /rule;element not defined;m
 /rule/aside/nest;element not defined;m
@@ -693,7 +674,6 @@
 <aside><p/><nest/></aside>
 </rule>
 #errors
-/rule/aside;no significant content;s
 /rule/aside/p;no significant content;s
 /rule;element not defined;m
 /rule/aside/nest;element not defined;m
@@ -717,7 +697,6 @@
 #errors
 /rule/aside/style;element not allowed:flow style;m
 /rule/aside/style;SUBDOC;text/css
-/rule/aside;no significant content;s
 /rule/aside/i;no significant content;s
 /rule/aside/i;attribute missing;class;w
 /rule;element not defined;m
@@ -732,7 +711,6 @@
 /rule/aside/style;element not allowed:flow style;m
 /rule/aside/style;SUBDOC;text/css
 /rule/aside/blockquote;no significant content;s
-/rule/aside;no significant content;s
 /rule;element not defined;m
 /rule/aside/nest;element not defined;m
 /rule/aside/nest;element not allowed:flow;m
@@ -744,7 +722,6 @@
 #errors
 /rule/aside/style;element not allowed:flow style;m
 /rule/aside/style;SUBDOC;text/css
-/rule/aside;no significant content;s
 /rule/aside/p;no significant content;s
 /rule;element not defined;m
 /rule/aside/nest;element not defined;m
@@ -940,7 +917,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><p><ins><nest/></ins></p></rule>
 #errors
-/rule/p;no significant content;s
 /rule;element not defined;m
 /rule/p/ins;no significant content;s
 /rule/p/ins/nest;element not defined;m
@@ -960,6 +936,7 @@
 <head><title/></head><body/><nest/>
 </html></rule>
 #errors
+/rule/html/head/title;no significant content;m
 /rule/html/body;no significant content;s
 /rule;element not defined;m
 /rule/html/nest;element not defined;m
@@ -970,6 +947,7 @@
 <head><title/></head><nest/><body/>
 </html></rule>
 #errors
+/rule/html/head/title;no significant content;m
 /rule/html/body;no significant content;s
 /rule;element not defined;m
 /rule/html/nest;element not defined;m
@@ -980,6 +958,7 @@
 <nest/><head><title/></head><body/>
 </html></rule>
 #errors
+/rule/html/head/title;no significant content;m
 /rule/html/body;no significant content;s
 /rule;element not defined;m
 /rule/html/nest;element not defined;m
@@ -990,6 +969,7 @@
 <head><title/></head><body/><nest/><body/>
 </html></rule>
 #errors
+/rule/html/head/title;no significant content;m
 /rule/html/body;element not allowed;m
 /rule/html/body;no significant content;s
 /rule/html/body;no significant content;s
@@ -1004,6 +984,7 @@
 #errors
 /rule/html;child element missing;body;m
 /rule;element not defined;m
+/rule/html/head/title;no significant content;m
 /rule/html/nest;element not defined;m
 /rule/html/nest;element not allowed;m
 
@@ -1023,6 +1004,7 @@
 <head><title/></head><body/><nest/>
 </html></rule>
 #errors
+/rule/html/head/title;no significant content;m
 /rule/html/body;no significant content;s
 /rule;element not defined;m
 /rule/html/nest;element not defined;m
@@ -1044,6 +1026,7 @@
 </rule>
 #errors
 /rule;element not defined;m
+/rule/head/title;no significant content;m
 /rule/head/nest;element not defined;m
 /rule/head/nest;element not allowed:metadata;m
 
@@ -1055,6 +1038,7 @@
 /rule;element not defined;m
 /rule/head/nest;element not defined;m
 /rule/head/nest;element not allowed:metadata;m
+/rule/head/title;no significant content;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -1064,6 +1048,7 @@
 /rule;element not defined;m
 /rule/head/nest;element not defined;m
 /rule/head/nest;element not allowed:metadata;m
+/rule/head/title;no significant content;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -1073,6 +1058,7 @@
 /rule;element not defined;m
 /rule/head/nest;element not defined;m
 /rule/head/nest;element not allowed:metadata;m
+/rule/head/title;no significant content;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -1085,6 +1071,7 @@
 /rule;element not defined;m
 /rule/head/nest;element not defined;m
 /rule/head/nest;element not allowed:metadata;m
+/rule/head/title;no significant content;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -1097,6 +1084,7 @@
 /rule;element not defined;m
 /rule/head/nest;element not defined;m
 /rule/head/nest;element not allowed:metadata;m
+/rule/head/title;no significant content;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><style><nest/></style></rule>
@@ -1131,7 +1119,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><footer><nest/><i/></footer></rule>
 #errors
-/rule/footer;no significant content;s
 /rule/footer/i;no significant content;s
 /rule/footer/i;attribute missing;class;w
 /rule;element not defined;m
@@ -1141,15 +1128,14 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><footer><nest/><ul/></footer></rule>
 #errors
-/rule/footer;no significant content;s
 /rule;element not defined;m
+/rule/footer;no significant content;s
 /rule/footer/nest;element not defined;m
 /rule/footer/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><footer><nest/><p/></footer></rule>
 #errors
-/rule/footer;no significant content;s
 /rule/footer/p;no significant content;s
 /rule;element not defined;m
 /rule/footer/nest;element not defined;m
@@ -1165,7 +1151,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><footer><i/><nest/></footer></rule>
 #errors
-/rule/footer;no significant content;s
 /rule/footer/i;no significant content;s
 /rule/footer/i;attribute missing;class;w
 /rule;element not defined;m
@@ -1183,7 +1168,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><footer><p/><nest/></footer></rule>
 #errors
-/rule/footer;no significant content;s
 /rule/footer/p;no significant content;s
 /rule;element not defined;m
 /rule/footer/nest;element not defined;m
@@ -1208,7 +1192,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><footer><nest/><h1/></footer></rule>
 #errors
-/rule/footer;no significant content;s
 /rule/footer/h1;no significant content;s
 /rule;element not defined;m
 /rule/footer/nest;element not defined;m
@@ -1219,6 +1202,7 @@
 #errors
 /rule;element not defined;m
 /rule/dialog;unknown element;u
+/rule/dialog;no significant content;s
 /rule/dialog/nest;element not defined;m
 
 #data
@@ -1227,6 +1211,7 @@
 </rule>
 #errors
 /rule/dialog;unknown element;u
+/rule/dialog;no significant content;s
 /rule/dialog/dt;no significant content;s
 /rule;element not defined;m
 /rule/dialog/nest;element not defined;m
@@ -1237,6 +1222,7 @@
 </rule>
 #errors
 /rule/dialog;unknown element;u
+/rule/dialog;no significant content;s
 /rule/dialog/dt;no significant content;s
 /rule/dialog/dd;no significant content;s
 /rule;element not defined;m
@@ -1248,6 +1234,7 @@
 </rule>
 #errors
 /rule/dialog;unknown element;u
+/rule/dialog;no significant content;s
 /rule/dialog/dt;no significant content;s
 /rule/dialog/dd;no significant content;s
 /rule/dialog/dt;no significant content;s
@@ -1260,6 +1247,7 @@
 </rule>
 #errors
 /rule/dialog;unknown element;u
+/rule/dialog;no significant content;s
 /rule/dialog/dt;no significant content;s
 /rule/dialog/dd;no significant content;s
 /rule/dialog/dt;no significant content;s
@@ -1273,6 +1261,7 @@
 </rule>
 #errors
 /rule/dialog;unknown element;u
+/rule/dialog;no significant content;s
 /rule/dialog/dt;no significant content;s
 /rule/dialog/dd;no significant content;s
 /rule;element not defined;m
@@ -1284,6 +1273,7 @@
 </rule>
 #errors
 /rule/dialog;unknown element;u
+/rule/dialog;no significant content;s
 /rule/dialog/dt;no significant content;s
 /rule/dialog/dt;no significant content;s
 /rule/dialog/dd;no significant content;s
@@ -1296,6 +1286,7 @@
 </rule>
 #errors
 /rule/dialog;unknown element;u
+/rule/dialog;no significant content;s
 /rule/dialog/dt;no significant content;s
 /rule;element not defined;m
 /rule/dialog/nest;element not defined;m
@@ -1306,6 +1297,7 @@
 </rule>
 #errors
 /rule/dialog;unknown element;u
+/rule/dialog;no significant content;s
 /rule/dialog/dt;no significant content;s
 /rule/dialog/dd;no significant content;s
 /rule;element not defined;m
@@ -1448,7 +1440,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><del><nest/><p/></del></rule>
 #errors
-/rule/del;no significant content;s
 /rule/del/p;no significant content;s
 /rule;element not defined;m
 /rule/del/nest;element not allowed:flow;m
@@ -1714,6 +1705,7 @@
 #errors
 /rule/head/noscript;in XML:noscript;m
 /rule;element not defined;m
+/rule/head/title;no significant content;m
 /rule/head/noscript/nest;element not defined;m
 /rule/head/noscript/nest;element not allowed:head noscript;m
 
@@ -1902,6 +1894,7 @@
 #errors
 /rule/head/noscript;in XML:noscript;m
 /rule;element not defined;m
+/rule/head/title;no significant content;m
 /rule/head/noscript/nest;element not defined;m
 /rule/head/noscript/nest;element not allowed:head noscript;m
 
@@ -1970,6 +1963,7 @@
 <rule xmlns="http://www.w3.org/1999/xhtml"><ins><bb>x</bb></ins></rule>
 #errors
 /rule;element not defined;m
+/rule/ins;no significant content;s
 /rule/ins/bb;element not allowed:flow;m
 /rule/ins/bb;element not defined;m
 
@@ -2789,6 +2783,7 @@
 #errors
 /rule/div/rule;element not allowed:flow;m
 /rule;element not defined;m
+/rule/div;no significant content;s
 /rule/div/rule;element not defined;m
 /rule/div/rule/@registrationmark;attribute not defined;m
 
