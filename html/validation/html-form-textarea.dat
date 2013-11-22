@@ -211,6 +211,20 @@
 
 #data
 <textarea xmlns="http://www.w3.org/1999/xhtml"
+    rows="-0"
+>a</textarea>
+#errors
+/textarea/@rows;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    rows="+0"
+>a</textarea>
+#errors
+/textarea/@rows;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
     rows="-100"
 >a</textarea>
 #errors
