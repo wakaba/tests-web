@@ -95,6 +95,13 @@
 <iframe src="a" sandbox="allow-same-origin
 allow-scripts" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
+/iframe/@sandbox;sandbox allow-same-origin allow-scripts;w
+
+#data
+<iframe src="a" sandbox="allow-same-origin allow-pointer-lock
+allow-scripts" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+#errors
+/iframe/@sandbox;sandbox allow-same-origin allow-scripts;w
 
 #data
 <iframe src="a" sandbox="allow-forms" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
@@ -247,6 +254,18 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 <iframe src="a" sandbox="ALLOW-SAME-ORIGIN"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
+
+#data
+<iframe src="a" sandbox="allow-scripts allow-same-origin"
+    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+#errors
+/iframe/@sandbox;sandbox allow-same-origin allow-scripts;w
+
+#data
+<iframe src="a" sandbox="ALLOW-SAME-ORIGIN allow-scripts"
+    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+#errors
+/iframe/@sandbox;sandbox allow-same-origin allow-scripts;w
 
 #data
 <iframe src="a" sandbox="Allow-Scripts"
