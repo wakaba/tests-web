@@ -913,3 +913,137 @@
 #errors
 /p;no significant content;s
 /p/audio/track/@label;empty attribute value;m
+
+#data
+<video src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="b" srclang="en" default=""/>
+  <track src="b" srclang="fr" default=""/>x
+</video>
+#errors
+/video/track;duplicate default track;m
+
+#data
+<video src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="b" srclang="en" default=""/>
+  <track src="b" srclang="fr" default="" kind="subtitles"/>x
+</video>
+#errors
+/video/track;duplicate default track;m
+
+#data
+<video src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="b" srclang="en" default=""/>
+  <track src="b" srclang="fr" default="" kind="captions"/>x
+</video>
+#errors
+/video/track;duplicate default track;m
+
+#data
+<video src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="b" srclang="en" default=""/>
+  <track src="b" srclang="fr" default="" kind="subTitles"/>
+  <track src="b" srclang="ja" default="" kind="CAPtions"/>x
+</video>
+#errors
+/video/track;duplicate default track;m
+/video/track;duplicate default track;m
+
+#data
+<video src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="b" srclang="fr" default="" kind="chapters"/>
+  <track src="b" srclang="ja" default="" kind="ChapTers"/>
+  <track src="b" srclang="fr" default="" kind="metadata"/>
+  <track src="b" srclang="de" default="" kind="metadata"/>
+  <track src="b" srclang="fr" default="" kind="subtitles"/>x
+</video>
+#errors
+/video/track;duplicate default track;m
+
+#data
+<video src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="b" srclang="fr" default="" kind="chapters"/>
+  <track src="b" srclang="ja" default="" kind="ChapTers"/>
+  <track src="b" srclang="fr" default="" kind="metadata"/>
+  <track src="b" srclang="de" default="" kind="metadata"/>
+  <track src="b" srclang="fr" default="" kind="captions"/>x
+</video>
+#errors
+/video/track;duplicate default track;m
+
+#data
+<video src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="b" srclang="fr" default="" kind="descriptions"/>
+  <track src="b" srclang="ja" default="" kind="descripTions"/>
+  <track src="b" srclang="fr" default="" kind="metadata"/>
+  <track src="b" srclang="de" default="" kind="metadata"/>
+  <track src="b" srclang="fr" default="" kind="captions"/>x
+</video>
+#errors
+/video/track;duplicate default track;m
+
+#data
+<audio src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="b" srclang="en" default=""/>
+  <track src="b" srclang="fr" default=""/>x
+</audio>
+#errors
+/audio/track;duplicate default track;m
+
+#data
+<audio src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="b" srclang="en" default=""/>
+  <track src="b" srclang="fr" default="" kind="subtitles"/>x
+</audio>
+#errors
+/audio/track;duplicate default track;m
+
+#data
+<audio src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="b" srclang="en" default=""/>
+  <track src="b" srclang="fr" default="" kind="captions"/>x
+</audio>
+#errors
+/audio/track;duplicate default track;m
+
+#data
+<audio src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="b" srclang="en" default=""/>
+  <track src="b" srclang="fr" default="" kind="subTitles"/>
+  <track src="b" srclang="ja" default="" kind="CAPtions"/>x
+</audio>
+#errors
+/audio/track;duplicate default track;m
+/audio/track;duplicate default track;m
+
+#data
+<audio src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="b" srclang="fr" default="" kind="chapters"/>
+  <track src="b" srclang="ja" default="" kind="ChapTers"/>
+  <track src="b" srclang="fr" default="" kind="metadata"/>
+  <track src="b" srclang="de" default="" kind="metadata"/>
+  <track src="b" srclang="fr" default="" kind="subtitles"/>x
+</audio>
+#errors
+/audio/track;duplicate default track;m
+
+#data
+<audio src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="b" srclang="fr" default="" kind="chapters"/>
+  <track src="b" srclang="ja" default="" kind="ChapTers"/>
+  <track src="b" srclang="fr" default="" kind="metadata"/>
+  <track src="b" srclang="de" default="" kind="metadata"/>
+  <track src="b" srclang="fr" default="" kind="captions"/>x
+</audio>
+#errors
+/audio/track;duplicate default track;m
+
+#data
+<audio src="a" xmlns="http://www.w3.org/1999/xhtml">
+  <track src="b" srclang="fr" default="" kind="descriptions"/>
+  <track src="b" srclang="ja" default="" kind="descripTions"/>
+  <track src="b" srclang="fr" default="" kind="metadata"/>
+  <track src="b" srclang="de" default="" kind="metadata"/>
+  <track src="b" srclang="fr" default="" kind="captions"/>x
+</audio>
+#errors
+/audio/track;duplicate default track;m
