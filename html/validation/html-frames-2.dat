@@ -158,6 +158,28 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 
 #data
+<iframe src="a" sandbox="Allow-popups"
+    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+#errors
+
+#data
+<iframe src="a" sandbox="ms-allow-popups"
+    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+#errors
+/iframe/@sandbox;word not allowed;m
+
+#data
+<iframe src="a" sandbox="Allow-pointer-lock"
+    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+#errors
+
+#data
+<iframe src="a" sandbox="Allow-pointer-locks"
+    xmlns="http://www.w3.org/1999/xhtml">x</iframe>
+#errors
+/iframe/@sandbox;word not allowed;m
+
+#data
 <iframe src="a" sandbox="allow"
     xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
