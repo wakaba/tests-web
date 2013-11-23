@@ -2389,86 +2389,109 @@ id=""><span id="">x</span></p>
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="">a</p>
 #errors
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="copy">a</p>
 #errors
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="move">a</p>
 #errors
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="link">a</p>
 #errors
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="COPY">a</p>
 #errors
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone=" Move ">a</p>
 #errors
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="s:abc">a</p>
 #errors
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="S:abc">a</p>
 #errors
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="f:hoge">a</p>
 #errors
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="F:fuga">a</p>
 #errors
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="s:abc copy">a</p>
 #errors
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="copy S:abc f:hoge">a</p>
 #errors
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="bad">a</p>
 #errors
 /p/@dropzone;word not allowed;m
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="x:hoge">a</p>
 #errors
 /p/@dropzone;word not allowed;m
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="copy copy">a</p>
 #errors
 /p/@dropzone;dropzone:duplicate feedback;m
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="f:hoge f:hoge">a</p>
 #errors
 /p/@dropzone;duplicate token;m
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="bad bad">a</p>
 #errors
 /p/@dropzone;word not allowed;m
 /p/@dropzone;word not allowed;m
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="s:">a</p>
 #errors
 /p/@dropzone;word not allowed;m
+/p;attribute missing;title;s
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="f:">a</p>
 #errors
 /p/@dropzone;word not allowed;m
+/p;attribute missing;title;s
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="" title="a">a</p>
+#errors
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -2539,3 +2562,39 @@ id=""><span id="">x</span></p>
 <div inert="insert" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@inert;boolean:invalid;m
+
+#data
+<div draggable="" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;attribute missing;title;s
+/div/@draggable;enumerated:invalid;m
+
+#data
+<div draggable="true" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;attribute missing;title;s
+
+#data
+<div draggable="true" title="foo" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+
+#data
+<div draggable="FalSE" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;attribute missing;title;s
+
+#data
+<div draggable="false" title="x" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+
+#data
+<div draggable="draggable" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div/@draggable;enumerated:invalid;m
+/div;attribute missing;title;s
+
+#data
+<div draggable="yes" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div/@draggable;enumerated:invalid;m
+/div;attribute missing;title;s
