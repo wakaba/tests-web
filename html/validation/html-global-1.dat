@@ -2469,3 +2469,55 @@ id=""><span id="">x</span></p>
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="f:">a</p>
 #errors
 /p/@dropzone;word not allowed;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <svg hidden="" xmlns="http://www.w3.org/2000/svg"></svg>
+</div>
+#errors
+/div/svg;unknown element;u
+/div/svg/@hidden;attribute not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <math hidden="" xmlns="http://www.w3.org/1998/Math/MathML"></math>
+</div>
+#errors
+/div/math;unknown element;u
+/div/math/@hidden;attribute not defined;m
+
+#data
+<div translate="" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+
+#data
+<div translate="yes" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+
+#data
+<div translate="no" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+
+#data
+<div translate="YeS" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+
+#data
+<div translate="   " xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@translate;enumerated:invalid;m
+
+#data
+<div translate="translate" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@translate;enumerated:invalid;m
+
+#data
+<div translate="true" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@translate;enumerated:invalid;m
+
+#data
+<div translatable="yes" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@translatable;attribute not defined;m
