@@ -2417,32 +2417,32 @@ id=""><span id="">x</span></p>
 /p;attribute missing;title;s
 
 #data
-<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="s:abc">a</p>
+<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="string:abc">a</p>
 #errors
 /p;attribute missing;title;s
 
 #data
-<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="S:abc">a</p>
+<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="StRING:abc">a</p>
 #errors
 /p;attribute missing;title;s
 
 #data
-<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="f:hoge">a</p>
+<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="file:hoge">a</p>
 #errors
 /p;attribute missing;title;s
 
 #data
-<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="F:fuga">a</p>
+<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="FILE:fuga">a</p>
 #errors
 /p;attribute missing;title;s
 
 #data
-<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="s:abc copy">a</p>
+<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="string:abc copy">a</p>
 #errors
 /p;attribute missing;title;s
 
 #data
-<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="copy S:abc f:hoge">a</p>
+<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="copy String:abc fILe:hoge">a</p>
 #errors
 /p;attribute missing;title;s
 
@@ -2465,7 +2465,7 @@ id=""><span id="">x</span></p>
 /p;attribute missing;title;s
 
 #data
-<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="f:hoge f:hoge">a</p>
+<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="fILe:hoge file:hoge">a</p>
 #errors
 /p/@dropzone;duplicate token;m
 /p;attribute missing;title;s
@@ -2478,16 +2478,46 @@ id=""><span id="">x</span></p>
 /p;attribute missing;title;s
 
 #data
-<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="s:">a</p>
+<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="string:">a</p>
 #errors
 /p/@dropzone;word not allowed;m
 /p;attribute missing;title;s
 
 #data
-<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="f:">a</p>
+<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="file:">a</p>
 #errors
 /p/@dropzone;word not allowed;m
 /p;attribute missing;title;s
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="file:" title="a">a</p>
+#errors
+/p/@dropzone;word not allowed;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="string:" title="a">a</p>
+#errors
+/p/@dropzone;word not allowed;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="f:" title="a">a</p>
+#errors
+/p/@dropzone;word not allowed;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="S:" title="a">a</p>
+#errors
+/p/@dropzone;word not allowed;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="f:abc.txt" title="a">a</p>
+#errors
+/p/@dropzone;word not allowed;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"  dropzone="s:aaaa" title="a">a</p>
+#errors
+/p/@dropzone;word not allowed;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="" title="a">a</p>
