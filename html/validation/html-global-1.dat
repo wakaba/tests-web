@@ -40,12 +40,14 @@ id="&#xB;">a</p>
 id="&#xC;">a</p>
 #errors
 /p/@id;space in ID;m
+/p/@id;U+000C not serializable;w
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
 id="&#xD;">a</p>
 #errors
 /p/@id;space in ID;m
+/p/@id;U+000D not serializable;w
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
@@ -344,6 +346,7 @@ id=""><span id="">x</span></p>
 <p dir="ltr&#x0C;" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
 /p/@dir;enumerated:invalid;m
+/p/@dir;U+000C not serializable;w
 
 #data
 <p dir="LTR" xmlns="http://www.w3.org/1999/xhtml">x</p>
@@ -388,6 +391,7 @@ id=""><span id="">x</span></p>
 <?xml version="1.1"?>
 <p class="&#xD;&#xB;" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
+/p/@class;U+000D not serializable;w
 /p/@class;text:bad char;m
 
 #data
@@ -398,6 +402,8 @@ id=""><span id="">x</span></p>
 <?xml version="1.1"?>
 <p class="  a b c  d   &#xC;  efg h &#xC;" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
+/p/@class;U+000C not serializable;w
+/p/@class;U+000C not serializable;w
 
 #data
 <p class="a a" xmlns="http://www.w3.org/1999/xhtml">x</p>
@@ -407,6 +413,7 @@ id=""><span id="">x</span></p>
 <?xml version="1.1"?>
 <p class="  aa&#xC; aa" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
+/p/@class;U+000C not serializable;w
 
 #data
 <p class="a a a" xmlns="http://www.w3.org/1999/xhtml">x</p>
