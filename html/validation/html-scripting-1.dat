@@ -644,3 +644,23 @@
 #errors
 /script/@onreadystatechange;attribute not defined;m
 /script;SUBDOC;text/javascript
+
+#data
+<p oncancel="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</p>
+#errors
+/p/@oncancel;event handler;u
+
+#data
+<body oncancel="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</body>
+#errors
+/body/@oncancel;event handler;u
+
+#data
+<p onclose="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</p>
+#errors
+/p/@onclose;event handler;u
+
+#data
+<body onclose="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</body>
+#errors
+/body/@onclose;event handler;u

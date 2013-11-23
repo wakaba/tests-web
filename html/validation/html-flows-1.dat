@@ -2837,13 +2837,68 @@ aaa
 #errors
 
 #data
+<dialog xmlns="http://www.w3.org/1999/xhtml"></dialog>
+#errors
+/dialog;no significant content;s
+
+#data
+<dialog xmlns="http://www.w3.org/1999/xhtml">  </dialog>
+#errors
+/dialog;no significant content;s
+
+#data
+<dialog xmlns="http://www.w3.org/1999/xhtml">ac</dialog>
+#errors
+
+#data
+<dialog xmlns="http://www.w3.org/1999/xhtml"><ul></ul></dialog>
+#errors
+/dialog;no significant content;s
+
+#data
+<dialog xmlns="http://www.w3.org/1999/xhtml"><ul><li>a</li></ul></dialog>
+#errors
+
+#data
+<dialog xmlns="http://www.w3.org/1999/xhtml"><br/></dialog>
+#errors
+/dialog;no significant content;s
+
+#data
+<dialog xmlns="http://www.w3.org/1999/xhtml"><p>aa</p></dialog>
+#errors
+
+#data
+<dialog xmlns="http://www.w3.org/1999/xhtml" open="">aa</dialog>
+#errors
+
+#data
+<dialog xmlns="http://www.w3.org/1999/xhtml" open="open">aa</dialog>
+#errors
+
+#data
+<dialog xmlns="http://www.w3.org/1999/xhtml" open="OPEN">aa</dialog>
+#errors
+
+#data
+<dialog xmlns="http://www.w3.org/1999/xhtml" open="abc">aa</dialog>
+#errors
+/dialog/@open;boolean:invalid;m
+
+#data
+<dialog xmlns="http://www.w3.org/1999/xhtml" opened="">aa</dialog>
+#errors
+/dialog/@opened;attribute not defined;m
+
+#data
 <dialog xmlns="http://www.w3.org/1999/xhtml">
   <dt>XaXX</dt>
   <dd></dd>
 </dialog>
 #errors
 /dialog;no significant content;s
-/dialog;unknown element;u
+/dialog/dt;element not allowed:flow;m
+/dialog/dd;element not allowed:flow;m
 /dialog/dd;no significant content;s
 
 #data
@@ -2853,7 +2908,8 @@ aaa
 </dialog>
 #errors
 /dialog;no significant content;s
-/dialog;unknown element;u
+/dialog/dt;element not allowed:flow;m
+/dialog/dd;element not allowed:flow;m
 /dialog/dd;no significant content;s
 
 #data
@@ -2863,7 +2919,8 @@ aaa
 </dialog>
 #errors
 /dialog;no significant content;s
-/dialog;unknown element;u
+/dialog/dt;element not allowed:flow;m
+/dialog/dd;element not allowed:flow;m
 
 #data
 <dialog xmlns="http://www.w3.org/1999/xhtml">
@@ -2871,8 +2928,9 @@ aaa
   <dd><p>YYY</p></dd>
 </dialog>
 #errors
-/dialog;unknown element;u
 /dialog;no significant content;s
+/dialog/dt;element not allowed:flow;m
+/dialog/dd;element not allowed:flow;m
 
 #data
 <dialog xmlns="http://www.w3.org/1999/xhtml">
@@ -2880,8 +2938,9 @@ aaa
   <dd>YYY<p>ZZZ</p></dd>
 </dialog>
 #errors
-/dialog;unknown element;u
 /dialog;no significant content;s
+/dialog/dt;element not allowed:flow;m
+/dialog/dd;element not allowed:flow;m
 
 #data
 <dialog xmlns="http://www.w3.org/1999/xhtml">
@@ -2889,8 +2948,9 @@ aaa
   <dd><p>YYY</p>ZZZ</dd>
 </dialog>
 #errors
-/dialog;unknown element;u
 /dialog;no significant content;s
+/dialog/dt;element not allowed:flow;m
+/dialog/dd;element not allowed:flow;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -2898,7 +2958,6 @@ aaa
 </div>
 #errors
 /div;no significant content;s
-/div/dialog;unknown element;u
 
 #data
 <dt nowrap="" xmlns="http://www.w3.org/1999/xhtml">x</dt>
@@ -4562,7 +4621,6 @@ aaa
 #data
 <dialog compact="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/dialog;unknown element;u
 /dialog;no significant content;s
 /dialog/@compact;attribute not defined;m
 

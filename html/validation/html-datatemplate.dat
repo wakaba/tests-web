@@ -1201,107 +1201,125 @@
 <rule xmlns="http://www.w3.org/1999/xhtml"><dialog><nest/></dialog></rule>
 #errors
 /rule;element not defined;m
-/rule/dialog;unknown element;u
 /rule/dialog;no significant content;s
 /rule/dialog/nest;element not defined;m
+/rule/dialog/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <dialog><dt/><nest/></dialog>
 </rule>
 #errors
-/rule/dialog;unknown element;u
 /rule/dialog;no significant content;s
+/rule/dialog/dt;element not allowed:flow;m
 /rule/dialog/dt;no significant content;s
 /rule;element not defined;m
 /rule/dialog/nest;element not defined;m
+/rule/dialog/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <dialog><dt/><dd/><nest/></dialog>
 </rule>
 #errors
-/rule/dialog;unknown element;u
 /rule/dialog;no significant content;s
+/rule/dialog/dt;element not allowed:flow;m
 /rule/dialog/dt;no significant content;s
+/rule/dialog/dd;element not allowed:flow;m
 /rule/dialog/dd;no significant content;s
 /rule;element not defined;m
 /rule/dialog/nest;element not defined;m
+/rule/dialog/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <dialog><dt/><dd/><dt/><nest/></dialog>
 </rule>
 #errors
-/rule/dialog;unknown element;u
 /rule/dialog;no significant content;s
+/rule/dialog/dt;element not allowed:flow;m
 /rule/dialog/dt;no significant content;s
+/rule/dialog/dd;element not allowed:flow;m
 /rule/dialog/dd;no significant content;s
+/rule/dialog/dt;element not allowed:flow;m
 /rule/dialog/dt;no significant content;s
 /rule;element not defined;m
 /rule/dialog/nest;element not defined;m
+/rule/dialog/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <dialog><dt/><dd/><dt/><dd/><nest/></dialog>
 </rule>
 #errors
-/rule/dialog;unknown element;u
 /rule/dialog;no significant content;s
+/rule/dialog/dt;element not allowed:flow;m
 /rule/dialog/dt;no significant content;s
+/rule/dialog/dd;element not allowed:flow;m
 /rule/dialog/dd;no significant content;s
+/rule/dialog/dt;element not allowed:flow;m
 /rule/dialog/dt;no significant content;s
+/rule/dialog/dd;element not allowed:flow;m
 /rule/dialog/dd;no significant content;s
 /rule;element not defined;m
 /rule/dialog/nest;element not defined;m
+/rule/dialog/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <dialog><dt/><nest/><dd/></dialog>
 </rule>
 #errors
-/rule/dialog;unknown element;u
 /rule/dialog;no significant content;s
+/rule/dialog/dt;element not allowed:flow;m
 /rule/dialog/dt;no significant content;s
+/rule/dialog/dd;element not allowed:flow;m
 /rule/dialog/dd;no significant content;s
 /rule;element not defined;m
 /rule/dialog/nest;element not defined;m
+/rule/dialog/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <dialog><dt/><nest/><dt/><dd/></dialog>
 </rule>
 #errors
-/rule/dialog;unknown element;u
 /rule/dialog;no significant content;s
+/rule/dialog/dt;element not allowed:flow;m
 /rule/dialog/dt;no significant content;s
+/rule/dialog/dt;element not allowed:flow;m
 /rule/dialog/dt;no significant content;s
+/rule/dialog/dd;element not allowed:flow;m
 /rule/dialog/dd;no significant content;s
 /rule;element not defined;m
 /rule/dialog/nest;element not defined;m
+/rule/dialog/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <dialog><nest/><dt/></dialog>
 </rule>
 #errors
-/rule/dialog;unknown element;u
 /rule/dialog;no significant content;s
 /rule/dialog/dt;no significant content;s
+/rule/dialog/dt;element not allowed:flow;m
 /rule;element not defined;m
 /rule/dialog/nest;element not defined;m
+/rule/dialog/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <dialog><nest/><dt/><dd/></dialog>
 </rule>
 #errors
-/rule/dialog;unknown element;u
 /rule/dialog;no significant content;s
 /rule/dialog/dt;no significant content;s
+/rule/dialog/dt;element not allowed:flow;m
 /rule/dialog/dd;no significant content;s
+/rule/dialog/dd;element not allowed:flow;m
 /rule;element not defined;m
 /rule/dialog/nest;element not defined;m
+/rule/dialog/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ul><nest/></ul></rule>
