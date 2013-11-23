@@ -95,9 +95,10 @@
 #data
 <?xml version="1.1"?>
 <video xmlns="http://www.w3.org/1999/xhtml">&#x0b;<source src=""/></video>
-#errors
+#errors escaped
 /video/source;element not allowed:flow;m
 /video/source/@src;url:empty;m
+/video/"\u000B";text:bad char;m
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/><source src=""/></video>
@@ -478,8 +479,9 @@
 #data
 <?xml version="1.1"?>
 <audio xmlns="http://www.w3.org/1999/xhtml">&#x0b;<source src="a"/></audio>
-#errors
+#errors escaped
 /audio/source;element not allowed:flow;m
+/audio/"\u000B";text:bad char;m
 
 #data
 <audio xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/><source src="a"/></audio>

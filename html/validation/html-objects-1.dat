@@ -115,12 +115,13 @@ aaa
 #data
 <?xml version="1.1"?>
 <object xmlns="http://www.w3.org/1999/xhtml" data="">
-&#x0b;
+<!---->&#x0b;<!---->
 <param name="x" value="y"/>
 </object>
-#errors
+#errors escaped
 /object/@data;url:empty;m
 /object/param;element not allowed:flow;m
+/object/"\u000B";text:bad char;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data="">
@@ -536,15 +537,16 @@ aaa
 #data
 <?xml version="1.1"?>
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
-&#x0b;
+<!---->&#x0b;<!---->
 <param name="x" value="y"/>
 </applet>
-#errors
+#errors escaped
 /applet/param;element not allowed:flow;m
 /applet;element not defined;m
 /applet/@code;attribute not defined;m
 /applet;attribute missing;width;m
 /applet;attribute missing;height;m
+/applet/"\u000B";text:bad char;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">

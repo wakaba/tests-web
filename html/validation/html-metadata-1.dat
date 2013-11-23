@@ -44,6 +44,7 @@
 /html;child element missing;head;m
 /html;child element missing;body;m
 /html/" \u000b";character not allowed;m
+/html/" \u000B";text:bad char;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><head></head><body></body></html>
@@ -1764,6 +1765,7 @@ p {color: green}
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link/@rel;unknown link type;u
+/link/@rel;text:bad char;m
 
 #data
 <?xml version="1.1"?>
@@ -1771,6 +1773,7 @@ p {color: green}
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link/@rel;unknown link type;u
+/link/@rel;text:bad char;m
 
 #data
 <?xml version="1.1"?>
@@ -1778,6 +1781,7 @@ p {color: green}
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link/@rel;unknown link type;u
+/link/@rel;text:bad char;m
 
 #data
 <link rel="alternate" href="http://test/"
@@ -2072,6 +2076,7 @@ p {color: green}
     sizes="32x32&#x0b;"/>
 #errors
 /link/@sizes;sizes:syntax error;m
+/link/@sizes;text:bad char;m
 
 #data
 <?xml version="1.1"?>
@@ -2079,6 +2084,7 @@ p {color: green}
     sizes="&#x0b;32x32"/>
 #errors
 /link/@sizes;sizes:syntax error;m
+/link/@sizes;text:bad char;m
 
 #data
 <?xml version="1.1"?>
@@ -2086,6 +2092,7 @@ p {color: green}
     sizes="32x32&#x0b;44x44"/>
 #errors
 /link/@sizes;sizes:syntax error;m
+/link/@sizes;text:bad char;m
 
 #data
 <link rel="icon" href="A" xmlns="http://www.w3.org/1999/xhtml"
@@ -2457,6 +2464,7 @@ p {color: green}
 /meta;element not allowed:meta charset;m
 /meta;in XML:charset;m
 /meta/@content;meta content-type syntax error;m
+/meta/@content;text:bad char;m
 
 #data
 <meta xmlns="http://www.w3.org/1999/xhtml"
@@ -2629,6 +2637,7 @@ p {color: green}
 </head>
 #errors
 /head/meta/@content;refresh:syntax error;m
+/head/meta/@content;text:bad char;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">

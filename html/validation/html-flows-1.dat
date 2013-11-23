@@ -3064,7 +3064,8 @@ aaa
 #data
 <?xml version="1.1"?>
 <div xmlns="http://www.w3.org/1999/xhtml">&#x000b;</div>
-#errors
+#errors escaped
+/div/"\u000B";text:bad char;m
 
 #data
 <div1 xmlns="http://www.w3.org/1999/xhtml"/>
@@ -7255,6 +7256,7 @@ a
     datetime="0037-12-13&#x000b;00:00 Z">x</ins>
 #errors
 /ins/@datetime;dateandopttime:syntax error;m
+/ins/@datetime;text:bad char;m
 
 #data
 <?xml version="1.1"?>
@@ -7262,6 +7264,7 @@ a
     datetime="0037-12-13T&#x000b;00:00 Z">x</ins>
 #errors
 /ins/@datetime;dateandopttime:syntax error;m
+/ins/@datetime;text:bad char;m
 
 #data
 <?xml version="1.1"?>
@@ -7269,6 +7272,7 @@ a
     datetime="0037-12-13&#x000b;T00:00 Z">x</ins>
 #errors
 /ins/@datetime;dateandopttime:syntax error;m
+/ins/@datetime;text:bad char;m
 
 #data
 <?xml version="1.1"?>
@@ -7276,6 +7280,7 @@ a
     datetime="0037-12-13 00:00&#x000b;Z">x</ins>
 #errors
 /ins/@datetime;dateandopttime:syntax error;m
+/ins/@datetime;text:bad char;m
 
 #data
 <ins xmlns="http://www.w3.org/1999/xhtml"

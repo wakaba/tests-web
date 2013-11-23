@@ -32,6 +32,7 @@ id="&#xA;">a</p>
 <p xmlns="http://www.w3.org/1999/xhtml"
 id="&#xB;">a</p>
 #errors
+/p/@id;text:bad char;m
 
 #data
 <?xml version="1.1"?>
@@ -115,26 +116,32 @@ id=""><span id="">x</span></p>
 <?xml version="1.1"?>
 <p id="a&#xb;" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
+/p/@id;text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <p id="&#xb;b" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
+/p/@id;text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <p id="a&#xb;b" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
+/p/@id;text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <map name="a&#xb;b" id="a&#xb;b" xmlns="http://www.w3.org/1999/xhtml">x</map>
 #errors
+/map/@id;text:bad char;m
+/map/@name;text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <menu id="a&#xb;" xmlns="http://www.w3.org/1999/xhtml">x</menu>
 #errors
+/menu/@id;text:bad char;m
 
 #data
 <p title="" xmlns="http://www.w3.org/1999/xhtml">x</p>
@@ -381,6 +388,7 @@ id=""><span id="">x</span></p>
 <?xml version="1.1"?>
 <p class="&#xD;&#xB;" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
+/p/@class;text:bad char;m
 
 #data
 <p class="a b c d ef g h" xmlns="http://www.w3.org/1999/xhtml">x</p>
@@ -412,16 +420,19 @@ id=""><span id="">x</span></p>
 <?xml version="1.1"?>
 <p class="a &#x000b;a" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
+/p/@class;text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <p class="a a&#x000b;" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
+/p/@class;text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <p class="&#x000b;a a" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
+/p/@class;text:bad char;m
 
 #data
 <p style="" xmlns="http://www.w3.org/1999/xhtml">x</p>
