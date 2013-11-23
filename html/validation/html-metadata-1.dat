@@ -3,22 +3,26 @@
 #errors
 /html;child element missing;head;m
 /html;child element missing;body;m
+/html;attribute missing;lang;w
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><head></head></html>
 #errors
 /html;child element missing;body;m
+/html;attribute missing;lang;w
 /html/head;child element missing;title;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><body></body></html>
 #errors
+/html;attribute missing;lang;w
 /html/body;ps element missing;head;m
 /html/body;no significant content;s
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><p></p></html>
 #errors
+/html;attribute missing;lang;w
 /html/p;element not allowed;m
 /html;child element missing;head;m
 /html;child element missing;body;m
@@ -27,6 +31,7 @@
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">a</html>
 #errors
+/html;attribute missing;lang;w
 /html/"a";character not allowed;m
 /html;child element missing;head;m
 /html;child element missing;body;m
@@ -34,6 +39,7 @@
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"> </html>
 #errors
+/html;attribute missing;lang;w
 /html;child element missing;head;m
 /html;child element missing;body;m
 
@@ -41,6 +47,7 @@
 <?xml version="1.1"?>
 <html xmlns="http://www.w3.org/1999/xhtml"> &#x000b;</html>
 #errors escaped
+/html;attribute missing;lang;w
 /html;child element missing;head;m
 /html;child element missing;body;m
 /html/" \u000b";character not allowed;m
@@ -49,12 +56,14 @@
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><head></head><body></body></html>
 #errors
+/html;attribute missing;lang;w
 /html/head;child element missing;title;m
 /html/body;no significant content;s
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><head></head>a<body></body></html>
 #errors
+/html;attribute missing;lang;w
 /html/head;child element missing;title;m
 /html/"a";character not allowed;m
 /html/body;no significant content;s
@@ -62,6 +71,7 @@
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">a<head></head><body></body></html>
 #errors
+/html;attribute missing;lang;w
 /html/"a";character not allowed;m
 /html/head;child element missing;title;m
 /html/body;no significant content;s
@@ -69,6 +79,7 @@
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><head></head><body></body>a</html>
 #errors
+/html;attribute missing;lang;w
 /html/head;child element missing;title;m
 /html/"a";character not allowed;m
 /html/body;no significant content;s
@@ -76,12 +87,14 @@
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"> <head></head> <body></body> </html>
 #errors
+/html;attribute missing;lang;w
 /html/head;child element missing;title;m
 /html/body;no significant content;s
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><head></head><body></body><p></p></html>
 #errors
+/html;attribute missing;lang;w
 /html/head;child element missing;title;m
 /html/p;element not allowed;m
 /html/body;no significant content;s
@@ -91,6 +104,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     scroll=""><head><title>a</title></head><body>b</body></html>
 #errors
+/html;attribute missing;lang;w
 /html/@scroll;attribute not defined;m
 /html/@scroll;enumerated:invalid;m
 
@@ -98,6 +112,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     scroll="   "><head><title>a</title></head><body>b</body></html>
 #errors
+/html;attribute missing;lang;w
 /html/@scroll;attribute not defined;m
 /html/@scroll;enumerated:invalid;m
 
@@ -105,30 +120,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     scroll="yes"><head><title>a</title></head><body>b</body></html>
 #errors
+/html;attribute missing;lang;w
 /html/@scroll;attribute not defined;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"
     scroll="no"><head><title>a</title></head><body>b</body></html>
 #errors
+/html;attribute missing;lang;w
 /html/@scroll;attribute not defined;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"
     scroll="auto"><head><title>a</title></head><body>b</body></html>
 #errors
+/html;attribute missing;lang;w
 /html/@scroll;attribute not defined;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"
     scroll="YES"><head><title>a</title></head><body>b</body></html>
 #errors
+/html;attribute missing;lang;w
 /html/@scroll;attribute not defined;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"
     scroll="yes "><head><title>a</title></head><body>b</body></html>
 #errors
+/html;attribute missing;lang;w
 /html/@scroll;attribute not defined;m
 /html/@scroll;enumerated:invalid;m
 
@@ -136,6 +156,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     scroll="true"><head><title>a</title></head><body>b</body></html>
 #errors
+/html;attribute missing;lang;w
 /html/@scroll;attribute not defined;m
 /html/@scroll;enumerated:invalid;m
 
@@ -143,8 +164,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     scroll="fixed"><head><title>a</title></head><body>b</body></html>
 #errors
+/html;attribute missing;lang;w
 /html/@scroll;attribute not defined;m
 /html/@scroll;enumerated:invalid;m
+
+#data
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head><title>ff</title></head>
+<body>aa</body>
+</html>
+#errors
 
 #data
 <pre-html xmlns="http://www.w3.org/1999/xhtml"></pre-html>
@@ -230,6 +259,7 @@
 <body>x</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head;child element missing;title;m
 /html/head/meta;in XML:charset;m
 /html/head/meta/@charset;mismatched charset name not checked;u
@@ -242,6 +272,7 @@
 <body>x</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head;child element missing;title;m
 /html/head/meta/@charset;mismatched charset name not checked;u
 /html/head/meta/@charset;charset:not preferred;m
@@ -254,6 +285,7 @@
 <body>x</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head;child element missing;title;m
 /html/head/meta/@charset;mismatched charset name not checked;u
 /html/head/meta/@charset;charset:not preferred;m
@@ -266,6 +298,7 @@
 <body>x</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head;child element missing;title;m
 /html/head/meta/@charset;mismatched charset name not checked;u
 /html/head/meta/@charset;charset:not preferred;m
@@ -318,6 +351,7 @@
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><head><title></title></head><body></body></html>
 #errors
+/html;attribute missing;lang;w
 /html/head/title;no significant content;m
 /html/body;no significant content;s
 
@@ -431,6 +465,7 @@
 <body>t</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta;in XML:charset;m
 /html/head/meta/@charset;mismatched charset name not checked;u
 
@@ -443,6 +478,7 @@
 <body>y</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta;element not allowed:meta charset;m
 /html/head/meta;in XML:charset;m
 /html/head/meta/@charset;mismatched charset name not checked;u
@@ -504,6 +540,7 @@
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><title></title></head><body></body></html>
 #errors
+/html;attribute missing;lang;w
 /html/head/title;no significant content;m
 /html/head/title;no significant content;m
 /html/head/title;element not allowed:head title;m
@@ -512,6 +549,7 @@
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><p></p></head><body></body></html>
 #errors
+/html;attribute missing;lang;w
 /html/head/title;no significant content;m
 /html/head/p;element not allowed:metadata;m
 /html/head/p;no significant content;s
@@ -523,6 +561,7 @@
 <body>ty</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta;in XML:charset;m
 /html/head/meta/@charset;mismatched charset name not checked;u
 /html/head/base;attribute missing:href|target;m
@@ -531,6 +570,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta charset="us-ascii"/><title>x</title><base/></head>
 <body>y</body></html>
 #errors
+/html;attribute missing;lang;w
 /html/head/base;attribute missing:href|target;m
 /html/head/meta;in XML:charset;m
 /html/head/meta/@charset;mismatched charset name not checked;u
@@ -538,11 +578,13 @@
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><head><title>y</title><base/></head><body>ty</body></html>
 #errors
+/html;attribute missing;lang;w
 /html/head/base;attribute missing:href|target;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><head><title>x</title><base/><meta charset="us-ascii"/></head><body>x</body></html>
 #errors
+/html;attribute missing;lang;w
 /html/head/base;attribute missing:href|target;m
 /html/head/meta;element not allowed:meta charset;m
 /html/head/meta;in XML:charset;m
@@ -558,6 +600,7 @@
 <body>y</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta;in XML:charset;m
 /html/head/meta/@charset;mismatched charset name not checked;u
 
@@ -571,6 +614,7 @@
 <body>ty</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta;element not allowed:meta charset;m
 /html/head/meta;in XML:charset;m
 /html/head/meta/@charset;mismatched charset name not checked;u
@@ -585,6 +629,7 @@
 <body>xx</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta;element not allowed:meta charset;m
 /html/head/meta;in XML:charset;m
 /html/head/meta/@charset;mismatched charset name not checked;u
@@ -619,6 +664,7 @@
 <body>xx</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta;element not allowed:meta charset;m
 /html/head/meta;in XML:charset;m
 /html/head/meta/@charset;mismatched charset name not checked;u
@@ -634,6 +680,7 @@
 <body>xx</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta;in XML:charset;m
 /html/head/meta/@charset;mismatched charset name not checked;u
 /html/head/meta/@name;metadata:proposed;keywords;w
@@ -706,6 +753,7 @@
 <body>x</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head;element not allowed;m
 
 #data
@@ -721,6 +769,7 @@
 <body>x</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head;element not allowed;m
 /html/head/base;element not allowed:base;m
 /html/head/base;basehref after URL attribute;m
@@ -731,6 +780,7 @@
 <body>a</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -738,6 +788,7 @@
 <body>a</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head/@profile;attribute not defined;m
 
 #data
@@ -746,6 +797,7 @@
 <body>a</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head/a;element not allowed:metadata;m
 /html/head/base;basehref after URL attribute;m
 
@@ -755,6 +807,7 @@
 <body>a</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head/link;element not allowed:metadata;m
 /html/head/base;basehref after URL attribute;m
 
@@ -846,6 +899,7 @@
 <body>x</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta;in XML:charset;m
 /html/head/meta/@charset;mismatched charset name not checked;u
 
@@ -859,6 +913,7 @@
 <body>x</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta;in XML:charset;m
 /html/head/meta;element not allowed:meta charset;m
 /html/head/meta/@charset;mismatched charset name not checked;u
@@ -874,6 +929,7 @@
 <body>x</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta;in XML:charset;m
 /html/head/meta;element not allowed:meta charset;m
 /html/head/meta/@charset;mismatched charset name not checked;u
@@ -890,6 +946,7 @@
 <body>x</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head;element not allowed;m
 /html/head/meta;in XML:charset;m
 /html/head/meta;element not allowed:meta charset;m
@@ -904,6 +961,7 @@
 </head>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/body;ps element missing;head;m
 /html/head;element not allowed;m
 /html/head/meta;in XML:charset;m
@@ -953,6 +1011,7 @@
 a
 #issrcdoc 1
 #errors
+/html;attribute missing;lang;w
 /html/head/meta;srcdoc:charset;m
 /html/head/meta/@charset;charset:not preferred;m
 /html/head/meta/@charset;mismatched charset name not checked;u
@@ -963,6 +1022,7 @@ a
 a
 #issrcdoc 1
 #errors
+/html;attribute missing;lang;w
 /html/head/meta;srcdoc:charset;m
 /html/head/meta/@content;charset:not preferred;m
 /html/head/meta/@content;mismatched charset name not checked;u
@@ -1008,6 +1068,7 @@ a
 <title>x</title>
 <body>y</body>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta/@content;mismatched charset name not checked;u
 
 #data html
@@ -1016,6 +1077,7 @@ a
 <meta http-equiv=content-type content="text/html; charset=us-ascii">
 <body>y</body>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta/@content;mismatched charset name not checked;u
 /html/head/meta;element not allowed:meta charset;m
 
@@ -1026,6 +1088,7 @@ a
 <title>x</title>
 <body>y</body>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta/@charset;mismatched charset name not checked;u
 /html/head/meta/@content;mismatched charset name not checked;u
 /html/head/meta;element not allowed:meta charset;m
@@ -1037,6 +1100,7 @@ a
 <title>x</title>
 <body>y</body>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta/@content;mismatched charset name not checked;u
 /html/head/meta/@charset;mismatched charset name not checked;u
 /html/head/meta;element not allowed:meta charset;m
@@ -1048,6 +1112,7 @@ a
 <title>x</title>
 <body>y</body>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta/@content;mismatched charset name not checked;u
 /html/head/meta/@content;mismatched charset name not checked;u
 /html/head/meta;element not allowed:meta charset;m
@@ -1202,6 +1267,7 @@ p {color: green}
 <body>y</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/@version;attribute not defined;m
 
 #data
@@ -1210,6 +1276,7 @@ p {color: green}
 <body>y</body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/@version;attribute not defined;m
 
 #data
@@ -1633,6 +1700,7 @@ p {color: green}
 </body>
 </html>
 #errors
+/html;attribute missing;lang;w
 /html/head/title;no significant content;m
 
 #data
@@ -2251,6 +2319,7 @@ p {color: green}
 #data html
 <!DOCTYPE HTML><html><head><meta charset="us-ascii"><title>x</title></head><body><p>x
 #errors
+/html;attribute missing;lang;w
 /html/head/meta/@charset;mismatched charset name not checked;u
 
 #data
@@ -2326,6 +2395,7 @@ p {color: green}
 <title>x</title>
 <body><p>b</p></body>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta/@charset;mismatched charset name not checked;u
 
 #data html
@@ -2334,6 +2404,7 @@ p {color: green}
 <title>x</title>
 <body><p>x</p></body>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta/@charset;mismatched charset name not checked;u
 /html/head/meta/@charset;charref in charset;m
 
@@ -2343,6 +2414,7 @@ p {color: green}
 <title>x</title>
 <body><p>x</p></body>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta/@charset;mismatched charset name not checked;u
 /html/head/meta/@charset;charref in charset;m
 
@@ -2352,6 +2424,7 @@ p {color: green}
 <title>x</title>
 <body><p>x</p></body>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta/@charset;mismatched charset name not checked;u
 /html/head/meta/@charset;charref in charset;m
 
@@ -2361,6 +2434,7 @@ p {color: green}
 <title>x</title>
 <body><p>x</p></body>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta/@charset;mismatched charset name not checked;u
 /html/head/meta/@charset;charset:not registered;w
 
@@ -2370,6 +2444,7 @@ p {color: green}
 <title>x</title>
 <body><p>x</p></body>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta/@charset;mismatched charset name not checked;u
 /html/head/meta/@charset;charset:not registered;w
 /html/head/meta/@charset;charref in charset;m
@@ -2532,6 +2607,7 @@ p {color: green}
 <title>x</title>
 <body>y</body>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta/@content;mismatched charset name not checked;u
 /html/head/meta/@content;charref in charset;m
 
@@ -2541,6 +2617,7 @@ p {color: green}
 <title>x</title>
 <body>y</body>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta/@charset;attribute not allowed;m
 /html/head/meta/@content;meta content-type syntax error;m
 /html/head/meta/@charset;mismatched charset name not checked;u
@@ -2552,6 +2629,7 @@ p {color: green}
 <title>x</title>
 <body>y</body>
 #errors
+/html;attribute missing;lang;w
 /html/head/meta/@content;mismatched charset name not checked;u
 /html/head/meta/@content;mismatched charset name not checked;u
 /html/head/meta/@http-equiv;duplicate http-equiv;m
