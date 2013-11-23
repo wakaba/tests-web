@@ -3318,6 +3318,38 @@
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
     type="file"
+    accept="text/plain, text/html,.aaa,.aaB,.AAA"/>
+#errors
+/input/@accept;duplicate token;m
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
+    type="file"
+    accept=" . , ..,.tar.gz,.&#x4100;"/>
+#errors
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
+    type="file"
+    accept=".text/html"/>
+#errors
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
+    type="file"
+    accept="text.html"/>
+#errors
+/input/@accept;IMT:no /;m
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
+    type="file"
+    accept="text/plain, text/html"/>
+#errors
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
+    type="file"
     accept="text/plain,"/>
 #errors
 /input/@accept;IMT:no type;m
