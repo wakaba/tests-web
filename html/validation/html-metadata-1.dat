@@ -860,6 +860,23 @@
 /link/p;no significant content;s
 
 #data
+<link crossorigin="" rel="author" href="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<link crossorigin="use-credentials" rel="author" href="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<link crossorigin="anonymoUs" rel="author" href="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<link crossorigin="true" rel="author" href="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/link/@crossorigin;enumerated:invalid;m
+
+#data
 <meta charset="us-ascii" xmlns="http://www.w3.org/1999/xhtml"></meta>
 #errors
 /meta;element not allowed:meta charset;m

@@ -1,8 +1,8 @@
 #data
 <script defer="" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script;attribute missing;src;m
 /script;SUBDOC;text/javascript
+/script/@defer;attribute not allowed;m
 
 #data
 <script src="a" defer="" xmlns="http://www.w3.org/1999/xhtml"></script>
@@ -147,7 +147,7 @@
 <script defer="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script;SUBDOC;text/javascript
-/script;attribute missing;src;m
+/script/@defer;attribute not allowed;m
 
 #data
 <script src="http://test/" defer=""
@@ -158,7 +158,7 @@
 <script defer="defer" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script;SUBDOC;text/javascript
-/script;attribute missing;src;m
+/script/@defer;attribute not allowed;m
 
 #data
 <script src="http://test/" defer="defer"
@@ -169,14 +169,14 @@
 <script defer="DEFER" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script;SUBDOC;text/javascript
-/script;attribute missing;src;m
+/script/@defer;attribute not allowed;m
 
 #data
 <script defer="true" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@defer;boolean:invalid;m
+/script/@defer;attribute not allowed;m
 /script;SUBDOC;text/javascript
-/script;attribute missing;src;m
 
 #data
 <script src="http://test/" defer="true"
@@ -188,6 +188,7 @@
 <script async="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script;SUBDOC;text/javascript
+/script/@async;attribute not allowed;m
 
 #data
 <script src="http://test/" async=""
@@ -198,6 +199,7 @@
 <script async="async" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script;SUBDOC;text/javascript
+/script/@async;attribute not allowed;m
 
 #data
 <script src="http://test/" async="async"
@@ -209,6 +211,7 @@
 #errors
 /script/@async;boolean:invalid;m
 /script;SUBDOC;text/javascript
+/script/@async;attribute not allowed;m
 
 #data
 <script src="http://test/" async="true"
@@ -225,13 +228,15 @@
 <script defer="" async="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script;SUBDOC;text/javascript
-/script;attribute missing;src;m
+/script/@async;attribute not allowed;m
+/script/@defer;attribute not allowed;m
 
 #data
 <script defer="defer" async="async" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script;SUBDOC;text/javascript
-/script;attribute missing;src;m
+/script/@async;attribute not allowed;m
+/script/@defer;attribute not allowed;m
 
 #data
 <script src="a" defer="" async="" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -574,3 +579,36 @@
 #errors
 /script/@implement;attribute not defined;m
 /script;SUBDOC;text/javascript
+
+#data
+<script crossorigin="" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+/script;SUBDOC;text/javascript
+/script/@crossorigin;attribute not allowed;w
+
+#data
+<script crossorigin="ANONYMOUS" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+/script;SUBDOC;text/javascript
+/script/@crossorigin;attribute not allowed;w
+
+#data
+<script crossorigin="use-credentials" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+/script;SUBDOC;text/javascript
+/script/@crossorigin;attribute not allowed;w
+
+#data
+<script crossorigin="use-credential" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+/script/@crossorigin;enumerated:invalid;m
+/script;SUBDOC;text/javascript
+/script/@crossorigin;attribute not allowed;w
+
+#data
+<script crossorigin="ANONYMOUS" src="a" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+
+#data
+<script crossorigin="" src="a" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
