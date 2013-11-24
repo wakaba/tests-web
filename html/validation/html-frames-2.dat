@@ -1252,3 +1252,21 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 #errors
 /iframe/@border;attribute not defined;m
 /iframe/@border;nninteger:syntax error;m
+
+#data
+<iframe allowfullscreen="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<iframe allowfullscreen="allowFullscreen" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<iframe allowfullscreen="false" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/iframe/@allowfullscreen;boolean:invalid;m
+
+#data
+<iframe allow-fullscreen="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/iframe/@allow-fullscreen;attribute not defined;m
