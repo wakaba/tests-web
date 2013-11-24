@@ -522,6 +522,16 @@ para
 #errors
 
 #data
+<aside xmlns="http://www.w3.org/1999/xhtml"><main>aaa</main></aside>
+#errors
+/aside/main;element not allowed:minus;m
+
+#data
+<aside xmlns="http://www.w3.org/1999/xhtml"><section>aa<main>a</main></section></aside>
+#errors
+/aside/section/main;element not allowed:minus;m
+
+#data
 <h1 xmlns="http://www.w3.org/1999/xhtml"></h1>
 #errors
 /h1;no significant content;s
@@ -842,6 +852,18 @@ para
 /header/aside;no significant content;s
 
 #data
+<header xmlns="http://www.w3.org/1999/xhtml"><main>a</main></header>
+#errors
+/header;element missing:hn;w
+/header/main;element not allowed:minus;m
+
+#data
+<header xmlns="http://www.w3.org/1999/xhtml"><aside><main>a</main></aside></header>
+#errors
+/header;element missing:hn;w
+/header/aside/main;element not allowed:minus;m
+
+#data
 <header xmlns="http://www.w3.org/1999/xhtml">xx</header>
 #errors
 /header;element missing:hn;w
@@ -887,6 +909,16 @@ para
   <aside>xxax</aside>
 </footer>
 #errors
+
+#data
+<footer xmlns="http://www.w3.org/1999/xhtml"><main>a</main></footer>
+#errors
+/footer/main;element not allowed:minus;m
+
+#data
+<footer xmlns="http://www.w3.org/1999/xhtml"><aside><main>a</main></aside></footer>
+#errors
+/footer/aside/main;element not allowed:minus;m
 
 #data
 <address xmlns="http://www.w3.org/1999/xhtml"></address>
@@ -985,6 +1017,39 @@ para
 #errors
 /address/@clear;attribute not defined;m
 /address/@clear;enumerated:non-conforming;m
+
+#data
+<main xmlns="http://www.w3.org/1999/xhtml"></main>
+#errors
+/main;no significant content;s
+
+#data
+<main xmlns="http://www.w3.org/1999/xhtml">
+</main>
+#errors
+/main;no significant content;s
+
+#data
+<main xmlns="http://www.w3.org/1999/xhtml">abcd</main>
+#errors
+
+#data
+<main xmlns="http://www.w3.org/1999/xhtml"><span></span></main>
+#errors
+/main/span;no significant content;s
+
+#data
+<main xmlns="http://www.w3.org/1999/xhtml"><p>hoge</p></main>
+#errors
+
+#data
+<main xmlns="http://www.w3.org/1999/xhtml"><img src="a" alt="b" hidden=""/></main>
+#errors
+/main;no significant content;s
+
+#data
+<main xmlns="http://www.w3.org/1999/xhtml"><main>hoge</main></main>
+#errors
 
 #data
 <li xmlns="http://www.w3.org/1999/xhtml"></li>
