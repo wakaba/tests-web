@@ -19,12 +19,14 @@
 <datalist xmlns="http://www.w3.org/1999/xhtml"><p>x</p><option/></datalist>
 #errors
 /datalist/p;element not allowed;m
+/datalist/option;no significant content;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml"><p>x</p>y<option/></datalist>
 #errors
 /datalist/p;element not allowed;m
 /datalist/option;element not allowed:phrasing;m
+/datalist/option;no significant content;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml">xx<p>x</p></datalist>
@@ -38,10 +40,13 @@
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml"><option/></datalist>
 #errors
+/datalist/option;no significant content;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml"><option/><option/></datalist>
 #errors
+/datalist/option;no significant content;m
+/datalist/option;no significant content;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml"><optgroup/></datalist>
@@ -52,31 +57,37 @@
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml"><option/><optgroup/></datalist>
 #errors
+/datalist/option;no significant content;m
 /datalist/optgroup;element not allowed;m
 /datalist/optgroup;attribute missing;label;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml"><option/>xx</datalist>
 #errors
+/datalist/option;no significant content;m
 /datalist/"xx";character not allowed;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml">  <option/></datalist>
 #errors
+/datalist/option;no significant content;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml">  <option/>xx</datalist>
 #errors
+/datalist/option;no significant content;m
 /datalist/"xx";character not allowed;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml"><option/><em>?</em></datalist>
 #errors
+/datalist/option;no significant content;m
 /datalist/em;element not allowed;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml">aa<option/></datalist>
 #errors
+/datalist/option;no significant content;m
 /datalist/option;element not allowed:phrasing;m
 
 #data

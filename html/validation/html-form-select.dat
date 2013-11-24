@@ -1,4 +1,3 @@
-
 #data
 <select xmlns="http://www.w3.org/1999/xhtml"></select>
 #errors
@@ -55,6 +54,7 @@
 #data
 <select xmlns="http://www.w3.org/1999/xhtml"><option/><optgroup/></select>
 #errors
+/select/option;no significant content;m
 /select/optgroup;attribute missing;label;m
 
 #data
@@ -67,6 +67,7 @@
 <option/><optgroup/></select>
 #errors
 /select/optgroup;attribute missing;label;m
+/select/option;no significant content;m
 /select/optgroup;attribute missing;label;m
 
 #data
@@ -299,6 +300,7 @@
   <option/>
 </select>
 #errors
+/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="">
@@ -311,6 +313,7 @@
   <option>  </option>
 </select>
 #errors
+/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="">
@@ -318,6 +321,8 @@
   <option/>
 </select>
 #errors
+/select/option;no significant content;m
+/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="">
@@ -325,6 +330,7 @@
   <option/>
 </select>
 #errors
+/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="">
@@ -332,12 +338,14 @@
   <option>aaa</option>
 </select>
 #errors
+/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="">
   <option value=""/>
 </select>
 #errors
+/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="">
@@ -345,6 +353,7 @@
 </select>
 #errors
 /select;no placeholder label option;m
+/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="">
@@ -361,6 +370,7 @@
 </select>
 #errors
 /select;no placeholder label option;m
+/select/optgroup/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="">
@@ -369,6 +379,7 @@
   <option/>
 </select>
 #errors
+/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="">
@@ -378,6 +389,7 @@
   <option/>
 </select>
 #errors
+/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="">
@@ -386,6 +398,7 @@
 </select>
 #errors
 /select;no placeholder label option;m
+/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="">
@@ -398,6 +411,7 @@
 /select/div;element not allowed;m
 /select/div;no significant content;s
 /select/div/option;element not allowed:flow;m
+/select/div/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="">
@@ -408,6 +422,7 @@
 #errors
 /select;no placeholder label option;m
 /select/select;element not allowed;m
+/select/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="">
@@ -416,6 +431,7 @@
 </select>
 #errors
 /select/p;element not allowed;m
+/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="" size=" 1">
@@ -432,6 +448,7 @@
 #errors
 /select;no placeholder label option;m
 /select/@size;nninteger:syntax error;m
+/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="" size="0001">
@@ -439,18 +456,21 @@
 </select>
 #errors
 /select;no placeholder label option;m
+/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="" multiple="">
   <option value="a"/>
 </select>
 #errors
+/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="" size="2">
   <option value="a"/>
 </select>
 #errors
+/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="" size="+3">
@@ -458,6 +478,7 @@
 </select>
 #errors
 /select/@size;nninteger:syntax error;m
+/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="" size="abcde">
@@ -465,6 +486,7 @@
 </select>
 #errors
 /select/@size;nninteger:syntax error;m
+/select/option;no significant content;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml" required="">
@@ -493,36 +515,43 @@
 /optgroup;attribute missing;label;m
 
 #data
-<optgroup xmlns="http://www.w3.org/1999/xhtml">xxx</optgroup>
+<optgroup xmlns="http://www.w3.org/1999/xhtml">xys</optgroup>
 #errors
-/optgroup/"xxx";character not allowed;m
+/optgroup/"xys";character not allowed;m
 /optgroup;attribute missing;label;m
 
 #data
 <optgroup xmlns="http://www.w3.org/1999/xhtml"><option/></optgroup>
 #errors
 /optgroup;attribute missing;label;m
+/optgroup/option;no significant content;m
 
 #data
 <optgroup xmlns="http://www.w3.org/1999/xhtml"><option/><option/></optgroup>
 #errors
 /optgroup;attribute missing;label;m
+/optgroup/option;no significant content;m
+/optgroup/option;no significant content;m
 
 #data
 <optgroup xmlns="http://www.w3.org/1999/xhtml"><option/>
 <option/></optgroup>
 #errors
 /optgroup;attribute missing;label;m
+/optgroup/option;no significant content;m
+/optgroup/option;no significant content;m
 
 #data
 <optgroup xmlns="http://www.w3.org/1999/xhtml"><option/>x</optgroup>
 #errors
+/optgroup/option;no significant content;m
 /optgroup/"x";character not allowed;m
 /optgroup;attribute missing;label;m
 
 #data
 <optgroup xmlns="http://www.w3.org/1999/xhtml"><option/><p/></optgroup>
 #errors
+/optgroup/option;no significant content;m
 /optgroup/p;element not allowed;m
 /optgroup/p;no significant content;s
 /optgroup;attribute missing;label;m
@@ -530,6 +559,7 @@
 #data
 <optgroup xmlns="http://www.w3.org/1999/xhtml"><option/><span>x</span></optgroup>
 #errors
+/optgroup/option;no significant content;m
 /optgroup/span;element not allowed;m
 /optgroup;attribute missing;label;m
 
@@ -543,6 +573,7 @@
 #data
 <optgroup xmlns="http://www.w3.org/1999/xhtml"><option/><optgroup/></optgroup>
 #errors
+/optgroup/option;no significant content;m
 /optgroup/optgroup;element not allowed;m
 /optgroup;attribute missing;label;m
 /optgroup/optgroup;attribute missing;label;m
@@ -574,7 +605,7 @@
 
 #data
 <optgroup xmlns="http://www.w3.org/1999/xhtml"
-    label="xxx"/>
+    label="xys"/>
 #errors
 
 #data
@@ -607,13 +638,15 @@
 #data
 <option xmlns="http://www.w3.org/1999/xhtml"></option>
 #errors
+/option;no significant content;m
 
 #data
 <option xmlns="http://www.w3.org/1999/xhtml">  </option>
 #errors
+/option;no significant content;m
 
 #data
-<option xmlns="http://www.w3.org/1999/xhtml">xxx</option>
+<option xmlns="http://www.w3.org/1999/xhtml">xxyx</option>
 #errors
 
 #data
@@ -629,18 +662,22 @@
 #data
 <option xmlns="http://www.w3.org/1999/xhtml"><option/></option>
 #errors
+/option;no significant content;m
+/option/option;no significant content;m
 /option/option;element not allowed:text;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml"><option/></em>
 #errors
 /em/option;element not allowed:phrasing;m
+/em/option;no significant content;m
 /em;no significant content;s
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><option/></div>
 #errors
 /div/option;element not allowed:flow;m
+/div/option;no significant content;m
 /div;no significant content;s
 
 #data
@@ -691,6 +728,31 @@
 #data
 <option xmlns="http://www.w3.org/1999/xhtml"
     label="aaaa"
+></option>
+#errors
+
+#data
+<option xmlns="http://www.w3.org/1999/xhtml"
+    label="aaaa"
+>   </option>
+#errors
+
+#data
+<option xmlns="http://www.w3.org/1999/xhtml"
+    label="aaaa"
+>abc</option>
+#errors
+
+#data
+<option xmlns="http://www.w3.org/1999/xhtml"
+    label="aaaa"
+><span>aa</span></option>
+#errors
+/option/span;element not allowed:text;m
+
+#data
+<option xmlns="http://www.w3.org/1999/xhtml"
+    label="aaaa"
 >x</option>
 #errors
 
@@ -711,6 +773,25 @@
     value="abcdefg"
 >x</option>
 #errors
+
+#data
+<option label="a" value="b" xmlns="http://www.w3.org/1999/xhtml"></option>
+#errors
+
+#data
+<option label="a" value="b" xmlns="http://www.w3.org/1999/xhtml">  </option>
+#errors
+
+#data
+<option label="a" value="b" xmlns="http://www.w3.org/1999/xhtml">abc</option>
+#errors
+/option;<option label value> not empty;m
+
+#data
+<option label="a" value="b" xmlns="http://www.w3.org/1999/xhtml"><span>a</span></option>
+#errors
+/option;<option label value> not empty;m
+/option/span;element not allowed:text;m
 
 #data
 <option xmlns="http://www.w3.org/1999/xhtml"

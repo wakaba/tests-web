@@ -1783,6 +1783,7 @@
 <rule xmlns="http://www.w3.org/1999/xhtml"><select><option><nest/></option></select></rule>
 #errors
 /rule;element not defined;m
+/rule/select/option;no significant content;m
 /rule/select/option/nest;element not defined;m
 /rule/select/option/nest;element not allowed:text;m
 
@@ -1811,6 +1812,7 @@
 /rule;element not defined;m
 /rule/datalist/nest;element not defined;m
 /rule/datalist/nest;element not allowed;m
+/rule/datalist/option;no significant content;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><datalist><nest/><option/>x</datalist></rule>
@@ -1819,6 +1821,7 @@
 /rule;element not defined;m
 /rule/datalist/nest;element not defined;m
 /rule/datalist/nest;element not allowed;m
+/rule/datalist/option;no significant content;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><datalist><nest/>x<option/></datalist></rule>
@@ -1827,6 +1830,7 @@
 /rule;element not defined;m
 /rule/datalist/nest;element not defined;m
 /rule/datalist/nest;element not allowed;m
+/rule/datalist/option;no significant content;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><datalist>x<nest/><option/></datalist></rule>
@@ -1835,13 +1839,16 @@
 /rule;element not defined;m
 /rule/datalist/nest;element not defined;m
 /rule/datalist/nest;element not allowed:phrasing;m
+/rule/datalist/option;no significant content;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><datalist><option/><nest/><option/></datalist></rule>
 #errors
 /rule;element not defined;m
+/rule/datalist/option;no significant content;m
 /rule/datalist/nest;element not defined;m
 /rule/datalist/nest;element not allowed;m
+/rule/datalist/option;no significant content;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><optgroup/></rule>
@@ -1861,11 +1868,13 @@
 <rule xmlns="http://www.w3.org/1999/xhtml"><option/></rule>
 #errors
 /rule;element not defined;m
+/rule/option;no significant content;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><option><nest/></option></rule>
 #errors
 /rule;element not defined;m
+/rule/option;no significant content;m
 /rule/option/nest;element not defined;m
 /rule/option/nest;element not allowed:text;m
 
