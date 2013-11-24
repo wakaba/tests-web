@@ -1,0 +1,57 @@
+#data
+<email xmlns="http://www.w3.org/2005/Atom"></email>
+#errors
+/email;email:syntax error;m
+
+#data
+<email xmlns="http://www.w3.org/2005/Atom">  </email>
+#errors
+/email;email:syntax error;m
+
+#data
+<email xmlns="http://www.w3.org/2005/Atom">a@b</email>
+#errors
+/email;email:syntax error;m
+
+#data
+<email xmlns="http://www.w3.org/2005/Atom">a@b.c</email>
+#errors
+
+#data
+<email xmlns="http://www.w3.org/2005/Atom">a<?aa []?>@b<!---->.c</email>
+#errors
+
+#data
+<email xmlns="http://www.w3.org/2005/Atom">gae+`P..@hoge.fUga</email>
+#errors
+
+#data
+<email xmlns="http://www.w3.org/2005/Atom">gae+`P..@hoge.fUga,ab</email>
+#errors
+/email;email:syntax error;m
+
+#data
+<email xmlns="http://www.w3.org/2005/Atom">&lt;gae+`P..@hoge.fUgab></email>
+#errors
+/email;email:syntax error;m
+
+#data
+<email xmlns="http://www.w3.org/2005/Atom">"gae+`P.."@hoge.fUgaab</email>
+#errors
+/email;email:syntax error;m
+
+#data
+<email xmlns="http://www.w3.org/2005/Atom">gae+`P..@[hoge.fUga]</email>
+#errors
+/email;email:syntax error;m
+
+#data
+<email xmlns="http://www.w3.org/2005/Atom">
+gae+`P..@hoge.fUga  </email>
+#errors
+/email;email:syntax error;m
+
+#data
+<email xmlns="http://www.w3.org/2005/Atom"><name>gae+`P..@hoge.fUga</name></email>
+#errors
+/email/name;element not allowed;m
