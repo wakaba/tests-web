@@ -3850,6 +3850,63 @@
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
+    type="email"
+    value=" a@b.aa "/>
+#errors
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
+    type="email"
+    value="a@b-"/>
+#errors
+/input/@value;email:syntax error;m
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
+    type="email"
+    value="a@b.124"/>
+#errors
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
+    type="email"
+    value="a@-.12"/>
+#errors
+/input/@value;email:syntax error;m
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
+    type="email"
+    value="a@b-c.1"/>
+#errors
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
+    type="email"
+    value="a@127.0.0.1"/>
+#errors
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
+    type="email"
+    value=".@xyz.a"/>
+#errors
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
+    type="email"
+    value="21.aBDE`^@xyAWFZ.Aa3"/>
+#errors
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
+    type="email"
+    value="a@b-c.-a"/>
+#errors
+/input/@value;email:syntax error;m
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
     type="email" multiple=""
     value=""/>
 #errors
@@ -3921,6 +3978,38 @@
     type="email" multiple=""
     value="<a@b>,c@d.z"/>
 #errors
+/input/@value;email:syntax error;m
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
+    type="email" multiple=""
+    value="a@b.-,c@d.z"/>
+#errors
+/input/@value;email:syntax error;m
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
+    type="email" multiple=""
+    value="aba@AAF.12,foo@-"/>
+#errors
+/input/@value;email:syntax error;m
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
+    type="email" multiple=""
+    value="a@-4.ab ,AFW@-31.ab"/>
+#errors
+/input/@value;email:syntax error;m
+/input/@value;email:syntax error;m
+
+#data
+<input xmlns="http://www.w3.org/1999/xhtml"
+    type="email" multiple=""
+    value="a@-4.ab ,AFW@-31.ab,aa,@"/>
+#errors
+/input/@value;email:syntax error;m
+/input/@value;email:syntax error;m
+/input/@value;email:syntax error;m
 /input/@value;email:syntax error;m
 
 #data
