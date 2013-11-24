@@ -911,7 +911,15 @@
 </menu>
 #errors
 /menu/object;no significant content;s
-/menu/object/li;element not allowed:phrasing;m
+/menu/object/li;element not allowed:flow;m
+
+#data
+<menu xmlns="http://www.w3.org/1999/xhtml">
+  <object data="aa">
+    <p>abc</p>
+  </object>
+</menu>
+#errors
 
 #data
 <section xmlns="http://www.w3.org/1999/xhtml">
