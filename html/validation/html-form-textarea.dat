@@ -840,6 +840,7 @@
 <textarea xmlns="http://www.w3.org/1999/xhtml"
     inputmode=""/>
 #errors
+/textarea/@inputmode;enumerated:invalid;m
 
 #data
 <textarea xmlns="http://www.w3.org/1999/xhtml"
@@ -850,40 +851,88 @@
 <textarea xmlns="http://www.w3.org/1999/xhtml"
     inputmode="latin KANA"/>
 #errors
+/textarea/@inputmode;enumerated:invalid;m
 
 #data
 <textarea xmlns="http://www.w3.org/1999/xhtml"
     inputmode="http://foo.example/"/>
 #errors
+/textarea/@inputmode;enumerated:invalid;m
 
 #data
 <textarea xmlns="http://www.w3.org/1999/xhtml"
     inputmode="http://foo.example/ test"/>
 #errors
+/textarea/@inputmode;enumerated:invalid;m
 
 #data
 <textarea xmlns="http://www.w3.org/1999/xhtml"
     inputmode="[]"/>
 #errors
-/textarea/@inputmode;syntax error:iriref3987;m
+/textarea/@inputmode;enumerated:invalid;m
 
 #data
 <textarea xmlns="http://www.w3.org/1999/xhtml"
     inputmode="0123"/>
 #errors
+/textarea/@inputmode;enumerated:invalid;m
 
 #data
 <textarea xmlns="http://www.w3.org/1999/xhtml"
     inputmode="latin latin"/>
 #errors
-/textarea/@inputmode;duplicate token;m
+/textarea/@inputmode;enumerated:invalid;m
 
 #data
 <textarea xmlns="http://www.w3.org/1999/xhtml"
     inputmode="[] [a]"/>
 #errors
-/textarea/@inputmode;syntax error:iriref3987;m
-/textarea/@inputmode;syntax error:iriref3987;m
+/textarea/@inputmode;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="latin-name"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="LATIN-PROSE"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="full-wiDth-latin"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="KANA"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="katakana"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="numeric"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="tel"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="email"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="url"/>
+#errors
 
 #data
 <textarea xmlns="http://www.w3.org/1999/xhtml"

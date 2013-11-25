@@ -17114,6 +17114,7 @@ xmlns="http://www.w3.org/1999/xhtml"/>
 <input type="text" xmlns="http://www.w3.org/1999/xhtml"
     inputmode=""/>
 #errors
+/input/@inputmode;enumerated:invalid;m
 
 #data
 <input type="text" xmlns="http://www.w3.org/1999/xhtml"
@@ -17124,45 +17125,49 @@ xmlns="http://www.w3.org/1999/xhtml"/>
 <input type="text" xmlns="http://www.w3.org/1999/xhtml"
     inputmode="latin KANA"/>
 #errors
+/input/@inputmode;enumerated:invalid;m
 
 #data
 <input type="text" xmlns="http://www.w3.org/1999/xhtml"
     inputmode="http://foo.example/"/>
 #errors
+/input/@inputmode;enumerated:invalid;m
 
 #data
 <input type="text" xmlns="http://www.w3.org/1999/xhtml"
     inputmode="http://foo.example/ test"/>
 #errors
+/input/@inputmode;enumerated:invalid;m
 
 #data
 <input type="text" xmlns="http://www.w3.org/1999/xhtml"
     inputmode="[]"/>
 #errors
-/input/@inputmode;syntax error:iriref3987;m
+/input/@inputmode;enumerated:invalid;m
 
 #data
 <input type="text" xmlns="http://www.w3.org/1999/xhtml"
     inputmode="0123"/>
 #errors
+/input/@inputmode;enumerated:invalid;m
 
 #data
 <input type="text" xmlns="http://www.w3.org/1999/xhtml"
     inputmode="digit digit"/>
 #errors
-/input/@inputmode;duplicate token;m
+/input/@inputmode;enumerated:invalid;m
 
 #data
 <input type="text" xmlns="http://www.w3.org/1999/xhtml"
     inputmode="[] [a]"/>
 #errors
-/input/@inputmode;syntax error:iriref3987;m
-/input/@inputmode;syntax error:iriref3987;m
+/input/@inputmode;enumerated:invalid;m
 
 #data
 <input type="password" xmlns="http://www.w3.org/1999/xhtml"
     inputmode=""/>
 #errors
+/input/@inputmode;enumerated:invalid;m
 
 #data
 <input type="email" xmlns="http://www.w3.org/1999/xhtml"
@@ -17180,6 +17185,7 @@ xmlns="http://www.w3.org/1999/xhtml"/>
 <input type="search" xmlns="http://www.w3.org/1999/xhtml"
     inputmode=""/>
 #errors
+/input/@inputmode;enumerated:invalid;m
 
 #data
 <input type="button" xmlns="http://www.w3.org/1999/xhtml"
@@ -17187,6 +17193,75 @@ xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@inputmode;input attr not applicable;button;m
 /input;attribute missing;value;m
+
+#data
+<input inputmode="verbatim" type="TexT" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input inputmode="LATIN" type="TexT" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input inputmode="latin-Name" type="password" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input inputmode="latin-prose" type="search" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input inputmode="full-width-latin" type="TexT" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input inputmode="kana"  xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input inputmode="Katakana" type="TexT" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input inputmode="numeric" type="TexT" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input inputmode="tel" type="TexT" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input inputmode="email" type="TexT" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input inputmode="url" type="TexT" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input inputmode="verbatim " type="TexT" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@inputmode;enumerated:invalid;m
+
+#data
+<input inputmode="hiragana" type="TexT" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@inputmode;enumerated:invalid;m
+
+#data
+<input inputmode="telephone" type="TexT" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@inputmode;enumerated:invalid;m
+
+#data
+<input inputmode="e-Mail" type="TexT" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@inputmode;enumerated:invalid;m
+
+#data
+<input inputmode="uri" type="TexT" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@inputmode;enumerated:invalid;m
 
 #data
 <input type="text" xmlns="http://www.w3.org/1999/xhtml"
