@@ -539,23 +539,56 @@ disabled="">z</output>
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"
+    accept-charset=" UTF-8 ">x</form>
+#errors
+
+#data
+<form xmlns="http://www.w3.org/1999/xhtml"
+    accept-charset=" UTF-8 UTf-8 ">x</form>
+#errors
+/form/@accept-charset;duplicate token;m
+
+#data
+<form xmlns="http://www.w3.org/1999/xhtml"
+    accept-charset="euc-jp EUC-jp">x</form>
+#errors
+/form/@accept-charset;non-utf-8 character encoding;m
+/form/@accept-charset;duplicate token;m
+
+#data
+<form xmlns="http://www.w3.org/1999/xhtml"
+    accept-charset="gofe euc-jp Gofe">x</form>
+#errors
+/form/@accept-charset;not encoding label;m
+/form/@accept-charset;non-utf-8 character encoding;m
+/form/@accept-charset;duplicate token;m
+
+#data
+<form xmlns="http://www.w3.org/1999/xhtml"
     accept-charset="euc-jp">x</form>
 #errors
+/form/@accept-charset;non-utf-8 character encoding;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"
     accept-charset="euc-jp us-ascii">x</form>
 #errors
+/form/@accept-charset;non-utf-8 character encoding;m
+/form/@accept-charset;non-utf-8 character encoding;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"
     accept-charset="euc-jp&#x09;us-ascii">x</form>
 #errors
+/form/@accept-charset;non-utf-8 character encoding;m
+/form/@accept-charset;non-utf-8 character encoding;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"
     accept-charset="euc-jp&#x0a;us-ascii">x</form>
 #errors
+/form/@accept-charset;non-utf-8 character encoding;m
+/form/@accept-charset;non-utf-8 character encoding;m
 
 #data
 <?xml version="1.1"?>
@@ -563,62 +596,67 @@ disabled="">z</output>
     accept-charset="euc-jp&#x0c;us-ascii">x</form>
 #errors
 /form/@accept-charset;U+000C not serializable;w
+/form/@accept-charset;non-utf-8 character encoding;m
+/form/@accept-charset;non-utf-8 character encoding;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"
     accept-charset="euc-jp&#x0d;us-ascii">x</form>
 #errors
 /form/@accept-charset;U+000D not serializable;w
+/form/@accept-charset;non-utf-8 character encoding;m
+/form/@accept-charset;non-utf-8 character encoding;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"
     accept-charset="euc-jp, us-ascii">x</form>
 #errors
-/form/@accept-charset;charset:not registered;w
+/form/@accept-charset;not encoding label;m
+/form/@accept-charset;non-utf-8 character encoding;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"
     accept-charset=" euc-JP ">x</form>
 #errors
+/form/@accept-charset;non-utf-8 character encoding;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"
     accept-charset=" eucjp ">x</form>
 #errors
-/form/@accept-charset;charset:not registered;w
+/form/@accept-charset;not encoding label;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"
     accept-charset="x-euc-jp">x</form>
 #errors
-/form/@accept-charset;charset:private;w
-/form/@accept-charset;charset:not preferred;m
+/form/@accept-charset;non-utf-8 character encoding;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"
     accept-charset="us-ascii x-euc-jp">x</form>
 #errors
-/form/@accept-charset;charset:private;w
-/form/@accept-charset;charset:not preferred;m
+/form/@accept-charset;non-utf-8 character encoding;m
+/form/@accept-charset;non-utf-8 character encoding;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"
     accept-charset="ascii">x</form>
 #errors
-/form/@accept-charset;charset:not preferred;m
+/form/@accept-charset;non-utf-8 character encoding;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"
     accept-charset="iso-2022-jp">x</form>
 #errors
+/form/@accept-charset;non-utf-8 character encoding;m
 
 #data
 <?xml version="1.1"?>
 <form xmlns="http://www.w3.org/1999/xhtml"
     accept-charset="euc-jp&#x000b;">x</form>
 #errors
-/form/@accept-charset;charset:not registered;w
-/form/@accept-charset;charset:syntax error;m
+/form/@accept-charset;not encoding label;m
 /form/@accept-charset;text:bad char;m
 
 #data
@@ -626,8 +664,7 @@ disabled="">z</output>
 <form xmlns="http://www.w3.org/1999/xhtml"
     accept-charset="&#x000b;euc-jp">x</form>
 #errors
-/form/@accept-charset;charset:not registered;w
-/form/@accept-charset;charset:syntax error;m
+/form/@accept-charset;not encoding label;m
 /form/@accept-charset;text:bad char;m
 
 #data
@@ -635,8 +672,7 @@ disabled="">z</output>
 <form xmlns="http://www.w3.org/1999/xhtml"
     accept-charset="euc-jp&#x000b;us-ascii">x</form>
 #errors
-/form/@accept-charset;charset:not registered;w
-/form/@accept-charset;charset:syntax error;m
+/form/@accept-charset;not encoding label;m
 /form/@accept-charset;text:bad char;m
 
 #data
