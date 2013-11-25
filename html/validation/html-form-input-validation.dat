@@ -152,3 +152,74 @@
 <input minlength="12" type="button" value="f" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@minlength;input attr not applicable;button;m
+
+#data
+<input min="-10" max="-2" type="number" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input min="1" max="-2" type="number" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@max;max lt min;m
+
+#data
+<input min="-2.1" max="-2" type="range" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input min="1" max="-2" type="range" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@max;max lt min;m
+
+#data
+<input min="2010-01-04T00:12:55.1Z" max="2012-01-04T00:12:55Z" type="datetime" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input min="2012-01-04T00:12:55.1Z" max="2012-01-04T00:12:55Z" type="datetime" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@max;max lt min;m
+
+#data
+<input min="2012-01-04T00:12:50" max="2012-01-04T00:12:55" type="datetime-local" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input min="2012-01-04T00:12:55.1" max="2012-01-04T00:12:55" type="datetime-local" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@max;max lt min;m
+
+#data
+<input min="2012-01-02" max="2012-01-03" type="date" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input min="2012-01-04" max="2012-01-03" type="date" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@max;max lt min;m
+
+#data
+<input min="2011-01" max="2011-12" type="Month" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input min="2012-01" max="2011-12" type="Month" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@max;max lt min;m
+
+#data
+<input min="2011-W04" max="2012-W01" type="week" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input min="2012-W04" max="2012-W01" type="week" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@max;max lt min;m
+
+#data
+<input min="00:12:51" max="00:12:55" type="time" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input min="00:12:54" max="00:12:55" type="time" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors

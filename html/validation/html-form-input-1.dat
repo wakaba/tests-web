@@ -4397,18 +4397,21 @@ xmlns="http://www.w3.org/1999/xhtml"/>
 value="-.12"
 xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/input/@value;value lt min;w
 
 #data
 <input type="range"
 value="12e32244"
 xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/input/@value;value gt max;w
 
 #data
 <input type="range"
 value="-12e+32244"
 xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/input/@value;value lt min;w
 
 #data
 <input type="range"
@@ -4478,6 +4481,13 @@ xmlns="http://www.w3.org/1999/xhtml"/>
 
 #data
 <input type="range"
+min="112"
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@min;max lt min;m
+
+#data
+<input type="range"
 min="-.12"
 xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
@@ -4487,6 +4497,7 @@ xmlns="http://www.w3.org/1999/xhtml"/>
 min="12e32244"
 xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/input/@min;max lt min;m
 
 #data
 <input type="range"
@@ -4566,6 +4577,7 @@ xmlns="http://www.w3.org/1999/xhtml"/>
 max="-.12"
 xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/input/@max;max lt min;m
 
 #data
 <input type="range"
@@ -4578,6 +4590,7 @@ xmlns="http://www.w3.org/1999/xhtml"/>
 max="-12e+32244"
 xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/input/@max;max lt min;m
 
 #data
 <input type="range"
