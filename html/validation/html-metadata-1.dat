@@ -261,8 +261,8 @@
 #errors
 /html;attribute missing;lang;w
 /html/head;child element missing;title;m
-/html/head/meta;in XML:charset;m
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;in XML:charset;m
+/html/head/meta/@charset;mismatched charset name;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -274,8 +274,6 @@
 #errors
 /html;attribute missing;lang;w
 /html/head;child element missing;title;m
-/html/head/meta/@charset;mismatched charset name not checked;u
-/html/head/meta/@charset;charset:not preferred;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -287,8 +285,6 @@
 #errors
 /html;attribute missing;lang;w
 /html/head;child element missing;title;m
-/html/head/meta/@charset;mismatched charset name not checked;u
-/html/head/meta/@charset;charset:not preferred;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -300,8 +296,6 @@
 #errors
 /html;attribute missing;lang;w
 /html/head;child element missing;title;m
-/html/head/meta/@charset;mismatched charset name not checked;u
-/html/head/meta/@charset;charset:not preferred;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -453,7 +447,7 @@
 <title/>
 </head>
 #errors
-/head/meta;attribute missing:name|http-equiv|charset;m
+/head/meta;attribute missing:meta;m
 /head/title;no significant content;m
 
 #data
@@ -466,8 +460,8 @@
 </html>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta;in XML:charset;m
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;in XML:charset;m
+/html/head/meta/@charset;mismatched charset name;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -479,9 +473,8 @@
 </html>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta;element not allowed:meta charset;m
-/html/head/meta;in XML:charset;m
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;in XML:charset;m
+/html/head/meta/@charset;mismatched charset name;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -579,8 +572,8 @@
 </html>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta;in XML:charset;m
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;in XML:charset;m
+/html/head/meta/@charset;mismatched charset name;m
 /html/head/base;attribute missing:href|target;m
 
 #data
@@ -589,8 +582,8 @@
 #errors
 /html;attribute missing;lang;w
 /html/head/base;attribute missing:href|target;m
-/html/head/meta;in XML:charset;m
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;in XML:charset;m
+/html/head/meta/@charset;mismatched charset name;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><head><title>y</title><base/></head><body>ty</body></html>
@@ -603,9 +596,8 @@
 #errors
 /html;attribute missing;lang;w
 /html/head/base;attribute missing:href|target;m
-/html/head/meta;element not allowed:meta charset;m
-/html/head/meta;in XML:charset;m
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;in XML:charset;m
+/html/head/meta/@charset;mismatched charset name;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -618,8 +610,8 @@
 </html>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta;in XML:charset;m
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;in XML:charset;m
+/html/head/meta/@charset;mismatched charset name;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -632,9 +624,8 @@
 </html>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta;element not allowed:meta charset;m
-/html/head/meta;in XML:charset;m
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;in XML:charset;m
+/html/head/meta/@charset;mismatched charset name;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -647,9 +638,8 @@
 </html>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta;element not allowed:meta charset;m
-/html/head/meta;in XML:charset;m
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;in XML:charset;m
+/html/head/meta/@charset;mismatched charset name;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -682,9 +672,8 @@
 </html>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta;element not allowed:meta charset;m
-/html/head/meta;in XML:charset;m
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;in XML:charset;m
+/html/head/meta/@charset;mismatched charset name;m
 /html/head/meta/@name;metadata:proposed;keywords;w
 
 #data
@@ -698,8 +687,8 @@
 </html>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta;in XML:charset;m
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;in XML:charset;m
+/html/head/meta/@charset;mismatched charset name;m
 /html/head/meta/@name;metadata:proposed;keywords;w
 
 #data
@@ -896,32 +885,28 @@
 #data
 <meta charset="us-ascii" xmlns="http://www.w3.org/1999/xhtml"></meta>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
-/meta/@charset;mismatched charset name not checked;u
+/meta/@charset;in XML:charset;m
+/meta/@charset;mismatched charset name;m
 
 #data
 <meta charset="us-ascii" xmlns="http://www.w3.org/1999/xhtml"> </meta>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
-/meta/@charset;mismatched charset name not checked;u
+/meta/@charset;in XML:charset;m
+/meta/@charset;mismatched charset name;m
 
 #data
 <meta charset="us-ascii" xmlns="http://www.w3.org/1999/xhtml">a</meta>
 #errors
-/meta;element not allowed:meta charset;m
 /meta/"a";character not allowed:empty;m
-/meta;in XML:charset;m
-/meta/@charset;mismatched charset name not checked;u
+/meta/@charset;in XML:charset;m
+/meta/@charset;mismatched charset name;m
 
 #data
 <meta charset="us-ascii" xmlns="http://www.w3.org/1999/xhtml"><p/></meta>
 #errors
-/meta;element not allowed:meta charset;m
 /meta/p;element not allowed:empty;m
-/meta;in XML:charset;m
-/meta/@charset;mismatched charset name not checked;u
+/meta/@charset;in XML:charset;m
+/meta/@charset;mismatched charset name;m
 /meta/p;no significant content;s
 
 #data
@@ -934,8 +919,8 @@
 </html>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta;in XML:charset;m
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;in XML:charset;m
+/html/head/meta/@charset;mismatched charset name;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -948,11 +933,11 @@
 </html>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta;in XML:charset;m
-/html/head/meta;element not allowed:meta charset;m
-/html/head/meta/@charset;mismatched charset name not checked;u
-/html/head/meta;in XML:charset;m
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;in XML:charset;m
+/html/head/meta/@charset;mismatched charset name;m
+/html/head/meta/@charset;in XML:charset;m
+/html/head/meta/@charset;mismatched charset name;m
+/html/head/meta;duplicate meta charset;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -964,9 +949,8 @@
 </html>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta;in XML:charset;m
-/html/head/meta;element not allowed:meta charset;m
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;in XML:charset;m
+/html/head/meta/@charset;mismatched charset name;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -982,9 +966,8 @@
 #errors
 /html;attribute missing;lang;w
 /html/head;element not allowed;m
-/html/head/meta;in XML:charset;m
-/html/head/meta;element not allowed:meta charset;m
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;in XML:charset;m
+/html/head/meta/@charset;mismatched charset name;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -998,8 +981,8 @@
 /html;attribute missing;lang;w
 /html/body;ps element missing;head;m
 /html/head;element not allowed;m
-/html/head/meta;in XML:charset;m
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;in XML:charset;m
+/html/head/meta/@charset;mismatched charset name;m
 
 #data
 <svg xmlns="http://www.w3.org/2000/svg">
@@ -1014,9 +997,8 @@
 </foreignObject>
 </svg>
 #errors
-/svg/foreignObject/html/head/meta;element not allowed:meta charset;m
-/svg/foreignObject/html/head/meta;in XML:charset;m
-/svg/foreignObject/html/head/meta/@charset;mismatched charset name not checked;u
+/svg/foreignObject/html/head/meta/@charset;in XML:charset;m
+/svg/foreignObject/html/head/meta/@charset;mismatched charset name;m
 /svg;unknown element;u
 /svg/foreignObject;element not defined;m
 
@@ -1025,19 +1007,14 @@
 #issrcdoc 1
 #errors
 /meta;srcdoc:charset;m
-/meta/@charset;charset:not preferred;m
-/meta/@charset;mismatched charset name not checked;u
-/meta;element not allowed:meta charset;m
 
 #data
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #issrcdoc 1
 #errors
-/meta;in XML:charset;m
-/meta/@content;charset:not preferred;m
-/meta/@content;mismatched charset name not checked;u
-/meta;element not allowed:meta charset;m
+/meta;srcdoc:charset;m
+/meta/@content;in XML:charset;m
 
 #data html
 <!DOCTYPE html>
@@ -1047,8 +1024,6 @@ a
 #errors
 /html;attribute missing;lang;w
 /html/head/meta;srcdoc:charset;m
-/html/head/meta/@charset;charset:not preferred;m
-/html/head/meta/@charset;mismatched charset name not checked;u
 
 #data html
 <!DOCTYPE html>
@@ -1058,8 +1033,6 @@ a
 #errors
 /html;attribute missing;lang;w
 /html/head/meta;srcdoc:charset;m
-/html/head/meta/@content;charset:not preferred;m
-/html/head/meta/@content;mismatched charset name not checked;u
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1092,9 +1065,8 @@ a
 /head/title;no significant content;m
 /head/noscript;in XML:noscript;m
 /head/noscript/meta;element not allowed:head noscript;m
-/head/noscript/meta;element not allowed:meta charset;m
-/head/noscript/meta;in XML:charset;m
-/head/noscript/meta/@charset;mismatched charset name not checked;u
+/head/noscript/meta/@charset;in XML:charset;m
+/head/noscript/meta/@charset;mismatched charset name;m
 
 #data html
 <!DOCTYPE HTML>
@@ -1103,7 +1075,7 @@ a
 <body>y</body>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta/@content;mismatched charset name not checked;u
+/html/head/meta/@content;mismatched charset name;m
 
 #data html
 <!DOCTYPE HTML>
@@ -1112,8 +1084,7 @@ a
 <body>y</body>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta/@content;mismatched charset name not checked;u
-/html/head/meta;element not allowed:meta charset;m
+/html/head/meta/@content;mismatched charset name;m
 
 #data html
 <!DOCTYPE HTML>
@@ -1123,9 +1094,9 @@ a
 <body>y</body>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta/@charset;mismatched charset name not checked;u
-/html/head/meta/@content;mismatched charset name not checked;u
-/html/head/meta;element not allowed:meta charset;m
+/html/head/meta/@charset;mismatched charset name;m
+/html/head/meta/@content;mismatched charset name;m
+/html/head/meta;duplicate meta charset;m
 
 #data html
 <!DOCTYPE HTML>
@@ -1135,9 +1106,9 @@ a
 <body>y</body>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta/@content;mismatched charset name not checked;u
-/html/head/meta/@charset;mismatched charset name not checked;u
-/html/head/meta;element not allowed:meta charset;m
+/html/head/meta/@content;mismatched charset name;m
+/html/head/meta/@charset;mismatched charset name;m
+/html/head/meta;duplicate meta charset;m
 
 #data html
 <!DOCTYPE HTML>
@@ -1147,10 +1118,34 @@ a
 <body>y</body>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta/@content;mismatched charset name not checked;u
-/html/head/meta/@content;mismatched charset name not checked;u
-/html/head/meta;element not allowed:meta charset;m
-/html/head/meta/@http-equiv;duplicate http-equiv;m
+/html/head/meta/@content;mismatched charset name;m
+/html/head/meta/@content;mismatched charset name;m
+/html/head/meta;duplicate meta charset;m
+
+#data
+<meta charset="UTF-8" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<meta charset="utf-8" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<meta charset="UTF8" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@charset;in XML:charset;m
+
+#data
+<meta charset=" UTF-8" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@charset;in XML:charset;m
+/meta/@charset;not encoding label;m
+
+#data
+<meta charset="UTF-16" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@charset;in XML:charset;m
+/meta/@charset;mismatched charset name;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1163,7 +1158,7 @@ a
 /head/title;no significant content;m
 /head/noscript;in XML:noscript;m
 /head/noscript/meta;element not allowed:head noscript;m
-/head/noscript/meta;attribute missing:name|http-equiv|charset;m
+/head/noscript/meta;attribute missing:meta;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1214,9 +1209,8 @@ a
 #errors
 /head/noscript;in XML:noscript;m
 /head/noscript/meta;element not allowed:head noscript;m
-/head/noscript/meta;element not allowed:meta charset;m
-/head/noscript/meta;in XML:charset;m
-/head/noscript/meta/@content;mismatched charset name not checked;u
+/head/noscript/meta/@content;in XML:charset;m
+/head/noscript/meta/@content;mismatched charset name;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -2261,7 +2255,7 @@ p {color: green}
   <!-- TODO: <meta> tests are not complete -->
 </meta>
 #errors
-/meta;attribute missing:name|http-equiv|charset;m
+/meta;attribute missing:meta;m
 
 #data
 <meta name="dns" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -2278,10 +2272,9 @@ p {color: green}
 <meta charset="us-ascii" name="dns" content="example.net"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta;element not allowed:meta charset;m
 /meta/@charset;attribute not allowed;m
-/meta;in XML:charset;m
-/meta/@charset;mismatched charset name not checked;u
+/meta/@charset;in XML:charset;m
+/meta/@charset;mismatched charset name;m
 /meta/@name;metadata:not registered;dns;m
 
 #data
@@ -2306,9 +2299,8 @@ p {color: green}
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /meta/@charset;attribute not allowed;m
-/meta;in XML:charset;m
-/meta/@charset;mismatched charset name not checked;u
-/meta;element not allowed:meta charset;m
+/meta/@charset;in XML:charset;m
+/meta/@charset;mismatched charset name;m
 
 #data
 <meta http-equiv="Refresh" content="10; url='a.html'"
@@ -2332,95 +2324,75 @@ p {color: green}
 <meta content="example.net" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /meta/@content;attribute not allowed;m
-/meta;attribute missing:name|http-equiv;m
+/meta;attribute missing:meta;m
 
 #data
 <meta charset="us-ascii" content="example.net"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta;element not allowed:meta charset;m
 /meta/@content;attribute not allowed;m
-/meta;in XML:charset;m
-/meta/@charset;mismatched charset name not checked;u
+/meta/@charset;in XML:charset;m
+/meta/@charset;mismatched charset name;m
 
 #data
 <meta content="example.net" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /meta/@content;attribute not allowed;m
-/meta;attribute missing:name|http-equiv;m
+/meta;attribute missing:meta;m
 
 #data html
 <!DOCTYPE HTML><html><head><meta charset="us-ascii"><title>x</title></head><body><p>x
 #errors
 /html;attribute missing;lang;w
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;mismatched charset name;m
 
 #data
 <meta charset="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
-/meta/@charset;mismatched charset name not checked;u
-/meta/@charset;charset:syntax error;m
-/meta/@charset;charset:not registered;w
+/meta/@charset;in XML:charset;m
+/meta/@charset;not encoding label;m
 
 #data
 <meta charset="us-ascii" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
-/meta/@charset;mismatched charset name not checked;u
+/meta/@charset;in XML:charset;m
+/meta/@charset;mismatched charset name;m
 
 #data
 <meta charset="US-ascii" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
-/meta/@charset;mismatched charset name not checked;u
+/meta/@charset;in XML:charset;m
+/meta/@charset;mismatched charset name;m
 
 #data
 <meta charset="csiso2022jp" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
-/meta/@charset;mismatched charset name not checked;u
-/meta/@charset;charset:not preferred;m
+/meta/@charset;in XML:charset;m
+/meta/@charset;mismatched charset name;m
 
 #data
 <meta charset="iso2022jp" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
-/meta/@charset;mismatched charset name not checked;u
-/meta/@charset;charset:not preferred;m
-/meta/@charset;charset:not registered;w
+/meta/@charset;in XML:charset;m
+/meta/@charset;not encoding label;m
 
 #data
 <meta charset="x-utf-8" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
-/meta/@charset;mismatched charset name not checked;u
-/meta/@charset;charset:not preferred;m
-/meta/@charset;charset:private;w
+/meta/@charset;in XML:charset;m
+/meta/@charset;not encoding label;m
 
 #data
 <meta charset="utf-8n" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
-/meta/@charset;mismatched charset name not checked;u
-/meta/@charset;charset:not preferred;m
-/meta/@charset;charset:not registered;w
+/meta/@charset;in XML:charset;m
+/meta/@charset;not encoding label;m
 
 #data
 <meta charset="x-sjis" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
-/meta/@charset;mismatched charset name not checked;u
-/meta/@charset;charset:not preferred;m
-/meta/@charset;charset:private;w
+/meta/@charset;in XML:charset;m
+/meta/@charset;mismatched charset name;m
 
 #data html
 <!DOCTYPE HTML>
@@ -2429,7 +2401,7 @@ p {color: green}
 <body><p>b</p></body>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;mismatched charset name;m
 
 #data html
 <!DOCTYPE HTML>
@@ -2438,7 +2410,7 @@ p {color: green}
 <body><p>x</p></body>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;mismatched charset name;m
 /html/head/meta/@charset;charref in charset;m
 
 #data html
@@ -2448,7 +2420,7 @@ p {color: green}
 <body><p>x</p></body>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;mismatched charset name;m
 /html/head/meta/@charset;charref in charset;m
 
 #data html
@@ -2458,7 +2430,7 @@ p {color: green}
 <body><p>x</p></body>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;mismatched charset name;m
 /html/head/meta/@charset;charref in charset;m
 
 #data html
@@ -2468,8 +2440,7 @@ p {color: green}
 <body><p>x</p></body>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta/@charset;mismatched charset name not checked;u
-/html/head/meta/@charset;charset:not registered;w
+/html/head/meta/@charset;not encoding label;m
 
 #data html
 <!DOCTYPE HTML>
@@ -2478,8 +2449,7 @@ p {color: green}
 <body><p>x</p></body>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta/@charset;mismatched charset name not checked;u
-/html/head/meta/@charset;charset:not registered;w
+/html/head/meta/@charset;not encoding label;m
 /html/head/meta/@charset;charref in charset;m
 
 #data
@@ -2487,7 +2457,6 @@ p {color: green}
     http-equiv="content-type"
     />
 #errors
-/meta;element not allowed:meta charset;m
 /meta;attribute missing;content;m
 /meta;in XML:charset;m
 
@@ -2496,8 +2465,7 @@ p {color: green}
     http-equiv="content-type"
     content=""/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
+/meta/@content;in XML:charset;m
 /meta/@content;meta content-type syntax error;m
 
 #data
@@ -2505,8 +2473,7 @@ p {color: green}
     http-equiv="content-type"
     content="text/html"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
+/meta/@content;in XML:charset;m
 /meta/@content;meta content-type syntax error;m
 
 #data
@@ -2514,8 +2481,7 @@ p {color: green}
     http-equiv="content-type"
     content="html"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
+/meta/@content;in XML:charset;m
 /meta/@content;meta content-type syntax error;m
 
 #data
@@ -2523,8 +2489,7 @@ p {color: green}
     http-equiv="content-type"
     content="text/html;charset"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
+/meta/@content;in XML:charset;m
 /meta/@content;meta content-type syntax error;m
 
 #data
@@ -2532,26 +2497,23 @@ p {color: green}
     http-equiv="content-type"
     content="text/HTML; charset=us-ascii"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
-/meta/@content;mismatched charset name not checked;u
+/meta/@content;in XML:charset;m
+/meta/@content;mismatched charset name;m
 
 #data
 <meta xmlns="http://www.w3.org/1999/xhtml"
     http-equiv="content-type"
     content="text/html;  charset=us-ascii"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
-/meta/@content;mismatched charset name not checked;u
+/meta/@content;in XML:charset;m
+/meta/@content;mismatched charset name;m
 
 #data
 <meta xmlns="http://www.w3.org/1999/xhtml"
     http-equiv="content-type"
     content="text/html ; charset=us-ascii"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
+/meta/@content;in XML:charset;m
 /meta/@content;meta content-type syntax error;m
 
 #data
@@ -2559,9 +2521,8 @@ p {color: green}
     http-equiv="content-type"
     content="text/html;&#x09;charset=us-ascii"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
-/meta/@content;mismatched charset name not checked;u
+/meta/@content;in XML:charset;m
+/meta/@content;mismatched charset name;m
 
 #data
 <?xml version="1.1"?>
@@ -2569,8 +2530,7 @@ p {color: green}
     http-equiv="content-type"
     content="text/html;&#x0b;charset=us-ascii"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
+/meta/@content;in XML:charset;m
 /meta/@content;meta content-type syntax error;m
 /meta/@content;text:bad char;m
 
@@ -2579,8 +2539,7 @@ p {color: green}
     http-equiv="content-type"
     content=" text/html; charset=us-ascii"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
+/meta/@content;in XML:charset;m
 /meta/@content;meta content-type syntax error;m
 
 #data
@@ -2588,51 +2547,37 @@ p {color: green}
     http-equiv="content-type"
     content="text/html; charset=&quot;us-ascii&quot;"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
-/meta/@content;charset:not registered;w
-/meta/@content;mismatched charset name not checked;u
+/meta/@content;in XML:charset;m
+/meta/@content;not encoding label;m
 
 #data
 <meta xmlns="http://www.w3.org/1999/xhtml"
     http-equiv="content-type"
     content="text/html; charset=x-sjis"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta;in XML:charset;m
-/meta/@content;mismatched charset name not checked;u
-/meta/@content;charset:not preferred;m
-/meta/@content;charset:private;w
+/meta/@content;in XML:charset;m
+/meta/@content;mismatched charset name;m
 
 #data
 <meta xmlns="http://www.w3.org/1999/xhtml"
     http-equiv="content-type"
     content="text/html; charset=utf-8"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta/@content;charset:not preferred;m
-/meta/@content;mismatched charset name not checked;u
-/meta;in XML:charset;m
+/meta/@content;in XML:charset;m
 
 #data
 <meta xmlns="http://www.w3.org/1999/xhtml"
     http-equiv="content-type"
     content="text/html; charset=UTF-8"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta/@content;charset:not preferred;m
-/meta/@content;mismatched charset name not checked;u
-/meta;in XML:charset;m
+/meta/@content;in XML:charset;m
 
 #data
 <meta xmlns="http://www.w3.org/1999/xhtml"
     http-equiv="content-type"
     content="text/html; charset=Utf-8"/>
 #errors
-/meta;element not allowed:meta charset;m
-/meta/@content;charset:not preferred;m
-/meta/@content;mismatched charset name not checked;u
-/meta;in XML:charset;m
+/meta/@content;in XML:charset;m
 
 #data html
 <!DOCTYPE HTML>
@@ -2641,7 +2586,7 @@ p {color: green}
 <body>y</body>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta/@content;mismatched charset name not checked;u
+/html/head/meta/@content;mismatched charset name;m
 /html/head/meta/@content;charref in charset;m
 
 #data html
@@ -2653,7 +2598,7 @@ p {color: green}
 /html;attribute missing;lang;w
 /html/head/meta/@charset;attribute not allowed;m
 /html/head/meta/@content;meta content-type syntax error;m
-/html/head/meta/@charset;mismatched charset name not checked;u
+/html/head/meta/@charset;mismatched charset name;m
 
 #data html
 <!DOCTYPE HTML>
@@ -2663,10 +2608,9 @@ p {color: green}
 <body>y</body>
 #errors
 /html;attribute missing;lang;w
-/html/head/meta/@content;mismatched charset name not checked;u
-/html/head/meta/@content;mismatched charset name not checked;u
-/html/head/meta/@http-equiv;duplicate http-equiv;m
-/html/head/meta;element not allowed:meta charset;m
+/html/head/meta/@content;mismatched charset name;m
+/html/head/meta/@content;mismatched charset name;m
+/html/head/meta;duplicate meta charset;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -2832,7 +2776,7 @@ p {color: green}
 #errors
 /meta/@content;langtag:language:invalid;m
 /meta/@content;langtag:language:syntax;m
-/meta;content-language;m
+/meta/@http-equiv;enumerated:non-conforming;m
 
 #data
 <meta http-equiv="content-language" content="!!"
@@ -2840,20 +2784,20 @@ p {color: green}
 #errors
 /meta/@content;langtag:language:invalid;m
 /meta/@content;langtag:language:syntax;m
-/meta;content-language;m
+/meta/@http-equiv;enumerated:non-conforming;m
 
 #data
 <meta http-equiv="content-language" content="ja"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta;content-language;m
+/meta/@http-equiv;enumerated:non-conforming;m
 
 #data
 <meta http-equiv="content-language" content="JA"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /meta/@content;langtag:language:case;s
-/meta;content-language;m
+/meta/@http-equiv;enumerated:non-conforming;m
 
 #data
 <meta http-equiv="content-language" content="ja,en"
@@ -2861,19 +2805,19 @@ p {color: green}
 #errors
 /meta/@content;langtag:language:invalid;m
 /meta/@content;langtag:language:syntax;m
-/meta;content-language;m
+/meta/@http-equiv;enumerated:non-conforming;m
 
 #data
 <meta http-equiv="set-cookie" content=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta;http-equiv:set-cookie;m
+/meta/@http-equiv;enumerated:non-conforming;m
 
 #data
 <meta http-equiv="Set-Cookie" content=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta;http-equiv:set-cookie;m
+/meta/@http-equiv;enumerated:non-conforming;m
 
 #data
 <meta http-equiv="PICS-Label" content=""
