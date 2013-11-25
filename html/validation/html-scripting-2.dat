@@ -356,17 +356,37 @@
 <script charset="us-ascii" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@charset;attribute not allowed;m
+/script/@charset;non-utf-8 character encoding;m
 /script;SUBDOC;text/javascript
+
+#data
+<script charset="UTF-8" src="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
 
 #data
 <script src="a" charset="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@charset;charset:syntax error;m
-/script/@charset;charset:not registered;w
+/script/@charset;not encoding label;m
+
+#data
+<script charset="cesu-8" src="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@charset;not encoding label;m
+
+#data
+<script charset="X-UTF-8" src="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@charset;not encoding label;m
 
 #data
 <script src="a" charset="us-ascii" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/script/@charset;non-utf-8 character encoding;m
+
+#data
+<script src="a" charset="HZ-GB-2312" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/script/@charset;non-utf-8 character encoding;m
 
 #data
 <script event="" xmlns="http://www.w3.org/1999/xhtml"/>

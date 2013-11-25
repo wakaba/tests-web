@@ -972,13 +972,36 @@ x</div>
 <a charset="" xmlns="http://www.w3.org/1999/xhtml">x</a>
 #errors
 /a/@charset;attribute not defined;m
-/a/@charset;charset:syntax error;m
-/a/@charset;charset:not registered;w
+/a/@charset;not encoding label;m
+
+#data
+<a charset="uTF-8" xmlns="http://www.w3.org/1999/xhtml">x</a>
+#errors
+/a/@charset;attribute not defined;m
 
 #data
 <a charset="us-ascii" xmlns="http://www.w3.org/1999/xhtml">x</a>
 #errors
 /a/@charset;attribute not defined;m
+/a/@charset;non-utf-8 character encoding;m
+
+#data
+<a charset="ISO-2022-CN" xmlns="http://www.w3.org/1999/xhtml">x</a>
+#errors
+/a/@charset;attribute not defined;m
+/a/@charset;non-utf-8 character encoding;m
+
+#data
+<a charset="Hoge" xmlns="http://www.w3.org/1999/xhtml">x</a>
+#errors
+/a/@charset;attribute not defined;m
+/a/@charset;not encoding label;m
+
+#data
+<a charset="us-ascii " xmlns="http://www.w3.org/1999/xhtml">x</a>
+#errors
+/a/@charset;attribute not defined;m
+/a/@charset;not encoding label;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
@@ -2848,3 +2871,13 @@ a
     rel="stylesheet" href="a" download=""/>
 #errors
 /link/@download;attribute not defined;m
+
+#data
+<area charset="" xmlns="http://www.w3.org/1999/xhtml" href="A" alt="X" coords="1,2,3,4"/>
+#errors
+/area/@charset;attribute not defined;m
+
+#data
+<area charset="abc" xmlns="http://www.w3.org/1999/xhtml" href="A" alt="X" coords="1,2,3,4"/>
+#errors
+/area/@charset;attribute not defined;m
