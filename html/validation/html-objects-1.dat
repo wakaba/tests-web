@@ -12,7 +12,7 @@
 /object/@data;url:empty;m
 
 #data
-<object xmlns="http://www.w3.org/1999/xhtml" data="">xxxx</object>
+<object xmlns="http://www.w3.org/1999/xhtml" data="">xxax</object>
 #errors
 /object/@data;url:empty;m
 
@@ -156,7 +156,7 @@ aaa
 <object xmlns="http://www.w3.org/1999/xhtml" data="">
 <param name="x" value="y"/>
 <style scoped=""/>
-<p>xxx</p>
+<p>xxa</p>
 </object>
 #errors
 /object/@data;url:empty;m
@@ -188,7 +188,7 @@ aaa
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data="">
 <param name="x" value="y"/>
-<p>xxx</p>
+<p>xxa</p>
 <style scoped=""/>
 </object>
 #errors
@@ -203,9 +203,9 @@ aaa
 </object>
 #errors
 /object/@data;url:empty;m
+/object/style;attribute missing;scoped;m
 /object/style;SUBDOC;text/css
 /object;no significant content;s
-/object/style;element not allowed:flow style;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
@@ -224,7 +224,7 @@ aaa
 <p xmlns="http://www.w3.org/1999/xhtml">
 <object data="">
 <param name="x" value="y"/>
-xxxx
+xxax
 </object>
 </p>
 #errors
@@ -234,7 +234,7 @@ xxxx
 <p xmlns="http://www.w3.org/1999/xhtml">
 <object data="">
 <param name="x" value="y"/>
-<p>xxxx</p>
+<p>xxax</p>
 </object>
 </p>
 #errors
@@ -245,7 +245,7 @@ xxxx
 <div xmlns="http://www.w3.org/1999/xhtml">
 <object data="">
 <param name="x" value="y"/>
-<p>xxxx</p>
+<p>xxax</p>
 </object>
 </div>
 #errors
@@ -254,7 +254,7 @@ xxxx
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <object data="">
-<p>xxxx</p>
+<p>xxax</p>
 <param name="x" value="y"/>
 </object>
 </div>
@@ -264,10 +264,25 @@ xxxx
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
+<object data="aa">
+<param name="x" value="y"/>
+<style scoped=""></style>
+<style scoped=""></style>
+<p>xxax</p>
+</object>
+</div>
+#errors
+/div/object/style;element not allowed:flow style;m
+/div/object/style;SUBDOC;text/css
+/div/object/style;element not allowed:flow style;m
+/div/object/style;SUBDOC;text/css
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
 <object data="a">
 <object data="b">
 <param name="x" value="y"/>
-<p>xxxx</p>
+<p>xxax</p>
 </object>
 </object>
 </div>
@@ -277,7 +292,7 @@ xxxx
 <span xmlns="http://www.w3.org/1999/xhtml">
 <object data="a">
 <param name="x" value="y"/>
-<p>xxxx</p>
+<p>xxax</p>
 </object>
 </span>
 #errors
@@ -288,7 +303,7 @@ xxxx
 <ins>
 <object data="a">
 <param name="x" value="y"/>
-<p>xxxx</p>
+<p>xxax</p>
 </object>
 </ins>
 </span>
@@ -300,7 +315,7 @@ xxxx
 <object data="a">
 <object data="b">
 <param name="x" value="y"/>
-<p>xxxx</p>
+<p>xxax</p>
 </object>
 </object>
 </span>
@@ -311,7 +326,7 @@ xxxx
 <span xmlns="http://www.w3.org/1999/xhtml">
 <object data="a">
 <object data="b">
-<p>xxxx</p>
+<p>xxax</p>
 <param name="x" value="y"/>
 </object>
 </object>
@@ -404,7 +419,7 @@ xxxx
 /applet;attribute missing;height;m
 
 #data
-<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">xxxx</applet>
+<applet xmlns="http://www.w3.org/1999/xhtml" code="abc">xxax</applet>
 #errors
 /applet;element not defined;m
 /applet/@code;attribute not defined;m
@@ -590,7 +605,7 @@ aaa
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
 <param name="x" value="y"/>
 <style scoped=""/>
-<p>xxx</p>
+<p>xxa</p>
 </applet>
 #errors
 /applet/style;SUBDOC;text/css
@@ -631,7 +646,7 @@ aaa
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
 <param name="x" value="y"/>
-<p>xxx</p>
+<p>xxa</p>
 <style scoped=""/>
 </applet>
 #errors
@@ -648,9 +663,9 @@ aaa
 <style/>
 </applet>
 #errors
+/applet/style;attribute missing;scoped;m
 /applet/style;SUBDOC;text/css
 /applet;no significant content;s
-/applet/style;element not allowed:flow style;m
 /applet;element not defined;m
 /applet/@code;attribute not defined;m
 /applet;attribute missing;width;m
@@ -678,7 +693,7 @@ aaa
 <p xmlns="http://www.w3.org/1999/xhtml">
 <applet code="abc">
 <param name="x" value="y"/>
-xxxx
+xxax
 </applet>
 </p>
 #errors
@@ -693,7 +708,7 @@ xxxx
 <p xmlns="http://www.w3.org/1999/xhtml">
 <applet code="abc">
 <param name="x" value="y"/>
-<p>xxxx</p>
+<p>xxax</p>
 </applet>
 </p>
 #errors
@@ -709,7 +724,7 @@ xxxx
 <div xmlns="http://www.w3.org/1999/xhtml">
 <applet code="abc">
 <param name="x" value="y"/>
-<p>xxxx</p>
+<p>xxax</p>
 </applet>
 </div>
 #errors
@@ -723,7 +738,28 @@ xxxx
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <applet code="abc">
-<p>xxxx</p>
+<param name="x" value="y"/>
+<style scoped=""></style>
+<style scoped=""></style>
+<p>xxax</p>
+</applet>
+</div>
+#errors
+/div;no significant content;s
+/div/applet;element not defined;m
+/div/applet/@code;attribute not defined;m
+/div/applet;element not allowed:flow;m
+/div/applet;attribute missing;width;m
+/div/applet;attribute missing;height;m
+/div/applet/style;element not allowed:flow style;m
+/div/applet/style;SUBDOC;text/css
+/div/applet/style;element not allowed:flow style;m
+/div/applet/style;SUBDOC;text/css
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<applet code="abc">
+<p>xxax</p>
 <param name="x" value="y"/>
 </applet>
 </div>
@@ -741,7 +777,7 @@ xxxx
 <applet code="abc">
 <applet code="abc">
 <param name="x" value="y"/>
-<p>xxxx</p>
+<p>xxax</p>
 </applet>
 </applet>
 </div>
@@ -763,7 +799,7 @@ xxxx
 <span xmlns="http://www.w3.org/1999/xhtml">
 <applet code="abc">
 <param name="x" value="y"/>
-<p>xxxx</p>
+<p>xxax</p>
 </applet>
 </span>
 #errors
@@ -780,7 +816,7 @@ xxxx
 <ins>
 <applet code="abc">
 <param name="x" value="y"/>
-<p>xxxx</p>
+<p>xxax</p>
 </applet>
 </ins>
 </span>
@@ -798,7 +834,7 @@ xxxx
 <applet code="abc">
 <applet code="abc">
 <param name="x" value="y"/>
-<p>xxxx</p>
+<p>xxax</p>
 </applet>
 </applet>
 </span>
@@ -821,7 +857,7 @@ xxxx
 <span xmlns="http://www.w3.org/1999/xhtml">
 <applet code="abc">
 <applet code="abc">
-<p>xxxx</p>
+<p>xxax</p>
 <param name="x" value="y"/>
 </applet>
 </applet>

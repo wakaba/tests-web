@@ -51,6 +51,19 @@
 <head xmlns="http://www.w3.org/1999/xhtml">
 <title/>
 <noscript>
+<style scoped=""/>
+</noscript>
+</head>
+#errors
+/head/title;no significant content;m
+/head/noscript;in XML:noscript;m
+/head/noscript/style;SUBDOC;text/css
+/head/noscript/style/@scoped;attribute not allowed;w
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+<title/>
+<noscript>
 <script/>
 </noscript>
 </head>
@@ -230,7 +243,7 @@
 #errors
 /noscript;no significant content;s
 /noscript;in XML:noscript;m
-/noscript/style;element not allowed:flow style;m
+/noscript/style;attribute missing;scoped;m
 /noscript/style;SUBDOC;text/css
 
 #data
@@ -241,6 +254,40 @@
 /noscript;no significant content;s
 /noscript;in XML:noscript;m
 /noscript/style;SUBDOC;text/css
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<noscript>
+<style scoped=""/>
+</noscript>
+</div>
+#errors
+/div;no significant content;s
+/div/noscript;no significant content;s
+/div/noscript;in XML:noscript;m
+/div/noscript/style;SUBDOC;text/css
+/div/noscript/style;element not allowed:flow style;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<noscript>
+<noscript>
+<style scoped=""/>
+<style scoped=""/>
+</noscript>
+</noscript>
+</div>
+#errors
+/div;no significant content;s
+/div/noscript;no significant content;s
+/div/noscript;in XML:noscript;m
+/div/noscript/noscript;in XML:noscript;m
+/div/noscript/noscript;no significant content;s
+/div/noscript/noscript;element not allowed:minus;m
+/div/noscript/noscript/style;SUBDOC;text/css
+/div/noscript/noscript/style;element not allowed:flow style;m
+/div/noscript/noscript/style;SUBDOC;text/css
+/div/noscript/noscript/style;element not allowed:flow style;m
 
 #data
 <noscript xmlns="http://www.w3.org/1999/xhtml">
@@ -351,7 +398,6 @@
 /details;child element missing;summary;m
 /details/style;SUBDOC;text/css
 /details/legend;element not allowed:flow;m
-/details/style;element not allowed:flow style;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml">
@@ -361,7 +407,16 @@
 /details;child element missing;summary;m
 /details/style;SUBDOC;text/css
 /details/legend;element not allowed:flow;m
-/details/style;element not allowed:flow style;m
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml">
+<legend>xx</legend>
+<style></style><p>yyy</p></details>
+#errors
+/details;child element missing;summary;m
+/details/style;SUBDOC;text/css
+/details/style;attribute missing;scoped;m
+/details/legend;element not allowed:flow;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml"
@@ -663,8 +718,8 @@
 /details/dt;element not allowed:flow;m
 /details/dd;element not allowed:flow;m
 /details/dd/figure;no significant content;s
-/details/dd/figure/dt;element not allowed:figure;m
-/details/dd/figure/dd;element not allowed:figure;m
+/details/dd/figure/dt;element not allowed:flow;m
+/details/dd/figure/dd;element not allowed:flow;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml">
@@ -677,8 +732,8 @@
 /details/dt;element not allowed:flow;m
 /details/dd;element not allowed:flow;m
 /details/dt/figure;no significant content;s
-/details/dt/figure/dt;element not allowed:figure;m
-/details/dt/figure/dd;element not allowed:figure;m
+/details/dt/figure/dt;element not allowed:flow;m
+/details/dt/figure/dd;element not allowed:flow;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml">
@@ -731,7 +786,7 @@
   <summary>aa</summary>
 </details>
 #errors
-/details/summary;element not allowed:details summary;m
+/details/summary;element not allowed:flow;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml">
@@ -739,7 +794,7 @@
   <summary>aa</summary>
 </details>
 #errors
-/details/summary;element not allowed:details summary;m
+/details/summary;element not allowed:flow;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml">
@@ -758,7 +813,7 @@
   <summary>ss</summary>
 </details>
 #errors
-/details/summary;element not allowed:details summary;m
+/details/summary;element not allowed:flow;m
 
 #data
 <summary xmlns="http://www.w3.org/1999/xhtml"></summary>
@@ -899,6 +954,7 @@
 #errors
 /p;no significant content;s
 /p/bb/style;SUBDOC;text/css
+/p/bb/style;attribute missing;scoped;m
 /p/bb;element not defined;m
 /p/bb;element not allowed:phrasing;m
 
@@ -1073,6 +1129,206 @@
 #errors
 /details;child element missing;summary;m
 /details;no significant content;s
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> </details>
+#errors
+/details;child element missing;summary;m
+/details;no significant content;s
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> abc</details>
+#errors
+/details;child element missing;summary;m
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> <br/></details>
+#errors
+/details;child element missing;summary;m
+/details;no significant content;s
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> <span hidden="">a</span></details>
+#errors
+/details;child element missing;summary;m
+/details;no significant content;s
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> <span>a</span></details>
+#errors
+/details;child element missing;summary;m
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> <p>a</p></details>
+#errors
+/details;child element missing;summary;m
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> <ins><p>a</p></ins></details>
+#errors
+/details;child element missing;summary;m
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> <video src="a"><p>a</p></video></details>
+#errors
+/details;child element missing;summary;m
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"><summary>a</summary>
+<p>a</p></details>
+#errors
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> <summary>a</summary>
+<p>a</p></details>
+#errors
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> <summary>a</summary>
+<summary>aa</summary>
+<p>a</p></details>
+#errors
+/details/summary;element not allowed:flow;m
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> <summary>a</summary>
+<span>a</span></details>
+#errors
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> <summary>a</summary>
+<style scoped=""></style>
+<p>a</p></details>
+#errors
+/details/style;SUBDOC;text/css
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> <summary>a</summary>
+<style scoped=""></style><summary>aa</summary>
+<p>a</p></details>
+#errors
+/details/style;SUBDOC;text/css
+/details/summary;element not allowed:flow;m
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"><object data="a"><summary>xx</summary>y</object>..</details>
+#errors
+/details;child element missing;summary;m
+/details/object/summary;element not allowed:flow;m
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> a<summary>a</summary>
+<p>a</p></details>
+#errors
+/details/summary;element not allowed:flow;m
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> <span>a</span><summary>a</summary>
+<p>a</p></details>
+#errors
+/details/summary;element not allowed:flow;m
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> <br/>a<summary>a</summary>
+<p>a</p></details>
+#errors
+/details/summary;element not allowed:flow;m
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> <style scoped=""></style><summary>a</summary>
+<p>a</p></details>
+#errors
+/details/style;SUBDOC;text/css
+/details/summary;element not allowed:flow;m
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> <style scoped=""></style>
+<p>a</p></details>
+#errors
+/details;child element missing;summary;m
+/details/style;SUBDOC;text/css
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> 
+<summary>a</summary>
+b
+<style scoped=""></style>
+<p>a</p></details>
+#errors
+/details/style;SUBDOC;text/css
+/details/style;element not allowed:flow style;m
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> 
+<summary>a</summary>
+<br/>
+<style scoped=""></style>
+<p>a</p></details>
+#errors
+/details/style;SUBDOC;text/css
+/details/style;element not allowed:flow style;m
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> 
+<summary>a</summary>
+<style scoped=""></style>
+<style scoped=""></style>
+<style scoped=""></style>
+<p>a</p></details>
+#errors
+/details/style;SUBDOC;text/css
+/details/style;SUBDOC;text/css
+/details/style;SUBDOC;text/css
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> 
+<summary>a</summary>
+<summary>a</summary>
+<style scoped=""></style>
+<style scoped=""></style>
+<style scoped=""></style>
+<p>a</p></details>
+#errors
+/details/summary;element not allowed:flow;m
+/details/style;SUBDOC;text/css
+/details/style;SUBDOC;text/css
+/details/style;SUBDOC;text/css
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> 
+<summary>a</summary>
+<style scoped=""></style>
+<style scoped=""></style>
+<style scoped=""></style>
+</details>
+#errors
+/details;no significant content;s
+/details/style;SUBDOC;text/css
+/details/style;SUBDOC;text/css
+/details/style;SUBDOC;text/css
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml"> 
+<summary>a</summary>
+<ins>
+<style scoped=""></style>
+</ins>
+</details>
+#errors
+/details/ins;no significant content;s
+/details/ins/style;element not allowed:flow style;m
+/details/ins/style;SUBDOC;text/css
+
+#data
+<header xmlns="http://www.w3.org/1999/xhtml">
+  <details>
+    <summary>a</summary>
+    <h1>aa</h1>
+    <footer>ff</footer>
+  </details>
+</header>
+#errors
+/header/details/footer;element not allowed:minus;m
 
 #data
 <details open="" xmlns="http://www.w3.org/1999/xhtml"/>

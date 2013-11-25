@@ -530,6 +530,23 @@
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
+<style/>
+<title>a</title>
+</head>
+#errors
+/head/style;SUBDOC;text/css
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+<style scoped=""/>
+<title>a</title>
+</head>
+#errors
+/head/style;SUBDOC;text/css
+/head/style/@scoped;attribute not allowed;w
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
 <title/>
 <style type="text/css"/>
 </head>
@@ -1220,8 +1237,8 @@ a
 </noscript>
 </head>
 #errors
-/head/noscript/style;element not allowed:head noscript;m
 /head/noscript/style;SUBDOC;text/css
+/head/noscript/style/@scoped;attribute not allowed;w
 /head/noscript;in XML:noscript;m
 
 #data
@@ -2944,14 +2961,14 @@ p {color: green}
 </head>
 #errors
 /head/style;SUBDOC;text/css
-/head/style;element not allowed:head style;m
+/head/style/@scoped;attribute not allowed;w
 
 #data
 <article xmlns="http://www.w3.org/1999/xhtml">
 <style/>
 </article>
 #errors
-/article/style;element not allowed:flow style;m
+/article/style;attribute missing;scoped;m
 /article/style;SUBDOC;text/css
 /article;no significant content;s
 
@@ -2968,7 +2985,7 @@ p {color: green}
 <style/>
 </aside>
 #errors
-/aside/style;element not allowed:flow style;m
+/aside/style;attribute missing;scoped;m
 /aside/style;SUBDOC;text/css
 /aside;no significant content;s
 
@@ -2985,7 +3002,7 @@ p {color: green}
 <style/>
 </div>
 #errors
-/div/style;element not allowed:flow style;m
+/div/style;attribute missing;scoped;m
 /div/style;SUBDOC;text/css
 /div;no significant content;s
 
@@ -3002,7 +3019,7 @@ p {color: green}
 <style/>
 </section>
 #errors
-/section/style;element not allowed:flow style;m
+/section/style;attribute missing;scoped;m
 /section/style;SUBDOC;text/css
 /section;no significant content;s
 
@@ -3020,7 +3037,7 @@ p {color: green}
 </section>
 #errors
 /section/style/@scope;attribute not defined;m
-/section/style;element not allowed:flow style;m
+/section/style;attribute missing;scoped;m
 /section/style;SUBDOC;text/css
 /section;no significant content;s
 

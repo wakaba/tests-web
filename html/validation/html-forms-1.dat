@@ -65,7 +65,7 @@
 #errors
 /form/style;SUBDOC;text/css
 /form/style;SUBDOC;text/css
-/form/style;element not allowed:flow style;m
+/form/style;attribute missing;scoped;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"><nest/></form>
@@ -198,16 +198,16 @@
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml">x<legend>y</legend></fieldset>
 #errors
-/fieldset/legend;element not allowed:fieldset legend;m
+/fieldset/legend;element not allowed:flow;m
 
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml">x<legend>y</legend>z</fieldset>
 #errors
-/fieldset/legend;element not allowed:fieldset legend;m
+/fieldset/legend;element not allowed:flow;m
 
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml">
-<legend><p>xxx</p></legend>
+<legend><p>xax</p></legend>
 <p>yyy</p>
 </fieldset>
 #errors
@@ -215,7 +215,7 @@
 
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml">
-<legend><div><p>xxx</p></div></legend>
+<legend><div><p>xax</p></div></legend>
 <p>yyy</p>
 </fieldset>
 #errors
@@ -223,7 +223,7 @@
 
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml">
-<legend><ins><p>xxx</p></ins></legend>
+<legend><ins><p>xax</p></ins></legend>
 <p>yyy</p>
 </fieldset>
 #errors
@@ -232,7 +232,48 @@
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml"><style scoped=""></style><legend>y</legend>x</fieldset>
 #errors
-/fieldset/legend;element not allowed:fieldset legend;m
+/fieldset/legend;element not allowed:flow;m
+/fieldset/style;SUBDOC;text/css
+
+#data
+<fieldset xmlns="http://www.w3.org/1999/xhtml"><style scoped=""></style><style scoped=""></style>x</fieldset>
+#errors
+/fieldset/style;SUBDOC;text/css
+/fieldset/style;SUBDOC;text/css
+
+#data
+<fieldset xmlns="http://www.w3.org/1999/xhtml">
+<style scoped=""></style>
+<style scoped=""></style>x</fieldset>
+#errors
+/fieldset/style;SUBDOC;text/css
+/fieldset/style;SUBDOC;text/css
+
+#data
+<fieldset xmlns="http://www.w3.org/1999/xhtml"><style></style><legend>y</legend>x</fieldset>
+#errors
+/fieldset/legend;element not allowed:flow;m
+/fieldset/style;SUBDOC;text/css
+/fieldset/style;attribute missing;scoped;m
+
+#data
+<fieldset xmlns="http://www.w3.org/1999/xhtml">a
+<style scoped=""></style>
+<style scoped=""></style>x</fieldset>
+#errors
+/fieldset/style;element not allowed:flow style;m
+/fieldset/style;SUBDOC;text/css
+/fieldset/style;element not allowed:flow style;m
+/fieldset/style;SUBDOC;text/css
+
+#data
+<fieldset xmlns="http://www.w3.org/1999/xhtml"><br/>
+<style scoped=""></style>
+<style scoped=""></style>x</fieldset>
+#errors
+/fieldset/style;element not allowed:flow style;m
+/fieldset/style;SUBDOC;text/css
+/fieldset/style;element not allowed:flow style;m
 /fieldset/style;SUBDOC;text/css
 
 #data
@@ -267,6 +308,12 @@ disabled="no">
 #errors
 /fieldset;no significant content;s
 /fieldset/@disabled;boolean:invalid;m
+
+#data
+<fieldset xmlns="http://www.w3.org/1999/xhtml"><object data="y"><legend>xx</legend></object>..</fieldset>
+#errors
+/fieldset/object;no significant content;s
+/fieldset/object/legend;element not allowed:flow;m
 
 #data
 <output xmlns="http://www.w3.org/1999/xhtml"></output>
@@ -609,7 +656,7 @@ disabled="">z</output>
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"
-    name="xxx">x</form>
+    name="xax">x</form>
 #errors
 
 #data
