@@ -726,3 +726,21 @@
 /frameset/@ondragexit;event handler;u
 /frameset/frame;element not defined;m
 /frameset/frame/@src;attribute not defined;m
+
+#data
+<p ontoggle="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</p>
+#errors
+/p/@ontoggle;event handler;u
+
+#data
+<body ontoggle="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</body>
+#errors
+/body/@ontoggle;event handler;u
+
+#data
+<frameset ontoggle="alert(1)" xmlns="http://www.w3.org/1999/xhtml"><frame src="aa"/></frameset>
+#errors
+/frameset;element not defined;m
+/frameset/@ontoggle;event handler;u
+/frameset/frame;element not defined;m
+/frameset/frame/@src;attribute not defined;m
