@@ -1,42 +1,36 @@
 #data
 <unknown u1=""></unknown>
 #errors
-/unknown;element not defined;m
-/unknown/@u1;attribute not defined;m
+/unknown;unknown namespace element;w
 
 #data
 <unknown u1="" xmlns="http://foo/"></unknown>
 #errors
-/unknown;element not defined;m
-/unknown/@u1;attribute not defined;m
+/unknown;unknown namespace element;w
 
 #data
 <unknown u1="" u2=""></unknown>
 #errors
-/unknown;element not defined;m
-/unknown/@u1;attribute not defined;m
-/unknown/@u2;attribute not defined;m
+/unknown;unknown namespace element;w
 
 #data
 <unknown u1="" xmlns=""></unknown>
 #errors
-/unknown;element not defined;m
-/unknown/@u1;attribute not defined;m
+/unknown;unknown namespace element;w
 
 #data
 <unknown xml:lang="!" xmlns=""></unknown>
 #errors
-/unknown;element not defined;m
+/unknown;unknown namespace element;w
 /unknown/@lang;langtag:language:syntax;m
 /unknown/@lang;langtag:language:invalid;m
 
 #data
 <unknown u1="" xml:lang="!" xmlns=""></unknown>
 #errors
-/unknown;element not defined;m
+/unknown;unknown namespace element;w
 /unknown/@lang;langtag:language:syntax;m
 /unknown/@lang;langtag:language:invalid;m
-/unknown/@u1;attribute not defined;m
 
 #data
 <unknown u1="" xmlns="http://www.w3.org/1999/xhtml"></unknown>
@@ -59,3 +53,35 @@
 /unknown/@lang;langtag:language:syntax;m
 /unknown/@lang;langtag:language:invalid;m
 /unknown/@u1;attribute not defined;m
+
+#data
+<unknown xmlns="http://unknown.test/" xml:hoge=""/>
+#errors
+/unknown;unknown namespace element;w
+/unknown/@hoge;attribute not defined;m
+
+#data
+<unknown xmlns="http://unknown.test/" fuga:hoge="" xmlns:fuga="http://fuga.test/"/>
+#errors
+/unknown;unknown namespace element;w
+
+#data
+<unknown abc=""/>
+#errors
+/unknown;unknown namespace element;w
+
+#data
+<unknown xml:hoge=""/>
+#errors
+/unknown;unknown namespace element;w
+/unknown/@hoge;attribute not defined;m
+
+#data
+<unknown fuga:hoge="" xmlns:fuga="http://fuga.test/"/>
+#errors
+/unknown;unknown namespace element;w
+
+#data
+<unknown abc=""/>
+#errors
+/unknown;unknown namespace element;w

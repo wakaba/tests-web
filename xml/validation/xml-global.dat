@@ -61,7 +61,7 @@
 #data
 <xmlns/>
 #errors
-/xmlns;element not defined;m
+/xmlns;unknown namespace element;w
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml" xml:base="">x</p>
@@ -130,42 +130,41 @@
 #data
 <p xml:foo="bar"/>
 #errors
-/p;element not defined;m
+/p;unknown namespace element;w
 /p/@foo;attribute not defined;m
 
 #data
 <hpoge xml:id=""/>
 #errors
-/hpoge;element not defined;m
+/hpoge;unknown namespace element;w
 /hpoge/@id;attribute not defined;m
 
 #data
 <foo data-hoge="aa"/>
 #errors
-/foo;element not defined;m
-/foo/@data-hoge;attribute not defined;m
+/foo;unknown namespace element;w
 
 #data
 <hoge xml:lang=""/>
 #errors
-/hoge;element not defined;m
+/hoge;unknown namespace element;w
 
 #data
 <hoge xml:lang="!?"/>
 #errors
-/hoge;element not defined;m
+/hoge;unknown namespace element;w
 /hoge/@lang;langtag:language:syntax;m
 /hoge/@lang;langtag:language:invalid;m
 
 #data
 <hoge xml:lang="fuga"/>
 #errors
-/hoge;element not defined;m
+/hoge;unknown namespace element;w
 /hoge/@lang;langtag:language:invalid;m
 
 #data
 <hoge xml:lang="EN-jp"/>
 #errors
-/hoge;element not defined;m
+/hoge;unknown namespace element;w
 /hoge/@lang;langtag:language:case;s
 /hoge/@lang;langtag:region:case;s
