@@ -456,12 +456,20 @@ id=""><span id="">x</span></p>
 #data
 <p style="" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
-/p/@style;SUBDOC;text/x-css-inline
 
 #data
 <p style="color:blue" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
-/p/@style;SUBDOC;text/x-css-inline
+
+#data
+<p style="-my-color:blue" xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+1;11;/p/@style;css:prop:unknown;m
+
+#data
+<p style="color:blue; hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+1;23;/p/@style;css:prop:unknown;m
 
 #data
 <p contenteditable="" xmlns="http://www.w3.org/1999/xhtml">x</p>

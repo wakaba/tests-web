@@ -45,7 +45,6 @@
 #errors
 /head/title;no significant content;m
 /head/noscript;in XML:noscript;m
-/head/noscript/style;SUBDOC;text/css
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -57,7 +56,6 @@
 #errors
 /head/title;no significant content;m
 /head/noscript;in XML:noscript;m
-/head/noscript/style;SUBDOC;text/css
 /head/noscript/style/@scoped;attribute not allowed;w
 
 #data
@@ -150,7 +148,6 @@
 #errors
 /head/title;no significant content;m
 /head/noscript;in XML:noscript;m
-/head/noscript/style;SUBDOC;text/css
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -167,7 +164,6 @@
 /head/noscript;in XML:noscript;m
 /head/noscript/noscript;in XML:noscript;m
 /head/noscript/noscript;element not allowed:head noscript;m
-/head/noscript/noscript/style;SUBDOC;text/css
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -243,7 +239,6 @@
 /noscript;no significant content;s
 /noscript;in XML:noscript;m
 /noscript/style;attribute missing;scoped;m
-/noscript/style;SUBDOC;text/css
 
 #data
 <noscript xmlns="http://www.w3.org/1999/xhtml">
@@ -252,7 +247,6 @@
 #errors
 /noscript;no significant content;s
 /noscript;in XML:noscript;m
-/noscript/style;SUBDOC;text/css
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -264,7 +258,6 @@
 /div;no significant content;s
 /div/noscript;no significant content;s
 /div/noscript;in XML:noscript;m
-/div/noscript/style;SUBDOC;text/css
 /div/noscript/style;element not allowed:flow style;m
 
 #data
@@ -283,9 +276,7 @@
 /div/noscript/noscript;in XML:noscript;m
 /div/noscript/noscript;no significant content;s
 /div/noscript/noscript;element not allowed:minus;m
-/div/noscript/noscript/style;SUBDOC;text/css
 /div/noscript/noscript/style;element not allowed:flow style;m
-/div/noscript/noscript/style;SUBDOC;text/css
 /div/noscript/noscript/style;element not allowed:flow style;m
 
 #data
@@ -393,7 +384,6 @@
 <details xmlns="http://www.w3.org/1999/xhtml"><legend>xx</legend><style scoped="scoped"></style><p>yyy</p></details>
 #errors
 /details;child element missing;summary;m
-/details/style;SUBDOC;text/css
 /details/legend;element not allowed:flow;m
 
 #data
@@ -402,7 +392,6 @@
 <style scoped="scoped"></style><p>yyy</p></details>
 #errors
 /details;child element missing;summary;m
-/details/style;SUBDOC;text/css
 /details/legend;element not allowed:flow;m
 
 #data
@@ -411,7 +400,6 @@
 <style></style><p>yyy</p></details>
 #errors
 /details;child element missing;summary;m
-/details/style;SUBDOC;text/css
 /details/style;attribute missing;scoped;m
 /details/legend;element not allowed:flow;m
 
@@ -950,7 +938,6 @@
 <p xmlns="http://www.w3.org/1999/xhtml"><bb><style></style>x</bb></p>
 #errors
 /p;no significant content;s
-/p/bb/style;SUBDOC;text/css
 /p/bb/style;attribute missing;scoped;m
 /p/bb;element not defined;m
 /p/bb;element not allowed:phrasing;m
@@ -1197,14 +1184,12 @@
 <style scoped=""></style>
 <p>a</p></details>
 #errors
-/details/style;SUBDOC;text/css
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml"> <summary>a</summary>
 <style scoped=""></style><summary>aa</summary>
 <p>a</p></details>
 #errors
-/details/style;SUBDOC;text/css
 /details/summary;element not allowed:flow;m
 
 #data
@@ -1235,7 +1220,6 @@
 <details xmlns="http://www.w3.org/1999/xhtml"> <style scoped=""></style><summary>a</summary>
 <p>a</p></details>
 #errors
-/details/style;SUBDOC;text/css
 /details/summary;element not allowed:flow;m
 
 #data
@@ -1243,7 +1227,6 @@
 <p>a</p></details>
 #errors
 /details;child element missing;summary;m
-/details/style;SUBDOC;text/css
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml"> 
@@ -1252,7 +1235,6 @@ b
 <style scoped=""></style>
 <p>a</p></details>
 #errors
-/details/style;SUBDOC;text/css
 /details/style;element not allowed:flow style;m
 
 #data
@@ -1262,7 +1244,6 @@ b
 <style scoped=""></style>
 <p>a</p></details>
 #errors
-/details/style;SUBDOC;text/css
 /details/style;element not allowed:flow style;m
 
 #data
@@ -1273,9 +1254,6 @@ b
 <style scoped=""></style>
 <p>a</p></details>
 #errors
-/details/style;SUBDOC;text/css
-/details/style;SUBDOC;text/css
-/details/style;SUBDOC;text/css
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml"> 
@@ -1287,9 +1265,6 @@ b
 <p>a</p></details>
 #errors
 /details/summary;element not allowed:flow;m
-/details/style;SUBDOC;text/css
-/details/style;SUBDOC;text/css
-/details/style;SUBDOC;text/css
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml"> 
@@ -1300,9 +1275,6 @@ b
 </details>
 #errors
 /details;no significant content;s
-/details/style;SUBDOC;text/css
-/details/style;SUBDOC;text/css
-/details/style;SUBDOC;text/css
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml"> 
@@ -1314,7 +1286,6 @@ b
 #errors
 /details/ins;no significant content;s
 /details/ins/style;element not allowed:flow style;m
-/details/ins/style;SUBDOC;text/css
 
 #data
 <header xmlns="http://www.w3.org/1999/xhtml">
