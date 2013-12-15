@@ -472,6 +472,34 @@ id=""><span id="">x</span></p>
 1;23;/p/@style;css:prop:unknown;m
 
 #data
+<p style="color:blue;
+hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+2;1;/p/@style;css:prop:unknown;m
+
+#data
+<p style="color:blue;&#xa;hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+1;27;/p/@style;css:prop:unknown;m
+
+#data html
+<!DOCTYPE html>
+<html lang=en>
+<title>x</title>
+<p style="color:blue;&#xa;hoge:foo">x</p>
+#errors
+4;27;/html/body/p/@style;css:prop:unknown;m
+
+#data html
+<!DOCTYPE html>
+<html lang=en>
+<title>x</title>
+<p style="color:blue;
+  hoge:foo">x</p>
+#errors
+5;3;/html/body/p/@style;css:prop:unknown;m
+
+#data
 <p contenteditable="" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
 
