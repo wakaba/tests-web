@@ -2006,13 +2006,29 @@ p {color: green
 #errors
 /link;attribute missing;href;m
 /link;attribute missing;rel;m
-/link/@media;media query;u
 
 #data
 <link rel="author" href="http://test/" media="all"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@media;media query;u
+
+#data
+<link rel="author" href="http://test/" media="all and"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/link/@media;mq:no feature;m
+/link/@media;css:no s;m
+
+#data
+<link rel="author" href="http://test/" media="all and (width: 12px)"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<link rel="author" href="http://test/" media="all and (width-hoge: 12px)"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/link/@media;mq:feature:unknown;m
 
 #data
 <link href="http://test/" rel="author" target="_self"
@@ -2931,12 +2947,20 @@ p {color: green
 #data
 <style media="all" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/style/@media;media query;u
 
 #data
 <style media="screen" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/style/@media;media query;u
+
+#data
+<style media="hoge" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+1;15;/style/@media;unknown media type;m
+
+#data
+<style media="! screen" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/style/@media;mq:broken;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">

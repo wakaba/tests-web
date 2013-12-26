@@ -1607,7 +1607,12 @@
 <source src="http://test/" media="screen"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/source/@media;media query;u
+
+#data
+<source src="http://test/" media="screen and (foo)"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/source/@media;mq:feature:unknown;m
 
 #data
 <source src="http://test/" xmlns="http://www.w3.org/1999/xhtml"
