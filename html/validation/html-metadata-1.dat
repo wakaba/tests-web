@@ -311,7 +311,7 @@
 </head>
 #errors
 /head;child element missing;title;m
-/head/script;SUBDOC;text/javascript
+/head/script;unknown script lang;u
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -499,7 +499,7 @@
 <title/>
 </head>
 #errors
-/head/script;SUBDOC;text/javascript
+/head/script;unknown script lang;u
 /head/title;no significant content;m
 
 #data
@@ -509,7 +509,7 @@
 </head>
 #errors
 /head/title;no significant content;m
-/head/script;SUBDOC;text/javascript
+/head/script;unknown script lang;u
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1267,6 +1267,48 @@ p {color: green
 </style>
 #errors
 /style;css:block:eof;w
+
+#data
+<style type="Text/CSS" xmlns="http://www.w3.org/1999/xhtml">
+p {color: green
+</style>
+#errors
+/style;css:block:eof;w
+
+#data
+<style type="text" xmlns="http://www.w3.org/1999/xhtml">hogfe</style>
+#errors
+/style/@type;IMT:no /;m
+
+#data
+<style xmlns="http://www.w3.org/1999/xhtml">hogfe {col<br/>or: blue}</style>
+#errors
+/style/br;element not allowed;m
+
+#data
+<style xmlns="http://www.w3.org/1999/xhtml">hogfe {col<div>hoge</div>or: blue}</style>
+#errors
+/style/div;element not allowed;m
+
+#data
+<style type="text/css; hoge=1" xmlns="http://www.w3.org/1999/xhtml">hogfe {col<div>hoge</div>or: blue}</style>
+#errors
+/style/@type;IMT:parameter not allowed;m
+/style/div;element not allowed;m
+
+#data
+<style type="Text/plain" xmlns="http://www.w3.org/1999/xhtml">hogfe {col<div>hoge</div>or: blue}<br/></style>
+#errors
+/style;unknown style lang;u
+/style/@type;IMT:not styling lang;m
+/style/div;element not allowed;m
+/style/br;element not allowed;m
+
+#data
+<style type="Text/xml" xmlns="http://www.w3.org/1999/xhtml">hogfe {col<div>hoge</div>or: blue}</style>
+#errors
+/style;unknown style lang;u
+/style/@type;IMT:not styling lang;m
 
 #data
 <style disabled="" xmlns="http://www.w3.org/1999/xhtml"></style>
@@ -2873,14 +2915,14 @@ p {color: green
 </style>
 #errors
 /style/@type;IMT:unregistered subtype;m
-/style;SUBDOC;text/xsl
+/style;unknown style lang;u
 
 #data
 <style type="text/plain" xmlns="http://www.w3.org/1999/xhtml">
 </style>
 #errors
 /style/@type;IMT:not styling lang;m
-/style;SUBDOC;text/plain
+/style;unknown style lang;u
 
 #data
 <style media="all" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -3027,6 +3069,34 @@ p {color: green
 &lt;!--</style>
 #errors
 /style;style:unclosed cdo;m
+
+#data
+<style xmlns="http://www.w3.org/1999/xhtml">&lt;!---->
+&lt;!--&lt;!----></style>
+#errors
+
+#data
+<style xmlns="http://www.w3.org/1999/xhtml">&lt;!---<br>-</br>>
+&lt;!--&lt;!--<span>--></span></style>
+#errors
+/style;css:qrule:no block;m
+/style/br;element not allowed;m
+/style/br/"-";character not allowed:empty;m
+/style/span;element not allowed;m
+
+#data
+<style xmlns="http://www.w3.org/1999/xhtml">&lt;!---->
+&lt;!--&lt;!--</style>
+#errors
+/style;style:unclosed cdo;m
+
+#data
+<style xmlns="http://www.w3.org/1999/xhtml">&lt;!--<span>--></span>
+&lt;!-<br/>-&lt;!--</style>
+#errors
+/style;style:unclosed cdo;m
+/style/span;element not allowed;m
+/style/br;element not allowed;m
 
 #data
 <style xmlns="http://www.w3.org/1999/xhtml">&lt;!--></style>

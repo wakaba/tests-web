@@ -69,7 +69,7 @@
 /head/title;no significant content;m
 /head/noscript;in XML:noscript;m
 /head/noscript/script;element not allowed:head noscript;m
-/head/noscript/script;SUBDOC;text/javascript
+/head/noscript/script;unknown script lang;u
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -872,8 +872,7 @@
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">x<script>y</script></bb>
 #errors
-/bb/script;SUBDOC;text/javascript
-/bb/script;SUBDOC;text/x-script-element-text
+/bb/script;unknown script lang;u
 /bb;element not defined;m
 
 #data
@@ -2170,42 +2169,42 @@ abc
 <script></script>
 </menu>
 #errors
-/menu/script;SUBDOC;text/javascript
+/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <script></script>xy
 </menu>
 #errors
-/menu/script;SUBDOC;text/javascript
+/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <script></script><p>aa</p>
 </menu>
 #errors
-/menu/script;SUBDOC;text/javascript
+/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <script></script><p>aa</p>aaa
 </menu>
 #errors
-/menu/script;SUBDOC;text/javascript
+/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <script></script><li>aa</li><li>bb</li>
 </menu>
 #errors
-/menu/script;SUBDOC;text/javascript
+/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <script></script><li>aa</li><li>bb</li>aa<!---->
 </menu>
 #errors
-/menu/script;SUBDOC;text/javascript
+/menu/script;unknown script lang;u
 /menu/"aa";character not allowed;m
 
 #data
@@ -2221,7 +2220,7 @@ abc
 </menu>
 #errors
 /menu/"ab";character not allowed;m
-/menu/script;SUBDOC;text/javascript
+/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
@@ -2393,7 +2392,7 @@ abc
   <hr/><script/><hr/>
 </menu>
 #errors
-/menu/script;SUBDOC;text/javascript
+/menu/script;unknown script lang;u
 
 #data
 <menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
