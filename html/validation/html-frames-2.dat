@@ -322,12 +322,13 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 <iframe srcdoc="">a</iframe>
 #errors
 /html;attribute missing;lang;w
-/html/body/iframe/@srcdoc;SUBDOC;text/x-html-srcdoc
+2;17;/html/body/iframe/@srcdoc;no significant content;s
 
 #data
 <iframe srcdoc="" xmlns="http://www.w3.org/1999/xhtml">a</iframe>
 #errors
-/iframe/@srcdoc;SUBDOC;text/xml
+1;17;/iframe/@srcdoc;no root element;m
+1;17;/iframe/@srcdoc;no document element;w
 
 #data
 <iframe src="a" xmlns="http://www.w3.org/1999/xhtml"

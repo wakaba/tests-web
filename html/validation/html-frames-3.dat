@@ -79,6 +79,13 @@
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
+<p style='
+ hoge:a1'>a
+#errors
+3;2;/html/body/p/@style;css:prop:unknown;m
+
+#data html
+<!DOCTYPE html><html lang=en><title>iframe</title>
 <iframe srcdoc= "&lt;xg>a">a</iframe>
 #errors
 2;18;/html/body/iframe/@srcdoc;no significant content;s
@@ -139,3 +146,9 @@
 <iframe srcdoc= &lt;p&gt;&lt;/p&gt; xmlns="http://www.w3.org/1999/xhtml">a</iframe>
 #errors
 1;17;/iframe/@srcdoc;unknown namespace element;w
+
+#data html
+<!DOCTYPE html><html lang=en><title>iframe</title>
+<iframe srcdoc=" <meta charset=utf-8>a">a</iframe>
+#errors
+2;18;/html/body/iframe/@srcdoc;srcdoc:charset;m
