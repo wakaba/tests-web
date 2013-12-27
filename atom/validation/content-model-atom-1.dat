@@ -1,7 +1,7 @@
 #data
 <feed xmlns="http://www.w3.org/2005/Atom">
 <id>about:</id>
-<title>xxx</title>
+<title>xxa</title>
 <link rel="self" href=""/>
 <updated>2000-01-02T03:04:05Z</updated>
 </feed>
@@ -21,7 +21,7 @@
 #data
 <feed xmlns="http://www.w3.org/2005/Atom">
 <id>about:</id>
-<title type="text">xxx</title>
+<title type="text">xxa</title>
 <link rel="self" href=""/>
 <updated>2000-01-02T03:04:05Z</updated>
 </feed>
@@ -41,12 +41,11 @@
 #data
 <feed xmlns="http://www.w3.org/2005/Atom">
 <id>about:</id>
-<title type="html">xxx</title>
+<title type="html">xxa</title>
 <link rel="self" href=""/>
 <updated>2000-01-02T03:04:05Z</updated>
 </feed>
 #errors
-/feed/title;SUBDOC;text/html
 
 #data
 <feed xmlns="http://www.w3.org/2005/Atom">
@@ -58,7 +57,6 @@
 #errors
 /feed/title/p;element not allowed:atom|TextConstruct;m
 /feed/title/p;unknown namespace element;w
-/feed/title;SUBDOC;text/html
 
 #data
 <feed xmlns="http://www.w3.org/2005/Atom">
@@ -69,17 +67,17 @@
 </feed>
 #errors
 /feed/title/div;element not allowed:atom|TextConstruct;m
-/feed/title;SUBDOC;text/html
+/feed/title;no significant content;s
 
 #data
 <feed xmlns="http://www.w3.org/2005/Atom">
 <id>about:</id>
-<title type="xhtml">xxx</title>
+<title type="xhtml">xxa</title>
 <link rel="self" href=""/>
 <updated>2000-01-02T03:04:05Z</updated>
 </feed>
 #errors
-/feed/title/"xxx";character not allowed:atom|TextConstruct;m
+/feed/title/"xxa";character not allowed:atom|TextConstruct;m
 /feed/title;child element missing;div;m
 
 #data
@@ -744,7 +742,7 @@
 <content type="html"/>
 </entry>
 #errors
-/entry/content;SUBDOC;text/html
+/entry/content;no significant content;s
 
 #data
 <entry xmlns="http://www.w3.org/2005/Atom">

@@ -1,0 +1,28 @@
+#data
+<summary type="html" xmlns="http://www.w3.org/2005/Atom"></summary>
+#errors
+/summary;no significant content;s
+
+#data
+<summary type="html" xmlns="http://www.w3.org/2005/Atom">abc</summary>
+#errors
+
+#data
+<summary type="html" xmlns="http://www.w3.org/2005/Atom">&lt;p>aaa</summary>
+#errors
+
+#data
+<summary type="html" xmlns="http://www.w3.org/2005/Atom">&lt;p>aaa&amp;xx;</summary>
+#errors
+/summary;entity not declared;m
+
+#data
+<content type="html" xmlns="http://www.w3.org/2005/Atom">&lt;p>aaa&amp;xx;</content>
+#errors
+/content;entity not declared;m
+
+#data
+<subtitle type="html" xmlns="http://www.w3.org/2005/Atom">&lt;p>aaa&lt;xy>xx;&lt;/xy></subtitle>
+#errors
+/subtitle;element not defined;m
+/subtitle;element not allowed:phrasing;m
