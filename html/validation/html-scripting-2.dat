@@ -158,6 +158,13 @@
 
 #data
 | <script src="xyz" xmlns="http://www.w3.org/1999/xhtml">
+|    // abc
+|    </script>
+#errors escaped
+/script;script:inline doc:invalid;m
+
+#data
+| <script src="xyz" xmlns="http://www.w3.org/1999/xhtml">
 |    // abc<!---->&#xd;
 | </script>
 #errors escaped
