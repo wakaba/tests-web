@@ -2996,6 +2996,28 @@ aaa
 /div;no significant content;s
 
 #data
+<span xmlns="http://www.w3.org/1999/xhtml">
+  <dialog>a</dialog>
+</span>
+#errors
+/span;no significant content;s
+/span/dialog;element not allowed:phrasing;m
+
+#data
+<dt xmlns="http://www.w3.org/1999/xhtml">
+  <dialog>a</dialog>
+</dt>
+#errors
+/dt;no significant content;s
+
+#data
+<th xmlns="http://www.w3.org/1999/xhtml">
+  <dialog>a</dialog>
+</th>
+#errors
+/th;no significant content;s
+
+#data
 <dt nowrap="" xmlns="http://www.w3.org/1999/xhtml">x</dt>
 #errors
 /dt/@nowrap;attribute not defined;m
