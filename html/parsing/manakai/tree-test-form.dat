@@ -422,3 +422,15 @@ unmatched </form>
 |       <!-- a -->
 |       <!-- b -->
 |     <table>
+
+#data escaped
+<!DOCTYPE html><textarea>\u0000\u000Aa</textarea>
+#errors
+NULL
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <textarea>
+|       "\uFFFD\u000Aa"

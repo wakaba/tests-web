@@ -1271,3 +1271,81 @@ no </main>
 |     <main>
 |       <p>
 |     "x"
+
+#data escaped
+<!DOCTYPE html><pre>\u0000\u000Aa</pre>
+#errors
+NULL (data state)
+NULL ("in body" insertion mode)
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <pre>
+|       "\u000Aa"
+
+#data escaped
+<!DOCTYPE html><pre>\u0000\u000Da</pre>
+#errors
+NULL (data state)
+NULL ("in body" insertion mode)
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <pre>
+|       "\u000Aa"
+
+#data escaped
+<!DOCTYPE html><pre>\u0000\u000D\u000Aa</pre>
+#errors
+NULL (data state)
+NULL ("in body" insertion mode)
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <pre>
+|       "\u000Aa"
+
+#data escaped
+<!DOCTYPE html><listing>\u0000\u000Aa</listing>
+#errors
+NULL (data state)
+NULL ("in body" insertion mode)
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <listing>
+|       "\u000Aa"
+
+#data escaped
+<!DOCTYPE html><listing>\u0000\u000Da</listing>
+#errors
+NULL (data state)
+NULL ("in body" insertion mode)
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <listing>
+|       "\u000Aa"
+
+#data escaped
+<!DOCTYPE html><listing>\u0000\u000D\u000Aa</listing>
+#errors
+NULL (data state)
+NULL ("in body" insertion mode)
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <listing>
+|       "\u000Aa"
