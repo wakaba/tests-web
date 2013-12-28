@@ -1,0 +1,23 @@
+#data
+<template>aa</template>
+#document
+| <{} template>
+|   "aa"
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml">aa</template>
+#document
+| <template>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   content
+|     "aa"
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><template>aa</template></template>
+#document
+| <template>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   content
+|     <template>
+|       content
+|         "aa"
