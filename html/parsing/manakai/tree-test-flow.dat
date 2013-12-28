@@ -1233,3 +1233,41 @@ missing </ul>
 |         <ul>
 |           <li>
 |           "a"
+
+#data
+<!DOCTYPE html><span><main>aaa</span>bbbb
+#errors
+unmatched </span>
+unexpected EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <span>
+|       <main>
+|         "aaabbbb"
+
+#data
+<!DOCTYPE html><p><main>
+#errors
+no </main>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|     <main>
+
+#data
+<!DOCTYPE html><main><p></main>x
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <main>
+|       <p>
+|     "x"
