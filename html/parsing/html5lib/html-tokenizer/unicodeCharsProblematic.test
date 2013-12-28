@@ -1,23 +1,23 @@
 {"tests" : [
 {"description": "Invalid Unicode character U+DFFF",
 "doubleEscaped":true,
-"input": "\\uDFFF",
-"output":["ParseError", ["Character", "\\uFFFD"]]},
+"input": "\uDFFF",
+"output":["ParseError", ["Character", "\uDFFF"]]},
 
 {"description": "Invalid Unicode character U+D800",
 "doubleEscaped":true,
-"input": "\\uD800",
-"output":["ParseError", ["Character", "\\uFFFD"]]},
+"input": "\uD800",
+"output":["ParseError", ["Character", "\uD800"]]},
 
 {"description": "Invalid Unicode character U+DFFF with valid preceding character",
 "doubleEscaped":true,
-"input": "a\\uDFFF",
-"output":["ParseError", ["Character", "a\\uFFFD"]]},
+"input": "a\uDFFF",
+"output":["ParseError", ["Character", "a\uDFFF"]]},
 
 {"description": "Invalid Unicode character U+D800 with valid following character",
 "doubleEscaped":true,
-"input": "\\uD800a",
-"output":["ParseError", ["Character", "\\uFFFDa"]]},
+"input": "\uD800a",
+"output":["ParseError", ["Character", "\uD800a"]]},
 
 {"description":"CR followed by U+0000",
 "input":"\r\u0000",
