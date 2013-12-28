@@ -1349,3 +1349,41 @@ NULL ("in body" insertion mode)
 |   <body>
 |     <listing>
 |       "\u000Aa"
+
+#data
+<!DOCTYPE html><p><dialog>
+#errors
+no </dialog>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|     <dialog>
+
+#data
+<!DOCTYPE html><dialog><p></dialog>x
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <dialog>
+|       <p>
+|     "x"
+
+#data
+<!DOCTYPE html><span><dialog>aaa</span>bbbb
+#errors
+no </dialog>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <span>
+|       <dialog>
+|         "aaa"
+|     "bbbb"
