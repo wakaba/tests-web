@@ -1,6 +1,6 @@
 HG = hg
 
-all: htmlparser-data htmlparser-data-manakai.diff
+all: htmlparser-data htmlparser-data-manakai-2.diff
 
 htmlparser-data:
 	mkdir -p tmp html-tokenizer html-tree
@@ -11,6 +11,7 @@ htmlparser-data:
 	cp -R tmp/html5lib/testdata/tree-construction/* html-tree/
 	cp tmp/html5lib/LICENSE html-tree/
 	patch -p3 < htmlparser-data-manakai.diff
+	patch -p4 < htmlparser-data-manakai-2.diff
 
-htmlparser-data-manakai.diff: html-tokenizer html-tree
-	git diff 9cfd78bb2d -- html-tokenizer html-tree > $@
+htmlparser-data-manakai-2.diff: html-tokenizer html-tree
+	git diff 8cd5c6ce266cdfa96bb7a1c6eb2f723b27c4628d -- html-tokenizer html-tree > $@
