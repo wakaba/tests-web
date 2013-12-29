@@ -1,6 +1,9 @@
 #data
 <!doctype html><table><tbody><select><tr>
 #errors
+<select> in table
+<tr> in <select>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -14,6 +17,9 @@
 #data
 <!doctype html><table><tr><select><td>
 #errors
+<select> in table
+<td> in select
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -28,6 +34,8 @@
 #data
 <!doctype html><table><tr><td><select><td>
 #errors
+no </select>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -43,6 +51,8 @@
 #data
 <!doctype html><table><tr><th><select><td>
 #errors
+no </select>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -58,6 +68,9 @@
 #data
 <!doctype html><table><caption><select><tr>
 #errors
+no </caption> before </tr>
+no </select> before implied </caption>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -72,6 +85,8 @@
 #data
 <!doctype html><select><tr>
 #errors
+<tr> in select
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -82,6 +97,8 @@
 #data
 <!doctype html><select><td>
 #errors
+<td> in select
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -92,6 +109,8 @@
 #data
 <!doctype html><select><th>
 #errors
+<th> in select
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -102,6 +121,8 @@
 #data
 <!doctype html><select><tbody>
 #errors
+<tbody> in select
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -112,6 +133,8 @@
 #data
 <!doctype html><select><thead>
 #errors
+<thead> in select
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -122,6 +145,8 @@
 #data
 <!doctype html><select><tfoot>
 #errors
+<tfoot> in select
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -132,6 +157,8 @@
 #data
 <!doctype html><select><caption>
 #errors
+<caption> in select
+EOF
 #document
 | <!DOCTYPE html>
 | <html>

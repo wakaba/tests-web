@@ -25,7 +25,8 @@ NULL (tokenizer)
 NULL
 #document-fragment
 svg svg
-#document
+#document escaped
+| "\uFFFD"
 
 #data escaped
 <svg>\u0000</svg>
@@ -396,6 +397,7 @@ control character
 \ud800
 #errors
 no DOCTYPE
+surrogate
 #document escaped
 | <html>
 |   <head>
@@ -405,6 +407,7 @@ no DOCTYPE
 #data escaped
 \ud800
 #errors
+surrogate
 #document-fragment p escaped
 | "\uD800"
 
@@ -412,6 +415,7 @@ no DOCTYPE
 \udfff
 #errors
 no DOCTYPE
+surrogate
 #document escaped
 | <html>
 |   <head>
@@ -421,6 +425,7 @@ no DOCTYPE
 #data escaped
 \udfff
 #errors
+surrogate
 #document-fragment p escaped
 | "\uDFFF"
 

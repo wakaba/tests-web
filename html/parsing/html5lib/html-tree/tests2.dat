@@ -129,6 +129,7 @@ Line: 1 Col: 11 Unexpected end of file. Expected end tag (script).
 #errors
 Line: 1 Col: 7 Unexpected start tag (table). Expected DOCTYPE.
 Line: 1 Col: 18 Unexpected start tag (plaintext) in table context caused voodoo mode.
+text in table
 Line: 1 Col: 22 Unexpected end of file. Expected table content.
 #document
 | <html>
@@ -184,9 +185,7 @@ Line: 1 Col: 53 Unexpected start tag (body).
 </b test
 #errors
 Line: 1 Col: 8 Unexpected end of file in attribute name.
-Line: 1 Col: 8 End tag contains unexpected attributes.
 Line: 1 Col: 8 Unexpected end tag (b). Expected DOCTYPE.
-Line: 1 Col: 8 Unexpected end tag (b) after the (implied) root element.
 #document
 | <html>
 |   <head>
@@ -195,6 +194,7 @@ Line: 1 Col: 8 Unexpected end tag (b) after the (implied) root element.
 #data
 <!DOCTYPE html></b test<b &=&amp>X
 #errors
+no DOCTYPE
 Line: 1 Col: 32 Named entity didn't end with ';'.
 Line: 1 Col: 33 End tag contains unexpected attributes.
 Line: 1 Col: 33 Unexpected end tag (b) after the (implied) root element.
@@ -276,7 +276,6 @@ Line: 1 Col: 4 Unexpected non-space characters. Expected DOCTYPE.
 #data
 &x-test
 #errors
-Line: 1 Col: 1 Named entity expected. Got none.
 Line: 1 Col: 1 Unexpected non-space characters. Expected DOCTYPE.
 #document
 | <html>

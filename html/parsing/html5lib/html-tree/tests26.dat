@@ -1,6 +1,16 @@
 #data
 <!DOCTYPE html><body><a href='#1'><nobr>1<nobr></a><br><a href='#2'><nobr>2<nobr></a><br><a href='#3'><nobr>3<nobr></a>
 #errors
+nobr in nobr
+reconstruct at <br>
+reconstruct at <a>
+nobr in nobr
+nobr in nobr
+reconstruct at <br>
+reconstruct at <a>
+nobr in nobr
+nobr in nobr
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -33,6 +43,13 @@
 #data
 <!DOCTYPE html><body><b><nobr>1<nobr></b><i><nobr>2<nobr></i>3
 #errors
+nobr in nobr
+AAA at </b>
+reconstruct at <i>
+nobr in nobr
+nobr in nobr
+AAA at </i>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -54,6 +71,24 @@
 #data
 <!DOCTYPE html><body><b><nobr>1<table><nobr></b><i><nobr>2<nobr></i>3
 #errors
+1:45:in table:nobr
+1:49:in table:/:b
+1:49:unmatched end tag:b
+1:52:in table:i
+1:58:in table:nobr
+1:58:in nobr:nobr
+1:58:in table:/:nobr
+1:58:not closed:i
+1:58:in table:nobr
+1:59:in table:\#text
+1:65:in table:nobr
+1:65:in nobr:nobr
+1:65:in table:/:nobr
+1:65:in table:nobr
+1:69:in table:/:i
+1:69:not closed:nobr
+1:69:in table:\#text
+1:69:in body:\#eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -75,6 +110,12 @@
 #data
 <!DOCTYPE html><body><b><nobr>1<table><tr><td><nobr></b><i><nobr>2<nobr></i>3
 #errors
+unmatched </b>
+<nobr> in nobr
+AAA at implied </nobr>
+<nobr> in nobr
+AAA at impied </i>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -99,6 +140,15 @@
 #data
 <!DOCTYPE html><body><b><nobr>1<div><nobr></b><i><nobr>2<nobr></i>3
 #errors
+1:43:in nobr:nobr
+1:43:not closed:div
+1:47:not closed:nobr
+1:47:not closed:nobr
+1:56:in nobr:nobr
+1:56:not closed:i
+1:63:in nobr:nobr
+1:67:not closed:nobr
+1:67:in body:\#eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -123,6 +173,13 @@
 #data
 <!DOCTYPE html><body><b><nobr>1<nobr></b><div><i><nobr>2<nobr></i>3
 #errors
+1
+2
+3
+4
+5
+6
+7
 #document
 | <!DOCTYPE html>
 | <html>
@@ -145,6 +202,11 @@
 #data
 <!DOCTYPE html><body><b><nobr>1<nobr><ins></b><i><nobr>
 #errors
+1
+2
+3
+4
+5
 #document
 | <!DOCTYPE html>
 | <html>
@@ -163,6 +225,10 @@
 #data
 <!DOCTYPE html><body><b><nobr>1<ins><nobr></b><i>2
 #errors
+1
+2
+3
+4
 #document
 | <!DOCTYPE html>
 | <html>
@@ -180,6 +246,10 @@
 #data
 <!DOCTYPE html><body><b>1<nobr></b><i><nobr>2</i>
 #errors
+1
+2
+3
+4
 #document
 | <!DOCTYPE html>
 | <html>
@@ -195,9 +265,11 @@
 |         "2"
 
 #data
-<p><code x</code></p>
-
+| <p><code x</code></p>
+| 
 #errors
+AAA
+EOF
 #document
 | <html>
 |   <head>
@@ -215,11 +287,8 @@
 #data
 <!DOCTYPE html><svg><foreignObject><p><i></p>a
 #errors
-45: End tag “p” seen, but there were open elements.
-41: Unclosed element “i”.
-46: End of file seen and there were open elements.
-35: Unclosed element “foreignObject”.
-20: Unclosed element “svg”.
+AAA
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -235,12 +304,8 @@
 #data
 <!DOCTYPE html><table><tr><td><svg><foreignObject><p><i></p>a
 #errors
-56: End tag “p” seen, but there were open elements.
-52: Unclosed element “i”.
-57: End of file seen and there were open elements.
-46: Unclosed element “foreignObject”.
-31: Unclosed element “svg”.
-22: Unclosed element “table”.
+AAA
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -260,9 +325,8 @@
 #data
 <!DOCTYPE html><math><mtext><p><i></p>a
 #errors
-38: End tag “p” seen, but there were open elements.
-34: Unclosed element “i”.
-39: End of file in a foreign namespace context.
+AAA
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -278,9 +342,8 @@
 #data
 <!DOCTYPE html><table><tr><td><math><mtext><p><i></p>a
 #errors
-53: End tag “p” seen, but there were open elements.
-49: Unclosed element “i”.
-54: End of file in a foreign namespace context.
+AAA
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -302,7 +365,6 @@
 #errors
 29: Bogus comment.
 34: End of file seen and there were open elements.
-26: Unclosed element “div”.
 #document
 | <!DOCTYPE html>
 | <html>

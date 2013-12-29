@@ -1,6 +1,7 @@
 #data
 <!doctype html><math><mn DefinitionUrl="foo">
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -13,6 +14,7 @@
 #data
 <!doctype html><html></p><!--foo-->
 #errors
+unmatched </p>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -23,6 +25,7 @@
 #data
 <!doctype html><head></head></p><!--foo-->
 #errors
+unmatched </p>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -33,6 +36,7 @@
 #data
 <!doctype html><body><p><pre>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -44,6 +48,7 @@
 #data
 <!doctype html><body><p><listing>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -55,6 +60,7 @@
 #data
 <!doctype html><p><plaintext>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -66,6 +72,7 @@
 #data
 <!doctype html><p><h1>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -77,6 +84,8 @@
 #data
 <!doctype html><form><isindex>
 #errors
+no </form> before <isindex>
+isindex
 #document
 | <!DOCTYPE html>
 | <html>
@@ -87,6 +96,7 @@
 #data
 <!doctype html><isindex action="POST">
 #errors
+isindex
 #document
 | <!DOCTYPE html>
 | <html>
@@ -104,6 +114,7 @@
 #data
 <!doctype html><isindex prompt="this is isindex">
 #errors
+isindex
 #document
 | <!DOCTYPE html>
 | <html>
@@ -120,6 +131,7 @@
 #data
 <!doctype html><isindex type="hidden">
 #errors
+isindex
 #document
 | <!DOCTYPE html>
 | <html>
@@ -137,6 +149,7 @@
 #data
 <!doctype html><isindex name="foo">
 #errors
+isindex
 #document
 | <!DOCTYPE html>
 | <html>
@@ -153,6 +166,7 @@
 #data
 <!doctype html><ruby><p><rp>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -165,6 +179,8 @@
 #data
 <!doctype html><ruby><div><span><rp>
 #errors
+no </span></div> before <rp>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -178,6 +194,8 @@
 #data
 <!doctype html><ruby><div><p><rp>
 #errors
+no </div> before <rp>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -191,6 +209,7 @@
 #data
 <!doctype html><ruby><p><rt>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -203,6 +222,8 @@
 #data
 <!doctype html><ruby><div><span><rt>
 #errors
+no </span></div> before <rt>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -216,6 +237,8 @@
 #data
 <!doctype html><ruby><div><p><rt>
 #errors
+no </div> before <rt>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -229,6 +252,7 @@
 #data
 <!doctype html><math/><foo>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -240,6 +264,7 @@
 #data
 <!doctype html><svg/><foo>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -251,6 +276,7 @@
 #data
 <!doctype html><div></body><!--foo-->
 #errors
+no </div> before </body>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -262,6 +288,8 @@
 #data
 <!doctype html><h1><div><h3><span></h1>foo
 #errors
+</h1> closing <h3>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -276,6 +304,7 @@
 #data
 <!doctype html><p></h3>foo
 #errors
+unmatched </h3>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -287,6 +316,7 @@
 #data
 <!doctype html><h3><li>abc</h2>foo
 #errors
+</h2> closes <h3>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -300,6 +330,8 @@
 #data
 <!doctype html><table>abc<!--foo-->
 #errors
+"abc" in table
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -312,6 +344,7 @@
 #data
 <!doctype html><table>  <!--foo-->
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -324,6 +357,8 @@
 #data
 <!doctype html><table> b <!--foo-->
 #errors
+" b " in table
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -336,6 +371,7 @@
 #data
 <!doctype html><select><option><option>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -348,6 +384,7 @@
 #data
 <!doctype html><select><option></optgroup>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -359,6 +396,7 @@
 #data
 <!doctype html><select><option></optgroup>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -370,6 +408,7 @@
 #data
 <!doctype html><p><math><mi><p><h1>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -384,6 +423,7 @@
 #data
 <!doctype html><p><math><mo><p><h1>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -398,6 +438,7 @@
 #data
 <!doctype html><p><math><mn><p><h1>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -412,6 +453,7 @@
 #data
 <!doctype html><p><math><ms><p><h1>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -426,6 +468,7 @@
 #data
 <!doctype html><p><math><mtext><p><h1>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -440,6 +483,8 @@
 #data
 <!doctype html><frameset></noframes>
 #errors
+unmatched </noframes>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -449,6 +494,8 @@
 #data
 <!doctype html><html c=d><body></html><html a=b>
 #errors
+after html: <html>
+second <html>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -460,6 +507,8 @@
 #data
 <!doctype html><html c=d><frameset></frameset></html><html a=b>
 #errors
+after html: <html>
+second <html>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -491,6 +540,7 @@
 #data
 <!doctype html><html><frameset></frameset></html>abc
 #errors
+after html: "abc"
 #document
 | <!DOCTYPE html>
 | <html>
@@ -500,6 +550,7 @@
 #data
 <!doctype html><html><frameset></frameset></html><p>
 #errors
+after html: <p>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -509,6 +560,7 @@
 #data
 <!doctype html><html><frameset></frameset></html></p>
 #errors
+after html: </p>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -518,6 +570,8 @@
 #data
 <html><frameset></frameset></html><!doctype html>
 #errors
+no doctype
+doctype after html
 #document
 | <html>
 |   <head>
@@ -526,6 +580,7 @@
 #data
 <!doctype html><body><frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -535,6 +590,8 @@
 #data
 <!doctype html><p><frameset><frame>
 #errors
+frameset in body
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -545,6 +602,7 @@
 #data
 <!doctype html><p>a<frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -556,6 +614,8 @@
 #data
 <!doctype html><p> <frameset><frame>
 #errors
+frameset in body
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -566,6 +626,8 @@
 #data
 <!doctype html><pre><frameset>
 #errors
+frameset in body
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -576,6 +638,8 @@
 #data
 <!doctype html><listing><frameset>
 #errors
+frameset in body
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -586,6 +650,7 @@
 #data
 <!doctype html><li><frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -596,6 +661,7 @@
 #data
 <!doctype html><dd><frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -606,6 +672,7 @@
 #data
 <!doctype html><dt><frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -616,6 +683,8 @@
 #data
 <!doctype html><button><frameset>
 #errors
+frameset in body
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -626,6 +695,8 @@
 #data
 <!doctype html><applet><frameset>
 #errors
+frameset in body
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -636,6 +707,8 @@
 #data
 <!doctype html><marquee><frameset>
 #errors
+frameset in body
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -646,6 +719,8 @@
 #data
 <!doctype html><object><frameset>
 #errors
+frameset in body
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -656,6 +731,8 @@
 #data
 <!doctype html><table><frameset>
 #errors
+frameset in body
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -666,6 +743,7 @@
 #data
 <!doctype html><area><frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -676,6 +754,7 @@
 #data
 <!doctype html><basefont><frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -686,6 +765,7 @@
 #data
 <!doctype html><bgsound><frameset>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -696,6 +776,7 @@
 #data
 <!doctype html><br><frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -706,6 +787,7 @@
 #data
 <!doctype html><embed><frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -716,6 +798,7 @@
 #data
 <!doctype html><img><frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -726,6 +809,7 @@
 #data
 <!doctype html><input><frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -736,6 +820,7 @@
 #data
 <!doctype html><keygen><frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -746,6 +831,7 @@
 #data
 <!doctype html><wbr><frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -756,6 +842,7 @@
 #data
 <!doctype html><hr><frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -766,6 +853,7 @@
 #data
 <!doctype html><textarea></textarea><frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -776,6 +864,7 @@
 #data
 <!doctype html><xmp></xmp><frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -786,6 +875,7 @@
 #data
 <!doctype html><iframe></iframe><frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -796,6 +886,7 @@
 #data
 <!doctype html><select></select><frameset>
 #errors
+frameset in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -806,6 +897,8 @@
 #data
 <!doctype html><svg></svg><frameset><frame>
 #errors
+frameset in body
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -816,6 +909,8 @@
 #data
 <!doctype html><math></math><frameset><frame>
 #errors
+frameset in body
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -826,6 +921,8 @@
 #data
 <!doctype html><svg><foreignObject><div> <frameset><frame>
 #errors
+frameset in body
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -836,6 +933,8 @@
 #data
 <!doctype html><svg>a</svg><frameset><frame>
 #errors
+frameset in body
+frame in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -847,6 +946,8 @@
 #data
 <!doctype html><svg> </svg><frameset><frame>
 #errors
+frameset in body
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -857,6 +958,9 @@
 #data
 <html>aaa<frameset></frameset>
 #errors
+no DOCTYPE
+frameset in body
+</frameset>
 #document
 | <html>
 |   <head>
@@ -866,6 +970,9 @@
 #data
 <html> a <frameset></frameset>
 #errors
+no DOCTYPE
+frameset in body
+</frameset>
 #document
 | <html>
 |   <head>
@@ -875,6 +982,8 @@
 #data
 <!doctype html><div><frameset>
 #errors
+frameset in body
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -884,6 +993,9 @@
 #data
 <!doctype html><div><body><frameset>
 #errors
+<body> in body
+<frameset> in body
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -894,6 +1006,8 @@
 #data
 <!doctype html><p><math></p>a
 #errors
+</p> in foreign
+no </math> before </p>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -906,6 +1020,8 @@
 #data
 <!doctype html><p><math><mn><span></p>a
 #errors
+unmatched </p>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -921,6 +1037,9 @@
 #data
 <!doctype html><math></html>
 #errors
+</html> in foreign
+no </math> before </html>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -966,6 +1085,7 @@
 #data
 <!doctype html><html a=b><head></head><html c=d>
 #errors
+second <html>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -977,6 +1097,7 @@
 #data
 <!doctype html><image/>
 #errors
+<image>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -987,6 +1108,15 @@
 #data
 <!doctype html>a<i>b<table>c<b>d</i>e</b>f
 #errors
+"c" in table
+<b> in table
+"d" in table
+</i> in table
+AAA at </i>
+"e" in table
+</b> in table
+"f" in table
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1003,6 +1133,21 @@
 #data
 <!doctype html><table><i>a<b>b<div>c<a>d</i>e</b>f
 #errors
+<i> in table
+"a" in table
+<b> in table
+"b" in table
+<div> in table
+"c" in table
+<a> in table
+"d" in table
+</i> in table
+AAA at </i>
+"e" in table
+</b> in table
+AAA at </b>
+"f" in table
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1028,6 +1173,9 @@
 #data
 <!doctype html><i>a<b>b<div>c<a>d</i>e</b>f
 #errors
+AAA at </i>
+AAA at </b>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1052,6 +1200,15 @@
 #data
 <!doctype html><table><i>a<b>b<div>c</i>
 #errors
+<i> in table
+"a" in table
+<b> in table
+"b" in table
+<div> in table
+"c" in table
+</i> in table
+AAA at </i>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1070,6 +1227,21 @@
 #data
 <!doctype html><table><i>a<b>b<div>c<a>d</i>e</b>f
 #errors
+<i> in table
+"a" in table
+<b> in table
+"b" in table
+<div> in table
+"c" in table
+<a> in table
+"d" in table
+</i> in table
+AAA at </i>
+"e" in table
+</b> in table
+AAA at </b>
+"f" in table
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1095,6 +1267,17 @@
 #data
 <!doctype html><table><i>a<div>b<tr>c<b>d</i>e
 #errors
+<i> in table
+"a" in table
+<div> in table
+"b" in table
+"c" in table
+<b> in table
+"d" in table
+</i> in table
+AAA at </i>
+"e" in table
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1117,6 +1300,17 @@
 #data
 <!doctype html><table><td><table><i>a<div>b<b>c</i>d
 #errors
+no <tr>
+<i> in table
+"a" in table
+<div> in table
+"b" in table
+<b> in table
+"c" in table
+</i> in table
+AAA at </i>
+"d" in table
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1160,6 +1354,7 @@
 #data
 <!doctype html><a><b></a><basefont>
 #errors
+no </b>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1172,6 +1367,7 @@
 #data
 <!doctype html><a><b></a><bgsound>
 #errors
+no </b>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1184,6 +1380,7 @@
 #data
 <!doctype html><figcaption><article></figcaption>a
 #errors
+no </article>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1196,6 +1393,7 @@
 #data
 <!doctype html><summary><article></summary>a
 #errors
+no </article>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1208,6 +1406,8 @@
 #data
 <!doctype html><p><a><plaintext>b
 #errors
+reconstruct at <plaintext>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1222,6 +1422,8 @@
 #data
 <!DOCTYPE html><div>a<a></div>b<p>c</p>d
 #errors
+no </a>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>

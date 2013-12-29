@@ -1,6 +1,7 @@
 #data
 <!doctype html><plaintext></plaintext>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -12,6 +13,9 @@
 #data
 <!doctype html><table><plaintext></plaintext>
 #errors
+<plaintext> in table
+text in table
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -24,6 +28,9 @@
 #data
 <!doctype html><table><tbody><plaintext></plaintext>
 #errors
+<plaintext> in table
+text in table
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -37,6 +44,9 @@
 #data
 <!doctype html><table><tbody><tr><plaintext></plaintext>
 #errors
+<plaintext> in table
+text in table
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -51,6 +61,9 @@
 #data
 <!doctype html><table><tbody><tr><plaintext></plaintext>
 #errors
+<plaintext> in table
+text in table
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -65,6 +78,7 @@
 #data
 <!doctype html><table><td><plaintext></plaintext>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -80,6 +94,7 @@
 #data
 <!doctype html><table><caption><plaintext></plaintext>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -93,6 +108,7 @@
 #data
 <!doctype html><table><tr><style></script></style>abc
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -108,6 +124,7 @@
 #data
 <!doctype html><table><tr><script></style></script>abc
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -123,6 +140,7 @@
 #data
 <!doctype html><table><caption><style></script></style>abc
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -137,6 +155,8 @@
 #data
 <!doctype html><table><td><style></script></style>abc
 #errors
+no <tr>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -153,6 +173,7 @@
 #data
 <!doctype html><select><script></style></script>abc
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -166,6 +187,8 @@
 #data
 <!doctype html><table><select><script></style></script>abc
 #errors
+<select> in table
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -180,6 +203,8 @@
 #data
 <!doctype html><table><tr><select><script></style></script>abc
 #errors
+<select> in table
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -196,6 +221,7 @@
 #data
 <!doctype html><frameset></frameset><noframes>abc
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -219,6 +245,7 @@
 #data
 <!doctype html><frameset></frameset></html><noframes>abc
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -242,6 +269,7 @@
 #data
 <!doctype html><table><tr></tbody><tfoot>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -255,6 +283,8 @@
 #data
 <!doctype html><table><td><svg></svg>abc<td>
 #errors
+no <tr>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>

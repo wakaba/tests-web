@@ -74,7 +74,6 @@ Line: 1 Col: 50 Unexpected end tag (math) in the select phase. Ignored.
 <!DOCTYPE html><body><table><math></math></table>
 #errors
 Line: 1 Col: 34 Unexpected start tag (math) in table context caused voodoo mode.
-Line: 1 Col: 41 Unexpected end tag (math) in table context caused voodoo mode.
 #document
 | <!DOCTYPE html>
 | <html>
@@ -87,8 +86,7 @@ Line: 1 Col: 41 Unexpected end tag (math) in table context caused voodoo mode.
 <!DOCTYPE html><body><table><math><mi>foo</mi></math></table>
 #errors
 Line: 1 Col: 34 Unexpected start tag (math) in table context caused voodoo mode.
-Line: 1 Col: 46 Unexpected end tag (mi) in table context caused voodoo mode.
-Line: 1 Col: 53 Unexpected end tag (math) in table context caused voodoo mode.
+"foo" in table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -103,9 +101,8 @@ Line: 1 Col: 53 Unexpected end tag (math) in table context caused voodoo mode.
 <!DOCTYPE html><body><table><math><mi>foo</mi><mi>bar</mi></math></table>
 #errors
 Line: 1 Col: 34 Unexpected start tag (math) in table context caused voodoo mode.
-Line: 1 Col: 46 Unexpected end tag (mi) in table context caused voodoo mode.
-Line: 1 Col: 58 Unexpected end tag (mi) in table context caused voodoo mode.
-Line: 1 Col: 65 Unexpected end tag (math) in table context caused voodoo mode.
+"foo" in table
+"bar" in table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -122,9 +119,8 @@ Line: 1 Col: 65 Unexpected end tag (math) in table context caused voodoo mode.
 <!DOCTYPE html><body><table><tbody><math><mi>foo</mi><mi>bar</mi></math></tbody></table>
 #errors
 Line: 1 Col: 41 Unexpected start tag (math) in table context caused voodoo mode.
-Line: 1 Col: 53 Unexpected end tag (mi) in table context caused voodoo mode.
-Line: 1 Col: 65 Unexpected end tag (mi) in table context caused voodoo mode.
-Line: 1 Col: 72 Unexpected end tag (math) in table context caused voodoo mode.
+"foo" in table
+"bar" in table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -142,9 +138,8 @@ Line: 1 Col: 72 Unexpected end tag (math) in table context caused voodoo mode.
 <!DOCTYPE html><body><table><tbody><tr><math><mi>foo</mi><mi>bar</mi></math></tr></tbody></table>
 #errors
 Line: 1 Col: 45 Unexpected start tag (math) in table context caused voodoo mode.
-Line: 1 Col: 57 Unexpected end tag (mi) in table context caused voodoo mode.
-Line: 1 Col: 69 Unexpected end tag (mi) in table context caused voodoo mode.
-Line: 1 Col: 76 Unexpected end tag (math) in table context caused voodoo mode.
+"foo" in table
+"bar" in table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -240,6 +235,7 @@ Line: 1 Col: 81 Unexpected end table tag in caption. Generates implied end capti
 #data
 <!DOCTYPE html><body><table><caption><math><mi>foo</mi><mi>bar</mi>baz</table><p>quux
 #errors
+unmatched </table> in foreign content
 Line: 1 Col: 78 Unexpected end table tag in caption. Generates implied end caption.
 Line: 1 Col: 78 Unexpected end tag (caption). Missing end tag (math).
 #document
@@ -262,10 +258,11 @@ Line: 1 Col: 78 Unexpected end tag (caption). Missing end tag (math).
 <!DOCTYPE html><body><table><colgroup><math><mi>foo</mi><mi>bar</mi><p>baz</table><p>quux
 #errors
 Line: 1 Col: 44 Unexpected start tag (math) in table context caused voodoo mode.
-Line: 1 Col: 56 Unexpected end tag (mi) in table context caused voodoo mode.
-Line: 1 Col: 68 Unexpected end tag (mi) in table context caused voodoo mode.
+"foo" in table
+"bar" in table
 Line: 1 Col: 71 HTML start tag "p" in a foreign namespace context.
 Line: 1 Col: 71 Unexpected start tag (p) in table context caused voodoo mode.
+"baz" in table
 #document
 | <!DOCTYPE html>
 | <html>

@@ -13,7 +13,6 @@
 <!doctype html><table><title>X</title></table>
 #errors
 Line: 1 Col: 29 Unexpected start tag (title) in table context caused voodoo mode.
-Line: 1 Col: 38 Unexpected end tag (title) in table context caused voodoo mode.
 #document
 | <!DOCTYPE html>
 | <html>
@@ -190,6 +189,7 @@ Line: 1 Col: 41 Unexpected input with type hidden in table context.
 <!doctype html><table>X<input type=hidDEN></table>
 #errors
 Line: 1 Col: 23 Unexpected non-space characters in table context caused voodoo mode.
+<input type=hidden> in table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -232,6 +232,7 @@ Line: 1 Col: 45 Unexpected input with type hidden in table context.
 <!doctype html><table><input type=" hidden"><input type=hidDEN></table>
 #errors
 Line: 1 Col: 44 Unexpected start tag (input) in table context caused voodoo mode.
+<input type=hidden> in table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -274,7 +275,6 @@ Line: 1 Col: 35 Unexpected end of file. Expected table content.
 #data
 <!DOCTYPE hTmL><html></html>
 #errors
-Line: 1 Col: 28 Unexpected end tag (html) after the (implied) root element.
 #document
 | <!DOCTYPE html>
 | <html>
@@ -284,7 +284,6 @@ Line: 1 Col: 28 Unexpected end tag (html) after the (implied) root element.
 #data
 <!DOCTYPE HTML><html></html>
 #errors
-Line: 1 Col: 28 Unexpected end tag (html) after the (implied) root element.
 #document
 | <!DOCTYPE html>
 | <html>
@@ -295,7 +294,6 @@ Line: 1 Col: 28 Unexpected end tag (html) after the (implied) root element.
 <body>X</body></body>
 #errors
 Line: 1 Col: 21 Unexpected end tag token (body) in the after body phase.
-Line: 1 Col: 21 Unexpected EOF in inner html mode.
 #document-fragment
 html
 #document
@@ -335,7 +333,10 @@ Line: 1 Col: 7 Unexpected start tag (table). Expected DOCTYPE.
 #data
 <table><b><tr><td>aaa</td></tr>bbb</table>ccc
 #errors
-XXX: Fix me
+<b> in table
+bbb in table
+<b> AAA
+EOF
 #document
 | <html>
 |   <head>
@@ -354,7 +355,9 @@ XXX: Fix me
 #data
 A<table><tr> B</tr> B</table>
 #errors
-XXX: Fix me
+no DOCTYPE
+"B" in table
+"B" in table
 #document
 | <html>
 |   <head>
@@ -367,7 +370,11 @@ XXX: Fix me
 #data
 A<table><tr> B</tr> </em>C</table>
 #errors
-XXX: Fix me
+no DOCTYPE
+"B" in table
+</em> in table
+unexpected </em>
+"C" in table
 #document
 | <html>
 |   <head>
@@ -381,7 +388,8 @@ XXX: Fix me
 #data
 <select><keygen>
 #errors
-Not known
+no DOCTYPE
+no </select>
 #document
 | <html>
 |   <head>

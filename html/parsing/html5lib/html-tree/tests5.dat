@@ -2,7 +2,6 @@
 <style> <!-- </style>x
 #errors
 Line: 1 Col: 7 Unexpected start tag (style). Expected DOCTYPE.
-Line: 1 Col: 22 Unexpected end of file. Expected end tag (style).
 #document
 | <html>
 |   <head>
@@ -15,6 +14,7 @@ Line: 1 Col: 22 Unexpected end of file. Expected end tag (style).
 <style> <!-- </style> --> </style>x
 #errors
 Line: 1 Col: 7 Unexpected start tag (style). Expected DOCTYPE.
+unexpected </style>
 #document
 | <html>
 |   <head>
@@ -63,7 +63,9 @@ Line: 1 Col: 8 Unexpected start tag (iframe). Expected DOCTYPE.
 #data
 <iframe> <!--- </iframe>->x</iframe> --> </iframe>x
 #errors
-Line: 1 Col: 8 Unexpected start tag (iframe). Expected DOCTYPE.
+no DOCTYPE
+unexpected </iframe>
+unexpected </iframe>
 #document
 | <html>
 |   <head>
@@ -76,6 +78,7 @@ Line: 1 Col: 8 Unexpected start tag (iframe). Expected DOCTYPE.
 <script> <!-- </script> --> </script>x
 #errors
 Line: 1 Col: 8 Unexpected start tag (script). Expected DOCTYPE.
+unexpected </script>
 #document
 | <html>
 |   <head>
@@ -89,6 +92,7 @@ Line: 1 Col: 8 Unexpected start tag (script). Expected DOCTYPE.
 <title> <!-- </title> --> </title>x
 #errors
 Line: 1 Col: 7 Unexpected start tag (title). Expected DOCTYPE.
+unexpected </title>
 #document
 | <html>
 |   <head>
@@ -102,6 +106,8 @@ Line: 1 Col: 7 Unexpected start tag (title). Expected DOCTYPE.
 <textarea> <!--- </textarea>->x</textarea> --> </textarea>x
 #errors
 Line: 1 Col: 10 Unexpected start tag (textarea). Expected DOCTYPE.
+unexpected </textarea>
+unexpected </textarea>
 #document
 | <html>
 |   <head>
@@ -170,7 +176,6 @@ Line: 1 Col: 7 Unexpected start tag (title). Expected DOCTYPE.
 <title><!--</title>
 #errors
 Line: 1 Col: 7 Unexpected start tag (title). Expected DOCTYPE.
-Line: 1 Col: 19 Unexpected end of file. Expected end tag (title).
 #document
 | <html>
 |   <head>

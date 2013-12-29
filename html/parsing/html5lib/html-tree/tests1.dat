@@ -113,8 +113,6 @@ Line: 1 Col: 6 Unexpected start tag (html). Expected DOCTYPE.
 <html><head></body></html>
 #errors
 Line: 1 Col: 6 Unexpected start tag (html). Expected DOCTYPE.
-Line: 1 Col: 19 Unexpected end tag (body).
-Line: 1 Col: 26 Unexpected end tag (html).
 #document
 | <html>
 |   <head>
@@ -151,7 +149,6 @@ Line: 1 Col: 6 Unexpected start tag (body). Expected DOCTYPE.
 <head></html>
 #errors
 Line: 1 Col: 6 Unexpected start tag (head). Expected DOCTYPE.
-Line: 1 Col: 13 Unexpected end tag (html). Ignored.
 #document
 | <html>
 |   <head>
@@ -170,7 +167,6 @@ Line: 1 Col: 7 Unexpected end tag (head). Expected DOCTYPE.
 </body>
 #errors
 Line: 1 Col: 7 Unexpected end tag (body). Expected DOCTYPE.
-Line: 1 Col: 7 Unexpected end tag (body) after the (implied) root element.
 #document
 | <html>
 |   <head>
@@ -180,7 +176,6 @@ Line: 1 Col: 7 Unexpected end tag (body) after the (implied) root element.
 </html>
 #errors
 Line: 1 Col: 7 Unexpected end tag (html). Expected DOCTYPE.
-Line: 1 Col: 7 Unexpected end tag (html) after the (implied) root element.
 #document
 | <html>
 |   <head>
@@ -263,6 +258,7 @@ Line: 1 Col: 24 End tag (a) violates step 1, paragraph 1 of the adoption agency 
 #errors
 Line: 1 Col: 3 Unexpected start tag (b). Expected DOCTYPE.
 Line: 1 Col: 15 End tag (b) violates step 1, paragraph 1 of the adoption agency algorithm.
+EOF in button
 #document
 | <html>
 |   <head>
@@ -277,6 +273,7 @@ Line: 1 Col: 15 End tag (b) violates step 1, paragraph 1 of the adoption agency 
 <!DOCTYPE html><span><button>foo</span>bar
 #errors
 39: End tag “span” seen but there were unclosed elements.
+EOF in button
 #document
 | <!DOCTYPE html>
 | <html>
@@ -456,7 +453,6 @@ Line: 1 Col: 71 Unexpected end of file. Expected table content.
 #data
 <!DOCTYPE html><li>hello<li>world<ul>how<li>do</ul>you</body><!--do-->
 #errors
-Line: 1 Col: 61 Unexpected end tag (li). Missing end tag (body).
 #document
 | <!DOCTYPE html>
 | <html>
@@ -660,6 +656,7 @@ Line: 1 Col: 26 Unexpected end of file. Expected end tag (style).
 #data
 <!DOCTYPE html><script> <!-- </script> --> </script> EOF
 #errors
+unmatched </script>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -834,7 +831,6 @@ Line: 1 Col: 22 Expected closing tag. Unexpected end of file.
 |       "D"
 
 #data
-
 #errors
 Line: 1 Col: 0 Unexpected End of file. Expected DOCTYPE.
 #document
@@ -1123,7 +1119,6 @@ Line: 1 Col: 39 End tag (a) violates step 1, paragraph 1 of the adoption agency 
 Line: 1 Col: 45 Unexpected implied end tag (a) in the table phase.
 Line: 1 Col: 68 Unexpected implied end tag (a) in the table phase.
 Line: 1 Col: 71 Expected closing tag. Unexpected end of file.
-
 #document
 | <html>
 |   <head>
@@ -1224,6 +1219,7 @@ Line: 1 Col: 47 Expected closing tag. Unexpected end of file.
 Line: 1 Col: 5 Unexpected start tag (wbr). Expected DOCTYPE.
 Line: 1 Col: 28 End tag (strike) violates step 1, paragraph 3 of the adoption agency algorithm.
 Line: 1 Col: 49 Unexpected end tag (code). Ignored.
+EOF
 #document
 | <html>
 |   <head>
@@ -1265,7 +1261,6 @@ Line: 1 Col: 7 Unexpected start tag (title). Expected DOCTYPE.
 <style><!--</style><meta><script>--><link></script>
 #errors
 Line: 1 Col: 7 Unexpected start tag (style). Expected DOCTYPE.
-Line: 1 Col: 51 Unexpected end of file. Expected end tag (style).
 #document
 | <html>
 |   <head>
@@ -1315,7 +1310,6 @@ Line: 1 Col: 48 Got table cell end tag (th) while required end tags are missing.
 Line: 1 Col: 6 Unexpected start tag (body). Expected DOCTYPE.
 Line: 1 Col: 12 Unexpected start tag (body).
 Line: 1 Col: 54 Unexpected start tag (body).
-Line: 1 Col: 64 Unexpected end tag (p). Missing end tag (body).
 #document
 | <html>
 |   <head>
@@ -1471,6 +1465,7 @@ Line: 1 Col: 21 End tag (a) violates step 1, paragraph 1 of the adoption agency 
 #errors
 Line: 1 Col: 3 Unexpected start tag (b). Expected DOCTYPE.
 Line: 1 Col: 15 End tag (b) violates step 1, paragraph 1 of the adoption agency algorithm.
+EOF
 #document
 | <html>
 |   <head>
@@ -1610,7 +1605,8 @@ Line: 1 Col: 69 End tag (b) violates step 1, paragraph 3 of the adoption agency 
 #data
 <ul><li><ul></li><li>a</li></ul></li></ul>
 #errors
-XXX: fix me
+no DOCTYPE
+EOF
 #document
 | <html>
 |   <head>
@@ -1795,10 +1791,11 @@ Line: 1 Col: 442 End tag (ul) seen too early. Expected other end tag.
 Line: 1 Col: 447 End tag (li) seen too early. Expected other end tag.
 Line: 1 Col: 454 End tag (nobr) violates step 1, paragraph 1 of the adoption agency algorithm.
 Line: 1 Col: 460 This element (wbr) has no end tag.
+</form>
 Line: 1 Col: 476 End tag (button) seen too early. Expected other end tag.
 Line: 1 Col: 486 End tag (marquee) seen too early. Expected other end tag.
 Line: 1 Col: 495 End tag (object) seen too early. Expected other end tag.
-Line: 1 Col: 513 Unexpected end tag (html). Ignored.
+after html: </frameset>
 Line: 1 Col: 513 Unexpected end tag (frameset). Ignored.
 Line: 1 Col: 520 Unexpected end tag (head). Ignored.
 Line: 1 Col: 529 Unexpected end tag (iframe). Ignored.
@@ -1915,10 +1912,11 @@ Line: 1 Col: 453 End tag (ul) seen too early. Expected other end tag.
 Line: 1 Col: 458 End tag (li) seen too early. Expected other end tag.
 Line: 1 Col: 465 End tag (nobr) violates step 1, paragraph 1 of the adoption agency algorithm.
 Line: 1 Col: 471 This element (wbr) has no end tag.
+</form>
 Line: 1 Col: 487 End tag (button) seen too early. Expected other end tag.
 Line: 1 Col: 497 End tag (marquee) seen too early. Expected other end tag.
 Line: 1 Col: 506 End tag (object) seen too early. Expected other end tag.
-Line: 1 Col: 524 Unexpected end tag (html). Ignored.
+after html: </frameset>
 Line: 1 Col: 524 Unexpected end tag (frameset). Ignored.
 Line: 1 Col: 531 Unexpected end tag (head). Ignored.
 Line: 1 Col: 540 Unexpected end tag (iframe). Ignored.
