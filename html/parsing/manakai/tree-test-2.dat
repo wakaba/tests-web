@@ -922,12 +922,36 @@ no </noframes>
 #document
 
 #document-fragment
+svg hoge
+#data
+<p>abc
+#errors
+<p> in foreign
+no </p>
+#document
+| <svg p>
+|   "abc"
+
+#document-fragment
 svg script
 #data
 <p>abc
 #errors
+<p> in foreign
+no </p>
 #document
-| <p>
+| <svg p>
+|   "abc"
+
+#document-fragment
+svg script
+#data
+<s>abc
+#errors
+<s> in foreign
+no </s>
+#document
+| <svg s>
 |   "abc"
 
 #document-fragment
@@ -937,8 +961,8 @@ math math
 #errors
 no </annotation-xml>
 #document
-| <annotation-xml>
-|   xlink:href="foo"
+| <math annotation-xml>
+|   xlink href="foo"
 |   "a"
 
 #document-fragment
@@ -948,8 +972,8 @@ svg svg
 #errors
 no </g>
 #document
-| <g>
-|   xlink:href="foo"
+| <svg g>
+|   xlink href="foo"
 |   "a"
 
 #document-fragment
@@ -968,7 +992,162 @@ svg svg
 #data
 <![CDATA[<p>]]>
 #errors
+#document
+| "<p>"
+
+#document-fragment
+svg svg
+#data
+<g><![CDATA[<p>]]></g>
+#errors
+#document
+| <svg g>
+|   "<p>"
+
+#document-fragment
+math math
+#data
+<![CDATA[<p>]]>
+#errors
+#document
+| "<p>"
+
+#document-fragment
+math math
+#data
+<g><![CDATA[<p>]]></g>
+#errors
+#document
+| <math g>
+|   "<p>"
+
+#document-fragment
+math math
+#data
+<mi><![CDATA[<p>]]></mi>
+#errors
+#document
+| <math mi>
+|   "<p>"
+
+#document-fragment
+math math
+#data
+<mi><div><![CDATA[<p>]]></div></mi>
+#errors
 bogus comment
 #document
-| <!-- [CDATA[<p -->
-| "]]>"
+| <math mi>
+|   <div>
+|     <!-- [CDATA[<p -->
+|     "]]>"
+
+#document-fragment
+math mi
+#data
+<p>hoge</p><svg></svg>
+#errors
+#document
+| <p>
+|   "hoge"
+| <svg svg>
+
+#document-fragment
+svg title
+#data
+<p>hoge</p><svg></svg><math></math>
+#errors
+#document
+| <p>
+|   "hoge"
+| <svg svg>
+| <math math>
+
+#document-fragment
+math annotation-xml
+#data
+<p>a</p><svg></svg><math></math>
+#errors
+<p> in foreign
+#document
+| <math p>
+|   "a"
+| <svg svg>
+| <math math>
+
+#document-fragment
+math annotation-xml
+  encoding="text/plain"
+#data
+<p>a</p><svg></svg><math></math>
+#errors
+<p> in foreign
+#document
+| <math p>
+|   "a"
+| <svg svg>
+| <math math>
+
+#document-fragment
+math annotation-xml
+  encoding="text/html"
+#data
+<p>a</p><svg></svg><math></math>
+#errors
+#document
+| <p>
+|   "a"
+| <svg svg>
+| <math math>
+
+#document-fragment
+math annotation-xml
+  encoding="application/XHTML+Xml"
+#data
+<p>a</p><svg></svg><math></math>
+#errors
+#document
+| <p>
+|   "a"
+| <svg svg>
+| <math math>
+
+#document-fragment
+svg svg
+#data
+</html>a
+#errors
+bad </html>
+#document
+| "a"
+
+#document-fragment
+svg svg
+#data
+<g></html>a</g>
+#errors
+</g> expected
+bad </html>
+#document
+| <svg g>
+|   "a"
+
+#document-fragment
+svg svg
+#data
+<html></html>a
+#errors
+#document
+| <svg html>
+| "a"
+
+#document-fragment
+svg svg
+#data
+<html><g></html>a
+#errors
+no </g>
+#document
+| <svg html>
+|   <svg g>
+| "a"
