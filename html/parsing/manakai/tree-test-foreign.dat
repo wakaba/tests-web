@@ -4100,3 +4100,141 @@ unexpected EOF
 |             <circle>
 #comment
 <http://www.w3.org/Bugs/Public/show_bug.cgi?id=11393#c14>
+
+#data
+<!DOCTYPE html><body><table><math><mi>foo</mi></math></table>
+#errors
+<math> in table
+"foo" in table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math mi>
+|         "foo"
+|     <table>
+
+#data
+<!DOCTYPE html><body><table><math><mi>  foo</mi></math></table>
+#errors
+<math> in table
+"  foo" in table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math mi>
+|         "  foo"
+|     <table>
+
+#data
+<!DOCTYPE html><body><table><math><mi>  </mi></math></table>
+#errors
+<math> in table
+"  foo" in table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math mi>
+|         "  "
+|     <table>
+
+#data escaped
+<!DOCTYPE html><body><table><math><mi>\u0000</mi></math></table>
+#errors
+<math> in table
+text in table
+NULL
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math mi>
+|     <table>
+
+#data
+<!DOCTYPE html><body><table><tbody><math><mi>foo</mi></math></table>
+#errors
+<math> in table
+"foo" in table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math mi>
+|         "foo"
+|     <table>
+|       <tbody>
+
+#data
+<!DOCTYPE html><body><table><thead><math><mi>foo</mi></math></table>
+#errors
+<math> in table
+"foo" in table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math mi>
+|         "foo"
+|     <table>
+|       <thead>
+
+#data
+<!DOCTYPE html><body><table><tfoot><math><mi>foo</mi></math></table>
+#errors
+<math> in table
+"foo" in table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math mi>
+|         "foo"
+|     <table>
+|       <tfoot>
+
+#data
+<!DOCTYPE html><body><table><tr><math><mi>foo</mi></math></table>
+#errors
+<math> in table
+"foo" in table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math mi>
+|         "foo"
+|     <table>
+|       <tr>
+
+#data
+<!DOCTYPE html><table><math><tbody>abc</tbody></math></table>
+#errors
+<math> in table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <math math>
+|         <math tbody>
+|           "abc"
