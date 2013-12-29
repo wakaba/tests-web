@@ -1470,3 +1470,96 @@
 /button/@template;attribute not defined;m
 /button/@type;enumerated:invalid;m
 /button/span/@repeat;attribute not defined;m
+
+#data
+<button type="menu" xmlns="http://www.w3.org/1999/xhtml">a</button>
+#errors
+/button;attribute missing;menu;m
+
+#data
+<button type="MeNU" menu="" xmlns="http://www.w3.org/1999/xhtml">a</button>
+#errors
+/button/@menu;no referenced menu;m
+
+#data
+<button type="MeNU" menu="abc" xmlns="http://www.w3.org/1999/xhtml">a</button>
+#errors
+/button/@menu;no referenced menu;m
+
+#data
+<button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><span id="foo">a</span></button>
+#errors
+/button/@menu;no referenced menu;m
+
+#data
+<button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><menu id="foo">a</menu></button>
+#errors
+/button/@menu;no referenced menu;m
+/button/menu;element not allowed:phrasing;m
+
+#data
+<button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><menu id="foo" type="toolbar">a</menu></button>
+#errors
+/button/@menu;no referenced menu;m
+/button/menu;element not allowed:phrasing;m
+
+#data
+<button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><menu id="foo" type="popup"></menu>x</button>
+#errors
+/button/menu;element not allowed:phrasing;m
+
+#data
+<button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><menu type="popup"><menu id="foo"></menu></menu>x</button>
+#errors
+/button/menu;element not allowed:phrasing;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <menu type="popup" id="ab cd"></menu>
+  <button type="menu" menu="ab cd">a</button>
+</div>
+#errors
+/div/menu/@id;space in ID;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <menu type="popup" id="abcd"></menu>
+  <menu type="popup" id="abcd"></menu>
+  <button type="menu" menu="abcd">a</button>
+</div>
+#errors
+/div/menu/@id;duplicate ID;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <menu id="abcd"></menu>
+  <menu type="popup" id="abcd"></menu>
+  <button type="menu" menu="abcd">a</button>
+</div>
+#errors
+/div/menu/@id;duplicate ID;m
+/div/button/@menu;no referenced menu;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <menu type="popup" id="abcd"></menu>
+  <button type="button" menu="abcd">a</button>
+</div>
+#errors
+/div/button/@menu;attribute not allowed;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <menu type="popup" id="abcd"></menu>
+  <button type="submit" menu="abcd">a</button>
+</div>
+#errors
+/div/button/@menu;attribute not allowed;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <menu type="popup" id="abcd"></menu>
+  <button type="Reset" menu="abcd">a</button>
+</div>
+#errors
+/div/button/@menu;attribute not allowed;m
