@@ -1,0 +1,390 @@
+#data
+<!DOCTYPE html><template></template>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <template>
+|       content
+|   <body>
+
+#data
+<!DOCTYPE html><table><tr><td><select><template><caption></table>
+#errors
+no </caption> at </table>
+</table> in <template>
+EOF in body in template
+EOF in template
+EOF in body
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+|         <tr>
+|           <td>
+|             <select>
+|               <template>
+|                 content
+|                   <caption>
+
+#data
+<!DOCTYPE html><table><tr><td><select><template></template><caption></table><!---->
+#errors
+no </caption> at </table>
+no </select> at </table>
+EOF in body
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+|         <tr>
+|           <td>
+|             <select>
+|               <template>
+|                 content
+|               <!--  -->
+
+#document-fragment
+div
+#data
+<table><tbody><tr><td><select><template></template>a</tbody>b<!--b--></table>
+#errors
+</tbody> in select
+</table> in select
+EOF in body
+#document
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         <select>
+|           <template>
+|             content
+|           "ab"
+|           <!-- b -->
+
+#document-fragment
+div
+#data
+<table><tr><td><template><select></tbody>a
+#errors
+unexpected </tbody>
+EOF in body
+EOF in template
+EOF in body
+#document
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         <template>
+|           content
+|             <select>
+|               "a"
+
+#data
+<!DOCTYPE html><template><template><p></template><tr></template><!---->
+#errors
+No </tr> before </template>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <template>
+|       content
+|         <template>
+|           content
+|             <p>
+|         <tr>
+|     <!--  -->
+|   <body>
+
+#document-fragment
+head
+#data
+<template></template>abc
+#errors
+#document
+| <template>
+|   content
+| "abc"
+
+#document-fragment
+head
+#data
+<template></template><p>abc
+#errors
+#document
+| <template>
+|   content
+| <p>
+|   "abc"
+
+#document-fragment
+html
+#data
+<head><template></template>abc
+#errors
+#document
+| <head>
+|   <template>
+|     content
+| <body>
+|   "abc"
+
+#document-fragment
+html
+#data
+<head><template></template><link>abc
+#errors
+#document
+| <head>
+|   <template>
+|     content
+|   <link>
+| <body>
+|   "abc"
+
+#document-fragment
+html
+#data
+<head><template></template><noscript>x</noscript><meta>abc
+#errors
+char in noscript in head
+unmatched </noscript>
+#document
+| <head>
+|   <template>
+|     content
+|   <noscript>
+| <body>
+|   "x"
+|   <meta>
+|   "abc"
+
+#data
+<!DOCTYPE html><section><template></section>a
+#errors
+unmatched </section>
+EOF in template
+EOF in body
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <section>
+|       <template>
+|         content
+|           "a"
+
+#data
+<!DOCTYPE html><li><template></li>a
+#errors
+unmatched </li>
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <li>
+|       <template>
+|         content
+|           "a"
+
+#data
+<!DOCTYPE html><p><template><h1>
+#errors
+EOF in body
+EOF in template
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       <template>
+|         content
+|           <h1>
+
+#data
+<!DOCTYPE html><table><tr><template></tr><!---->
+#errors
+</tr>
+EOF in template
+EOF in body
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+|         <tr>
+|           <template>
+|             content
+|               <!--  -->
+
+#data
+<!DOCTYPE html><table><template><tbody>abc<!---->
+#errors
+"abc" in table
+EOF in body
+EOF in template
+EOF in body
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <template>
+|         content
+|           <tbody>
+|             <!--  -->
+|           "abc"
+
+#data
+<!DOCTYPE html><table><template><tbody><br><!---->
+#errors
+<br> in table
+EOF in body
+EOF in template
+EOF in body
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <template>
+|         content
+|           <tbody>
+|             <!--  -->
+|           <br>
+
+#data
+<!DOCTYPE html><table><template><tr><i><b>a</i>b
+#errors
+<i> in table
+<b> in table
+"a" in table
+</i> in table
+AAA at </i>
+"b" in table
+EOF in body
+EOF in template
+EOF in table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <template>
+|         content
+|           <tr>
+|           <i>
+|             <b>
+|               "a"
+|           <b>
+|             "b"
+
+#data
+<!DOCTYPE html><p><template><html a></template>
+#errors
+second <html>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       <template>
+|         content
+
+#data
+<!DOCTYPE html><p><template><body a></template>
+#errors
+second <body>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       <template>
+|         content
+
+#data
+<!DOCTYPE html><head><template>...[EOF]
+#errors
+EOF in template
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <template>
+|       content
+|         "...[EOF]"
+|   <body>
+
+#data
+<!DOCTYPE html><head><template><table>hoge
+#errors
+"hoge" in table
+EOF in template
+EOF in body
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <template>
+|       content
+|         "hoge"
+|         <table>
+|   <body>
+
+#data
+<!DOCTYPE html><table><template><tbody><tfoot>
+#errors
+EOF in table
+EOF in template
+EOF in body
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <template>
+|         content
+|           <tbody>
+|           <tfoot>
+
+#data
+<!DOCTYPE html><table><colgroup><template><col></colgroup><!---->
+#errors
+unmatched </colgroup>
+EOF in body in template
+EOF in template
+EOF in body
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <colgroup>
+|         <template>
+|           content
+|             <col>
+|             <!--  -->
