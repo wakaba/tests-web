@@ -434,3 +434,181 @@ NULL
 |   <body>
 |     <textarea>
 |       "\uFFFD\u000Aa"
+
+#data
+<isindex/>
+#errors
+no DOCTYPE
+isindex
+#document
+| <html>
+|   <head>
+|   <body>
+|     <form>
+|       <hr>
+|       <label>
+|         "This is a searchable index. Enter search keywords: "
+|         <input>
+|           name="isindex"
+|       <hr>
+
+#data
+<p><isindex>
+#errors
+no DOCTYPE
+isindex
+#document
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|     <form>
+|       <hr>
+|       <label>
+|         "This is a searchable index. Enter search keywords: "
+|         <input>
+|           name="isindex"
+|       <hr>
+
+#data
+<isindex><frameset>
+#errors
+no DOCTYPE
+isindex
+<frameset> in body
+#document
+| <html>
+|   <head>
+|   <body>
+|     <form>
+|       <hr>
+|       <label>
+|         "This is a searchable index. Enter search keywords: "
+|         <input>
+|           name="isindex"
+|       <hr>
+
+#data
+<!DOCTYPE html><p><template><isindex></template>
+#errors
+isindex
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       <template>
+|         content
+|           <form>
+|             <hr>
+|             <label>
+|               "This is a searchable index. Enter search keywords: "
+|               <input>
+|                 name="isindex"
+|             <hr>
+
+#data
+<!DOCTYPE html><form><template><isindex></template></form>
+#errors
+isindex
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <form>
+|       <template>
+|         content
+|           <form>
+|             <hr>
+|             <label>
+|               "This is a searchable index. Enter search keywords: "
+|               <input>
+|                 name="isindex"
+|             <hr>
+
+#data
+<!DOCTYPE html><form><isindex></form>
+#errors
+isindex
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <form>
+
+#data
+<!DOCTYPE html><form><isindex/></form>
+#errors
+isindex
+nestc
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <form>
+
+#data
+<i><isindex>x
+#errors
+no DOCTYPE
+isindex
+EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <i>
+|       <form>
+|         <hr>
+|         <label>
+|           "This is a searchable index. Enter search keywords: "
+|           <input>
+|             name="isindex"
+|         <hr>
+|       "x"
+
+#data
+<b><i></b><isindex>x
+#errors
+no DOCTYPE
+</b>
+isindex
+EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|     <form>
+|       <hr>
+|       <i>
+|         <label>
+|           "This is a searchable index. Enter search keywords: "
+|           <input>
+|             name="isindex"
+|         <hr>
+|       <i>
+|         "x"
+
+#data
+<isindex class=foo name=y>
+#errors
+no DOCTYPE
+isindex
+#document
+| <html>
+|   <head>
+|   <body>
+|     <form>
+|       <hr>
+|       <label>
+|         "This is a searchable index. Enter search keywords: "
+|         <input>
+|           class="foo"
+|           name="isindex"
+|       <hr>
