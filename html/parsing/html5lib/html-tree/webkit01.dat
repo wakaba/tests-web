@@ -449,6 +449,8 @@ EOF
 #data
 <a><li><style></style><title></title></a>
 #errors
+no DOCTYPE
+AAA at </a>
 #document
 | <html>
 |   <head>
@@ -462,6 +464,10 @@ EOF
 #data
 <font></p><p><meta><title></title></font>
 #errors
+no DOCTYPE
+stray </p>; <p> implied
+AAA at </font>
+EOF
 #document
 | <html>
 |   <head>
@@ -476,6 +482,9 @@ EOF
 #data
 <a><center><title></title><a>
 #errors
+no DOCTYPE
+<a> in a
+EOF
 #document
 | <html>
 |   <head>
@@ -489,6 +498,8 @@ EOF
 #data
 <svg><title><div>
 #errors
+no DOCTYPE
+EOF
 #document
 | <html>
 |   <head>
@@ -500,6 +511,8 @@ EOF
 #data
 <svg><title><rect><div>
 #errors
+no DOCTYPE
+EOF
 #document
 | <html>
 |   <head>
@@ -512,6 +525,9 @@ EOF
 #data
 <svg><title><svg><div>
 #errors
+no DOCTYPE
+HTML <div> in foreign
+EOF
 #document
 | <html>
 |   <head>
@@ -524,6 +540,8 @@ EOF
 #data
 <img <="" FAIL>
 #errors
+no DOCTYPE
+bad attribute <
 #document
 | <html>
 |   <head>
@@ -535,6 +553,9 @@ EOF
 #data
 <ul><li><div id='foo'/>A</li><li>B<div>C</div></li></ul>
 #errors
+no DOCTYPE
+nestc in <div>
+no </div> before </li>
 #document
 | <html>
 |   <head>
@@ -552,6 +573,9 @@ EOF
 #data
 <svg><em><desc></em>
 #errors
+no DOCTYPE
+HTML <em> in foreign
+no </desc> before </em>
 #document
 | <html>
 |   <head>
@@ -563,6 +587,10 @@ EOF
 #data
 <svg><tfoot></mi><td>
 #errors
+no DOCTYPE
+</tfoot> expected before </mi>
+stray </mi>
+EOF
 #document
 | <html>
 |   <head>
@@ -574,6 +602,7 @@ EOF
 #data
 <math><mrow><mrow><mn>1</mn></mrow><mi>a</mi></mrow></math>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
