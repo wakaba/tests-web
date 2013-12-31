@@ -612,3 +612,30 @@ isindex
 |           class="foo"
 |           name="isindex"
 |       <hr>
+
+#data
+<!DOCTYPE html><table><input/>
+#errors
+<input> in table
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <input>
+|     <table>
+
+#data
+<!DOCTYPE html><table><input type="hidden"/>
+#errors
+<input> in table
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <input>
+|         type="hidden"
