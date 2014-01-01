@@ -1236,9 +1236,10 @@ EOF
 <table><thead><tr><td><svg><g>a</thead>b
 #errors
 no DOCTYPE
-unmatched </thead>
-b in table
-EOF
+</thead>
+no </g> at </thead>
+"b" in table
+no </table> at EOF
 #document
 | <html>
 |   <head>
@@ -1292,8 +1293,9 @@ EOF
 <table><caption><svg><g>a</tbody>b
 #errors
 no DOCTYPE
-unmatched </tbody>
-EOF
+</tbody>
+no </g> before </tbody>
+no </table> at EOF
 #document
 | <html>
 |   <head>
@@ -1308,8 +1310,9 @@ EOF
 <table><caption><svg><g>a</thead>b
 #errors
 no DOCTYPE
-unmatched </thead>
-EOF
+</thead>
+no </g> before </thead>
+no </table> at EOF
 #document
 | <html>
 |   <head>
@@ -1324,8 +1327,9 @@ EOF
 <table><caption><svg><g>a</tfoot>b
 #errors
 no DOCTYPE
-unmatched </tfoot>
-EOF
+</tfoot>
+no </g> before </tfoot>
+no </table> at EOF
 #document
 | <html>
 |   <head>

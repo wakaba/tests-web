@@ -1343,6 +1343,17 @@ no </noscript>
 |     <br>
 
 #data
+</br>
+#errors
+no DOCTYPE
+</br>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <br>
+
+#data
 <!DOCTYPE HTML></head></p>
 #errors
 </p> after </head>
@@ -1355,25 +1366,25 @@ no </noscript>
 #data
 <!DOCTYPE HTML><head></body><link>x
 #errors
-</body> in head
+<link> after body
 #document
 | <!DOCTYPE html>
 | <html>
 |   <head>
-|     <link>
 |   <body>
+|     <link>
 |     "x"
 
 #data
 <head></html><link>
 #errors
 no <!DOCTYPE>
-</html> in <head>
+<link> after html
 #document
 | <html>
 |   <head>
-|     <link>
 |   <body>
+|     <link>
 
 #data
 <head></p><link>
@@ -11600,9 +11611,7 @@ x2
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <thead>
 
@@ -11616,9 +11625,7 @@ x2
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tbody>
 
@@ -11632,9 +11639,7 @@ x2
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tfoot>
 
@@ -11648,9 +11653,7 @@ x2
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tbody>
 |         <tr>
@@ -11666,10 +11669,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <thead>
 |         <tr>
@@ -11685,9 +11685,7 @@ no <tr>
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tbody>
 |         <tr>
@@ -11704,9 +11702,7 @@ no <tr>
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tbody>
 |         <tr>
@@ -11723,10 +11719,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <tbody>
 |         <tr>
@@ -11743,10 +11736,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <tbody>
 |         <tr>
@@ -11762,9 +11752,7 @@ x2
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <colgroup>
 |         <col>
@@ -11779,9 +11767,7 @@ x2
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <colgroup>
 
@@ -11795,9 +11781,7 @@ x2
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <caption>
 
@@ -11812,10 +11796,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <thead>
 |       <caption>
@@ -11831,10 +11812,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <thead>
 |       <colgroup>
@@ -11851,10 +11829,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <thead>
 |       <colgroup>
@@ -11870,10 +11845,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <tbody>
 |         <tr>
@@ -11891,10 +11863,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <tbody>
 |         <tr>
@@ -11911,10 +11880,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <tbody>
 |         <tr>
@@ -11930,9 +11896,7 @@ text "c" in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <!--  -->
 
@@ -11946,9 +11910,7 @@ text in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <style>
 
@@ -11962,9 +11924,7 @@ text in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <script>
 
@@ -11979,9 +11939,7 @@ text in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <input>
 |         type="hidden"
@@ -11996,9 +11954,7 @@ x2
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tbody>
 |         <!--  -->
@@ -12014,9 +11970,7 @@ text in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tbody>
 |         <style>
@@ -12031,9 +11985,7 @@ text in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tbody>
 |         <script>
@@ -12049,9 +12001,7 @@ text in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tbody>
 |         <input>
@@ -12066,8 +12016,7 @@ text in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b<"
+|     "ab<"
 |     <table>
 
 #data
@@ -12083,8 +12032,7 @@ text in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
+|     "ab"
 |     <span>
 |       "c<"
 |     "d"
@@ -12102,8 +12050,7 @@ unexpected EOF
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
+|     "ab"
 |     <plaintext>
 |       "c&lt;</plaintext>d</table>"
 |     <table>
@@ -12120,8 +12067,7 @@ text "d" in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
+|     "ab"
 |     <xmp>
 |       "c&lt;<p>"
 |     "d"
@@ -12139,8 +12085,7 @@ text "d" in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
+|     "ab"
 |     <title>
 |       "c<<p>"
 |     "d"
@@ -12158,6 +12103,16 @@ metadata element after </head>
 |   "  "
 |   <body>
 |     "a"
+
+#data
+<base/>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <base>
+|   <body>
 
 #data
 <!DOCTYPE HTML></head> <link> a
@@ -12281,8 +12236,7 @@ text "b"
 |   a=""
 |   <head>
 |   <body>
-|     "a"
-|     "b"
+|     "ab"
 |     <table>
 
 #data
@@ -12339,8 +12293,7 @@ text "b"
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
+|     "ab"
 |     <table>
 
 #data

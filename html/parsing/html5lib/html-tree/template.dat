@@ -1,6 +1,7 @@
 #data
 <body><template>Hello</template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -12,6 +13,7 @@
 #data
 <template>Hello</template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -23,6 +25,7 @@
 #data
 <template></template><div></div>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -34,6 +37,7 @@
 #data
 <html><template>Hello</template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -45,6 +49,7 @@
 #data
 <head><template><div></div></template></head>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -56,6 +61,7 @@
 #data
 <div><template><div><span></template><b>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -70,6 +76,7 @@
 #data
 <div><template></div>Hello
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -82,6 +89,7 @@
 #data
 <div></template></div>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -91,6 +99,7 @@
 #data
 <table><template></template></table>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -102,6 +111,7 @@
 #data
 <table><template></template></div>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -113,6 +123,7 @@
 #data
 <table><div><template></template></div>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -125,6 +136,7 @@
 #data
 <table><template></template><div></div>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -137,6 +149,7 @@
 #data
 <table>   <template></template></table>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -149,6 +162,7 @@
 #data
 <table><tbody><template></template></tbody>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -161,6 +175,9 @@
 #data
 <table><tbody><template></tbody></template>
 #errors
+no DOCTYPE
+stray </tbody>
+no </table>
 #document
 | <html>
 |   <head>
@@ -173,6 +190,8 @@
 #data
 <table><tbody><template></template></tbody></table>
 #errors
+no DOCTYPE
+no </table>
 #document
 | <html>
 |   <head>
@@ -185,6 +204,8 @@
 #data
 <table><thead><template></template></thead>
 #errors
+no DOCTYPE
+no </table>
 #document
 | <html>
 |   <head>
@@ -197,6 +218,8 @@
 #data
 <table><tfoot><template></template></tfoot>
 #errors
+no DOCTYPE
+no </table>
 #document
 | <html>
 |   <head>
@@ -209,6 +232,7 @@
 #data
 <select><template></template></select>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -220,6 +244,7 @@
 #data
 <select><template><option></option></template></select>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -232,6 +257,7 @@
 #data
 <template><option></option></select><option></option></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -244,6 +270,7 @@
 #data
 <select><template></template><option></select>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -256,6 +283,7 @@
 #data
 <select><option><template></template></select>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -268,6 +296,7 @@
 #data
 <select><template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -279,6 +308,7 @@
 #data
 <select><option></option><template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -291,6 +321,7 @@
 #data
 <select><option></option><template><option>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -304,6 +335,8 @@
 #data
 <table><thead><template><td></template></table>
 #errors
+no DOCTYPE
+no </td> at </template>
 #document
 | <html>
 |   <head>
@@ -317,6 +350,8 @@
 #data
 <table><template><thead></template></table>
 #errors
+no DOCTYPE
+no </thead> at </template>
 #document
 | <html>
 |   <head>
@@ -329,6 +364,7 @@
 #data
 <body><table><template><td></tr><div></template></table>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -342,6 +378,9 @@
 #data
 <table><template><thead></template></thead></table>
 #errors
+no DOCTYPE
+no </thead> at </template>
+stray </thead>
 #document
 | <html>
 |   <head>
@@ -354,6 +393,8 @@
 #data
 <table><thead><template><tr></template></table>
 #errors
+no DOCTYPE
+no </tr> at </template>
 #document
 | <html>
 |   <head>
@@ -367,6 +408,7 @@
 #data
 <table><template><tr></template></table>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -379,6 +421,7 @@
 #data
 <table><tr><template><td>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -393,6 +436,7 @@
 #data
 <table><template><tr><template><td></template></tr></template></table>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -408,6 +452,7 @@
 #data
 <table><template><tr><template><td></td></template></tr></template></table>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -423,6 +468,7 @@
 #data
 <table><template><td></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -435,6 +481,7 @@
 #data
 <body><template><td></td></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -446,6 +493,7 @@
 #data
 <body><template><template><tr></tr></template><td></td></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -460,6 +508,7 @@
 #data
 <table><colgroup><template><col>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -473,6 +522,7 @@
 #data
 <frameset><template><frame></frame></template></frameset>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -482,6 +532,7 @@
 #data
 <template><frame></frame></frameset><frame></frame></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -492,6 +543,7 @@
 #data
 <template><div><frameset><span></span></div><span></span></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -505,6 +557,7 @@
 #data
 <body><template><div><frameset><span></span></div><span></span></template></body>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -518,6 +571,7 @@
 #data
 <body><template><script>var i = 1;</script><td></td></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -531,6 +585,7 @@
 #data
 <body><template><tr><div></div></tr></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -543,6 +598,7 @@
 #data
 <body><template><tr></tr><td></td></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -556,6 +612,7 @@
 #data
 <body><template><td></td></tr><td></td></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -568,6 +625,7 @@
 #data
 <body><template><td></td><tbody><td></td></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -580,6 +638,7 @@
 #data
 <body><template><td></td><caption></caption><td></td></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -592,6 +651,7 @@
 #data
 <body><template><td></td><colgroup></caption><td></td></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -604,6 +664,7 @@
 #data
 <body><template><td></td></table><td></td></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -616,6 +677,7 @@
 #data
 <body><template><tr></tr><tbody><tr></tr></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -628,6 +690,7 @@
 #data
 <body><template><tr></tr><caption><tr></tr></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -640,6 +703,7 @@
 #data
 <body><template><tr></tr></table><tr></tr></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -652,6 +716,7 @@
 #data
 <body><template><thead></thead><caption></caption><tbody></tbody></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -665,6 +730,8 @@
 #data
 <body><template><thead></thead></table><tbody></tbody></template></body>
 #errors
+no DOCTYPE
+stray </table>
 #document
 | <html>
 |   <head>
@@ -677,6 +744,7 @@
 #data
 <body><template><div><tr></tr></div></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -688,6 +756,7 @@
 #data
 <body><template><em>Hello</em></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -700,6 +769,7 @@
 #data
 <body><template><!--comment--></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -711,6 +781,7 @@
 #data
 <body><template><style></style><td></td></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -723,6 +794,7 @@
 #data
 <body><template><meta><td></td></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -735,6 +807,7 @@
 #data
 <body><template><link><td></td></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -747,6 +820,7 @@
 #data
 <body><template><template><tr></tr></template><td></td></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -761,6 +835,7 @@
 #data
 <body><table><colgroup><template><col></col></template></colgroup></table></body>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -774,6 +849,7 @@
 #data
 <body a=b><template><div></div><body c=d><div></div></body></template></body>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -787,6 +863,7 @@
 #data
 <html a=b><template><div><html b=c><span></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   a="b"
@@ -800,6 +877,7 @@
 #data
 <html a=b><template><col></col><html b=c><col></col></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   a="b"
@@ -813,6 +891,7 @@
 #data
 <html a=b><template><frame></frame><html b=c><frame></frame></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   a="b"
@@ -824,6 +903,7 @@
 #data
 <body><template><tr></tr><template></template><td></td></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -839,6 +919,7 @@
 #data
 <body><template><thead></thead><template><tr></tr></template><tr></tr><tfoot></tfoot></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -856,6 +937,7 @@
 #data
 <body><template><template><b><template></template></template>text</template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -872,6 +954,7 @@
 #data
 <body><template><col><colgroup>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -883,6 +966,7 @@
 #data
 <body><template><col></colgroup>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -894,6 +978,7 @@
 #data
 <body><template><col><colgroup></template></body>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -905,6 +990,7 @@
 #data
 <body><template><col><div>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -916,6 +1002,7 @@
 #data
 <body><template><col></div>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -927,6 +1014,7 @@
 #data
 <body><template><col>Hello
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -938,6 +1026,7 @@
 #data
 <body><template><i><menu>Foo</i>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -952,6 +1041,7 @@
 #data
 <body><template></div><div>Foo</div><template></template><tr></tr>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -966,6 +1056,7 @@
 #data
 <body><div><template></div><tr><td>Foo</td></tr></template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -980,6 +1071,7 @@
 #data
 <template></figcaption><sub><table></table>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -992,6 +1084,7 @@
 #data
 <template><template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1004,6 +1097,7 @@
 #data
 <template><div>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1015,6 +1109,7 @@
 #data
 <template><template><div>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1028,6 +1123,7 @@
 #data
 <template><template><table>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1041,6 +1137,7 @@
 #data
 <template><template><tbody>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1054,6 +1151,7 @@
 #data
 <template><template><tr>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1067,6 +1165,7 @@
 #data
 <template><template><td>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1080,6 +1179,7 @@
 #data
 <template><template><caption>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1093,6 +1193,7 @@
 #data
 <template><template><colgroup>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1106,6 +1207,7 @@
 #data
 <template><template><col>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1119,6 +1221,7 @@
 #data
 <template><template><tbody><select>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1133,6 +1236,7 @@
 #data
 <template><template><table>Foo
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1147,6 +1251,7 @@
 #data
 <template><template><frame>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1159,6 +1264,7 @@
 #data
 <template><template><script>var i
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1173,6 +1279,7 @@
 #data
 <template><template><style>var i
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1187,6 +1294,7 @@
 #data
 <template><table></template><body><span>Foo
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1200,6 +1308,7 @@
 #data
 <template><td></template><body><span>Foo
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1213,6 +1322,7 @@
 #data
 <template><object></template><body><span>Foo
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1226,6 +1336,7 @@
 #data
 <template><svg><template>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1238,6 +1349,7 @@
 #data
 <template><svg><foo><template><foreignObject><div></template><div>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1254,6 +1366,7 @@
 #data
 <dummy><template><span></dummy>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -1266,6 +1379,7 @@
 #data
 <body><table><tr><td><select><template>Foo</template><caption>A</table>
 #errors
+no DOCTYPE
 (1,62): unexpected-caption-in-select-in-table
 (1,71): unexpected-table-end-in-caption
 #document
@@ -1286,6 +1400,7 @@
 #data
 <body></body><template>
 #errors
+no DOCTYPE
 (1,23): template-after-body
 (1,24): eof-in-template
 #document
@@ -1298,6 +1413,7 @@
 #data
 <head></head><template>
 #errors
+no DOCTYPE
 (1,23): template-after-head
 (1,24): eof-in-template
 #document
@@ -1310,6 +1426,7 @@
 #data
 <head></head><template>Foo</template>
 #errors
+no DOCTYPE
 (1,23): template-after-head
 #document
 | <html>
