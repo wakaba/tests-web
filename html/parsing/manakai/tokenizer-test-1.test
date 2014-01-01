@@ -755,7 +755,7 @@
 
 {"description":"unknown named character reference in attr",
 "input":"<a href='&abc;'>",
-"output":["ParseError", ["StartTag", "a", {"href": "&abc;"}]]},
+"output":[["StartTag", "a", {"href": "&abc;"}]]},
 
 {"description":"entity w/o refc at the end of unterminated attribute value",
 "input":"<a href='&COPY",
@@ -787,7 +787,15 @@
 
 {"description":"entity w/o refc href='&COPYright;'",
 "input":"<a href='&COPYright;'>",
-"output":["ParseError", ["StartTag", "a", {"href": "&COPYright;"}]]},
+"output":[["StartTag", "a", {"href": "&COPYright;"}]]},
+
+{"description":"entity w/o refc href='&COPYright;'",
+"input":"<a href=\"&COPYright;\">",
+"output":[["StartTag", "a", {"href": "&COPYright;"}]]},
+
+{"description":"entity w/o refc href='&COPYright;'",
+"input":"<a href=&COPYright;>",
+"output":[["StartTag", "a", {"href": "&COPYright;"}]]},
 
 {"description":"entity w/o refc href='&COPYrightc'",
 "input":"<a href='&COPYrightc'>",
