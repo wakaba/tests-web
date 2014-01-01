@@ -893,6 +893,57 @@ index e2fb42a..c027415 100644
  #document
  | <html>
  |   <head>
+diff --git a/html/parsing/html5lib/html-tree/html5test-com.dat b/html/parsing/html5lib/html-tree/html5test-com.dat
+index d7cb71d..e29800e 100644
+--- a/html/parsing/html5lib/html-tree/html5test-com.dat
++++ b/html/parsing/html5lib/html-tree/html5test-com.dat
+@@ -189,6 +189,14 @@
+ #data
+ <table><form><input type=hidden><input></form><div></div></table>
+ #errors
++no DOCTYPE
++<form> in table
++<input> in table
++<input> in table
++</form> in table
++</form>
++<div> in table
++</div> in table
+ #document
+ | <html>
+ |   <head>
+diff --git a/html/parsing/html5lib/html-tree/isindex.dat b/html/parsing/html5lib/html-tree/isindex.dat
+index 88325ff..0bf3390 100644
+--- a/html/parsing/html5lib/html-tree/isindex.dat
++++ b/html/parsing/html5lib/html-tree/isindex.dat
+@@ -1,6 +1,8 @@
+ #data
+ <isindex>
+ #errors
++no DOCTYPE
++isindex
+ #document
+ | <html>
+ |   <head>
+@@ -16,6 +18,8 @@
+ #data
+ <isindex name="A" action="B" prompt="C" foo="D">
+ #errors
++no DOCTYPE
++isindex
+ #document
+ | <html>
+ |   <head>
+@@ -33,6 +37,9 @@
+ #data
+ <form><isindex>
+ #errors
++no DOCTYPE
++isindex
++EOF
+ #document
+ | <html>
+ |   <head>
 diff --git a/html/parsing/html5lib/html-tree/tests1.dat b/html/parsing/html5lib/html-tree/tests1.dat
 index cbf8bdd..7bfc9e7 100644
 --- a/html/parsing/html5lib/html-tree/tests1.dat
@@ -1047,7 +1098,7 @@ index cbf8bdd..7bfc9e7 100644
  Line: 1 Col: 531 Unexpected end tag (head). Ignored.
  Line: 1 Col: 540 Unexpected end tag (iframe). Ignored.
 diff --git a/html/parsing/html5lib/html-tree/tests10.dat b/html/parsing/html5lib/html-tree/tests10.dat
-index 4f8df86..8283f83 100644
+index 4f8df86..1b392a0 100644
 --- a/html/parsing/html5lib/html-tree/tests10.dat
 +++ b/html/parsing/html5lib/html-tree/tests10.dat
 @@ -59,7 +59,6 @@
@@ -1117,17 +1168,18 @@ index 4f8df86..8283f83 100644
  #document
  | <!DOCTYPE html>
  | <html>
-@@ -444,6 +432,9 @@
+@@ -444,6 +432,10 @@
  #data
  <svg></path>
  #errors
 +no DOCTYPE
 +unexpected </path>
++stray </path>
 +EOF
  #document
  | <html>
  |   <head>
-@@ -453,6 +444,9 @@
+@@ -453,6 +445,9 @@
  #data
  <div><svg></div>a
  #errors
@@ -1137,7 +1189,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -464,6 +458,9 @@
+@@ -464,6 +459,9 @@
  #data
  <div><svg><path></div>a
  #errors
@@ -1147,7 +1199,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -476,6 +473,9 @@
+@@ -476,6 +474,9 @@
  #data
  <div><svg><path></svg><path>
  #errors
@@ -1157,7 +1209,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -488,6 +488,10 @@
+@@ -488,6 +489,10 @@
  #data
  <div><svg><path><foreignObject><math></div>a
  #errors
@@ -1168,7 +1220,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -502,6 +506,9 @@
+@@ -502,6 +507,9 @@
  #data
  <div><svg><path><foreignObject><p></div>a
  #errors
@@ -1178,7 +1230,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -549,6 +556,7 @@
+@@ -549,6 +557,7 @@
  #data
  <!DOCTYPE html><p><svg><desc><p>
  #errors
@@ -1186,7 +1238,7 @@ index 4f8df86..8283f83 100644
  #document
  | <!DOCTYPE html>
  | <html>
-@@ -562,6 +570,7 @@
+@@ -562,6 +571,7 @@
  #data
  <!DOCTYPE html><p><svg><title><p>
  #errors
@@ -1194,7 +1246,7 @@ index 4f8df86..8283f83 100644
  #document
  | <!DOCTYPE html>
  | <html>
-@@ -575,6 +584,9 @@
+@@ -575,6 +585,9 @@
  #data
  <div><svg><path><foreignObject><p></foreignObject><p>
  #errors
@@ -1204,7 +1256,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -589,6 +601,8 @@
+@@ -589,6 +602,8 @@
  #data
  <math><mi><div><object><div><span></span></div></object></div></mi><mi>
  #errors
@@ -1213,7 +1265,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -604,6 +618,8 @@
+@@ -604,6 +619,8 @@
  #data
  <math><mi><svg><foreignObject><div><div></div></div></foreignObject></svg></mi><mi>
  #errors
@@ -1222,7 +1274,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -619,6 +635,8 @@
+@@ -619,6 +636,8 @@
  #data
  <svg><script></script><path>
  #errors
@@ -1231,7 +1283,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -630,6 +648,9 @@
+@@ -630,6 +649,9 @@
  #data
  <table><svg></svg><tr>
  #errors
@@ -1241,7 +1293,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -642,6 +663,8 @@
+@@ -642,6 +664,8 @@
  #data
  <math><mi><mglyph>
  #errors
@@ -1250,7 +1302,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -653,6 +676,8 @@
+@@ -653,6 +677,8 @@
  #data
  <math><mi><malignmark>
  #errors
@@ -1259,7 +1311,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -664,6 +689,8 @@
+@@ -664,6 +690,8 @@
  #data
  <math><mo><mglyph>
  #errors
@@ -1268,7 +1320,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -675,6 +702,8 @@
+@@ -675,6 +703,8 @@
  #data
  <math><mo><malignmark>
  #errors
@@ -1277,7 +1329,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -686,6 +715,8 @@
+@@ -686,6 +716,8 @@
  #data
  <math><mn><mglyph>
  #errors
@@ -1286,7 +1338,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -697,6 +728,8 @@
+@@ -697,6 +729,8 @@
  #data
  <math><mn><malignmark>
  #errors
@@ -1295,7 +1347,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -708,6 +741,8 @@
+@@ -708,6 +742,8 @@
  #data
  <math><ms><mglyph>
  #errors
@@ -1304,7 +1356,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -719,6 +754,8 @@
+@@ -719,6 +755,8 @@
  #data
  <math><ms><malignmark>
  #errors
@@ -1313,7 +1365,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -730,6 +767,8 @@
+@@ -730,6 +768,8 @@
  #data
  <math><mtext><mglyph>
  #errors
@@ -1322,7 +1374,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -741,6 +780,8 @@
+@@ -741,6 +781,8 @@
  #data
  <math><mtext><malignmark>
  #errors
@@ -1331,7 +1383,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -752,6 +793,8 @@
+@@ -752,6 +794,8 @@
  #data
  <math><annotation-xml><svg></svg></annotation-xml><mi>
  #errors
@@ -1340,7 +1392,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -764,6 +807,8 @@
+@@ -764,6 +808,8 @@
  #data
  <math><annotation-xml><svg><foreignObject><div><math><mi></mi></math><span></span></div></foreignObject><path></path></svg></annotation-xml><mi>
  #errors
@@ -1349,7 +1401,7 @@ index 4f8df86..8283f83 100644
  #document
  | <html>
  |   <head>
-@@ -782,6 +827,8 @@
+@@ -782,6 +828,8 @@
  #data
  <math><annotation-xml><svg><foreignObject><math><mi><svg></svg></mi><mo></mo></math><span></span></foreignObject><path></path></svg></annotation-xml><mi>
  #errors
@@ -3213,7 +3265,7 @@ index 60d8592..a10ff44 100644
  #document
  | <html>
 diff --git a/html/parsing/html5lib/html-tree/tests20.dat b/html/parsing/html5lib/html-tree/tests20.dat
-index 6bd8256..9084120 100644
+index 6bd8256..8fb3ba1 100644
 --- a/html/parsing/html5lib/html-tree/tests20.dat
 +++ b/html/parsing/html5lib/html-tree/tests20.dat
 @@ -1,6 +1,8 @@
@@ -3494,16 +3546,17 @@ index 6bd8256..9084120 100644
  #document
  | <html>
  |   <head>
-@@ -385,6 +432,8 @@
+@@ -385,6 +432,9 @@
  #data
  <math><annotation-xml encoding="application/svg+xml"><div>
  #errors
 +no DOCTYPE
++<div> in foreign
 +EOF
  #document
  | <html>
  |   <head>
-@@ -397,6 +446,8 @@
+@@ -397,6 +447,8 @@
  #data
  <math><annotation-xml encoding="application/xhtml+xml"><div>
  #errors
@@ -3512,7 +3565,7 @@ index 6bd8256..9084120 100644
  #document
  | <html>
  |   <head>
-@@ -409,6 +460,8 @@
+@@ -409,6 +461,8 @@
  #data
  <math><annotation-xml encoding="aPPlication/xhtmL+xMl"><div>
  #errors
@@ -3521,7 +3574,7 @@ index 6bd8256..9084120 100644
  #document
  | <html>
  |   <head>
-@@ -421,6 +474,8 @@
+@@ -421,6 +475,8 @@
  #data
  <math><annotation-xml encoding="text/html"><div>
  #errors
@@ -3530,7 +3583,7 @@ index 6bd8256..9084120 100644
  #document
  | <html>
  |   <head>
-@@ -433,6 +488,8 @@
+@@ -433,6 +489,8 @@
  #data
  <math><annotation-xml encoding="Text/htmL"><div>
  #errors
@@ -3539,7 +3592,7 @@ index 6bd8256..9084120 100644
  #document
  | <html>
  |   <head>
-@@ -445,6 +502,9 @@
+@@ -445,6 +503,9 @@
  #data
  <math><annotation-xml encoding=" text/html "><div>
  #errors
@@ -4427,3 +4480,225 @@ index 554e27a..e0470d2 100644
  #document
  | <!DOCTYPE html>
  | <html>
+diff --git a/html/parsing/html5lib/html-tree/tests_innerHTML_1.dat b/html/parsing/html5lib/html-tree/tests_innerHTML_1.dat
+index 6c78661..a2c0b7d 100644
+--- a/html/parsing/html5lib/html-tree/tests_innerHTML_1.dat
++++ b/html/parsing/html5lib/html-tree/tests_innerHTML_1.dat
+@@ -693,6 +693,8 @@ select
+ #data
+ <input><option>
+ #errors
++<input> in select
++EOF (no </option>)
+ #document-fragment
+ select
+ #document
+diff --git a/html/parsing/html5lib/html-tree/webkit01.dat b/html/parsing/html5lib/html-tree/webkit01.dat
+index 06bc436..42331ef 100644
+--- a/html/parsing/html5lib/html-tree/webkit01.dat
++++ b/html/parsing/html5lib/html-tree/webkit01.dat
+@@ -202,6 +202,9 @@ console.log("FOO<span>BAR</span>BAZ");
+ #data
+ <body></br foo="bar"></body>
+ #errors
++no DOCTYPE
++end tag attribute
++</br>
+ #document
+ | <html>
+ |   <head>
+@@ -222,6 +225,10 @@ console.log("FOO<span>BAR</span>BAZ");
+ #data
+ <body></body></br foo="bar">
+ #errors
++no DOCTYPE
++end tag attribute
++</br> after body
++</br>
+ #document
+ | <html>
+ |   <head>
+@@ -420,6 +427,12 @@ console.log("FOO<span>BAR</span>BAZ");
+ #data
+ <kbd><table></kbd><col><select><tr></table><div>
+ #errors
++no DOCTYPE
++</kbd> in table
++stray </kbd>
++<select> in table
++no </select> before <tr>
++EOF
+ #document
+ | <html>
+ |   <head>
+@@ -436,6 +449,8 @@ console.log("FOO<span>BAR</span>BAZ");
+ #data
+ <a><li><style></style><title></title></a>
+ #errors
++no DOCTYPE
++AAA at </a>
+ #document
+ | <html>
+ |   <head>
+@@ -449,6 +464,10 @@ console.log("FOO<span>BAR</span>BAZ");
+ #data
+ <font></p><p><meta><title></title></font>
+ #errors
++no DOCTYPE
++stray </p>; <p> implied
++AAA at </font>
++EOF
+ #document
+ | <html>
+ |   <head>
+@@ -463,6 +482,9 @@ console.log("FOO<span>BAR</span>BAZ");
+ #data
+ <a><center><title></title><a>
+ #errors
++no DOCTYPE
++<a> in a
++EOF
+ #document
+ | <html>
+ |   <head>
+@@ -476,6 +498,8 @@ console.log("FOO<span>BAR</span>BAZ");
+ #data
+ <svg><title><div>
+ #errors
++no DOCTYPE
++EOF
+ #document
+ | <html>
+ |   <head>
+@@ -487,6 +511,8 @@ console.log("FOO<span>BAR</span>BAZ");
+ #data
+ <svg><title><rect><div>
+ #errors
++no DOCTYPE
++EOF
+ #document
+ | <html>
+ |   <head>
+@@ -499,6 +525,9 @@ console.log("FOO<span>BAR</span>BAZ");
+ #data
+ <svg><title><svg><div>
+ #errors
++no DOCTYPE
++HTML <div> in foreign
++EOF
+ #document
+ | <html>
+ |   <head>
+@@ -511,6 +540,8 @@ console.log("FOO<span>BAR</span>BAZ");
+ #data
+ <img <="" FAIL>
+ #errors
++no DOCTYPE
++bad attribute <
+ #document
+ | <html>
+ |   <head>
+@@ -522,6 +553,9 @@ console.log("FOO<span>BAR</span>BAZ");
+ #data
+ <ul><li><div id='foo'/>A</li><li>B<div>C</div></li></ul>
+ #errors
++no DOCTYPE
++nestc in <div>
++no </div> before </li>
+ #document
+ | <html>
+ |   <head>
+@@ -539,6 +573,9 @@ console.log("FOO<span>BAR</span>BAZ");
+ #data
+ <svg><em><desc></em>
+ #errors
++no DOCTYPE
++HTML <em> in foreign
++no </desc> before </em>
+ #document
+ | <html>
+ |   <head>
+@@ -550,6 +587,10 @@ console.log("FOO<span>BAR</span>BAZ");
+ #data
+ <svg><tfoot></mi><td>
+ #errors
++no DOCTYPE
++</tfoot> expected before </mi>
++stray </mi>
++EOF
+ #document
+ | <html>
+ |   <head>
+@@ -561,6 +602,7 @@ console.log("FOO<span>BAR</span>BAZ");
+ #data
+ <math><mrow><mrow><mn>1</mn></mrow><mi>a</mi></mrow></math>
+ #errors
++no DOCTYPE
+ #document
+ | <html>
+ |   <head>
+@@ -576,6 +618,8 @@ console.log("FOO<span>BAR</span>BAZ");
+ #data
+ <!doctype html><input type="hidden"><frameset>
+ #errors
++<frameset> in body
++EOF
+ #document
+ | <!DOCTYPE html>
+ | <html>
+@@ -585,6 +629,7 @@ console.log("FOO<span>BAR</span>BAZ");
+ #data
+ <!doctype html><input type="button"><frameset>
+ #errors
++<frameset> in body
+ #document
+ | <!DOCTYPE html>
+ | <html>
+diff --git a/html/parsing/html5lib/html-tree/webkit02.dat b/html/parsing/html5lib/html-tree/webkit02.dat
+index 468879b..d5a7a00 100644
+--- a/html/parsing/html5lib/html-tree/webkit02.dat
++++ b/html/parsing/html5lib/html-tree/webkit02.dat
+@@ -44,6 +44,10 @@
+ #data
+ <table><td></tbody>A
+ #errors
++no DOCTYPE
++no <tr>
++"A" in table
++EOF
+ #document
+ | <html>
+ |   <head>
+@@ -57,6 +61,10 @@
+ #data
+ <table><td></thead>A
+ #errors
++no DOCTYPE
++no <tr>
++stray </thead>
++EOF
+ #document
+ | <html>
+ |   <head>
+@@ -70,6 +78,10 @@
+ #data
+ <table><td></tfoot>A
+ #errors
++no DOCTYPE
++no <tr>
++stray </tfoot>
++EOF
+ #document
+ | <html>
+ |   <head>
+@@ -83,6 +95,10 @@
+ #data
+ <table><thead><td></tbody>A
+ #errors
++no DOCTYPE
++no <tr>
++stray </tbody>
++EOF
+ #document
+ | <html>
+ |   <head>
