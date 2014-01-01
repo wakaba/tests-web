@@ -1,8 +1,8 @@
 #data
 <svg><![CDATA[foo]]>
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,20): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -13,8 +13,8 @@ EOF
 #data
 <math><![CDATA[foo]]>
 #errors
-no DOCTYPE
-EOF
+(1,6): expected-doctype-but-got-start-tag
+(1,21): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -25,9 +25,9 @@ EOF
 #data
 <div><![CDATA[foo]]>
 #errors
-no DOCTYPE
-bogus comment
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,7): expected-dashes-or-doctype
+(1,20): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -38,8 +38,8 @@ EOF
 #data
 <svg><![CDATA[foo
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,17): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -50,8 +50,8 @@ EOF
 #data
 <svg><![CDATA[foo
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,17): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -62,8 +62,8 @@ EOF
 #data
 <svg><![CDATA[
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,14): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -73,8 +73,8 @@ EOF
 #data
 <svg><![CDATA[]]>
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,17): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -84,8 +84,8 @@ EOF
 #data
 <svg><![CDATA[]] >]]>
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,21): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -96,8 +96,8 @@ EOF
 #data
 <svg><![CDATA[]] >]]>
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,21): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -108,8 +108,8 @@ EOF
 #data
 <svg><![CDATA[]]
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,16): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -120,8 +120,8 @@ EOF
 #data
 <svg><![CDATA[]
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,15): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -132,8 +132,8 @@ EOF
 #data
 <svg><![CDATA[]>a
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,17): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -142,11 +142,47 @@ EOF
 |       "]>a"
 
 #data
+<!DOCTYPE html><svg><![CDATA[foo]]]>
+#errors
+(1,36): expected-closing-tag-but-got-eof
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <svg svg>
+|       "foo]"
+
+#data
+<!DOCTYPE html><svg><![CDATA[foo]]]]>
+#errors
+(1,37): expected-closing-tag-but-got-eof
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <svg svg>
+|       "foo]]"
+
+#data
+<!DOCTYPE html><svg><![CDATA[foo]]]]]>
+#errors
+(1,38): expected-closing-tag-but-got-eof
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <svg svg>
+|       "foo]]]"
+
+#data
 <svg><foreignObject><div><![CDATA[foo]]>
 #errors
-no DOCTYPE
-bogus comment
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,27): expected-dashes-or-doctype
+(1,40): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -159,8 +195,8 @@ EOF
 #data
 <svg><![CDATA[<svg>]]>
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,22): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -171,8 +207,8 @@ EOF
 #data
 <svg><![CDATA[</svg>a]]>
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,24): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -183,8 +219,8 @@ EOF
 #data
 <svg><![CDATA[<svg>a
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,20): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -195,8 +231,8 @@ EOF
 #data
 <svg><![CDATA[</svg>a
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,21): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -207,8 +243,8 @@ EOF
 #data
 <svg><![CDATA[<svg>]]><path>
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,28): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -220,10 +256,10 @@ EOF
 #data
 <svg><![CDATA[<svg>]]></path>
 #errors
-no DOCTYPE
-foreign </path>
-unmatched </path>
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,29): unexpected-end-tag
+(1,29): unexpected-end-tag
+(1,29): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -234,8 +270,8 @@ EOF
 #data
 <svg><![CDATA[<svg>]]><!--path-->
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,33): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -247,8 +283,8 @@ EOF
 #data
 <svg><![CDATA[<svg>]]>path
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,26): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -259,8 +295,8 @@ EOF
 #data
 <svg><![CDATA[<!--svg-->]]>
 #errors
-no DOCTYPE
-EOF
+(1,5): expected-doctype-but-got-start-tag
+(1,27): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>

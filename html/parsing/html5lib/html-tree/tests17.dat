@@ -1,9 +1,9 @@
 #data
 <!doctype html><table><tbody><select><tr>
 #errors
-<select> in table
-<tr> in <select>
-EOF
+(1,37): unexpected-start-tag-implies-table-voodoo
+(1,41): unexpected-table-element-start-tag-in-select-in-table
+(1,41): eof-in-table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -17,9 +17,9 @@ EOF
 #data
 <!doctype html><table><tr><select><td>
 #errors
-<select> in table
-<td> in select
-EOF
+(1,34): unexpected-start-tag-implies-table-voodoo
+(1,38): unexpected-table-element-start-tag-in-select-in-table
+(1,38): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -34,8 +34,8 @@ EOF
 #data
 <!doctype html><table><tr><td><select><td>
 #errors
-no </select>
-EOF
+(1,42): unexpected-table-element-start-tag-in-select-in-table
+(1,42): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -51,8 +51,8 @@ EOF
 #data
 <!doctype html><table><tr><th><select><td>
 #errors
-no </select>
-EOF
+(1,42): unexpected-table-element-start-tag-in-select-in-table
+(1,42): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -68,9 +68,9 @@ EOF
 #data
 <!doctype html><table><caption><select><tr>
 #errors
-no </caption> before </tr>
-no </select> before implied </caption>
-EOF
+(1,43): unexpected-table-element-start-tag-in-select-in-table
+(1,43): XXX-undefined-error
+(1,43): eof-in-table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -85,8 +85,8 @@ EOF
 #data
 <!doctype html><select><tr>
 #errors
-<tr> in select
-EOF
+(1,27): unexpected-start-tag-in-select
+(1,27): eof-in-select
 #document
 | <!DOCTYPE html>
 | <html>
@@ -97,8 +97,8 @@ EOF
 #data
 <!doctype html><select><td>
 #errors
-<td> in select
-EOF
+(1,27): unexpected-start-tag-in-select
+(1,27): eof-in-select
 #document
 | <!DOCTYPE html>
 | <html>
@@ -109,8 +109,8 @@ EOF
 #data
 <!doctype html><select><th>
 #errors
-<th> in select
-EOF
+(1,27): unexpected-start-tag-in-select
+(1,27): eof-in-select
 #document
 | <!DOCTYPE html>
 | <html>
@@ -121,8 +121,8 @@ EOF
 #data
 <!doctype html><select><tbody>
 #errors
-<tbody> in select
-EOF
+(1,30): unexpected-start-tag-in-select
+(1,30): eof-in-select
 #document
 | <!DOCTYPE html>
 | <html>
@@ -133,8 +133,8 @@ EOF
 #data
 <!doctype html><select><thead>
 #errors
-<thead> in select
-EOF
+(1,30): unexpected-start-tag-in-select
+(1,30): eof-in-select
 #document
 | <!DOCTYPE html>
 | <html>
@@ -145,8 +145,8 @@ EOF
 #data
 <!doctype html><select><tfoot>
 #errors
-<tfoot> in select
-EOF
+(1,30): unexpected-start-tag-in-select
+(1,30): eof-in-select
 #document
 | <!DOCTYPE html>
 | <html>
@@ -157,8 +157,8 @@ EOF
 #data
 <!doctype html><select><caption>
 #errors
-<caption> in select
-EOF
+(1,32): unexpected-start-tag-in-select
+(1,32): eof-in-select
 #document
 | <!DOCTYPE html>
 | <html>

@@ -11,7 +11,7 @@
 #data
 <!DOCTYPE html><svg></svg><![CDATA[a]]>
 #errors
-29: Bogus comment
+(1,28) expected-dashes-or-doctype
 #document
 | <!DOCTYPE html>
 | <html>
@@ -33,8 +33,8 @@
 #data
 <!DOCTYPE html><body><select><svg></svg></select>
 #errors
-35: Stray “svg” start tag.
-42: Stray end tag “svg”
+(1,34) unexpected-start-tag-in-select
+(1,40) unexpected-end-tag-in-select
 #document
 | <!DOCTYPE html>
 | <html>
@@ -45,8 +45,8 @@
 #data
 <!DOCTYPE html><body><select><option><svg></svg></option></select>
 #errors
-43: Stray “svg” start tag.
-50: Stray end tag “svg”
+(1,42) unexpected-start-tag-in-select
+(1,48) unexpected-end-tag-in-select
 #document
 | <!DOCTYPE html>
 | <html>
@@ -58,7 +58,7 @@
 #data
 <!DOCTYPE html><body><table><svg></svg></table>
 #errors
-34: Start tag “svg” seen in “table”.
+(1,33) foster-parenting-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -70,7 +70,7 @@
 #data
 <!DOCTYPE html><body><table><svg><g>foo</g></svg></table>
 #errors
-34: Start tag “svg” seen in “table”.
+(1,33) foster-parenting-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -84,7 +84,7 @@
 #data
 <!DOCTYPE html><body><table><svg><g>foo</g><g>bar</g></svg></table>
 #errors
-34: Start tag “svg” seen in “table”.
+(1,33) foster-parenting-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -100,7 +100,7 @@
 #data
 <!DOCTYPE html><body><table><tbody><svg><g>foo</g><g>bar</g></svg></tbody></table>
 #errors
-41: Start tag “svg” seen in “table”.
+(1,40) foster-parenting-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -117,7 +117,7 @@
 #data
 <!DOCTYPE html><body><table><tbody><tr><svg><g>foo</g><g>bar</g></svg></tr></tbody></table>
 #errors
-45: Start tag “svg” seen in “table”.
+(1,44) foster-parenting-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -191,8 +191,8 @@
 #data
 <!DOCTYPE html><body><table><caption><svg><g>foo</g><g>bar</g><p>baz</table><p>quux
 #errors
-70: HTML start tag “p” in a foreign namespace context.
-81: “table” closed but “caption” was still open.
+(1,65) unexpected-html-element-in-foreign-content
+(1,76) XXX-undefined-error
 #document
 | <!DOCTYPE html>
 | <html>
@@ -213,9 +213,8 @@
 #data
 <!DOCTYPE html><body><table><caption><svg><g>foo</g><g>bar</g>baz</table><p>quux
 #errors
-</table> in foreign content
-78: “table” closed but “caption” was still open.
-78: Unclosed elements on stack.
+(1,73) unexpected-end-tag
+(1,73) expected-one-end-tag-but-got-another
 #document
 | <!DOCTYPE html>
 | <html>
@@ -235,10 +234,11 @@
 #data
 <!DOCTYPE html><body><table><colgroup><svg><g>foo</g><g>bar</g><p>baz</table><p>quux
 #errors
-44: Start tag “svg” seen in “table”.
-71: HTML start tag “p” in a foreign namespace context.
-71: Start tag “p” seen in “table”.
-"baz" in table
+(1,43) foster-parenting-start-tag
+(1,66) foster-parenting-start-tag
+(1,67) foster-parenting-character
+(1,68) foster-parenting-character
+(1,69) foster-parenting-character
 #document
 | <!DOCTYPE html>
 | <html>
@@ -259,13 +259,13 @@
 #data
 <!DOCTYPE html><body><table><tr><td><select><svg><g>foo</g><g>bar</g><p>baz</table><p>quux
 #errors
-50: Stray “svg” start tag.
-54: Stray “g” start tag.
-62: Stray end tag “g”
-66: Stray “g” start tag.
-74: Stray end tag “g”
-77: Stray “p” start tag.
-88: “table” end tag with “select” open.
+(1,49) unexpected-start-tag-in-select
+(1,52) unexpected-start-tag-in-select
+(1,59) unexpected-end-tag-in-select
+(1,62) unexpected-start-tag-in-select
+(1,69) unexpected-end-tag-in-select
+(1,72) unexpected-start-tag-in-select
+(1,83) unexpected-table-element-end-tag-in-select-in-table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -283,14 +283,14 @@
 #data
 <!DOCTYPE html><body><table><select><svg><g>foo</g><g>bar</g><p>baz</table><p>quux
 #errors
-36: Start tag “select” seen in “table”.
-42: Stray “svg” start tag.
-46: Stray “g” start tag.
-54: Stray end tag “g”
-58: Stray “g” start tag.
-66: Stray end tag “g”
-69: Stray “p” start tag.
-80: “table” end tag with “select” open.
+(1,36) unexpected-start-tag-implies-table-voodoo
+(1,41) unexpected-start-tag-in-select
+(1,44) unexpected-start-tag-in-select
+(1,51) unexpected-end-tag-in-select
+(1,54) unexpected-start-tag-in-select
+(1,61) unexpected-end-tag-in-select
+(1,64) unexpected-start-tag-in-select
+(1,75) unexpected-table-element-end-tag-in-select-in-table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -305,8 +305,8 @@
 #data
 <!DOCTYPE html><body></body></html><svg><g>foo</g><g>bar</g><p>baz
 #errors
-41: Stray “svg” start tag.
-68: HTML start tag “p” in a foreign namespace context.
+(1,40) expected-eof-but-got-start-tag
+(1,63) unexpected-html-element-in-foreign-content
 #document
 | <!DOCTYPE html>
 | <html>
@@ -323,8 +323,8 @@
 #data
 <!DOCTYPE html><body></body><svg><g>foo</g><g>bar</g><p>baz
 #errors
-34: Stray “svg” start tag.
-61: HTML start tag “p” in a foreign namespace context.
+(1,33) unexpected-start-tag-after-body
+(1,56) unexpected-html-element-in-foreign-content
 #document
 | <!DOCTYPE html>
 | <html>
@@ -341,14 +341,14 @@
 #data
 <!DOCTYPE html><frameset><svg><g></g><g></g><p><span>
 #errors
-31: Stray “svg” start tag.
-35: Stray “g” start tag.
-40: Stray end tag “g”
-44: Stray “g” start tag.
-49: Stray end tag “g”
-52: Stray “p” start tag.
-58: Stray “span” start tag.
-58: End of file seen and there were open elements.
+(1,30) unexpected-start-tag-in-frameset
+(1,33) unexpected-start-tag-in-frameset
+(1,37) unexpected-end-tag-in-frameset
+(1,40) unexpected-start-tag-in-frameset
+(1,44) unexpected-end-tag-in-frameset
+(1,47) unexpected-start-tag-in-frameset
+(1,53) unexpected-start-tag-in-frameset
+(1,53) eof-in-frameset
 #document
 | <!DOCTYPE html>
 | <html>
@@ -358,13 +358,13 @@
 #data
 <!DOCTYPE html><frameset></frameset><svg><g></g><g></g><p><span>
 #errors
-42: Stray “svg” start tag.
-46: Stray “g” start tag.
-51: Stray end tag “g”
-55: Stray “g” start tag.
-60: Stray end tag “g”
-63: Stray “p” start tag.
-69: Stray “span” start tag.
+(1,41) unexpected-start-tag-after-frameset
+(1,44) unexpected-start-tag-after-frameset
+(1,48) unexpected-end-tag-after-frameset
+(1,51) unexpected-start-tag-after-frameset
+(1,55) unexpected-end-tag-after-frameset
+(1,58) unexpected-start-tag-after-frameset
+(1,64) unexpected-start-tag-after-frameset
 #document
 | <!DOCTYPE html>
 | <html>
@@ -432,10 +432,10 @@
 #data
 <svg></path>
 #errors
-no DOCTYPE
-unexpected </path>
-stray </path>
-EOF
+(1,5) expected-doctype-but-got-start-tag
+(1,12) unexpected-end-tag
+(1,12) unexpected-end-tag
+(1,12) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -445,9 +445,9 @@ EOF
 #data
 <div><svg></div>a
 #errors
-no DOCTYPE
-</div> in foreign content
-no </svg> before </div>
+(1,5) expected-doctype-but-got-start-tag
+(1,16) unexpected-end-tag
+(1,16) end-tag-too-early
 #document
 | <html>
 |   <head>
@@ -459,9 +459,9 @@ no </svg> before </div>
 #data
 <div><svg><path></div>a
 #errors
-no DOCTYPE
-</div> in foreign content
-no </path></svg> before </div>
+(1,5) expected-doctype-but-got-start-tag
+(1,22) unexpected-end-tag
+(1,22) end-tag-too-early
 #document
 | <html>
 |   <head>
@@ -474,9 +474,9 @@ no </path></svg> before </div>
 #data
 <div><svg><path></svg><path>
 #errors
-no DOCTYPE
-no </path> before </svg>
-no </path> at EOF
+(1,5) expected-doctype-but-got-start-tag
+(1,22) unexpected-end-tag
+(1,28) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -489,10 +489,10 @@ no </path> at EOF
 #data
 <div><svg><path><foreignObject><math></div>a
 #errors
-no DOCTYPE
-</div> in foreign content
-unmatched </div>
-EOF
+(1,5) expected-doctype-but-got-start-tag
+(1,43) unexpected-end-tag
+(1,43) end-tag-too-early
+(1,44) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -507,9 +507,9 @@ EOF
 #data
 <div><svg><path><foreignObject><p></div>a
 #errors
-no DOCTYPE
-unmatched </div>
-EOF
+(1,5) expected-doctype-but-got-start-tag
+(1,40) end-tag-too-early
+(1,41) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -524,8 +524,8 @@ EOF
 #data
 <!DOCTYPE html><svg><desc><div><svg><ul>a
 #errors
-40: HTML start tag “ul” in a foreign namespace context.
-41: End of file in a foreign namespace context.
+(1,40) unexpected-html-element-in-foreign-content
+(1,41) expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -541,8 +541,8 @@ EOF
 #data
 <!DOCTYPE html><svg><desc><svg><ul>a
 #errors
-35: HTML start tag “ul” in a foreign namespace context.
-36: End of file in a foreign namespace context.
+(1,35) unexpected-html-element-in-foreign-content
+(1,36) expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -557,7 +557,7 @@ EOF
 #data
 <!DOCTYPE html><p><svg><desc><p>
 #errors
-EOF
+(1,32) expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -571,7 +571,7 @@ EOF
 #data
 <!DOCTYPE html><p><svg><title><p>
 #errors
-EOF
+(1,33) expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -585,9 +585,9 @@ EOF
 #data
 <div><svg><path><foreignObject><p></foreignObject><p>
 #errors
-no DOCTYPE
-unmatched </foreignObject>
-EOF
+(1,5) expected-doctype-but-got-start-tag
+(1,50) unexpected-end-tag
+(1,53) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -602,8 +602,8 @@ EOF
 #data
 <math><mi><div><object><div><span></span></div></object></div></mi><mi>
 #errors
-no DOCTYPE
-EOF
+(1,6) expected-doctype-but-got-start-tag
+(1,71) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -619,8 +619,8 @@ EOF
 #data
 <math><mi><svg><foreignObject><div><div></div></div></foreignObject></svg></mi><mi>
 #errors
-no DOCTYPE
-EOF
+(1,6) expected-doctype-but-got-start-tag
+(1,83) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -636,8 +636,8 @@ EOF
 #data
 <svg><script></script><path>
 #errors
-no DOCTYPE
-EOF
+(1,5) expected-doctype-but-got-start-tag
+(1,28) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -649,9 +649,9 @@ EOF
 #data
 <table><svg></svg><tr>
 #errors
-no DOCTYPE
-<svg> in table
-EOF
+(1,7) expected-doctype-but-got-start-tag
+(1,12) unexpected-start-tag-implies-table-voodoo
+(1,22) eof-in-table
 #document
 | <html>
 |   <head>
@@ -664,8 +664,8 @@ EOF
 #data
 <math><mi><mglyph>
 #errors
-no DOCTYPE
-EOF
+(1,6) expected-doctype-but-got-start-tag
+(1,18) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -677,8 +677,8 @@ EOF
 #data
 <math><mi><malignmark>
 #errors
-no DOCTYPE
-EOF
+(1,6) expected-doctype-but-got-start-tag
+(1,22) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -690,8 +690,8 @@ EOF
 #data
 <math><mo><mglyph>
 #errors
-no DOCTYPE
-EOF
+(1,6) expected-doctype-but-got-start-tag
+(1,18) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -703,8 +703,8 @@ EOF
 #data
 <math><mo><malignmark>
 #errors
-no DOCTYPE
-EOF
+(1,6) expected-doctype-but-got-start-tag
+(1,22) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -716,8 +716,8 @@ EOF
 #data
 <math><mn><mglyph>
 #errors
-no DOCTYPE
-EOF
+(1,6) expected-doctype-but-got-start-tag
+(1,18) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -729,8 +729,8 @@ EOF
 #data
 <math><mn><malignmark>
 #errors
-no DOCTYPE
-EOF
+(1,6) expected-doctype-but-got-start-tag
+(1,22) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -742,8 +742,8 @@ EOF
 #data
 <math><ms><mglyph>
 #errors
-no DOCTYPE
-EOF
+(1,6) expected-doctype-but-got-start-tag
+(1,18) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -755,8 +755,8 @@ EOF
 #data
 <math><ms><malignmark>
 #errors
-no DOCTYPE
-EOF
+(1,6) expected-doctype-but-got-start-tag
+(1,22) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -768,8 +768,8 @@ EOF
 #data
 <math><mtext><mglyph>
 #errors
-no DOCTYPE
-EOF
+(1,6) expected-doctype-but-got-start-tag
+(1,21) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -781,8 +781,8 @@ EOF
 #data
 <math><mtext><malignmark>
 #errors
-no DOCTYPE
-EOF
+(1,6) expected-doctype-but-got-start-tag
+(1,25) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -794,8 +794,8 @@ EOF
 #data
 <math><annotation-xml><svg></svg></annotation-xml><mi>
 #errors
-no DOCTYPE
-EOF
+(1,6) expected-doctype-but-got-start-tag
+(1,54) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -808,8 +808,8 @@ EOF
 #data
 <math><annotation-xml><svg><foreignObject><div><math><mi></mi></math><span></span></div></foreignObject><path></path></svg></annotation-xml><mi>
 #errors
-no DOCTYPE
-EOF
+(1,6) expected-doctype-but-got-start-tag
+(1,144) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -828,8 +828,8 @@ EOF
 #data
 <math><annotation-xml><svg><foreignObject><math><mi><svg></svg></mi><mo></mo></math><span></span></foreignObject><path></path></svg></annotation-xml><mi>
 #errors
-no DOCTYPE
-EOF
+(1,6) expected-doctype-but-got-start-tag
+(1,153) expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>

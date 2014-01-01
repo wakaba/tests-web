@@ -1,7 +1,7 @@
 #data
 <!doctype html><math><mn DefinitionUrl="foo">
 #errors
-EOF
+(1,45): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -14,7 +14,7 @@ EOF
 #data
 <!doctype html><html></p><!--foo-->
 #errors
-unmatched </p>
+(1,25): end-tag-after-implied-root
 #document
 | <!DOCTYPE html>
 | <html>
@@ -25,7 +25,7 @@ unmatched </p>
 #data
 <!doctype html><head></head></p><!--foo-->
 #errors
-unmatched </p>
+(1,32): unexpected-end-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -36,7 +36,7 @@ unmatched </p>
 #data
 <!doctype html><body><p><pre>
 #errors
-EOF
+(1,29): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -48,7 +48,7 @@ EOF
 #data
 <!doctype html><body><p><listing>
 #errors
-EOF
+(1,33): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -60,7 +60,7 @@ EOF
 #data
 <!doctype html><p><plaintext>
 #errors
-EOF
+(1,29): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -72,7 +72,7 @@ EOF
 #data
 <!doctype html><p><h1>
 #errors
-EOF
+(1,22): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -84,8 +84,8 @@ EOF
 #data
 <!doctype html><form><isindex>
 #errors
-no </form> before <isindex>
-isindex
+(1,30): deprecated-tag
+(1,30): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -96,7 +96,7 @@ isindex
 #data
 <!doctype html><isindex action="POST">
 #errors
-isindex
+(1,38): deprecated-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -114,7 +114,7 @@ isindex
 #data
 <!doctype html><isindex prompt="this is isindex">
 #errors
-isindex
+(1,49): deprecated-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -131,7 +131,7 @@ isindex
 #data
 <!doctype html><isindex type="hidden">
 #errors
-isindex
+(1,38): deprecated-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -149,7 +149,7 @@ isindex
 #data
 <!doctype html><isindex name="foo">
 #errors
-isindex
+(1,35): deprecated-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -166,7 +166,7 @@ isindex
 #data
 <!doctype html><ruby><p><rp>
 #errors
-EOF
+(1,28): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -179,8 +179,8 @@ EOF
 #data
 <!doctype html><ruby><div><span><rp>
 #errors
-no </span></div> before <rp>
-EOF
+(1,36): XXX-undefined-error
+(1,36): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -194,8 +194,8 @@ EOF
 #data
 <!doctype html><ruby><div><p><rp>
 #errors
-no </div> before <rp>
-EOF
+(1,33): XXX-undefined-error
+(1,33): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -209,7 +209,7 @@ EOF
 #data
 <!doctype html><ruby><p><rt>
 #errors
-EOF
+(1,28): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -222,8 +222,8 @@ EOF
 #data
 <!doctype html><ruby><div><span><rt>
 #errors
-no </span></div> before <rt>
-EOF
+(1,36): XXX-undefined-error
+(1,36): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -237,8 +237,8 @@ EOF
 #data
 <!doctype html><ruby><div><p><rt>
 #errors
-no </div> before <rt>
-EOF
+(1,33): XXX-undefined-error
+(1,33): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -252,7 +252,7 @@ EOF
 #data
 <!doctype html><math/><foo>
 #errors
-EOF
+(1,27): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -264,7 +264,7 @@ EOF
 #data
 <!doctype html><svg/><foo>
 #errors
-EOF
+(1,26): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -276,7 +276,7 @@ EOF
 #data
 <!doctype html><div></body><!--foo-->
 #errors
-no </div> before </body>
+(1,27): expected-one-end-tag-but-got-another
 #document
 | <!DOCTYPE html>
 | <html>
@@ -288,8 +288,8 @@ no </div> before </body>
 #data
 <!doctype html><h1><div><h3><span></h1>foo
 #errors
-</h1> closing <h3>
-EOF
+(1,39): end-tag-too-early
+(1,42): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -304,7 +304,7 @@ EOF
 #data
 <!doctype html><p></h3>foo
 #errors
-unmatched </h3>
+(1,23): end-tag-too-early
 #document
 | <!DOCTYPE html>
 | <html>
@@ -316,7 +316,7 @@ unmatched </h3>
 #data
 <!doctype html><h3><li>abc</h2>foo
 #errors
-</h2> closes <h3>
+(1,31): end-tag-too-early
 #document
 | <!DOCTYPE html>
 | <html>
@@ -330,8 +330,10 @@ unmatched </h3>
 #data
 <!doctype html><table>abc<!--foo-->
 #errors
-"abc" in table
-EOF
+(1,23): foster-parenting-character
+(1,24): foster-parenting-character
+(1,25): foster-parenting-character
+(1,35): eof-in-table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -344,7 +346,7 @@ EOF
 #data
 <!doctype html><table>  <!--foo-->
 #errors
-EOF
+(1,34): eof-in-table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -357,8 +359,10 @@ EOF
 #data
 <!doctype html><table> b <!--foo-->
 #errors
-" b " in table
-EOF
+(1,23): foster-parenting-character
+(1,24): foster-parenting-character
+(1,25): foster-parenting-character
+(1,35): eof-in-table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -371,7 +375,7 @@ EOF
 #data
 <!doctype html><select><option><option>
 #errors
-EOF
+(1,39): eof-in-select
 #document
 | <!DOCTYPE html>
 | <html>
@@ -384,7 +388,8 @@ EOF
 #data
 <!doctype html><select><option></optgroup>
 #errors
-EOF
+(1,42): unexpected-end-tag-in-select
+(1,42): eof-in-select
 #document
 | <!DOCTYPE html>
 | <html>
@@ -396,7 +401,8 @@ EOF
 #data
 <!doctype html><select><option></optgroup>
 #errors
-EOF
+(1,42): unexpected-end-tag-in-select
+(1,42): eof-in-select
 #document
 | <!DOCTYPE html>
 | <html>
@@ -404,11 +410,23 @@ EOF
 |   <body>
 |     <select>
 |       <option>
+
+#data
+<!doctype html><dd><optgroup><dd>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <dd>
+|       <optgroup>
+|     <dd>
 
 #data
 <!doctype html><p><math><mi><p><h1>
 #errors
-EOF
+(1,35): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -423,7 +441,7 @@ EOF
 #data
 <!doctype html><p><math><mo><p><h1>
 #errors
-EOF
+(1,35): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -438,7 +456,7 @@ EOF
 #data
 <!doctype html><p><math><mn><p><h1>
 #errors
-EOF
+(1,35): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -453,7 +471,7 @@ EOF
 #data
 <!doctype html><p><math><ms><p><h1>
 #errors
-EOF
+(1,35): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -468,7 +486,7 @@ EOF
 #data
 <!doctype html><p><math><mtext><p><h1>
 #errors
-EOF
+(1,38): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -483,8 +501,8 @@ EOF
 #data
 <!doctype html><frameset></noframes>
 #errors
-unmatched </noframes>
-EOF
+(1,36): unexpected-end-tag-in-frameset
+(1,36): eof-in-frameset
 #document
 | <!DOCTYPE html>
 | <html>
@@ -494,8 +512,7 @@ EOF
 #data
 <!doctype html><html c=d><body></html><html a=b>
 #errors
-after html: <html>
-second <html>
+(1,48): non-html-root
 #document
 | <!DOCTYPE html>
 | <html>
@@ -507,8 +524,7 @@ second <html>
 #data
 <!doctype html><html c=d><frameset></frameset></html><html a=b>
 #errors
-after html: <html>
-second <html>
+(1,63): non-html-root
 #document
 | <!DOCTYPE html>
 | <html>
@@ -540,7 +556,9 @@ second <html>
 #data
 <!doctype html><html><frameset></frameset></html>abc
 #errors
-after html: "abc"
+(1,50): expected-eof-but-got-char
+(1,51): expected-eof-but-got-char
+(1,52): expected-eof-but-got-char
 #document
 | <!DOCTYPE html>
 | <html>
@@ -550,7 +568,7 @@ after html: "abc"
 #data
 <!doctype html><html><frameset></frameset></html><p>
 #errors
-after html: <p>
+(1,52): expected-eof-but-got-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -560,7 +578,7 @@ after html: <p>
 #data
 <!doctype html><html><frameset></frameset></html></p>
 #errors
-after html: </p>
+(1,53): expected-eof-but-got-end-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -570,8 +588,8 @@ after html: </p>
 #data
 <html><frameset></frameset></html><!doctype html>
 #errors
-no doctype
-doctype after html
+(1,6): expected-doctype-but-got-start-tag
+(1,49): unexpected-doctype
 #document
 | <html>
 |   <head>
@@ -580,7 +598,7 @@ doctype after html
 #data
 <!doctype html><body><frameset>
 #errors
-frameset in body
+(1,31): unexpected-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -590,8 +608,8 @@ frameset in body
 #data
 <!doctype html><p><frameset><frame>
 #errors
-frameset in body
-EOF
+(1,28): unexpected-start-tag
+(1,35): eof-in-frameset
 #document
 | <!DOCTYPE html>
 | <html>
@@ -602,7 +620,7 @@ EOF
 #data
 <!doctype html><p>a<frameset>
 #errors
-frameset in body
+(1,29): unexpected-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -614,8 +632,8 @@ frameset in body
 #data
 <!doctype html><p> <frameset><frame>
 #errors
-frameset in body
-EOF
+(1,29): unexpected-start-tag
+(1,36): eof-in-frameset
 #document
 | <!DOCTYPE html>
 | <html>
@@ -626,8 +644,8 @@ EOF
 #data
 <!doctype html><pre><frameset>
 #errors
-frameset in body
-EOF
+(1,30): unexpected-start-tag
+(1,30): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -638,8 +656,8 @@ EOF
 #data
 <!doctype html><listing><frameset>
 #errors
-frameset in body
-EOF
+(1,34): unexpected-start-tag
+(1,34): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -650,7 +668,7 @@ EOF
 #data
 <!doctype html><li><frameset>
 #errors
-frameset in body
+(1,29): unexpected-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -661,7 +679,7 @@ frameset in body
 #data
 <!doctype html><dd><frameset>
 #errors
-frameset in body
+(1,29): unexpected-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -672,7 +690,7 @@ frameset in body
 #data
 <!doctype html><dt><frameset>
 #errors
-frameset in body
+(1,29): unexpected-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -683,8 +701,8 @@ frameset in body
 #data
 <!doctype html><button><frameset>
 #errors
-frameset in body
-EOF
+(1,33): unexpected-start-tag
+(1,33): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -695,8 +713,8 @@ EOF
 #data
 <!doctype html><applet><frameset>
 #errors
-frameset in body
-EOF
+(1,33): unexpected-start-tag
+(1,33): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -707,8 +725,8 @@ EOF
 #data
 <!doctype html><marquee><frameset>
 #errors
-frameset in body
-EOF
+(1,34): unexpected-start-tag
+(1,34): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -719,8 +737,8 @@ EOF
 #data
 <!doctype html><object><frameset>
 #errors
-frameset in body
-EOF
+(1,33): unexpected-start-tag
+(1,33): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -731,8 +749,9 @@ EOF
 #data
 <!doctype html><table><frameset>
 #errors
-frameset in body
-EOF
+(1,32): unexpected-start-tag-implies-table-voodoo
+(1,32): unexpected-start-tag
+(1,32): eof-in-table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -743,7 +762,7 @@ EOF
 #data
 <!doctype html><area><frameset>
 #errors
-frameset in body
+(1,31): unexpected-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -754,7 +773,7 @@ frameset in body
 #data
 <!doctype html><basefont><frameset>
 #errors
-frameset in body
+(1,35): eof-in-frameset
 #document
 | <!DOCTYPE html>
 | <html>
@@ -765,7 +784,7 @@ frameset in body
 #data
 <!doctype html><bgsound><frameset>
 #errors
-EOF
+(1,34): eof-in-frameset
 #document
 | <!DOCTYPE html>
 | <html>
@@ -776,7 +795,7 @@ EOF
 #data
 <!doctype html><br><frameset>
 #errors
-frameset in body
+(1,29): unexpected-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -787,7 +806,7 @@ frameset in body
 #data
 <!doctype html><embed><frameset>
 #errors
-frameset in body
+(1,32): unexpected-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -798,7 +817,7 @@ frameset in body
 #data
 <!doctype html><img><frameset>
 #errors
-frameset in body
+(1,30): unexpected-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -809,7 +828,7 @@ frameset in body
 #data
 <!doctype html><input><frameset>
 #errors
-frameset in body
+(1,32): unexpected-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -820,7 +839,7 @@ frameset in body
 #data
 <!doctype html><keygen><frameset>
 #errors
-frameset in body
+(1,33): unexpected-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -831,7 +850,7 @@ frameset in body
 #data
 <!doctype html><wbr><frameset>
 #errors
-frameset in body
+(1,30): unexpected-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -842,7 +861,7 @@ frameset in body
 #data
 <!doctype html><hr><frameset>
 #errors
-frameset in body
+(1,29): unexpected-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -853,7 +872,7 @@ frameset in body
 #data
 <!doctype html><textarea></textarea><frameset>
 #errors
-frameset in body
+(1,46): unexpected-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -864,7 +883,7 @@ frameset in body
 #data
 <!doctype html><xmp></xmp><frameset>
 #errors
-frameset in body
+(1,36): unexpected-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -875,7 +894,7 @@ frameset in body
 #data
 <!doctype html><iframe></iframe><frameset>
 #errors
-frameset in body
+(1,42): unexpected-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -886,7 +905,7 @@ frameset in body
 #data
 <!doctype html><select></select><frameset>
 #errors
-frameset in body
+(1,42): unexpected-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -897,8 +916,8 @@ frameset in body
 #data
 <!doctype html><svg></svg><frameset><frame>
 #errors
-frameset in body
-EOF
+(1,36): unexpected-start-tag
+(1,43): eof-in-frameset
 #document
 | <!DOCTYPE html>
 | <html>
@@ -909,8 +928,8 @@ EOF
 #data
 <!doctype html><math></math><frameset><frame>
 #errors
-frameset in body
-EOF
+(1,38): unexpected-start-tag
+(1,45): eof-in-frameset
 #document
 | <!DOCTYPE html>
 | <html>
@@ -921,8 +940,8 @@ EOF
 #data
 <!doctype html><svg><foreignObject><div> <frameset><frame>
 #errors
-frameset in body
-EOF
+(1,51): unexpected-start-tag
+(1,58): eof-in-frameset
 #document
 | <!DOCTYPE html>
 | <html>
@@ -933,8 +952,8 @@ EOF
 #data
 <!doctype html><svg>a</svg><frameset><frame>
 #errors
-frameset in body
-frame in body
+(1,37): unexpected-start-tag
+(1,44): unexpected-start-tag-ignored
 #document
 | <!DOCTYPE html>
 | <html>
@@ -946,8 +965,8 @@ frame in body
 #data
 <!doctype html><svg> </svg><frameset><frame>
 #errors
-frameset in body
-EOF
+(1,37): unexpected-start-tag
+(1,44): eof-in-frameset
 #document
 | <!DOCTYPE html>
 | <html>
@@ -958,9 +977,9 @@ EOF
 #data
 <html>aaa<frameset></frameset>
 #errors
-no DOCTYPE
-frameset in body
-</frameset>
+(1,6): expected-doctype-but-got-start-tag
+(1,19): unexpected-start-tag
+(1,30): unexpected-end-tag
 #document
 | <html>
 |   <head>
@@ -970,9 +989,9 @@ frameset in body
 #data
 <html> a <frameset></frameset>
 #errors
-no DOCTYPE
-frameset in body
-</frameset>
+(1,6): expected-doctype-but-got-start-tag
+(1,19): unexpected-start-tag
+(1,30): unexpected-end-tag
 #document
 | <html>
 |   <head>
@@ -982,8 +1001,8 @@ frameset in body
 #data
 <!doctype html><div><frameset>
 #errors
-frameset in body
-EOF
+(1,30): unexpected-start-tag
+(1,30): eof-in-frameset
 #document
 | <!DOCTYPE html>
 | <html>
@@ -993,9 +1012,9 @@ EOF
 #data
 <!doctype html><div><body><frameset>
 #errors
-<body> in body
-<frameset> in body
-EOF
+(1,26): unexpected-start-tag
+(1,36): unexpected-start-tag
+(1,36): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1006,8 +1025,8 @@ EOF
 #data
 <!doctype html><p><math></p>a
 #errors
-</p> in foreign
-no </math> before </p>
+(1,28): unexpected-end-tag
+(1,28): unexpected-end-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1020,8 +1039,8 @@ no </math> before </p>
 #data
 <!doctype html><p><math><mn><span></p>a
 #errors
-unmatched </p>
-EOF
+(1,38): unexpected-end-tag
+(1,39): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1037,9 +1056,9 @@ EOF
 #data
 <!doctype html><math></html>
 #errors
-</html> in foreign
-no </math> before </html>
-EOF
+(1,28): unexpected-end-tag
+(1,28): expected-one-end-tag-but-got-another
+(1,28): unexpected-end-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1085,7 +1104,7 @@ EOF
 #data
 <!doctype html><html a=b><head></head><html c=d>
 #errors
-second <html>
+(1,48): non-html-root
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1097,7 +1116,7 @@ second <html>
 #data
 <!doctype html><image/>
 #errors
-<image>
+(1,23): image-start-tag
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1108,15 +1127,15 @@ second <html>
 #data
 <!doctype html>a<i>b<table>c<b>d</i>e</b>f
 #errors
-"c" in table
-<b> in table
-"d" in table
-</i> in table
-AAA at </i>
-"e" in table
-</b> in table
-"f" in table
-EOF
+(1,28): foster-parenting-character
+(1,31): foster-parenting-start-tag
+(1,32): foster-parenting-character
+(1,36): foster-parenting-end-tag
+(1,36): adoption-agency-1.3
+(1,37): foster-parenting-character
+(1,41): foster-parenting-end-tag
+(1,42): foster-parenting-character
+(1,42): eof-in-table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1133,21 +1152,23 @@ EOF
 #data
 <!doctype html><table><i>a<b>b<div>c<a>d</i>e</b>f
 #errors
-<i> in table
-"a" in table
-<b> in table
-"b" in table
-<div> in table
-"c" in table
-<a> in table
-"d" in table
-</i> in table
-AAA at </i>
-"e" in table
-</b> in table
-AAA at </b>
-"f" in table
-EOF
+(1,25): foster-parenting-start-tag
+(1,26): foster-parenting-character
+(1,29): foster-parenting-start-tag
+(1,30): foster-parenting-character
+(1,35): foster-parenting-start-tag
+(1,36): foster-parenting-character
+(1,39): foster-parenting-start-tag
+(1,40): foster-parenting-character
+(1,44): foster-parenting-end-tag
+(1,44): adoption-agency-1.3
+(1,44): adoption-agency-1.3
+(1,45): foster-parenting-character
+(1,49): foster-parenting-end-tag
+(1,49): adoption-agency-1.3
+(1,49): adoption-agency-1.3
+(1,50): foster-parenting-character
+(1,50): eof-in-table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1173,9 +1194,11 @@ EOF
 #data
 <!doctype html><i>a<b>b<div>c<a>d</i>e</b>f
 #errors
-AAA at </i>
-AAA at </b>
-EOF
+(1,37): adoption-agency-1.3
+(1,37): adoption-agency-1.3
+(1,42): adoption-agency-1.3
+(1,42): adoption-agency-1.3
+(1,43): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1200,15 +1223,15 @@ EOF
 #data
 <!doctype html><table><i>a<b>b<div>c</i>
 #errors
-<i> in table
-"a" in table
-<b> in table
-"b" in table
-<div> in table
-"c" in table
-</i> in table
-AAA at </i>
-EOF
+(1,25): foster-parenting-start-tag
+(1,26): foster-parenting-character
+(1,29): foster-parenting-start-tag
+(1,30): foster-parenting-character
+(1,35): foster-parenting-start-tag
+(1,36): foster-parenting-character
+(1,40): foster-parenting-end-tag
+(1,40): adoption-agency-1.3
+(1,40): eof-in-table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1227,21 +1250,22 @@ EOF
 #data
 <!doctype html><table><i>a<b>b<div>c<a>d</i>e</b>f
 #errors
-<i> in table
-"a" in table
-<b> in table
-"b" in table
-<div> in table
-"c" in table
-<a> in table
-"d" in table
-</i> in table
-AAA at </i>
-"e" in table
-</b> in table
-AAA at </b>
-"f" in table
-EOF
+(1,25): foster-parenting-start-tag
+(1,26): foster-parenting-character
+(1,29): foster-parenting-start-tag
+(1,30): foster-parenting-character
+(1,35): foster-parenting-start-tag
+(1,36): foster-parenting-character
+(1,39): foster-parenting-start-tag
+(1,40): foster-parenting-character
+(1,44): foster-parenting-end-tag
+(1,44): adoption-agency-1.3
+(1,44): adoption-agency-1.3
+(1,45): foster-parenting-character
+(1,49): foster-parenting-end-tag
+(1,44): adoption-agency-1.3
+(1,44): adoption-agency-1.3
+(1,50): eof-in-table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1267,17 +1291,17 @@ EOF
 #data
 <!doctype html><table><i>a<div>b<tr>c<b>d</i>e
 #errors
-<i> in table
-"a" in table
-<div> in table
-"b" in table
-"c" in table
-<b> in table
-"d" in table
-</i> in table
-AAA at </i>
-"e" in table
-EOF
+(1,25): foster-parenting-start-tag
+(1,26): foster-parenting-character
+(1,31): foster-parenting-start-tag
+(1,32): foster-parenting-character
+(1,37): foster-parenting-character
+(1,40): foster-parenting-start-tag
+(1,41): foster-parenting-character
+(1,45): foster-parenting-end-tag
+(1,45): adoption-agency-1.3
+(1,46): foster-parenting-character
+(1,46): eof-in-table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1300,17 +1324,18 @@ EOF
 #data
 <!doctype html><table><td><table><i>a<div>b<b>c</i>d
 #errors
-no <tr>
-<i> in table
-"a" in table
-<div> in table
-"b" in table
-<b> in table
-"c" in table
-</i> in table
-AAA at </i>
-"d" in table
-EOF
+(1,26): unexpected-cell-in-table-body
+(1,36): foster-parenting-start-tag
+(1,37): foster-parenting-character
+(1,42): foster-parenting-start-tag
+(1,43): foster-parenting-character
+(1,46): foster-parenting-start-tag
+(1,47): foster-parenting-character
+(1,51): foster-parenting-end-tag
+(1,51): adoption-agency-1.3
+(1,51): adoption-agency-1.3
+(1,52): foster-parenting-character
+(1,52): eof-in-table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1354,7 +1379,7 @@ EOF
 #data
 <!doctype html><a><b></a><basefont>
 #errors
-no </b>
+(1,25): adoption-agency-1.3
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1367,7 +1392,7 @@ no </b>
 #data
 <!doctype html><a><b></a><bgsound>
 #errors
-no </b>
+(1,25): adoption-agency-1.3
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1380,7 +1405,7 @@ no </b>
 #data
 <!doctype html><figcaption><article></figcaption>a
 #errors
-no </article>
+(1,49): end-tag-too-early
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1393,7 +1418,7 @@ no </article>
 #data
 <!doctype html><summary><article></summary>a
 #errors
-no </article>
+(1,43): end-tag-too-early
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1406,8 +1431,8 @@ no </article>
 #data
 <!doctype html><p><a><plaintext>b
 #errors
-reconstruct at <plaintext>
-EOF
+(1,32): unexpected-end-tag
+(1,33): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1422,8 +1447,8 @@ EOF
 #data
 <!DOCTYPE html><div>a<a></div>b<p>c</p>d
 #errors
-no </a>
-EOF
+(1,30): end-tag-too-early
+(1,40): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
