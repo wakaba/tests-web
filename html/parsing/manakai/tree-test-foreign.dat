@@ -3506,10 +3506,9 @@ EOF
 |       <math mi>
 |         <i>
 |           "a"
-|       <math mi>
-|         <i>
-|           <b>
-|             "b"
+|           <mi>
+|             <b>
+|               "b"
 
 #data
 <!DOCTYPE html><math><mi><i>a</mi><annotation-xml>b
@@ -4002,23 +4001,19 @@ bad comment
 <!DOCTYPE html><table><svg><desc><i>a</desc><title><b>b</title><foreignobject><table><td>c</table>d</i>e</foreignObject></svg><math><mi>f<i>g</mi><annotation-xml encoding=text/html>h</annotation-xml><annotation-xml>i</annotation-xml></math>j
 #errors
 <svg> in table
-<desc> in table
 <i> in table
-no </i> before </desc>
+"a" in table
 </desc> in table
+stray </desc>
 <title> in table
-<b> in table
-no </b> before </title>
-</title> in table
 <foreignobject> in table
 no </foreignobject></table> before </table>
 no <tr> before <td>
-no </b> before </i>; AAA
-unexpected </foreignObject>
-unexpected </svg>
-no </i></b> before </mi>
-no </i> before </annotation-xml> (text/html)
-unexpected EOF
+stray </foreignObject>
+stray </svg>
+stray </mi>
+stray </math>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -4028,11 +4023,9 @@ unexpected EOF
 |       <svg desc>
 |         <i>
 |           "a"
-|       <svg title>
-|         <i>
-|           <b>
-|             "b"
-|       <svg foreignObject>
+|           <title>
+|             "<b>b"
+|           <foreignobject>
 |     <table>
 |     <table>
 |       <tbody>
@@ -4040,23 +4033,19 @@ unexpected EOF
 |           <td>
 |             "c"
 |     <i>
-|       <b>
-|         "d"
-|     <b>
-|       "e"
-|       <math math>
-|         <math mi>
-|           "f"
-|           <i>
-|             "g"
-|         <math annotation-xml>
-|           encoding="text/html"
-|           <i>
+|       "d"
+|     "e"
+|     <math math>
+|       <math mi>
+|         "f"
+|         <i>
+|           "g"
+|           <annotation-xml>
+|             encoding="text/html"
 |             "h"
-|         <math annotation-xml>
-|           "i"
-|       <i>
-|         "j"
+|           <annotation-xml>
+|             "i"
+|           "j"
 
 #data
 <!DOCTYPE html><body><table><caption><svg><g>foo</g><g>bar</g>baz</table><p>quux
