@@ -415,7 +415,8 @@ no </button>
 #data
 <!DOCTYPE html><form>a<button>b</form>c
 #errors
-no </button>
+stray </form>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -424,8 +425,7 @@ no </button>
 |     <form>
 |       "a"
 |       <button>
-|         "b"
-|     "c"
+|         "bc"
 
 #data
 <!DOCTYPE html><h1>a<button>b</h1>c

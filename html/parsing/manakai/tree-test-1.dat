@@ -1946,6 +1946,7 @@ div closed by dd
 <!DOCTYPE HTML><body><form><div>a</form>b
 #errors
 no </div> before </form>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1953,13 +1954,13 @@ no </div> before </form>
 |   <body>
 |     <form>
 |       <div>
-|         "a"
-|     "b"
+|         "ab"
 
 #data
 <!DOCTYPE HTML><body><form><div><div><div>a</form>b
 #errors
 no </div> before </form>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1969,8 +1970,7 @@ no </div> before </form>
 |       <div>
 |         <div>
 |           <div>
-|             "a"
-|     "b"
+|             "ab"
 
 #data
 <!DOCTYPE HTML><form><p></form>
@@ -5551,7 +5551,8 @@ unmatched </h1>
 <p><font><form> </form>
 #errors
 1,4,no DOCTYPE
-1,16,not closed:font
+no </font> at <form>
+no </font> at <form>
 unexpected end-of-file
 #document
 | <html>
@@ -5568,7 +5569,7 @@ unexpected end-of-file
 #errors
 no DOCTYPE
 <font> not closed before <form>
-<font> not closed before </form>
+stray </form>
 unexpected end-of-file (<font> not closed before end-of-file)
 #document
 | <html>
@@ -5578,9 +5579,25 @@ unexpected end-of-file (<font> not closed before end-of-file)
 |       <font>
 |     <form>
 |       <font>
-|         " "
-|     <font>
-|       "a"
+|         " a"
+
+#data
+<p><font><form> </form>a<form>
+#errors
+no DOCTYPE
+no </font> at <form>
+no </font> at </form>
+EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       <font>
+|     <form>
+|       <font>
+|         " a"
+|         <form>
 
 #data
 <table a><tr><table b>

@@ -401,3 +401,157 @@ EOF in body
 |       content
 |   <!--  -->
 |   <body>
+
+#data
+<template><form>aa</form>bb</template>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <template>
+|       content
+|         <form>
+|           "aa"
+|         "bb"
+|   <body>
+
+#data
+<form><template><form>aa</form>bb</template>x</form>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <form>
+|       <template>
+|         content
+|           <form>
+|             "aa"
+|           "bb"
+|       "x"
+
+#data
+<form><template><form><form>a</form>a</form>bb</template>x</form>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <form>
+|       <template>
+|         content
+|           <form>
+|             <form>
+|               "a"
+|             "a"
+|           "bb"
+|       "x"
+
+#data
+<body><template><table><form><form>a</table><form>b</form></template><form></form>
+#errors
+no DOCTYPE
+<form> in table ignored
+<form> in table ignored
+"a" in table
+#document
+| <html>
+|   <head>
+|   <body>
+|     <template>
+|       content
+|         "a"
+|         <table>
+|         <form>
+|           "b"
+|     <form>
+
+#data
+<body><template><table><isindex></table></template>
+#errors
+no DOCTYPE
+<isindex> in table
+isindex
+#document
+| <html>
+|   <head>
+|   <body>
+|     <template>
+|       content
+|         <form>
+|           <hr>
+|           <label>
+|             "This is a searchable index. Enter search keywords: "
+|             <input>
+|               name="isindex"
+|           <hr>
+|         <table>
+
+#data
+<body><form><template><table><isindex></table></template></form>
+#errors
+no DOCTYPE
+<isindex> in table
+isindex
+#document
+| <html>
+|   <head>
+|   <body>
+|     <form>
+|       <template>
+|         content
+|           <form>
+|             <hr>
+|             <label>
+|               "This is a searchable index. Enter search keywords: "
+|               <input>
+|                 name="isindex"
+|             <hr>
+|           <table>
+
+#data
+<body><template><table><form><isindex></form></table></template>
+#errors
+no DOCTYPE
+<form> in table ignored
+<isindex> in table
+</form> in table
+stray </form>
+isindex
+#document
+| <html>
+|   <head>
+|   <body>
+|     <template>
+|       content
+|         <form>
+|           <hr>
+|           <label>
+|             "This is a searchable index. Enter search keywords: "
+|             <input>
+|               name="isindex"
+|           <hr>
+|         <table>
+
+#data
+<body><template><form><isindex></form></template>
+#errors
+no DOCTYPE
+isindex
+#document
+| <html>
+|   <head>
+|   <body>
+|     <template>
+|       content
+|         <form>
+|           <form>
+|             <hr>
+|             <label>
+|               "This is a searchable index. Enter search keywords: "
+|               <input>
+|                 name="isindex"
+|             <hr>
