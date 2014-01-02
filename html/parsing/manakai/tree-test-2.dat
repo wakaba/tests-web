@@ -134,21 +134,18 @@ outer <table> not closed
 </table>
 #errors
 </table> in <caption>
-</caption> implied by </table> is ignored
 #document-fragment caption
 
 #data
 <tbody>
 #errors
 <tbody> in <caption>
-</caption> implied by <tbody> is ignored
 #document-fragment caption
 
 #data
 <tbody>a
 #errors
 <tbody> in <caption>
-</caption> implied by <tbody> is ignored
 #document-fragment caption
 | "a"
 
@@ -156,7 +153,6 @@ outer <table> not closed
 <caption>x
 #errors
 <caption> in <caption>
-</caption> implied by <caption> is ignored
 #document-fragment caption
 | "x"
 
@@ -164,14 +160,12 @@ outer <table> not closed
 <tr>
 #errors
 <tr> in <caption>
-</caption> implied by <tr> is ignored
 #document-fragment caption
 
 #data
 <tr>x
 #errors
 <tr> in <caption>
-</caption> implied by <tr> is ignored
 #document-fragment caption
 | "x"
 
@@ -179,14 +173,12 @@ outer <table> not closed
 <td>
 #errors
 <td> in <caption>
-</caption> implied by <td> is ignored
 #document-fragment caption
 
 #data
 <td>x
 #errors
 <td> in <caption>
-</caption> implied by <td> is ignored
 #document-fragment caption
 | "x"
 
@@ -194,14 +186,12 @@ outer <table> not closed
 <th>
 #errors
 <th> in <caption>
-</caption> implied by <th> is ignored
 #document-fragment caption
 
 #data
 <th>x
 #errors
 <th> in <caption>
-</caption> implied by <th> is ignored
 #document-fragment caption
 | "x"
 
@@ -209,14 +199,12 @@ outer <table> not closed
 <col>
 #errors
 <col> in <caption>
-</caption> implied by <col> is ignored
 #document-fragment caption
 
 #data
 <col>x
 #errors
 <col> in <caption>
-</caption> implied by <col> is ignored
 #document-fragment caption
 | "x"
 
@@ -263,15 +251,13 @@ char in <tr>
 #data
 <table>
 #errors
-no </table> before <table> (</table> implied before <table>)
-</table> but no opening <table> (</table> ignored, which causes <table> ignored)
+<table> in table
 #document-fragment table
 
 #data
 <table><tr>
 #errors
-no </table> before <table>
-</table> but no opening <table>
+<table> in table
 #document-fragment table
 | <tbody>
 |   <tr>
@@ -299,21 +285,21 @@ no </table> before <table>
 </select><option>
 #errors
 </select> in <select>.innerHTML
+no </option>
 #document-fragment select
 | <option>
 
 #data
 <select>
 #errors
-<select> in <select> - treated as if </select>
-</select> in <select>.innerHTML
+<select> in <select>
 #document-fragment select
 
 #data
 <select><option>
 #errors
 <select> in <select> - treated as if </select>
-</select> in <select>.innerHTML
+no </option>
 #document-fragment select
 | <option>
 
@@ -327,6 +313,7 @@ unmatched </optgroup>
 </optgroup><option>
 #errors
 unmatched </optgroup>
+no </option>
 #document-fragment optgroup
 | <option>
 
@@ -340,6 +327,7 @@ unmatched </optgroup>
 </optgroup><option>
 #errors
 unmatched </optgroup>
+no </option>
 #document-fragment option
 | <option>
 
@@ -401,12 +389,14 @@ unmatched </option>
 #data
 <option>
 #errors
+no </option>
 #document-fragment select
 | <option>
 
 #data
 <optgroup>
 #errors
+no </optgroup>
 #document-fragment select
 | <optgroup>
 
@@ -414,6 +404,7 @@ unmatched </option>
 </tr><option>a
 #errors
 </tr> in <select>
+no </option>
 #document-fragment select
 | <option>
 |   "a"
@@ -868,12 +859,14 @@ unexpected end-of-file
 #data
 <colgroup>
 #errors
+no </colgroup>
 #document-fragment table
 | <colgroup>
 
 #data
 <col>
 #errors
+no </colgroup>
 #document-fragment table
 | <colgroup>
 |   <col>
@@ -917,9 +910,9 @@ no </noframes>
 #data
 <tr><td>
 #errors
-<tr> in body
 <td> in body
 #document
+| <tr>
 
 #document-fragment
 svg hoge

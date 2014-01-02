@@ -87,8 +87,6 @@ foo
 #errors
 (1,10): expected-doctype-but-got-start-tag
 (2,1): unexpected-char-after-frameset
-(2,2): unexpected-char-after-frameset
-(2,3): unexpected-char-after-frameset
 #document
 | <html>
 |   <head>
@@ -337,8 +335,6 @@ td
 #errors
 (1,7): expected-doctype-but-got-start-tag
 (1,18): foster-parenting-character-in-table
-(1,19): foster-parenting-character-in-table
-(1,20): foster-parenting-character-in-table
 (1,20): eof-in-table
 #document
 | <html>
@@ -352,8 +348,6 @@ td
 foo<col>
 #errors
 (1,1): unexpected-character-in-colgroup
-(1,2): unexpected-character-in-colgroup
-(1,3): unexpected-character-in-colgroup
 #document-fragment
 colgroup
 #document
@@ -602,6 +596,7 @@ html
 #data
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"><html></html>
 #errors
+#shoulds
 (1,50): unknown-doctype element.
 #document
 | <!DOCTYPE html "-//W3C//DTD HTML 4.01//EN" "">

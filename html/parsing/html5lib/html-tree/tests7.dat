@@ -62,6 +62,7 @@
 <!doctype html><table>X<tr><td><table> <meta></table></table>
 #errors
 (1,45): unexpected-start-tag-implies-table-voodoo
+meta in table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -356,9 +357,7 @@ A<table><tr> B</tr> B</table>
 #errors
 (1,1): expected-doctype-but-got-chars
 (1,13): foster-parenting-character
-(1,14): foster-parenting-character
 (1,20): foster-parenting-character
-(1,21): foster-parenting-character
 #document
 | <html>
 |   <head>
@@ -373,7 +372,6 @@ A<table><tr> B</tr> </em>C</table>
 #errors
 (1,1): expected-doctype-but-got-chars
 (1,13): foster-parenting-character
-(1,14): foster-parenting-character
 (1,20): foster-parenting-character
 (1,25): unexpected-end-tag
 (1,26): foster-parenting-character

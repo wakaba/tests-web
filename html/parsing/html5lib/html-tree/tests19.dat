@@ -331,8 +331,6 @@
 <!doctype html><table>abc<!--foo-->
 #errors
 (1,23): foster-parenting-character
-(1,24): foster-parenting-character
-(1,25): foster-parenting-character
 (1,35): eof-in-table
 #document
 | <!DOCTYPE html>
@@ -360,8 +358,6 @@
 <!doctype html><table> b <!--foo-->
 #errors
 (1,23): foster-parenting-character
-(1,24): foster-parenting-character
-(1,25): foster-parenting-character
 (1,35): eof-in-table
 #document
 | <!DOCTYPE html>
@@ -512,6 +508,7 @@
 #data
 <!doctype html><html c=d><body></html><html a=b>
 #errors
+<html> after </html>
 (1,48): non-html-root
 #document
 | <!DOCTYPE html>
@@ -524,6 +521,7 @@
 #data
 <!doctype html><html c=d><frameset></frameset></html><html a=b>
 #errors
+</html> after html
 (1,63): non-html-root
 #document
 | <!DOCTYPE html>
@@ -557,8 +555,6 @@
 <!doctype html><html><frameset></frameset></html>abc
 #errors
 (1,50): expected-eof-but-got-char
-(1,51): expected-eof-but-got-char
-(1,52): expected-eof-but-got-char
 #document
 | <!DOCTYPE html>
 | <html>

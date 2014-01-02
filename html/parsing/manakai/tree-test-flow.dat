@@ -20,7 +20,6 @@ no DOCTYPE
 |     <p>
 |     <aside>
 
-#skip 1
 #data
 <p><datagrid></datagrid>
 #errors
@@ -215,18 +214,19 @@ no </span>
 |       <span>
 |     "x"
 
-#skip 1
 #data
 <datagrid><p></datagrid>x
 #errors
 no DOCTYPE
+stray </datagrid>
+EOF
 #document
 | <html>
 |   <head>
 |   <body>
 |     <datagrid>
 |       <p>
-|     "x"
+|         "x"
 
 #data
 <datagrid><marquee></datagrid>x
@@ -732,10 +732,10 @@ unmatched </summary>
 |       <rt>
 |     <center>
 
-#skip 1
 #data
 <!DOCTYPE HTML><p><rt><datagrid></datagrid>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>

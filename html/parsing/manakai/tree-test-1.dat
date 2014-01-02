@@ -4363,7 +4363,6 @@ unexpected end of file
 <!DOCTYPE HTML><table><caption><span><tbody>
 #errors
 <caption> not closed
-<span> not closed
 <table> not closed
 #document
 | <!DOCTYPE html>
@@ -4518,6 +4517,7 @@ unexpected end of file
 #data
 <!DOCTYPE HTML>a<option>b
 #errors
+no </option>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -4530,6 +4530,7 @@ unexpected end of file
 #data
 <!DOCTYPE HTML>a<optgroup>b
 #errors
+no </optgroup>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -5031,7 +5032,6 @@ unexpected end of file
 <!DOCTYPE HTML><table><caption><span></table>
 #errors
 <caption> not closed
-<span> not closed
 #document
 | <!DOCTYPE html>
 | <html>
@@ -10155,6 +10155,7 @@ unexpected EOF
 #errors
 no DOCTYPE
 unexpected </span>
+</span>
 EOF
 #document
 | <html>
@@ -11963,7 +11964,6 @@ x2
 <!DOCTYPE HTML>a<table><tbody>b<style></style>c</table>
 #errors
 text in table
-start tag in table
 text in table
 #document
 | <!DOCTYPE html>
@@ -12022,11 +12022,12 @@ text in table
 #data
 <!DOCTYPE HTML>a<table>b<span>c&lt;</span>d</table>
 #errors
-text in table
+"b" in table
 <span> in table
-text in table
+"c" in table
+"<" in table
 </span> in table
-text in table
+"d" in table
 #document
 | <!DOCTYPE html>
 | <html>
@@ -12060,7 +12061,6 @@ unexpected EOF
 #errors
 text in table
 <xmp> in table
-text in table
 text "d" in table
 #document
 | <!DOCTYPE html>
@@ -12078,7 +12078,6 @@ text "d" in table
 #errors
 text "b" in table
 <title> in table
-text "c<<p>" in table
 text "d" in table
 #document
 | <!DOCTYPE html>
