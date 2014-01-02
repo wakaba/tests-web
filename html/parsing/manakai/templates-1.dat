@@ -34,9 +34,8 @@ EOF in body
 #data
 <!DOCTYPE html><table><tr><td><select><template></template><caption></table><!---->
 #errors
-no </caption> at </table>
-no </select> at </table>
-EOF in body
+<caption> in select in table
+no </caption>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -49,17 +48,18 @@ EOF in body
 |             <select>
 |               <template>
 |                 content
-|               <!--  -->
+|       <caption>
+|     <!--  -->
 
 #document-fragment
 div
 #data
 <table><tbody><tr><td><select><template></template>a</tbody>b<!--b--></table>
 #errors
-</tbody> in select
-</table> in select
-EOF in body
+</tbody> in select in table
+"b" in table
 #document
+| "b"
 | <table>
 |   <tbody>
 |     <tr>
@@ -67,8 +67,8 @@ EOF in body
 |         <select>
 |           <template>
 |             content
-|           "ab"
-|           <!-- b -->
+|           "a"
+|   <!-- b -->
 
 #document-fragment
 div
