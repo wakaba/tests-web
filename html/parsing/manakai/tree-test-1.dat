@@ -1007,9 +1007,9 @@ data after body
 |       <p>
 |         "XXYYY"
 
-## when script is disabled
 #data
 <!DOCTYPE HTML><noscript>aaa<noscript>bbb</noscript>ccc</noscript>
+#noscript
 #errors
 in noscript:#character
 unmacthed noscript end tag
@@ -1024,9 +1024,9 @@ unmacthed noscript end tag
 |       "bbb"
 |     "ccc"
 
-## when script is disabled
 #data
 <!DOCTYPE HTML><body><noscript>aaa<noscript>bbb</noscript>ccc</noscript>
+#noscript
 #errors
 #document
 | <!DOCTYPE html>
@@ -1039,9 +1039,9 @@ unmacthed noscript end tag
 |         "bbb"
 |       "ccc"
 
-## when script is disabled
 #data
 <!DOCTYPE HTML><head><noscript><noscript>
+#noscript
 #errors
 <noscript> in noscript
 no </noscript>
@@ -1052,9 +1052,9 @@ no </noscript>
 |     <noscript>
 |   <body>
 
-## when script is disabled
 #data
 <!DOCTYPE HTML><head><noscript><noscript> 
+#noscript
 #errors
 <noscript> in noscript
 no </noscript>
@@ -1066,9 +1066,9 @@ no </noscript>
 |       " "
 |   <body>
 
-## when script is disabled
 #data
 <!DOCTYPE HTML><head><noscript> <noscript> 
+#noscript
 #errors
 <noscript> in noscript
 no </noscript>
@@ -1080,9 +1080,9 @@ no </noscript>
 |       "  "
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript><base><title></title><body>
+#noscript
 #errors
 <base> in <noscript>
 #document
@@ -1094,9 +1094,9 @@ no </noscript>
 |     <title>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript><title></title><body>
+#noscript
 #errors
 <title> in <noscript> in <head>
 #document
@@ -1107,9 +1107,9 @@ no </noscript>
 |     <title>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head></head><noscript></noscript>
+#noscript
 #errors
 #document
 | <!DOCTYPE html>
@@ -1118,9 +1118,9 @@ no </noscript>
 |   <body>
 |     <noscript>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript><script></script>
+#noscript
 #errors
 <script> in <noscript> in <head>
 #document
@@ -1131,9 +1131,9 @@ no </noscript>
 |     <script>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript><body>
+#noscript
 #errors
 <body> in <noscript> in <head>
 #document
@@ -1143,9 +1143,9 @@ no </noscript>
 |     <noscript>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript><frameset></frameset>
+#noscript
 #errors
 <frameset> in <noscript> in <head>
 #document
@@ -1155,9 +1155,9 @@ no </noscript>
 |     <noscript>
 |   <frameset>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript><br>
+#noscript
 #errors
 <br> in <noscript> in <head>
 #document
@@ -1168,9 +1168,9 @@ no </noscript>
 |   <body>
 |     <br>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript><p>
+#noscript
 #errors
 <p> in <noscript> in <head>
 #document
@@ -1181,9 +1181,9 @@ no </noscript>
 |   <body>
 |     <p>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript></p>
+#noscript
 #errors
 </p> in <noscript> in <head>
 unmatched </p>
@@ -1194,9 +1194,9 @@ unmatched </p>
 |     <noscript>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript></br>
+#noscript
 #errors
 </br> in <noscript> in <head>
 </br>
@@ -1208,9 +1208,9 @@ unmatched </p>
 |   <body>
 |     <br>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript></div>
+#noscript
 #errors
 </div> in <noscript> in <head>
 unexpected end of file (no </noscript>)
@@ -1221,9 +1221,9 @@ unexpected end of file (no </noscript>)
 |     <noscript>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript></img>
+#noscript
 #errors
 </img> in <noscript> in <head>
 unexpected end of file (no </noscript>)
@@ -1234,9 +1234,9 @@ unexpected end of file (no </noscript>)
 |     <noscript>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript></head><link><body>
+#noscript
 #errors
 </head> in <noscript> in <head>
 no </noscript>
@@ -1262,6 +1262,7 @@ no </noscript>
 
 #data
 <!DOCTYPE HTML></noscript><head><body>
+#noscript
 #errors
 </noscript> before <head>
 #document
@@ -1272,6 +1273,7 @@ no </noscript>
 
 #data
 <!DOCTYPE HTML><head></noscript><link><body>
+#noscript
 #errors
 </noscript> in <head>
 #document
@@ -1293,9 +1295,9 @@ no </noscript>
 |     <link>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript></body><meta></noscript><link><body>
+#noscript
 #errors
 </body> in <noscript> in <head>
 #document
@@ -1307,9 +1309,9 @@ no </noscript>
 |     <link>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript></html><meta></noscript><link><body>
+#noscript
 #errors
 </html> in <noscript> in <head>
 #document
@@ -6990,6 +6992,7 @@ not HTML5
 
 #data
 <!DOCTYPE HTML><html><head><noscript>
+#noscript
 #errors
 no </noscript>
 #document
@@ -7759,6 +7762,7 @@ U+000B
 
 #data escaped
 <!DOCTYPE HTML><head><noscript>\u000b<p>
+#noscript
 #errors
 no </noscript>
 U+000B
@@ -7773,6 +7777,7 @@ U+000B
 
 #data escaped
 <!DOCTYPE HTML><head><noscript>\u000babc
+#noscript
 #errors
 no </noscript>
 U+000B
@@ -8490,6 +8495,7 @@ eof in body
 
 #data
 <!-- NOTE: Scripting disabled --><!DOCTYPE HTML><ul><li><noscript><li>
+#noscript
 #errors
 eof in body
 #document
@@ -9347,6 +9353,7 @@ eof in body
 
 #data
 <!-- NOTE: Scripting disabled --><!DOCTYPE HTML><dl><dt><noscript><dt>
+#noscript
 #errors
 eof in body
 #document
@@ -10015,6 +10022,7 @@ unexpected EOF
 
 #data
 <span><noscript></span>a
+#noscript
 #errors
 no DOCTYPE
 unmatched end tag
