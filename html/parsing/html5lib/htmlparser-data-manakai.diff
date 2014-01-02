@@ -54,10 +54,30 @@ index 137d964..d108c4c 100644
  {"description":"FF between attributes",
  "input":"<a b=''\u000Cc=''>",
 diff --git a/html/parsing/html5lib/html-tree/adoption01.dat b/html/parsing/html5lib/html-tree/adoption01.dat
-index 2e1127e..f5fcd4a 100644
+index 2e1127e..93c5886 100644
 --- a/html/parsing/html5lib/html-tree/adoption01.dat
 +++ b/html/parsing/html5lib/html-tree/adoption01.dat
-@@ -243,13 +243,6 @@
+@@ -71,14 +71,13 @@
+ |   <body>
+ |     <a>
+ |       "1"
++|       <div>
++|         "2"
+ |     <div>
+ |       <a>
+-|         "2"
+-|       <div>
+-|         <a>
+-|           "3"
+-|         "4"
+-|       "5"
++|         "3"
++|       "4"
++|     "5"
+ 
+ #data
+ <table><a>1<p>2</a>3</p>
+@@ -243,13 +242,6 @@
  #errors
  (1,5): expected-doctype-but-got-start-tag
  (1,65): adoption-agency-1.3
@@ -71,7 +91,7 @@ index 2e1127e..f5fcd4a 100644
  (1,65): expected-closing-tag-but-got-eof
  #document
  | <html>
-@@ -258,25 +251,17 @@
+@@ -258,25 +250,17 @@
  |     <div>
  |       <a>
  |         <b>
@@ -100,6 +120,31 @@ index 2e1127e..f5fcd4a 100644
  
  #data
  <div><a><b><u><i><code><div></a>
+diff --git a/html/parsing/html5lib/html-tree/adoption02.dat b/html/parsing/html5lib/html-tree/adoption02.dat
+index e54d803..9c7b564 100644
+--- a/html/parsing/html5lib/html-tree/adoption02.dat
++++ b/html/parsing/html5lib/html-tree/adoption02.dat
+@@ -24,16 +24,14 @@
+ (1,3): expected-doctype-but-got-start-tag
+ (1,35): unexpected-start-tag-implies-end-tag
+ (1,35): adoption-agency-1.3
+-(1,35): adoption-agency-1.3
+ (1,35): expected-closing-tag-but-got-eof
+ #document
+ | <html>
+ |   <head>
+ |   <body>
+ |     <a>
+-|     <div>
+-|       <a>
++|       <div>
+ |         <style>
+-|       <address>
+-|         <a>
+-|         <a>
++|     <address>
++|       <a>
++|       <a>
 diff --git a/html/parsing/html5lib/html-tree/doctype01.dat b/html/parsing/html5lib/html-tree/doctype01.dat
 index cec6638..1027dc6 100644
 --- a/html/parsing/html5lib/html-tree/doctype01.dat
@@ -1214,7 +1259,7 @@ index 3ae40c3..81aab6d 100644
  #document
  | <html>
 diff --git a/html/parsing/html5lib/html-tree/tests1.dat b/html/parsing/html5lib/html-tree/tests1.dat
-index f12e871..6798288 100644
+index f12e871..c5019ad 100644
 --- a/html/parsing/html5lib/html-tree/tests1.dat
 +++ b/html/parsing/html5lib/html-tree/tests1.dat
 @@ -428,15 +428,6 @@ Line1<br>Line2<br>Line3<br>Line4
@@ -1233,6 +1278,56 @@ index f12e871..6798288 100644
  (1,48): unexpected-cell-in-table-body
  (1,63): unexpected-cell-end-tag
  (1,71): eof-in-table
+@@ -711,7 +702,6 @@ Line1<br>Line2<br>Line3<br>Line4
+ #errors
+ (1,8): expected-doctype-but-got-start-tag
+ (1,23): unexpected-end-tag
+-(1,27): adoption-agency-1.2
+ (1,31): expected-closing-tag-but-got-eof
+ #document
+ | <html>
+@@ -722,6 +712,8 @@ Line1<br>Line2<br>Line3<br>Line4
+ |       <p>
+ |         <b>
+ |           id="b"
++|     <b>
++|       id="b"
+ |       "TEST"
+ 
+ #data
+@@ -839,7 +831,6 @@ Line1<br>Line2<br>Line3<br>Line4
+ |       "D"
+ 
+ #data
+-
+ #errors
+ (1,0): expected-doctype-but-got-eof
+ #document
+@@ -1127,7 +1118,6 @@ Line1<br>Line2<br>Line3<br>Line4
+ (1,39): unexpected-end-tag
+ (1,45): foster-parenting-character-in-table
+ (1,45): foster-parenting-character-in-table
+-(1,68): foster-parenting-character-in-table
+ (1,71): expected-closing-tag-but-got-eof
+ #document
+ | <html>
+@@ -1155,6 +1145,7 @@ Line1<br>Line2<br>Line3<br>Line4
+ #errors
+ (1,15): expected-doctype-but-got-start-tag
+ (1,54): unexpected-cell-end-tag
++"x" in table
+ (1,71): expected-closing-tag-but-got-eof
+ #document
+ | <html>
+@@ -1178,8 +1169,6 @@ Line1<br>Line2<br>Line3<br>Line4
+ (1,7): expected-doctype-but-got-start-tag
+ (1,22): unexpected-start-tag-implies-table-voodoo
+ (1,29): foster-parenting-character-in-table
+-(1,29): foster-parenting-character-in-table
+-(1,29): foster-parenting-character-in-table
+ (1,54): unexpected-cell-end-tag
+ (1,68): foster-parenting-character-in-table
+ (1,71): expected-closing-tag-but-got-eof
 diff --git a/html/parsing/html5lib/html-tree/tests10.dat b/html/parsing/html5lib/html-tree/tests10.dat
 index 87d9478..652b2b1 100644
 --- a/html/parsing/html5lib/html-tree/tests10.dat
