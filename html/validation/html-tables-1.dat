@@ -1395,6 +1395,16 @@
 /colgroup/"a";character not allowed:colgroup;m
 
 #data
+<colgroup xmlns="http://www.w3.org/1999/xhtml"><template/></colgroup>
+#errors
+
+#data
+<colgroup xmlns="http://www.w3.org/1999/xhtml"><script/></colgroup>
+#errors
+/colgroup/script;element not allowed:colgroup;m
+/colgroup/script;unknown script lang;u
+
+#data
 <colgroup span="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /colgroup/@span;nninteger:syntax error;m
@@ -1428,6 +1438,17 @@
 </colgroup>
 #errors
 /colgroup/"a";character not allowed:colgroup;m
+
+#data
+<colgroup span="3" xmlns="http://www.w3.org/1999/xhtml"><template/></colgroup>
+#errors
+/colgroup/template;element not allowed:colgroup;m
+
+#data
+<colgroup span="10" xmlns="http://www.w3.org/1999/xhtml"><script/></colgroup>
+#errors
+/colgroup/script;element not allowed:colgroup;m
+/colgroup/script;unknown script lang;u
 
 #data
 <colgroup span="0000000000001" xmlns="http://www.w3.org/1999/xhtml"/>

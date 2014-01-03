@@ -168,3 +168,13 @@
 </table>
 #errors
 /table/tr/th/@scope;scope not allowed;m
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml"><caption>a</caption><colgroup/><tfoot/></table>
+#errors
+/table/colgroup;colspan creates column with no anchored cell;m
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml"><caption>a</caption><colgroup/><colgroup/><tfoot><tr><td>a</td></tr></tfoot></table>
+#errors
+/table/colgroup;colspan creates column with no anchored cell;m

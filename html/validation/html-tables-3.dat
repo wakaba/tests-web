@@ -1,0 +1,113 @@
+#data
+<table xmlns="http://www.w3.org/1999/xhtml"><script/></table>
+#errors
+/table/script;unknown script lang;u
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml"><script/><template/></table>
+#errors
+/table/script;unknown script lang;u
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml"><tr/><script/><template/></table>
+#errors
+/table/script;unknown script lang;u
+/table/tr;row with no anchored cell;m
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml"><script/><template/><tr/></table>
+#errors
+/table/script;unknown script lang;u
+/table/tr;row with no anchored cell;m
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml"><script/><template/><tfoot/></table>
+#errors
+/table/script;unknown script lang;u
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml"><caption>a</caption><script/><colgroup/><template/><tfoot/></table>
+#errors
+/table/script;unknown script lang;u
+/table/colgroup;colspan creates column with no anchored cell;m
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml"><template/><caption>a</caption><colgroup/><colgroup/><tfoot><tr><td>a</td></tr></tfoot><template/></table>
+#errors
+/table/colgroup;colspan creates column with no anchored cell;m
+
+#data
+<tbody xmlns="http://www.w3.org/1999/xhtml"><template/><script/></tbody>
+#errors
+/tbody/script;unknown script lang;u
+
+#data
+<tbody xmlns="http://www.w3.org/1999/xhtml"><template/><tr/><script/></tbody>
+#errors
+/tbody/script;unknown script lang;u
+
+#data
+<thead xmlns="http://www.w3.org/1999/xhtml"><template/><script/></thead>
+#errors
+/thead/script;unknown script lang;u
+
+#data
+<thead xmlns="http://www.w3.org/1999/xhtml"><template/><tr/><script/></thead>
+#errors
+/thead/script;unknown script lang;u
+
+#data
+<tfoot xmlns="http://www.w3.org/1999/xhtml"><template/><script/></tfoot>
+#errors
+/tfoot/script;unknown script lang;u
+
+#data
+<tfoot xmlns="http://www.w3.org/1999/xhtml"><template/><tr/><script/></tfoot>
+#errors
+/tfoot/script;unknown script lang;u
+
+#data
+<tr xmlns="http://www.w3.org/1999/xhtml"><template/><script/></tr>
+#errors
+/tr/script;unknown script lang;u
+
+#data
+<tr xmlns="http://www.w3.org/1999/xhtml"><template/><td>a</td><script/></tr>
+#errors
+/tr/script;unknown script lang;u
+
+#data
+<tr xmlns="http://www.w3.org/1999/xhtml"><template/><td>a</td><script/><th>aa</th></tr>
+#errors
+/tr/script;unknown script lang;u
+
+#data
+<select xmlns="http://www.w3.org/1999/xhtml"><script/><template/></select>
+#errors
+/select/script;unknown script lang;u
+
+#data
+<select xmlns="http://www.w3.org/1999/xhtml"><template/><option>a</option><script/></select>
+#errors
+/select/script;unknown script lang;u
+
+#data
+<select xmlns="http://www.w3.org/1999/xhtml"><template/><optgroup label="a"/><script/></select>
+#errors
+/select/script;unknown script lang;u
+
+#data
+<select xmlns="http://www.w3.org/1999/xhtml"><template/><optgroup label="a"/><script/><option label="a" value="b"/></select>
+#errors
+/select/script;unknown script lang;u
+
+#data
+<optgroup label="a" xmlns="http://www.w3.org/1999/xhtml"><template/><optgroup label="a"/><script/></optgroup>
+#errors
+/optgroup/optgroup;element not allowed;m
+/optgroup/script;unknown script lang;u
+
+#data
+<optgroup label="a" xmlns="http://www.w3.org/1999/xhtml"><template/><option label="a" value="x"/><script/></optgroup>
+#errors
+/optgroup/script;unknown script lang;u
