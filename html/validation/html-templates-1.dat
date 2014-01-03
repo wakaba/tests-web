@@ -498,3 +498,102 @@
 </div>
 #errors
 /div/input/@form;no referenced form;m
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><link href="aaxs" rel="next"/></template>
+#errors
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><link href="aaxs" rel="next"/><meta charset="utf-8"/><meta charset="shift_jis"/></template>
+#errors
+| #df/meta/@charset;in XML:charset;m
+| #df/meta/@charset;mismatched charset name;utf-8;m
+| #df/meta;duplicate meta charset;m
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><link href="aaxs" rel="next"/><title>aa</title><title>bb</title></template>
+#errors
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><head><link href="aaxs" rel="next"/></head></template>
+#errors
+| #df/head;element not allowed:flow;m
+| #df/head;child element missing;title;m
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><head><link href="aaxs" rel="next"/><title>a</title><title>b</title></head></template>
+#errors
+| #df/head;element not allowed:flow;m
+| #df/head/title;element not allowed:head title;m
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><link href="aaxs" rel="next"/><title>aa</title><title>bb</title>abc</template>
+#errors
+| #df/"abc";character not allowed;m
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><link href="aaxs" rel="next"/><title>aa</title><title>bb</title><p>abc</p></template>
+#errors
+| #df/p;element not allowed:metadata;m
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><base href="x"/><p>aa</p></template>
+#errors
+| #df/p;element not allowed:metadata;m
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><p>aa</p><base href="x"/><p>aa</p></template>
+#errors
+| #df/p;element not allowed:metadata;m
+| #df/p;element not allowed:metadata;m
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><script/><base href="x"/><template/></template>
+#errors
+| #df/script;unknown script lang;u
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><script/><p>aa</p><template/></template>
+#errors
+| #df/script;unknown script lang;u
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><script/><style></style><p>aa</p></template>
+#errors
+| #df/script;unknown script lang;u
+| #df/p;element not allowed:metadata;m
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><script/><base href="x"/><template/><style scoped=""/></template>
+#errors
+| #df/script;unknown script lang;u
+| #df/style/@scoped;attribute not allowed;w
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/><script/><base href="x"/><template/></template>
+#errors
+| #df/style/@scoped;attribute not allowed;w
+| #df/script;unknown script lang;u
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><noscript>a</noscript><style scoped=""/><script/><base href="x"/><template/></template>
+#errors
+| #df/noscript;in XML:noscript;m
+| #df/noscript/"a";character not allowed;m
+| #df/style/@scoped;attribute not allowed;w
+| #df/script;unknown script lang;u
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><noscript><p>a</p></noscript><style scoped=""/><script/><base href="x"/><template/></template>
+#errors
+| #df/noscript;in XML:noscript;m
+| #df/noscript/p;element not allowed:head noscript;m
+| #df/style/@scoped;attribute not allowed;w
+| #df/script;unknown script lang;u
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><p>aabc</p><noscript><p>a</p></noscript><style scoped=""/><script/><template/></template>
+#errors
+| #df/noscript;in XML:noscript;m
+| #df/style;element not allowed:flow style;m
+| #df/script;unknown script lang;u
