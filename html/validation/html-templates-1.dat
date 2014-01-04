@@ -577,6 +577,7 @@
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><noscript>a</noscript><style scoped=""/><script/><base href="x"/><template/></template>
+#noscript
 #errors
 | #df/noscript;in XML:noscript;m
 | #df/noscript/"a";character not allowed;m
@@ -585,15 +586,28 @@
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><noscript><p>a</p></noscript><style scoped=""/><script/><base href="x"/><template/></template>
+#noscript
 #errors
 | #df/noscript;in XML:noscript;m
-| #df/noscript/p;element not allowed:head noscript;m
+| #df/noscript/p;element not allowed:metadata;m
 | #df/style/@scoped;attribute not allowed;w
 | #df/script;unknown script lang;u
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><p>aabc</p><noscript><p>a</p></noscript><style scoped=""/><script/><template/></template>
+#noscript
 #errors
 | #df/noscript;in XML:noscript;m
 | #df/style;element not allowed:flow style;m
 | #df/script;unknown script lang;u
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title><body>a<template><noscript>x</template></noscript></template>
+#errors
+| #df/noscript;stray end tag;m
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title><body>a<template><link rel="next" href="b"><noscript>x</template></noscript></template>
+#errors
+| #df/noscript;stray end tag;m
+| #df/noscript;character not allowed;m

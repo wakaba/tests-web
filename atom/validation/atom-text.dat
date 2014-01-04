@@ -26,3 +26,26 @@
 #errors
 /subtitle;element not defined;m
 /subtitle;element not allowed:phrasing;m
+
+#data
+<content type="html" xmlns="http://www.w3.org/2005/Atom"><![CDATA[
+<noscript><hoge></noscript>
+}]></content>
+#errors
+/content;element not allowed:flow;m
+/content;element not defined;m
+/content;no end tag at EOF;hoge;m
+/content;no significant content;s
+/content;stray end tag;m
+
+#data
+<content type="html" xmlns="http://www.w3.org/2005/Atom"><![CDATA[
+<noscript><hoge></noscript>
+}]></content>
+#noscript
+#errors
+/content;element not allowed:flow;m
+/content;element not defined;m
+/content;no significant content;s
+/content;not closed before ancestor end tag;hoge;m
+/content;stray end tag;m
