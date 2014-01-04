@@ -1271,3 +1271,72 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml">x</iframe>
 <iframe allow-fullscreen="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /iframe/@allow-fullscreen;attribute not defined;m
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title><iframe src="x"></iframe>
+#errors
+/html/body/iframe;no significant content;s
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title><iframe src="x"><span>abc</span><span>axt</span></iframe>
+#errors
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title><iframe src="x"><hoge</iframe>
+#errors
+/html/body/iframe;unclosed tag;m
+/html/body/iframe;no significant content;s
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title><iframe src="x"><hoge></iframe>
+#errors
+/html/body/iframe;no end tag at EOF;hoge;m
+/html/body/iframe;element not defined;m
+/html/body/iframe;element not allowed:phrasing;m
+/html/body/iframe;no significant content;s
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title><iframe src="x"><p>abc</iframe>
+#errors
+/html/body/iframe;element not allowed:phrasing;m
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title><iframe src="x"><script></script>abc</iframe>
+#errors
+/html/body/iframe;element not allowed:minus;m
+/html/body/iframe;unknown script lang;u
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title><video src="b"><iframe src="x"><audio src="a">x</audio>abc</iframe></video>
+#errors
+/html/body/video/iframe;element not allowed:minus;m
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title><button><iframe src="x"><a href="a">x</a>abc</iframe></button>
+#errors
+/html/body/button/iframe;element not allowed:minus;m
+/html/body/button/iframe;element not allowed:minus;m
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title><label><iframe src="x"><input>abc</iframe></label>
+#errors
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title><label><input><iframe src="x"><input>abc</iframe></label>
+#errors
+/html/body/label/iframe;multiple labelable fae;m
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title><label><iframe src="x"><input>abc</iframe><input></label>
+#errors
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title><canvas><iframe src="a"><input>abc</iframe></canvas>
+#errors
+/html/body/canvas/iframe;element not allowed:minus;m
+/html/body/canvas/iframe;element not allowed:minus;m
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title><canvas><iframe src="a"><input type=button value=x>abc</iframe></canvas>
+#errors
+/html/body/canvas/iframe;element not allowed:minus;m
