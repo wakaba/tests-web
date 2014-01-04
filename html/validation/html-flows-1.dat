@@ -599,6 +599,17 @@ para
 /hgroup;element missing:hn;m
 
 #data
+<hgroup xmlns="http://www.w3.org/1999/xhtml"><script/><template/></hgroup>
+#errors
+/hgroup/script;unknown script lang;u
+/hgroup;element missing:hn;m
+
+#data
+<hgroup xmlns="http://www.w3.org/1999/xhtml"><script/><template/><h1>aa</h1></hgroup>
+#errors
+/hgroup/script;unknown script lang;u
+
+#data
 <em xmlns="http://www.w3.org/1999/xhtml"><hgroup><h1>a</h1></hgroup></em>
 #errors
 /em/hgroup;element not allowed:phrasing;m
