@@ -17,32 +17,32 @@
 /html/body/iframe/@srcdoc;no significant content;s
 
 #data
-<iframe srcdoc="" xmlns="http://www.w3.org/1999/xhtml">a</iframe>
+<iframe srcdoc="" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 1;17;/iframe/@srcdoc;no document element;w
 1;17;/iframe/@srcdoc;no root element;m
 
 #data
-<iframe srcdoc='' xmlns="http://www.w3.org/1999/xhtml">a</iframe>
+<iframe srcdoc='' xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 1;17;/iframe/@srcdoc;no document element;w
 1;17;/iframe/@srcdoc;no root element;m
 
 #data
-<iframe srcdoc xmlns="http://www.w3.org/1999/xhtml">a</iframe>
+<iframe srcdoc xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@srcdoc;no document element;w
 /iframe/@srcdoc;no root element;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
-<iframe srcdoc="hoge">a</iframe>
+<iframe srcdoc="hoge">x</iframe>
 #errors
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
 <iframe srcdoc="aa
-<xaab>hoge">a</iframe>
+<xaab>hoge">x</iframe>
 #errors
 3;1;/html/body/iframe/@srcdoc;element not defined;m
 3;1;/html/body/iframe/@srcdoc;element not allowed:flow;m
@@ -51,7 +51,7 @@
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
 <iframe srcdoc="aa
-<p style='hoge:a1;color:black'>hoge">a</iframe>
+<p style='hoge:a1;color:black'>hoge">x</iframe>
 #errors
 3;11;/html/body/iframe/@srcdoc;css:prop:unknown;m
 
@@ -59,7 +59,7 @@
 <!DOCTYPE html><html lang=en><title>iframe</title>
 <iframe srcdoc="aa
 <p style=';
- hoge:a1;color:black'>hoge">a</iframe>
+ hoge:a1;color:black'>hoge">x</iframe>
 #errors
 4;2;/html/body/iframe/@srcdoc;css:prop:unknown;m
 
@@ -86,7 +86,7 @@
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
-<iframe srcdoc= "&lt;xg>a">a</iframe>
+<iframe srcdoc= "&lt;xg>a">x</iframe>
 #errors
 2;18;/html/body/iframe/@srcdoc;no significant content;s
 2;18;/html/body/iframe/@srcdoc;element not defined;m
@@ -95,7 +95,7 @@
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
-<iframe srcdoc= '&lt;xg>a'>a</iframe>
+<iframe srcdoc= '&lt;xg>a'>x</iframe>
 #errors
 2;18;/html/body/iframe/@srcdoc;no significant content;s
 2;18;/html/body/iframe/@srcdoc;element not defined;m
@@ -104,7 +104,7 @@
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
-<iframe srcdoc=  &lt;xg&gt;a>a</iframe>
+<iframe srcdoc=  &lt;xg&gt;a>x</iframe>
 #errors
 2;18;/html/body/iframe/@srcdoc;no significant content;s
 2;18;/html/body/iframe/@srcdoc;element not defined;m
@@ -113,7 +113,7 @@
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
-<iframe srcdoc="a&lt;xg>a">a</iframe>
+<iframe srcdoc="a&lt;xg>a">x</iframe>
 #errors
 2;18;/html/body/iframe/@srcdoc;element not defined;m
 2;18;/html/body/iframe/@srcdoc;element not allowed:flow;m
@@ -121,35 +121,35 @@
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
-<iframe srcdoc='a&lt;xg>a'>a</iframe>
+<iframe srcdoc='a&lt;xg>a'>x</iframe>
 #errors
 2;18;/html/body/iframe/@srcdoc;element not defined;m
 2;18;/html/body/iframe/@srcdoc;element not allowed:flow;m
 2;25;/html/body/iframe/@srcdoc;no end tag at EOF;xg;m
 
 #data
-<iframe srcdoc=" &lt;p>&lt;/p>" xmlns="http://www.w3.org/1999/xhtml">a</iframe>
+<iframe srcdoc=" &lt;p>&lt;/p>" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 1;18;/iframe/@srcdoc;unknown namespace element;w
 
 #data
-<iframe srcdoc="&lt;p>&lt;/p>" xmlns="http://www.w3.org/1999/xhtml">a</iframe>
+<iframe srcdoc="&lt;p>&lt;/p>" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 1;17;/iframe/@srcdoc;unknown namespace element;w
 
 #data
-<iframe srcdoc='&lt;p>&lt;/p>' xmlns="http://www.w3.org/1999/xhtml">a</iframe>
+<iframe srcdoc='&lt;p>&lt;/p>' xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 1;17;/iframe/@srcdoc;unknown namespace element;w
 
 #data
-<iframe srcdoc= &lt;p&gt;&lt;/p&gt; xmlns="http://www.w3.org/1999/xhtml">a</iframe>
+<iframe srcdoc= &lt;p&gt;&lt;/p&gt; xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 1;17;/iframe/@srcdoc;unknown namespace element;w
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
-<iframe srcdoc=" <meta charset=utf-8>a">a</iframe>
+<iframe srcdoc=" <meta charset=utf-8>a">x</iframe>
 #errors
 2;18;/html/body/iframe/@srcdoc;srcdoc:charset;m
 
