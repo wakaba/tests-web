@@ -1,0 +1,140 @@
+#data
+<p itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</p>
+#errors
+
+#data
+<unknown itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</unknown>
+#errors
+/unknown;element not defined;m
+
+#data
+<q itemscope="ItemScope" xmlns="http://www.w3.org/1999/xhtml">a</q>
+#errors
+
+#data
+<q itemscope="Item-Scope" xmlns="http://www.w3.org/1999/xhtml">a</q>
+#errors
+/q/@itemscope;boolean:invalid;m
+
+#data
+<q itemtype="" itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
+#errors
+
+#data
+<q itemtype="http://a/" itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
+#errors
+
+#data
+<q itemtype="http://a/ https://b/ " itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
+#errors
+
+#data
+<q itemtype="::hoge" itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
+#errors
+/q/@itemtype;syntax error:iriref3987;m
+
+#data
+<q itemtype=">a >> " itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
+#errors
+/q/@itemtype;syntax error:iriref3987;m
+/q/@itemtype;syntax error:iriref3987;m
+
+#data
+<q itemtype="http://a/ http://A/ http://b/ http://b/" itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
+#errors
+/q/@itemtype;duplicate token;m
+/q/@itemtype;URL:uppercase host;w
+
+#data
+<q itemtype="" xmlns="http://www.w3.org/1999/xhtml">a</q>
+#errors
+/q/@itemtype;attribute not allowed;m
+
+#data
+<q itemid="" itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
+#errors
+
+#data
+<q itemid="a/bc//" itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
+#errors
+
+#data
+<q itemid=">>>" itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
+#errors
+/q/@itemid;syntax error:iriref3987;m
+
+#data
+<q itemid="x y" itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
+#errors
+/q/@itemid;syntax error:iriref3987;m
+
+#data
+<q itemid="" xmlns="http://www.w3.org/1999/xhtml">a</q>
+#errors
+/q/@itemid;attribute not allowed;m
+
+#data
+<q itemref="" itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<q itemref="abc" itemscope="">q</q>
+<p id="abc">aa</p>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p id="abc">aa</p>
+<q itemref="abc" itemscope="">q</q>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+<p id="abc">aa</p>
+<q itemref="abc  def " itemscope="">q</q>
+<p id="def">aa</p>
+</div>
+#errors
+
+#data
+<q itemref="xya" itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
+#errors
+/q/@itemref;no referenced element;m
+
+#data
+<q itemref="aaa" xmlns="http://www.w3.org/1999/xhtml">a</q>
+#errors
+/q/@itemref;attribute not allowed;m
+/q/@itemref;no referenced element;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <p itemscope="">a</p>
+  <p itemscope="">b</p>
+</div>
+#errors
+
+#data
+<content type="html" xmlns="http://www.w3.org/2005/Atom"><![CDATA[
+  <p itemscope="">a</p>
+  <p itemscope="">b</p>
+]]></content>
+#errors
+
+#data
+<subtitle type="html" xmlns="http://www.w3.org/2005/Atom"><![CDATA[
+  <p itemscope="">a</p>
+  <p itemscope="">b</p>
+]]></subtitle>
+#errors
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title>
+<iframe src="x">
+  <span itemscope="">a</span>
+  <span itemscope="">b</span>
+</iframe>
+#errors
