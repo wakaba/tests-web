@@ -396,7 +396,7 @@ HTTP://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
   </div>
 </div>
 #errors
-/div/div/div;microdata:itemvalue not text;m
+/div/div/div;microdata:itemvalue not text;work;m
 /div/div/div/span;microdata:schemaorg:bad domain;http://schema.org/Book;m
 
 #data
@@ -478,7 +478,7 @@ HTTP://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
   </span>
 </div>
 #errors
-/div/span/span;microdata:itemvalue not text;m
+/div/span/span;microdata:itemvalue not text;family-name;m
 /div;microdata:no required itemprop;fn;m
 
 #data
@@ -486,7 +486,7 @@ HTTP://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
   <span itemprop="work" itemscope="">aA</span>
 </div>
 #errors
-/div/span;microdata:itemvalue not text;m
+/div/span;microdata:itemvalue not text;work;m
 
 #data
 <div itemscope="" itemtype="http://data-vocabulary.org/Event" xmlns="http://www.w3.org/1999/xhtml">
@@ -545,7 +545,7 @@ HTTP://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
   <span itemprop="status">Confirmed</span>
 </div>
 #errors
-/div/span;microdata:enum:bad;m
+/div/span;microdata:enum:bad;status;m
 /div;microdata:no required itemprop;dtstart;m
 
 #data
@@ -596,3 +596,44 @@ HTTP://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
 /div/time;microdata:unknown type;date string or global date and time string;u
 /div/span;microdata:unknown type;vevent duration;u
 /div;microdata:vevent:dtend and duration;m
+
+#data
+<div itemscope="" itemtype="http://schema.org/TVSeason" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="seasonNumber">12</span>
+</div>
+#errors
+
+#data
+<div itemscope="" itemtype="http://schema.org/TVSeason" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="seasonNumber">12.0</span>
+</div>
+#errors
+/div/span;integer:syntax error;m
+
+#data
+<div itemscope="" itemtype="http://microformats.org/profile/hcard" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="fn">aa</span>
+  <span itemprop="n" itemscope="">aa</span>
+  <div itemprop="lang">ja-JP</div>
+</div>
+#errors
+
+#data
+<div itemscope="" itemtype="http://microformats.org/profile/hcard" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="fn">aa</span>
+  <span itemprop="n" itemscope="">aa</span>
+  <div itemprop="lang">ja-</div>
+</div>
+#errors
+/div/div;langtag:illegal;m
+
+#data
+<div itemscope="" itemtype="http://microformats.org/profile/hcard" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="fn">aa</span>
+  <span itemprop="n" itemscope="">aa</span>
+  <div itemprop="lang"></div>
+</div>
+#errors
+/div/div;langtag:language:syntax;m
+/div/div;langtag:language:invalid;m
+/div/div;no significant content;s
