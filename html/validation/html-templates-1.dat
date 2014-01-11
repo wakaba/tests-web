@@ -131,7 +131,6 @@
 <template xmlns="http://www.w3.org/1999/xhtml">ab<rt>aa</rt>cd</template>
 #errors
 /template;element missing;rt;m
-/template;no significant content at the end;s
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><param name="x" value="f"/><param/></template>
@@ -605,6 +604,7 @@
 <!DOCTYPE html><html lang=en><title>a</title><body>a<template><noscript>x</template></noscript></template>
 #errors
 | #df/noscript;stray end tag;m
+| #df/noscript;character not allowed;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><body>a<template><link rel="next" href="b"><noscript>x</template></noscript></template>

@@ -269,7 +269,7 @@
 #errors
 /noscript;in XML:noscript;m
 /noscript;no significant content;s
-/noscript/meta;element not allowed:flow;m
+/noscript/meta;attribute missing;itemprop;m
 /noscript/meta/@name;metadata:proposed;keywords;w
 
 #data
@@ -291,7 +291,7 @@
 #errors
 /noscript;no significant content;s
 /noscript;in XML:noscript;m
-/noscript/link;element not allowed:flow;m
+/noscript/link;attribute missing;itemprop;m
 
 #data
 <noscript xmlns="http://www.w3.org/1999/xhtml">
@@ -353,7 +353,7 @@
 #errors
 /noscript;no significant content;s
 /noscript;in XML:noscript;m
-/noscript/meta;element not allowed:flow;m
+/noscript/meta;attribute missing;itemprop;m
 /noscript/meta/@charset;in XML:charset;m
 /noscript/meta/@charset;mismatched charset name;utf-8;m
 
@@ -365,7 +365,7 @@
 #errors
 /noscript;no significant content;s
 /noscript;in XML:noscript;m
-/noscript/meta;element not allowed:flow;m
+/noscript/meta;attribute missing;itemprop;m
 /noscript/meta/@content;in XML:charset;m
 /noscript/meta/@content;mismatched charset name;utf-8;m
 
@@ -400,7 +400,7 @@
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><p>ab<link rel=stylesheet href=abc></noscript>
 #errors
-/html/body/noscript;element not allowed:phrasing;m
+/html/body/noscript;attribute missing;itemprop;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><p>ab<script></script></noscript>
@@ -995,6 +995,7 @@
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml"><meta name="keywords" content="y"/></bb>
 #errors
+/bb/meta;attribute missing;itemprop;m
 /bb/meta/@name;metadata:proposed;keywords;w
 /bb;element not defined;m
 
