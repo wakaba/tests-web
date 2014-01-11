@@ -154,6 +154,7 @@
 #data
 <div itemscope="" itemtype="http://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
+/div;microdata:no required itemprop;work;m
 
 #data
 <div itemscope="" itemtype="http://n.whatwg.org/work?" xmlns="http://www.w3.org/1999/xhtml">a</div>
@@ -166,6 +167,7 @@ HTTP://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div;microdata:item type not defined;m
 /div/@itemtype;URL:uppercase scheme name;w
+/div;microdata:no required itemprop;work;m
 
 #data
 <div itemscope="" itemtype="https://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
@@ -176,17 +178,22 @@ HTTP://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
 <div itemscope="" itemtype="http://n.whatwg.org/work http://schema.org/WebPage" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div;microdata:mixed vocab;http://n.whatwg.org/work;m
+/div;microdata:no required itemprop;work;m
 
 #data
 <div itemscope="" itemtype="http://schema.org/WebPage/TopPage http://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div;microdata:mixed vocab;http://n.whatwg.org/work;m
 /div;microdata:schemaorg:private;w
+/div;microdata:no required itemprop;work;m
 
 #data
 <div itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent http://microformats.org/profile/hcard" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div;microdata:mixed vocab;http://microformats.org/profile/hcalendar#vevent;m
+/div;microdata:no required itemprop;dtstart;m
+/div;microdata:no required itemprop;fn;m
+/div;microdata:no required itemprop;n;m
 
 #data
 <div itemscope="" itemtype="http://n.whatwg.org/work/abc" xmlns="http://www.w3.org/1999/xhtml">a</div>
@@ -220,6 +227,7 @@ HTTP://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
 <div itemscope="" itemid="http://hoge/fuga" itemtype="http://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div;microdata:itemid not supported;m
+/div;microdata:no required itemprop;work;m
 
 #data
 <div itemscope="" itemid="http://hoge/fuga" itemtype="http://hoge/" xmlns="http://www.w3.org/1999/xhtml">a</div>
@@ -246,6 +254,7 @@ HTTP://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
 </div>
 #errors
 /div/span;microdata:itemprop proprietary;w
+/div;microdata:no required itemprop;work;m
 
 #data
 <div itemscope="" itemtype="http://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">
@@ -256,6 +265,7 @@ HTTP://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/span;microdata:itemprop not defined;http://n.whatwg.org/work;m
 /div/span;microdata:itemprop proprietary;w
+/div;microdata:no required itemprop;work;m
 
 #data
 <div itemscope="" itemtype="http://schema.org/AboutPage" xmlns="http://www.w3.org/1999/xhtml">
@@ -386,7 +396,7 @@ HTTP://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
   </div>
 </div>
 #errors
-/div/div/div;microdata:unexpected nested item type;;m
+/div/div/div;microdata:itemvalue not text;m
 /div/div/div/span;microdata:schemaorg:bad domain;http://schema.org/Book;m
 
 #data
@@ -429,3 +439,160 @@ HTTP://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
 </div>
 #errors
 /div/span/img;microdata:itemprop not defined;http://schema.org/Recipe;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <span itemscope="" itemtype="http://schema.org/Recipe">
+    <span itemprop="about" itemscope="">a</span>
+  </span>
+</div>
+#errors
+/div/span/span;microdata:unexpected nested item type;http://schema.org/Thing;m
+
+#data
+<div itemscope="" itemtype="http://microformats.org/profile/hcard" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="n" itemscope="">
+    <span itemprop="family-name">a</span>
+  </span>
+</div>
+#errors
+/div;microdata:no required itemprop;fn;m
+
+#data
+<div itemscope="" itemtype="http://microformats.org/profile/hcard" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="n" itemscope="">
+    <span itemprop="family-name">a</span>
+    <span itemprop="foo">a</span>
+  </span>
+</div>
+#errors
+/div/span/span;microdata:itemprop not defined;;m
+/div;microdata:no required itemprop;fn;m
+
+#data
+<div itemscope="" itemtype="http://microformats.org/profile/hcard" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="n" itemscope="">
+    <span itemprop="family-name" itemscope="">
+      <span itemprop="foo">a</span>
+    </span>
+  </span>
+</div>
+#errors
+/div/span/span;microdata:itemvalue not text;m
+/div;microdata:no required itemprop;fn;m
+
+#data
+<div itemscope="" itemtype="http://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="work" itemscope="">aA</span>
+</div>
+#errors
+/div/span;microdata:itemvalue not text;m
+
+#data
+<div itemscope="" itemtype="http://data-vocabulary.org/Event" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="tickets">hoge</span>
+</div>
+#errors
+/div/span;microdata:not url prop element;tickets;m
+/div;microdata:no required itemprop;startDate;m
+/div;microdata:no required itemprop;summary;m
+
+#data
+<div itemscope="" itemtype="http://data-vocabulary.org/Event" xmlns="http://www.w3.org/1999/xhtml">
+  <a itemprop="tickets" href="foo">hoge</a>
+</div>
+#errors
+/div;microdata:no required itemprop;startDate;m
+/div;microdata:no required itemprop;summary;m
+
+#data
+<div itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="sequence">353</span>
+</div>
+#errors
+/div;microdata:no required itemprop;dtstart;m
+
+#data
+<div itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="sequence">353px</span>
+</div>
+#errors
+/div/span;nninteger:syntax error;m
+/div;microdata:no required itemprop;dtstart;m
+
+#data
+<div itemscope="" itemtype="http://data-vocabulary.org/Offer" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="price">12.41</span>
+</div>
+#errors
+
+#data
+<div itemscope="" itemtype="http://data-vocabulary.org/Offer" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="price">+12.41</span>
+</div>
+#errors
+/div/span;float:syntax error;m
+
+#data
+<div itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="status">tentative</span>
+</div>
+#errors
+/div;microdata:no required itemprop;dtstart;m
+
+#data
+<div itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="status">Confirmed</span>
+</div>
+#errors
+/div/span;microdata:enum:bad;m
+/div;microdata:no required itemprop;dtstart;m
+
+#data
+<div itemscope="" itemtype="http://microformats.org/profile/hcard" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="n fn">aa</span>
+  <span itemprop="org">aa</span>
+</div>
+#errors
+/div/span;microdata:not item;n;m
+
+#data
+<div itemscope="" itemtype="http://microformats.org/profile/hcard" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="fn">aa</span>
+  <span itemprop="n" itemscope="">aa</span>
+  <span itemprop="adr" itemscope="">
+    <span itemprop="extended-address">aa</span>
+  </span>
+</div>
+#errors
+/div/span/span;microdata:itemprop:discouraged;w
+
+#data
+<div itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent" xmlns="http://www.w3.org/1999/xhtml">
+  <time itemprop="dtstart" datetime="2012-04-12">aaa</time>
+  <time itemprop="dtend" datetime="2012-04-13">aaa</time>
+</div>
+#errors
+/div/time;microdata:unknown type;date string or global date and time string;u
+/div/time;microdata:unknown type;date string or global date and time string;u
+
+#data
+<div itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent" xmlns="http://www.w3.org/1999/xhtml">
+  <time itemprop="dtstart" datetime="2012-04-12">aaa</time>
+  <span itemprop="duration">P10W</span>
+</div>
+#errors
+/div/time;microdata:unknown type;date string or global date and time string;u
+/div/span;microdata:unknown type;vevent duration;u
+
+#data
+<div itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent" xmlns="http://www.w3.org/1999/xhtml">
+  <time itemprop="dtstart" datetime="2012-04-12">aaa</time>
+  <time itemprop="dtend" datetime="2012-04-13">aaa</time>
+  <span itemprop="duration">P10W</span>
+</div>
+#errors
+/div/time;microdata:unknown type;date string or global date and time string;u
+/div/time;microdata:unknown type;date string or global date and time string;u
+/div/span;microdata:unknown type;vevent duration;u
+/div;microdata:vevent:dtend and duration;m
