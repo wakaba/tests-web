@@ -19,40 +19,52 @@
 #data
 <q itemtype="" itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
 #errors
+/q/@itemtype;empty itemtype;m
 
 #data
 <q itemtype="http://a/" itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
 #errors
+/q;microdata:item type not defined;m
 
 #data
 <q itemtype="http://a/ https://b/ " itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
 #errors
+/q;microdata:item type not defined;m
+/q;microdata:item type not defined;m
 
 #data
 <q itemtype="::hoge" itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
 #errors
 /q/@itemtype;syntax error:iriref3987;m
+/q;microdata:item type not defined;m
 
 #data
 <q itemtype=">a >> " itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
 #errors
 /q/@itemtype;syntax error:iriref3987;m
 /q/@itemtype;syntax error:iriref3987;m
+/q;microdata:item type not defined;m
+/q;microdata:item type not defined;m
 
 #data
 <q itemtype="http://a/ http://A/ http://b/ http://b/" itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
 #errors
 /q/@itemtype;duplicate token;m
 /q/@itemtype;URL:uppercase host;w
+/q;microdata:item type not defined;m
+/q;microdata:item type not defined;m
+/q;microdata:item type not defined;m
 
 #data
 <q itemtype="" xmlns="http://www.w3.org/1999/xhtml">a</q>
 #errors
 /q/@itemtype;attribute not allowed;m
+/q/@itemtype;empty itemtype;m
 
 #data
 <q itemid="" itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
 #errors
+/q;microdata:itemid not supported;m
 
 #data
 <q itemid="a/bc//" itemscope="" xmlns="http://www.w3.org/1999/xhtml">a</q>
@@ -138,3 +150,282 @@
   <span itemscope="">b</span>
 </iframe>
 #errors
+
+#data
+<div itemscope="" itemtype="http://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+
+#data
+<div itemscope="" itemtype="http://n.whatwg.org/work?" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;microdata:item type not defined;m
+
+#data
+<div itemscope="" itemtype="http://n.whatwg.org/work
+HTTP://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;microdata:item type not defined;m
+/div/@itemtype;URL:uppercase scheme name;w
+
+#data
+<div itemscope="" itemtype="https://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;microdata:item type not defined;m
+
+#data
+<div itemscope="" itemtype="http://n.whatwg.org/work http://schema.org/WebPage" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;microdata:mixed vocab;http://n.whatwg.org/work;m
+
+#data
+<div itemscope="" itemtype="http://schema.org/WebPage/TopPage http://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;microdata:mixed vocab;http://n.whatwg.org/work;m
+/div;microdata:schemaorg:private;w
+
+#data
+<div itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent http://microformats.org/profile/hcard" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;microdata:mixed vocab;http://microformats.org/profile/hcalendar#vevent;m
+
+#data
+<div itemscope="" itemtype="http://n.whatwg.org/work/abc" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;microdata:item type not defined;m
+
+#data
+<div itemscope="" itemtype="http://schema.org/Book" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+
+#data
+<div itemscope="" itemtype="http://schema.org/Book/" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;microdata:item type not defined;m
+
+#data
+<div itemscope="" itemtype="http://schema.org/Book/MyBook" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;microdata:schemaorg:private;w
+
+#data
+<div itemscope="" itemid="http://hoge/fuga" itemtype="http://schema.org/Book" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+
+#data
+<div itemscope="" itemid="http://hoge/fuga" itemtype="http://schema.org/Book/YourBook" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;microdata:schemaorg:private;w
+
+#data
+<div itemscope="" itemid="http://hoge/fuga" itemtype="http://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;microdata:itemid not supported;m
+
+#data
+<div itemscope="" itemid="http://hoge/fuga" itemtype="http://hoge/" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;microdata:item type not defined;m
+/div;microdata:itemid not supported;m
+
+#data
+<div itemscope="" itemid="http://hoge/fuga" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;microdata:itemid not supported;m
+
+#data
+<div itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="a b">aa</span>
+  <span itemprop="http://hoge/">aa</span>
+</div>
+#errors
+
+#data
+<div itemscope="" itemtype="http://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="title">aa</span>
+  <span itemprop="http://hoge/">aa</span>
+</div>
+#errors
+/div/span;microdata:itemprop proprietary;w
+
+#data
+<div itemscope="" itemtype="http://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="title">aa</span>
+  <span itemprop="title/foo">bb</span>
+  <span itemprop="http://hoge/">aa</span>
+</div>
+#errors
+/div/span;microdata:itemprop not defined;http://n.whatwg.org/work;m
+/div/span;microdata:itemprop proprietary;w
+
+#data
+<div itemscope="" itemtype="http://schema.org/AboutPage" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="keywords headline">aa</span>
+  <em itemprop="headline description">ab</em>
+</div>
+#errors
+
+#data
+<div itemscope="" itemtype="http://schema.org/AboutPage/Hoge" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="keywords headline/foo">aa</span>
+  <em itemprop="headline description">ab</em>
+</div>
+#errors
+/div;microdata:schemaorg:private;w
+/div/span;microdata:schemaorg:itemprop private;w
+
+#data
+<div itemscope="" itemtype="http://schema.org/WebPage" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="keywords headline/foo">aa</span>
+  <em itemprop="headline description">ab</em>
+</div>
+#errors
+/div/span;microdata:schemaorg:itemprop private;w
+
+#data
+<div itemscope="" itemtype="http://schema.org/Thing" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="keywords headline/foo">aa</span>
+  <em itemprop="headline name">ab</em>
+</div>
+#errors
+/div/span;microdata:schemaorg:bad domain;http://schema.org/Thing;m
+/div/span;microdata:itemprop not defined;http://schema.org/Thing;w
+/div/em;microdata:schemaorg:bad domain;http://schema.org/Thing;m
+
+#data
+<div itemscope="" itemtype="http://schema.org/Thing" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="x" itemprop="http://example.org/a">a</a>
+</div>
+#errors
+/div/a;microdata:itemprop proprietary;w
+
+#data
+<div itemscope="" itemtype="http://schema.org/Thing" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="x" itemprop="hoge">a</a>
+</div>
+#errors
+/div/a;microdata:itemprop not defined;http://schema.org/Thing;w
+
+#data
+<div itemscope="" itemtype="http://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="hoge" itemprop="work">foo</a>
+</div>
+#errors
+
+#data
+<div itemscope="" itemtype="http://n.whatwg.org/work" xmlns="http://www.w3.org/1999/xhtml">
+  <strong itemprop="work">foo</strong>
+</div>
+#errors
+/div/strong;microdata:not url prop element;work;m
+
+#data
+<div itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" xmlns="http://www.w3.org/1999/xhtml">
+  <strong itemprop="url">foo</strong>
+</div>
+#errors
+/div/strong;microdata:not url prop element;url;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <em id="aa">aa
+    <span itemscope="" itemref="aa">bb</span>
+  </em>
+</div>
+#errors
+/div/em/span;microdata:referenced by itemref;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <span id="a" itemscope=""><em itemscope="" itemprop="x" itemref="b">b</em></span>
+  <span id="b"><em itemscope="" itemprop="y" itemref="a">c</em></span>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <span id="a"><code itemscope=""><em itemscope="" itemprop="x" itemref="b">b</em></code></span>
+  <span id="b"><em itemscope="" itemprop="y" itemref="a">c</em></span>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div itemscope="">
+    <div id="A"><p itemscope="" itemprop="X" itemref="B">a</p></div>
+  </div>
+  <div id="B"><p itemscope="" itemprop="Y" itemref="A">a</p></div>
+</div>
+#errors
+/div/div/div/p;microdata:nested item loop;m
+
+#data
+<div itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+  <div itemprop="a" itemscope="" itemtype="http://n.whatwg.org/work">
+    <a href="a" itemprop="foo">a</a>
+    <a href="a" itemprop="work">a</a>
+  </div>
+</div>
+#errors
+/div/div/a;microdata:itemprop not defined;http://n.whatwg.org/work;m
+
+#data
+<div itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+  <div itemprop="a" itemscope="" itemtype="http://n.whatwg.org/work">
+    <div itemprop="work">aa</div>
+  </div>
+</div>
+#errors
+/div/div/div;microdata:not url prop element;work;m
+
+#data
+<div itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+  <div itemprop="a" itemscope="" itemtype="http://n.whatwg.org/work">
+    <div itemprop="work" itemscope="" itemtype="http://schema.org/Book">
+      <span itemprop="title">aa</span>
+    </div>
+  </div>
+</div>
+#errors
+/div/div/div;microdata:unexpected nested item type;;m
+/div/div/div/span;microdata:schemaorg:bad domain;http://schema.org/Book;m
+
+#data
+<div itemscope="" itemtype="http://schema.org/Book" xmlns="http://www.w3.org/1999/xhtml">
+    <span itemprop="about" itemscope="" itemtype="http://schema.org/Person">x</span>
+</div>
+#errors
+/div/span;microdata:unexpected nested item type;http://schema.org/Thing;m
+
+#data
+<div itemscope="" itemtype="http://schema.org/Person" xmlns="http://www.w3.org/1999/xhtml">
+  <span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress" itemid="http://hoge/">x</span>
+</div>
+#errors
+
+#data
+<div itemprop="abc" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;microdata:unused itemprop;m
+
+#data
+<div itemscope="" itemprop="abc" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;microdata:unused itemprop;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <span itemscope="" itemprop="a">
+    <img src="x" itemprop="foo" alt="x"/>
+  </span>
+</div>
+#errors
+/div/span;microdata:unused itemprop;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <span itemscope="" itemtype="http://schema.org/Recipe">
+    <img src="x" itemprop="foo" alt="x"/>
+  </span>
+</div>
+#errors
+/div/span/img;microdata:itemprop not defined;http://schema.org/Recipe;w
