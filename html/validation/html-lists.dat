@@ -211,3 +211,32 @@
 #errors
 /div/dl/dt;no significant content;s
 /div/dl/dd;no significant content;s
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt></dt>
+  <dt></dt>
+  <dd>a</dd>
+</dl>
+#errors
+/dl/dt;duplicate dl name;s
+/dl/dt;no significant content;s
+/dl/dt;no significant content;s
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>hoge</dt>
+  <dt>fuga</dt>
+  <dt><span>h</span>oge</dt>
+  <dd>a</dd>
+</dl>
+#errors
+/dl/dt;duplicate dl name;s
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>hoge</dt>
+  <dt> hoge</dt>
+  <dd>a</dd>
+</dl>
+#errors
