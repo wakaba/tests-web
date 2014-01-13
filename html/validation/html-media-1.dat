@@ -813,14 +813,14 @@
 #errors
 /video;no significant content;s
 /video;child element missing;source;w
-/video/@autoplay;attribute not allowed;w
+/video/@autoplay;autoplay;w
 
 #data
 <video autoplay="autoplay" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /video;no significant content;s
 /video;child element missing;source;w
-/video/@autoplay;attribute not allowed;w
+/video/@autoplay;autoplay;w
 
 #data
 <video autoplay="true" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -828,14 +828,14 @@
 /video;no significant content;s
 /video/@autoplay;boolean:invalid;m
 /video;child element missing;source;w
-/video/@autoplay;attribute not allowed;w
+/video/@autoplay;autoplay;w
 
 #data
 <video autoplay="AUTOPlay" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /video;no significant content;s
 /video;child element missing;source;w
-/video/@autoplay;attribute not allowed;w
+/video/@autoplay;autoplay;w
 
 #data
 <video autobuffer="" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -870,7 +870,7 @@
 #errors
 /video;no significant content;s
 /video;child element missing;source;w
-/video/@autoplay;attribute not allowed;w
+/video/@autoplay;autoplay;w
 /video/@autobuffer;attribute not defined;m
 
 #data
@@ -1081,21 +1081,21 @@
 #errors
 /audio;no significant content;s
 /audio;child element missing;source;w
-/audio/@autoplay;attribute not allowed;w
+/audio/@autoplay;autoplay;w
 
 #data
 <audio autoplay="autoplay" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /audio;no significant content;s
 /audio;child element missing;source;w
-/audio/@autoplay;attribute not allowed;w
+/audio/@autoplay;autoplay;w
 
 #data
 <audio autoplay="AUTOPLAY" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /audio;no significant content;s
 /audio;child element missing;source;w
-/audio/@autoplay;attribute not allowed;w
+/audio/@autoplay;autoplay;w
 
 #data
 <audio autobuffer="" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -1130,7 +1130,7 @@
 #errors
 /audio;no significant content;s
 /audio;child element missing;source;w
-/audio/@autoplay;attribute not allowed;w
+/audio/@autoplay;autoplay;w
 /audio/@autobuffer;attribute not defined;m
 
 #data
@@ -1805,6 +1805,18 @@
 <audio src="a" xmlns="http://www.w3.org/1999/xhtml"
     mediagroup="bbb">a</audio>
 #errors
+
+#data
+<video autoplay="" preload="metadata" src="x" xmlns="http://www.w3.org/1999/xhtml">a</video>
+#errors
+/video/@autoplay;autoplay;w
+/video/@preload;autoplay:preload;w
+
+#data
+<audio autoplay="" preload="metadata" src="x" xmlns="http://www.w3.org/1999/xhtml">a</audio>
+#errors
+/audio/@autoplay;autoplay;w
+/audio/@preload;autoplay:preload;w
 
 #data
 <bgsound xmlns="http://www.w3.org/1999/xhtml"></bgsound>
