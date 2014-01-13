@@ -1,0 +1,28 @@
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml"><table><caption>a</caption><tr><td>a</td></tr></table></figure>
+#errors
+/figure/table/caption;element not allowed:figure table caption;s
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml"><table><caption>a</caption><tr><td>a</td></tr></table><figcaption>a</figcaption></figure>
+#errors
+/figure/table/caption;element not allowed:figure table caption;s
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<table><caption>a</caption><tr><td>a</td></tr></table>
+</figure>
+#errors
+/figure/table/caption;element not allowed:figure table caption;s
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml"><table><caption>a</caption><tr><td>a</td></tr></table><div>aa</div></figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml"><table><caption>a</caption><tr><td>a</td></tr></table><p>hoge</p></figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml"><table><caption>a</caption><tr><td>a</td></tr></table><table><tr><td>bb</td></tr></table></figure>
+#errors

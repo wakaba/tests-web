@@ -1,0 +1,177 @@
+#data
+<img src="aa" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/img;attribute missing:alt;m
+
+#data
+<img src="aa" alt="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<img src="aa" alt="abc" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<img src="aa" title="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/img;attribute missing:alt;m
+
+#data
+<img src="aa" title="abc" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<img src="aa" xmlns="http://www.w3.org/1999/xhtml"/>
+#image-viewable
+#errors
+
+#data
+<img src="aa" generator-unable-to-provide-required-alt="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/img/@generator-unable-to-provide-required-alt;attribute not defined;mh
+
+#data
+<img src="aa" generator-unable-to-provide-required-alt="" alt="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/img/@generator-unable-to-provide-required-alt;attribute not defined;m
+
+#data
+<img src="aa" generator-unable-to-provide-required-alt="" alt="abc" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/img/@generator-unable-to-provide-required-alt;attribute not defined;m
+
+#data
+<img src="aa" generator-unable-to-provide-required-alt="" xmlns="http://www.w3.org/1999/xhtml"/>
+#image-viewable
+#errors
+/img/@generator-unable-to-provide-required-alt;attribute not defined;mh
+
+#data
+<img src="aa" generator-unable-to-provide-required-alt="" title="" xmlns="http://www.w3.org/1999/xhtml"/>
+#image-viewable
+#errors
+/img/@generator-unable-to-provide-required-alt;attribute not defined;mh
+
+#data
+<img src="aa" generator-unable-to-provide-required-alt="" title="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#image-viewable
+#errors
+/img/@generator-unable-to-provide-required-alt;attribute not defined;mh
+
+#data
+<img src="aa" generator-unable-to-provide-required-alt="generator-unable-to-provide-required-alt" xmlns="http://www.w3.org/1999/xhtml"/>
+#image-viewable
+#errors
+/img/@generator-unable-to-provide-required-alt;attribute not defined;mh
+/img/@generator-unable-to-provide-required-alt;invalid attribute value;m
+
+#data
+<img src="aa" generator-unable-to-provide-required-alt="alt" xmlns="http://www.w3.org/1999/xhtml"/>
+#image-viewable
+#errors
+/img/@generator-unable-to-provide-required-alt;attribute not defined;mh
+/img/@generator-unable-to-provide-required-alt;invalid attribute value;m
+
+#data
+<img src="aa" generator-unable-to-provide-required-alt="alt" alt="x" xmlns="http://www.w3.org/1999/xhtml"/>
+#image-viewable
+#errors
+/img/@generator-unable-to-provide-required-alt;attribute not defined;m
+/img/@generator-unable-to-provide-required-alt;invalid attribute value;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<figcaption>a</figcaption>
+<img src="a"/>
+</figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<img src="a"/>
+<figcaption>a</figcaption>
+</figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<img src="a"/>
+<figcaption> </figcaption>
+</figure>
+#errors
+/figure/img;attribute missing:alt;m
+/figure/figcaption;no significant content;s
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<img src="a"/>
+</figure>
+#errors
+/figure/img;attribute missing:alt;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<figcaption/>
+<img src="a"/>
+<figcaption>a</figcaption>
+</figure>
+#errors
+/figure/figcaption;no significant content;s
+/figure/figcaption;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<div><img src="a"/></div>
+<figcaption>a</figcaption>
+</figure>
+#errors
+/figure/div/img;attribute missing:alt;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<img src="a"/>
+<img src="a"/>
+<figcaption>a</figcaption>
+</figure>
+#errors
+/figure/img;attribute missing:alt;m
+/figure/img;attribute missing:alt;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<img src="a"/>a
+<figcaption>a</figcaption>
+</figure>
+#errors
+/figure/img;attribute missing:alt;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<img src="a"/><em>a</em>
+<figcaption>a</figcaption>
+</figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<img src="a"/><video src="a">b</video>
+<figcaption>a</figcaption>
+</figure>
+#errors
+/figure/img;attribute missing:alt;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<img src="a" generator-unable-to-provide-required-alt=""/>
+<figcaption>a</figcaption>
+</figure>
+#errors
+/figure/img/@generator-unable-to-provide-required-alt;attribute not defined;mh
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<img src="a"/>a
+<figcaption>a</figcaption>
+</figure>
+#errors
+/figure/img;attribute missing:alt;m
