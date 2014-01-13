@@ -1,0 +1,91 @@
+#data
+<span title="aa&#x202A;aaa&#x202C;a" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+
+#data
+<span title="aa&#x202A;aa&#x202B;a&#x202C;&#x202C;a" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+
+#data
+<span title="aa&#x202D;aaa&#x202C;a" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+
+#data
+<span title="aa&#x202D;aaa&#x202C;aaa&#x202D;aaa&#x202C;aaa&#x202D;aaaa&#x202D;aaa&#x202D;aaa&#x202C;aaa&#x202C;aa&#x202C;a" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+
+#data
+<span title="aa&#x202E;aaa&#x202C;a" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+
+#data
+<span title="aa&#x202A;aaa&#x202E;a" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+1;36;/span/@title;bidi:no pop;&#x202C;&#x202C;;m
+
+#data
+<span title="aa&#x202A;aax202E;a" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+1;33;/span/@title;bidi:no pop;&#x202C;;m
+
+#data
+<span title="aa&#x202B;aax202E;a" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+1;33;/span/@title;bidi:no pop;&#x202C;;m
+
+#data
+<span title="aa&#x202D;aax202E;a
+a" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+2;2;/span/@title;bidi:no pop;&#x202C;;m
+
+#data
+<span title="aa&#x202E;aax202E;a" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+1;33;/span/@title;bidi:no pop;&#x202C;;m
+
+#data
+<span title="aa&#x2066;&#x202A;aa&#x2069;a" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+1;34;/span/@title;bidi:stray pop;m
+1;43;/span/@title;bidi:no pop;&#x202C;&#x2069;;m
+
+#data
+<span title="aa&#x2066;;aa&#x2069;a" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+
+#data
+<span title="aa&#x2067;;aa&#x2069;a
+" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+
+#data
+<span title="aa&#x2068;
+" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+2;1;/span/@title;bidi:no pop;&#x2069;;m
+
+#data
+<span title="aa&#x0D;&#x202C;" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+/span/@title;U+000D not serializable;w
+1;22;/span/@title;bidi:stray pop;m
+
+#data
+<span title="aa&#x0a;&#xa;&#x202C;" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+1;27;/span/@title;bidi:stray pop;m
+
+#data
+<span title="aa&#x0D;
+&#x202C;" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+/span/@title;U+000D not serializable;w
+2;1;/span/@title;bidi:stray pop;m
+
+#data
+<span title="aa&#x0D;
+&#x2069;" xmlns="http://www.w3.org/1999/xhtml">a</span>
+#errors
+/span/@title;U+000D not serializable;w
+2;1;/span/@title;bidi:stray pop;m
