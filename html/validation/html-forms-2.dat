@@ -1,0 +1,78 @@
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <input name="a" autofocus=""/>
+  <input name="a" autofocus=""/>
+</div>
+#errors
+/div/input/@autofocus;duplicate autofocus;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <input name="a" autofocus=""/>
+  <select name="a" autofocus=""/>
+</div>
+#errors
+/div/select/@autofocus;duplicate autofocus;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <input name="a" autofocus=""/>
+  <input name="a" autofocus=""/>
+  <div><keygen name="a" autofocus=""/></div>
+</div>
+#errors
+/div/input/@autofocus;duplicate autofocus;m
+/div/div/keygen/@autofocus;duplicate autofocus;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <input name="a" autofocus=""/>
+  <input name="a" autofocus=""/>
+  <dialog><keygen name="a" autofocus=""/></dialog>
+</div>
+#errors
+/div/input/@autofocus;duplicate autofocus;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <input name="a" autofocus=""/>
+  <dialog>
+    <input name="a" autofocus=""/>
+    <textarea name="a" autofocus=""/>
+  </dialog>
+</div>
+#errors
+/div/dialog/textarea/@autofocus;duplicate autofocus;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dialog>
+    <textarea name="a" autofocus=""/>
+  </dialog>
+  <input name="a" autofocus=""/>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dialog>
+    <textarea name="a" autofocus=""/>
+  </dialog>
+  <dialog>
+    <textarea name="a" autofocus=""/>
+  </dialog>
+  <input name="a" autofocus=""/>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dialog>
+    <textarea name="a" autofocus=""/>
+  <dialog>
+    <textarea name="a" autofocus=""/>
+  </dialog>
+  </dialog>
+  <input name="a" autofocus=""/>
+</div>
+#errors
