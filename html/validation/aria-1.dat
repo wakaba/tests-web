@@ -50,6 +50,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <input role="combobox" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/input;aria:role:no required owned element;listbox textbox;m
 /input/@role;aria:role:conflict with semantics;m
 
 #data
@@ -110,7 +111,15 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <table role=" grid" xmlns="http://www.w3.org/1999/xhtml"><tr><td>a</td></tr></table>
 #errors
+/table;aria:role:no required owned element;rowgroup row;m
 /table/@role;aria:redundant role;w
+
+#data
+<table role=" grid" xmlns="http://www.w3.org/1999/xhtml"><tr role="row"><td>a</td></tr></table>
+#errors
+/table/@role;aria:redundant role;w
+/table/tr/@role;aria:redundant role;w
+/table/tr;aria:role:no required owned element;gridcell rowheader columnheader;m
 
 #data
 <td role="gridcell" xmlns="http://www.w3.org/1999/xhtml">a</td>
@@ -160,6 +169,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <menu role="menu" xmlns="http://www.w3.org/1999/xhtml">a</menu>
 #errors
+/menu;aria:role:no required owned element;group menuitem menuitemcheckbox listitem menuitemradio;m
 /menu/@role;aria:redundant role;w
 
 #data
@@ -170,6 +180,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <menu role="menubar" xmlns="http://www.w3.org/1999/xhtml">a</menu>
 #errors
+/menu;aria:role:no required owned element;group menuitem menuitemcheckbox listitem menuitemradio;m
 /menu/@role;aria:redundant role;w
 
 #data
@@ -205,10 +216,28 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <tr role="row" xmlns="http://www.w3.org/1999/xhtml"><td>a</td></tr>
 #errors
+/tr;aria:role:no required owned element;gridcell rowheader columnheader;m
 /tr/@role;aria:redundant role;w
 
 #data
 <tbody role="rowgroup" xmlns="http://www.w3.org/1999/xhtml"><tr><td>a</td></tr></tbody>
+#errors
+/tbody;aria:role:no required owned element;row;m
+/tbody/@role;aria:redundant role;w
+
+#data
+<tbody role="rowgroup" aria-busy="false" xmlns="http://www.w3.org/1999/xhtml"></tbody>
+#errors
+/tbody;aria:role:no required owned element;row;m
+/tbody/@role;aria:redundant role;w
+
+#data
+<tbody role="rowgroup" aria-busy="true" xmlns="http://www.w3.org/1999/xhtml"></tbody>
+#errors
+/tbody/@role;aria:redundant role;w
+
+#data
+<tbody role="rowgroup" aria-busy="tRUE" xmlns="http://www.w3.org/1999/xhtml"></tbody>
 #errors
 /tbody/@role;aria:redundant role;w
 
@@ -298,27 +327,29 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <h1 aria-level="1" xmlns="http://www.w3.org/1999/xhtml">a</h1>
 #errors
+/h1/@aria-level;aria:attr not allowed for element;;m
 
 #data
 <h1 aria-level="1" role="presentation" xmlns="http://www.w3.org/1999/xhtml">a</h1>
 #errors
-/h1/@aria-level;aria:attr not allowed;presentation;m
+/h1/@aria-level;aria:attr not allowed for role;presentation;m
 
 #data
 <h1 aria-level="1" role="heading presentation" xmlns="http://www.w3.org/1999/xhtml">a</h1>
 #errors
 /h1/@role;aria:redundant role;w
+/h1/@aria-level;aria:attr not allowed for element;;m
 
 #data
 <h1 aria-level="1" role="document img" xmlns="http://www.w3.org/1999/xhtml">a</h1>
 #errors
-/h1/@aria-level;aria:attr not allowed;document img;m
+/h1/@aria-level;aria:attr not allowed for role;document img;m
 /h1/@role;aria:not preferred markup:html-element;figure;w
 
 #data
 <input type="search" aria-checked="true" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/input/@aria-checked;aria:attr not allowed;;m
+/input/@aria-checked;aria:attr not allowed for role;;m
 
 #data
 <area aria-expanded="false" shape="default" href="x" alt="y" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -327,7 +358,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <area aria-expanded="false" shape="default" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/area/@aria-expanded;aria:attr not allowed;;m
+/area/@aria-expanded;aria:attr not allowed for role;;m
 
 #data
 <area role="tab" shape="default" href="x" alt="y" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -343,3 +374,164 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /img/@role;aria:role:conflict with semantics;m
 /img/@role;aria:not preferred markup:html-element;a;w
+
+#data
+<datalist aria-multiselectable="true" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></datalist>
+#errors
+/datalist/@aria-multiselectable;aria:attr not allowed for element;m
+
+#data
+<datalist aria-multiselectable="false" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></datalist>
+#errors
+/datalist/@aria-multiselectable;aria:attr not allowed for element;m
+
+#data
+<select aria-disabled="true" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
+#errors
+XXX
+
+#data
+<select aria-disabled="true" disabled="" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
+#errors
+XXX
+
+#data
+<h1 aria-level="1" xmlns="http://www.w3.org/1999/xhtml">a</h1>
+#errors
+/h1/@aria-level;aria:attr not allowed for role;;m
+
+#data
+<h2 aria-level="1" xmlns="http://www.w3.org/1999/xhtml">a</h2>
+#errors
+/h2/@aria-level;aria:attr not allowed for role;;m
+
+#data
+<li aria-level="1" xmlns="http://www.w3.org/1999/xhtml">a</li>
+#errors
+/li/@aria-level;aria:attr not allowed for role;;m
+
+#data
+<ul xmlns="http://www.w3.org/1999/xhtml"><li aria-level="4">a</li></ul>
+#errors
+
+#data
+<li role="listitem" aria-level="1" xmlns="http://www.w3.org/1999/xhtml">a</li>
+#errors
+/li/@role;aria:redundant role;w
+
+#data
+<ul xmlns="http://www.w3.org/1999/xhtml"><li role="listitem" aria-level="4">a</li></ul>
+#errors
+/ul/li/@role;aria:role:default role;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div role="listitem">aa</div>
+</div>
+#errors
+/div/div/@role;aria:not preferred markup:html-element;li;w
+/div/div;aria:role:not required context;list;m
+
+#data
+<div role="list" xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <div role="listitem">aa</div>
+  </div>
+</div>
+#errors
+/div/@role;aria:not preferred markup:html-element;ul;w
+/div/div/div/@role;aria:not preferred markup:html-element;li;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div role="list" aria-owns="foo">xx</div>
+  <div role="listitem" id="foo">aa</div>
+</div>
+#errors
+/div/div/@role;aria:not preferred markup:html-element;ul;w
+/div/div/@role;aria:not preferred markup:html-element;li;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div role="list" aria-owns="foo">xx</div>
+  <div id="foo"><div role="listitem">aa</div></div>
+</div>
+#errors
+/div/div/@role;aria:not preferred markup:html-element;ul;w
+/div/div/div/@role;aria:not preferred markup:html-element;li;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div role="list"><div aria-owns="foo">xx</div></div>
+  <div id="foo"><div role="listitem">aa</div></div>
+</div>
+#errors
+/div/div/@role;aria:not preferred markup:html-element;ul;w
+/div/div/div/@role;aria:not preferred markup:html-element;li;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div role="list"><div aria-owns="foo">xx</div></div>
+  <div id="foo" aria-owns="bar">xx</div>
+  <div role="listitem" id="bar">aa</div>
+</div>
+#errors
+/div/div/@role;aria:not preferred markup:html-element;ul;w
+/div/div/@role;aria:not preferred markup:html-element;li;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div role="list"><div aria-owns="foo bar">xx</div></div>
+  <div id="foo" aria-owns="bar">xx</div>
+  <div role="listitem" id="bar">aa</div>
+</div>
+#errors
+/div/div/@role;aria:not preferred markup:html-element;ul;w
+/div/div/@id;aria:owns:duplicate idref;m
+/div/div/@role;aria:not preferred markup:html-element;li;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div id="foo">
+    <div role="list" aria-owns="foo">aa</div>
+    <div role="listitem">bb</div>
+  </div>
+</div>
+#errors
+/div/div/div/@role;aria:not preferred markup:html-element;ul;w
+/div/div/div/@role;aria:not preferred markup:html-element;li;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div role="list" aria-owns="foo">
+    <div role="listitem" id="foo">bb</div>
+  </div>
+</div>
+#errors
+/div/div/@role;aria:not preferred markup:html-element;ul;w
+/div/div/@aria-owns;aria:owns:descendant is refed;m
+/div/div/div/@role;aria:not preferred markup:html-element;li;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div role="list listitem" aria-owns="foo" id="foo">aa</div>
+</div>
+#errors
+/div/div/@role;aria:not preferred markup:html-element;ul;w
+/div/div/@role;aria:not preferred markup:html-element;li;w
+
+#data
+<div aria-owns="" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+
+#data
+<div aria-owns="abc abc" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@aria-owns;duplicate token;m
+/div/@aria-owns;no referenced element;m
+
+#data
+<div aria-owns="abc DEF" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@aria-owns;no referenced element;m
+/div/@aria-owns;no referenced element;m
