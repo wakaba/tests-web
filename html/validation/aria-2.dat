@@ -28,28 +28,45 @@
 #data
 <div aria-autocomplete="" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-autocomplete;aria:attr not allowed for role;;m
 /div/@aria-autocomplete;enumerated:invalid;m
 
 #data
 <div aria-autocomplete="INLINE" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-autocomplete;aria:attr not allowed for role;;m
 
 #data
 <div aria-autocomplete="list" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-autocomplete;aria:attr not allowed for role;;m
 
 #data
 <div aria-autocomplete="both" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-autocomplete;aria:attr not allowed for role;;m
 
 #data
 <div aria-autocomplete="none" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-autocomplete;aria:attr not allowed for role;;m
 
 #data
 <div aria-autocomplete="true" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-autocomplete;aria:attr not allowed for role;;m
 /div/@aria-autocomplete;enumerated:invalid;m
+
+#data
+<div aria-autocomplete="none" role="textbox" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@role;aria:not preferred markup:textbox;w
+
+#data
+<div aria-autocomplete="none" role="combobox" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@role;aria:not preferred markup:input;text;w
+/div;aria:role:no required owned element;listbox textbox;m
 
 #data
 <div aria-busy="" xmlns="http://www.w3.org/1999/xhtml">aa</div>
@@ -72,23 +89,53 @@
 #data
 <div aria-checked="true" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-checked;aria:attr not allowed for role;;m
 
 #data
 <div aria-checked="false" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-checked;aria:attr not allowed for role;;m
 
 #data
 <div aria-checked="mixed" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-checked;aria:attr not allowed for role;;m
 
 #data
 <div aria-checked="undefined" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-checked;aria:attr not allowed for role;;m
 
 #data
 <div aria-checked="none" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-checked;aria:attr not allowed for role;;m
 /div/@aria-checked;enumerated:invalid;m
+
+#data
+<div aria-checked="undefined" role="option" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@role;aria:not preferred markup:html-element;option;w
+
+#data
+<div aria-checked="undefined" role="radio" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@role;aria:not preferred markup:input;radio;w
+
+#data
+<div aria-checked="undefined" role="checkbox" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@role;aria:not preferred markup:input;checkbox;w
+
+#data
+<input type="radio" aria-checked="undefined" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@aria-checked;aria:attr not allowed for element;m
+
+#data
+<input type="checkbox" aria-checked="undefined" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@aria-checked;aria:attr not allowed for element;m
 
 #data
 <div aria-disabled="true" xmlns="http://www.w3.org/1999/xhtml">aa</div>
@@ -111,19 +158,38 @@
 #data
 <div aria-expanded="true" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-expanded;aria:attr not allowed for role;;m
 
 #data
 <div aria-expanded="false" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-expanded;aria:attr not allowed for role;;m
 
 #data
 <div aria-expanded="undefined" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-expanded;aria:attr not allowed for role;;m
 
 #data
 <div aria-expanded="mixed" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-expanded;aria:attr not allowed for role;;m
 /div/@aria-expanded;enumerated:invalid;m
+
+#data
+<div aria-expanded="undefined" role="button" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@role;aria:not preferred markup:html-element;button;w
+
+#data
+<div aria-expanded="undefined" role="group" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@role;aria:not preferred markup:html-element;fieldset;w
+
+#data
+<div aria-expanded="undefined" role="presentation" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@aria-expanded;aria:attr not allowed for role;presentation;m
 
 #data
 <div aria-grabbed="true" xmlns="http://www.w3.org/1999/xhtml">aa</div>
@@ -198,3 +264,79 @@
 <div aria-invalid="mixed" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
 /div/@aria-invalid;enumerated:invalid;m
+
+#data
+<div aria-label="" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@aria-label;aria:label;w
+
+#data
+<div aria-label="  " xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@aria-label;aria:label;w
+
+#data
+<div aria-label="abc" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@aria-label;aria:label;w
+
+#data
+<div aria-level="23" xmlns="http://www.w3.org/1999/xhtml">aaa</div>
+#errors
+/div/@aria-level;aria:attr not allowed for role;;m
+
+#data
+<div aria-level="23" role="treeitem" xmlns="http://www.w3.org/1999/xhtml">aaa</div>
+#errors
+
+#data
+<div aria-level="-23" role="treeitem" xmlns="http://www.w3.org/1999/xhtml">aaa</div>
+#errors
+/div/@aria-level;nninteger:syntax error;m
+
+#data
+<div aria-level="23.0" role="treeitem" xmlns="http://www.w3.org/1999/xhtml">aaa</div>
+#errors
+/div/@aria-level;nninteger:syntax error;m
+
+#data
+<div aria-level="0" role="treeitem" xmlns="http://www.w3.org/1999/xhtml">aaa</div>
+#errors
+/div/@aria-level;nninteger:zero;m
+
+#data
+<div aria-level="+23" role="treeitem" xmlns="http://www.w3.org/1999/xhtml">aaa</div>
+#errors
+/div/@aria-level;nninteger:syntax error;m
+
+#data
+<div aria-level="abc" role="treeitem" xmlns="http://www.w3.org/1999/xhtml">aaa</div>
+#errors
+/div/@aria-level;nninteger:syntax error;m
+
+#data
+<div aria-level="23px" role="treeitem" xmlns="http://www.w3.org/1999/xhtml">aaa</div>
+#errors
+/div/@aria-level;nninteger:syntax error;m
+
+#data
+<div aria-level="23" role="button" xmlns="http://www.w3.org/1999/xhtml">aaa</div>
+#errors
+/div/@role;aria:not preferred markup:html-element;button;w
+/div/@aria-level;aria:attr not allowed for role;button;m
+
+#data
+<hgroup aria-level="23" xmlns="http://www.w3.org/1999/xhtml"><h2>aaa</h2></hgroup>
+#errors
+/hgroup/@aria-level;aria:attr not allowed for element;m
+
+#data
+<h3 aria-level="3" xmlns="http://www.w3.org/1999/xhtml">aaa</h3>
+#errors
+/h3/@aria-level;aria:attr not allowed for element;m
+
+#data
+<div aria-level="23" role="grid" xmlns="http://www.w3.org/1999/xhtml">aaa</div>
+#errors
+/div/@role;aria:not preferred markup:html-element;table;w
+/div;aria:role:no required owned element;rowgroup row;m
