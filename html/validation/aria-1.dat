@@ -535,3 +535,27 @@ XXX
 #errors
 /div/@aria-owns;no referenced element;m
 /div/@aria-owns;no referenced element;m
+
+#data
+<div role="progressbar" aria-valuenow="12" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@role;aria:not preferred markup:html-element;progress;w
+/div;attribute missing;aria-valuemax;s
+/div;attribute missing;aria-valuemin;s
+
+#data
+<div role="progressbar" aria-valuenow="1200" aria-valuemin="143" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@role;aria:not preferred markup:html-element;progress;w
+/div;attribute missing;aria-valuemax;s
+
+#data
+<div role="progressbar" aria-valuenow="12" aria-valuemax="143" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@role;aria:not preferred markup:html-element;progress;w
+/div;attribute missing;aria-valuemin;s
+
+#data
+<div role="scrollbar" aria-valuenow="143" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@role;aria:not preferred markup:css;w
