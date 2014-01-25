@@ -450,6 +450,7 @@ XXX
 #errors
 /div/div/@role;aria:not preferred markup:html-element;ul;w
 /div/div/@role;aria:not preferred markup:html-element;li;w
+/div/div/@aria-owns;aria:owns;w
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -458,6 +459,7 @@ XXX
 </div>
 #errors
 /div/div/@role;aria:not preferred markup:html-element;ul;w
+/div/div/@aria-owns;aria:owns;w
 /div/div/div/@role;aria:not preferred markup:html-element;li;w
 
 #data
@@ -468,6 +470,7 @@ XXX
 #errors
 /div/div/@role;aria:not preferred markup:html-element;ul;w
 /div/div/div/@role;aria:not preferred markup:html-element;li;w
+/div/div/div/@aria-owns;aria:owns;w
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -478,6 +481,8 @@ XXX
 #errors
 /div/div/@role;aria:not preferred markup:html-element;ul;w
 /div/div/@role;aria:not preferred markup:html-element;li;w
+/div/div/div/@aria-owns;aria:owns;w
+/div/div/@aria-owns;aria:owns;w
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -487,7 +492,9 @@ XXX
 </div>
 #errors
 /div/div/@role;aria:not preferred markup:html-element;ul;w
-/div/div/@id;aria:owns:duplicate idref;m
+/div/div/div/@aria-owns;aria:owns;w
+/div/div/@aria-owns;aria:owns;w
+/div/div/@aria-owns;aria:owns:duplicate idref;m
 /div/div/@role;aria:not preferred markup:html-element;li;w
 
 #data
@@ -499,6 +506,7 @@ XXX
 </div>
 #errors
 /div/div/div/@role;aria:not preferred markup:html-element;ul;w
+/div/div/div/@aria-owns;aria:owns;w
 /div/div/div/@role;aria:not preferred markup:html-element;li;w
 
 #data
@@ -509,6 +517,7 @@ XXX
 </div>
 #errors
 /div/div/@role;aria:not preferred markup:html-element;ul;w
+/div/div/@aria-owns;aria:owns;w
 /div/div/@aria-owns;aria:owns:descendant is refed;m
 /div/div/div/@role;aria:not preferred markup:html-element;li;w
 
@@ -518,21 +527,25 @@ XXX
 </div>
 #errors
 /div/div/@role;aria:not preferred markup:html-element;ul;w
+/div/div/@aria-owns;aria:owns;w
 /div/div/@role;aria:not preferred markup:html-element;li;w
 
 #data
 <div aria-owns="" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-owns;aria:owns;w
 
 #data
 <div aria-owns="abc abc" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-owns;aria:owns;w
 /div/@aria-owns;duplicate token;m
 /div/@aria-owns;no referenced element;m
 
 #data
 <div aria-owns="abc DEF" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-owns;aria:owns;w
 /div/@aria-owns;no referenced element;m
 /div/@aria-owns;no referenced element;m
 
