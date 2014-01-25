@@ -46,32 +46,44 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 <input type="checkbox" role="checkbox" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@role;aria:role:default role;m
+/input/@role;attribute missing;aria-checked;m
 
 #data
 <input role="combobox" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input;aria:role:no required owned element;listbox textbox;m
 /input/@role;aria:role:conflict with semantics;m
+/input/@role;attribute missing;aria-expanded;m
 
 #data
 <input type="radio" role="radio" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@role;aria:role:default role;m
+/input/@role;attribute missing;aria-checked;m
 
 #data
 <input type="range" role="slider" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@role;aria:role:default role;m
+/input/@role;attribute missing;aria-valuemax;m
+/input/@role;attribute missing;aria-valuemin;m
+/input/@role;attribute missing;aria-valuenow;m
 
 #data
 <input type="number" role="spinbutton" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@role;aria:role:default role;m
+/input/@role;attribute missing;aria-valuemax;m
+/input/@role;attribute missing;aria-valuemin;m
+/input/@role;attribute missing;aria-valuenow;m
 
 #data
 <input type="NUMBER" role="spinbutton" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@role;aria:role:default role;m
+/input/@role;attribute missing;aria-valuemax;m
+/input/@role;attribute missing;aria-valuemin;m
+/input/@role;attribute missing;aria-valuenow;m
 
 #data
 <input type="text" role="textbox" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -101,12 +113,14 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <dialog role="dialog" xmlns="http://www.w3.org/1999/xhtml">a</dialog>
 #errors
+/dialog;attribute missing:aria-label*;s
 /dialog/@role;aria:role:default role;m
 
 #data
 <form role=" form " xmlns="http://www.w3.org/1999/xhtml">a</form>
 #errors
 /form/@role;aria:redundant role;w
+/form/@role;attribute missing;aria-labelledby;s
 
 #data
 <table role=" grid" xmlns="http://www.w3.org/1999/xhtml"><tr><td>a</td></tr></table>
@@ -192,11 +206,13 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 <menuitem role="menuitemcheckbox" xmlns="http://www.w3.org/1999/xhtml" label="a"/>
 #errors
 /menuitem/@role;aria:redundant role;w
+/menuitem/@role;attribute missing;aria-checked;m
 
 #data
 <menuitem role="menuitemradio" xmlns="http://www.w3.org/1999/xhtml" label="a"/>
 #errors
 /menuitem/@role;aria:redundant role;w
+/menuitem/@role;attribute missing;aria-checked;m
 
 #data
 <option role="option" xmlns="http://www.w3.org/1999/xhtml">a</option>
@@ -256,11 +272,17 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 <div role="checkbox" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:input;checkbox;w
+/div/@role;attribute missing;aria-checked;m
 
 #data
 <div role="scrollbar" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:css;w
+/div/@role;attribute missing;aria-controls;m
+/div/@role;attribute missing;aria-orientation;m
+/div/@role;attribute missing;aria-valuemax;m
+/div/@role;attribute missing;aria-valuemin;m
+/div/@role;attribute missing;aria-valuenow;m
 
 #data
 <div role="tooltip" xmlns="http://www.w3.org/1999/xhtml">a</div>
@@ -315,6 +337,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /nav/@role;aria:role:conflict with semantics;m
 /nav/@role;aria:not preferred markup:input;checkbox;w
+/nav/@role;attribute missing;aria-checked;m
 
 #data
 <nav role="presentation" xmlns="http://www.w3.org/1999/xhtml">a</nav>
@@ -388,12 +411,12 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <select aria-disabled="true" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
 #errors
-XXX
+/select/@aria-disabled;aria:not preferred markup:html-attr;inert;w
 
 #data
 <select aria-disabled="true" disabled="" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
 #errors
-XXX
+/select/@aria-disabled;aria:not preferred markup:html-attr;inert;w
 
 #data
 <h1 aria-level="1" xmlns="http://www.w3.org/1999/xhtml">a</h1>
@@ -572,3 +595,7 @@ XXX
 <div role="scrollbar" aria-valuenow="143" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
 /div/@role;aria:not preferred markup:css;w
+/div/@role;attribute missing;aria-controls;m
+/div/@role;attribute missing;aria-orientation;m
+/div/@role;attribute missing;aria-valuemax;m
+/div/@role;attribute missing;aria-valuemin;m

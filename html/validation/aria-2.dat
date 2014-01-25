@@ -67,6 +67,7 @@
 #errors
 /div/@role;aria:not preferred markup:input;text;w
 /div;aria:role:no required owned element;listbox textbox;m
+/div/@role;attribute missing;aria-expanded;m
 
 #data
 <div aria-busy="" xmlns="http://www.w3.org/1999/xhtml">aa</div>
@@ -140,20 +141,29 @@
 #data
 <div aria-disabled="true" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-disabled;aria:not preferred markup:html-attr;inert;w
 
 #data
 <div aria-disabled="ture" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
 /div/@aria-disabled;enumerated:invalid;m
+/div/@aria-disabled;aria:not preferred markup:html-attr;inert;w
 
 #data
 <div aria-disabled="false" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-disabled;aria:not preferred markup:html-attr;inert;w
 
 #data
 <div aria-disabled="mixed" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
 /div/@aria-disabled;enumerated:invalid;m
+/div/@aria-disabled;aria:not preferred markup:html-attr;inert;w
+
+#data
+<div aria-disabled="true" inert="" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@aria-disabled;aria:redundant:html-attr;inert;w
 
 #data
 <div aria-expanded="true" xmlns="http://www.w3.org/1999/xhtml">aa</div>
@@ -211,38 +221,56 @@
 #data
 <div aria-haspopup="true" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-haspopup;aria:not preferred markup:html-attr;contextmenu;w
 
 #data
 <div aria-haspopup="false" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-haspopup;aria:not preferred markup:html-attr;contextmenu;w
 
 #data
 <div aria-haspopup="undefined" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
 /div/@aria-haspopup;enumerated:invalid;m
+/div/@aria-haspopup;aria:not preferred markup:html-attr;contextmenu;w
 
 #data
 <div aria-haspopup="mixed" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
 /div/@aria-haspopup;enumerated:invalid;m
+/div/@aria-haspopup;aria:not preferred markup:html-attr;contextmenu;w
+
+#data
+<div aria-haspopup="true" contextmenu="b" xmlns="http://www.w3.org/1999/xhtml">aa<menu id="b" type="popup"><menuitem label="foo"/></menu></div>
+#errors
+/div/@aria-haspopup;aria:redundant:html-attr;contextmenu;w
 
 #data
 <div aria-hidden="true" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-hidden;aria:not preferred markup:html-attr;hidden;w
 
 #data
 <div aria-hidden="false" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-hidden;aria:not preferred markup:html-attr;hidden;w
 
 #data
 <div aria-hidden="undefined" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
 /div/@aria-hidden;enumerated:invalid;m
+/div/@aria-hidden;aria:not preferred markup:html-attr;hidden;w
 
 #data
 <div aria-hidden="mixed" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
 /div/@aria-hidden;enumerated:invalid;m
+/div/@aria-hidden;aria:not preferred markup:html-attr;hidden;w
+
+#data
+<div aria-hidden="true" hidden="" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@aria-hidden;aria:redundant:html-attr;hidden;w
 
 #data
 <div aria-invalid="true" xmlns="http://www.w3.org/1999/xhtml">aa</div>
@@ -380,6 +408,7 @@
 /div/@aria-multiline;aria:attr not allowed for role;combobox;m
 /div/@role;aria:not preferred markup:input;text;w
 /div;aria:role:no required owned element;listbox textbox;m
+/div/@role;attribute missing;aria-expanded;m
 
 #data
 <textarea aria-multiline="true" xmlns="http://www.w3.org/1999/xhtml">aaa</textarea>
@@ -632,21 +661,29 @@
 <div aria-valuemax="12" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:input;range;w
+/div/@role;attribute missing;aria-valuemin;m
+/div/@role;attribute missing;aria-valuenow;m
 
 #data
 <div aria-valuemax="-12" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:input;range;w
+/div/@role;attribute missing;aria-valuemin;m
+/div/@role;attribute missing;aria-valuenow;m
 
 #data
 <div aria-valuemax="12.1244" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:input;range;w
+/div/@role;attribute missing;aria-valuemin;m
+/div/@role;attribute missing;aria-valuenow;m
 
 #data
 <div aria-valuemax="12e-11" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:input;range;w
+/div/@role;attribute missing;aria-valuemin;m
+/div/@role;attribute missing;aria-valuenow;m
 
 #data
 <div aria-valuemin="12" xmlns="http://www.w3.org/1999/xhtml">a</div>
@@ -663,32 +700,42 @@
 <div aria-valuemin="12" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:input;range;w
+/div/@role;attribute missing;aria-valuenow;m
+/div/@role;attribute missing;aria-valuemax;m
 
 #data
 <div aria-valuemin="-12" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:input;range;w
+/div/@role;attribute missing;aria-valuenow;m
+/div/@role;attribute missing;aria-valuemax;m
 
 #data
 <div aria-valuemin="12.1244" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:input;range;w
+/div/@role;attribute missing;aria-valuenow;m
+/div/@role;attribute missing;aria-valuemax;m
 
 #data
 <div aria-valuemin="12e-11" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:input;range;w
+/div/@role;attribute missing;aria-valuemax;m
+/div/@role;attribute missing;aria-valuenow;m
 
 #data
 <div aria-valuemin="12e-11" aria-valuemax="12e12" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:input;range;w
+/div/@role;attribute missing;aria-valuenow;m
 
 #data
 <div aria-valuemin="12e-11" aria-valuemax="-12e12" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:input;range;w
 /div/@aria-valuemax;aria:valuemax lt valuemin;m
+/div/@role;attribute missing;aria-valuenow;m
 
 #data
 <div aria-valuenow="12" xmlns="http://www.w3.org/1999/xhtml">a</div>
@@ -705,21 +752,29 @@
 <div aria-valuenow="12" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:input;range;w
+/div/@role;attribute missing;aria-valuemax;m
+/div/@role;attribute missing;aria-valuemin;m
 
 #data
 <div aria-valuenow="-12" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:input;range;w
+/div/@role;attribute missing;aria-valuemax;m
+/div/@role;attribute missing;aria-valuemin;m
 
 #data
 <div aria-valuenow="12.1244" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:input;range;w
+/div/@role;attribute missing;aria-valuemax;m
+/div/@role;attribute missing;aria-valuemin;m
 
 #data
 <div aria-valuenow="12e-11" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:input;range;w
+/div/@role;attribute missing;aria-valuemax;m
+/div/@role;attribute missing;aria-valuemin;m
 
 #data
 <div aria-valuemin="12" aria-valuenow="12.1244" aria-valuemax="13.2" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
@@ -730,11 +785,13 @@
 <div aria-valuenow="12.1244" aria-valuemax="13.2" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:input;range;w
+/div/@role;attribute missing;aria-valuemin;m
 
 #data
 <div aria-valuemin="12" aria-valuenow="12.1244" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:input;range;w
+/div/@role;attribute missing;aria-valuemax;m
 
 #data
 <div aria-valuemin="13" aria-valuenow="12.1244" aria-valuemax="13.2" role="slider" xmlns="http://www.w3.org/1999/xhtml">a</div>
@@ -765,18 +822,26 @@
 #errors
 /div/@role;aria:not preferred markup:input;number;w
 /div;attribute missing;aria-valuenow;s
+/div/@role;attribute missing;aria-valuemin;m
+/div/@role;attribute missing;aria-valuemax;m
+/div/@role;attribute missing;aria-valuenow;m
 
 #data
 <div aria-valuetext="aa" role="spinbutton" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
 /div/@role;aria:not preferred markup:input;number;w
 /div;attribute missing;aria-valuenow;s
+/div/@role;attribute missing;aria-valuemin;m
+/div/@role;attribute missing;aria-valuemax;m
+/div/@role;attribute missing;aria-valuenow;m
 
 #data
 <div aria-valuetext="aa" aria-valuenow="12" role="spinbutton" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
 /div/@role;aria:not preferred markup:input;number;w
 /div/@aria-valuetext;aria:valuetext;s
+/div/@role;attribute missing;aria-valuemin;m
+/div/@role;attribute missing;aria-valuemax;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -926,49 +991,65 @@
 #data
 <div aria-dropeffect="" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="copy" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="move" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="link" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="execute" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect=" popup " xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="none" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="copy move" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="popup none
 " xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
+/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="true" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
 /div/@aria-dropeffect;word not allowed;m
+/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="copy copy" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
 /div/@aria-dropeffect;duplicate token;m
+/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
+
+#data
+<div aria-dropeffect="" dropzone="" title="x" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@aria-dropeffect;aria:redundant:html-attr;dropzone;w
 
 #data
 <div aria-relevant="" xmlns="http://www.w3.org/1999/xhtml">aa</div>
@@ -1030,3 +1111,57 @@ removals text all " xmlns="http://www.w3.org/1999/xhtml">aa</div>
 <div role="menuitemcheckbox" aria-checked="mixed" xmlns="http://www.w3.org/1999/xhtml">a</div>
 #errors
 /div/@role;aria:not preferred markup:html-element;menuitem;w
+
+#data
+<div role="definition" aria-labelledby="b" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@aria-labelledby;no referenced element;m
+
+#data
+<div role="definition" aria-labelledby="b" xmlns="http://www.w3.org/1999/xhtml">
+<dfn id="b">aa</dfn></div>
+#errors
+
+#data
+<div role="definition" aria-labelledby="b" xmlns="http://www.w3.org/1999/xhtml">
+<span id="b">aa</span></div>
+#errors
+/div/@aria-labelledby;aria:labelledby:definition label not dfn;s
+
+#data
+<div role="definition" aria-labelledby="b cc" xmlns="http://www.w3.org/1999/xhtml">
+<dfn id="cc">aa</dfn>
+<span id="b">aa</span></div>
+#errors
+/div/@aria-labelledby;aria:labelledby:definition label not dfn;s
+
+#data
+<img src="x" role="math" alt="y" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/img;attribute missing;aria-describedby;s
+/img/@role;aria:not preferred markup:math;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <img src="x" role="math" alt="y" aria-describedby="aa"/>
+  <span id="aa">aa</span>
+</div>
+#errors
+/div/img/@role;aria:not preferred markup:math;w
+
+#data
+<div role="dialog" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div;attribute missing:aria-label*;s
+/div/@role;aria:not preferred markup:html-element;dialog;w
+
+#data
+<div role="dialog" aria-label="a" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div/@role;aria:not preferred markup:html-element;dialog;w
+/div/@aria-label;aria:label;w
+
+#data
+<div role="dialog" aria-labelledby="a" xmlns="http://www.w3.org/1999/xhtml">a<br id="a"/></div>
+#errors
+/div/@role;aria:not preferred markup:html-element;dialog;w
