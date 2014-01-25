@@ -88,12 +88,12 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <input type="text" role="textbox" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/input/@role;aria:role:conflict with semantics;m
+/input/@role;aria:role:default role;m
 
 #data
 <input role="textbox" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/input/@role;aria:role:conflict with semantics;m
+/input/@role;aria:role:default role;m
 
 #data
 <textarea role="textbox" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -148,7 +148,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <h1 role="heading" xmlns="http://www.w3.org/1999/xhtml">nd>a</h1>
 #errors
-/h1/@role;aria:redundant role;w
+/h1/@role;aria:role:default role;m
 
 #data
 <img role="img" src="x" alt="y" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -350,7 +350,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <h1 aria-level="1" xmlns="http://www.w3.org/1999/xhtml">a</h1>
 #errors
-/h1/@aria-level;aria:attr not allowed for element;;m
+/h1/@aria-level;aria:attr not allowed for element;m
 
 #data
 <h1 aria-level="1" role="presentation" xmlns="http://www.w3.org/1999/xhtml">a</h1>
@@ -360,8 +360,8 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <h1 aria-level="1" role="heading presentation" xmlns="http://www.w3.org/1999/xhtml">a</h1>
 #errors
-/h1/@role;aria:redundant role;w
-/h1/@aria-level;aria:attr not allowed for element;;m
+/h1/@role;aria:role:default role;m
+/h1/@aria-level;aria:attr not allowed for element;m
 
 #data
 <h1 aria-level="1" role="document img" xmlns="http://www.w3.org/1999/xhtml">a</h1>
@@ -369,11 +369,13 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 /h1;attribute missing;aria-labelledby;s
 /h1/@aria-level;aria:attr not allowed for role;document img;m
 /h1/@role;aria:not preferred markup:html-element;figure;w
+/h1/@role;aria:role:conflict with semantics;m
+/h1/@role;aria:role:conflict with semantics;m
 
 #data
 <input type="search" aria-checked="true" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/input/@aria-checked;aria:attr not allowed for role;;m
+/input/@aria-checked;aria:attr not allowed for role;textbox;m
 
 #data
 <area aria-expanded="false" shape="default" href="x" alt="y" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -422,12 +424,12 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <h1 aria-level="1" xmlns="http://www.w3.org/1999/xhtml">a</h1>
 #errors
-/h1/@aria-level;aria:attr not allowed for role;;m
+/h1/@aria-level;aria:attr not allowed for element;m
 
 #data
 <h2 aria-level="1" xmlns="http://www.w3.org/1999/xhtml">a</h2>
 #errors
-/h2/@aria-level;aria:attr not allowed for role;;m
+/h2/@aria-level;aria:attr not allowed for element;m
 
 #data
 <li aria-level="1" xmlns="http://www.w3.org/1999/xhtml">a</li>
@@ -795,3 +797,327 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 /content;aria:activedescendant:not owned;s
 /content;aria:owns;w
 /content;aria:attr not allowed for role;;m
+
+#data
+<hgroup xmlns="http://www.w3.org/1999/xhtml">
+  <h1 role="heading">aa</h1>
+</hgroup>
+#errors
+/hgroup/h1/@role;aria:redundant role;w
+
+#data
+<hgroup xmlns="http://www.w3.org/1999/xhtml">
+  <h1 role="heading" aria-level="4">aa</h1>
+</hgroup>
+#errors
+/hgroup/h1/@role;aria:redundant role;w
+/hgroup/h1/@aria-level;attribute not allowed;w
+
+#data
+<hgroup xmlns="http://www.w3.org/1999/xhtml">
+<div>  <h1 role="heading" aria-level="4">aa</h1></div>
+</hgroup>
+#errors
+/hgroup;element missing:hn;m
+/hgroup/div;element not allowed;m
+/hgroup/div/h1/@role;aria:redundant role;w
+/hgroup/div/h1/@aria-level;attribute not allowed;w
+
+#data
+<select xmlns="http://www.w3.org/1999/xhtml">
+  <option role="option">aa</option>
+</select>
+#errors
+/select/option/@role;aria:role:default role;m
+
+#data
+<select xmlns="http://www.w3.org/1999/xhtml">
+  <option role="option" value="">aa</option>
+</select>
+#errors
+/select/option/@role;aria:role:default role;m
+
+#data
+<select xmlns="http://www.w3.org/1999/xhtml">
+  <option role="option" disabled="">aa</option>
+</select>
+#errors
+/select/option/@role;aria:role:default role;m
+
+#data
+<select xmlns="http://www.w3.org/1999/xhtml">
+  <option aria-selected="true">aa</option>
+</select>
+#errors
+/select/option/@aria-selected;aria:attr not allowed for element;m
+
+#data
+<select xmlns="http://www.w3.org/1999/xhtml">
+  <option role="document">aa</option>
+</select>
+#errors
+/select/option;attribute missing;aria-labelledby;s
+/select/option/@role;aria:role:conflict with semantics;m
+
+#data
+<select xmlns="http://www.w3.org/1999/xhtml">
+  <optgroup label="a">
+    <option role="option">aa</option>
+  </optgroup>
+</select>
+#errors
+/select/optgroup/option/@role;aria:role:default role;m
+
+#data
+<select xmlns="http://www.w3.org/1999/xhtml">
+  <optgroup label="a" disabled="disabled">
+    <option role="option">aa</option>
+  </optgroup>
+</select>
+#errors
+/select/optgroup/option/@role;aria:role:default role;m
+
+#data
+<select xmlns="http://www.w3.org/1999/xhtml">
+  <optgroup label="a">
+  <optgroup label="a">
+    <option role="option">aa</option>
+  </optgroup>
+  </optgroup>
+</select>
+#errors
+/select/optgroup/optgroup;element not allowed;m
+/select/optgroup/optgroup/option/@role;aria:redundant role;w
+
+#data
+<datalist xmlns="http://www.w3.org/1999/xhtml">
+  <option role="option">aa</option>
+</datalist>
+#errors
+/datalist/option/@role;aria:role:default role;m
+
+#data
+<datalist xmlns="http://www.w3.org/1999/xhtml">
+  <option role="option" disabled="">aa</option>
+</datalist>
+#errors
+/datalist/option/@role;aria:redundant role;w
+
+#data
+<datalist xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <option role="option">aa</option>b
+  </div>
+</datalist>
+#errors
+/datalist/div;element not allowed;m
+/datalist/div/option;element not allowed:flow;m
+/datalist/div/option/@role;aria:role:default role;m
+
+#data
+<datalist xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <option role="option" disabled="">aa</option>a
+  </div>
+</datalist>
+#errors
+/datalist/div;element not allowed;m
+/datalist/div/option;element not allowed:flow;m
+/datalist/div/option/@role;aria:redundant role;w
+
+#data
+<datalist xmlns="http://www.w3.org/1999/xhtml">
+  <optgroup label="a">
+    <option role="option">aa</option>
+  </optgroup>
+</datalist>
+#errors
+/datalist/optgroup;element not allowed;m
+/datalist/optgroup/option/@role;aria:role:default role;m
+
+#data
+<datalist xmlns="http://www.w3.org/1999/xhtml">
+  <optgroup label="b">
+    <option role="option" disabled="">aa</option>
+  </optgroup>
+</datalist>
+#errors
+/datalist/optgroup;element not allowed;m
+/datalist/optgroup/option/@role;aria:redundant role;w
+
+#data
+<datalist xmlns="http://www.w3.org/1999/xhtml">
+  <optgroup label="b" disabled="">
+    <option role="option" >aa</option>
+  </optgroup>
+</datalist>
+#errors
+/datalist/optgroup;element not allowed;m
+/datalist/optgroup/option/@role;aria:redundant role;w
+
+#data
+<datalist xmlns="http://www.w3.org/1999/xhtml">
+<select>
+  <optgroup label="b" disabled="">
+    <option role="option" >aa</option>
+  </optgroup>
+</select>
+</datalist>
+#errors
+/datalist/select/optgroup/option/@role;aria:role:default role;m
+
+#data
+<datalist xmlns="http://www.w3.org/1999/xhtml">
+<select>
+  <optgroup label="b">
+    <option role="option" value="">aa</option>
+  </optgroup>
+</select>
+</datalist>
+#errors
+/datalist/select/optgroup/option/@role;aria:role:default role;m
+
+#data
+<datalist xmlns="http://www.w3.org/1999/xhtml">
+<select>
+  <optgroup label="b">
+    <option role="option" label="abxs"/>
+  </optgroup>
+</select>
+</datalist>
+#errors
+/datalist/select/optgroup/option/@role;aria:role:default role;m
+
+#data
+<datalist xmlns="http://www.w3.org/1999/xhtml">
+  <optgroup label="b">
+    <option role="option" label="abxs"/>
+  </optgroup>
+</datalist>
+#errors
+/datalist/optgroup;element not allowed;m
+/datalist/optgroup/option/@role;aria:redundant role;w
+
+#data
+<body role="document" xmlns="http://www.w3.org/1999/xhtml">a</body>
+#errors
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title>
+<body role=document>aa
+#errors
+/html/body/@role;aria:role:default role;m
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title>
+<body role=application>aa
+#errors
+
+#data
+<frameset role="document" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/frameset;attribute missing;aria-labelledby;s
+/frameset;child element missing:frame|frameset;m
+/frameset;element not defined;m
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title>
+<frameset role=document></frameset>
+#errors
+/html/frameset/@role;aria:role:default role;m
+/html/frameset;attribute missing;aria-labelledby;s
+/html/frameset;child element missing:frame|frameset;m
+/html/frameset;element not allowed;m
+/html/frameset;element not defined;m
+/html;child element missing;body;m
+
+#data
+<link role="link" rel="alternate" href="xA" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/link/@role;aria:role:default role;m
+
+#data
+<link role="link" rel="stylesheet" href="xA" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/link/@role;aria:not preferred markup:html-element;a;w
+
+#data
+<link role="link" itemprop="a" href="xA" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/link;microdata:unused itemprop;m
+/link/@role;aria:not preferred markup:html-element;a;w
+
+#data
+<input role="textbox" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@role;aria:role:default role;m
+
+#data
+<input role="combobox" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@role;aria:role:conflict with semantics;m
+/input/@role;attribute missing;aria-expanded;m
+/input;aria:role:no required owned element;listbox textbox;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <input type="url" role="combobox" list="a"/>
+  <datalist id="a"></datalist>
+</div>
+#errors
+/div/input/@role;aria:role:default role;m
+/div/input/@role;attribute missing;aria-expanded;m
+/div/input;aria:role:no required owned element;listbox textbox;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <input type="tel" role="textbox" list="a"/>
+  <datalist id="a"></datalist>
+</div>
+#errors
+/div/input/@role;aria:role:conflict with semantics;m
+
+#data
+<div aria-hidden="true" hidden="" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@aria-hidden;aria:attr not allowed for element;m
+
+#data
+<div aria-disabled="true" inert="" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div/@aria-disabled;aria:redundant:html-attr;inert;w
+
+#data
+<div inert="" xmlns="http://www.w3.org/1999/xhtml"><div aria-disabled="false">a</div>a</div>
+#errors
+/div/div/@aria-disabled;aria:attr not allowed for element;m
+
+#data
+<ul role="presentation" xmlns="http://www.w3.org/1999/xhtml">
+  <li>aa</li>
+</ul>
+#errors
+
+#data
+<ul role="presentation" xmlns="http://www.w3.org/1999/xhtml">
+  <li role="listitem"> aa</li>
+  <li role="list">bb</li>
+</ul>
+#errors
+/ul/li/@role;aria:redundant role;w
+/ul/li/@role;aria:not preferred markup:html-element;ul;w
+/ul/li;aria:role:no required owned element;group listitem;m
+/ul/li;aria:role:not required context;list;m
+
+#data
+<select role="presentation" xmlns="http://www.w3.org/1999/xhtml">
+  <option>aa</option>
+</select>
+#errors
+
+#data
+<select role="presentation" xmlns="http://www.w3.org/1999/xhtml">
+  <option role="option">aa</option>
+</select>
+#errors
+/select/option/@role;aria:redundant role;w
