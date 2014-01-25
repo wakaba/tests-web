@@ -1121,3 +1121,197 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </select>
 #errors
 /select/option/@role;aria:redundant role;w
+
+#data
+<select xmlns="http://www.w3.org/1999/xhtml">
+  <option role="option">aa</option>
+</select>
+#errors
+/select/option/@role;aria:role:default role;m
+
+#data
+<select xmlns="http://www.w3.org/1999/xhtml">
+  <option role="menuitem">aa</option>
+</select>
+#errors
+/select/option;aria:role:not required context;menu menubar;m
+/select/option/@role;aria:not preferred markup:html-element;menuitem;w
+
+#data
+<select xmlns="http://www.w3.org/1999/xhtml">
+  <option role="menuitemradio">aa</option>
+</select>
+#errors
+/select/option;aria:role:not required context;menu menubar;m
+/select/option/@role;attribute missing;aria-checked;m
+/select/option/@role;aria:not preferred markup:html-element;menuitem;w
+
+#data
+<select xmlns="http://www.w3.org/1999/xhtml">
+  <option role="separator">aa</option>
+</select>
+#errors
+
+#data
+<select size="1" xmlns="http://www.w3.org/1999/xhtml">
+  <option role="option">aa</option>
+</select>
+#errors
+/select/option/@role;aria:role:default role;m
+
+#data
+<select size="1" xmlns="http://www.w3.org/1999/xhtml">
+  <option role="menuitem">aa</option>
+</select>
+#errors
+/select/option;aria:role:not required context;menu menubar;m
+/select/option/@role;aria:not preferred markup:html-element;menuitem;w
+
+#data
+<select size="1" xmlns="http://www.w3.org/1999/xhtml">
+  <option role="menuitemradio">aa</option>
+</select>
+#errors
+/select/option;aria:role:not required context;menu menubar;m
+/select/option/@role;attribute missing;aria-checked;m
+/select/option/@role;aria:not preferred markup:html-element;menuitem;w
+
+#data
+<select size="1" xmlns="http://www.w3.org/1999/xhtml">
+  <option role="separator">aa</option>
+</select>
+#errors
+
+#data
+<select multiple="" xmlns="http://www.w3.org/1999/xhtml">
+  <option role="option">aa</option>
+</select>
+#errors
+/select/option/@role;aria:role:default role;m
+
+#data
+<select multiple="" xmlns="http://www.w3.org/1999/xhtml">
+  <option role="menuitem">aa</option>
+</select>
+#errors
+/select/option/@role;aria:role:conflict with semantics;m
+/select/option;aria:role:not required context;menu menubar;m
+/select/option/@role;aria:not preferred markup:html-element;menuitem;w
+
+#data
+<select multiple="" xmlns="http://www.w3.org/1999/xhtml">
+  <option role="menuitemradio">aa</option>
+</select>
+#errors
+/select/option/@role;aria:not preferred markup:html-element;menuitem;w
+/select/option/@role;aria:role:conflict with semantics;m
+/select/option;aria:role:not required context;menu menubar;m
+/select/option/@role;attribute missing;aria-checked;m
+
+#data
+<select multiple="" xmlns="http://www.w3.org/1999/xhtml">
+  <option role="separator">aa</option>
+</select>
+#errors
+/select/option/@role;aria:role:conflict with semantics;m
+
+#data
+<select size="2" xmlns="http://www.w3.org/1999/xhtml">
+  <option role="option">aa</option>
+</select>
+#errors
+/select/option/@role;aria:role:default role;m
+
+#data
+<select size="2" xmlns="http://www.w3.org/1999/xhtml">
+  <option role="menuitem">aa</option>
+</select>
+#errors
+/select/option/@role;aria:role:conflict with semantics;m
+/select/option;aria:role:not required context;menu menubar;m
+/select/option/@role;aria:not preferred markup:html-element;menuitem;w
+
+#data
+<select size="2" xmlns="http://www.w3.org/1999/xhtml">
+  <option role="menuitemradio">aa</option>
+</select>
+#errors
+/select/option/@role;aria:not preferred markup:html-element;menuitem;w
+/select/option/@role;aria:role:conflict with semantics;m
+/select/option;aria:role:not required context;menu menubar;m
+/select/option/@role;attribute missing;aria-checked;m
+
+#data
+<select size="2" xmlns="http://www.w3.org/1999/xhtml">
+  <option role="separator">aa</option>
+</select>
+#errors
+/select/option/@role;aria:role:conflict with semantics;m
+
+#data
+<datalist xmlns="http://www.w3.org/1999/xhtml">
+  <option role="option">aa</option>
+</datalist>
+#errors
+/datalist/option/@role;aria:role:default role;m
+
+#data
+<datalist xmlns="http://www.w3.org/1999/xhtml">
+  <option role="menuitem">aa</option>
+</datalist>
+#errors
+/datalist/option/@role;aria:role:conflict with semantics;m
+/datalist/option;aria:role:not required context;menu menubar;m
+/datalist/option/@role;aria:not preferred markup:html-element;menuitem;w
+
+#data
+<datalist xmlns="http://www.w3.org/1999/xhtml">
+  <option role="menuitemradio">aa</option>
+</datalist>
+#errors
+/datalist/option/@role;aria:not preferred markup:html-element;menuitem;w
+/datalist/option/@role;aria:role:conflict with semantics;m
+/datalist/option;aria:role:not required context;menu menubar;m
+/datalist/option/@role;attribute missing;aria-checked;m
+
+#data
+<datalist xmlns="http://www.w3.org/1999/xhtml">
+  <option role="separator">aa</option>
+</datalist>
+#errors
+/datalist/option/@role;aria:role:conflict with semantics;m
+
+#data
+<select role="listbox" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
+#errors
+/select/@role;aria:role:default role;m
+
+#data
+<select role="menu" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
+#errors
+/select/@role;aria:not preferred markup:html-element;menu;w
+/select;aria:role:no required owned element;group menuitem menuitemcheckbox listitem menuitemradio;m
+
+#data
+<select multiple="" role="listbox" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
+#errors
+/select/@role;aria:role:default role;m
+
+#data
+<select multiple="" role="menu" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
+#errors
+/select/@role;aria:role:conflict with semantics;m
+/select/@role;aria:not preferred markup:html-element;menu;w
+/select;aria:role:no required owned element;group menuitem menuitemcheckbox listitem menuitemradio;m
+
+#data
+<select size="3" role="listbox" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
+#errors
+/select/@role;aria:role:default role;m
+
+#data
+<select size="3" role="menu" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
+#errors
+/select/@role;aria:role:conflict with semantics;m
+/select/@role;aria:not preferred markup:html-element;menu;w
+/select;aria:role:no required owned element;group menuitem menuitemcheckbox listitem menuitemradio;m
