@@ -46,7 +46,6 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 <input type="checkbox" role="checkbox" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@role;aria:role:default role;m
-/input/@role;attribute missing;aria-checked;m
 
 #data
 <input role="combobox" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -59,31 +58,21 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 <input type="radio" role="radio" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@role;aria:role:default role;m
-/input/@role;attribute missing;aria-checked;m
 
 #data
 <input type="range" role="slider" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@role;aria:role:default role;m
-/input/@role;attribute missing;aria-valuemax;m
-/input/@role;attribute missing;aria-valuemin;m
-/input/@role;attribute missing;aria-valuenow;m
 
 #data
 <input type="number" role="spinbutton" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@role;aria:role:default role;m
-/input/@role;attribute missing;aria-valuemax;m
-/input/@role;attribute missing;aria-valuemin;m
-/input/@role;attribute missing;aria-valuenow;m
 
 #data
 <input type="NUMBER" role="spinbutton" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@role;aria:role:default role;m
-/input/@role;attribute missing;aria-valuemax;m
-/input/@role;attribute missing;aria-valuemin;m
-/input/@role;attribute missing;aria-valuenow;m
 
 #data
 <input type="text" role="textbox" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -1143,7 +1132,6 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </select>
 #errors
 /select/option;aria:role:not required context;menu menubar;m
-/select/option/@role;attribute missing;aria-checked;m
 /select/option/@role;aria:not preferred markup:html-element;menuitem;w
 
 #data
@@ -1173,7 +1161,6 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </select>
 #errors
 /select/option;aria:role:not required context;menu menubar;m
-/select/option/@role;attribute missing;aria-checked;m
 /select/option/@role;aria:not preferred markup:html-element;menuitem;w
 
 #data
@@ -1206,7 +1193,6 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 /select/option/@role;aria:not preferred markup:html-element;menuitem;w
 /select/option/@role;aria:role:conflict with semantics;m
 /select/option;aria:role:not required context;menu menubar;m
-/select/option/@role;attribute missing;aria-checked;m
 
 #data
 <select multiple="" xmlns="http://www.w3.org/1999/xhtml">
@@ -1239,7 +1225,6 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 /select/option/@role;aria:not preferred markup:html-element;menuitem;w
 /select/option/@role;aria:role:conflict with semantics;m
 /select/option;aria:role:not required context;menu menubar;m
-/select/option/@role;attribute missing;aria-checked;m
 
 #data
 <select size="2" xmlns="http://www.w3.org/1999/xhtml">
@@ -1271,8 +1256,8 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /datalist/option/@role;aria:not preferred markup:html-element;menuitem;w
 /datalist/option/@role;aria:role:conflict with semantics;m
-/datalist/option;aria:role:not required context;menu menubar;m
 /datalist/option/@role;attribute missing;aria-checked;m
+/datalist/option;aria:role:not required context;menu menubar;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml">
