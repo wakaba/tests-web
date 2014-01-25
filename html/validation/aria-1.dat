@@ -366,6 +366,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <h1 aria-level="1" role="document img" xmlns="http://www.w3.org/1999/xhtml">a</h1>
 #errors
+/h1;attribute missing;aria-labelledby;s
 /h1/@aria-level;aria:attr not allowed for role;document img;m
 /h1/@role;aria:not preferred markup:html-element;figure;w
 
@@ -599,3 +600,198 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 /div/@role;attribute missing;aria-orientation;m
 /div/@role;attribute missing;aria-valuemax;m
 /div/@role;attribute missing;aria-valuemin;m
+
+#data
+<div role="document" xmlns="http://www.w3.org/1999/xhtml">
+  <div role="banner">aa</div>
+</div>
+#errors
+/div;attribute missing;aria-labelledby;s
+
+#data
+<div role="document" xmlns="http://www.w3.org/1999/xhtml">
+  <div role="banner">aa</div>
+  <div role="banner">aa</div>
+</div>
+#errors
+/div;aria:multiple role elements;banner;s
+/div;attribute missing;aria-labelledby;s
+
+#data
+<div role="application" xmlns="http://www.w3.org/1999/xhtml">
+  <div role="banner">aa</div>
+  <div role="banner">aa</div>
+  <div role="banner">aa</div>
+</div>
+#errors
+/div;attribute missing;aria-labelledby;s
+/div;aria:multiple role elements;banner;s
+
+#data
+<div role="application" xmlns="http://www.w3.org/1999/xhtml">
+  <div role="contentinfo">aa</div>
+  <div role="contentinfo">aa</div>
+  <div role="contentinfo">aa</div>
+</div>
+#errors
+/div;aria:multiple role elements;contentinfo;s
+/div;attribute missing;aria-labelledby;s
+
+#data
+<div role="document" xmlns="http://www.w3.org/1999/xhtml">
+  <div role="main">aa</div>
+  <div role="main">aa</div>
+  <div role="main">aa</div>
+</div>
+#errors
+/div;aria:multiple role elements;main;s
+/div;attribute missing;aria-labelledby;s
+/div/div/@role;aria:not preferred markup:html-element;main;w
+/div/div/@role;aria:not preferred markup:html-element;main;w
+/div/div/@role;aria:not preferred markup:html-element;main;w
+
+#data
+<div role="document" xmlns="http://www.w3.org/1999/xhtml">
+  <div role="main">aa</div>
+  <main>aa</main>
+  <div role="main">aa</div>
+</div>
+#errors
+/div;attribute missing;aria-labelledby;s
+/div;aria:multiple role elements;main;s
+/div/div/@role;aria:not preferred markup:html-element;main;w
+/div/div/@role;aria:not preferred markup:html-element;main;w
+
+#data
+<div role="document" xmlns="http://www.w3.org/1999/xhtml">
+  <div role="main">aa</div>
+  <main>aa</main>
+</div>
+#errors
+/div;aria:multiple role elements;main;s
+/div;attribute missing;aria-labelledby;s
+/div/div/@role;aria:not preferred markup:html-element;main;w
+
+#data
+<div role="document" xmlns="http://www.w3.org/1999/xhtml">
+  <div role="toolbar">aa</div>
+  <div role="toolbar">aa</div>
+</div>
+#errors
+/div;attribute missing;aria-labelledby;s
+/div/div/@role;aria:not preferred markup:html-element;menu;w
+/div/div/@role;aria:not preferred markup:html-element;menu;w
+
+#data
+<div role=" application" xmlns="http://www.w3.org/1999/xhtml">
+  <div role="toolbar">aa</div>
+  <div role="toolbar">aa</div>
+</div>
+#errors
+/div;attribute missing;aria-labelledby;s
+/div/div/@role;aria:not preferred markup:html-element;menu;w
+/div/div;attribute missing;aria-label;m
+/div/div/@role;aria:not preferred markup:html-element;menu;w
+/div/div;attribute missing;aria-label;m
+
+#data
+<div role=" application" xmlns="http://www.w3.org/1999/xhtml">
+  <div role="toolbar" aria-label="a">aa</div>
+  <div role="toolbar" aria-label="a">aa</div>
+</div>
+#errors
+/div;attribute missing;aria-labelledby;s
+/div/div/@aria-label;aria:label;w
+/div/div/@role;aria:not preferred markup:html-element;menu;w
+/div/div/@aria-label;aria:label;w
+/div/div/@role;aria:not preferred markup:html-element;menu;w
+
+#data
+<body role="application" xmlns="http://www.w3.org/1999/xhtml">aa</body>
+#errors
+
+#data
+<div role="application" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div;attribute missing;aria-labelledby;s
+
+#data
+<div role="document" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div;attribute missing;aria-labelledby;s
+
+#data
+<img src="x" role="presentation" alt="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<img src="x" role="presentation" alt="ab" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/img/@alt;aria:img presentation:non empty alt;s
+
+#data
+<div role="radiogroup" xmlns="http://www.w3.org/1999/xhtml">
+  <span role="radio">aa</span>
+</div>
+#errors
+/div/span/@role;aria:not preferred markup:input;radio;w
+/div/span/@role;attribute missing;aria-checked;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <span role="radio">aa</span>
+  <span role="radio">aa</span>
+</div>
+#errors
+/div/span/@role;aria:not preferred markup:input;radio;w
+/div/span/@role;attribute missing;aria-checked;m
+/div/span;aria:role:not required context;radiogroup;s
+/div/span/@role;aria:not preferred markup:input;radio;w
+/div/span/@role;attribute missing;aria-checked;m
+/div/span;aria:role:not required context;radiogroup;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <span role="radio">aa</span>
+  <input type="radio" name="a"/>
+</div>
+#errors
+/div/span/@role;aria:not preferred markup:input;radio;w
+/div/span/@role;attribute missing;aria-checked;m
+/div/span;aria:role:not required context;radiogroup;s
+
+#data html
+<!DOCTYPE html><html lang="en"><title>a</title>
+<iframe src="x">
+  <span aria-owns=abc aria-activedescendant=def>aa</span>
+  <span id=abc>aaa</span>
+  <span id=def>aaa</span>
+</iframe>
+#errors
+/html/body/iframe;aria:activedescendant:not owned;s
+/html/body/iframe;aria:owns;w
+/html/body/iframe;aria:attr not allowed for role;;m
+
+#data html
+<!DOCTYPE html><html lang="en"><title>a</title>
+<p>a
+<noscript>
+  <span aria-owns=abc aria-activedescendant=def>aa</span>
+  <span id=abc>aaa</span>
+  <span id=def>aaa</span>
+</noscript>
+#errors
+/html/body/p/noscript;aria:activedescendant:not owned;s
+/html/body/p/noscript;aria:owns;w
+/html/body/p/noscript;aria:attr not allowed for role;;m
+
+#data
+<content type="html" xmlns="http://www.w3.org/2005/Atom"><![CDATA[
+  <span aria-owns=abc aria-activedescendant=def>aa</span>
+  <span id=abc>aaa</span>
+  <span id=def>aaa</span>
+]]></content>
+#errors
+/content;aria:activedescendant:not owned;s
+/content;aria:owns;w
+/content;aria:attr not allowed for role;;m

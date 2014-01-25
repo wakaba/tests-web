@@ -370,6 +370,18 @@
 /div;aria:role:no required owned element;rowgroup row;m
 
 #data
+<hgroup aria-level="1" role="heading" xmlns="http://www.w3.org/1999/xhtml"><h1>a</h1></hgroup>
+#errors
+/hgroup/@aria-level;aria:attr not allowed for element;m
+/hgroup/@role;aria:role:default role;m
+
+#data
+<h3 aria-level="1" role="heading" xmlns="http://www.w3.org/1999/xhtml">a</h3>
+#errors
+/h3/@role;aria:not preferred markup:html-element;h1;w
+/h3/@aria-level;attribute not allowed;w
+
+#data
 <div aria-live="off" xmlns="http://www.w3.org/1999/xhtml">aaa</div>
 #errors
 
@@ -1165,3 +1177,114 @@ removals text all " xmlns="http://www.w3.org/1999/xhtml">aa</div>
 <div role="dialog" aria-labelledby="a" xmlns="http://www.w3.org/1999/xhtml">a<br id="a"/></div>
 #errors
 /div/@role;aria:not preferred markup:html-element;dialog;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <span role="tab">a</span>
+  <span role="tabpanel">b</span>
+</div>
+#errors
+/div/span;aria:role:not required context;tablist;m
+/div/span;aria:tabpanel:no tab;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <span role="tab" id="a">a</span>
+  <span role="tabpanel" aria-labelledby="a">b</span>
+</div>
+#errors
+/div/span;aria:role:not required context;tablist;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <span role="tab" aria-controls="b">a</span>
+  <span role="tabpanel" id="b">b</span>
+</div>
+#errors
+/div/span;aria:role:not required context;tablist;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <span role="tab">a</span>
+  <span role="tabpanel" aria-labelledby="a">b</span>
+  <span id="a">a</span>
+</div>
+#errors
+/div/span;aria:role:not required context;tablist;m
+/div/span;aria:tabpanel:no tab;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <span role="tab" aria-controls="b">a</span>
+  <span role="tabpanel"><br id="b"/>b</span>
+</div>
+#errors
+/div/span;aria:role:not required context;tablist;m
+/div/span;aria:tabpanel:no tab;s
+
+#data
+<div role="region" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div;aria:region:no heading label;s
+
+#data
+<div role="region" aria-labelledby="abc" xmlns="http://www.w3.org/1999/xhtml">aa</div>
+#errors
+/div;aria:region:no heading label;s
+/div/@aria-labelledby;no referenced element;m
+
+#data
+<div role="region" aria-labelledby="abc" xmlns="http://www.w3.org/1999/xhtml"><h1 id="abc">a</h1>a</div>
+#errors
+
+#data
+<div role="region" aria-labelledby="a abc" xmlns="http://www.w3.org/1999/xhtml"><span id="a">f</span><h1 id="abc">a</h1>a</div>
+#errors
+
+#data
+<div role="region" aria-labelledby="abc" xmlns="http://www.w3.org/1999/xhtml"><hgroup id="abc"><h2>a</h2></hgroup>a</div>
+#errors
+
+#data
+<div role="region" aria-labelledby="abc" xmlns="http://www.w3.org/1999/xhtml"><hgroup><h1 id="abc">a</h1></hgroup>a</div>
+#errors
+
+#data
+<div role="grid" xmlns="http://www.w3.org/1999/xhtml">
+  <div role="row">
+    <div role="rowheader" aria-sort="ascending">aa</div>
+    <div role="rowheader" aria-sort="NONE">aa</div>
+  </div>
+</div>
+#errors
+/div/@role;aria:not preferred markup:html-element;table;w
+/div/div/@role;aria:not preferred markup:html-element;tr;w
+/div/div/div/@role;aria:not preferred markup:th;row;w
+/div/div/div/@role;aria:not preferred markup:th;row;w
+
+#data
+<div role="grid" xmlns="http://www.w3.org/1999/xhtml">
+  <div role="row">
+    <div role="rowheader" aria-sort="ascending">aa</div>
+    <div role="rowheader" aria-sort="other">aa</div>
+  </div>
+</div>
+#errors
+/div/@role;aria:not preferred markup:html-element;table;w
+/div/div/@role;aria:not preferred markup:html-element;tr;w
+/div/div/div/@role;aria:not preferred markup:th;row;w
+/div/div/div/@role;aria:not preferred markup:th;row;w
+/div;aria:grid:multiple sorts;s
+
+#data
+<div role="treegrid" xmlns="http://www.w3.org/1999/xhtml">
+  <div role="row">
+    <div role="columnheader" aria-sort="ascending">aa</div>
+    <div role="columnheader" aria-sort="other">aa</div>
+  </div>
+</div>
+#errors
+/div/div/@role;aria:not preferred markup:html-element;tr;w
+/div/div/div/@role;aria:not preferred markup:th;col;w
+/div/div/div/@role;aria:not preferred markup:th;col;w
+/div;aria:grid:multiple sorts;s
