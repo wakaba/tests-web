@@ -75,3 +75,24 @@
 #errors
 /g;unknown element;u
 /g/@aria-label;aria:label;w
+
+#data
+<g xmlns="http://www.w3.org/2000/svg">
+  <g aria-owns="aa"/>
+  <foreignObject><div id="aa" xmlns="http://www.w3.org/1999/xhtml">aa</div></foreignObject>
+</g>
+#errors
+/g;unknown element;u
+/g/g;unknown element;u
+/g/foreignObject;unknown element;u
+
+#data
+<g xmlns="http://www.w3.org/2000/svg">
+  <g aria-owns="aa bb"/>
+  <foreignObject><div id="aa" xmlns="http://www.w3.org/1999/xhtml">aa</div></foreignObject>
+</g>
+#errors
+/g;unknown element;u
+/g/g;unknown element;u
+/g/g/@aria-owns;no referenced element;m
+/g/foreignObject;unknown element;u
