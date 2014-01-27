@@ -1,0 +1,205 @@
+#data
+<!DOCTYPE html [<!ENTITY hoge "a<b>aa</b>aaa">]><foo>&hoge;</foo>
+#errors
+#document
+| <!DOCTYPE html>
+| <{} foo>
+|   "a"
+|   <{} b>
+|     "aa"
+|   "aaa"
+
+#data
+<!DOCTYPE html [<!ENTITY hoge "a<b>aa</b>aaa">]><foo>&hoge</foo>
+#errors
+1;54;bare ero;;;m
+#document
+| <!DOCTYPE html>
+| <{} foo>
+|   "&hoge"
+
+#data
+<!DOCTYPE html [<!ENTITY hoge "a<b>aa</b>aaa">]><foo>&hogeab</foo>
+#errors
+1;54;bare ero;;;m
+#document
+| <!DOCTYPE html>
+| <{} foo>
+|   "&hogeab"
+
+#data
+<!DOCTYPE html [<!ENTITY hoge "a<b>aa</b>aaa">]><foo>&hogeab;</foo>
+#errors
+1;54;entity not declared;;hogeab;;m
+#document
+| <!DOCTYPE html>
+| <{} foo>
+|   "&hogeab;"
+
+#data
+<!DOCTYPE html [<!ENTITY hoge "a<b>aa</b>aaa">]><foo>&hoge;<hoge xmlns="http://a/">&hoge;</hoge></foo>
+#errors
+#document
+| <!DOCTYPE html>
+| <{} foo>
+|   "a"
+|   <{} b>
+|     "aa"
+|   "aaa"
+|   <{http://a/} hoge>
+|     xmlns xmlns="http://a/"
+|     "a"
+|     <{http://a/} b>
+|       "aa"
+|     "aaa"
+
+#data
+<!DOCTYPE html [<!ENTITY hoge "a<b>aa</b>aaa">]><foo>&hoge;&hoge;</foo>
+#errors
+#document
+| <!DOCTYPE html>
+| <{} foo>
+|   "a"
+|   <{} b>
+|     "aa"
+|   "aaaa"
+|   <{} b>
+|     "aa"
+|   "aaa"
+
+#data
+<!DOCTYPE html [
+<!ENTITY hoge "a&hoge;b">
+]><p>&hoge;</p>
+#errors
+1;2;entity not declared;;hoge;;m
+#document
+| <!DOCTYPE html>
+| <{} p>
+|   "a&hoge;b"
+
+#data
+<!DOCTYPE html [
+<!ENTITY hoge "a&fuga;b">
+<!ENTITY fuga "A&hoge;B">
+]><p>&hoge;</p>
+#errors
+1;2;entity not declared;;hoge;;m
+#document
+| <!DOCTYPE html>
+| <{} p>
+|   "aA&hoge;Bb"
+
+#data
+<!DOCTYPE html [
+<!ENTITY hoge "a<q>c</q>b">
+<!ENTITY fuga "A&hoge;B">
+]><p>&fuga;</p>
+#errors
+#document
+| <!DOCTYPE html>
+| <{} p>
+|   "Aa"
+|   <{} q>
+|     "c"
+|   "bB"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY hb " ab <p>aa</p>  bf ee ">
+]>&hb;
+#errors
+3;3;entityref outside of root element;;;m
+#document
+| <!DOCTYPE a>
+| "ab "
+| <{} p>
+|   "aa"
+| "bf ee "
+
+#data
+<!DOCTYPE a [
+  <!ENTITY ha " &hb; ">
+  <!ENTITY hb " ab <p>aa</p>  bf ee ">
+]>&ha;
+#errors
+4;3;entityref outside of root element;;;m
+#document
+| <!DOCTYPE a>
+| "ab "
+| <{} p>
+|   "aa"
+| "bf ee  "
+
+#data
+<!DOCTYPE a [
+  <!ENTITY ha " &hb; ">
+  <!ENTITY hb " ab <p>aa</p>  bf <q>e</q>e<!----> ">
+]>&ha;
+#errors
+4;3;entityref outside of root element;;;m
+4;3;second root element;;;m
+#document
+| <!DOCTYPE a>
+| "ab "
+| <{} p>
+|   "aa"
+| "bf e"
+| <!--  -->
+| "  "
+
+#data
+<!DOCTYPE a [
+  <!ENTITY ha " &hb; ">
+  <!ENTITY hb " ab <p>aa</p>  bf <q>e</q>e<!----> ">
+]><template xmlns="http://www.w3.org/1999/xhtml">&ha;</template>
+#errors
+#document
+| <!DOCTYPE a>
+| <template>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   content
+|     "  ab "
+|     <p>
+|       "aa"
+|     "  bf "
+|     <q>
+|       "e"
+|     "e"
+|     <!--  -->
+|     "  "
+
+#data
+<!DOCTYPE a [
+  <!ENTITY ha " &hb; ">
+  <!ENTITY hb " ab <p>aa</p>  bf <q>e</q>e<!----> ">
+]><a xmlns="http://www.w3.org/1999/xhtml"><template>&ha;</template></a>
+#errors
+#document
+| <!DOCTYPE a>
+| <a>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <template>
+|     content
+|       "  ab "
+|       <p>
+|         "aa"
+|       "  bf "
+|       <q>
+|         "e"
+|       "e"
+|       <!--  -->
+|       "  "
+
+#data
+<!DOCTYPE a [
+  <!ENTITY ha " &hb; ">
+  <!ENTITY hb " ab <p>aa</p>  bf ee ">
+]><b/>&ha;
+#errors
+4;7;entityref outside of root element;;;m
+4;7;second root element;;;m
+#document
+| <!DOCTYPE a>
+| <{} b>
+| "ab   bf ee  "
