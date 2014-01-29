@@ -105,6 +105,21 @@
 |   "bB"
 
 #data
+<!DOCTYPE html [
+<!ENTITY hoge "a<q>cb">
+<!ENTITY fuga "A&hoge;B">
+]><p>&fuga;</p>
+#errors
+1;6;in body:#eof;;;m
+#document
+| <!DOCTYPE html>
+| <{} p>
+|   "Aa"
+|   <{} q>
+|     "cb"
+|   "B"
+
+#data
 <!DOCTYPE a [
   <!ENTITY hb " ab <p>aa</p>  bf ee ">
 ]>&hb;
@@ -203,3 +218,17 @@
 | <!DOCTYPE a>
 | <{} b>
 | "ab   bf ee  "
+
+#data
+<!DOCTYPE a [
+  <!ENTITY ha " &hb; ">
+  <!ENTITY hb " ab <p>aa  bf ee ">
+]><b/>&ha;
+#errors
+4;7;entityref outside of root element;;;m
+4;7;second root element;;;m
+1;17;in body:#eof;;;m
+#document
+| <!DOCTYPE a>
+| <{} b>
+| "ab  "

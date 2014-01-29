@@ -119,3 +119,47 @@
 | <!DOCTYPE a>
 | <{} p>
 |   a="b&a;b'"c"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY ba "x">
+  <!ENTITY ax "a&ba;c">
+  <!ATTLIST a b CDATA "fo&ax;o">
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT a >
+|     b CDATA () EXPLICIT "foaxco"
+| <{} a>
+|   b="foaxco"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY ba "x&ax;y">
+  <!ENTITY ax "a&ba;c">
+  <!ATTLIST a b CDATA "fo&ax;o">
+]><a/>
+#errors
+1;2;entity not declared;;ax;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT a >
+|     b CDATA () EXPLICIT "foax&ax;yco"
+| <{} a>
+|   b="foax&ax;yco"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY ba "x<q>y">
+  <!ENTITY ax "a&ba;c">
+  <!ATTLIST a b CDATA "fo&ax;o">
+]><a/>
+#errors
+1;6;entref in attr has element;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT a >
+|     b CDATA () EXPLICIT "foa&ba;co"
+| <{} a>
+|   b="foa&ba;co"
