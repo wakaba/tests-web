@@ -1,0 +1,121 @@
+#data
+<!DOCTYPE a [
+  <!ENTITY hoa "aa&amp;bb">
+]>
+<p a="&hoa;"/>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="aa&bb"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY hoa "aa&fuga;bb">
+]>
+<p a="&hoa;"/>
+#errors
+1;3;entity not declared;;fuga;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="aa&fuga;bb"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY hoa "aa&amp;bb">
+  <!ENTITY age "x&hoa;y">
+]>
+<p a="&age;"/>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="xaa&bby"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY hoa "aa<!---->bb">
+]>
+<p a="&hoa;"/>
+#errors
+4;12;entref in attr has element;;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="&hoa;"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY hoa "aa<!---->bb">
+  <!ENTITY fua "b&hoa;a">
+]>
+<p a="&fua;"/>
+#errors
+1;7;entref in attr has element;;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="b&hoa;a"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY hoa "aa&fua;bb">
+  <!ENTITY fua "b&hoa;a">
+]>
+<p a="&fua;"/>
+#errors
+1;3;entity not declared;;fua;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="baa&fua;bba"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY fua "b&a;b'&quot;c">
+]>
+<p a="&fua;"/>
+#errors
+1;2;entity not declared;;a;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="b&a;b'"c"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY fua 'b&a;b&#x27;"c'>
+]>
+<p a="&fua;"/>
+#errors
+1;2;entity not declared;;a;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="b&a;b'"c"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY fua 'b&a;b&#x27;"c'>
+]>
+<p a='&fua;'/>
+#errors
+1;2;entity not declared;;a;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="b&a;b'"c"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY fua 'b&a;b&#x27;"c'>
+]>
+<p a=&fua; />
+#errors
+4;6;unquoted attr value;;;m
+1;2;entity not declared;;a;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="b&a;b'"c"
