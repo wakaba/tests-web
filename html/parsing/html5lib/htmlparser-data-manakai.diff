@@ -196,7 +196,17 @@ index cec6638..1027dc6 100644
  | <html>
 diff --git a/html/parsing/html5lib/html-tree/domjs-unsafe.dat b/html/parsing/html5lib/html-tree/domjs-unsafe.dat
 index 34b4e62..0b1b737 100644
-Binary files a/html/parsing/html5lib/html-tree/domjs-unsafe.dat and b/html/parsing/html5lib/html-tree/domjs-unsafe.dat differ
+--- a/html/parsing/html5lib/html-tree/domjs-unsafe.dat
++++ b/html/parsing/html5lib/html-tree/domjs-unsafe.dat
+@@ -439,8 +439,6 @@ bar"
+ #errors
+ (1,7): expected-doctype-but-got-start-tag
+ (1,32): foster-parenting-character-in-table
+-(1,32): foster-parenting-character-in-table
+-(1,32): foster-parenting-character-in-table
+ (1,32): unexpected-end-tag
+ #document
+ | <html>
 diff --git a/html/parsing/html5lib/html-tree/main-element.dat b/html/parsing/html5lib/html-tree/main-element.dat
 index 0d2102e..b8c55dc 100644
 --- a/html/parsing/html5lib/html-tree/main-element.dat
@@ -212,10 +222,42 @@ index 0d2102e..b8c55dc 100644
  | <html>
 diff --git a/html/parsing/html5lib/html-tree/pending-spec-changes-plain-text-unsafe.dat b/html/parsing/html5lib/html-tree/pending-spec-changes-plain-text-unsafe.dat
 index 3ee8cec..f287b31 100644
-Binary files a/html/parsing/html5lib/html-tree/pending-spec-changes-plain-text-unsafe.dat and b/html/parsing/html5lib/html-tree/pending-spec-changes-plain-text-unsafe.dat differ
+--- a/html/parsing/html5lib/html-tree/pending-spec-changes-plain-text-unsafe.dat
++++ b/html/parsing/html5lib/html-tree/pending-spec-changes-plain-text-unsafe.dat
+@@ -9,15 +9,6 @@
+ (1,26): invalid-codepoint
+ (1,26): invalid-codepoint-in-table-text
+ (1,26): foster-parenting-character-in-table
+-(1,26): foster-parenting-character-in-table
+-(1,26): foster-parenting-character-in-table
+-(1,26): foster-parenting-character-in-table
+-(1,26): foster-parenting-character-in-table
+-(1,26): foster-parenting-character-in-table
+-(1,26): foster-parenting-character-in-table
+-(1,26): foster-parenting-character-in-table
+-(1,26): foster-parenting-character-in-table
+-(1,26): foster-parenting-character-in-table
+ (1,26): eof-in-table
+ #document
+ | <html>
 diff --git a/html/parsing/html5lib/html-tree/plain-text-unsafe.dat b/html/parsing/html5lib/html-tree/plain-text-unsafe.dat
 index f40dd57..cf72889 100644
-Binary files a/html/parsing/html5lib/html-tree/plain-text-unsafe.dat and b/html/parsing/html5lib/html-tree/plain-text-unsafe.dat differ
+--- a/html/parsing/html5lib/html-tree/plain-text-unsafe.dat
++++ b/html/parsing/html5lib/html-tree/plain-text-unsafe.dat
+@@ -3,11 +3,11 @@ FOO&#x000D;ZOO
+ #errors
+ (1,3): expected-doctype-but-got-chars
+ (1,11): illegal-codepoint-for-numeric-entity
+-#document
++#document escaped
+ | <html>
+ |   <head>
+ |   <body>
+-|     "FOOZOO"
++|     "FOO\u000DZOO"
+ 
+ #data
+ <html> <frameset></frameset>
 diff --git a/html/parsing/html5lib/html-tree/tables01.dat b/html/parsing/html5lib/html-tree/tables01.dat
 index f0caaa3..39303dd 100644
 --- a/html/parsing/html5lib/html-tree/tables01.dat
