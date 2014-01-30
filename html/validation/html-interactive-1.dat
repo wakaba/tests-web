@@ -963,6 +963,56 @@
 /summary/li;element not allowed:phrasing;m
 
 #data
+<summary xmlns="http://www.w3.org/1999/xhtml"><h1>aa</h1></summary>
+#errors
+
+#data
+<summary xmlns="http://www.w3.org/1999/xhtml"><h1>aa</h1>abc</summary>
+#errors
+/summary/"abc";character not allowed:a heading;m
+
+#data
+<summary xmlns="http://www.w3.org/1999/xhtml"><h1>aa</h1><span>s</span><br/></summary>
+#errors
+/summary/span;element not allowed:a heading;m
+/summary/br;element not allowed:a heading;m
+
+#data
+<summary xmlns="http://www.w3.org/1999/xhtml">abc<h1>aa</h1></summary>
+#errors
+/summary/h1;element not allowed:phrasing;m
+
+#data
+<summary xmlns="http://www.w3.org/1999/xhtml"><br/><h1>aa</h1></summary>
+#errors
+/summary/h1;element not allowed:phrasing;m
+
+#data
+<summary xmlns="http://www.w3.org/1999/xhtml"><br/><h1>aa</h1>ab</summary>
+#errors
+/summary/h1;element not allowed:phrasing;m
+
+#data
+<summary xmlns="http://www.w3.org/1999/xhtml"><h5>aa</h5></summary>
+#errors
+
+#data
+<summary xmlns="http://www.w3.org/1999/xhtml"><h1>aa</h1><h2>geee</h2></summary>
+#errors
+/summary/h2;element not allowed:a heading;m
+
+#data
+<summary xmlns="http://www.w3.org/1999/xhtml"><h1>aa</h1><style></style></summary>
+#errors
+/summary/style;element not allowed:phrasing;m
+/summary/style;attribute missing;scoped;m
+
+#data
+<summary xmlns="http://www.w3.org/1999/xhtml"><h1>aa</h1><title>a</title></summary>
+#errors
+/summary/title;element not allowed:phrasing;m
+
+#data
 <bb xmlns="http://www.w3.org/1999/xhtml"></bb>
 #errors
 /bb;element not defined;m
