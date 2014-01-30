@@ -4004,7 +4004,6 @@ a in <table>
 #data
 <!DOCTYPE HTML><table><caption>test</table>a
 #errors
-no </caption>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -4172,7 +4171,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<caption>b
 #errors
-no </caption>
 unexpected end of file
 #document
 | <!DOCTYPE html>
@@ -4211,7 +4209,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<col>b
 #errors
-no </caption>
 "b" in table
 unexpected end of file
 #document
@@ -4229,7 +4226,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<colgroup>b
 #errors
-no </caption>
 "b" in colgroup
 unexpected end of file
 #document
@@ -4246,7 +4242,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<thead>b
 #errors
-no </caption>
 "b" in thead
 unexpected end of file
 #document
@@ -4263,7 +4258,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<tbody>b
 #errors
-no </caption>
 "b" in tbody
 unexpected end of file
 #document
@@ -4280,7 +4274,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<tfoot>b
 #errors
-no </caption>
 "b" in tfoot
 unexpected end of file
 #document
@@ -4297,7 +4290,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<tr>b
 #errors
-no </caption>
 "b" in tr
 unexpected end of file
 #document
@@ -4315,7 +4307,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<td>b
 #errors
-no </caption>
 no <tr>
 unexpected end of file
 #document
@@ -4334,7 +4325,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<th>b
 #errors
-no </caption>
 no <tr>
 unexpected end of file
 #document
@@ -4364,8 +4354,8 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><span><tbody>
 #errors
-<caption> not closed
-<table> not closed
+no </caption> before <tbody>
+no </table> at EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -4379,7 +4369,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><li><tbody>
 #errors
-<caption> not closed
 <table> not closed
 #document
 | <!DOCTYPE html>
@@ -4394,7 +4383,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><p><tbody>
 #errors
-<caption> not closed
 <table> not closed
 #document
 | <!DOCTYPE html>
@@ -4409,7 +4397,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><dt><tbody>
 #errors
-<caption> not closed
 <table> not closed
 #document
 | <!DOCTYPE html>
@@ -4424,7 +4411,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><dd><tbody>
 #errors
-<caption> not closed
 <table> not closed
 #document
 | <!DOCTYPE html>
@@ -4981,7 +4967,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><p></table>
 #errors
-<caption> not closed
 #document
 | <!DOCTYPE html>
 | <html>
@@ -4994,7 +4979,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><li></table>
 #errors
-<caption> not closed
 #document
 | <!DOCTYPE html>
 | <html>
@@ -5007,7 +4991,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><dd></table>
 #errors
-<caption> not closed
 #document
 | <!DOCTYPE html>
 | <html>
@@ -5020,7 +5003,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><dt></table>
 #errors
-<caption> not closed
 #document
 | <!DOCTYPE html>
 | <html>
@@ -5033,7 +5015,7 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><span></table>
 #errors
-<caption> not closed
+no </span>
 #document
 | <!DOCTYPE html>
 | <html>

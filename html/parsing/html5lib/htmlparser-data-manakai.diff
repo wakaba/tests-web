@@ -272,7 +272,7 @@ index f0caaa3..39303dd 100644
  #document
  | <html>
 diff --git a/html/parsing/html5lib/html-tree/template.dat b/html/parsing/html5lib/html-tree/template.dat
-index 3ae40c3..81aab6d 100644
+index 3ae40c3..e8b5ef9 100644
 --- a/html/parsing/html5lib/html-tree/template.dat
 +++ b/html/parsing/html5lib/html-tree/template.dat
 @@ -1,6 +1,7 @@
@@ -1268,15 +1268,17 @@ index 3ae40c3..81aab6d 100644
  #document
  | <html>
  |   <head>
-@@ -1266,6 +1545,7 @@
+@@ -1266,8 +1545,8 @@
  #data
  <body><table><tr><td><select><template>Foo</template><caption>A</table>
  #errors
 +no DOCTYPE
  (1,62): unexpected-caption-in-select-in-table
- (1,71): unexpected-table-end-in-caption
+-(1,71): unexpected-table-end-in-caption
  #document
-@@ -1286,6 +1566,7 @@
+ | <html>
+ |   <head>
+@@ -1286,6 +1565,7 @@
  #data
  <body></body><template>
  #errors
@@ -1284,7 +1286,7 @@ index 3ae40c3..81aab6d 100644
  (1,23): template-after-body
  (1,24): eof-in-template
  #document
-@@ -1298,6 +1579,7 @@
+@@ -1298,6 +1578,7 @@
  #data
  <head></head><template>
  #errors
@@ -1292,7 +1294,7 @@ index 3ae40c3..81aab6d 100644
  (1,23): template-after-head
  (1,24): eof-in-template
  #document
-@@ -1310,6 +1592,7 @@
+@@ -1310,6 +1591,7 @@
  #data
  <head></head><template>Foo</template>
  #errors
@@ -1371,10 +1373,18 @@ index f12e871..c5019ad 100644
  (1,68): foster-parenting-character-in-table
  (1,71): expected-closing-tag-but-got-eof
 diff --git a/html/parsing/html5lib/html-tree/tests10.dat b/html/parsing/html5lib/html-tree/tests10.dat
-index 87d9478..652b2b1 100644
+index 87d9478..2b5ae5c 100644
 --- a/html/parsing/html5lib/html-tree/tests10.dat
 +++ b/html/parsing/html5lib/html-tree/tests10.dat
-@@ -235,10 +235,9 @@
+@@ -192,7 +192,6 @@
+ <!DOCTYPE html><body><table><caption><svg><g>foo</g><g>bar</g><p>baz</table><p>quux
+ #errors
+ (1,65) unexpected-html-element-in-foreign-content
+-(1,76) XXX-undefined-error
+ #document
+ | <!DOCTYPE html>
+ | <html>
+@@ -235,10 +234,9 @@
  <!DOCTYPE html><body><table><colgroup><svg><g>foo</g><g>bar</g><p>baz</table><p>quux
  #errors
  (1,43) foster-parenting-start-tag
@@ -1447,6 +1457,18 @@ index c8f6d43..fe0f4f1 100644
  #errors
  (2,0): eof-in-table
  #document
+diff --git a/html/parsing/html5lib/html-tree/tests17.dat b/html/parsing/html5lib/html-tree/tests17.dat
+index 37a7be4..e49bcf0 100644
+--- a/html/parsing/html5lib/html-tree/tests17.dat
++++ b/html/parsing/html5lib/html-tree/tests17.dat
+@@ -69,7 +69,6 @@
+ <!doctype html><table><caption><select><tr>
+ #errors
+ (1,43): unexpected-table-element-start-tag-in-select-in-table
+-(1,43): XXX-undefined-error
+ (1,43): eof-in-table
+ #document
+ | <!DOCTYPE html>
 diff --git a/html/parsing/html5lib/html-tree/tests18.dat b/html/parsing/html5lib/html-tree/tests18.dat
 index 926bccb..c8b080d 100644
 --- a/html/parsing/html5lib/html-tree/tests18.dat
@@ -1838,7 +1860,7 @@ index 423e2b3..c7583d9 100644
  | <!DOCTYPE html>
  | <html>
 diff --git a/html/parsing/html5lib/html-tree/tests6.dat b/html/parsing/html5lib/html-tree/tests6.dat
-index fedc64e..a0f6d57 100644
+index fedc64e..b356ec5 100644
 --- a/html/parsing/html5lib/html-tree/tests6.dat
 +++ b/html/parsing/html5lib/html-tree/tests6.dat
 @@ -87,8 +87,6 @@ foo
@@ -1850,7 +1872,23 @@ index fedc64e..a0f6d57 100644
  #document
  | <html>
  |   <head>
-@@ -337,8 +335,6 @@ td
+@@ -192,7 +190,6 @@ foo
+ <table><caption><td>
+ #errors
+ (1,7): expected-doctype-but-got-start-tag
+-(1,20): XXX-undefined-error
+ (1,20): unexpected-cell-in-table-body
+ (1,20): expected-closing-tag-but-got-eof
+ #document
+@@ -246,7 +243,6 @@ caption
+ <table><caption></table>
+ #errors
+ (1,7): expected-doctype-but-got-start-tag
+-(1,24): end-table-tag-in-caption
+ #document
+ | <html>
+ |   <head>
+@@ -337,8 +333,6 @@ td
  #errors
  (1,7): expected-doctype-but-got-start-tag
  (1,18): foster-parenting-character-in-table
@@ -1859,7 +1897,7 @@ index fedc64e..a0f6d57 100644
  (1,20): eof-in-table
  #document
  | <html>
-@@ -352,8 +348,6 @@ td
+@@ -352,8 +346,6 @@ td
  foo<col>
  #errors
  (1,1): unexpected-character-in-colgroup
@@ -1868,7 +1906,7 @@ index fedc64e..a0f6d57 100644
  #document-fragment
  colgroup
  #document
-@@ -602,6 +596,7 @@ html
+@@ -602,6 +594,7 @@ html
  #data
  <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"><html></html>
  #errors
@@ -1953,7 +1991,7 @@ index 93289f3..e520673 100644
 -|       <p>
 -|         <a>
 diff --git a/html/parsing/html5lib/html-tree/tests9.dat b/html/parsing/html5lib/html-tree/tests9.dat
-index 40651a0..61f5386 100644
+index 40651a0..8693600 100644
 --- a/html/parsing/html5lib/html-tree/tests9.dat
 +++ b/html/parsing/html5lib/html-tree/tests9.dat
 @@ -87,8 +87,6 @@
@@ -2001,7 +2039,15 @@ index 40651a0..61f5386 100644
  #document
  | <!DOCTYPE html>
  | <html>
-@@ -272,16 +258,10 @@
+@@ -228,7 +214,6 @@
+ <!DOCTYPE html><body><table><caption><math><mi>foo</mi><mi>bar</mi><p>baz</table><p>quux
+ #errors
+ (1,70) unexpected-html-element-in-foreign-content
+-(1,81) XXX-undefined-error
+ #document
+ | <!DOCTYPE html>
+ | <html>
+@@ -272,16 +257,10 @@
  #errors
  (1,44) foster-parenting-start-tag
  (1,49) foster-parenting-character

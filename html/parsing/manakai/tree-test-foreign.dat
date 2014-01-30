@@ -1296,8 +1296,8 @@ EOF
 <table><caption><svg><g>a</table>b
 #errors
 no DOCTYPE
+</table> in foreign
 no </g></svg> at </table>
-EOF
 #document
 | <html>
 |   <head>
@@ -4053,8 +4053,8 @@ EOF
 #data
 <!DOCTYPE html><body><table><caption><svg><g>foo</g><g>bar</g>baz</table><p>quux
 #errors
+</table> in foreign
 No </svg> before </table>
-No </caption> before </table>
 #document
 | <!DOCTYPE html>
 | <html>
