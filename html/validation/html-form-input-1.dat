@@ -14924,6 +14924,15 @@ xmlns="http://www.w3.org/1999/xhtml"/>
 /input/@multiple;input attr not applicable;tel;m
 
 #data
+<input type="email" value="hoge@fuga.test,fuga@aa.test" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@value;email:syntax error;m
+
+#data
+<input type="email" multiple="" value="hoge@fuga.test,fuga@aa.test" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
 <input type="submit" xmlns="http://www.w3.org/1999/xhtml"
     formaction=""
 />
