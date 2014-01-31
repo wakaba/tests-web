@@ -39,7 +39,7 @@
 ]>
 <p a="&hoa;"/>
 #errors
-4;12;entref in attr has element;;;m
+4;7;entref in attr has element;;;m
 #document
 | <!DOCTYPE a>
 | <{} p>
@@ -52,7 +52,7 @@
 ]>
 <p a="&fua;"/>
 #errors
-1;7;entref in attr has element;;;m
+1;2;entref in attr has element;;;m
 #document
 | <!DOCTYPE a>
 | <{} p>
@@ -156,10 +156,45 @@
   <!ATTLIST a b CDATA "fo&ax;o">
 ]><a/>
 #errors
-1;6;entref in attr has element;;;m
+1;2;entref in attr has element;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
 |     b CDATA () EXPLICIT "foa&ba;co"
 | <{} a>
 |   b="foa&ba;co"
+
+#data
+<!DOCTYPE a[
+  <!ENTITY b PUBLIC "foo" "s">
+]><a hoge="a&b;c"/>
+#errors
+3;13;WFC:No External Entity References;;b;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   hoge="a&b;c"
+
+#data
+<!DOCTYPE a[
+  <!ENTITY b "d&c;e">
+  <!ENTITY c PUBLIC "foo" "t">
+]><a hoge="a&b;c"/>
+#errors
+1;2;WFC:No External Entity References;;c;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   hoge="ad&c;ec"
+
+#data
+<!DOCTYPE a[
+  <!ENTITY b PUBLIC "foo" "s" NDATA x>
+]><a hoge="a&b;c"/>
+#errors
+3;13;unparsed entity;;b;;m
+#document
+| <!DOCTYPE a>
+|   <!ENTITY b "" "foo" "s" x>
+| <{} a>
+|   hoge="a&b;c"
