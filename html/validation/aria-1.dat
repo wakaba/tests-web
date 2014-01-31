@@ -114,7 +114,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <table role=" grid" xmlns="http://www.w3.org/1999/xhtml"><tr><td>a</td></tr></table>
 #errors
-/table;aria:role:no required owned element;rowgroup row;m
+/table;aria:role:no required owned element;row rowgroup;m
 /table/@role;aria:redundant role;w
 
 #data
@@ -122,7 +122,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /table/@role;aria:redundant role;w
 /table/tr/@role;aria:redundant role;w
-/table/tr;aria:role:no required owned element;gridcell rowheader columnheader;m
+/table/tr;aria:role:no required owned element;columnheader gridcell rowheader;m
 
 #data
 <td role="gridcell" xmlns="http://www.w3.org/1999/xhtml">a</td>
@@ -172,7 +172,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <menu role="menu" xmlns="http://www.w3.org/1999/xhtml">a</menu>
 #errors
-/menu;aria:role:no required owned element;group menuitem menuitemcheckbox listitem menuitemradio;m
+/menu;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
 /menu/@role;aria:redundant role;w
 
 #data
@@ -183,7 +183,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <menu role="menubar" xmlns="http://www.w3.org/1999/xhtml">a</menu>
 #errors
-/menu;aria:role:no required owned element;group menuitem menuitemcheckbox listitem menuitemradio;m
+/menu;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
 /menu/@role;aria:redundant role;w
 
 #data
@@ -221,7 +221,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <tr role="row" xmlns="http://www.w3.org/1999/xhtml"><td>a</td></tr>
 #errors
-/tr;aria:role:no required owned element;gridcell rowheader columnheader;m
+/tr;aria:role:no required owned element;columnheader gridcell rowheader;m
 /tr/@role;aria:redundant role;w
 
 #data
@@ -1275,7 +1275,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 <select role="menu" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
 #errors
 /select/@role;aria:not preferred markup:html-element;menu;w
-/select;aria:role:no required owned element;group menuitem menuitemcheckbox listitem menuitemradio;m
+/select;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
 
 #data
 <select multiple="" role="listbox" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
@@ -1287,7 +1287,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /select/@role;aria:role:conflict with semantics;m
 /select/@role;aria:not preferred markup:html-element;menu;w
-/select;aria:role:no required owned element;group menuitem menuitemcheckbox listitem menuitemradio;m
+/select;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
 
 #data
 <select size="3" role="listbox" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
@@ -1299,4 +1299,4 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /select/@role;aria:role:conflict with semantics;m
 /select/@role;aria:not preferred markup:html-element;menu;w
-/select;aria:role:no required owned element;group menuitem menuitemcheckbox listitem menuitemradio;m
+/select;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
