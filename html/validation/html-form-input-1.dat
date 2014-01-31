@@ -4638,6 +4638,183 @@ xmlns="http://www.w3.org/1999/xhtml"/>
 /input/@max;float:syntax error;m
 
 #data
+<input type="range"
+value="12,41"
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@value;float:syntax error;m
+
+#data
+<input type="range"
+value="12e4,41e0"
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@value;float:syntax error;m
+
+#data
+<input type="range"
+value="12,-41"
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@value;float:syntax error;m
+
+#data
+<input type="range"
+min="12,41"
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@min;float:syntax error;m
+
+#data
+<input type="range"
+max="12,41"
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@max;float:syntax error;m
+
+#data
+<input type="range"
+value="12,41"
+multiple=""
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input type="range"
+value="0,0"
+multiple=""
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input type="range"
+value="-12.00,41e3"
+multiple=""
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@value;value lt min;w
+/input/@value;value gt max;w
+
+#data
+<input type="range"
+value="12.000003,41.2e004"
+multiple=""
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@value;value gt max;w
+
+#data
+<input type="range"
+value="12,41,31"
+multiple=""
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@value;two floats:syntax error;m
+
+#data
+<input type="range"
+value="12"
+multiple=""
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@value;two floats:syntax error;m
+
+#data
+<input type="range"
+value="12, 41"
+multiple=""
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@value;two floats:syntax error;m
+
+#data
+<input type="range"
+value="12,41 "
+multiple=""
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@value;two floats:syntax error;m
+
+#data
+<input type="range"
+min=".12,0.41"
+multiple=""
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@min;float:syntax error;m
+
+#data
+<input type="range"
+min=".12,0.41"
+multiple=""
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@min;float:syntax error;m
+
+#data
+<input type="range"
+max=".12,0.41"
+multiple=""
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@max;float:syntax error;m
+
+#data
+<input type="range"
+min=".12"
+multiple=""
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input type="range"
+max=".12"
+multiple=""
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input type="range"
+max="212"
+min="-12"
+value="10,22"
+multiple=""
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input type="range"
+max="212"
+min="-12"
+value="-20,22"
+multiple=""
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@value;value lt min;w
+
+#data
+<input type="range"
+max="212"
+min="-12"
+value="-20,-22"
+multiple=""
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@value;value lt min;w
+/input/@value;value lt min;w
+
+#data
+<input type="range"
+max="212"
+min="-12"
+value="2000,02200"
+multiple=""
+xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@value;value gt max;w
+/input/@value;value gt max;w
+
+#data
 <input xmlns="http://www.w3.org/1999/xhtml"
     type="submit"
     value=""/>
