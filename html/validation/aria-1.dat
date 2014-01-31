@@ -65,6 +65,27 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 /input/@role;aria:role:default role;m
 
 #data
+<input type="range" role="slider" multiple="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@role;aria:redundant role;w
+/input/@role;attribute missing;aria-valuenow;m
+
+#data
+<input type="range" aria-valuemin="12" multiple="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@aria-valuemin;aria:attr not allowed for role;;m
+
+#data
+<input type="range" aria-valuemax="12" multiple="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@aria-valuemax;aria:attr not allowed for role;;m
+
+#data
+<input type="range" aria-valuenow="12" multiple="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@aria-valuenow;aria:attr not allowed for role;;m
+
+#data
 <input type="number" role="spinbutton" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@role;aria:role:default role;m
