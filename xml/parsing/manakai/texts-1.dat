@@ -2,7 +2,7 @@
 \uD800\uD801\uDFF0\uDFFF
 #errors
 1;1;text outside of root element;;;m
-1;4;no root element;;;m
+1;5;no root element;;;m
 1;1;nonchar;;U+D800;m
 1;2;nonchar;;U+D801;m
 1;3;nonchar;;U+DFF0;m
@@ -10,12 +10,24 @@
 #document escaped
 | "\uD800\uD801\uDFF0\uDFFF"
 
+#data escaped
+\u0002\uD801\uDFF0\uDFFF
+#errors
+1;1;text outside of root element;;;m
+1;5;no root element;;;m
+1;1;control char;;U+0002;m
+1;2;nonchar;;U+D801;m
+1;3;nonchar;;U+DFF0;m
+1;4;nonchar;;U+DFFF;m
+#document escaped
+| "\u0002\uD801\uDFF0\uDFFF"
+
 #data
 ]]>
 #errors
 1;1;unmatched mse;;;m
 1;1;text outside of root element;;;m
-1;3;no root element;;;m
+1;4;no root element;;;m
 #document
 | "]]>"
 
@@ -24,7 +36,7 @@
 #errors
 1;2;unmatched mse;;;m
 1;1;text outside of root element;;;m
-1;4;no root element;;;m
+1;5;no root element;;;m
 #document
 | "]]]>"
 
@@ -33,7 +45,7 @@
 #errors
 1;3;unmatched mse;;;m
 1;1;text outside of root element;;;m
-1;5;no root element;;;m
+1;6;no root element;;;m
 #document
 | "]]]]>"
 
@@ -42,7 +54,7 @@
 #errors
 1;4;unmatched mse;;;m
 1;1;text outside of root element;;;m
-1;6;no root element;;;m
+1;7;no root element;;;m
 #document
 | "]]]]]>"
 
@@ -51,7 +63,7 @@ aa]]>bb
 #errors
 1;3;unmatched mse;;;m
 1;1;text outside of root element;;;m
-1;7;no root element;;;m
+1;8;no root element;;;m
 #document
 | "aa]]>bb"
 
@@ -60,7 +72,7 @@ aa]]>bb
 #errors
 1;13;unmatched mse;;;m
 1;1;cdata outside of root element;;;m
-1;15;no root element;;;m
+1;16;no root element;;;m
 #document
 | "]]>"
 
@@ -78,7 +90,7 @@ aa]]>bb
 #errors
 1;8;unmatched mse;;;m
 1;8;text outside of root element;;;m
-1;10;no root element;;;m
+1;11;no root element;;;m
 #document
 | <!--  -->
 | "]]>"
@@ -88,7 +100,7 @@ aa]]>bb
 #errors
 1;1;bare stago;;;m
 1;1;text outside of root element;;;m
-1;2;no root element;;;m
+1;3;no root element;;;m
 #document
 | "<>"
 

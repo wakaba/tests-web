@@ -2,14 +2,14 @@
 <![CDATA[]]>
 #errors
 1;1;cdata outside of root element;;;m
-1;12;no root element;;;m
+1;13;no root element;;;m
 #document
 
 #data
 <![CDATA[  ]]>
 #errors
 1;1;cdata outside of root element;;;m
-1;14;no root element;;;m
+1;15;no root element;;;m
 #document
 | "  "
 
@@ -17,7 +17,7 @@
 <![CDATA[ab]]>
 #errors
 1;1;cdata outside of root element;;;m
-1;14;no root element;;;m
+1;15;no root element;;;m
 #document
 | "ab"
 
@@ -25,7 +25,7 @@
 a<![CDATA[bb]]>ccc
 #errors
 1;1;text outside of root element;;;m
-1;18;no root element;;;m
+1;19;no root element;;;m
 #document
 | "abbccc"
 
@@ -64,34 +64,34 @@ a<![CDATA[bb]]>ccc
 <![CDATA[
 #errors
 1;1;cdata outside of root element;;;m
-1;9;no mse;;;m
-1;9;no root element;;;m
+1;10;no mse;;;m
+1;10;no root element;;;m
 #document
 
 #data
 <![CDATA[a
 #errors
-1;10;no mse;;;m
+1;11;no mse;;;m
 1;1;cdata outside of root element;;;m
-1;10;no root element;;;m
+1;11;no root element;;;m
 #document
 | "a"
 
 #data
 <![CDATA[a]
 #errors
-1;11;no mse;;;m
+1;12;no mse;;;m
 1;1;cdata outside of root element;;;m
-1;11;no root element;;;m
+1;12;no root element;;;m
 #document
 | "a]"
 
 #data
 <![CDATA[a]]
 #errors
-1;12;no mse;;;m
+1;13;no mse;;;m
 1;1;cdata outside of root element;;;m
-1;12;no root element;;;m
+1;13;no root element;;;m
 #document
 | "a]]"
 
@@ -108,7 +108,7 @@ a<![CDATA[bb]]>ccc
 #errors
 1;1;cdata outside of root element;;;m
 1;1;NULL;;;m
-1;13;no root element;;;m
+1;14;no root element;;;m
 #document escaped
 | "\uFFFD"
 

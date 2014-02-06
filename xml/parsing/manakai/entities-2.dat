@@ -15,9 +15,9 @@
 <!ENTITY%
 #errors
 2;9;no space before md name;;;m
-2;9;unclosed md;;;m
-2;9;unclosed internal subset;;;m
-2;9;no root element;;;m
+2;10;unclosed md;;;m
+2;10;unclosed internal subset;;;m
+2;10;no root element;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -37,9 +37,9 @@
 <!DOCTYPE a[
 <!ENTITY %
 #errors
-2;10;unclosed md;;;m
-2;10;unclosed internal subset;;;m
-2;10;no root element;;;m
+2;11;unclosed md;;;m
+2;11;unclosed internal subset;;;m
+2;11;no root element;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -48,9 +48,9 @@
 <!DOCTYPE a[
 <!ENTITY % abc  \u0009
 #errors
-2;17;unclosed md;;;m
-2;17;unclosed internal subset;;;m
-2;17;no root element;;;m
+2;18;unclosed md;;;m
+2;18;unclosed internal subset;;;m
+2;18;no root element;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -61,8 +61,8 @@
 <!ENTITY % abc  #
 #errors
 2;17;string after DOCTYPE name;;;m
-2;17;unclosed internal subset;;;m
-2;17;no root element;;;m
+2;18;unclosed internal subset;;;m
+2;18;no root element;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -71,9 +71,9 @@
 <!DOCTYPE a[
 <!ENTITY % abc PUBLIC
 #errors
-2;21;unclosed md;;;m
-2;21;unclosed internal subset;;;m
-2;21;no root element;;;m
+2;22;unclosed md;;;m
+2;22;unclosed internal subset;;;m
+2;22;no root element;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -83,9 +83,9 @@
 <!DOCTYPE a[
 <!ENTITY % abc PUBLIC\u0020
 #errors
-2;22;unclosed md;;;m
-2;22;unclosed internal subset;;;m
-2;22;no root element;;;m
+2;23;unclosed md;;;m
+2;23;unclosed internal subset;;;m
+2;23;no root element;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -96,8 +96,8 @@
 <!ENTITY % abc PUBLIC #
 #errors
 2;23;string after PUBLIC;;;m
-2;23;unclosed internal subset;;;m
-2;23;no root element;;;m
+2;24;unclosed internal subset;;;m
+2;24;no root element;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -106,9 +106,9 @@
 <!DOCTYPE a[
 <!ENTITY % abc SYSTEM
 #errors
-2;21;unclosed md;;;m
-2;21;unclosed internal subset;;;m
-2;21;no root element;;;m
+2;22;unclosed md;;;m
+2;22;unclosed internal subset;;;m
+2;22;no root element;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -118,9 +118,9 @@
 <!DOCTYPE a[
 <!ENTITY % abc SYSTEM\u0020
 #errors
-2;22;unclosed md;;;m
-2;22;unclosed internal subset;;;m
-2;22;no root element;;;m
+2;23;unclosed md;;;m
+2;23;unclosed internal subset;;;m
+2;23;no root element;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -131,8 +131,8 @@
 <!ENTITY % abc PUBLIC #
 #errors
 2;23;string after PUBLIC;;;m
-2;23;unclosed internal subset;;;m
-2;23;no root element;;;m
+2;24;unclosed internal subset;;;m
+2;24;no root element;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -142,8 +142,8 @@
 <!ENTITY % abc PUBLIC "a"x
 #errors
 2;26;string after PUBLIC literal;;;m
-2;26;unclosed internal subset;;;m
-2;26;no root element;;;m
+2;27;unclosed internal subset;;;m
+2;27;no root element;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -153,8 +153,8 @@
 <!ENTITY % abc PUBLIC "a" x
 #errors
 2;27;string after PUBLIC literal;;;m
-2;27;unclosed internal subset;;;m
-2;27;no root element;;;m
+2;28;unclosed internal subset;;;m
+2;28;no root element;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -164,8 +164,8 @@
 <!ENTITY % abc SYSTEM "a"x
 #errors
 2;26;string after SYSTEM literal;;;m
-2;26;unclosed internal subset;;;m
-2;26;no root element;;;m
+2;27;unclosed internal subset;;;m
+2;27;no root element;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -175,8 +175,8 @@
 <!ENTITY % abc SYSTEM "a" x
 #errors
 2;27;string after SYSTEM literal;;;m
-2;27;unclosed internal subset;;;m
-2;27;no root element;;;m
+2;28;unclosed internal subset;;;m
+2;28;no root element;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -186,8 +186,8 @@
 <!ENTITY % abc PUBLIC "a" "b"x
 #errors
 2;30;string after SYSTEM literal;;;m
-2;30;unclosed internal subset;;;m
-2;30;no root element;;;m
+2;31;unclosed internal subset;;;m
+2;31;no root element;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -197,8 +197,8 @@
 <!ENTITY % abc PUBLIC "a" "b" x
 #errors
 2;31;string after SYSTEM literal;;;m
-2;31;unclosed internal subset;;;m
-2;31;no root element;;;m
+2;32;unclosed internal subset;;;m
+2;32;no root element;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -315,17 +315,6 @@
 <!ENTITY % bc PUBLIC "x" "y" NDATA#
 #errors
 2;30;string after SYSTEM literal;;;m
-2;35;no root element;;;m
-2;35;unclosed internal subset;;;m
-#document
-| <!DOCTYPE a>
-#entities
-
-#data
-<!DOCTYPE a[
-<!ENTITY % bc PUBLIC "x" "y" NDATA #
-#errors
-2;30;string after SYSTEM literal;;;m
 2;36;no root element;;;m
 2;36;unclosed internal subset;;;m
 #document
@@ -334,7 +323,7 @@
 
 #data
 <!DOCTYPE a[
-<!ENTITY % bc PUBLIC "x" "y" NDATA z#
+<!ENTITY % bc PUBLIC "x" "y" NDATA #
 #errors
 2;30;string after SYSTEM literal;;;m
 2;37;no root element;;;m
@@ -345,11 +334,22 @@
 
 #data
 <!DOCTYPE a[
-<!ENTITY % bc PUBLIC "x" "y" NDATA z #
+<!ENTITY % bc PUBLIC "x" "y" NDATA z#
 #errors
 2;30;string after SYSTEM literal;;;m
 2;38;no root element;;;m
 2;38;unclosed internal subset;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a[
+<!ENTITY % bc PUBLIC "x" "y" NDATA z #
+#errors
+2;30;string after SYSTEM literal;;;m
+2;39;no root element;;;m
+2;39;unclosed internal subset;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -370,9 +370,9 @@
 <!DOCTYPE a[
 <!ENTITY % b ""
 #errors
-2;15;no root element;;;m
-2;15;unclosed internal subset;;;m
-2;15;unclosed md;;;m
+2;16;no root element;;;m
+2;16;unclosed internal subset;;;m
+2;16;unclosed md;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -381,9 +381,9 @@
 <!DOCTYPE a[
 <!ENTITY % b ''
 #errors
-2;15;no root element;;;m
-2;15;unclosed internal subset;;;m
-2;15;unclosed md;;;m
+2;16;no root element;;;m
+2;16;unclosed internal subset;;;m
+2;16;unclosed md;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -392,9 +392,9 @@
 <!DOCTYPE a[
 <!ENTITY % b ""\u0020
 #errors
-2;16;no root element;;;m
-2;16;unclosed internal subset;;;m
-2;16;unclosed md;;;m
+2;17;no root element;;;m
+2;17;unclosed internal subset;;;m
+2;17;unclosed md;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -403,9 +403,9 @@
 <!DOCTYPE a[
 <!ENTITY % b ''\u0020
 #errors
-2;16;no root element;;;m
-2;16;unclosed internal subset;;;m
-2;16;unclosed md;;;m
+2;17;no root element;;;m
+2;17;unclosed internal subset;;;m
+2;17;unclosed md;;;m
 #document
 | <!DOCTYPE a>
 #entities

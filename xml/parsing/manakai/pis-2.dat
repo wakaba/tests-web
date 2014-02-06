@@ -67,15 +67,55 @@
 <!DOCTYPE a[
 <?x
 #errors
-2;3;no pic;;;m
-2;3;unclosed internal subset;;;m
-2;3;no root element;;;m
+2;4;no pic;;;m
+2;4;unclosed internal subset;;;m
+2;4;no root element;;;m
 #document
 | <!DOCTYPE a>
 
 #data escaped
 <!DOCTYPE a[
 <?x\u0020
+#errors
+2;5;no pic;;;m
+2;5;unclosed internal subset;;;m
+2;5;no root element;;;m
+#document
+| <!DOCTYPE a>
+
+#data
+<!DOCTYPE a[
+<?x y
+#errors
+2;6;no pic;;;m
+2;6;unclosed internal subset;;;m
+2;6;no root element;;;m
+#document
+| <!DOCTYPE a>
+
+#data
+<!DOCTYPE a[
+<?x ?
+#errors
+2;6;no pic;;;m
+2;6;unclosed internal subset;;;m
+2;6;no root element;;;m
+#document
+| <!DOCTYPE a>
+
+#data
+<!DOCTYPE a[
+<?
+#errors
+2;1;bare pio;;;m
+2;3;unclosed internal subset;;;m
+2;3;no root element;;;m
+#document
+| <!DOCTYPE a>
+
+#data
+<!DOCTYPE a[
+<?>
 #errors
 2;4;no pic;;;m
 2;4;unclosed internal subset;;;m
@@ -85,52 +125,12 @@
 
 #data
 <!DOCTYPE a[
-<?x y
-#errors
-2;5;no pic;;;m
-2;5;unclosed internal subset;;;m
-2;5;no root element;;;m
-#document
-| <!DOCTYPE a>
-
-#data
-<!DOCTYPE a[
-<?x ?
-#errors
-2;5;no pic;;;m
-2;5;unclosed internal subset;;;m
-2;5;no root element;;;m
-#document
-| <!DOCTYPE a>
-
-#data
-<!DOCTYPE a[
-<?
-#errors
-2;1;bare pio;;;m
-2;2;unclosed internal subset;;;m
-2;2;no root element;;;m
-#document
-| <!DOCTYPE a>
-
-#data
-<!DOCTYPE a[
-<?>
-#errors
-2;3;no pic;;;m
-2;3;unclosed internal subset;;;m
-2;3;no root element;;;m
-#document
-| <!DOCTYPE a>
-
-#data
-<!DOCTYPE a[
 <?>
 ]><a/>
 #errors
-3;6;no pic;;;m
-3;6;unclosed internal subset;;;m
-3;6;no root element;;;m
+3;7;no pic;;;m
+3;7;unclosed internal subset;;;m
+3;7;no root element;;;m
 #document
 | <!DOCTYPE a>
 
