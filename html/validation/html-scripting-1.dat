@@ -743,3 +743,22 @@
 /frameset/@ontoggle;event handler;u
 /frameset/frame;element not defined;m
 /frameset/frame/@src;attribute not defined;m
+
+#data
+<p onlanguagechange="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</p>
+#errors
+/p/@onlanguagechange;attribute not defined;m
+
+#data
+<body onlanguagechange="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</body>
+#errors
+/body/@onlanguagechange;event handler;u
+
+#data
+<frameset onlanguagechange="alert(1)" xmlns="http://www.w3.org/1999/xhtml"><frame src="aa"/></frameset>
+#errors
+/frameset;element not defined;m
+/frameset/@onlanguagechange;event handler;u
+/frameset/@onlanguagechange;attribute not defined;m
+/frameset/frame;element not defined;m
+/frameset/frame/@src;attribute not defined;m
