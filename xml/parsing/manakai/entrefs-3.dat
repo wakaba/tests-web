@@ -124,13 +124,10 @@
   <!ENTITY hb " ab <p>aa</p>  bf ee ">
 ]>&hb;
 #errors
-3;3;entityref outside of root element;;;m
+3;3;ref outside of root element;;;m
+3;7;no root element;;;m
 #document
 | <!DOCTYPE a>
-| "ab "
-| <{} p>
-|   "aa"
-| "bf ee "
 
 #data
 <!DOCTYPE a [
@@ -138,13 +135,10 @@
   <!ENTITY hb " ab <p>aa</p>  bf ee ">
 ]>&ha;
 #errors
-4;3;entityref outside of root element;;;m
+4;3;ref outside of root element;;;m
+4;7;no root element;;;m
 #document
 | <!DOCTYPE a>
-| "ab "
-| <{} p>
-|   "aa"
-| "bf ee  "
 
 #data
 <!DOCTYPE a [
@@ -152,16 +146,10 @@
   <!ENTITY hb " ab <p>aa</p>  bf <q>e</q>e<!----> ">
 ]>&ha;
 #errors
-4;3;entityref outside of root element;;;m
-4;3;second root element;;;m
+4;3;ref outside of root element;;;m
+4;7;no root element;;;m
 #document
 | <!DOCTYPE a>
-| "ab "
-| <{} p>
-|   "aa"
-| "bf e"
-| <!--  -->
-| "  "
 
 #data
 <!DOCTYPE a [
@@ -212,12 +200,10 @@
   <!ENTITY hb " ab <p>aa</p>  bf ee ">
 ]><b/>&ha;
 #errors
-4;7;entityref outside of root element;;;m
-4;7;second root element;;;m
+4;7;ref outside of root element;;;m
 #document
 | <!DOCTYPE a>
 | <{} b>
-| "ab   bf ee  "
 
 #data
 <!DOCTYPE a [
@@ -225,10 +211,7 @@
   <!ENTITY hb " ab <p>aa  bf ee ">
 ]><b/>&ha;
 #errors
-4;7;entityref outside of root element;;;m
-4;7;second root element;;;m
-1;18;in body:#eof;;;m
+4;7;ref outside of root element;;;m
 #document
 | <!DOCTYPE a>
 | <{} b>
-| "ab  "

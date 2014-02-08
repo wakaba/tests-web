@@ -8,7 +8,17 @@
 1;3;nonchar;;U+DFF0;m
 1;4;nonchar;;U+DFFF;m
 #document escaped
-| "\uD800\uD801\uDFF0\uDFFF"
+
+#data escaped
+<p>\uD800\uD801\uDFF0\uDFFF</p>
+#errors
+1;4;nonchar;;U+D800;m
+1;5;nonchar;;U+D801;m
+1;6;nonchar;;U+DFF0;m
+1;7;nonchar;;U+DFFF;m
+#document escaped
+| <{} p>
+|   "\uD800\uD801\uDFF0\uDFFF"
 
 #data escaped
 \u0002\uD801\uDFF0\uDFFF
@@ -20,7 +30,17 @@
 1;3;nonchar;;U+DFF0;m
 1;4;nonchar;;U+DFFF;m
 #document escaped
-| "\u0002\uD801\uDFF0\uDFFF"
+
+#data escaped
+<p>\u0002\uD801\uDFF0\uDFFF</p>
+#errors
+1;4;control char;;U+0002;m
+1;5;nonchar;;U+D801;m
+1;6;nonchar;;U+DFF0;m
+1;7;nonchar;;U+DFFF;m
+#document escaped
+| <{} p>
+|   "\u0002\uD801\uDFF0\uDFFF"
 
 #data
 ]]>
@@ -29,7 +49,6 @@
 1;1;text outside of root element;;;m
 1;4;no root element;;;m
 #document
-| "]]>"
 
 #data
 ]]]>
@@ -38,7 +57,6 @@
 1;1;text outside of root element;;;m
 1;5;no root element;;;m
 #document
-| "]]]>"
 
 #data
 ]]]]>
@@ -47,7 +65,6 @@
 1;1;text outside of root element;;;m
 1;6;no root element;;;m
 #document
-| "]]]]>"
 
 #data
 ]]]]]>
@@ -56,7 +73,6 @@
 1;1;text outside of root element;;;m
 1;7;no root element;;;m
 #document
-| "]]]]]>"
 
 #data
 aa]]>bb
@@ -65,7 +81,14 @@ aa]]>bb
 1;1;text outside of root element;;;m
 1;8;no root element;;;m
 #document
-| "aa]]>bb"
+
+#data
+<p>aa]]>bb</p>
+#errors
+1;6;unmatched mse;;;m
+#document
+| <{} p>
+|   "aa]]>bb"
 
 #data
 <![CDATA[]]>]]>
@@ -74,7 +97,14 @@ aa]]>bb
 1;1;cdata outside of root element;;;m
 1;16;no root element;;;m
 #document
-| "]]>"
+
+#data
+<p><![CDATA[]]>]]></p>
+#errors
+1;16;unmatched mse;;;m
+#document
+| <{} p>
+|   "]]>"
 
 #data
 <a/>]]>
@@ -83,7 +113,15 @@ aa]]>bb
 1;5;text outside of root element;;;m
 #document
 | <{} a>
-| "]]>"
+
+#data
+<p><a/>]]></p>
+#errors
+1;8;unmatched mse;;;m
+#document
+| <{} p>
+|   <{} a>
+|   "]]>"
 
 #data
 <!---->]]>
@@ -93,7 +131,15 @@ aa]]>bb
 1;11;no root element;;;m
 #document
 | <!--  -->
-| "]]>"
+
+#data
+<p><!---->]]></p>
+#errors
+1;11;unmatched mse;;;m
+#document
+| <{} p>
+|   <!--  -->
+|   "]]>"
 
 #data
 <>
@@ -102,7 +148,6 @@ aa]]>bb
 1;1;text outside of root element;;;m
 1;3;no root element;;;m
 #document
-| "<>"
 
 #data
 <p><></p>
@@ -117,9 +162,7 @@ aa]]>bb
 #errors
 1;1;text outside of root element;;;m
 1;1;NULL;;;m
-1;1;NULL;;;m
 #document escaped
-| "\uFFFD"
 | <{} p>
 
 #data escaped
@@ -127,9 +170,7 @@ a\u0000b<p></p>
 #errors
 1;1;text outside of root element;;;m
 1;2;NULL;;;m
-1;2;NULL;;;m
 #document escaped
-| "a\uFFFDb"
 | <{} p>
 
 #data escaped
@@ -137,10 +178,8 @@ a\u0000b<p></p>
 #errors
 1;13;text outside of root element;;;m
 1;13;NULL;;;m
-1;13;NULL;;;m
 #document escaped
 | <!DOCTYPE p>
-| "\uFFFD"
 | <{} p>
 
 #data escaped
@@ -148,10 +187,8 @@ a\u0000b<p></p>
 #errors
 1;13;text outside of root element;;;m
 1;14;NULL;;;m
-1;14;NULL;;;m
 #document escaped
 | <!DOCTYPE p>
-| "a\uFFFDb"
 | <{} p>
 
 #data escaped
@@ -176,21 +213,17 @@ a\u0000b<p></p>
 <p></p>\u0000
 #errors
 1;8;NULL;;;m
-1;8;NULL;;;m
 1;8;text outside of root element;;;m
 #document escaped
 | <{} p>
-| "\uFFFD"
 
 #data escaped
 <p></p>a\u0000b
 #errors
 1;8;text outside of root element;;;m
 1;9;NULL;;;m
-1;9;NULL;;;m
 #document escaped
 | <{} p>
-| "a\uFFFDb"
 
 #data escaped
 <p>a\u0001b</p>
