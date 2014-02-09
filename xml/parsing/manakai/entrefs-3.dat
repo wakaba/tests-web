@@ -72,7 +72,7 @@
 <!ENTITY hoge "a&hoge;b">
 ]><p>&hoge;</p>
 #errors
-1;2;entity not declared;;hoge;;m
+2;17;entity not declared;;hoge;;m
 #document
 | <!DOCTYPE html>
 | <{} p>
@@ -84,7 +84,7 @@
 <!ENTITY fuga "A&hoge;B">
 ]><p>&hoge;</p>
 #errors
-1;2;entity not declared;;hoge;;m
+3;17;entity not declared;;hoge;;m
 #document
 | <!DOCTYPE html>
 | <{} p>
@@ -110,7 +110,7 @@
 <!ENTITY fuga "A&hoge;B">
 ]><p>&fuga;</p>
 #errors
-1;7;in body:#eof;;;m
+2;22;in body:#eof;;;m
 #document
 | <!DOCTYPE html>
 | <{} p>
