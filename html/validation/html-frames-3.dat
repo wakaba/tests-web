@@ -2,37 +2,37 @@
 <!DOCTYPE html><html lang=en><title>iframe</title>
 <iframe srcdoc="">a</iframe>
 #errors
-2;17;/html/body/iframe/@srcdoc;no significant content;s
+2;9;/html/body/iframe/@srcdoc;no significant content;s
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
 <iframe srcdoc=''>a</iframe>
 #errors
-2;17;/html/body/iframe/@srcdoc;no significant content;s
+2;9;/html/body/iframe/@srcdoc;no significant content;s
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
 <iframe srcdoc>a</iframe>
 #errors
-/html/body/iframe/@srcdoc;no significant content;s
+2;9;/html/body/iframe/@srcdoc;no significant content;s
 
 #data
 <iframe srcdoc="" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
-1;17;/iframe/@srcdoc;no document element;w
-/iframe/@srcdoc;no root element;m
+1;9;/iframe/@srcdoc;no document element;w
+1;9;/iframe/@srcdoc;no root element;m
 
 #data
 <iframe srcdoc='' xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
-1;17;/iframe/@srcdoc;no document element;w
-/iframe/@srcdoc;no root element;m
+1;9;/iframe/@srcdoc;no document element;w
+1;9;/iframe/@srcdoc;no root element;m
 
 #data
 <iframe srcdoc xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
-/iframe/@srcdoc;no document element;w
-/iframe/@srcdoc;no root element;m
+1;9;/iframe/@srcdoc;no document element;w
+1;9;/iframe/@srcdoc;no root element;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
@@ -160,9 +160,9 @@
 1;72;/html/body/iframe/@srcdoc;element not allowed:flow;m
 1;72;/html/body/iframe/@srcdoc;element not defined;m
 1;72;/html/body/iframe/@srcdoc;no significant content;s
-1;79;/html/body/iframe/@srcdoc;in noscript;hoge;m
+1;72;/html/body/iframe/@srcdoc;in noscript;hoge;m
 1;91;/html/body/iframe/@srcdoc;no end tag at EOF;hoge;m
-1;90;/html/body/iframe/@srcdoc;stray end tag;m
+1;79;/html/body/iframe/@srcdoc;stray end tag;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><iframe srcdoc="<noscript><hoge ></noscript>y">x</iframe>
