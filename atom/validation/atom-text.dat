@@ -14,38 +14,49 @@
 #data
 <summary type="html" xmlns="http://www.w3.org/2005/Atom">&lt;p>aaa&amp;xx;</summary>
 #errors
-/summary;entity not declared;m
+1;67;/summary;entity not declared;m
 
 #data
 <content type="html" xmlns="http://www.w3.org/2005/Atom">&lt;p>aaa&amp;xx;</content>
 #errors
-/content;entity not declared;m
+1;67;/content;entity not declared;m
 
 #data
 <subtitle type="html" xmlns="http://www.w3.org/2005/Atom">&lt;p>aaa&lt;xy>xx;&lt;/xy></subtitle>
 #errors
-/subtitle;element not defined;m
-/subtitle;element not allowed:phrasing;m
+1;68;/subtitle;element not defined;m
+1;68;/subtitle;element not allowed:phrasing;m
 
 #data
 <content type="html" xmlns="http://www.w3.org/2005/Atom"><![CDATA[
 <noscript><hoge></noscript>
-}]></content>
+]]></content>
 #errors
-/content;element not allowed:flow;m
-/content;element not defined;m
-/content;no end tag at EOF;hoge;m
 /content;no significant content;s
-/content;stray end tag;m
+2;1;/content;no significant content;s
+2;11;/content;element not allowed:flow;m
+2;11;/content;element not defined;m
+2;17;/content;no end tag at EOF;hoge;m
 
 #data
 <content type="html" xmlns="http://www.w3.org/2005/Atom"><![CDATA[
 <noscript><hoge></noscript>
-}]></content>
+]]></content>
 #noscript
 #errors
-/content;element not allowed:flow;m
-/content;element not defined;m
 /content;no significant content;s
-/content;not closed before ancestor end tag;hoge;m
-/content;stray end tag;m
+2;1;/content;no significant content;s
+2;11;/content;element not allowed:flow;m
+2;11;/content;element not defined;m
+3;0;/content;not closed before ancestor end tag;hoge;m
+
+#data
+<content type="html" xmlns="http://www.w3.org/2005/Atom"><![CDATA[a
+<noscript><hoge></noscript>
+]]></content>
+#noscript
+#errors
+2;1;/content;no significant content;s
+2;11;/content;element not allowed:flow;m
+2;11;/content;element not defined;m
+3;0;/content;not closed before ancestor end tag;hoge;m

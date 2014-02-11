@@ -259,7 +259,7 @@
 #data html
 <!DOCTYPE html><html lang=en><noscript><style scoped=""></style></noscript><title>a</title><p>a
 #errors
-/html/head/noscript;attribute not allowed;w
+1;47;/html/head/noscript;attribute not allowed;w
 
 #data
 <noscript xmlns="http://www.w3.org/1999/xhtml">
@@ -388,44 +388,44 @@
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><p>ab<hoge</noscript>
 #errors
-/html/body/noscript;unclosed tag;m
+1;67;/html/body/noscript;unclosed tag;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><p>ab<hoge></noscript>
 #errors
-/html/body/noscript;no end tag at EOF;hoge;m
-/html/body/noscript;element not defined;m
-/html/body/noscript;element not allowed:phrasing;m
+1;68;/html/body/noscript;no end tag at EOF;hoge;m
+1;62;/html/body/noscript;element not defined;m
+1;62;/html/body/noscript;element not allowed:phrasing;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><p>ab<link rel=stylesheet href=abc></noscript>
 #errors
-/html/body/noscript;attribute missing;itemprop;m
+1;62;/html/body/noscript;attribute missing;itemprop;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><p>ab<script></script></noscript>
 #errors
-/html/body/noscript;element not allowed:minus;m
-/html/body/noscript;unknown script lang;u
+1;62;/html/body/noscript;element not allowed:minus;m
+1;62;/html/body/noscript;unknown script lang;u
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><p>ab<noscript>vv</noscript>
 #errors
-/html/body/noscript;element not allowed:minus;m
-/html/body/noscript;no end tag at EOF;noscript;m
+1;62;/html/body/noscript;element not allowed:minus;m
+1;74;/html/body/noscript;no end tag at EOF;noscript;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><p>ab<noscript>vv<noscript>a</noscript>
 #errors
-/html/body/noscript;element not allowed:minus;m
-/html/body/noscript;no end tag at EOF;noscript;m
-/html/body/noscript;element not allowed:minus;m
-/html/body/noscript;no end tag at EOF;noscript;m
+1;62;/html/body/noscript;element not allowed:minus;m
+1;74;/html/body/noscript;element not allowed:minus;m
+1;85;/html/body/noscript;no end tag at EOF;noscript;m
+1;85;/html/body/noscript;no end tag at EOF;noscript;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>a<video src="x"><noscript><audio src="x">a</audio>b</noscript>a</video>
 #errors
-1;62;/html/body/video/noscript;element not allowed:minus;m
+1;72;/html/body/video/noscript;element not allowed:minus;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><input id=aa></noscript>a<label for=aa>sss</label>
@@ -439,7 +439,7 @@
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><label for=aa>aa</label></noscript>a<input id=aa>
 #errors
-/html/body/noscript;no referenced control;m
+1;64;/html/body/noscript;no referenced control;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml"><eventsource/></em>

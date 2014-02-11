@@ -1303,38 +1303,38 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><iframe src="x"><hoge</iframe>
 #errors
-/html/body/iframe;unclosed tag;m
 /html/body/iframe;no significant content;s
+1;67;/html/body/iframe;unclosed tag;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><iframe src="x"><hoge></iframe>
 #errors
-/html/body/iframe;no end tag at EOF;hoge;m
-/html/body/iframe;element not defined;m
-/html/body/iframe;element not allowed:phrasing;m
+1;62;/html/body/iframe;element not defined;m
+1;62;/html/body/iframe;element not allowed:phrasing;m
+1;68;/html/body/iframe;no end tag at EOF;hoge;m
 /html/body/iframe;no significant content;s
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><iframe src="x"><p>abc</iframe>
 #errors
-/html/body/iframe;element not allowed:phrasing;m
+1;62;/html/body/iframe;element not allowed:phrasing;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><iframe src="x"><script></script>abc</iframe>
 #errors
-/html/body/iframe;element not allowed:minus;m
-/html/body/iframe;unknown script lang;u
+1;62;/html/body/iframe;element not allowed:minus;m
+1;62;/html/body/iframe;unknown script lang;u
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><video src="b"><iframe src="x"><audio src="a">x</audio>abc</iframe></video>
 #errors
-/html/body/video/iframe;element not allowed:minus;m
+1;77;/html/body/video/iframe;element not allowed:minus;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><button><iframe src="x"><a href="a">x</a>abc</iframe></button>
 #errors
 /html/body/button/iframe;element not allowed:minus;m
-/html/body/button/iframe;element not allowed:minus;m
+1;70;/html/body/button/iframe;element not allowed:minus;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><label><iframe src="x"><input>abc</iframe></label>
@@ -1343,7 +1343,7 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><label><input><iframe src="x"><input>abc</iframe></label>
 #errors
-/html/body/label/iframe;multiple labelable fae;m
+1;76;/html/body/label/iframe;multiple labelable fae;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><label><iframe src="x"><input>abc</iframe><input></label>
@@ -1353,9 +1353,19 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 <!DOCTYPE html><html lang=en><title>a</title><canvas><iframe src="a"><input>abc</iframe></canvas>
 #errors
 /html/body/canvas/iframe;element not allowed:minus;m
-/html/body/canvas/iframe;element not allowed:minus;m
+1;70;/html/body/canvas/iframe;element not allowed:minus;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><canvas><iframe src="a"><input type=button value=x>abc</iframe></canvas>
 #errors
 /html/body/canvas/iframe;element not allowed:minus;m
+
+#data html
+<!DOCTYPE html><html lang=en><title>a</title>
+<iframe><noscript><foo></noscript></iframe>
+#errors
+/html/body/iframe;no significant content;s
+2;9;/html/body/iframe;no significant content;s
+2;19;/html/body/iframe;element not allowed:phrasing;m
+2;19;/html/body/iframe;element not defined;m
+2;24;/html/body/iframe;no end tag at EOF;foo;m
