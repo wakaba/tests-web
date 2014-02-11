@@ -2621,6 +2621,14 @@
 |   "\uFDD0"
 
 #data
+<a>&#x0000000000000000000000000000FDD0;</a>
+#errors
+1;4;invalid character reference;U+FDD0;;w
+#document escaped
+| <{} a>
+|   "\uFDD0"
+
+#data
 <a>&#64976;</a>
 #errors
 1;4;invalid character reference;U+FDD0;;w
@@ -2801,3 +2809,50 @@
 #document escaped
 | <{} a>
 |   "\uFFFD"
+
+#data
+<a>&#xffffffff;</a>
+#errors
+1;4;invalid character reference;U-FFFFFFFF;;m
+#document escaped
+| <{} a>
+|   "\uFFFD"
+
+#data
+<a>&#x100000000;</a>
+#errors
+1;4;invalid character reference;U-FFFFFFFF;;m
+#document escaped
+| <{} a>
+|   "\uFFFD"
+
+#data
+<a>&#x10000000fafeafaaaeeeccc0;</a>
+#errors
+1;4;invalid character reference;U-FFFFFFFF;;m
+#document escaped
+| <{} a>
+|   "\uFFFD"
+
+#data
+<a>&#4294967295;</a>
+#errors
+1;4;invalid character reference;U-FFFFFFFF;;m
+#document escaped
+| <{} a>
+|   "\uFFFD"
+
+#data
+<a>&#42777777794967295000;</a>
+#errors
+1;4;invalid character reference;U-FFFFFFFF;;m
+#document escaped
+| <{} a>
+|   "\uFFFD"
+
+#data
+<a>&#0000000000000000000000000000512333;</a>
+#errors
+#document escaped
+| <{} a>
+|   "\U0007D14D"
