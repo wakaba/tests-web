@@ -263,3 +263,14 @@ x&y;b</p>b
 |   <{} p>
 |     "z"
 |   "bb"
+
+#data
+<!DOCTYPE a[
+  <!ENTITY b "<?xml version='1.0' encoding='iso-2022-jp'?>abc">
+]><a>&b;</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   <?xml version='1.0' encoding='iso-2022-jp'?>
+|   "abc"
