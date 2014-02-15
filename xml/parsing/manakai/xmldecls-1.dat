@@ -1,19 +1,19 @@
 #data
 <?xml?><a/>
 #errors
+1;1;attribute missing:version;;;m
 #xml-version
 1.0
 #document
-| <?xml ?>
 | <{} a>
 
 #data
 <?xml ?><a/>
 #errors
+1;1;attribute missing:version;;;m
 #xml-version
 1.0
 #document
-| <?xml ?>
 | <{} a>
 
 #data
@@ -35,19 +35,21 @@
 #data
 <?xml Version="1.0"?><a/>
 #errors
+1;7;attribute missing:version;;;m
+1;7;bogus XML declaration;;;m
 #xml-version
 1.0
 #document
-| <?xml Version="1.0"?>
 | <{} a>
 
 #data
 <?xml version=1.0?><a/>
 #errors
+1;7;attribute missing:version;;;m
+1;7;bogus XML declaration;;;m
 #xml-version
 1.0
 #document
-| <?xml version=1.0?>
 | <{} a>
 
 #data
@@ -69,10 +71,11 @@
 #data
 <?xml version="1.0'?><a/>
 #errors
+1;7;attribute missing:version;;;m
+1;7;bogus XML declaration;;;m
 #xml-version
 1.0
 #document
-| <?xml version="1.0'?>
 | <{} a>
 
 #data
@@ -94,6 +97,7 @@
 #data
 <?xml version="'1.0'"?><a/>
 #errors
+1;16;XML version:syntax error;;'1.0';m
 #xml-version
 '1.0'
 #document
@@ -102,6 +106,7 @@
 #data
 <?xml version="unknown"?><a/>
 #errors
+1;16;XML version:syntax error;;unknown;m
 #xml-version
 unknown
 #document
@@ -110,24 +115,26 @@ unknown
 #data
 <?xml version="1.1" unknown?><a/>
 #errors
+1;21;bogus XML declaration;;;m
 #xml-version
-1.0
+1.1
 #document
-| <?xml version="1.1" unknown?>
 | <{} a>
 
 #data
 <?xml version?><a/>
 #errors
+1;7;attribute missing:version;;;m
+1;7;bogus XML declaration;;;m
 #xml-version
 1.0
 #document
-| <?xml version?>
 | <{} a>
 
 #data
 <?xml version=""?><a/>
 #errors
+1;16;XML version:syntax error;;;m
 #xml-version
 #document
 | <{} a>
@@ -135,26 +142,29 @@ unknown
 #data
 <?xml encoding=""?><a/>
 #errors
+1;7;attribute missing:version;;;m
+1;17;XML encoding:syntax error;;;m
 #xml-version
 1.0
-#xml-encoding null
+#xml-encoding
 #document
-| <?xml encoding=""?>
 | <{} a>
 
 #data
 <?xml version="1.0"encoding="a"?><a/>
 #errors
+1;20;no space before attr name;;;m
 #xml-version
 1.0
-#xml-encoding null
+#xml-encoding
+a
 #document
-| <?xml version="1.0"encoding="a"?>
 | <{} a>
 
 #data
 <?xml version="1.0" encoding=""?><a/>
 #errors
+1;31;XML encoding:syntax error;;;m
 #xml-version
 1.0
 #xml-encoding
@@ -194,11 +204,11 @@ shift_Jis
 #data
 <?xml version="1.0" encoding="utf-16'?><a/>
 #errors
+1;21;bogus XML declaration;;;m
 #xml-version
 1.0
 #xml-encoding null
 #document
-| <?xml version="1.0" encoding="utf-16'?>
 | <{} a>
 
 #data
@@ -224,26 +234,28 @@ hz
 #data
 <?xml version="1.0" encoding=iso-8859-1?><a/>
 #errors
+1;21;bogus XML declaration;;;m
 #xml-version
 1.0
 #xml-encoding null
 #document
-| <?xml version="1.0" encoding=iso-8859-1?>
 | <{} a>
 
 #data
 <?xml version="1.0" encoding="windows-1252" a?><a/>
 #errors
+1;45;bogus XML declaration;;;m
 #xml-version
 1.0
-#xml-encoding null
+#xml-encoding
+windows-1252
 #document
-| <?xml version="1.0" encoding="windows-1252" a?>
 | <{} a>
 
 #data escaped
 <?xml version="1.0" encoding="\u4e00"?><a/>
-#errors
+#errors escaped
+1;31;XML encoding:syntax error;;\u4E00;m
 #xml-version
 1.0
 #xml-encoding escaped
@@ -254,6 +266,7 @@ hz
 #data
 <?xml version="1.0" encoding=" windows-31j "?><a/>
 #errors
+1;31;XML encoding:syntax error;; windows-31j ;m
 #xml-version
 1.0
 #xml-encoding escaped
@@ -339,100 +352,100 @@ utf-8
 #data
 <?xml  standalone="yes"?><a/>
 #errors
+1;8;attribute missing:version;;;m
 #xml-version
 1.0
 #xml-encoding null
-#xml-standalone false
+#xml-standalone true
 #document
-| <?xml standalone="yes"?>
 | <{} a>
 
 #data
 <?xml  standalone="no"?><a/>
 #errors
+1;8;attribute missing:version;;;m
 #xml-version
 1.0
 #xml-encoding null
 #xml-standalone false
 #document
-| <?xml standalone="no"?>
 | <{} a>
 
 #data
 <?xml version="1.0"standalone="yes"?><a/>
 #errors
+1;20;no space before attr name;;;m
 #xml-version
 1.0
 #xml-encoding null
-#xml-standalone false
+#xml-standalone true
 #document
-| <?xml version="1.0"standalone="yes"?>
 | <{} a>
 
 #data
 <?xml version="1.0" standalone="yes'?><a/>
 #errors
+1;21;bogus XML declaration;;;m
 #xml-version
 1.0
 #xml-encoding null
 #xml-standalone false
 #document
-| <?xml version="1.0" standalone="yes'?>
 | <{} a>
 
 #data
 <?xml version="1.0" standalone="yes" encoding="utf-8"?><a/>
 #errors
+1;38;bogus XML declaration;;;m
 #xml-version
 1.0
 #xml-encoding null
-#xml-standalone false
+#xml-standalone true
 #document
-| <?xml version="1.0" standalone="yes" encoding="utf-8"?>
 | <{} a>
 
 #data
 <?xml version="1.0" standalone="yes" unknown=""?><a/>
 #errors
+1;38;bogus XML declaration;;;m
 #xml-version
 1.0
 #xml-encoding null
-#xml-standalone false
+#xml-standalone true
 #document
-| <?xml version="1.0" standalone="yes" unknown=""?>
 | <{} a>
 
 #data
 <?xml version="1.0" standalone="true"?><a/>
 #errors
+1;33;XML standalone:syntax error;;true;m
 #xml-version
 1.0
 #xml-encoding null
 #xml-standalone false
 #document
-| <?xml version="1.0" standalone="true"?>
 | <{} a>
 
 #data
 <?xml version="1.0" standAlone="yes"?><a/>
 #errors
+1;21;bogus XML declaration;;;m
 #xml-version
 1.0
 #xml-encoding null
 #xml-standalone false
 #document
-| <?xml version="1.0" standAlone="yes"?>
 | <{} a>
 
 #data
 <?xml version="1.0" standalone="YES"?><a/>
 #errors
+1;33;XML standalone:syntax error;;YES;m
 #xml-version
 1.0
 #xml-encoding null
 #xml-standalone false
 #document
-| <?xml version="1.0" standalone="YES"?>
 | <{} a>
 
 #data

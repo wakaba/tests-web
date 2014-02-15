@@ -54,20 +54,20 @@
 #data escaped
 <?xml version="1.1"\u0085?>\u0085<p>abc</p>
 #errors
+1;20;bogus XML declaration;;;m
 1;20;control char;;U+0085;w
-1;23;control char;;U+0085;w
-1;23;text outside of root element;;;m
+#xml-version
+1.1
 #document escaped
-| <?xml version="1.1"\u0085?>
 | <{} p>
 |   "abc"
 
 #data escaped
 <?xml version="1.1"\u2028?>\u0085<p>abc</p>
 #errors
-1;23;control char;;U+0085;w
-1;23;text outside of root element;;;m
+1;20;bogus XML declaration;;;m
+#xml-version
+1.1
 #document escaped
-| <?xml version="1.1"\u2028?>
 | <{} p>
 |   "abc"
