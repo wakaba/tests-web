@@ -1,0 +1,126 @@
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo SYSTEM "http://x/">
+  %foo;
+]><a x="&bar;"/>
+#resource http://x/
+<!ENTITY bar "abc">
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   x="abc"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo SYSTEM "http://x/">
+  %foo;
+  <!ENTITY bar "abc2">
+]><a x="&bar;"/>
+#resource http://x/
+<!ENTITY bar "abc">
+#errors
+4;3;duplicate general entity decl;;bar;w
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   x="abc"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo SYSTEM "http://x/">
+  <!ENTITY bar "abc2">
+  %foo;
+]><a x="&bar;"/>
+#resource http://x/
+<!ENTITY bar "abc">
+#errors
+[1]1;1;duplicate general entity decl;;bar;w
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   x="abc2"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo SYSTEM "http://x/">
+  %foo;
+  %foo;
+]><a x="&bar;"/>
+#resource http://x/
+  <!ENTITY bar "abc">
+#errors
+[1]1;3;duplicate general entity decl;;bar;w
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   x="abc"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo SYSTEM "http://x/">
+  <!ENTITY % bar SYSTEM "http://y/">
+  %foo;
+]><a x="&bar;"/>
+#resource http://x/
+ %bar;
+#resource http://y/
+  <!ENTITY bar "abc">
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   x="abc"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo SYSTEM "http://x/">
+  %foo;
+]><a x="&bar;"/>
+#resource http://x/
+  <!ENTITY % bar SYSTEM "http://y/">
+ %bar;
+#resource http://y/
+  <!ENTITY bar "abc">
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   x="abc"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo SYSTEM "http://x/">
+  %foo;
+  <!ENTITY bar "abc">
+]><a x="&bar;"/>
+#resource http://x/
+ %foo;
+#errors
+[1]1;2;stop processing;;;i
+[1]1;2;WFC:No Recursion;;%foo;;m
+5;9;entity not declared;;bar;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   x="&bar;"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo SYSTEM "http://x/">
+  <!ENTITY % bar SYSTEM "http://y/">
+  %foo;
+  <!ENTITY bar "abc">
+]><a x="&bar;"/>
+#resource http://x/
+ %bar;
+#resource http://y/
+   %foo;
+#errors
+[2]1;4;stop processing;;;i
+[2]1;4;WFC:No Recursion;;%foo;;m
+6;9;entity not declared;;bar;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   x="&bar;"
