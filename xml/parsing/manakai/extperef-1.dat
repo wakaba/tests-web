@@ -124,3 +124,32 @@
 | <!DOCTYPE a>
 | <{} a>
 |   x="&bar;"
+
+#data
+<!DOCTYPE a SYSTEM "http://fpoo/"><a b="&abc;"/>
+#resource http://fpoo/
+<!ENTITY % hoge SYSTEM "http://hoge/">
+%hoge;
+#resource http://hoge/
+<!ENTITY abc "xyz">
+#errors
+#document
+| <!DOCTYPE a "" "http://fpoo/">
+| <{} a>
+|   b="xyz"
+
+#data
+<!DOCTYPE a SYSTEM "http://fpoo/"[
+  <!ENTITY % foo SYSTEM "http://1/">
+  %foo;
+]><a b="&abc;"/>
+#resource http://fpoo/
+<!ENTITY % hoge SYSTEM "http://hoge/">
+%hoge;
+#resource http://hoge/
+<!ENTITY abc "xyz">
+#errors
+#document
+| <!DOCTYPE a "" "http://fpoo/">
+| <{} a>
+|   b="xyz"
