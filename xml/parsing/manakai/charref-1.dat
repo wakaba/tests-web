@@ -1,28 +1,28 @@
 #data
 &#x20;<a/>
 #errors
-1;1;ref outside of root element;;;m
+1;1;ref outside of root element;;#x20;;m
 #document
 | <{} a>
 
 #data
 &#32;<a/>
 #errors
-1;1;ref outside of root element;;;m
+1;1;ref outside of root element;;#32;;m
 #document
 | <{} a>
 
 #data
  &#x20;<a/>
 #errors
-1;2;ref outside of root element;;;m
+1;2;ref outside of root element;;#x20;;m
 #document
 | <{} a>
 
 #data
 &#x20; <a/>
 #errors
-1;1;ref outside of root element;;;m
+1;1;ref outside of root element;;#x20;;m
 #document
 | <{} a>
 
@@ -30,21 +30,21 @@
 <a/>
 &#x20;
 #errors
-2;1;ref outside of root element;;;m
+2;1;ref outside of root element;;#x20;;m
 #document
 | <{} a>
 
 #data
 <a/>&#32;
 #errors
-1;5;ref outside of root element;;;m
+1;5;ref outside of root element;;#32;;m
 #document
 | <{} a>
 
 #data
 <!DOCTYPE a>&#x20;<a/>
 #errors
-1;13;ref outside of root element;;;m
+1;13;ref outside of root element;;#x20;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -52,7 +52,7 @@
 #data
 <!DOCTYPE a> &#x20;<a/>
 #errors
-1;14;ref outside of root element;;;m
+1;14;ref outside of root element;;#x20;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -60,7 +60,7 @@
 #data
 <!DOCTYPE a>&#x20; <a/>
 #errors
-1;13;ref outside of root element;;;m
+1;13;ref outside of root element;;#x20;;m
 #document
 | <!DOCTYPE a>
 | <{} a>

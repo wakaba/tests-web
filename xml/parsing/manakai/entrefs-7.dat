@@ -1,0 +1,160 @@
+#data
+&h
+#errors
+1;1;bare ero;;;m
+1;1;text outside of root element;;;m
+1;3;no root element;;;m
+#document
+
+#data
+&h;
+#errors
+1;1;ref outside of root element;;h;;m
+1;1;entity not declared;;h;;m
+1;4;no root element;;;m
+#document
+
+#data
+&hoo
+#errors
+1;1;bare ero;;;m
+1;1;text outside of root element;;;m
+1;5;no root element;;;m
+#document
+
+#data
+&hoo;
+#errors
+1;1;ref outside of root element;;hoo;;m
+1;1;entity not declared;;hoo;;m
+1;6;no root element;;;m
+#document
+
+#data
+abc&hoo;
+#errors
+1;1;text outside of root element;;;m
+1;4;ref outside of root element;;hoo;;m
+1;4;entity not declared;;hoo;;m
+1;9;no root element;;;m
+#document
+
+#data
+<p></p>&hoo;
+#errors
+1;8;ref outside of root element;;hoo;;m
+1;8;entity not declared;;hoo;;m
+#document
+| <{} p>
+
+#data
+<p></p>hoge&hoo;
+#errors
+1;8;text outside of root element;;;m
+1;12;ref outside of root element;;hoo;;m
+1;12;entity not declared;;hoo;;m
+#document
+| <{} p>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo "">
+]>
+&foo;
+#errors
+4;1;ref outside of root element;;foo;;m
+4;6;no root element;;;m
+#document
+| <!DOCTYPE a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo "  ">
+]>
+&foo;<p/>
+#errors
+4;1;ref outside of root element;;foo;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo "  ">
+]>
+<p/>
+&foo;
+#errors
+5;1;ref outside of root element;;foo;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo SYSTEM "http://x/">
+]>
+<p/>
+&foo;
+#resource http://x/
+#errors
+5;1;ref outside of root element;;foo;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo SYSTEM "http://x/">
+]>
+<p/>
+&foo;
+#resource http://x/
+abc
+#errors
+5;1;ref outside of root element;;foo;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo "<Qq>">
+]>
+<p/>
+&foo;
+#errors
+5;1;ref outside of root element;;foo;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo SYSTEM "http://x/" NDATA aa>
+]>
+&foo;
+<p/>
+#errors
+4;1;ref outside of root element;;foo;;m
+#document
+| <!DOCTYPE a>
+|   <!ENTITY foo "" "" "http://x/" aa>
+| <{} p>
+
+#data
+&amp;
+<p/>
+#errors
+1;1;ref outside of root element;;amp;;m
+#document
+| <{} p>
+
+#data
+&nbsp;
+<p/>
+#errors
+1;1;ref outside of root element;;nbsp;;m
+1;1;entity not declared;;nbsp;;m
+#document
+| <{} p>
