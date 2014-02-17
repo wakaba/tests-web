@@ -274,3 +274,57 @@ x&y;b</p>b
 | <{} a>
 |   <?xml version='1.0' encoding='iso-2022-jp'?>
 |   "abc"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo SYSTEM "http://c/">
+  <!ENTITY hoge "a&b;c">
+  %foo;
+]><a>&hoge;x</a>
+#resource http://c/
+<!ENTITY b "<p>b</p>">
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "a"
+|   <{} p>
+|     "b"
+|   "cx"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo SYSTEM "http://c/">
+  <!ENTITY hoge "a&b;c">
+  %foo;
+]><a>&hoge;x</a>
+#resource http://c/
+<!ENTITY b "<p>b">
+#errors
+[1]1;17;in body:#eof;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "a"
+|   <{} p>
+|     "b"
+|   "cx"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo SYSTEM "http://c/">
+  <!ENTITY hoge "a&b;c">
+  <!ENTITY c "<p>b">
+  %foo;
+]><a>&hoge;x</a>
+#resource http://c/
+<!ENTITY b "&c;">
+#errors
+4;19;in body:#eof;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "a"
+|   <{} p>
+|     "b"
+|   "cx"

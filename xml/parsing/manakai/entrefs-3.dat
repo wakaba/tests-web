@@ -215,3 +215,15 @@
 #document
 | <!DOCTYPE a>
 | <{} b>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo "w&bar;y">
+  <!ENTITY bar "v&foo;z">
+]><a>&foo;x</a>
+#errors
+3;18;WFC:No Recursion;;&foo;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "wv&foo;zyx"
