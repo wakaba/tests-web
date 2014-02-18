@@ -1,0 +1,116 @@
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "">
+<!ATTLIST%hoge; a>
+#errors
+[1]2;1;empty attlist decl;;a;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT a >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "&#x25;fuga;">
+<!ENTITY % fuga "">
+<!ATTLIST%hoge; a>
+#errors
+[1]3;1;empty attlist decl;;a;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT a >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge ">">
+<!ATTLIST%hoge; a>
+#errors
+[1]1;18;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge ">>xy">
+<!ATTLIST%hoge; a>
+#errors
+[1]1;18;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "><!ATTLIST b>">
+<!ATTLIST%hoge; a>
+#errors
+[1]1;18;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "  ">
+<!ATTLIST%hoge; a>
+#errors
+[1]2;1;empty attlist decl;;a;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT a >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "  &#x25;fuga;">
+<!ENTITY % fuga "  ">
+<!ATTLIST%hoge; a>
+#errors
+[1]3;1;empty attlist decl;;a;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT a >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "  >">
+<!ATTLIST%hoge; a>
+#errors
+[1]1;20;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "  ">
+<!ATTLIST  %hoge; a>
+#errors
+[1]2;1;empty attlist decl;;a;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT a >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ATTLIST%hoge; a>
+#errors
+[1]1;10;pe not declared;;hoge;;m
+[1]1;10;stop processing;;;i
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>

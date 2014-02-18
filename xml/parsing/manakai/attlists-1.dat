@@ -237,14 +237,10 @@
 <!ATTLIST b>
 ]><a/>
 #errors
-2;1;empty attlist decl;;%;w
-2;10;no space before md name;;;m
-2;13;no attr type;;;m
-3;1;empty attlist decl;;b;w
+2;10;stop processing;;;i
+2;11;no refc;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT % >
-|   <!ELEMENT b >
 | <{} a>
 
 #data
@@ -254,11 +250,10 @@
 ]><a/>
 #errors
 2;1;empty attlist decl;;b;w
-3;1;empty attlist decl;;%;w
-3;14;no attr type;;;m
+3;11;stop processing;;;i
+3;12;no refc;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT % >
 |   <!ELEMENT b >
 | <{} a>
 
