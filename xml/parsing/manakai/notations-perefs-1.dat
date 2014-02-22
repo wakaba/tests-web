@@ -1,0 +1,21 @@
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % fuga "xy">
+<!NOTATION %fuga;SYSTEM "aa">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION xy "" "aa">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % fuga "xy">
+<!NOTATION %fuga; SYSTEM "aa">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION xy "" "aa">
+| <{} a>

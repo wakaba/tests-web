@@ -1,0 +1,177 @@
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a b="&bar;x"/>
+#resource http://a/
+<!ENTITY % foo "">
+<!ENTITY%foo;bar "aa">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   b="aax"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a b="&bar;x"/>
+#resource http://a/
+<!ENTITY % foo "">
+<!ENTITY %foo; bar "aa">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   b="aax"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a b="&bar;x"/>
+#resource http://a/
+<!ENTITY % foo "">
+<!ENTITY
+   %foo; bar "aa">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   b="aax"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a b="&bar;x"/>
+#resource http://a/
+<!ENTITY % foo "  ">
+<!ENTITY%foo;bar "aa">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   b="aax"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a b="&bar;x"/>
+#resource http://a/
+<!ENTITY % foo ">">
+<!ENTITY%foo; bar "aa">
+#errors
+[1]1;17;mdc in pe in md;;;m
+1;38;entity not declared;;bar;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   b="&bar;x"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a b="&bar;x"/>
+#resource http://a/
+<!ENTITY % foo ">">
+<!ENTITY %foo; bar "aa">
+#errors
+[1]1;17;mdc in pe in md;;;m
+1;38;entity not declared;;bar;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   b="&bar;x"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a b="&bar;x"/>
+#resource http://a/
+<!ENTITY % baz "">
+<!ENTITY % foo "%baz;">
+<!ENTITY %foo; bar "aa">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   b="aax"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a b="&bar;x"/>
+#resource http://a/
+<!ENTITY % foo "bar">
+<!ENTITY%foo;"aa">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   b="aax"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a b="&bar;x"/>
+#resource http://a/
+<!ENTITY % foo "bar">
+<!ENTITY  %foo;"aa">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   b="aax"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a b="&bar;x" c="&aa;"/>
+#resource http://a/
+<!ENTITY % foo "&#x25;">
+<!ENTITY%foo;  bar "aa">
+<!ENTITY %bar; "zz">
+#errors
+1;38;entity not declared;;bar;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   b="&bar;x"
+|   c="zz"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a b="&bar;x" c="&aa;"/>
+#resource http://a/
+<!ENTITY % foo % bar "aaa">
+#errors
+1;38;entity not declared;;bar;;m
+1;49;entity not declared;;aa;;m
+[1]1;16;string after DOCTYPE name;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   b="&bar;x"
+|   c="&aa;"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&cd;"/>
+#resource http://a/
+<!ENTITY % fuga "">
+<!ENTITY %fuga;cd "abc">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="abc"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&cd;"/>
+#resource http://a/
+<!ENTITY % fuga "">
+<!ENTITY %fuga; cd "abc">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="abc"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&cd;"/>
+#resource http://a/
+<!ENTITY % fuga "cd">
+<!ENTITY %fuga; "abc">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="abc"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&abc;"/>
+#resource http://a/
+<!ENTITY % fuga "&#x25; cd">
+<!ENTITY %fuga; "abc">
+<!ENTITY %cd; "zzz">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="zzz"

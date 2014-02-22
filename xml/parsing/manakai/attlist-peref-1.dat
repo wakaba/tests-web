@@ -13,6 +13,18 @@
 #data
 <!DOCTYPE a SYSTEM "http://a/"><a/>
 #resource http://a/
+<!ENTITY % hoge "">
+<!ATTLIST%hoge;a>
+#errors
+[1]2;1;empty attlist decl;;a;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT a >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
 <!ENTITY % hoge "&#x25;fuga;">
 <!ENTITY % fuga "">
 <!ATTLIST%hoge; a>
@@ -111,6 +123,745 @@
 #errors
 [1]1;10;pe not declared;;hoge;;m
 [1]1;10;stop processing;;;i
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ATTLIST %hoge;>
+#errors
+[1]1;11;pe not declared;;hoge;;m
+[1]1;11;stop processing;;;i
+[1]1;17;no md name;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab">
+<!ATTLIST %hoge;>
+#errors
+[1]2;1;empty attlist decl;;ab;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab   ">
+<!ATTLIST %hoge;>
+#errors
+[1]2;1;empty attlist decl;;ab;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab>">
+<!ATTLIST %hoge;>
+#errors
+[1]1;20;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga ">">
+<!ENTITY % hoge "ab&#x25;fuga;">
+<!ATTLIST %hoge;>
+#errors
+[1]1;18;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab ">
+<!ATTLIST %hoge;foo CDATA #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab >
+|     foo CDATA () IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "cd">
+<!ENTITY % hoge "ab&#x25;fuga; CDATA #IMPLIED">
+<!ATTLIST %hoge;>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab >
+|     cd CDATA () IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab foo">
+<!ATTLIST %hoge;CDATA #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab >
+|     foo CDATA () IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab foo ">
+<!ATTLIST %hoge;CDATA #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab >
+|     foo CDATA () IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab">
+<!ATTLIST foo %hoge; CDATA #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     ab CDATA () IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab>">
+<!ATTLIST foo %hoge; CDATA #IMPLIED>
+#errors
+[1]1;20;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab CDATA">
+<!ATTLIST foo %hoge;#IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     ab CDATA () IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab CDATA">
+<!ATTLIST foo %hoge; #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     ab CDATA () IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab CDATA>">
+<!ATTLIST foo %hoge; #IMPLIED>
+#errors
+[1]1;26;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab NMTOKEN ">
+<!ATTLIST foo %hoge; #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     ab NMTOKEN () IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab NMTOKEN ">
+<!ATTLIST foo %hoge;#IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     ab NMTOKEN () IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab NMTOKE">
+<!ATTLIST foo %hoge;N#IMPLIED>
+#errors
+[1]1;1;unknown declared type;;NMTOKE;m
+[1]2;21;unquoted attr value;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     ab 0 () EXPLICIT "N#IMPLIED"
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab NMTOKEN >">
+<!ATTLIST foo %hoge;#IMPLIED>
+#errors
+[1]1;29;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ID">
+<!ATTLIST foo x%hoge;#IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     x ID () IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ID">
+<!ATTLIST foo x %hoge;#IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     x ID () IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ID">
+<!ATTLIST foo xy %hoge; #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     xy ID () IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ID">
+<!ATTLIST foo x%hoge; #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     x ID () IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ID">
+<!ATTLIST%hoge;x IDREF #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ID >
+|     x IDREF () IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ID">
+<!ATTLIST foo bar%hoge;xy>
+#errors
+[1]2;24;unquoted attr value;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ID () EXPLICIT "xy"
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "">
+<!ATTLIST foo bar ID%hoge;"xy">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ID () EXPLICIT "xy"
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "">
+<!ATTLIST foo bar ID %hoge;"xy">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ID () EXPLICIT "xy"
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "">
+<!ATTLIST foo bar  (%hoge;xy) #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (xy) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "">
+<!ATTLIST foo bar  (  %hoge;xy) #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (xy) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "">
+<!ATTLIST foo bar  (ab|%hoge;xy) #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ab|xy) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "">
+<!ATTLIST foo bar  (ab| %hoge;xy) #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ab|xy) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge ">>">
+<!ATTLIST foo bar  (ab| %hoge;xy) #IMPLIED>
+#errors
+[1]1;18;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "">
+<!ATTLIST foo bar  (ab %hoge;) #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ab) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "">
+<!ATTLIST foo bar  (ab %hoge;|xy) #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ab|xy) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "">
+<!ENTITY % hoge "%fuga;">
+<!ATTLIST foo bar  (ab %hoge;|xy) #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ab|xy) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "">
+<!ATTLIST foo bar  (ay)%fuga;#IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "">
+<!ATTLIST foo bar  (ay)%fuga; #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "(ay)">
+<!ATTLIST foo bar %fuga;#IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "(ay)">
+<!ATTLIST foo bar %fuga; #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "  ">
+<!ATTLIST foo bar (ay)%fuga; #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "  ">
+<!ATTLIST foo bar (ay)  %fuga; #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "(ay) ">
+<!ATTLIST foo bar %fuga; #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "(">
+<!ATTLIST foo bar %fuga;ay) #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "(ay">
+<!ATTLIST foo bar %fuga;) #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "(ay|x">
+<!ATTLIST foo bar %fuga;ay) #IMPLIED>
+#errors
+[1]2;24;space in allowed token;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay|x ay) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "(ay|">
+<!ATTLIST foo bar %fuga;bay) #IMPLIED>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay|bay) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "#IMPLIED">
+<!ATTLIST foo bar (ay|bay)%fuga;>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay|bay) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "#IMPLIED ">
+<!ATTLIST foo bar (ay|bay)%fuga;>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay|bay) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "#IMPLIED">
+<!ATTLIST foo bar (ay|bay) %fuga;>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay|bay) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "#">
+<!ATTLIST foo bar (ay|bay)%fuga;IMPLIED>
+#errors
+[1]1;19;no default type;;;m
+[1]2;1;empty attlist decl;;foo;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "IMPLIED">
+<!ATTLIST foo bar (ay|bay) #%fuga;>
+#errors
+[1]2;1;empty attlist decl;;foo;w
+[1]2;29;no default type;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "IMPLIED">
+<!ATTLIST foo bar (ay|bay) # %fuga;>
+#errors
+[1]2;1;empty attlist decl;;foo;w
+[1]2;29;no default type;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "">
+<!ATTLIST foo bar (ay|bay) #IMPLIED%fuga;>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay|bay) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "">
+<!ATTLIST foo bar (ay|bay) #IMPLIED %fuga;>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay|bay) IMPLIED ""
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "">
+<!ATTLIST foo bar (ay|bay) #FIXED%fuga;"ab">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay|bay) FIXED "ab"
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "  ">
+<!ATTLIST foo bar (ay|bay) #FIXED%fuga;"ab">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay|bay) FIXED "ab"
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "">
+<!ATTLIST foo bar (ay|bay) #FIXED%fuga;  "ab">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay|bay) FIXED "ab"
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "'ab'">
+<!ATTLIST foo bar (ay|bay) #FIXED%fuga;  >
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay|bay) FIXED "ab"
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "'ab'">
+<!ATTLIST foo bar (ay|bay) #FIXED%fuga;  cc>
+#errors
+[1]2;44;no attr type;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay|bay) FIXED "ab"
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "#FIXED'ab'">
+<!ATTLIST foo bar (ay|bay)%fuga;  >
+#errors
+[1]1;24;no space before default value;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay|bay) FIXED "ab"
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % s "">
+<!ENTITY % fuga "#FIXED%s;'ab'">
+<!ATTLIST foo bar (ay|bay)%fuga;  >
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     bar ENUMERATION (ay|bay) FIXED "ab"
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % fuga "#FIXED%s;'ab'">
+<!ATTLIST foo bar (ay|bay)%fuga;  >
+#errors
+[1]1;24;pe not declared;;s;;m
+[1]1;24;stop processing;;;i
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
