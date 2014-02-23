@@ -124,7 +124,7 @@
 #errors
 1;38;entity not declared;;bar;;m
 1;49;entity not declared;;aa;;m
-[1]1;16;string after DOCTYPE name;;;m
+[1]1;17;no refc;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
@@ -175,3 +175,757 @@
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 |   x="zzz"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "">
+<!ENTITY hoge SYSTEM ""NDATA%abc;>
+#errors
+[1]2;24;no space before NDATA;;;m
+[1]2;34;no notation name;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "" "" >
+<!ENTITY % abc "" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "xy">
+<!ENTITY hoge SYSTEM ""NDATA%abc;>
+#errors
+[1]2;24;no space before NDATA;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ENTITY hoge "" "" "" xy>
+| <{} a>
+#entities
+<!ENTITY hoge "" "" "" xy>
+<!ENTITY % abc "xy" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "hoge SYSTEM 'x' NDATA">
+<!ENTITY %abc;foo>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ENTITY hoge "" "" "x" foo>
+| <{} a>
+#entities
+<!ENTITY hoge "" "" "x" foo>
+<!ENTITY % abc "hoge SYSTEM 'x' NDATA" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "hoge SYSTEM 'x' NDATA>">
+<!ENTITY %abc;foo>
+#errors
+[1]1;38;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY % abc "hoge SYSTEM 'x' NDATA>" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "hoge SYSTEM 'x' NDATA ">
+<!ENTITY %abc;foo>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ENTITY hoge "" "" "x" foo>
+| <{} a>
+#entities
+<!ENTITY hoge "" "" "x" foo>
+<!ENTITY % abc "hoge SYSTEM 'x' NDATA " "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "">
+<!ENTITY hoge SYSTEM 'x' NDATA %abc;foo>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ENTITY hoge "" "" "x" foo>
+| <{} a>
+#entities
+<!ENTITY hoge "" "" "x" foo>
+<!ENTITY % abc "" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "hoge SYSTEM 'x' NDATA foo">
+<!ENTITY %abc;>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ENTITY hoge "" "" "x" foo>
+| <{} a>
+#entities
+<!ENTITY hoge "" "" "x" foo>
+<!ENTITY % abc "hoge SYSTEM 'x' NDATA foo" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "foo">
+<!ENTITY hoge SYSTEM 'x' NDATA %abc; >
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ENTITY hoge "" "" "x" foo>
+| <{} a>
+#entities
+<!ENTITY hoge "" "" "x" foo>
+<!ENTITY % abc "foo" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "">
+<!ENTITY hoge SYSTEM 'x' NDATA foo%abc; >
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ENTITY hoge "" "" "x" foo>
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "">
+<!ENTITY hoge SYSTEM 'x' NDATA foo
+%abc; >
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ENTITY hoge "" "" "x" foo>
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "fuga">
+<!ENTITY hoge SYSTEM %abc; %xya;>
+#errors
+[1]1;17;string after SYSTEM;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "fuga">
+<!ENTITY hoge SYSTEM "b" %abc; %xya;>
+#errors
+[1]1;17;string after SYSTEM literal;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc ">a">
+<!ENTITY hoge SYSTEM %abc; %xya;>
+#errors
+[1]1;17;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "fuga">
+<!ENTITY hoge SYSTEM "" NDATA ab %abc; %xya;>
+#errors
+[1]1;17;string after md def;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "fuga>">
+<!ENTITY hoge SYSTEM "" NDATA ab %abc; %xya;>
+#errors
+[1]1;17;string after md def;;;m
+[1]1;21;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "fuga">
+<!ENTITY%abc; "foo">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY fuga "foo" "" "" >
+<!ENTITY % abc "fuga" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "fuga">
+<!ENTITY %abc; "foo">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY fuga "foo" "" "" >
+<!ENTITY % abc "fuga" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "">
+<!ENTITY fuga%abc; "foo">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY fuga "foo" "" "" >
+<!ENTITY % abc "" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc "">
+<!ENTITY fuga %abc; "foo">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY fuga "foo" "" "" >
+<!ENTITY % abc "" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc ">">
+<!ENTITY fuga%abc; "foo">
+#errors
+[1]1;17;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY % abc ">" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % abc ">">
+<!ENTITY fuga %abc; "foo">
+#errors
+[1]1;17;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY % abc ">" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "">
+<!ENTITY hoge PUBLIC%abc;"a" "b">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "a" "b" >
+<!ENTITY % abc "" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "">
+<!ENTITY hoge PUBLIC %abc;"a" "b">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "a" "b" >
+<!ENTITY % abc "" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "PUBLIC">
+<!ENTITY hoge %abc;"a" "b">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "a" "b" >
+<!ENTITY % abc "PUBLIC" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "PUBLIC ">
+<!ENTITY hoge %abc;"a" "b">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "a" "b" >
+<!ENTITY % abc "PUBLIC " "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "PUBLI">
+<!ENTITY hoge %abc;C"a" "b">
+#errors
+[1]1;17;string after DOCTYPE name;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY % abc "PUBLI" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "PUBLIC >">
+<!ENTITY hoge %abc;"a" "b">
+#errors
+[1]1;24;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY % abc "PUBLIC >" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc ">">
+<!ENTITY hoge PUBLIC%abc;"a" "b">
+#errors
+[1]1;17;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY % abc ">" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc ">">
+<!ENTITY hoge PUBLIC %abc;"a" "b">
+#errors
+[1]1;17;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY % abc ">" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc '"abc'>
+<!ENTITY hoge PUBLIC %abc;"a">
+#errors
+[1]1;21;unclosed PUBLIC literal;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY % abc ""abc" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "'abc">
+<!ENTITY hoge PUBLIC %abc;"a">
+#errors
+[1]1;21;unclosed PUBLIC literal;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY % abc "'abc" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc '"a>b"'>
+<!ENTITY hoge PUBLIC %abc;"a">
+#errors
+[1]1;19;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY % abc ""a>b"" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "'a>b'">
+<!ENTITY hoge PUBLIC %abc;"a">
+#errors
+[1]1;19;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY % abc "'a>b'" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "xx">
+<!ENTITY hoge PUBLIC "%abc;" "a">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "%abc;" "a" >
+<!ENTITY % abc "xx" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "xx">
+<!ENTITY hoge PUBLIC '%abc;' "a">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "%abc;" "a" >
+<!ENTITY % abc "xx" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "">
+<!ENTITY hoge PUBLIC "b"%abc;"a">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "b" "a" >
+<!ENTITY % abc "" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "">
+<!ENTITY hoge PUBLIC "b" %abc; "a">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "b" "a" >
+<!ENTITY % abc "" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc ">">
+<!ENTITY hoge PUBLIC "b"%abc;"a">
+#errors
+[1]1;17;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY % abc ">" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc ">">
+<!ENTITY hoge PUBLIC "b" %abc;"a">
+#errors
+[1]1;17;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY % abc ">" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "">
+<!ENTITY hoge SYSTEM%abc;"a">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "" "a" >
+<!ENTITY % abc "" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "">
+<!ENTITY hoge SYSTEM %abc;"a">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "" "a" >
+<!ENTITY % abc "" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "">
+<!ENTITY hoge PUBLIC "b"%abc;"a">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "b" "a" >
+<!ENTITY % abc "" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "">
+<!ENTITY hoge PUBLIC "b" %abc;"a">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "b" "a" >
+<!ENTITY % abc "" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc '"ab'>
+<!ENTITY hoge PUBLIC "b" %abc;>
+#errors
+[1]1;20;unclosed SYSTEM literal;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY % abc ""ab" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "'ab">
+<!ENTITY hoge PUBLIC "b" %abc;>
+#errors
+[1]1;20;unclosed SYSTEM literal;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY % abc "'ab" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc '"a>b"'>
+<!ENTITY hoge PUBLIC "b" %abc;>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "b" "a>b" >
+<!ENTITY % abc ""a>b"" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc '"a>b"'>
+<!ENTITY hoge PUBLIC "b" %abc;>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "b" "a>b" >
+<!ENTITY % abc ""a>b"" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc ''>
+<!ENTITY hoge PUBLIC "b" "%abc;">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "b" "%abc;" >
+<!ENTITY % abc "" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc ''>
+<!ENTITY hoge PUBLIC "b" '%abc;'>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "b" "%abc;" >
+<!ENTITY % abc "" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc ''>
+<!ENTITY hoge PUBLIC "b" ''%abc;>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "b" "" >
+<!ENTITY % abc "" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc ''>
+<!ENTITY hoge PUBLIC "b" '' %abc;>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "b" "" >
+<!ENTITY % abc "" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc 'NDATA'>
+<!ENTITY hoge PUBLIC "b" ''%abc;>
+#errors
+[1]2;33;no notation name;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "b" "" >
+<!ENTITY % abc "NDATA" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc 'NDATA '>
+<!ENTITY hoge PUBLIC "b" ''%abc;>
+#errors
+[1]2;33;no notation name;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "" "b" "" >
+<!ENTITY % abc "NDATA " "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc 'NDATA'>
+<!ENTITY hoge PUBLIC "b" ''%abc;abb>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ENTITY hoge "" "b" "" abb>
+| <{} a>
+#entities
+<!ENTITY hoge "" "b" "" abb>
+<!ENTITY % abc "NDATA" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc '"foo"'>
+<!ENTITY hoge %abc;>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "foo" "" "" >
+<!ENTITY % abc ""foo"" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "'foo'">
+<!ENTITY hoge %abc;>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY hoge "foo" "" "" >
+<!ENTITY % abc "'foo'" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc '"foo'>
+<!ENTITY hoge %abc;>
+#errors
+[1]1;21;unclosed entity value;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY % abc ""foo" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/" ><a/>
+#resource http://a/
+<!ENTITY % abc "'foo">
+<!ENTITY hoge %abc;>
+#errors
+[1]1;21;unclosed entity value;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities
+<!ENTITY % abc "'foo" "" "" >

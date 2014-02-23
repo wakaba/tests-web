@@ -711,10 +711,8 @@
 <!ATTLIST foo bar (ay|bay)%fuga;IMPLIED>
 #errors
 [1]1;19;no default type;;;m
-[1]2;1;empty attlist decl;;foo;w
 #document
 | <!DOCTYPE a "" "http://a/">
-|   <!ELEMENT foo >
 | <{} a>
 
 #data
@@ -723,11 +721,9 @@
 <!ENTITY % fuga "IMPLIED">
 <!ATTLIST foo bar (ay|bay) #%fuga;>
 #errors
-[1]2;1;empty attlist decl;;foo;w
 [1]2;29;no default type;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
-|   <!ELEMENT foo >
 | <{} a>
 
 #data
@@ -736,11 +732,9 @@
 <!ENTITY % fuga "IMPLIED">
 <!ATTLIST foo bar (ay|bay) # %fuga;>
 #errors
-[1]2;1;empty attlist decl;;foo;w
 [1]2;29;no default type;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
-|   <!ELEMENT foo >
 | <{} a>
 
 #data

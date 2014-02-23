@@ -237,10 +237,11 @@
 <!ATTLIST b>
 ]><a/>
 #errors
-2;10;stop processing;;;i
 2;11;no refc;;;m
+3;1;empty attlist decl;;b;w
 #document
 | <!DOCTYPE a>
+|   <!ELEMENT b >
 | <{} a>
 
 #data
@@ -250,7 +251,6 @@
 ]><a/>
 #errors
 2;1;empty attlist decl;;b;w
-3;11;stop processing;;;i
 3;12;no refc;;;m
 #document
 | <!DOCTYPE a>
@@ -1061,11 +1061,9 @@ e CDATA #IMPLIED
 >
 ]><a/>
 #errors
-2;1;empty attlist decl;;b;w
 3;10;no default type;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b >
 | <{} a>
 
 #data

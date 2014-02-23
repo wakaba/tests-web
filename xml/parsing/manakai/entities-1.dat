@@ -458,7 +458,7 @@
 <!DOCTYPE a[
 <!ENTITY bc PUBLIC "x" "y" NDATA#
 #errors
-2;29;string after literal;;;m
+2;33;no space after keyword;;;m
 2;34;no root element;;;m
 2;34;unclosed internal subset;;;m
 #document
@@ -589,10 +589,19 @@
 2;37;string after md def;;;m
 #document
 | <!DOCTYPE a>
-|   <!ENTITY bc "" "x" "y" zz>
 | <{} a>
 #entities
-| <!ENTITY bc "" "x" "y" zz>
+
+#data
+<!DOCTYPE a[
+<!ENTITY bc PUBLIC "x" "y" NDATAz>
+]><a/>
+#errors
+2;33;no space after keyword;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
 
 #data
 <!DOCTYPE a[
@@ -933,7 +942,6 @@
 | <!DOCTYPE a>
 | <{} a>
 #entities escaped
-<!ENTITY b "" "" "" >
 
 #data escaped
 <!DOCTYPE a[
@@ -945,7 +953,6 @@
 | <!DOCTYPE a>
 | <{} a>
 #entities escaped
-<!ENTITY b "" "" "" >
 
 #data
 <!DOCTYPE a[
