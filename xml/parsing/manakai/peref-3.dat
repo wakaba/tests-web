@@ -204,3 +204,18 @@ fuga
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 |   x="&fuga;d"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo; "bcc">
+#resource http://b/
+<? aaa>hoge
+#errors
+[2]1;1;bare pio;;;m
+1;38;entity not declared;;fuga;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="&fuga;d"

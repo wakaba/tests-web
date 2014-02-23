@@ -526,7 +526,7 @@
 <!DOCTYPE a SYSTEM "http://a/"><a/>
 #resource http://a/
 <!ENTITY % fuga "">
-<!ENTITY % hoge "%fuga;">
+<!ENTITY % hoge "&#x25;fuga;">
 <!ATTLIST foo bar  (ab %hoge;|xy) #IMPLIED>
 #errors
 #document
@@ -839,7 +839,7 @@
 <!DOCTYPE a SYSTEM "http://a/"><a/>
 #resource http://a/
 <!ENTITY % s "">
-<!ENTITY % fuga "#FIXED%s;'ab'">
+<!ENTITY % fuga "#FIXED&#x25;s;'ab'">
 <!ATTLIST foo bar (ay|bay)%fuga;  >
 #errors
 #document
@@ -851,7 +851,7 @@
 #data
 <!DOCTYPE a SYSTEM "http://a/"><a/>
 #resource http://a/
-<!ENTITY % fuga "#FIXED%s;'ab'">
+<!ENTITY % fuga "#FIXED&#x25;s;'ab'">
 <!ATTLIST foo bar (ay|bay)%fuga;  >
 #errors
 [1]1;24;pe not declared;;s;;m
