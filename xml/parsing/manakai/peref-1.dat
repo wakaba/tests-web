@@ -14,7 +14,6 @@
 %abc
 ]><a/>
 #errors
-2;1;stop processing;;;i
 3;0;no refc;;;m
 #document
 | <!DOCTYPE a>
@@ -25,13 +24,11 @@
 %abc<!ENTITY abc "yy">
 ]><a x="&abc;"/>
 #errors
-2;1;stop processing;;;i
 2;5;no refc;;;m
-3;9;entity not declared;;abc;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
-|   x="&abc;"
+|   x="yy"
 
 #data
 <!DOCTYPE a [
@@ -39,7 +36,6 @@
 %abc%def;
 ]><a x="&abc;"/>
 #errors
-3;1;stop processing;;;i
 3;5;no refc;;;m
 4;9;entity not declared;;abc;;m
 #document

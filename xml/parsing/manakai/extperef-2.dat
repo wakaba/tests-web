@@ -1,0 +1,12 @@
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo "<?xml encoding='utf-8' ?><!ENTITY bar 'aa'>">
+  %foo;
+]>
+<a b="&bar;x"/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <?xml encoding='utf-8' ?>
+| <{} a>
+|   b="aax"
