@@ -19,3 +19,37 @@
 | <!DOCTYPE a "" "http://a/">
 |   <!NOTATION xy "" "aa">
 | <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % fuga "xy  SYSTEM">
+<!NOTATION %fuga;  "aa">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION xy "" "aa">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % bar ">">
+<!ENTITY % fuga "%bar;">
+<!NOTATION %fuga; SYSTEM "aa">
+#errors
+[1]1;17;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % bar "">
+<!NOTATION a SYSTEM "aa"%bar;>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION a "" "aa">
+| <{} a>

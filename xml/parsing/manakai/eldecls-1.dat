@@ -311,7 +311,6 @@
 2;16;string after md def;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b (x)>
 | <{} a>
 
 #data
@@ -322,7 +321,6 @@
 2;16;string after md def;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b (x)>
 | <{} a>
 
 #data
@@ -333,7 +331,6 @@
 2;17;string after md def;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b (x)>
 | <{} a>
 
 #data
@@ -404,7 +401,6 @@
 2;17;string after md def;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b (x)+>
 | <{} a>
 
 #data
@@ -605,7 +601,6 @@
 2;17;after element name;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b (x)>
 | <{} a>
 
 #data
@@ -616,7 +611,6 @@
 2;19;string after md def;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b (x)>
 | <{} a>
 
 #data
@@ -627,7 +621,6 @@
 2;18;string after md def;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b (x)>
 | <{} a>
 
 #data
@@ -638,7 +631,6 @@
 2;18;string after md def;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b (x)>
 | <{} a>
 
 #data
@@ -739,7 +731,86 @@
 2;20;unclosed cm group;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b ((((a, b))))>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+<!ELEMENT b ((((a  >
+]><a/>
+#errors
+2;20;unclosed cm group;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+<!ELEMENT b ((((a ,>
+]><a/>
+#errors
+2;20;unclosed cm group;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+<!ELEMENT b ((((ab+>
+]><a/>
+#errors
+2;20;unclosed cm group;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+<!ELEMENT b ((((a,(>
+]><a/>
+#errors
+2;20;unclosed cm group;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+<!ELEMENT b ((((a) >
+]><a/>
+#errors
+2;20;unclosed cm group;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+<!ELEMENT b ((((a))>
+]><a/>
+#errors
+2;20;unclosed cm group;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+<!ELEMENT b ((((a)+>
+]><a/>
+#errors
+2;20;unclosed cm group;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+<!ELEMENT b (((a)+ >
+]><a/>
+#errors
+2;20;unclosed cm group;;;m
+#document
+| <!DOCTYPE a>
 | <{} a>
 
 #data
@@ -750,7 +821,6 @@
 2;16;after element name;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b (x)>
 | <{} a>
 
 #data
