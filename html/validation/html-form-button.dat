@@ -1,0 +1,1565 @@
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"></button>
+#errors
+/button;no significant content;s
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml">  </button>
+#errors
+/button;no significant content;s
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml">xx</button>
+#errors
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"><br/></button>
+#errors
+/button;no significant content;s
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"><ins/></button>
+#errors
+/button/ins;no significant content;s
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"><em/></button>
+#errors
+/button/em;no significant content;s
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml">aa<span>bb</span></button>
+#errors
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"><p/></button>
+#errors
+/button/p;no significant content;s
+/button/p;element not allowed:phrasing;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"><video src="a"/></button>
+#errors
+/button/video;no significant content;s
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/>x</button>
+#errors
+/button/style;element not allowed:phrasing;m
+
+#data
+<em xmlns="http://www.w3.org/1999/xhtml"><button>x</button></em>
+#errors
+
+#data
+<em xmlns="http://www.w3.org/1999/xhtml"><button></button></em>
+#errors
+/em/button;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"><button>x</button></div>
+#errors
+
+#data
+<ins xmlns="http://www.w3.org/1999/xhtml"><button>x</button></ins>
+#errors
+
+#data
+<em xmlns="http://www.w3.org/1999/xhtml"><ins><button>x</button></ins></em>
+#errors
+
+#data
+<br xmlns="http://www.w3.org/1999/xhtml"><button>x</button></br>
+#errors
+/br/button;element not allowed:empty;m
+
+#data
+<title xmlns="http://www.w3.org/1999/xhtml"><button>x</button></title>
+#errors
+/title/button;element not allowed:text;m
+
+#data
+<em xmlns="http://www.w3.org/1999/xhtml"><button>x<nest/></button></em>
+#errors
+/em/button/nest;element not allowed:phrasing;m
+/em/button/nest;element not defined;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"><img src="b" alt="x"/></button>
+#errors
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"><span>x</span></button>
+#errors
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"><p>x</p></button>
+#errors
+/button/p;element not allowed:phrasing;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    type=""
+>x</button>
+#errors
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    type="text"
+>x</button>
+#errors
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    type="button"
+>x</button>
+#errors
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    type="submit"
+>x</button>
+#errors
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    type="reset"
+>x</button>
+#errors
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    type="add"
+>x</button>
+#errors
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    type="remove"
+>x</button>
+#errors
+/button/@type;enumerated:invalid;m
+
+#data
+<button type="delete" xmlns="http://www.w3.org/1999/xhtml">x</button>
+#errors
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    type="move-up"
+>x</button>
+#errors
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    type="move-down"
+>x</button>
+#errors
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    type="hidden"
+>x</button>
+#errors
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    type=" submit"
+>x</button>
+#errors
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    type="Submit"
+>x</button>
+#errors
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    type="RESET"
+>x</button>
+#errors
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    disabled=""
+>x</button>
+#errors
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    disabled="disabled"
+>x</button>
+#errors
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    disabled="DISABLED"
+>x</button>
+#errors
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    disabled="true"
+>x</button>
+#errors
+/button/@disabled;boolean:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    disabled="enabled"
+>x</button>
+#errors
+/button/@disabled;boolean:invalid;m
+
+#data escaped
+<button xmlns="http://www.w3.org/1999/xhtml"
+    disabled="d\u0130sabled"
+>x</button>
+#errors
+/button/@disabled;boolean:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    disabled="d\u0131sabled"
+>x</button>
+#errors
+/button/@disabled;boolean:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    autofocus=""
+>x</button>
+#errors
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    autofocus="autofocus"
+>x</button>
+#errors
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    autofocus="AutoFocus"
+>x</button>
+#errors
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    autofocus=" autofocus"
+>x</button>
+#errors
+/button/@autofocus;boolean:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+    autofocus="yes"
+>x</button>
+#errors
+/button/@autofocus;boolean:invalid;m
+
+#data
+<form xmlns="http://www.w3.org/1999/xhtml"><button
+    value=""
+>x</button></form>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    action=""
+>a</button>
+#errors
+/button/@action;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    action="http://www.w3.org/"
+>a</button>
+#errors
+/button/@action;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    action="test"
+>a</button>
+#errors
+/button/@action;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    action="#test"
+>a</button>
+#errors
+/button/@action;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    action="[]"
+>a</button>
+#errors
+/button/@action;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    method=""
+>a</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    method="get"
+>a</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    method="GET"
+>a</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    method="post"
+>a</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    method="POST"
+>a</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    method="put"
+>a</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    method="PUT"
+>a</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    method="delete"
+>a</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    method="DELETE"
+>a</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    method="GEt"
+>a</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    method="deleTE"
+>a</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    method="head"
+>a</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    method="m-get"
+>a</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    method="get "
+>a</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    method="getall"
+>a</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    method="push"
+>a</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    method="method"
+>a</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype=""
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype="application/x-www-form-urlencoded"
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype="APPLICATION/X-WWW-FORM-URLENCODED"
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype="Application/x-www-form-urlencoded"
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype="multipart/form-data"
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype="Multipart/Form-Data"
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype="text/plain"
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype="TEXT/plain"
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype="application/x-url-encoded"
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype="application/x-sgml-urlencoded"
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype="application/x-www-form-urlencoded; charset=utf-8"
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype=" text/plain "
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype="image/png"
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype="enctype"
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype="multipart/related"
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype="application/xml"
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype="text/xml"
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    enctype="text/html"
+>a</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    target=""
+>a</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    target="_blank"
+>a</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    target="_self"
+>a</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    target="_parent"
+>a</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    target="_top"
+>a</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    target="new"
+>a</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    target="result"
+>a</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    target="_BLANK"
+>a</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    target="_SElf"
+>a</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    target="_new"
+>a</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    target="_blank "
+>a</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    target="_new window"
+>a</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    target="new window"
+>a</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    target="_content"
+>a</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    target="_replace"
+>a</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    target="_search"
+>a</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    novalidate=""
+>a</button>
+#errors
+/button/@novalidate;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    novalidate="novalidate"
+>a</button>
+#errors
+/button/@novalidate;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    novalidate="NoValidate"
+>a</button>
+#errors
+/button/@novalidate;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    novalidate="yes"
+>a</button>
+#errors
+/button/@novalidate;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    novalidate="no validate"
+>a</button>
+#errors
+/button/@novalidate;attribute not defined;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formaction=""
+>a</button>
+#errors
+/button/@formaction;url:empty;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formaction="http://www.w3.org/"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formaction="test"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formaction="#test"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formaction="[]"
+>a</button>
+#errors
+/button/@formaction;syntax error:iriref3987;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod=""
+>a</button>
+#errors
+/button/@formmethod;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="get"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="GET"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="post"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="POST"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="put"
+>a</button>
+#errors
+/button/@formmethod;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="PUT"
+>a</button>
+#errors
+/button/@formmethod;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="delete"
+>a</button>
+#errors
+/button/@formmethod;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="DELETE"
+>a</button>
+#errors
+/button/@formmethod;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="GEt"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="deleTE"
+>a</button>
+#errors
+/button/@formmethod;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="head"
+>a</button>
+#errors
+/button/@formmethod;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="m-get"
+>a</button>
+#errors
+/button/@formmethod;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="get "
+>a</button>
+#errors
+/button/@formmethod;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="getall"
+>a</button>
+#errors
+/button/@formmethod;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="push"
+>a</button>
+#errors
+/button/@formmethod;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="formmethod"
+>a</button>
+#errors
+/button/@formmethod;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="dialog"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="DIALOG"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formmethod="dialogue"
+>a</button>
+#errors
+/button/@formmethod;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype=""
+>a</button>
+#errors
+/button/@formenctype;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="application/x-www-form-urlencoded"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="APPLICATION/X-WWW-FORM-URLENCODED"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="Application/x-www-form-urlencoded"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="multipart/form-data"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="Multipart/Form-Data"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="text/plain"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="TEXT/plain"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="application/x-url-encoded"
+>a</button>
+#errors
+/button/@formenctype;enumerated:invalid;m
+
+#data escaped
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="text/pla\u0130n"
+>a</button>
+#errors
+/button/@formenctype;enumerated:invalid;m
+
+#data escaped
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="text/pla\u0131n"
+>a</button>
+#errors
+/button/@formenctype;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="application/x-sgml-urlencoded"
+>a</button>
+#errors
+/button/@formenctype;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="application/x-www-form-urlencoded; charset=utf-8"
+>a</button>
+#errors
+/button/@formenctype;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype=" text/plain "
+>a</button>
+#errors
+/button/@formenctype;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="image/png"
+>a</button>
+#errors
+/button/@formenctype;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="formenctype"
+>a</button>
+#errors
+/button/@formenctype;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="multipart/related"
+>a</button>
+#errors
+/button/@formenctype;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="application/xml"
+>a</button>
+#errors
+/button/@formenctype;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="text/xml"
+>a</button>
+#errors
+/button/@formenctype;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formenctype="text/html"
+>a</button>
+#errors
+/button/@formenctype;enumerated:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formtarget=""
+>a</button>
+#errors
+/button/@formtarget;window name:empty;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formtarget="_blank"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formtarget="_self"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formtarget="_parent"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formtarget="_top"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formtarget="new"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formtarget="result"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formtarget="_BLANK"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formtarget="_SElf"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formtarget="_new"
+>a</button>
+#errors
+/button/@formtarget;window name:reserved;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formtarget="_blank "
+>a</button>
+#errors
+/button/@formtarget;window name:reserved;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formtarget="_new window"
+>a</button>
+#errors
+/button/@formtarget;window name:reserved;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formtarget="new window"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formtarget="_content"
+>a</button>
+#errors
+/button/@formtarget;window name:reserved;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formtarget="_replace"
+>a</button>
+#errors
+/button/@formtarget;window name:reserved;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formtarget="_search"
+>a</button>
+#errors
+/button/@formtarget;window name:reserved;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formnovalidate=""
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formnovalidate="formnovalidate"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formnovalidate="Formnovalidate"
+>a</button>
+#errors
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formnovalidate="yes"
+>a</button>
+#errors
+/button/@formnovalidate;boolean:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formnovalidate="novalidate"
+>a</button>
+#errors
+/button/@formnovalidate;boolean:invalid;m
+
+#data
+<button type="submit" xmlns="http://www.w3.org/1999/xhtml"
+    formnovalidate="no validate"
+>a</button>
+#errors
+/button/@formnovalidate;boolean:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml">
+  aaa
+  <input/>
+</button>
+#errors
+/button/input;element not allowed:minus;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml">
+  aaa
+  <input type="hidden"/>
+</button>
+#errors
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml">
+  aaa
+  <a href="">bbb</a>
+</button>
+#errors
+/button/a;element not allowed:minus;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="reset"
+  formaction=""
+>x</button>
+#errors
+/button/@formaction;attribute not allowed;m
+/button/@formaction;url:empty;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="reset"
+  formenctype="application/x-www-form-urlencoded"
+>x</button>
+#errors
+/button/@formenctype;attribute not allowed;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="reset"
+  formmethod="get"
+>x</button>
+#errors
+/button/@formmethod;attribute not allowed;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="reset"
+  formtarget="_blank"
+>x</button>
+#errors
+/button/@formtarget;attribute not allowed;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="reset"
+  formnovalidate=""
+>x</button>
+#errors
+/button/@formnovalidate;attribute not allowed;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="reset"
+  action=""
+>x</button>
+#errors
+/button/@action;attribute not defined;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="reset"
+  enctype="application/x-www-form-urlencoded"
+>x</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="reset"
+  method="get"
+>x</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="reset"
+  target="_blank"
+>x</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="button"
+  formaction=""
+>x</button>
+#errors
+/button/@formaction;attribute not allowed;m
+/button/@formaction;url:empty;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="button"
+  formenctype="application/x-www-form-urlencoded"
+>x</button>
+#errors
+/button/@formenctype;attribute not allowed;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="button"
+  formmethod="get"
+>x</button>
+#errors
+/button/@formmethod;attribute not allowed;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="button"
+  formtarget="_blank"
+>x</button>
+#errors
+/button/@formtarget;attribute not allowed;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="button"
+  formnovalidate=""
+>x</button>
+#errors
+/button/@formnovalidate;attribute not allowed;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="button"
+  action=""
+>x</button>
+#errors
+/button/@action;attribute not defined;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="button"
+  enctype="application/x-www-form-urlencoded"
+>x</button>
+#errors
+/button/@enctype;attribute not defined;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="button"
+  method="get"
+>x</button>
+#errors
+/button/@method;attribute not defined;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="button"
+  target="_blank"
+>x</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="xyz"
+  formaction=""
+>x</button>
+#errors
+/button/@type;enumerated:invalid;m
+/button/@formaction;url:empty;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="xyz"
+  formenctype="application/x-www-form-urlencoded"
+>x</button>
+#errors
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="xyz"
+  formmethod="get"
+>x</button>
+#errors
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="xyz"
+  formtarget="_blank"
+>x</button>
+#errors
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="xyz"
+  formnovalidate=""
+>x</button>
+#errors
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="BUTTON"
+  target="_blank"
+>x</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="ReSet"
+  target="_blank"
+>x</button>
+#errors
+/button/@target;attribute not defined;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="Add"
+  target="_blank"
+>x</button>
+#errors
+/button/@target;attribute not defined;m
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="submit"
+  template="a"
+>x</button>
+#errors
+/button/@template;attribute not defined;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="Submit"
+  template="a"
+>x</button>
+#errors
+/button/@template;attribute not defined;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="add?"
+  template="a"
+>x</button>
+#errors
+/button/@template;attribute not defined;m
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="button"
+  template="a"
+>x</button>
+#errors
+/button/@template;attribute not defined;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="reset"
+  template="a"
+>x</button>
+#errors
+/button/@template;attribute not defined;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="move-up"
+  template="a"
+>x</button>
+#errors
+/button/@template;attribute not defined;m
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="move-down"
+  template="a"
+>x</button>
+#errors
+/button/@template;attribute not defined;m
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="remove"
+  template="a"
+>x</button>
+#errors
+/button/@template;attribute not defined;m
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="delete"
+  template="a"
+>x</button>
+#errors
+/button/@template;attribute not defined;m
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="add"
+  template="a"
+>x</button>
+#errors
+/button/@template;attribute not defined;m
+/button/@type;enumerated:invalid;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml"
+  type="add"
+  template="a"
+><span repeat="template" id="a">x</span></button>
+#errors
+/button/@template;attribute not defined;m
+/button/@type;enumerated:invalid;m
+/button/span/@repeat;attribute not defined;m
+
+#data
+<button type="menu" xmlns="http://www.w3.org/1999/xhtml">a</button>
+#errors
+/button;attribute missing;menu;m
+
+#data
+<button type="MeNU" menu="" xmlns="http://www.w3.org/1999/xhtml">a</button>
+#errors
+/button/@menu;no referenced menu;m
+
+#data
+<button type="MeNU" menu="abc" xmlns="http://www.w3.org/1999/xhtml">a</button>
+#errors
+/button/@menu;no referenced menu;m
+
+#data
+<button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><span id="foo">a</span></button>
+#errors
+/button/@menu;no referenced menu;m
+
+#data
+<button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><menu id="foo">a</menu></button>
+#errors
+/button/@menu;no referenced menu;m
+/button/menu;element not allowed:phrasing;m
+
+#data
+<button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><menu id="foo" type="toolbar">a</menu></button>
+#errors
+/button/@menu;no referenced menu;m
+/button/menu;element not allowed:phrasing;m
+
+#data
+<button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><menu id="foo" type="popup"></menu>x</button>
+#errors
+/button/menu;element not allowed:phrasing;m
+
+#data
+<button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><menu type="popup"><menu id="foo"></menu></menu>x</button>
+#errors
+/button/menu;element not allowed:phrasing;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <menu type="popup" id="ab cd"></menu>
+  <button type="menu" menu="ab cd">a</button>
+</div>
+#errors
+/div/menu/@id;space in ID;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <menu type="popup" id="abcd"></menu>
+  <menu type="popup" id="abcd"></menu>
+  <button type="menu" menu="abcd">a</button>
+</div>
+#errors
+/div/menu/@id;duplicate ID;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <menu id="abcd"></menu>
+  <menu type="popup" id="abcd"></menu>
+  <button type="menu" menu="abcd">a</button>
+</div>
+#errors
+/div/menu/@id;duplicate ID;m
+/div/button/@menu;no referenced menu;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <menu type="popup" id="abcd"></menu>
+  <button type="button" menu="abcd">a</button>
+</div>
+#errors
+/div/button/@menu;attribute not allowed;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <menu type="popup" id="abcd"></menu>
+  <button type="submit" menu="abcd">a</button>
+</div>
+#errors
+/div/button/@menu;attribute not allowed;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <menu type="popup" id="abcd"></menu>
+  <button type="Reset" menu="abcd">a</button>
+</div>
+#errors
+/div/button/@menu;attribute not allowed;m

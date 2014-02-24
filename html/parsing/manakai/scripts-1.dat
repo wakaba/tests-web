@@ -1,0 +1,47 @@
+#data
+<!DOCTYPE html>
+<script>
+<!--
+<
+<script>
+</script>
+x
+#errors
+7:1:eof in escaped script data
+7:1:not closed:script
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "
+| <!--
+| <
+| <script>
+| </script>
+| x"
+|   <body>
+
+#data
+<!DOCTYPE html>
+<script>
+<i--
+<
+<script>
+</script>
+x
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <script>
+|       "
+| <i--
+| <
+| <script>
+| "
+|     "
+| "
+|   <body>
+|     "x"

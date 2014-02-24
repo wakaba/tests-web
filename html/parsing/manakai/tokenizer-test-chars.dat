@@ -1,6 +1,10 @@
 #data escaped
 \uD800\uD801\uDFF0\uDFFF
 #errors
+surrogate
+surrogate
+surrogate
+surrogate
 no DOCTYPE
 #document escaped
 | <html>
@@ -12,6 +16,10 @@ no DOCTYPE
 <p>aaa\uD800\uD801\uDFF0\uDFFF
 #errors
 no DOCTYPE
+surrogate
+surrogate
+surrogate
+surrogate
 #document escaped
 | <html>
 |   <head>
@@ -619,6 +627,7 @@ no DOCTYPE
 <span> in table
 NULL (tokenizer)
 NULL
+text in table
 </span> in table
 #document escaped
 | <html>
@@ -1542,6 +1551,7 @@ U+009F
 #data escaped
 <!DOCTYPE html>a\uD801b
 #errors
+surrogate
 #document escaped
 | <!DOCTYPE html>
 | <html>

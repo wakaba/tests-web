@@ -1,0 +1,1155 @@
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"></textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml">  </textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml">xxxx</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"><em>a</em></textarea>
+#errors
+/textarea/em;element not allowed:text;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"><title>x</title></textarea>
+#errors
+/textarea/title;element not allowed:text;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml">aa<br/>bb</textarea>
+#errors
+/textarea/br;element not allowed:text;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"><nest/></textarea>
+#errors
+/textarea/nest;element not allowed:text;m
+/textarea/nest;element not defined;m
+
+#data
+<em xmlns="http://www.w3.org/1999/xhtml"><textarea/></em>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"><textarea/></p>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"><textarea/></div>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    pattern="">x</textarea>
+#errors
+/textarea/@pattern;attribute not defined;m
+/textarea;attribute missing;title;s
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    pattern="" title="empty">x</textarea>
+#errors
+/textarea/@pattern;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    autofocus=""
+>a</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    autofocus="autofocus"
+>a</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    autofocus="AUTOfocus"
+>a</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    autofocus="auto"
+>a</textarea>
+#errors
+/textarea/@autofocus;boolean:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    autofocus="no"
+>a</textarea>
+#errors
+/textarea/@autofocus;boolean:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    readonly=""
+>a</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    readonly="ReadOnly"
+>a</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    readonly="readonly"
+>a</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    readonly="yes"
+>a</textarea>
+#errors
+/textarea/@readonly;boolean:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    cols=""
+>a</textarea>
+#errors
+/textarea/@cols;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    cols="0"
+>a</textarea>
+#errors
+/textarea/@cols;nninteger:zero;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    cols="1"
+>a</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    cols="000020"
+>a</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    cols="10.0"
+>a</textarea>
+#errors
+/textarea/@cols;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    cols="+10"
+>a</textarea>
+#errors
+/textarea/@cols;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    cols="-100"
+>a</textarea>
+#errors
+/textarea/@cols;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    cols="auto"
+>a</textarea>
+#errors
+/textarea/@cols;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    rows=""
+>a</textarea>
+#errors
+/textarea/@rows;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    rows="0"
+>a</textarea>
+#errors
+/textarea/@rows;nninteger:zero;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    rows="1"
+>a</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    rows="000020"
+>a</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    rows="10.0"
+>a</textarea>
+#errors
+/textarea/@rows;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    rows="+10"
+>a</textarea>
+#errors
+/textarea/@rows;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    rows="-0"
+>a</textarea>
+#errors
+/textarea/@rows;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    rows="+0"
+>a</textarea>
+#errors
+/textarea/@rows;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    rows="-100"
+>a</textarea>
+#errors
+/textarea/@rows;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    rows="auto"
+>a</textarea>
+#errors
+/textarea/@rows;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    wrap=""
+>a</textarea>
+#errors
+/textarea/@wrap;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    wrap="soft"
+>a</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    wrap="hard"
+>a</textarea>
+#errors
+/textarea;attribute missing;cols;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    wrap="Soft"
+>a</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    wrap="Hard"
+>a</textarea>
+#errors
+/textarea;attribute missing;cols;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    wrap="SOFT"
+>a</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    wrap="HARD"
+>a</textarea>
+#errors
+/textarea;attribute missing;cols;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    wrap="on"
+>a</textarea>
+#errors
+/textarea/@wrap;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    wrap="off"
+>a</textarea>
+#errors
+/textarea/@wrap;enumerated:non-conforming;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    wrap="physical"
+>a</textarea>
+#errors
+/textarea/@wrap;enumerated:non-conforming;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    wrap="virtual"
+>a</textarea>
+#errors
+/textarea/@wrap;enumerated:non-conforming;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    wrap="logical"
+>a</textarea>
+#errors
+/textarea/@wrap;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    wrap="software"
+>a</textarea>
+#errors
+/textarea/@wrap;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    wrap="wrap"
+>a</textarea>
+#errors
+/textarea/@wrap;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    wrap="hard" cols="1"
+>a</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    maxlength=""
+></textarea>
+#errors
+/textarea/@maxlength;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    maxlength="0"
+></textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    maxlength="1"
+></textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    maxlength="+0"
+></textarea>
+#errors
+/textarea/@maxlength;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    maxlength="-0"
+></textarea>
+#errors
+/textarea/@maxlength;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    maxlength="-100"
+></textarea>
+#errors
+/textarea/@maxlength;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    maxlength="10.0"
+></textarea>
+#errors
+/textarea/@maxlength;nninteger:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    maxlength="10"
+>1234567890</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    maxlength="6"
+>1234567890</textarea>
+#errors
+/textarea;value too long;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    required=""
+>1234567890</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    required="required"
+>1234567890</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    required="RequiRED"
+>1234567890</textarea>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    required="yes"
+>1234567890</textarea>
+#errors
+/textarea/@required;boolean:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    pattern=""
+>1234567890</textarea>
+#errors
+/textarea/@pattern;attribute not defined;m
+/textarea;attribute missing;title;s
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    pattern="(?!x)" title="x"
+>1234567890</textarea>
+#errors
+/textarea/@pattern;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    placeholder=""/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    placeholder="xxx"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    placeholder="&#xa;"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    placeholder="&#xd;"/>
+#errors
+/textarea/@placeholder;U+000D not serializable;w
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    accept="">a</textarea>
+#errors
+/textarea/@accept;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    accept="text/html">a</textarea>
+#errors
+/textarea/@accept;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    accept="image/svg+xml">a</textarea>
+#errors
+/textarea/@accept;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    accept="text/plain; charset=us-ascii">a</textarea>
+#errors
+/textarea/@accept;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    accept="text/plain; a=b">a</textarea>
+#errors
+/textarea/@accept;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    accept="application/octet-stream">a</textarea>
+#errors
+/textarea/@accept;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    accept-charset=""/>
+#errors
+/textarea/@accept-charset;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    accept-charset="   "/>
+#errors
+/textarea/@accept-charset;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    accept-charset="x-euc-jp"/>
+#errors
+/textarea/@accept-charset;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    accept-charset="us-ascii iso-2022-jp"/>
+#errors
+/textarea/@accept-charset;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    autocapitalize=""/>
+#errors
+/textarea/@autocapitalize;attribute not defined;m
+/textarea/@autocapitalize;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    autocapitalize="true"/>
+#errors
+/textarea/@autocapitalize;attribute not defined;m
+/textarea/@autocapitalize;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    autocapitalize="on"/>
+#errors
+/textarea/@autocapitalize;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    autocapitalize="off"/>
+#errors
+/textarea/@autocapitalize;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    autocapitalize="yes"/>
+#errors
+/textarea/@autocapitalize;attribute not defined;m
+/textarea/@autocapitalize;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    autocapitalize="autocapitalize"/>
+#errors
+/textarea/@autocapitalize;attribute not defined;m
+/textarea/@autocapitalize;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    autocorrect=""/>
+#errors
+/textarea/@autocorrect;attribute not defined;m
+/textarea/@autocorrect;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    autocorrect="true"/>
+#errors
+/textarea/@autocorrect;attribute not defined;m
+/textarea/@autocorrect;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    autocorrect="on"/>
+#errors
+/textarea/@autocorrect;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    autocorrect="off"/>
+#errors
+/textarea/@autocorrect;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    autocorrect="yes"/>
+#errors
+/textarea/@autocorrect;attribute not defined;m
+/textarea/@autocorrect;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    autocorrect="autocorrect"/>
+#errors
+/textarea/@autocorrect;attribute not defined;m
+/textarea/@autocorrect;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    emptyok=""/>
+#errors
+/textarea/@emptyok;attribute not defined;m
+/textarea/@emptyok;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    emptyok="true"/>
+#errors
+/textarea/@emptyok;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    emptyok="false"/>
+#errors
+/textarea/@emptyok;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    emptyok="on"/>
+#errors
+/textarea/@emptyok;attribute not defined;m
+/textarea/@emptyok;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    emptyok="off"/>
+#errors
+/textarea/@emptyok;attribute not defined;m
+/textarea/@emptyok;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    emptyok="yes"/>
+#errors
+/textarea/@emptyok;attribute not defined;m
+/textarea/@emptyok;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    emptyok="emptyok"/>
+#errors
+/textarea/@emptyok;attribute not defined;m
+/textarea/@emptyok;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format=""/>
+#errors
+/textarea/@format;attribute not defined;m
+/textarea/@format;format:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="abc"/>
+#errors
+/textarea/@format;attribute not defined;m
+/textarea/@format;format:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="A"/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="a"/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="N"/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="n"/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="X"/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="x"/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="M"/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="m"/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="\-"/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="*A"/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="*n"/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="10X"/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="00010m"/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="*"/>
+#errors
+/textarea/@format;attribute not defined;m
+/textarea/@format;format:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="100"/>
+#errors
+/textarea/@format;attribute not defined;m
+/textarea/@format;format:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="10.0m"/>
+#errors
+/textarea/@format;attribute not defined;m
+/textarea/@format;format:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format=" m "/>
+#errors
+/textarea/@format;attribute not defined;m
+/textarea/@format;format:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="auto"/>
+#errors
+/textarea/@format;attribute not defined;m
+/textarea/@format;format:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="kana"/>
+#errors
+/textarea/@format;attribute not defined;m
+/textarea/@format;format:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="aaaA"/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="NNN\-3N"/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="\"/>
+#errors
+/textarea/@format;attribute not defined;m
+/textarea/@format;format:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="\\"/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="10c"/>
+#errors
+/textarea/@format;attribute not defined;m
+/textarea/@format;format:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="\(\-\)"/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="\ "/>
+#errors
+/textarea/@format;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    format="*40m"/>
+#errors
+/textarea/@format;attribute not defined;m
+/textarea/@format;format:syntax error;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode=""/>
+#errors
+/textarea/@inputmode;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="latin"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="latin KANA"/>
+#errors
+/textarea/@inputmode;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="http://foo.example/"/>
+#errors
+/textarea/@inputmode;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="http://foo.example/ test"/>
+#errors
+/textarea/@inputmode;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="[]"/>
+#errors
+/textarea/@inputmode;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="0123"/>
+#errors
+/textarea/@inputmode;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="latin latin"/>
+#errors
+/textarea/@inputmode;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="[] [a]"/>
+#errors
+/textarea/@inputmode;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="latin-name"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="LATIN-PROSE"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="full-wiDth-latin"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="KANA"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="katakana"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="numeric"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="tel"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="email"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    inputmode="url"/>
+#errors
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    iprof=""/>
+#errors
+/textarea/@iprof;attribute not defined;m
+/textarea/@iprof;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    iprof="kana"/>
+#errors
+/textarea/@iprof;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    iprof="TEL1"/>
+#errors
+/textarea/@iprof;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    iprof="auto"/>
+#errors
+/textarea/@iprof;attribute not defined;m
+/textarea/@iprof;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    iprof="address"/>
+#errors
+/textarea/@iprof;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    iprof="name2"/>
+#errors
+/textarea/@iprof;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    iprof="birthday"/>
+#errors
+/textarea/@iprof;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    iprof="zip"/>
+#errors
+/textarea/@iprof;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    istyle=""/>
+#errors
+/textarea/@istyle;attribute not defined;m
+/textarea/@istyle;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    istyle="1"/>
+#errors
+/textarea/@istyle;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    istyle="2"/>
+#errors
+/textarea/@istyle;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    istyle="3"/>
+#errors
+/textarea/@istyle;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    istyle="4"/>
+#errors
+/textarea/@istyle;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    istyle="0"/>
+#errors
+/textarea/@istyle;attribute not defined;m
+/textarea/@istyle;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    istyle="5"/>
+#errors
+/textarea/@istyle;attribute not defined;m
+/textarea/@istyle;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    istyle="3.0"/>
+#errors
+/textarea/@istyle;attribute not defined;m
+/textarea/@istyle;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    istyle="+1"/>
+#errors
+/textarea/@istyle;attribute not defined;m
+/textarea/@istyle;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    istyle="-3"/>
+#errors
+/textarea/@istyle;attribute not defined;m
+/textarea/@istyle;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    istyle="auto"/>
+#errors
+/textarea/@istyle;attribute not defined;m
+/textarea/@istyle;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    istyle="01"/>
+#errors
+/textarea/@istyle;attribute not defined;m
+/textarea/@istyle;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    istyle="kana"/>
+#errors
+/textarea/@istyle;attribute not defined;m
+/textarea/@istyle;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    mode=""/>
+#errors
+/textarea/@mode;attribute not defined;m
+/textarea/@mode;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    mode="hiragana"/>
+#errors
+/textarea/@mode;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    mode="Katakana"/>
+#errors
+/textarea/@mode;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    mode="HankakuKana"/>
+#errors
+/textarea/@mode;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    mode="numeric"/>
+#errors
+/textarea/@mode;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    mode="alphabet"/>
+#errors
+/textarea/@mode;attribute not defined;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    mode="kana"/>
+#errors
+/textarea/@mode;attribute not defined;m
+/textarea/@mode;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    mode="hankakukatakana"/>
+#errors
+/textarea/@mode;attribute not defined;m
+/textarea/@mode;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    mode="number"/>
+#errors
+/textarea/@mode;attribute not defined;m
+/textarea/@mode;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    mode="latin"/>
+#errors
+/textarea/@mode;attribute not defined;m
+/textarea/@mode;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    mode="auto"/>
+#errors
+/textarea/@mode;attribute not defined;m
+/textarea/@mode;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    mode="1"/>
+#errors
+/textarea/@mode;attribute not defined;m
+/textarea/@mode;enumerated:invalid;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    dirname=""/>
+#errors
+/textarea/@dirname;empty attribute value;m
+
+#data
+<textarea xmlns="http://www.w3.org/1999/xhtml"
+    dirname="abc"/>
+#errors

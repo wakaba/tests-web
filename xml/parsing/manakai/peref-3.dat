@@ -1,0 +1,221 @@
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo; "bcc">
+#resource http://b/
+fuga
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="bccd"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo;fuga "bcc">
+#resource http://b/
+<?xml encoding="utf-8"?>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="bccd"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo; "bcc">
+#resource http://b/
+<?xml encoding="utf-8"?>fuga
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="bccd"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo; "bcc">
+#resource http://b/
+<?xml encoding="utf-8"?>
+fuga
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="bccd"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo; "bcc">
+#resource http://b/
+<?hogfe?>fuga
+#errors
+[2]1;10;pi in pe in decl;;;m
+1;38;entity not declared;;fuga;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="&fuga;d"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo; "bcc">
+#resource http://b/
+<?hogfe?>
+#errors
+[2]1;10;pi in pe in decl;;;m
+1;38;entity not declared;;fuga;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="&fuga;d"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo; "bcc">
+#resource http://b/
+<?hogfe?
+#errors
+[2]1;8;no s after target;;;m
+[2]1;9;no pic;;;m
+1;38;entity not declared;;fuga;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="&fuga;d"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo; "bcc">
+#resource http://b/
+<?hogfe
+#errors
+[2]1;8;no pic;;;m
+1;38;entity not declared;;fuga;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="&fuga;d"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo; "bcc">
+#resource http://b/
+<?hogfe  
+#errors
+[2]1;10;no pic;;;m
+1;38;entity not declared;;fuga;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="&fuga;d"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo; "bcc">
+#resource http://b/
+<?hogfe???
+#errors
+[2]1;8;no s after target;;;m
+[2]1;11;no pic;;;m
+1;38;entity not declared;;fuga;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="&fuga;d"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo; "bcc">
+#resource http://b/
+<?
+#errors
+[2]1;1;bare pio;;;m
+1;38;entity not declared;;fuga;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="&fuga;d"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo; "bcc">
+#resource http://b/
+<
+#errors
+[2]1;1;bare stago;;;m
+1;38;entity not declared;;fuga;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="&fuga;d"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo; "bcc">
+#resource http://b/
+  <?xml encoding="utf-8"?>
+fuga
+#errors
+[2]1;9;string after DOCTYPE name;;;m
+[2]1;26;mdc in pe in md;;;m
+1;38;entity not declared;;fuga;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="&fuga;d"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo; "bcc">
+#resource http://b/
+  <?xml?>
+#errors
+[2]1;9;mdc in pe in md;;;m
+1;38;entity not declared;;fuga;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="&fuga;d"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo; "bcc">
+#resource http://b/
+<? aaa>hoge
+#errors
+[2]1;1;bare pio;;;m
+1;38;entity not declared;;fuga;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   x="&fuga;d"

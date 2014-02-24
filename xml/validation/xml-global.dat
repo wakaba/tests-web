@@ -1,0 +1,170 @@
+#data
+<p xml:space="default" xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+
+#data
+<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+
+#data
+<p xml:space=" default" xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+/p/@space;invalid attribute value;m
+
+#data
+<p xml:space="DEfault" xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+/p/@space;invalid attribute value;m
+
+#data
+<p xml:space="normal" xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+/p/@space;invalid attribute value;m
+
+#data
+<p xml:lang="" xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+
+#data
+<p xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+
+#data
+<p xml:lang="ja-JP" xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+
+#data
+<p xmlns:xml="http://www.w3.org/XML/1998/namespace"
+    xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+
+#data
+<p xmlns:a="http://www.example.org/"
+    xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+
+#data
+<xmlns:a/>
+#errors
+/a;Reserved Prefixes and Namespace Names:<xmlns:>;m
+/a;element not defined;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">foo
+  <xmlns:a/>
+</p>
+#errors
+/p/a;Reserved Prefixes and Namespace Names:<xmlns:>;m
+/p/a;element not defined;m
+/p/a;element not allowed:phrasing;m
+
+#data
+<xmlns/>
+#errors
+/xmlns;unknown namespace element;w
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml" xml:base="">x</p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml" xml:base="http://test/">x</p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml" xml:base="test">x</p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml" xml:base="&#x4E00;">x</p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml" xml:id="aa">x</p>
+#errors
+/p/@id;attribute not defined;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml" xml:id="aa" id="bb">x</p>
+#errors
+/p/@id;attribute not defined;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml" xml:id="aa">
+  <span id="bb">x</span>
+</p>
+#errors
+/p/@id;attribute not defined;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml" xml:id="aa">
+  <span id="aa">x</span>
+</p>
+#errors
+/p/@id;attribute not defined;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml" id="aa">
+  <span xml:id="aa">x</span>
+</p>
+#errors
+/p/span/@id;attribute not defined;m
+
+#data html
+<!DOCTYPE html>
+<title>aa</title>
+<p xml:id=aa>a
+<p id=aa>b
+#errors
+/html;attribute missing;lang;w
+/html/body/p/@xml:id;attribute not defined;m
+
+#data html
+<!DOCTYPE HTML>
+<title>xxx</title>
+<svg xml:lang="ja"/>
+#errors
+/html;attribute missing;lang;w
+/html/body/svg;unknown element;u
+
+#data
+<p xml:foo="bar"/>
+#errors
+/p;unknown namespace element;w
+/p/@foo;attribute not defined;m
+
+#data
+<hpoge xml:id=""/>
+#errors
+/hpoge;unknown namespace element;w
+/hpoge/@id;attribute not defined;m
+
+#data
+<foo data-hoge="aa"/>
+#errors
+/foo;unknown namespace element;w
+
+#data
+<hoge xml:lang=""/>
+#errors
+/hoge;unknown namespace element;w
+
+#data
+<hoge xml:lang="!?"/>
+#errors
+/hoge;unknown namespace element;w
+/hoge/@lang;langtag:language:syntax;m
+/hoge/@lang;langtag:language:invalid;m
+
+#data
+<hoge xml:lang="fuga"/>
+#errors
+/hoge;unknown namespace element;w
+/hoge/@lang;langtag:language:invalid;m
+
+#data
+<hoge xml:lang="EN-jp"/>
+#errors
+/hoge;unknown namespace element;w
+/hoge/@lang;langtag:language:case;s
+/hoge/@lang;langtag:region:case;s

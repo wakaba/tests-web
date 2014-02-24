@@ -1,0 +1,30 @@
+#data
+<!DOCTYPE a[
+  <!ENTITY foo "&#x26;#x26;">
+]><a>&foo;x</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "&x"
+
+#data
+<!DOCTYPE a[
+  <!ENTITY amp "&#x26;#x26;">
+]><a>&amp;x</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "&x"
+
+#data
+<!DOCTYPE a[
+  <!ENTITY amp "&#x26;#x26;x">
+]><a>&amp;x</a>
+#errors
+2;3;bad predefined entity decl;;amp;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "&x"

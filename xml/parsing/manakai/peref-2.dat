@@ -1,0 +1,147 @@
+#data
+<!DOCTYPE a [
+  <!ENTITY % hoge "
+    <!ENTITY foo 'hoge foo'>
+  ">
+]><a>b&foo;c</a>
+#errors
+5;7;entity not declared;;foo;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "b&foo;c"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % hoge "
+    <!ENTITY foo 'hoge foo'>
+  ">
+  %hoge;
+]><a>b&foo;c</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "bhoge fooc"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % hoge "
+    <!ENTITY foo 'hoge <p>foo</p>'>
+  ">
+  %hoge;
+]><a>b&foo;c</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "bhoge "
+|   <{} p>
+|     "foo"
+|   "c"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % hoge "
+    <!ENTITY foo 'hoge <p>foo'>
+  ">
+  %hoge;
+]><a>b&foo;c</a>
+#errors
+2;30;in body:#eof;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "bhoge "
+|   <{} p>
+|     "foo"
+|   "c"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % hoge "
+    <!ENTITY foo 'hoge <p>foo
+  ">
+  %hoge;
+]><a>b&foo;c</a>
+#errors
+4;3;unclosed entity value;;;m
+6;7;entity not declared;;foo;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "b&foo;c"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % hoge "
+    &#x25;hoge;
+    <!ENTITY foo 'hoge <p>foo</p>'>
+  ">
+  %hoge;
+]><a>b&foo;c</a>
+#errors
+3;5;WFC:No Recursion;;%hoge;;m
+3;5;stop processing;;;i
+7;7;entity not declared;;foo;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "b&foo;c"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % hoge "
+    &#x25;fuga;
+    <!ENTITY foo 'hoge <p>foo</p>'>
+  ">
+  <!ENTITY % fuga "&#x25;hoge;">
+  %hoge;
+]><a>b&foo;c</a>
+#errors
+6;20;WFC:No Recursion;;%hoge;;m
+6;20;stop processing;;;i
+8;7;entity not declared;;foo;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "b&foo;c"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % hoge SYSTEM "http://hoge/">
+  <!ENTITY % fuga "&#x25;hoge;">
+  %hoge;
+]><a>b&foo;c</a>
+#resource http://hoge/
+    %fuga;
+    <!ENTITY foo 'hoge <p>foo</p>'>
+#errors
+3;20;WFC:No Recursion;;%hoge;;m
+3;20;stop processing;;;i
+5;7;entity not declared;;foo;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "b&foo;c"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % hoge SYSTEM "http://hoge/">
+  <!ENTITY % fuga "&#x25;hoge;">
+  %hoge;
+]><a>b&foo;c</a>
+#resource http://hoge/
+<!ENTITY % abc SYSTEM "http://abc/">
+%abc;
+#resource http://abc/
+    %fuga;
+    <!ENTITY foo 'hoge <p>foo</p>'>
+#errors
+3;20;WFC:No Recursion;;%hoge;;m
+3;20;stop processing;;;i
+5;7;entity not declared;;foo;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "b&foo;c"

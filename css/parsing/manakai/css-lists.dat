@@ -1,0 +1,379 @@
+#data
+p{list-style-type: none}
+#cssom
+| <p>
+|   list-style-type: none
+
+#data
+p{list-style-type: CJK-ideographic}
+#cssom
+| <p>
+|   list-style-type: cjk-ideographic
+
+#data
+p{list-style-type: disc}
+#cssom
+| <p>
+|   list-style-type: disc
+
+#data
+p{list-style-type: armenian}
+#cssom
+| <p>
+|   list-style-type: armenian
+
+#data
+p{list-style-type: ethiopic-numeric}
+#cssom
+| <p>
+|   list-style-type: ethiopic-numeric
+
+#data
+p {
+  list-style-type: hebrew;
+}
+#cssom
+| <p>
+|   list-style-type: hebrew
+
+#data
+p {
+  list-style-type: CJK-ideographic
+}
+#cssom
+| <p>
+|   list-style-type: cjk-ideographic
+
+#data
+p {
+  list-style-type: kana
+}
+#errors
+;2;20;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p {
+  list-style-type: hiragana;
+}
+#cssom
+| <p>
+|   list-style-type: hiragana
+
+#data
+p {
+  list-style-type: Hirakana;
+} 
+#errors
+;2;20;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p {
+  list-style-type: iroha;
+}
+#errors
+;2;20;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p {
+  list-style-type: hiragana-iroha;
+}
+#cssom
+| <p>
+|   list-style-type: hiragana-iroha
+
+#data
+p {
+  list-style-type: katakana-iroha
+}
+#cssom
+| <p>
+|   list-style-type: katakana-iroha
+
+#data
+p{list-style-POSITION: inside}
+#cssom
+| <p>
+|   list-style-position: inside
+
+#data
+p{list-style-position: OUTSIDE}
+#cssom
+| <p>
+|   list-style-position: outside
+
+#data
+p{list-style-image: url()}
+#cssom
+| <p>
+|   list-style-image: url("")
+
+#data
+p{list-style-image: url(hoge\ fuga)}
+#cssom
+| <p>
+|   list-style-image: url("hoge fuga")
+
+#data
+p{list-style-image: url( http://foo/bar )}
+#cssom
+| <p>
+|   list-style-image: url("http://foo/bar")
+
+#data
+p{list-style-image: url( http://foo:AA/bar )}
+#cssom
+| <p>
+|   list-style-image: url("http://foo:AA/bar")
+
+#data escaped
+p{list-style-image: url( HTtp://foo/bar\u4e00?\uDC00#\uFFFF )}
+#cssom escaped
+| <p>
+|   list-style-image: url("HTtp://foo/bar\u4E00?\uDC00#\uFFFF")
+
+#data
+p{list-style-image: url(hoge fuga)}
+#errors
+;1;30;w;css:url:bad
+;1;21;m;css:url:syntax error
+#cssom
+| <p>
+
+#data
+p{list-style-image: ""}
+#errors
+;1;21;m;css:url:syntax error
+#cssom
+| <p>
+
+#data
+p {
+  list-style: none;
+}
+#cssom
+| <p>
+|   list-style: none outside none
+|   list-style-image: none
+|   list-style-position: outside
+|   list-style-type: none
+#csstext
+p {
+  list-style: none outside none;
+}
+
+#data
+p {
+  list-style: none none;
+}
+#cssom
+| <p>
+|   list-style: none outside none
+|   list-style-image: none
+|   list-style-position: outside
+|   list-style-type: none
+#csstext
+p {
+  list-style: none outside none;
+}
+
+#data
+p{list-style: none none none}
+#errors
+;1;25;m;CSS syntax error;'list-style'
+#cssom
+| <p>
+
+#data
+p {
+  list-style: none none/**/inside;
+}
+#cssom
+| <p>
+|   list-style: none inside none
+|   list-style-image: none
+|   list-style-position: inside
+|   list-style-type: none
+#csstext
+p {
+  list-style: none inside none;
+}
+
+#data
+p {
+  list-style: OUTSIde none none;
+}
+#cssom
+| <p>
+|   list-style: none outside none
+|   list-style-image: none
+|   list-style-position: outside
+|   list-style-type: none
+#csstext
+p {
+  list-style: none outside none;
+}
+
+#data
+p {
+  list-style: Square none;
+}
+#cssom
+| <p>
+|   list-style: square outside none
+|   list-style-image: none
+|   list-style-position: outside
+|   list-style-type: square
+#csstext
+p {
+  list-style: square outside none;
+}
+
+#data
+p {
+  list-style:CIRCLE;
+}
+#cssom
+| <p>
+|   list-style: circle outside none
+|   list-style-image: none
+|   list-style-position: outside
+|   list-style-type: circle
+#csstext
+p {
+  list-style: circle outside none;
+}
+
+#data
+p {
+  list-style:inside;
+}
+#cssom
+| <p>
+|   list-style: disc inside none
+|   list-style-image: none
+|   list-style-position: inside
+|   list-style-type: disc
+#csstext
+p {
+  list-style: disc inside none;
+}
+
+#data
+p {
+  list-style:inherit;
+}
+#cssom
+| <p>
+|   list-style: inherit
+|   list-style-image: inherit
+|   list-style-position: inherit
+|   list-style-type: inherit
+#csstext
+p {
+  list-style: inherit;
+}
+
+#data
+p {
+  list-style:inside inherit;
+}
+#errors
+;2;21;m;css:keyword:not allowed
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {
+  list-style:URL("a");
+}
+#cssom
+| <p>
+|   list-style: disc outside url("a")
+|   list-style-image: url("a")
+|   list-style-position: outside
+|   list-style-type: disc
+#csstext
+p {
+  list-style: disc outside url("a");
+}
+
+#data
+p {
+  list-style:URL("a") none;
+}
+#cssom
+| <p>
+|   list-style: none outside url("a")
+|   list-style-image: url("a")
+|   list-style-position: outside
+|   list-style-type: none
+#csstext
+p {
+  list-style: none outside url("a");
+}
+
+#data
+p {
+  list-style:URL("a") none none;
+}
+#errors
+;2;28;m;CSS syntax error;'list-style'
+#cssom
+| <p>
+
+#data
+p{list-style: 20px}
+#errors
+;1;15;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{list-style : circle url("") outside}
+#cssom
+| <p>
+|   list-style: circle outside url("")
+|   list-style-image: url("")
+|   list-style-position: outside
+|   list-style-type: circle
+
+#data
+p{list-style: disc circle upper-latin}
+#errors
+;1;20;m;CSS syntax error;'list-style'
+#cssom
+| <p>
+
+#data
+p{list-style: inside outside}
+#errors
+;1;22;m;CSS syntax error;'list-style'
+#cssom
+| <p>
+
+#data
+p{list-style: disc none}
+#cssom
+| <p>
+|   list-style: disc outside none
+|   list-style-image: none
+|   list-style-position: outside
+|   list-style-type: disc
+
+#data
+p{list-style: outside none}
+#cssom
+| <p>
+|   list-style: none outside none
+|   list-style-image: none
+|   list-style-position: outside
+|   list-style-type: none

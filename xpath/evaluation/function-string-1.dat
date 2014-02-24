@@ -1,0 +1,487 @@
+#data
+string("abc")
+#result
+"abc"
+
+#data
+string(10.2100)
+#result
+"10.21"
+
+#data
+string(1 = 4)
+#result
+"false"
+
+#data
+string(1 = 1.000)
+#result
+"true"
+
+#data
+string(1 div 0)
+#result
+"Infinity"
+
+#data
+string(-1 div 0)
+#result
+"-Infinity"
+
+#data
+string (1 div (1 div -0))
+#result
+"0"
+
+#data
+string (1 div (1 div (1 div 0)))
+#result
+"Infinity"
+
+#data
+string (1 div (1 div (1 div -0)))
+#result
+"-Infinity"
+
+#data
+string ( "abc" div 0 )
+#result
+"NaN"
+
+#data
+string ( 12 mod 0 )
+#result
+"NaN"
+
+#data
+string ( -12 mod 0 )
+#result
+"NaN"
+
+#data
+string(4532533300000062 + 1)
+#result
+"4532533300000063"
+
+#data
+string(0.0000000555004)
+#result
+"0.0000000555004"
+
+#data
+string(99999999999999999999999999999999999999999999999999999999999999999)
+#result
+"99999999999999999209038626283633850822756121694230455365568299008"
+
+#xml 1
+<p>aa<q x="xX">b<!--c--></q><q y="yY">cc</q></p><!-- bb--><?abc  xyz ?>
+
+#data
+string(//q[@y] | //q[@x])
+#result 1
+"bcc"
+
+#data
+string(/hoge)
+#result 1
+""
+
+#data
+string()
+#result 1
+"aabcc"
+#result 1 /1
+"aabcc"
+#result 1 /1/1
+"aa"
+#result 1 /1/2/@x
+"xX"
+#result 1 /2
+" bb"
+#result 1 /3
+"xyz "
+
+#xml 2
+<!DOCTYPE hoge><hoge>aa</hoge>
+
+#data
+string(/child::node () [1])
+#result 2
+""
+
+#data
+string(/child::* | /child::*)
+#result 2
+"aa"
+
+#data
+concat("", "")
+#result 1
+""
+
+#data
+concat ("abc" , "xya")
+#result 1
+"abcxya"
+
+#data
+concat ("a", -12.552, 1 = 4)
+#result 1
+"a-12.552false"
+
+#data
+concat ("a", /)
+#result 1
+"aaabcc"
+
+#data
+concat ("a", / | /*, "b", "", "c", 0)
+#result 1
+"aaabccaabccbc0"
+
+#data
+starts-with ("", "")
+#result 1
+true
+
+#data
+starts-with ("abcde", "a")
+#result 1
+true
+
+#data
+starts-with ("baeage", "eag")
+#result 1
+false
+
+#data
+starts-with ("aae12.4403aa", 12.4403)
+#result 1
+false
+
+#data
+starts-with (/, "ab")
+#result 1
+false
+
+#data
+starts-with ("abc", "abcde")
+#result 1
+false
+
+#data
+contains ("", "")
+#result 1
+true
+
+#data
+contains ("abcde", "a")
+#result 1
+true
+
+#data
+contains ("baeage", "eag")
+#result 1
+true
+
+#data
+contains ("aae12.4403aa", 12.4403)
+#result 1
+true
+
+#data
+contains (/, "ab")
+#result 1
+true
+
+#data
+contains (1 = 3, "ru")
+#result 1
+false
+
+#data
+contains (-44.440, "440")
+#result 1
+false
+
+#data
+contains ("abw!", "")
+#result 1
+true
+
+#data
+contains ("ab", "abcd")
+#result 1
+false
+
+#data
+substring-before ("", "")
+#result
+""
+
+#data
+substring-after ("", "")
+#result
+""
+
+#data
+substring-before ("abcdeag", "a")
+#result
+""
+
+#data
+substring-after ("abcdeag", "a")
+#result
+"bcdeag"
+
+#data
+substring-before ("xyzaaa", "aa")
+#result
+"xyz"
+
+#data
+substring-after ("xyzaaa", "aa")
+#result
+"a"
+
+#data
+substring-before ("abcde", "")
+#result
+""
+
+#data
+substring-after ("abcde", "")
+#result
+"abcde"
+
+#data
+substring-before ("age", "hage")
+#result
+""
+
+#data
+substring-after ("age", "hage")
+#result
+""
+
+#data
+substring-before ("age", "age")
+#result
+""
+
+#data
+substring-after ("age", "age")
+#result
+""
+
+#data
+substring("12345", 1.5, 2.6)
+#result
+"234"
+
+#data
+substring("12345", 0, 3)
+#result
+"12"
+
+#data
+substring("12345", 0 div 0, 3)
+#result
+""
+
+#data
+substring("12345", 1, 0 div 0)
+#result
+""
+
+#data
+substring("12345", -42, 1 div 0)
+#result
+"12345"
+
+#data
+substring("12345", -1 div 0, 1 div 0)
+#result
+""
+
+#data
+substring("352geagfw", 3, 5)
+#result
+"2geag"
+
+#data escaped
+substring("352gea\U00010000fw", 3, 5)
+#result escaped
+"2gea\uD800"
+
+#data escaped
+substring("3\U0010FFFFgeagfw", 3, 5)
+#result escaped
+"\uDFFFgeag"
+
+#data escaped
+substring("35\U00020000geagfw", 3, 5)
+#result escaped
+"\U00020000gea"
+
+#data
+string-length ("")
+#result
+0
+
+#data
+string-length ("abc e")
+#result
+5
+
+#data
+string-length ("hoge fuaa  aaa")
+#result
+14
+
+#data escaped
+string-length ("\u4E00\u4E01")
+#result
+2
+
+#data escaped
+string-length ("\uD800\uFFFF")
+#result
+2
+
+#data escaped
+string-length("agew\U0002000Fag")
+#result
+8
+
+#data escaped
+string-length("agew\U0002000F\U000F0000ag")
+#result
+10
+
+#xml 3
+<p>aaa<!--cc--><p>bbbx</p>ddd  <q xx="ab cf e"/></p>
+
+#data
+string-length ()
+#result 3 /
+12
+#result 3 /1/1
+3
+#result 3 /1/2
+2
+#result 3 /1/3
+4
+
+#data
+string-length (32.500)
+#result
+4
+
+#data
+string-length (1 != 5)
+#result
+4
+
+#data
+string-length (//q)
+#result 3
+0
+
+#data
+string-length (//@xx)
+#result 3
+7
+
+#data
+string-length (//goo)
+#result 3
+0
+
+#data
+normalize-space ("")
+#result
+""
+
+#data
+normalize-space ("abc")
+#result
+"abc"
+
+#data
+normalize-space (" hoge ")
+#result
+"hoge"
+
+#data
+normalize-space ("  foo    bar     f bar ")
+#result
+"foo bar f bar"
+
+#data
+normalize-space ("   ")
+#result
+""
+
+#data escaped
+normalize-space ("\u000A ab \u000D\u0009 \u000A\u000C aa \uFFFD \u0000xy")
+#result escaped
+"ab \u000C aa \uFFFD \u0000xy"
+
+#xml 4 escaped
+<p>a b <q> dae e</q>foo\u0009 </p>
+
+#data
+normalize-space()
+#result 4
+"a b dae efoo"
+
+#data
+normalize-space (31.4)
+#result
+"31.4"
+
+#data
+translate("aaabvce", "a", "A")
+#result
+"AAAbvce"
+
+#data
+ translate("bar","abc","ABC")
+#result
+"BAr"
+
+#data
+translate("--aaa--","abc-","ABC")
+#result
+"AAA"
+
+#data escaped
+translate ("hoa \u4E00ae\uFFFF", "\u4E00Axxagf", "\uFFE43XXagFfewa f")
+#result escaped
+"hoa \uFFE4ae\uFFFF"
+
+#data
+translate ("aewge", "", "aa")
+#result
+"aewge"
+
+#data
+translate ("aewge", "aa", "b")
+#result
+"bewge"
+
+#data
+translate ("abwgewa", "a", "")
+#result
+"bwgew"
+
+#data
+translate ("gtawtwe", "gtawtwe", "")
+#result
+""
+
+#data
+translate (152.5525, 10.1244, -44.4)
+#result
+"-5445545"

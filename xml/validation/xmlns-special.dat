@@ -1,0 +1,36 @@
+#data
+<hoge><foo xmlns:xml="http://www.w3.org/XML/1998/namespace"/></hoge>
+#errors
+/hoge;unknown namespace element;w
+/hoge/foo;unknown namespace element;w
+
+#data
+<xml/>
+#errors
+/xml;unknown namespace element;w
+
+#data
+<xml:hpoge/>
+#errors
+/hpoge;element not defined;m
+
+#data
+<xmlns/>
+#errors
+/xmlns;unknown namespace element;w
+
+#data
+<xmlns:foo/>
+#errors
+/foo;Reserved Prefixes and Namespace Names:<xmlns:>;m
+/foo;element not defined;m
+
+#data
+<XMLns:hoge xmlns:XMLns="http://foo/"/>
+#errors
+/hoge;unknown namespace element;w
+
+#data
+<xmlns2:hoge xmlns:xmlns2="http://foo/"/>
+#errors
+/hoge;unknown namespace element;w

@@ -1,0 +1,31 @@
+#data
+  ab<p/>
+#errors
+1;3;text outside of root element;;;m
+#document
+| <{} p>
+
+#data
+|   
+| ab<p/>
+#errors
+2;1;text outside of root element;;;m
+#document
+| <{} p>
+
+#data
+|   
+|  ab<p/>
+#errors
+2;2;text outside of root element;;;m
+#document
+| <{} p>
+
+#data
+| 
+| 
+|  ab<p/>
+#errors
+3;2;text outside of root element;;;m
+#document
+| <{} p>

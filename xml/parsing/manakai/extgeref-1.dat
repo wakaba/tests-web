@@ -1,0 +1,330 @@
+#data
+<!DOCTYPE a [
+  <!ENTITY x SYSTEM "http://foo/">
+]><a>&x;</a>
+#errors
+3;6;external entref;;x;;i
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY x SYSTEM "http://foo/">
+]><a>&x;</a>
+#resource http://foo/
+hoge
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "hoge"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY x SYSTEM "http://foo/">
+]><a>&x;</a>
+#resource http://foo/bar
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY x SYSTEM "http://foo/">
+]><a>&x;</a>
+#resource http://foo/
+<?xml encoding="utf-8"?>
+hoge
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "
+| hoge"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY x SYSTEM "http://foo/">
+]><a>&x;</a>
+#resource http://foo/
+<?xml?>hoge
+#errors
+[1]1;1;attribute missing:encoding;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "hoge"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY x SYSTEM "http://foo/">
+]><a>&x;</a>
+#resource http://foo/
+<?xml  version="1.0"?>hoge
+#errors
+[1]1;21;attribute missing:encoding;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "hoge"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY x SYSTEM "http://foo/">
+]><a>&x;</a>
+#resource http://foo/
+<?xml  version="1.0" encoding="shift_jis"?>hoge
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "hoge"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY x SYSTEM "http://foo/">
+]><a>&x;</a>
+#resource http://foo/
+<?xml  version="1.4" encoding="shift_jis"?>hoge
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "hoge"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY x SYSTEM "http://foo/">
+]><a>&x;</a>
+#resource http://foo/
+<?xml  version="1.1" encoding="shift_jis"?>hoge
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "hoge"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY x SYSTEM "http://foo/">
+]><a>&x;</a>
+#resource http://foo/
+<?xml encoding="unknown"?>hoge
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "hoge"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY x SYSTEM "http://foo/">
+]><a>&x;</a>
+#resource http://foo/
+<?xml encoding="unknown!?"?>hoge
+#errors
+[1]1;17;XML encoding:syntax error;;unknown!?;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "hoge"
+
+#data
+<!DOCTYPE a [<!ENTITY x SYSTEM "http://foo/">]><a>&x;</a>
+#resource http://foo/
+<?xml encoding="utf-8" hoge
+?>hoge
+#errors
+[1]1;24;bogus XML declaration;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "hoge"
+
+#data
+<!DOCTYPE a [<!ENTITY x SYSTEM "http://foo/">]><a>&x;</a>
+#resource http://foo/
+<?xml
+fuga?>hoge
+#errors
+[1]2;1;bogus XML declaration;;;m
+[1]2;1;attribute missing:encoding;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "hoge"
+
+#data
+<!DOCTYPE a [<!ENTITY x SYSTEM "http://foo/">]><a>&x;</a>
+#resource http://foo/
+<?xml
+encoding="UTF-8" standalone="no"?>hoge
+#errors
+[1]2;18;attribute not allowed:standalone;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "hoge"
+
+#data
+<!DOCTYPE a [<!ENTITY x SYSTEM "http://foo/">]><a>&x;</a>
+#resource http://foo/
+<?xml  encoding="utf-8"
+encoding="UTF-8" ?>hoge
+#errors
+[1]2;1;bogus XML declaration;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "hoge"
+
+#data
+<!DOCTYPE a [<!ENTITY x SYSTEM "http://foo/">]><a>&x;</a>
+#resource http://foo/
+<?xml  encoding='utf-8' ?>hoge
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "hoge"
+
+#data
+<!DOCTYPE a [<!ENTITY x SYSTEM "http://foo/">]><a>&x;</a>
+#resource http://foo/
+<?xml  encoding='utf-8' ?>ho<p>g</p>e
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "ho"
+|   <{} p>
+|     "g"
+|   "e"
+
+#data
+<!DOCTYPE a [<!ENTITY x SYSTEM "http://foo/">
+<!ENTITY y SYSTEM "http://bar/">]><a>&x;</a>
+#resource http://foo/
+<?xml  encoding='utf-8' ?>ho<p>&y;</p>e
+#resource http://bar/
+<?xml?>aa
+#errors
+[2]1;1;attribute missing:encoding;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "ho"
+|   <{} p>
+|     "aa"
+|   "e"
+
+#data
+<!DOCTYPE a [<!ENTITY x SYSTEM "http://foo/">]><a>&x;</a>
+#resource http://foo/
+ <?xml  encoding='utf-8' ?>ho<p>g</p>e
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   " "
+|   <?xml encoding='utf-8' ?>
+|   "ho"
+|   <{} p>
+|     "g"
+|   "e"
+
+#data
+<!DOCTYPE a [<!ENTITY x SYSTEM "http://foo/">]><a>&x;</a>
+#resource http://foo/
+ <!DOCTYPE x>ho<p>g</p>e
+#errors
+[1]1;2;in html:#doctype;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   " ho"
+|   <{} p>
+|     "g"
+|   "e"
+
+#data
+<!DOCTYPE a [<!ENTITY x SYSTEM "http://foo/"><!ENTITY y "<p>z">]><a>&x;</a>
+#resource http://foo/
+x&y;b</p>b
+#errors
+1;62;in body:#eof;;;m
+[1]1;6;unmatched end tag;p;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "x"
+|   <{} p>
+|     "z"
+|   "bb"
+
+#data
+<!DOCTYPE a[
+  <!ENTITY b "<?xml version='1.0' encoding='iso-2022-jp'?>abc">
+]><a>&b;</a>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   <?xml version='1.0' encoding='iso-2022-jp'?>
+|   "abc"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo SYSTEM "http://c/">
+  <!ENTITY hoge "a&b;c">
+  %foo;
+]><a>&hoge;x</a>
+#resource http://c/
+<!ENTITY b "<p>b</p>">
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "a"
+|   <{} p>
+|     "b"
+|   "cx"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo SYSTEM "http://c/">
+  <!ENTITY hoge "a&b;c">
+  %foo;
+]><a>&hoge;x</a>
+#resource http://c/
+<!ENTITY b "<p>b">
+#errors
+[1]1;17;in body:#eof;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "a"
+|   <{} p>
+|     "b"
+|   "cx"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo SYSTEM "http://c/">
+  <!ENTITY hoge "a&b;c">
+  <!ENTITY c "<p>b">
+  %foo;
+]><a>&hoge;x</a>
+#resource http://c/
+<!ENTITY b "&c;">
+#errors
+4;19;in body:#eof;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "a"
+|   <{} p>
+|     "b"
+|   "cx"

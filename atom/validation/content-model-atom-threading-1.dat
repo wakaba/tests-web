@@ -1,0 +1,266 @@
+#data
+<!-- From RFC 4685 -->
+   <feed xmlns="http://www.w3.org/2005/Atom"
+         xmlns:thr="http://purl.org/syndication/thread/1.0">
+     <id>http://www.example.org/myfeed</id>
+     <title>My Example Feed</title>
+     <updated>2005-07-28T12:00:00Z</updated>
+     <link href="http://www.example.org/myfeed" />
+     <author><name>James</name></author>
+     <entry>
+       <id>tag:example.org,2005:1</id>
+       <title>My original entry</title>
+       <updated>2006-03-01T12:12:12Z</updated>
+       <link
+         type="application/xhtml+xml"
+         href="http://www.example.org/entries/1" />
+       <summary>This is my original entry</summary>
+     </entry>
+     <entry>
+       <id>tag:example.org,2005:1,1</id>
+       <title>A response to the original</title>
+       <updated>2006-03-01T12:12:12Z</updated>
+       <link href="http://www.example.org/entries/1/1" />
+       <thr:in-reply-to
+         ref="tag:example.org,2005:1"
+         type="application/xhtml+xml"
+         href="http://www.example.org/entries/1"/>
+       <summary>This is a response to the original entry</summary>
+     </entry>
+   </feed>
+#errors
+/feed;child element missing:atom:link:self;s
+/feed/entry;child element missing:atom:link:alternate;m
+/feed/entry;child element missing:atom:link:alternate;m
+
+#data
+<!-- From RFC 4685 -->
+   <feed xmlns="http://www.w3.org/2005/Atom"
+         xmlns:thr="http://purl.org/syndication/thread/1.0">
+     <id>http://www.example.org/myfeed</id>
+     <title>My Example Feed</title>
+     <updated>2005-07-28T12:00:00Z</updated>
+     <link href="http://www.example.org/myfeed" />
+     <author><name>James</name></author>
+     <entry>
+       <id>tag:example.org,2005:1,1</id>
+       <title>A response to the original</title>
+       <updated>2006-03-01T12:12:12Z</updated>
+       <link href="http://www.example.org/entries/1/1" />
+       <thr:in-reply-to
+         ref="tag:example.org,2005:1,0"
+         type="application/xhtml+xml"
+         href="http://www.example.org/entries/1"
+         source="http://www.example.org/myfeed" />
+       <link
+         rel="related"
+         type="application/xhtml+xml"
+         href="http://www.example.org/entries/1" />
+       <summary>This is a response to the original entry</summary>
+     </entry>
+   </feed>
+#errors
+/feed;child element missing:atom:link:self;s
+/feed/entry;child element missing:atom:link:alternate;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom"
+    xmlns:thr="http://purl.org/syndication/thread/1.0">
+<id>about:</id>
+<author><name>x</name></author>
+<link rel="alternate" href=""/>
+<updated>2000-01-02T03:04:05Z</updated>
+<title>x</title>
+<thr:total></thr:total>
+</entry>
+#errors
+/entry/total;invalid attribute value;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom"
+    xmlns:thr="http://purl.org/syndication/thread/1.0">
+<id>about:</id>
+<author><name>x</name></author>
+<link rel="alternate" href=""/>
+<updated>2000-01-02T03:04:05Z</updated>
+<title>x</title>
+<thr:total>0</thr:total>
+</entry>
+#errors
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom"
+    xmlns:thr="http://purl.org/syndication/thread/1.0">
+<id>about:</id>
+<author><name>x</name></author>
+<link rel="alternate" href=""/>
+<updated>2000-01-02T03:04:05Z</updated>
+<title>x</title>
+<thr:total>00000</thr:total>
+</entry>
+#errors
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom"
+    xmlns:thr="http://purl.org/syndication/thread/1.0">
+<id>about:</id>
+<author><name>x</name></author>
+<link rel="alternate" href=""/>
+<updated>2000-01-02T03:04:05Z</updated>
+<title>x</title>
+<thr:total>+0</thr:total>
+</entry>
+#errors
+/entry/total;invalid attribute value;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom"
+    xmlns:thr="http://purl.org/syndication/thread/1.0">
+<id>about:</id>
+<author><name>x</name></author>
+<link rel="alternate" href=""/>
+<updated>2000-01-02T03:04:05Z</updated>
+<title>x</title>
+<thr:total>-0</thr:total>
+</entry>
+#errors
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom"
+    xmlns:thr="http://purl.org/syndication/thread/1.0">
+<id>about:</id>
+<author><name>x</name></author>
+<link rel="alternate" href=""/>
+<updated>2000-01-02T03:04:05Z</updated>
+<title>x</title>
+<thr:total>0.00</thr:total>
+</entry>
+#errors
+/entry/total;invalid attribute value;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom"
+    xmlns:thr="http://purl.org/syndication/thread/1.0">
+<id>about:</id>
+<author><name>x</name></author>
+<link rel="alternate" href=""/>
+<updated>2000-01-02T03:04:05Z</updated>
+<title>x</title>
+<thr:total>12211</thr:total>
+</entry>
+#errors
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom"
+    xmlns:thr="http://purl.org/syndication/thread/1.0">
+<id>about:</id>
+<author><name>x</name></author>
+<link rel="alternate" href=""/>
+<updated>2000-01-02T03:04:05Z</updated>
+<title>x</title>
+<thr:total>33,44</thr:total>
+</entry>
+#errors
+/entry/total;invalid attribute value;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom"
+    xmlns:thr="http://purl.org/syndication/thread/1.0">
+<id>about:</id>
+<author><name>x</name></author>
+<link rel="alternate" href=""/>
+<updated>2000-01-02T03:04:05Z</updated>
+<title>x</title>
+<thr:total>444 </thr:total>
+</entry>
+#errors
+/entry/total;invalid attribute value;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom"
+    xmlns:thr="http://purl.org/syndication/thread/1.0">
+<id>about:</id>
+<author><name>x</name></author>
+<link rel="alternate" href=""/>
+<updated>2000-01-02T03:04:05Z</updated>
+<title>x</title>
+<thr:total>+233</thr:total>
+</entry>
+#errors
+/entry/total;invalid attribute value;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom"
+    xmlns:thr="http://purl.org/syndication/thread/1.0">
+<id>about:</id>
+<author><name>x</name></author>
+<link rel="alternate" href=""/>
+<updated>2000-01-02T03:04:05Z</updated>
+<title>x</title>
+<thr:total>.444</thr:total>
+</entry>
+#errors
+/entry/total;invalid attribute value;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom"
+    xmlns:thr="http://purl.org/syndication/thread/1.0">
+<id>about:</id>
+<author><name>x</name></author>
+<link rel="alternate" href=""/>
+<updated>2000-01-02T03:04:05Z</updated>
+<title>x</title>
+<thr:total> 44</thr:total>
+</entry>
+#errors
+/entry/total;invalid attribute value;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom"
+    xmlns:thr="http://purl.org/syndication/thread/1.0">
+<id>about:</id>
+<author><name>x</name></author>
+<link rel="alternate" href=""/>
+<updated>2000-01-02T03:04:05Z</updated>
+<title>x</title>
+<thr:total>40,444</thr:total>
+</entry>
+#errors
+/entry/total;invalid attribute value;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom"
+    xmlns:thr="http://purl.org/syndication/thread/1.0">
+<id>about:</id>
+<author><name>x</name></author>
+<link rel="alternate" href=""/>
+<updated>2000-01-02T03:04:05Z</updated>
+<title>x</title>
+<thr:total>0004444</thr:total>
+</entry>
+#errors
+
+#data
+<thr:in-reply-to
+    xmlns:thr="http://purl.org/syndication/thread/1.0"
+         ref="tag:example.org,2005:1,0"
+         type="text"
+         href="http://www.example.org/entries/1"
+         source="http://www.example.org/myfeed" />
+#errors
+/in-reply-to/@type;IMT:no /;m
+
+#data
+<thr:in-reply-to
+    xmlns:thr="http://purl.org/syndication/thread/1.0"
+         ref="tag:example.org,2005:1,0"
+         type="text/plain; a=b"
+         href="http://www.example.org/entries/1"
+         source="http://www.example.org/myfeed" />
+#errors
+/in-reply-to/@type;IMT:parameter not allowed;m
+
+#data
+<foo xmlns="http://purl.org/syndication/thread/1.0"/>
+#errors
+/foo;element not defined;m

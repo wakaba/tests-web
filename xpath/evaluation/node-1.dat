@@ -1,0 +1,227 @@
+#xml 1
+<ab/>
+
+#data
+/
+#result 1
+/
+
+#data
+(/) and 0
+#result
+false
+
+#data
+self::*
+#result 1
+#result 1 /1
+/1
+
+#data
+self::node ()
+#result 1
+/
+#result 1 /1
+/1
+
+#xml 2
+<p>aaa<!----><q hoge="">aa<p>a</p></q></p>
+
+#data
+child::p/.
+#result 2
+/1
+#result 2 /1
+#result 2 /1/3
+/1/3/2
+
+#data
+.
+#result 2
+/
+#result 2 /1/3/@hoge
+/1/3/@hoge
+
+#data
+child::p/self::*
+#result 2 /1/3/@hoge
+
+#data
+child::p/self::hoge
+#result 2 /1/3/@hoge
+
+#data
+(child::p)/self::p
+#result 2
+/1
+
+#data
+"aa"/self::node()
+#result 2
+null
+#errors 2
+m;xpath:incompat with node-set;string
+
+#data
+12.5/.
+#result 2
+null
+#errors 2
+m;xpath:incompat with node-set;number
+
+#data
+(1 and 1)/..
+#result 2
+null
+#errors 2
+m;xpath:incompat with node-set;boolean
+
+#data
+/ | /
+#result 2
+/
+
+#data
+/ | child::*
+#result 2
+/
+/1
+
+#data
+/ | child::* | child::* | child::*/child::*
+#result 2
+/
+/1
+/1/3
+
+#data
+(/ | child::*)/child::*
+#result 2
+/1
+/1/3
+
+#data
+/ | (/ | child::*)/child::*
+#result 2
+/
+/1
+/1/3
+
+#data
+(child::*) | /
+#result 2
+/
+/1
+
+#data
+(ancestor-or-self::node())
+#result 2 /1/3/2
+/
+/1
+/1/3
+/1/3/2
+
+#data
+(/ | child::*)/child::* | //p
+#result 2
+/1
+/1/3
+/1/3/2
+
+#data
+/ | "a"
+#result 2
+null
+#errors 2
+m;xpath:incompat with node-set;string
+
+#data
+12.5 | / 
+#result 2
+null
+#errors 2
+m;xpath:incompat with node-set;number
+
+#data
+/child::* | (1 = 1)
+#result 2
+null
+#errors 2
+m;xpath:incompat with node-set;boolean
+
+#data
+/attribute::* | (1 = 1)
+#result 2
+null
+#errors 2
+m;xpath:incompat with node-set;boolean
+
+#data
+"abc" | 12.4
+#result 2
+null
+#errors 2
+m;xpath:incompat with node-set;string
+
+#xml 3
+<p>a<q a="" b=""/><r b="" a=""/></p>
+
+#data
+/p/r/@a | /p/q/attribute::a
+#result 3
+/1/2/@a
+/1/3/@a
+
+#data
+/p/q/@b | /p/q/@a
+#result 3
+/1/2/@a
+/1/2/@b
+
+#data
+//q | //@a
+#result 3
+/1/2
+/1/2/@a
+/1/3/@a
+
+#data
+(//q | //@a)/self::node()
+#result 3
+/1/2
+/1/2/@a
+/1/3/@a
+
+#data
+(//q | //@a)/self::node()[2]
+#result 3
+/1/2/@a
+
+#data
+(//q | //@a)/self::*
+#result 3
+/1/2
+
+#data
+(//r | //@a)/self::node()
+#result 3
+/1/2/@a
+/1/3
+/1/3/@a
+
+#data
+(//r | //@a)[2]
+#result 3
+/1/3
+
+#data
+(//r | //@a)/self::node()[2]
+#result 3
+/1/3
+
+#data
+("a" | /) + 1
+#result 3
+null
+#errors 3
+m;xpath:incompat with node-set;string

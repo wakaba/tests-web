@@ -1007,9 +1007,9 @@ data after body
 |       <p>
 |         "XXYYY"
 
-## when script is disabled
 #data
 <!DOCTYPE HTML><noscript>aaa<noscript>bbb</noscript>ccc</noscript>
+#noscript
 #errors
 in noscript:#character
 unmacthed noscript end tag
@@ -1024,9 +1024,9 @@ unmacthed noscript end tag
 |       "bbb"
 |     "ccc"
 
-## when script is disabled
 #data
 <!DOCTYPE HTML><body><noscript>aaa<noscript>bbb</noscript>ccc</noscript>
+#noscript
 #errors
 #document
 | <!DOCTYPE html>
@@ -1039,9 +1039,9 @@ unmacthed noscript end tag
 |         "bbb"
 |       "ccc"
 
-## when script is disabled
 #data
 <!DOCTYPE HTML><head><noscript><noscript>
+#noscript
 #errors
 <noscript> in noscript
 no </noscript>
@@ -1052,9 +1052,9 @@ no </noscript>
 |     <noscript>
 |   <body>
 
-## when script is disabled
 #data
 <!DOCTYPE HTML><head><noscript><noscript> 
+#noscript
 #errors
 <noscript> in noscript
 no </noscript>
@@ -1066,9 +1066,9 @@ no </noscript>
 |       " "
 |   <body>
 
-## when script is disabled
 #data
 <!DOCTYPE HTML><head><noscript> <noscript> 
+#noscript
 #errors
 <noscript> in noscript
 no </noscript>
@@ -1080,9 +1080,9 @@ no </noscript>
 |       "  "
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript><base><title></title><body>
+#noscript
 #errors
 <base> in <noscript>
 #document
@@ -1094,9 +1094,9 @@ no </noscript>
 |     <title>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript><title></title><body>
+#noscript
 #errors
 <title> in <noscript> in <head>
 #document
@@ -1107,9 +1107,9 @@ no </noscript>
 |     <title>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head></head><noscript></noscript>
+#noscript
 #errors
 #document
 | <!DOCTYPE html>
@@ -1118,9 +1118,9 @@ no </noscript>
 |   <body>
 |     <noscript>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript><script></script>
+#noscript
 #errors
 <script> in <noscript> in <head>
 #document
@@ -1131,9 +1131,9 @@ no </noscript>
 |     <script>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript><body>
+#noscript
 #errors
 <body> in <noscript> in <head>
 #document
@@ -1143,9 +1143,9 @@ no </noscript>
 |     <noscript>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript><frameset></frameset>
+#noscript
 #errors
 <frameset> in <noscript> in <head>
 #document
@@ -1155,9 +1155,9 @@ no </noscript>
 |     <noscript>
 |   <frameset>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript><br>
+#noscript
 #errors
 <br> in <noscript> in <head>
 #document
@@ -1168,9 +1168,9 @@ no </noscript>
 |   <body>
 |     <br>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript><p>
+#noscript
 #errors
 <p> in <noscript> in <head>
 #document
@@ -1181,9 +1181,9 @@ no </noscript>
 |   <body>
 |     <p>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript></p>
+#noscript
 #errors
 </p> in <noscript> in <head>
 unmatched </p>
@@ -1194,9 +1194,9 @@ unmatched </p>
 |     <noscript>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript></br>
+#noscript
 #errors
 </br> in <noscript> in <head>
 </br>
@@ -1208,9 +1208,9 @@ unmatched </p>
 |   <body>
 |     <br>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript></div>
+#noscript
 #errors
 </div> in <noscript> in <head>
 unexpected end of file (no </noscript>)
@@ -1221,9 +1221,9 @@ unexpected end of file (no </noscript>)
 |     <noscript>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript></img>
+#noscript
 #errors
 </img> in <noscript> in <head>
 unexpected end of file (no </noscript>)
@@ -1234,9 +1234,9 @@ unexpected end of file (no </noscript>)
 |     <noscript>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript></head><link><body>
+#noscript
 #errors
 </head> in <noscript> in <head>
 no </noscript>
@@ -1262,6 +1262,7 @@ no </noscript>
 
 #data
 <!DOCTYPE HTML></noscript><head><body>
+#noscript
 #errors
 </noscript> before <head>
 #document
@@ -1272,6 +1273,7 @@ no </noscript>
 
 #data
 <!DOCTYPE HTML><head></noscript><link><body>
+#noscript
 #errors
 </noscript> in <head>
 #document
@@ -1293,9 +1295,9 @@ no </noscript>
 |     <link>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript></body><meta></noscript><link><body>
+#noscript
 #errors
 </body> in <noscript> in <head>
 #document
@@ -1307,9 +1309,9 @@ no </noscript>
 |     <link>
 |   <body>
 
-## When scripting is disabled
 #data
 <!DOCTYPE HTML><head><noscript></html><meta></noscript><link><body>
+#noscript
 #errors
 </html> in <noscript> in <head>
 #document
@@ -1343,6 +1345,17 @@ no </noscript>
 |     <br>
 
 #data
+</br>
+#errors
+no DOCTYPE
+</br>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <br>
+
+#data
 <!DOCTYPE HTML></head></p>
 #errors
 </p> after </head>
@@ -1355,25 +1368,25 @@ no </noscript>
 #data
 <!DOCTYPE HTML><head></body><link>x
 #errors
-</body> in head
+<link> after body
 #document
 | <!DOCTYPE html>
 | <html>
 |   <head>
-|     <link>
 |   <body>
+|     <link>
 |     "x"
 
 #data
 <head></html><link>
 #errors
 no <!DOCTYPE>
-</html> in <head>
+<link> after html
 #document
 | <html>
 |   <head>
-|     <link>
 |   <body>
+|     <link>
 
 #data
 <head></p><link>
@@ -1935,6 +1948,7 @@ div closed by dd
 <!DOCTYPE HTML><body><form><div>a</form>b
 #errors
 no </div> before </form>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1942,13 +1956,13 @@ no </div> before </form>
 |   <body>
 |     <form>
 |       <div>
-|         "a"
-|     "b"
+|         "ab"
 
 #data
 <!DOCTYPE HTML><body><form><div><div><div>a</form>b
 #errors
 no </div> before </form>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1958,8 +1972,7 @@ no </div> before </form>
 |       <div>
 |         <div>
 |           <div>
-|             "a"
-|     "b"
+|             "ab"
 
 #data
 <!DOCTYPE HTML><form><p></form>
@@ -3991,7 +4004,6 @@ a in <table>
 #data
 <!DOCTYPE HTML><table><caption>test</table>a
 #errors
-no </caption>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -4159,7 +4171,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<caption>b
 #errors
-no </caption>
 unexpected end of file
 #document
 | <!DOCTYPE html>
@@ -4198,7 +4209,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<col>b
 #errors
-no </caption>
 "b" in table
 unexpected end of file
 #document
@@ -4216,7 +4226,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<colgroup>b
 #errors
-no </caption>
 "b" in colgroup
 unexpected end of file
 #document
@@ -4233,7 +4242,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<thead>b
 #errors
-no </caption>
 "b" in thead
 unexpected end of file
 #document
@@ -4250,7 +4258,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<tbody>b
 #errors
-no </caption>
 "b" in tbody
 unexpected end of file
 #document
@@ -4267,7 +4274,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<tfoot>b
 #errors
-no </caption>
 "b" in tfoot
 unexpected end of file
 #document
@@ -4284,7 +4290,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<tr>b
 #errors
-no </caption>
 "b" in tr
 unexpected end of file
 #document
@@ -4302,7 +4307,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<td>b
 #errors
-no </caption>
 no <tr>
 unexpected end of file
 #document
@@ -4321,7 +4325,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption>a<th>b
 #errors
-no </caption>
 no <tr>
 unexpected end of file
 #document
@@ -4351,9 +4354,8 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><span><tbody>
 #errors
-<caption> not closed
-<span> not closed
-<table> not closed
+no </caption> before <tbody>
+no </table> at EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -4367,7 +4369,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><li><tbody>
 #errors
-<caption> not closed
 <table> not closed
 #document
 | <!DOCTYPE html>
@@ -4382,7 +4383,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><p><tbody>
 #errors
-<caption> not closed
 <table> not closed
 #document
 | <!DOCTYPE html>
@@ -4397,7 +4397,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><dt><tbody>
 #errors
-<caption> not closed
 <table> not closed
 #document
 | <!DOCTYPE html>
@@ -4412,7 +4411,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><dd><tbody>
 #errors
-<caption> not closed
 <table> not closed
 #document
 | <!DOCTYPE html>
@@ -4507,6 +4505,7 @@ unexpected end of file
 #data
 <!DOCTYPE HTML>a<option>b
 #errors
+no </option>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -4519,6 +4518,7 @@ unexpected end of file
 #data
 <!DOCTYPE HTML>a<optgroup>b
 #errors
+no </optgroup>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -4967,7 +4967,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><p></table>
 #errors
-<caption> not closed
 #document
 | <!DOCTYPE html>
 | <html>
@@ -4980,7 +4979,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><li></table>
 #errors
-<caption> not closed
 #document
 | <!DOCTYPE html>
 | <html>
@@ -4993,7 +4991,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><dd></table>
 #errors
-<caption> not closed
 #document
 | <!DOCTYPE html>
 | <html>
@@ -5006,7 +5003,6 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><dt></table>
 #errors
-<caption> not closed
 #document
 | <!DOCTYPE html>
 | <html>
@@ -5019,8 +5015,7 @@ unexpected end of file
 #data
 <!DOCTYPE HTML><table><caption><span></table>
 #errors
-<caption> not closed
-<span> not closed
+no </span>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -5540,7 +5535,8 @@ unmatched </h1>
 <p><font><form> </form>
 #errors
 1,4,no DOCTYPE
-1,16,not closed:font
+no </font> at <form>
+no </font> at <form>
 unexpected end-of-file
 #document
 | <html>
@@ -5557,7 +5553,7 @@ unexpected end-of-file
 #errors
 no DOCTYPE
 <font> not closed before <form>
-<font> not closed before </form>
+stray </form>
 unexpected end-of-file (<font> not closed before end-of-file)
 #document
 | <html>
@@ -5567,9 +5563,25 @@ unexpected end-of-file (<font> not closed before end-of-file)
 |       <font>
 |     <form>
 |       <font>
-|         " "
-|     <font>
-|       "a"
+|         " a"
+
+#data
+<p><font><form> </form>a<form>
+#errors
+no DOCTYPE
+no </font> at <form>
+no </font> at </form>
+EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       <font>
+|     <form>
+|       <font>
+|         " a"
+|         <form>
 
 #data
 <table a><tr><table b>
@@ -6962,6 +6974,7 @@ not HTML5
 
 #data
 <!DOCTYPE HTML><html><head><noscript>
+#noscript
 #errors
 no </noscript>
 #document
@@ -7731,6 +7744,7 @@ U+000B
 
 #data escaped
 <!DOCTYPE HTML><head><noscript>\u000b<p>
+#noscript
 #errors
 no </noscript>
 U+000B
@@ -7745,6 +7759,7 @@ U+000B
 
 #data escaped
 <!DOCTYPE HTML><head><noscript>\u000babc
+#noscript
 #errors
 no </noscript>
 U+000B
@@ -8462,6 +8477,7 @@ eof in body
 
 #data
 <!-- NOTE: Scripting disabled --><!DOCTYPE HTML><ul><li><noscript><li>
+#noscript
 #errors
 eof in body
 #document
@@ -9319,6 +9335,7 @@ eof in body
 
 #data
 <!-- NOTE: Scripting disabled --><!DOCTYPE HTML><dl><dt><noscript><dt>
+#noscript
 #errors
 eof in body
 #document
@@ -9987,6 +10004,7 @@ unexpected EOF
 
 #data
 <span><noscript></span>a
+#noscript
 #errors
 no DOCTYPE
 unmatched end tag
@@ -10144,6 +10162,7 @@ unexpected EOF
 #errors
 no DOCTYPE
 unexpected </span>
+</span>
 EOF
 #document
 | <html>
@@ -11600,9 +11619,7 @@ x2
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <thead>
 
@@ -11616,9 +11633,7 @@ x2
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tbody>
 
@@ -11632,9 +11647,7 @@ x2
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tfoot>
 
@@ -11648,9 +11661,7 @@ x2
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tbody>
 |         <tr>
@@ -11666,10 +11677,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <thead>
 |         <tr>
@@ -11685,9 +11693,7 @@ no <tr>
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tbody>
 |         <tr>
@@ -11704,9 +11710,7 @@ no <tr>
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tbody>
 |         <tr>
@@ -11723,10 +11727,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <tbody>
 |         <tr>
@@ -11743,10 +11744,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <tbody>
 |         <tr>
@@ -11762,9 +11760,7 @@ x2
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <colgroup>
 |         <col>
@@ -11779,9 +11775,7 @@ x2
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <colgroup>
 
@@ -11795,9 +11789,7 @@ x2
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <caption>
 
@@ -11812,10 +11804,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <thead>
 |       <caption>
@@ -11831,10 +11820,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <thead>
 |       <colgroup>
@@ -11851,10 +11837,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <thead>
 |       <colgroup>
@@ -11870,10 +11853,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <tbody>
 |         <tr>
@@ -11891,10 +11871,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <tbody>
 |         <tr>
@@ -11911,10 +11888,7 @@ x
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
-|     "d"
+|     "abcd"
 |     <table>
 |       <tbody>
 |         <tr>
@@ -11930,9 +11904,7 @@ text "c" in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <!--  -->
 
@@ -11946,9 +11918,7 @@ text in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <style>
 
@@ -11962,9 +11932,7 @@ text in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <script>
 
@@ -11979,9 +11947,7 @@ text in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <input>
 |         type="hidden"
@@ -11996,9 +11962,7 @@ x2
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tbody>
 |         <!--  -->
@@ -12007,16 +11971,13 @@ x2
 <!DOCTYPE HTML>a<table><tbody>b<style></style>c</table>
 #errors
 text in table
-start tag in table
 text in table
 #document
 | <!DOCTYPE html>
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tbody>
 |         <style>
@@ -12031,9 +11992,7 @@ text in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tbody>
 |         <script>
@@ -12049,9 +12008,7 @@ text in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
-|     "c"
+|     "abc"
 |     <table>
 |       <tbody>
 |         <input>
@@ -12066,25 +12023,24 @@ text in table
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b<"
+|     "ab<"
 |     <table>
 
 #data
 <!DOCTYPE HTML>a<table>b<span>c&lt;</span>d</table>
 #errors
-text in table
+"b" in table
 <span> in table
-text in table
+"c" in table
+"<" in table
 </span> in table
-text in table
+"d" in table
 #document
 | <!DOCTYPE html>
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
+|     "ab"
 |     <span>
 |       "c<"
 |     "d"
@@ -12102,8 +12058,7 @@ unexpected EOF
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
+|     "ab"
 |     <plaintext>
 |       "c&lt;</plaintext>d</table>"
 |     <table>
@@ -12113,15 +12068,13 @@ unexpected EOF
 #errors
 text in table
 <xmp> in table
-text in table
 text "d" in table
 #document
 | <!DOCTYPE html>
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
+|     "ab"
 |     <xmp>
 |       "c&lt;<p>"
 |     "d"
@@ -12132,15 +12085,13 @@ text "d" in table
 #errors
 text "b" in table
 <title> in table
-text "c<<p>" in table
 text "d" in table
 #document
 | <!DOCTYPE html>
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
+|     "ab"
 |     <title>
 |       "c<<p>"
 |     "d"
@@ -12158,6 +12109,16 @@ metadata element after </head>
 |   "  "
 |   <body>
 |     "a"
+
+#data
+<base/>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <base>
+|   <body>
 
 #data
 <!DOCTYPE HTML></head> <link> a
@@ -12281,8 +12242,7 @@ text "b"
 |   a=""
 |   <head>
 |   <body>
-|     "a"
-|     "b"
+|     "ab"
 |     <table>
 
 #data
@@ -12339,8 +12299,7 @@ text "b"
 | <html>
 |   <head>
 |   <body>
-|     "a"
-|     "b"
+|     "ab"
 |     <table>
 
 #data

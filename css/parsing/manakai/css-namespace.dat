@@ -17,14 +17,14 @@
 @namespace
 a {}
 #errors
-;2;3;m;at-rule syntax error;namespace
+;2;3;m;css:at-rule:block not allowed
 #cssom
 
 #data
 @namespace;
 a{}
 #errors
-;1;11;m;at-rule syntax error;namespace
+;1;11;m;css:namespace:url missing
 #cssom
 <a>
 
@@ -32,7 +32,7 @@ a{}
   @namespace;
 a{}
 #errors
-;1;13;m;at-rule syntax error;namespace
+;1;13;m;css:namespace:url missing
 #cssom
 <a>
 
@@ -40,7 +40,7 @@ a{}
 \u000A@namespace;
 a{}
 #errors
-;2;11;m;at-rule syntax error;namespace
+;2;11;m;css:namespace:url missing
 #cssom
 <a>
 
@@ -49,7 +49,7 @@ a{}
 ;
 a{}
 #errors
-;2;1;m;at-rule syntax error;namespace
+;2;1;m;css:namespace:url missing
 #cssom
 <a>
 
@@ -57,7 +57,7 @@ a{}
 @namespace \u0009;
 a{}
 #errors
-;1;13;m;at-rule syntax error;namespace
+;1;13;m;css:namespace:url missing
 #cssom
 <a>
 
@@ -67,7 +67,7 @@ a{}
 #errors
 #cssom
 @namespace <>
-<|a>
+<a>
 
 #data
 @namespace "abc";
@@ -91,7 +91,7 @@ a{}
 #errors
 #cssom
 @namespace <>
-<|a>
+<a>
 
 #data
 @namespace url( );
@@ -99,7 +99,7 @@ a{}
 #errors
 #cssom
 @namespace <>
-<|a>
+<a>
 
 #data
 @namespace url( abc );
@@ -121,14 +121,14 @@ a{}
 @namespace url( )
 a{}
 #errors
-;2;1;m;at-rule syntax error;namespace
+;2;2;m;css:at-rule:block not allowed
 #cssom
 
 #data
 @namespace "abc"
 a{}
 #errors
-;2;1;m;at-rule syntax error;namespace
+;2;2;m;css:at-rule:block not allowed
 #cssom
 
 #data
@@ -143,7 +143,7 @@ a{}
 @namespace abc;
 a{}
 #errors
-;1;15;m;at-rule syntax error;namespace
+;1;15;m;css:namespace:url missing
 #cssom
 <a>
 
@@ -151,7 +151,7 @@ a{}
 @namespace abc ;
 a{}
 #errors
-;1;16;m;at-rule syntax error;namespace
+;1;16;m;css:namespace:url missing
 #cssom
 <a>
 
@@ -161,7 +161,7 @@ a{}
 #errors
 #cssom
 @namespace abc: <>
-<*|a>
+<a>
 
 #data
 @namespace abc "def";
@@ -169,7 +169,7 @@ a{}
 #errors
 #cssom
 @namespace abc: <def>
-<*|a>
+<a>
 
 #data
 @namespace abc url(x);
@@ -177,13 +177,13 @@ a{}
 #errors
 #cssom
 @namespace abc: <x>
-<*|a>
+<a>
 
 #data
 @namespace abc "a" b;
 a{}
 #errors
-;1;20;m;at-rule syntax error;namespace
+;1;20;m;css:namespace:broken
 #cssom
 <a>
 
@@ -191,7 +191,7 @@ a{}
 @namespace "b" "a";
 a{}
 #errors
-;1;16;m;at-rule syntax error;namespace
+;1;16;m;css:namespace:broken
 #cssom
 <a>
 
@@ -207,7 +207,7 @@ a{}
 @namespace 123 "abc";
 a {}
 #errors
-;1;12;m;at-rule syntax error;namespace
+;1;12;m;css:namespace:url missing
 #cssom
 <a>
 
@@ -217,7 +217,7 @@ a {}
 }
 b{}
 #errors
-;1;12;m;at-rule syntax error;namespace
+;1;12;m;css:at-rule:block not allowed
 #cssom
 <b>
 
@@ -227,7 +227,7 @@ b{}
 }
 b{}
 #errors
-;1;16;m;at-rule syntax error;namespace
+;1;16;m;css:at-rule:block not allowed
 #cssom
 <b>
 
@@ -237,7 +237,7 @@ b{}
 };
 b{}
 #errors
-;1;16;m;at-rule syntax error;namespace
+;1;16;m;css:at-rule:block not allowed
 ;3;2;m;no sss
 #cssom
 
@@ -302,7 +302,7 @@ x|y {}
 | @namespace x: <about:>
 | <x|y>
 #csstext
-@namespace x url(about:);
+@namespace x url("about:");
 x|y {
 }
 
@@ -313,7 +313,7 @@ X|y {}
 | @namespace X: <about:>
 | <X|y>
 #csstext
-@namespace X url(about:);
+@namespace X url("about:");
 X|y {
 }
 
@@ -326,8 +326,8 @@ x|y {}
 | @namespace X: <opera:>
 | <x|y>
 #csstext
-@namespace x url(about:);
-@namespace X url(opera:);
+@namespace x url("about:");
+@namespace X url("opera:");
 x|y {
 }
 
@@ -342,8 +342,8 @@ X|y {}
 | <x|y>
 | <X|y>
 #csstext
-@namespace x url(about:);
-@namespace X url(opera:);
+@namespace x url("about:");
+@namespace X url("opera:");
 x|y {
 }
 X|y {
@@ -361,8 +361,8 @@ X|y {
 |   color: blue
 #csstext
 | x {
-|   border-color: -manakai-default;
 |   color: blue;
+|   border-color: -manakai-default;
 | }
 #computed nullns x
 -color: -manakai-default
@@ -380,8 +380,8 @@ X|y {
 |   color: blue
 #csstext
 | |x {
-|   border-color: -manakai-default;
 |   color: blue;
+|   border-color: -manakai-default;
 | }
 #computed nullns x
 -color: -manakai-default
@@ -392,7 +392,7 @@ X|y {
 x { color : blue; border-color: -manakai-default }
 #cssom
 | @namespace <>
-| <|x>
+| <x>
 |   border-bottom-color: -manakai-default
 |   border-color: -manakai-default
 |   border-left-color: -manakai-default
@@ -400,10 +400,10 @@ x { color : blue; border-color: -manakai-default }
 |   border-top-color: -manakai-default
 |   color: blue
 #csstext
-@namespace url();
-| |x {
-|   border-color: -manakai-default;
+@namespace url("");
+| x {
 |   color: blue;
+|   border-color: -manakai-default;
 | }
 #computed nullns x
 -color: -manakai-default
@@ -414,7 +414,7 @@ x { color : blue; border-color: -manakai-default }
 x { color : blue; border-color: -manakai-default }
 #cssom
 | @namespace <>
-| <|x>
+| <x>
 |   border-bottom-color: -manakai-default
 |   border-color: -manakai-default
 |   border-left-color: -manakai-default
@@ -422,10 +422,10 @@ x { color : blue; border-color: -manakai-default }
 |   border-top-color: -manakai-default
 |   color: blue
 #csstext
-@namespace url();
-| |x {
-|   border-color: -manakai-default;
+@namespace url("");
+| x {
 |   color: blue;
+|   border-color: -manakai-default;
 | }
 #computed nullns x
 -color: -manakai-default
@@ -441,11 +441,11 @@ x { color : blue; border-color: -manakai-default }
 | @namespace '';
 | x { color : blue; border-color: -manakai-default }
 #errors
-;2;1;m;duplicate @namespace
+;2;12;m;duplicate @namespace
 #cssom
 | @namespace <http://ns1/>
 | @namespace <>
-| <|x>
+| <x>
 |   border-bottom-color: -manakai-default
 |   border-color: -manakai-default
 |   border-left-color: -manakai-default
@@ -453,11 +453,11 @@ x { color : blue; border-color: -manakai-default }
 |   border-top-color: -manakai-default
 |   color: blue
 #csstext
-| @namespace url(http://ns1/);
-| @namespace url();
-| |x {
-|   border-color: -manakai-default;
+| @namespace url("http://ns1/");
+| @namespace url("");
+| x {
 |   color: blue;
+|   border-color: -manakai-default;
 | }
 #computed nullns x
 -color: -manakai-default
@@ -468,7 +468,7 @@ x { color : blue; border-color: -manakai-default }
 | @namespace '';
 | x { color : blue; border-color: -manakai-default }
 #errors
-;2;1;m;duplicate @namespace
+;2;12;m;duplicate @namespace
 #computed ns1 x
 
 #data
@@ -476,7 +476,7 @@ x { color : blue; border-color: -manakai-default }
 | @namespace 'http://ns1/';
 | x { color : blue; border-color: -manakai-default }
 #errors
-;2;1;m;duplicate @namespace
+;2;12;m;duplicate @namespace
 #cssom
 | @namespace <>
 | @namespace <http://ns1/>
@@ -488,11 +488,11 @@ x { color : blue; border-color: -manakai-default }
 |   border-top-color: -manakai-default
 |   color: blue
 #csstext
-| @namespace url();
-| @namespace url(http://ns1/);
+| @namespace url("");
+| @namespace url("http://ns1/");
 | x {
-|   border-color: -manakai-default;
 |   color: blue;
+|   border-color: -manakai-default;
 | }
 #computed ns1 x
 -color: -manakai-default
@@ -503,7 +503,7 @@ x { color : blue; border-color: -manakai-default }
 | @namespace 'http://ns1/';
 | x { color : blue; border-color: -manakai-default }
 #errors
-;2;1;m;duplicate @namespace
+;2;12;m;duplicate @namespace
 #computed nullns x
 
 #data
@@ -511,7 +511,7 @@ x { color : blue; border-color: -manakai-default }
 hoge|x { color : blue; border-color: -manakai-default }
 #cssom
 | @namespace hoge: <>
-| <|x>
+| <hoge|x>
 |   border-bottom-color: -manakai-default
 |   border-color: -manakai-default
 |   border-left-color: -manakai-default
@@ -519,10 +519,10 @@ hoge|x { color : blue; border-color: -manakai-default }
 |   border-top-color: -manakai-default
 |   color: blue
 #csstext
-@namespace hoge url();
-| |x {
-|   border-color: -manakai-default;
+@namespace hoge url("");
+| hoge|x {
 |   color: blue;
+|   border-color: -manakai-default;
 | }
 #computed nullns x
 -color: -manakai-default
@@ -533,7 +533,7 @@ hoge|x { color : blue; border-color: -manakai-default }
 hoge|x { color : blue; border-color: -manakai-default }
 #cssom
 | @namespace hoge: <>
-| <|x>
+| <hoge|x>
 |   border-bottom-color: -manakai-default
 |   border-color: -manakai-default
 |   border-left-color: -manakai-default
@@ -541,10 +541,10 @@ hoge|x { color : blue; border-color: -manakai-default }
 |   border-top-color: -manakai-default
 |   color: blue
 #csstext
-@namespace hoge url();
-| |x {
-|   border-color: -manakai-default;
+@namespace hoge url("");
+| hoge|x {
 |   color: blue;
+|   border-color: -manakai-default;
 | }
 #computed nullns x
 -color: -manakai-default
@@ -560,11 +560,11 @@ hoge|x { color : blue; border-color: -manakai-default }
 | @namespace hoge '';
 | hoge|x { color : blue; border-color: -manakai-default }
 #errors
-;2;1;m;duplicate @namespace
+;2;12;m;duplicate @namespace
 #cssom
 | @namespace hoge: <http://ns1/>
 | @namespace hoge: <>
-| <|x>
+| <hoge|x>
 |   border-bottom-color: -manakai-default
 |   border-color: -manakai-default
 |   border-left-color: -manakai-default
@@ -572,11 +572,11 @@ hoge|x { color : blue; border-color: -manakai-default }
 |   border-top-color: -manakai-default
 |   color: blue
 #csstext
-| @namespace hoge url(http://ns1/);
-| @namespace hoge url();
-| |x {
-|   border-color: -manakai-default;
+| @namespace hoge url("http://ns1/");
+| @namespace hoge url("");
+| hoge|x {
 |   color: blue;
+|   border-color: -manakai-default;
 | }
 #computed nullns x
 -color: -manakai-default
@@ -587,7 +587,7 @@ hoge|x { color : blue; border-color: -manakai-default }
 | @namespace hoge '';
 | hoge|x { color : blue; border-color: -manakai-default }
 #errors
-;2;1;m;duplicate @namespace
+;2;12;m;duplicate @namespace
 #computed ns1 x
 
 #data
@@ -595,7 +595,7 @@ hoge|x { color : blue; border-color: -manakai-default }
 | @namespace hoge 'http://ns1/';
 | hoge|x { color : blue; border-color: -manakai-default }
 #errors
-;2;1;m;duplicate @namespace
+;2;12;m;duplicate @namespace
 #cssom
 | @namespace hoge: <>
 | @namespace hoge: <http://ns1/>
@@ -607,11 +607,11 @@ hoge|x { color : blue; border-color: -manakai-default }
 |   border-top-color: -manakai-default
 |   color: blue
 #csstext
-| @namespace hoge url();
-| @namespace hoge url(http://ns1/);
+| @namespace hoge url("");
+| @namespace hoge url("http://ns1/");
 | hoge|x {
-|   border-color: -manakai-default;
 |   color: blue;
+|   border-color: -manakai-default;
 | }
 #computed ns1 x
 -color: -manakai-default
@@ -622,7 +622,7 @@ hoge|x { color : blue; border-color: -manakai-default }
 | @namespace hoge 'http://ns1/';
 | hoge|x { color : blue; border-color: -manakai-default }
 #errors
-;2;1;m;duplicate @namespace
+;2;12;m;duplicate @namespace
 #computed nullns x
 
 #data
@@ -655,10 +655,10 @@ hoge|x { color : blue; border-color: -manakai-default }
 |   border-top-color: -manakai-default
 |   color: blue
 #csstext
-| @namespace hoge url();
+| @namespace hoge url("");
 | [y] {
-|   border-color: -manakai-default;
 |   color: blue;
+|   border-color: -manakai-default;
 | }
 #computed nullnsattr x
 -color: -manakai-default
@@ -674,7 +674,7 @@ hoge|x { color : blue; border-color: -manakai-default }
 abc|def { }
 a{}
 #errors
-;1;15;m;at-rule syntax error;namespace
+;1;15;m;css:namespace:url missing
 ;2;1;m;namespace prefix:not declared
 #cssom
 <a>
@@ -685,7 +685,8 @@ a{}
 b{}
 #errors
 ;3;1;w;css:url:bad
-;1;12;m;at-rule syntax error;namespace
+;3;4;w;css:at-rule:eof
+;1;12;m;css:namespace:url missing
 #cssom
 
 #data
@@ -694,7 +695,7 @@ a{}
 #errors
 #cssom
 @namespace hoge: <a>
-<*|a>
+<a>
 
 #data
 @NAMeSPAcE hoge "a";
@@ -702,7 +703,7 @@ a{}
 #errors
 #cssom
 @namespace hoge: <a>
-<*|a>
+<a>
 
 #data
 @NAM\0045SPACE hoge "a";
@@ -710,7 +711,7 @@ a{}
 #errors
 #cssom
 @namespace hoge: <a>
-<*|a>
+<a>
 
 #data
 @NAMESPAC\45  hoge "a";
@@ -718,13 +719,13 @@ a{}
 #errors
 #cssom
 @namespace hoge: <a>
-<*|a>
+<a>
 
 #data
 @NAMESPAC\45 hoge "a";
 a{}
 #errors
-;1;1;u;unknown at-rule
+;1;1;m;unknown at-rule
 #cssom
 <a>
 
@@ -776,7 +777,7 @@ c|d{}
 @namespace url/**/(foo);
 a{}
 #errors
-;1;19;m;at-rule syntax error;namespace
+;1;19;m;css:namespace:url missing
 #cssom
 <a>
 
@@ -840,7 +841,7 @@ a{}
 @namespace 'hoge';
 b{}
 #errors
-;6;18;m;at-rule not allowed;namespace
+;6;1;m;at-rule not allowed;namespace
 #cssom escaped
 @charset utf-8
 @import <foo>\u0020
@@ -857,7 +858,7 @@ b{}
 }
 b{}
 #errors
-;4;18;m;at-rule not allowed;namespace
+;4;1;m;at-rule not allowed;namespace
 #cssom escaped
 @charset utf-8
 @import <foo>\u0020
@@ -874,7 +875,7 @@ b{}
 @namespace 'hoge';
 b{}
 #errors
-;6;18;m;at-rule not allowed;namespace
+;6;1;m;at-rule not allowed;namespace
 #cssom escaped
 @charset utf-8
 @import <foo>\u0020
@@ -894,7 +895,7 @@ a{}
 <!--@namespace 'hoge'-->
 a{}
 #errors
-;1;22;m;at-rule syntax error;namespace
+;2;2;m;css:at-rule:block not allowed
 #cssom
 
 #data
@@ -903,9 +904,19 @@ a|b{}
 a|c{}
 #errors
 ;1;1;m;namespace prefix:not declared
-;2;20;m;at-rule not allowed;namespace
+#cssom
+| @namespace a: <hoge>
+| <a|c>
+
+#data
+@media{}
+@namespace a "hoge";
+a|c{}
+#errors
+;2;1;m;at-rule not allowed;namespace
 ;3;1;m;namespace prefix:not declared
 #cssom
+| @media 
 
 #data
 @namespace aBc 'http://ns1/';
@@ -949,7 +960,7 @@ p {
 #cssom
 @namespace hoge: <h>
 @namespace <h>
-<hoge|p>
+<p>
   content: attr(hoge|fuga)
 
 #data
@@ -962,7 +973,7 @@ p {
 #cssom
 @namespace hoge: <h>
 @namespace fuga: <h>
-<*|p>
+<p>
   content: attr(hoge|fuga)
 
 #data
@@ -975,8 +986,8 @@ p {
 #cssom
 @namespace fuga: <h>
 @namespace hoge: <h>
-<*|p>
-  content: attr(fuga|fuga)
+<p>
+  content: attr(hoge|fuga)
 
 #data
 @namespace 'h';
@@ -1008,8 +1019,8 @@ p {
 #errors
 #cssom
 @namespace foo: <>
-<*|p>
-  content: attr(bar)
+<p>
+  content: attr(foo|bar)
 
 #data
 @namespace foo 'hoge';
@@ -1019,7 +1030,7 @@ p {
 #errors
 #cssom
 @namespace foo: <hoge>
-<*|p>
+<p>
   content: attr(foo|bar)
 
 #data
@@ -1038,14 +1049,14 @@ p {
 #errors
 #cssom
 <p>
-  content: attr(bar)
+  content: attr(|bar)
 
 #data
 p {
   content:attr(*|bar);
 }
 #errors
-;2;16;m;CSS syntax error;'content'
+;2;11;m;CSS syntax error;'content'
 #cssom
 <p>
 

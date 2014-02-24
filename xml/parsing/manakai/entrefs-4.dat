@@ -1,0 +1,200 @@
+#data
+<!DOCTYPE a [
+  <!ENTITY hoa "aa&amp;bb">
+]>
+<p a="&hoa;"/>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="aa&bb"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY hoa "aa&fuga;bb">
+]>
+<p a="&hoa;"/>
+#errors
+2;19;entity not declared;;fuga;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="aa&fuga;bb"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY hoa "aa&amp;bb">
+  <!ENTITY age "x&hoa;y">
+]>
+<p a="&age;"/>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="xaa&bby"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY hoa "aa<!---->bb">
+]>
+<p a="&hoa;"/>
+#errors
+4;7;entref in attr has element;;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="&hoa;"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY hoa "aa<!---->bb">
+  <!ENTITY fua "b&hoa;a">
+]>
+<p a="&fua;"/>
+#errors
+3;18;entref in attr has element;;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="b&hoa;a"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY hoa "aa&fua;bb">
+  <!ENTITY fua "b&hoa;a">
+]>
+<p a="&fua;"/>
+#errors
+2;19;WFC:No Recursion;;&fua;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="baa&fua;bba"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY fua "b&a;b'&quot;c">
+]>
+<p a="&fua;"/>
+#errors
+2;18;entity not declared;;a;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="b&a;b'"c"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY fua 'b&a;b&#x27;"c'>
+]>
+<p a="&fua;"/>
+#errors
+2;18;entity not declared;;a;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="b&a;b'"c"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY fua 'b&a;b&#x27;"c'>
+]>
+<p a='&fua;'/>
+#errors
+2;18;entity not declared;;a;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="b&a;b'"c"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY fua 'b&a;b&#x27;"c'>
+]>
+<p a=&fua; />
+#errors
+4;6;unquoted attr value;;;m
+2;18;entity not declared;;a;;m
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   a="b&a;b'"c"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY ba "x">
+  <!ENTITY ax "a&ba;c">
+  <!ATTLIST a b CDATA "fo&ax;o">
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT a >
+|     b CDATA () EXPLICIT "foaxco"
+| <{} a>
+|   b="foaxco"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY ba "x&ax;y">
+  <!ENTITY ax "a&ba;c">
+  <!ATTLIST a b CDATA "fo&ax;o">
+]><a/>
+#errors
+2;17;WFC:No Recursion;;&ax;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT a >
+|     b CDATA () EXPLICIT "foax&ax;yco"
+| <{} a>
+|   b="foax&ax;yco"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY ba "x<q>y">
+  <!ENTITY ax "a&ba;c">
+  <!ATTLIST a b CDATA "fo&ax;o">
+]><a/>
+#errors
+3;17;entref in attr has element;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT a >
+|     b CDATA () EXPLICIT "foa&ba;co"
+| <{} a>
+|   b="foa&ba;co"
+
+#data
+<!DOCTYPE a[
+  <!ENTITY b PUBLIC "foo" "s">
+]><a hoge="a&b;c"/>
+#errors
+3;13;WFC:No External Entity References;;b;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   hoge="a&b;c"
+
+#data
+<!DOCTYPE a[
+  <!ENTITY b "d&c;e">
+  <!ENTITY c PUBLIC "foo" "t">
+]><a hoge="a&b;c"/>
+#errors
+2;16;WFC:No External Entity References;;c;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   hoge="ad&c;ec"
+
+#data
+<!DOCTYPE a[
+  <!ENTITY b PUBLIC "foo" "s" NDATA x>
+]><a hoge="a&b;c"/>
+#errors
+3;13;unparsed entity;;b;;m
+#document
+| <!DOCTYPE a>
+|   <!ENTITY b "" "foo" "s" x>
+| <{} a>
+|   hoge="a&b;c"

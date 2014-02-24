@@ -128,6 +128,7 @@ EOF in foreign content
 #errors
 no DOCTYPE
 unmatched end tag
+</body>
 EOF in foreign content
 #document
 | <html>
@@ -748,6 +749,7 @@ no DOCTYPE
 #errors
 no DOCTYPE
 unmatched end tag
+</applet>
 EOF
 #document
 | <html>
@@ -763,6 +765,7 @@ EOF
 #errors
 no DOCTYPE
 unmatched end tag
+</button>
 EOF
 #document
 | <html>
@@ -778,6 +781,7 @@ EOF
 #errors
 no DOCTYPE
 unmatched end tag
+</marquee>
 EOF
 #document
 | <html>
@@ -793,6 +797,7 @@ EOF
 #errors
 no DOCTYPE
 unmatched end tag
+</object>
 EOF
 #document
 | <html>
@@ -836,6 +841,7 @@ EOF in foreign content
 #errors
 no DOCTYPE
 unmatched end tag </option>
+</option>
 EOF
 #document
 | <html>
@@ -850,7 +856,8 @@ EOF
 <optgroup><svg><foreignobject></optgroup>x
 #errors
 no DOCTYPE
-unmatched end tag </optgroup>
+</optgroup>
+stray </optgroup>
 EOF
 #document
 | <html>
@@ -1054,6 +1061,7 @@ EOF
 #errors
 no DOCTYPE
 unmatched </td>
+</td>
 b in table
 EOF
 #document
@@ -1074,6 +1082,7 @@ EOF
 #errors
 no DOCTYPE
 unmatched </th>
+</th>
 b in table
 EOF
 #document
@@ -1094,6 +1103,7 @@ EOF
 #errors
 no DOCTYPE
 unmatched </td>
+</td>
 EOF
 #document
 | <html>
@@ -1110,6 +1120,7 @@ EOF
 #errors
 no DOCTYPE
 unmatched </th>
+</th>
 EOF
 #document
 | <html>
@@ -1126,22 +1137,26 @@ EOF
 #errors
 no DOCTYPE
 unmatched </caption>
+</caption>
+"b" in table
 EOF
 #document
 | <html>
 |   <head>
 |   <body>
+|     "b"
 |     <table>
 |       <caption>
 |         <svg svg>
 |           <svg g>
-|             "ab"
+|             "a"
 
 #data
 <table><tr><td><svg><g>a</caption>b
 #errors
 no DOCTYPE
 unmatched </caption>
+stray </caption>
 EOF
 #document
 | <html>
@@ -1160,6 +1175,7 @@ EOF
 #errors
 no DOCTYPE
 unmatched </caption>
+stray </caption>
 EOF
 #document
 | <html>
@@ -1197,6 +1213,7 @@ EOF
 #errors
 no DOCTYPE
 unmatched </tbody>
+</tbody>
 b in table
 EOF
 #document
@@ -1217,6 +1234,7 @@ EOF
 #errors
 no DOCTYPE
 unmatched </tr>
+</tr>
 b in table
 EOF
 #document
@@ -1236,9 +1254,10 @@ EOF
 <table><thead><tr><td><svg><g>a</thead>b
 #errors
 no DOCTYPE
-unmatched </thead>
-b in table
-EOF
+</thead>
+no </g> at </thead>
+"b" in table
+no </table> at EOF
 #document
 | <html>
 |   <head>
@@ -1256,7 +1275,8 @@ EOF
 <table><tfoot><tr><td><svg><g>a</tfoot>b
 #errors
 no DOCTYPE
-unmatched </tfoot>
+no </g></svg> at </tfoot>
+</tfoot>
 b in table
 EOF
 #document
@@ -1276,8 +1296,8 @@ EOF
 <table><caption><svg><g>a</table>b
 #errors
 no DOCTYPE
-unexpected </table>
-EOF
+</table> in foreign
+no </g></svg> at </table>
 #document
 | <html>
 |   <head>
@@ -1286,14 +1306,16 @@ EOF
 |       <caption>
 |         <svg svg>
 |           <svg g>
-|             "ab"
+|             "a"
+|     "b"
 
 #data
 <table><caption><svg><g>a</tbody>b
 #errors
 no DOCTYPE
-unmatched </tbody>
-EOF
+</tbody>
+no </g> before </tbody>
+no </table> at EOF
 #document
 | <html>
 |   <head>
@@ -1308,8 +1330,9 @@ EOF
 <table><caption><svg><g>a</thead>b
 #errors
 no DOCTYPE
-unmatched </thead>
-EOF
+</thead>
+no </g> before </thead>
+no </table> at EOF
 #document
 | <html>
 |   <head>
@@ -1324,8 +1347,9 @@ EOF
 <table><caption><svg><g>a</tfoot>b
 #errors
 no DOCTYPE
-unmatched </tfoot>
-EOF
+</tfoot>
+no </g> before </tfoot>
+no </table> at EOF
 #document
 | <html>
 |   <head>
@@ -1340,6 +1364,7 @@ EOF
 <table><caption><svg><g>a</tr>b
 #errors
 no DOCTYPE
+no </g></svg> at </tr>
 unmatched </tr>
 EOF
 #document
@@ -1439,7 +1464,6 @@ EOF
 no DOCTYPE
 <svg> in table
 unexpected </table>
-EOF
 #document
 | <html>
 |   <head>
@@ -1506,7 +1530,8 @@ EOF
 |   <body>
 |     <svg svg>
 |       <svg g>
-|         "ab"
+|         "a"
+|     "b"
 |     <table>
 |       <tfoot>
 |         <tr>
@@ -1518,7 +1543,6 @@ EOF
 no DOCTYPE
 <svg> in tr
 unexpected </table>
-EOF
 #document
 | <html>
 |   <head>
@@ -1971,6 +1995,7 @@ EOF
 <!DOCTYPE HTML><table><tr><td><svg><td></td><tr></td> <td>
 #errors
 unexpected </td>
+</td>
 EOF
 #document
 | <!DOCTYPE html>
@@ -2011,6 +2036,7 @@ EOF
 <!DOCTYPE HTML><table><tr><td><svg><td></tbody><tr>
 #errors
 unexpected </tbody>
+</tbody>
 EOF
 #document
 | <!DOCTYPE html>
@@ -2047,6 +2073,7 @@ EOF
 <!DOCTYPE HTML><table><tr><td><svg><td></tr><tbody>
 #errors
 unexpected </tr>
+</tr>
 EOF
 #document
 | <!DOCTYPE html>
@@ -2081,10 +2108,8 @@ EOF
 #data
 <!DOCTYPE HTML><table><tr><td><svg><td></table>a
 #errors
-No </svg td></svg svg> before </table> (in foreign content)
-No </svg td></svg svg> before </table> (in table cell)
-No </svg svg> before </td> implied by </table> (in foreign content)
-No </svg svg> before </td> implied by </table> (in table cell)
+no </svg td></svg svg>
+no </svg td></svg svg>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -2998,7 +3023,6 @@ no </desc> before </html>
 <!DOCTYPE html><table><tr><td><svg><desc><td><!---->
 #errors
 No </desc></svg> before <td>
-No </desc></svg> before </td> implied by <td>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3331,7 +3355,7 @@ EOF
 #data
 <!DOCTYPE html><math><mi><i>a</math><math>b
 #errors
-unexpected </math>
+stray </math>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3348,7 +3372,7 @@ EOF
 #data
 <!DOCTYPE html><math><mi><i>a</mi><math>b
 #errors
-no </i>
+stray </mi>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3359,13 +3383,13 @@ EOF
 |       <math mi>
 |         <i>
 |           "a"
-|       <math math>
-|         "b"
+|           <math math>
+|             "b"
 
 #data
 <!DOCTYPE html><math><mi><i>a</mi><x>b
 #errors
-no </i>
+stray </mi>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3376,13 +3400,13 @@ EOF
 |       <math mi>
 |         <i>
 |           "a"
-|       <math x>
-|         "b"
+|           <x>
+|             "b"
 
 #data
 <!DOCTYPE html><math><mi><i>a</mi><mi>b
 #errors
-no </i>
+stray </mi>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3393,14 +3417,13 @@ EOF
 |       <math mi>
 |         <i>
 |           "a"
-|       <math mi>
-|         <i>
-|           "b"
+|           <mi>
+|             "b"
 
 #data
 <!DOCTYPE html><math><mi><i>a</mi><ms>b
 #errors
-no </i>
+stray </mi>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3411,14 +3434,13 @@ EOF
 |       <math mi>
 |         <i>
 |           "a"
-|       <math ms>
-|         <i>
-|           "b"
+|           <ms>
+|             "b"
 
 #data
 <!DOCTYPE html><math><mi><i>a</mi><mo>b
 #errors
-no </i>
+stray </mi>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3429,14 +3451,13 @@ EOF
 |       <math mi>
 |         <i>
 |           "a"
-|       <math mo>
-|         <i>
-|           "b"
+|           <mo>
+|             "b"
 
 #data
 <!DOCTYPE html><math><mi><i>a</mi><mn>b
 #errors
-no </i>
+stray </mi>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3447,14 +3468,13 @@ EOF
 |       <math mi>
 |         <i>
 |           "a"
-|       <math mn>
-|         <i>
-|           "b"
+|           <mn>
+|             "b"
 
 #data
 <!DOCTYPE html><math><mi><i>a</mi><mtext>b
 #errors
-no </i>
+stray </mi>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3465,14 +3485,13 @@ EOF
 |       <math mi>
 |         <i>
 |           "a"
-|       <math mtext>
-|         <i>
-|           "b"
+|           <mtext>
+|             "b"
 
 #data
 <!DOCTYPE html><math><mi><i>a</mi><mi><div>b
 #errors
-no </i>
+stray </mi>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3483,15 +3502,14 @@ EOF
 |       <math mi>
 |         <i>
 |           "a"
-|       <math mi>
-|         <div>
-|           <i>
-|             "b"
+|           <mi>
+|             <div>
+|               "b"
 
 #data
 <!DOCTYPE html><math><mi><i>a</mi><mi><b>b
 #errors
-no </i>
+stray </mi>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3502,15 +3520,14 @@ EOF
 |       <math mi>
 |         <i>
 |           "a"
-|       <math mi>
-|         <i>
-|           <b>
-|             "b"
+|           <mi>
+|             <b>
+|               "b"
 
 #data
 <!DOCTYPE html><math><mi><i>a</mi><annotation-xml>b
 #errors
-no </i>
+stray </mi>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3521,13 +3538,13 @@ EOF
 |       <math mi>
 |         <i>
 |           "a"
-|       <math annotation-xml>
-|         "b"
+|           <annotation-xml>
+|             "b"
 
 #data
 <!DOCTYPE html><math><mi><i>a</mi><annotation-xml encoding="text/html">b
 #errors
-no </i>
+stray </mi>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3538,15 +3555,14 @@ EOF
 |       <math mi>
 |         <i>
 |           "a"
-|       <math annotation-xml>
-|         encoding="text/html"
-|         <i>
-|           "b"
+|           <annotation-xml>
+|             encoding="text/html"
+|             "b"
 
 #data
 <!DOCTYPE html><math><mi><i>a</mi><annotation-xml encoding="application/xhtml+XML">b
 #errors
-no </i>
+stray </i>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3557,15 +3573,14 @@ EOF
 |       <math mi>
 |         <i>
 |           "a"
-|       <math annotation-xml>
-|         encoding="application/xhtml+XML"
-|         <i>
-|           "b"
+|           <annotation-xml>
+|             encoding="application/xhtml+XML"
+|             "b"
 
 #data
 <!DOCTYPE html><math><mi><i>a</mi><annotation-xml encoding="text/html"><svg><desc>x
 #errors
-no </i>
+stray </mi>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3576,17 +3591,16 @@ EOF
 |       <math mi>
 |         <i>
 |           "a"
-|       <math annotation-xml>
-|         encoding="text/html"
-|         <i>
-|           <svg svg>
-|             <svg desc>
-|               "x"
+|           <annotation-xml>
+|             encoding="text/html"
+|             <svg svg>
+|               <svg desc>
+|                 "x"
 
 #data
 <!DOCTYPE html><math><mi><i>a</mi><annotation-xml encoding="text/html"><svg><title>x
 #errors
-no </i>
+stray </mi>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3597,17 +3611,16 @@ EOF
 |       <math mi>
 |         <i>
 |           "a"
-|       <math annotation-xml>
-|         encoding="text/html"
-|         <i>
-|           <svg svg>
-|             <svg title>
-|               "x"
+|           <annotation-xml>
+|             encoding="text/html"
+|             <svg svg>
+|               <svg title>
+|                 "x"
 
 #data
 <!DOCTYPE html><math><mi><i>a</mi><annotation-xml encoding="text/html"><svg><foreignobject>x
 #errors
-no </i>
+stray </mi>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3618,17 +3631,16 @@ EOF
 |       <math mi>
 |         <i>
 |           "a"
-|       <math annotation-xml>
-|         encoding="text/html"
-|         <i>
-|           <svg svg>
-|             <svg foreignObject>
-|               "x"
+|           <annotation-xml>
+|             encoding="text/html"
+|             <svg svg>
+|               <svg foreignObject>
+|                 "x"
 
 #data
 <!DOCTYPE html><svg><title><i>a</title><desc>x
 #errors
-no </i>
+stray </title>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3639,15 +3651,15 @@ EOF
 |       <svg title>
 |         <i>
 |           "a"
-|       <svg desc>
-|         <i>
-|           "x"
+|           <desc>
+|             "x"
 
 #data
 <!DOCTYPE html><svg><title><i>a</title><title>x
 #errors
+stray </title>
+no </title> (RCDATA)
 no </i>
-EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -3657,14 +3669,13 @@ EOF
 |       <svg title>
 |         <i>
 |           "a"
-|       <svg title>
-|         <i>
-|           "x"
+|           <title>
+|             "x"
 
 #data
 <!DOCTYPE html><svg><title><i>a</title><foreignObJect>x
 #errors
-no </i>
+no </title>
 EOF
 #document
 | <!DOCTYPE html>
@@ -3675,9 +3686,8 @@ EOF
 |       <svg title>
 |         <i>
 |           "a"
-|       <svg foreignObject>
-|         <i>
-|           "x"
+|           <foreignobject>
+|             "x"
 
 #data
 <!DOCTYPE html><math><mi><frameset>
@@ -3756,11 +3766,7 @@ EOF
 | <!DOCTYPE html>
 | <html>
 |   <head>
-|   <body>
-|     <math math>
-|       <math annotation-xml>
-|         "\uFFFD"
-|         <math mi>
+|   <frameset>
 
 #data escaped
 <!DOCTYPE html><math><annotation-xml>\uFFFD<mi><frameset>
@@ -3998,23 +4004,19 @@ bad comment
 <!DOCTYPE html><table><svg><desc><i>a</desc><title><b>b</title><foreignobject><table><td>c</table>d</i>e</foreignObject></svg><math><mi>f<i>g</mi><annotation-xml encoding=text/html>h</annotation-xml><annotation-xml>i</annotation-xml></math>j
 #errors
 <svg> in table
-<desc> in table
 <i> in table
-no </i> before </desc>
+"a" in table
 </desc> in table
+stray </desc>
 <title> in table
-<b> in table
-no </b> before </title>
-</title> in table
 <foreignobject> in table
 no </foreignobject></table> before </table>
 no <tr> before <td>
-no </b> before </i>; AAA
-unexpected </foreignObject>
-unexpected </svg>
-no </i></b> before </mi>
-no </i> before </annotation-xml> (text/html)
-unexpected EOF
+stray </foreignObject>
+stray </svg>
+stray </mi>
+stray </math>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -4024,11 +4026,9 @@ unexpected EOF
 |       <svg desc>
 |         <i>
 |           "a"
-|       <svg title>
-|         <i>
-|           <b>
-|             "b"
-|       <svg foreignObject>
+|           <title>
+|             "<b>b"
+|           <foreignobject>
 |     <table>
 |     <table>
 |       <tbody>
@@ -4036,30 +4036,25 @@ unexpected EOF
 |           <td>
 |             "c"
 |     <i>
-|       <b>
-|         "d"
-|     <b>
-|       "e"
-|       <math math>
-|         <math mi>
-|           "f"
-|           <i>
-|             "g"
-|         <math annotation-xml>
-|           encoding="text/html"
-|           <i>
+|       "d"
+|     "e"
+|     <math math>
+|       <math mi>
+|         "f"
+|         <i>
+|           "g"
+|           <annotation-xml>
+|             encoding="text/html"
 |             "h"
-|         <math annotation-xml>
-|           "i"
-|       <i>
-|         "j"
+|           <annotation-xml>
+|             "i"
+|           "j"
 
 #data
 <!DOCTYPE html><body><table><caption><svg><g>foo</g><g>bar</g>baz</table><p>quux
 #errors
+</table> in foreign
 No </svg> before </table>
-No </caption> before </table>
-No </svg> before </caption> implied by </table>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -4083,8 +4078,7 @@ No </svg> before </caption> implied by </table>
 #errors
 no DOCTYPE
 no </desc></svg> before <td>
-no </desc></svg> before </td> implied by <td>
-unexpected </desc>
+stray </desc>
 unexpected EOF
 #document
 | <html>
@@ -4100,3 +4094,190 @@ unexpected EOF
 |             <circle>
 #comment
 <http://www.w3.org/Bugs/Public/show_bug.cgi?id=11393#c14>
+
+#data
+<!DOCTYPE html><body><table><math><mi>foo</mi></math></table>
+#errors
+<math> in table
+"foo" in table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math mi>
+|         "foo"
+|     <table>
+
+#data
+<!DOCTYPE html><body><table><math><mi>  foo</mi></math></table>
+#errors
+<math> in table
+"  foo" in table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math mi>
+|         "  foo"
+|     <table>
+
+#data
+<!DOCTYPE html><body><table><math><mi>  </mi></math></table>
+#errors
+<math> in table
+"  foo" in table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math mi>
+|         "  "
+|     <table>
+
+#data escaped
+<!DOCTYPE html><body><table><math><mi>\u0000</mi></math></table>
+#errors
+<math> in table
+text in table
+NULL (tokenizer)
+NULL (in table)
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math mi>
+|     <table>
+
+#data
+<!DOCTYPE html><body><table><tbody><math><mi>foo</mi></math></table>
+#errors
+<math> in table
+"foo" in table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math mi>
+|         "foo"
+|     <table>
+|       <tbody>
+
+#data
+<!DOCTYPE html><body><table><thead><math><mi>foo</mi></math></table>
+#errors
+<math> in table
+"foo" in table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math mi>
+|         "foo"
+|     <table>
+|       <thead>
+
+#data
+<!DOCTYPE html><body><table><tfoot><math><mi>foo</mi></math></table>
+#errors
+<math> in table
+"foo" in table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math mi>
+|         "foo"
+|     <table>
+|       <tfoot>
+
+#data
+<!DOCTYPE html><body><table><tr><math><mi>foo</mi></math></table>
+#errors
+<math> in table
+"foo" in table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math mi>
+|         "foo"
+|     <table>
+|       <tbody>
+|         <tr>
+
+#data
+<!DOCTYPE html><table><math><tbody>abc</tbody></math></table>
+#errors
+<math> in table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math tbody>
+|         "abc"
+|     <table>
+
+#data
+<!DOCTYPE html><svg><feblend></feBLEND>a</svg>
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <svg svg>
+|       <svg feBlend>
+|       "a"
+
+#data escaped
+<math>\u0000</math><frameset>
+#errors
+(1,5): expected-doctype-but-got-start-tag
+(1,6): invalid-codepoint
+(1,6): invalid-codepoint-in-foreign-content
+(1,22): unexpected-start-tag
+(1,22): eof-in-frameset
+#document
+| <html>
+|   <head>
+|   <frameset>
+
+#data
+<svg><fedropShaDOW></fEDRopshadow></svg>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <svg svg>
+|       <svg feDropShadow>
+
+#data
+<math><fedropShaDOW></fEDRopshadow></math>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math fedropshadow>

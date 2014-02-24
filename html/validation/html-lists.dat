@@ -1,0 +1,242 @@
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <ul></ul>
+</div>
+#errors
+/div;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <ul>
+    <li></li>
+  </ul>
+</div>
+#errors
+/div/ul/li;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <ol></ol>
+</div>
+#errors
+/div;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <ol>
+    <li></li>
+  </ol>
+</div>
+#errors
+/div/ol/li;no significant content;s
+
+#data
+<dt xmlns="http://www.w3.org/1999/xhtml"></dt>
+#errors
+/dt;no significant content;s
+
+#data
+<dt xmlns="http://www.w3.org/1999/xhtml">abc</dt>
+#errors
+
+#data
+<dt xmlns="http://www.w3.org/1999/xhtml">ab<span>c</span><br/></dt>
+#errors
+
+#data
+<dt xmlns="http://www.w3.org/1999/xhtml">ab<p>c</p><br/></dt>
+#errors
+
+#data
+<dt xmlns="http://www.w3.org/1999/xhtml">ab<dl><dt>c</dt><dd>aa</dd></dl><br/></dt>
+#errors
+
+#data
+<dt xmlns="http://www.w3.org/1999/xhtml">ab<header>aa</header></dt>
+#errors
+/dt/header;element missing:hn;w
+/dt/header;element not allowed:minus;m
+
+#data
+<dt xmlns="http://www.w3.org/1999/xhtml">ab<footer>aa</footer></dt>
+#errors
+/dt/footer;element not allowed:minus;m
+
+#data
+<dt xmlns="http://www.w3.org/1999/xhtml">ab<section>aa</section></dt>
+#errors
+/dt/section;element not allowed:minus;m
+
+#data
+<dt xmlns="http://www.w3.org/1999/xhtml">ab<nav>aa</nav></dt>
+#errors
+/dt/nav;element not allowed:minus;m
+
+#data
+<dt xmlns="http://www.w3.org/1999/xhtml">ab<div><h4>aa</h4></div></dt>
+#errors
+/dt/div/h4;element not allowed:minus;m
+
+#data
+<dt xmlns="http://www.w3.org/1999/xhtml">ab<hgroup>aa</hgroup></dt>
+#errors
+/dt/hgroup/"aa";character not allowed;m
+/dt/hgroup;element missing:hn;m
+/dt/hgroup;element not allowed:minus;m
+
+#data
+<dt xmlns="http://www.w3.org/1999/xhtml">ab<main>aa</main></dt>
+#errors
+
+#data
+<dt xmlns="http://www.w3.org/1999/xhtml">ab<img src="a" alt="b"/></dt>
+#errors
+
+#data
+<dt xmlns="http://www.w3.org/1999/xhtml">ab<em>aa</em></dt>
+#errors
+
+#data
+<dt xmlns="http://www.w3.org/1999/xhtml">ab<li>aa</li></dt>
+#errors
+/dt/li;element not allowed:flow;m
+
+#data
+<dd xmlns="http://www.w3.org/1999/xhtml"></dd>
+#errors
+/dd;no significant content;s
+
+#data
+<dd xmlns="http://www.w3.org/1999/xhtml">ab  hhr</dd>
+#errors
+
+#data
+<dd xmlns="http://www.w3.org/1999/xhtml">ab<nav>aa</nav></dd>
+#errors
+
+#data
+<dd xmlns="http://www.w3.org/1999/xhtml">ab<header>aa</header></dd>
+#errors
+/dd/header;element missing:hn;w
+
+#data
+<dd xmlns="http://www.w3.org/1999/xhtml">ab<p>aa</p></dd>
+#errors
+
+#data
+<dd xmlns="http://www.w3.org/1999/xhtml">ab<body>aa</body></dd>
+#errors
+/dd/body;element not allowed:flow;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dl></dl>
+</div>
+#errors
+/div;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dl>
+    <dt></dt>
+  </dl>
+</div>
+#errors
+/div/dl/dt;no significant content;s
+/div/dl;child element missing;dd;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dl>
+    <dd></dd>
+  </dl>
+</div>
+#errors
+/div/dl/dd;ps element missing;dt;m
+/div/dl/dd;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dl>
+    <dt></dt>
+    <dd></dd>
+  </dl>
+</div>
+#errors
+/div/dl/dt;no significant content;s
+/div/dl/dd;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dl>
+    <dd></dd>
+    <dt></dt>
+  </dl>
+</div>
+#errors
+/div/dl/dd;no significant content;s
+/div/dl/dd;ps element missing;dt;m
+/div/dl/dt;no significant content;s
+/div/dl;child element missing;dd;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dl>
+    <p>a</p>
+  </dl>
+</div>
+#errors
+/div;no significant content;s
+/div/dl/p;element not allowed;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dl hidden="">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+</div>
+#errors
+/div;no significant content;s
+/div/dl/dt;no significant content;s
+/div/dl/dd;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <dl>
+    <dt hidden=""></dt>
+    <dd hidden=""></dd>
+  </dl>
+</div>
+#errors
+/div/dl/dt;no significant content;s
+/div/dl/dd;no significant content;s
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt></dt>
+  <dt></dt>
+  <dd>a</dd>
+</dl>
+#errors
+/dl/dt;duplicate dl name;s
+/dl/dt;no significant content;s
+/dl/dt;no significant content;s
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>hoge</dt>
+  <dt>fuga</dt>
+  <dt><span>h</span>oge</dt>
+  <dd>a</dd>
+</dl>
+#errors
+/dl/dt;duplicate dl name;s
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>hoge</dt>
+  <dt> hoge</dt>
+  <dd>a</dd>
+</dl>
+#errors

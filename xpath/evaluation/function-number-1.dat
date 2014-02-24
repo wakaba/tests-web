@@ -1,0 +1,498 @@
+#data
+number("abc")
+#result
+nan
+
+#data
+number("12.55")
+#result
+12.55
+
+#data escaped
+number("\u0009-124 \u000A\u000D")
+#result
+-124
+
+#data
+number (" -.315000 ")
+#result
+-0.315
+
+#data
+number("0424.")
+#result
+424
+
+#data
+number("12452abc")
+#result
+nan
+
+#data
+number("-0")
+#result
+0
+
+#data
+1 div number("-0")
+#result
+-inf
+
+#data escaped
+1 div number("\u000A -0  ")
+#result
+-inf
+
+#data
+number("inf")
+#result
+nan
+
+#data
+number("Inifinity")
+#result
+nan
+
+#data
+number("+1242")
+#result
+nan
+
+#data
+number("- 424")
+#result
+nan
+
+#data
+number("")
+#result
+nan
+
+#data
+number(1 = 4)
+#result
+0
+
+#data
+number(21 = 21.0)
+#result
+1
+
+#xml 1
+<p>aaa<q>323</q> ee<q>-12.3</q> <r>12</r></p>
+
+#data
+number(/)
+#result 1
+nan
+
+#data
+number(//q)
+#result 1
+nan
+
+#data
+number(//q[2])
+#result 1
+-12.3
+
+#data
+number(//q[1] | //r)
+#result 1
+32312
+
+#data
+number(00)
+#result 1
+0
+
+#data
+number(1 div 0)
+#result 1
+inf
+
+#data
+number (1 div -0)
+#result 1
+-inf
+
+#data
+number ("aa" div 0)
+#result 1
+nan
+
+#data
+number (0)
+#result 1
+0
+
+#data
+number (-0)
+#result 1
+0
+
+#data
+number (1 div -0)
+#result
+-inf
+
+#xml 2
+<p><q>31</q><q>-31</q><q>-0</q><q>4.442</q><q>.33</q></p>
+
+#data
+sum (/p/q)
+#result 1
+310.7
+#result 2
+4.772
+
+#data
+sum (/)
+#result 2
+nan
+
+#data
+sum (/hoge)
+#result 2
+0
+
+#data
+1 div -0 + 0 * sum(/p/q)
+#result 
+-inf
+
+#data
+1 div sum (/p/q[3])
+#result 2
+inf
+
+#data
+sum ("abc")
+#result
+null
+#errors
+m;xpath:incompat with node-set;string
+
+#data
+sum (-21.3)
+#result
+null
+#errors
+m;xpath:incompat with node-set;number
+
+#data
+sum (53 > 0)
+#result
+null
+#errors
+m;xpath:incompat with node-set;boolean
+
+#data
+floor(1)
+#result
+1
+
+#data
+floor(1.4)
+#result
+1
+
+#data
+floor(1252.0005)
+#result
+1252
+
+#data
+floor (0)
+#result
+0
+
+#data
+floor (-13)
+#result
+-13
+
+#data
+floor (-125.33)
+#result
+-126
+
+#data
+floor (0.5)
+#result
+0
+
+#data
+1 div floor (0.5)
+#result
+inf
+
+#data
+floor (-0.6)
+#result
+-1
+
+#data
+floor (1 div 0)
+#result
+inf
+
+#data
+floor (1 div -0)
+#result
+-inf
+
+#data
+floor ("abc")
+#result
+nan
+
+#data
+floor (1 div (1 div 0))
+#result
+0
+
+#data
+floor (1 div (1 div -0))
+#result
+0
+
+#data
+floor (1 div (1 div (1 div 0)))
+#result
+inf
+
+#data
+floor (1 div (1 div (1 div -0)))
+#result
+-inf
+
+#data
+1 div floor (1 div (1 div 0))
+#result
+inf
+
+#data
+1 div floor (1 div (1 div -0))
+#result
+-inf
+
+#data
+ceiling(1)
+#result
+1
+
+#data
+ceiling(1.4)
+#result
+2
+
+#data
+ceiling(1252.0005)
+#result
+1253
+
+#data
+ceiling (0)
+#result
+0
+
+#data
+ceiling (-13)
+#result
+-13
+
+#data
+ceiling (-125.33)
+#result
+-125
+
+#data
+ceiling (0.5)
+#result
+1
+
+#data
+1 div ceiling (0.5)
+#result
+1
+
+#data
+ceiling (-0.6)
+#result
+0
+
+#data
+1 div ceiling (-0.6)
+#result
+-inf
+
+#data
+ceiling (1 div 0)
+#result
+inf
+
+#data
+ceiling (1 div -0)
+#result
+-inf
+
+#data
+ceiling ("abc")
+#result
+nan
+
+#data
+ceiling (1 div (1 div 0))
+#result
+0
+
+#data
+ceiling (1 div (1 div -0))
+#result
+0
+
+#data
+ceiling (1 div (1 div (1 div 0)))
+#result
+inf
+
+#data
+ceiling (1 div (1 div (1 div -0)))
+#result
+-inf
+
+#data
+1 div ceiling (1 div (1 div 0))
+#result
+inf
+
+#data
+1 div ceiling (1 div (1 div -0))
+#result
+-inf
+
+#data
+round(1)
+#result
+1
+
+#data
+round(1.4)
+#result
+1
+
+#data
+round(1.5)
+#result
+2
+
+#data
+round(1.6)
+#result
+2
+
+#data
+round(1252.0005)
+#result
+1252
+
+#data
+round (0)
+#result
+0
+
+#data
+round (-13)
+#result
+-13
+
+#data
+round (-125.33)
+#result
+-125
+
+#data
+round (-125.61)
+#result
+-126
+
+#data
+round (0.5)
+#result
+1
+
+#data
+1 div round (0.5)
+#result
+1
+
+#data
+round (-0.4)
+#result
+0
+
+#data
+round (-0.5)
+#result
+0
+
+#data
+1 div round (-0.5)
+#result
+-inf
+
+#data
+round (-0.6)
+#result
+-1
+
+#data
+1 div round (-0.6)
+#result
+-1
+
+#data
+round (1 div 0)
+#result
+inf
+
+#data
+round (1 div -0)
+#result
+-inf
+
+#data
+round ("abc")
+#result
+nan
+
+#data
+round (1 div (1 div 0))
+#result
+0
+
+#data
+round (1 div (1 div -0))
+#result
+0
+
+#data
+round (1 div (1 div (1 div 0)))
+#result
+inf
+
+#data
+round (1 div (1 div (1 div -0)))
+#result
+-inf
+
+#data
+1 div round (1 div (1 div 0))
+#result
+inf
+
+#data
+1 div round (1 div (1 div -0))
+#result
+-inf

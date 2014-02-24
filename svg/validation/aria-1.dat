@@ -1,0 +1,225 @@
+#data
+<g role="" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+
+#data
+<g role="navigation" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+/g/@role;aria:not preferred markup:html-element;nav;w
+
+#data
+<g role="alert" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+
+#data
+<g role="window" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+/g/@role;aria:bad role;m
+
+#data
+<g role="APPLICATION" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+/g/@role;aria:bad role;m
+
+#data
+<g role="application document" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+/g;attribute missing;aria-labelledby;s
+
+#data
+<g aria-disabled="true" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+
+#data
+<g aria-disabled="FALSE" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+
+#data
+<g aria-hidden="true" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+
+#data
+<g aria-label="ho ge" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+/g/@aria-label;aria:label;w
+
+#data
+<g aria-foo="true" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+/g/@aria-foo;attribute not defined;m
+
+#data
+<g aria-label="" xmlns="http://www.w3.org/2000/svg"></g>
+#errors
+/g;unknown element;u
+/g/@aria-label;aria:label;w
+
+#data
+<g aria-label="  " xmlns="http://www.w3.org/2000/svg"></g>
+#errors
+/g;unknown element;u
+/g/@aria-label;aria:label;w
+
+#data
+<g aria-label="abc" xmlns="http://www.w3.org/2000/svg"></g>
+#errors
+/g;unknown element;u
+/g/@aria-label;aria:label;w
+
+#data
+<g xmlns="http://www.w3.org/2000/svg">
+  <g aria-owns="aa"/>
+  <foreignObject><div id="aa" xmlns="http://www.w3.org/1999/xhtml">aa</div></foreignObject>
+</g>
+#errors
+/g;unknown element;u
+/g/g;unknown element;u
+/g/g/@aria-owns;aria:owns;w
+/g/foreignObject;unknown element;u
+
+#data
+<g xmlns="http://www.w3.org/2000/svg">
+  <g aria-owns="aa bb"/>
+  <foreignObject><div id="aa" xmlns="http://www.w3.org/1999/xhtml">aa</div></foreignObject>
+</g>
+#errors
+/g;unknown element;u
+/g/g;unknown element;u
+/g/g/@aria-owns;aria:owns;w
+/g/g/@aria-owns;no referenced element;m
+/g/foreignObject;unknown element;u
+
+#data
+<g aria-controls="" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+
+#data
+<g aria-controls="abc" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+/g/@aria-controls;no referenced element;m
+
+#data
+<g aria-controls="aa" xmlns="http://www.w3.org/2000/svg"><foreignObject><span xmlns="http://www.w3.org/1999/xhtml" id="aa">aaa</span></foreignObject></g>
+#errors
+/g;unknown element;u
+/g/foreignObject;unknown element;u
+
+#data
+<g aria-controls="aa bb" xmlns="http://www.w3.org/2000/svg"><foreignObject><span xmlns="http://www.w3.org/1999/xhtml" id="aa"><span id="bb">a</span></span></foreignObject></g>
+#errors
+/g;unknown element;u
+/g/foreignObject;unknown element;u
+
+#data
+<g aria-describedby="" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+
+#data
+<g aria-describedby="abc" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+/g/@aria-describedby;no referenced element;m
+
+#data
+<g aria-describedby="aa" xmlns="http://www.w3.org/2000/svg"><foreignObject><span xmlns="http://www.w3.org/1999/xhtml" id="aa">aaa</span></foreignObject></g>
+#errors
+/g;unknown element;u
+/g/foreignObject;unknown element;u
+
+#data
+<g aria-describedby="aa bb" xmlns="http://www.w3.org/2000/svg"><foreignObject><span xmlns="http://www.w3.org/1999/xhtml" id="aa"><span id="bb">a</span></span></foreignObject></g>
+#errors
+/g;unknown element;u
+/g/foreignObject;unknown element;u
+
+#data
+<g aria-flowto="" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+
+#data
+<g aria-flowto="abc" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+/g/@aria-flowto;no referenced element;m
+
+#data
+<g aria-flowto="aa" xmlns="http://www.w3.org/2000/svg"><foreignObject><span xmlns="http://www.w3.org/1999/xhtml" id="aa">aaa</span></foreignObject></g>
+#errors
+/g;unknown element;u
+/g/foreignObject;unknown element;u
+
+#data
+<g aria-flowto="aa bb" xmlns="http://www.w3.org/2000/svg"><foreignObject><span xmlns="http://www.w3.org/1999/xhtml" id="aa"><span id="bb">a</span></span></foreignObject></g>
+#errors
+/g;unknown element;u
+/g/foreignObject;unknown element;u
+
+#data
+<g aria-labelledby="" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+
+#data
+<g aria-labelledby="abc" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+/g/@aria-labelledby;no referenced element;m
+
+#data
+<g aria-labelledby="aa" xmlns="http://www.w3.org/2000/svg"><foreignObject><span xmlns="http://www.w3.org/1999/xhtml" id="aa">aaa</span></foreignObject></g>
+#errors
+/g;unknown element;u
+/g/foreignObject;unknown element;u
+
+#data
+<g aria-labelledby="aa bb" xmlns="http://www.w3.org/2000/svg"><foreignObject><span xmlns="http://www.w3.org/1999/xhtml" id="aa"><span id="bb">a</span></span></foreignObject></g>
+#errors
+/g;unknown element;u
+/g/foreignObject;unknown element;u
+
+#data
+<g aria-hidden="true" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+
+#data
+<svg role="application" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/svg;unknown element;u
+
+#data
+<svg role="document " xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/svg;unknown element;u
+
+#data
+<g role="application" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+/g;attribute missing;aria-labelledby;s
+
+#data
+<g role="document" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u
+/g;attribute missing;aria-labelledby;s
+
+#data
+<g role="application" aria-labelledby="" xmlns="http://www.w3.org/2000/svg"/>
+#errors
+/g;unknown element;u

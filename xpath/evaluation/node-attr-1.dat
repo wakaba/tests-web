@@ -1,0 +1,101 @@
+#xml 1
+<p><q foo="" bar=""/></p>
+
+#data
+//@foo
+#result 1
+/1/1/@foo
+
+#data
+//./attribute::foo
+#result 1
+/1/1/@foo
+
+#data
+attribute::foo
+#result 1
+#result 1 /1/1
+/1/1/@foo
+#result 1 /1/1/@foo
+
+#data
+attribute::*
+#result 1 /1/1
+/1/1/@foo
+/1/1/@bar
+
+#data
+attribute::a:*
+#ns
+a <empty>
+#result 1 /1/1
+
+#data
+attribute::a:foo
+#ns
+a http://a/
+#result 1 /1/1
+
+#xml 2
+<aa xmlns="http://a/"><b hoge=""/></aa>
+
+#data
+//attribute::a:hoge
+#ns
+a http://a/
+#result 2
+
+#xml 3
+<aa xmlns:A="http://a/"><b A:hoge="" h:hoge="" xmlns:h="http://h/"
+A:foo=""/></aa>
+
+#data
+//attribute::a:hoge
+#ns
+a http://a/
+#result 3
+/1/1/@A:hoge
+
+#data
+//attribute::a:*
+#ns
+a http://a/
+#result 3
+/1/1/@A:hoge
+/1/1/@A:foo
+
+#data
+//attribute::*/following::*
+#result 3
+
+#data
+//attribute::*/preceding-sibling::*
+#result 3
+
+#data
+//@xmlns:*
+#ns
+xmlns http://www.w3.org/2000/xmlns/
+#result 3
+
+#xml 4
+<aa xmlns:A="http://a/"><b xmlns:h="http://h/"/></aa>
+
+#data
+//@*
+#result 4
+
+#data
+//namespace::*
+#result 1
+#result 3
+
+#data
+//namespace::h
+#result 1
+#result 3
+
+#data
+//namespace::h/..
+#result 1
+#result 3

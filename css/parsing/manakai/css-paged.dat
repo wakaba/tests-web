@@ -68,6 +68,18 @@ p {
 
 #data
 p {
+  size: lANDSCape
+}
+#cssom
+| <p>
+|   size: landscape
+#csstext
+p {
+  size: landscape;
+}
+
+#data
+p {
   size: inherit;
 }
 #cssom
@@ -111,7 +123,7 @@ p {
   size: 10cm auto;
 }
 #errors
-;2;14;m;no property semicolon
+;2;14;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -120,7 +132,7 @@ p {
   size: auto 10px;
 }
 #errors
-;2;14;m;no property semicolon
+;2;9;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -134,18 +146,28 @@ p {
 
 #data
 p {
-  size: -10in -20pt;
+  size: 10in -20pt;
 }
+#errors
+;2;14;m;css:value:not nnlength
 #cssom
 | <p>
-|   size: -10in -20pt
+
+#data
+p {
+  size: -10in -20pt;
+}
+#errors
+;2;9;m;css:value:not nnlength
+#cssom
+| <p>
 
 #data
 p {
   size: 1 4
 }
 #errors
-;2;9;m;CSS syntax error;'size'
+;2;9;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -154,16 +176,17 @@ p {
   size: 1 4;
 }
 #option q
+#errors
+;2;9;m;css:value:not nnlength
 #cssom
 | <p>
-|   size: 1px 4px
 
 #data
 p {
   size: 10%;
 }
 #errors
-;2;9;m;CSS syntax error;'size'
+;2;9;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -172,7 +195,7 @@ p {
   size: 1px 2px 3px;
 }
 #errors
-;2;17;m;no property semicolon
+;2;9;m;CSS syntax error;'size'
 #cssom
 | <p>
 
@@ -205,7 +228,16 @@ p {
   marks: cross cross;
 }
 #errors
-;2;16;m;no property semicolon
+;2;16;m;CSS syntax error;'marks'
+#cssom
+| <p>
+
+#data
+p {
+  marks: cross Hige;
+}
+#errors
+;2;16;m;CSS syntax error;'marks'
 #cssom
 | <p>
 
@@ -270,7 +302,7 @@ p {
   marks: crop crop;
 }
 #errors
-;2;15;m;no property semicolon
+;2;15;m;CSS syntax error;'marks'
 #cssom
 | <p>
 
@@ -279,7 +311,7 @@ p {
   marks: crop cross crop;
 }
 #errors
-;2;21;m;no property semicolon
+;2;21;m;CSS syntax error;'marks'
 #cssom
 | <p>
 
@@ -288,7 +320,7 @@ p {
   marks: crop inherit;
 }
 #errors
-;2;15;m;no property semicolon
+;2;15;m;CSS syntax error;'marks'
 #cssom
 | <p>
 
@@ -309,7 +341,16 @@ p {
   marks: none cross;
 }
 #errors
-;2;15;m;no property semicolon
+;2;15;m;CSS syntax error;'marks'
+#cssom
+| <p>
+
+#data
+p {
+  marks: crop none;
+}
+#errors
+;2;15;m;CSS syntax error;'marks'
 #cssom
 | <p>
 
@@ -330,7 +371,7 @@ p {
   marks: inherit crop;
 }
 #errors
-;2;18;m;no property semicolon
+;2;10;m;CSS syntax error;'marks'
 #cssom
 | <p>
 
@@ -372,10 +413,10 @@ p {
 }
 #cssom
 | <p>
-|   page: InhErit
+|   page: inherit
 #csstext
 p {
-  page: InhErit;
+  page: inherit;
 }
 
 #data
@@ -389,6 +430,26 @@ p {
 p {
   page: pageName;
 }
+
+#data
+p{page: INITIAL}
+#cssom
+| <p>
+|   page: initial
+
+#data
+p{page: -MOZ-initial}
+#errors
+;1;9;m;css:obsolete;-moz-initial
+#cssom
+| <p>
+|   page: initial
+
+#data
+p{page: DEFauLt}
+#cssom
+| <p>
+|   page: DEFauLt
 
 #data
 p {
@@ -418,60 +479,67 @@ p {
 p {
   orphans: -3;
 }
+#errors
+;2;12;m;css:value:not positive integer
 #cssom
 | <p>
-|   orphans: -3
 #csstext
 p {
-  orphans: -3;
 }
 
 #data
 p {
   orphans: 0;
 }
+#errors
+;2;12;m;css:value:not positive integer
 #cssom
 | <p>
-|   orphans: 0
 #csstext
 p {
-  orphans: 0;
 }
 
 #data
 p {
   orphans: +0;
 }
+#errors
+;2;12;m;css:value:not positive integer
 #cssom
 | <p>
-|   orphans: 0
 #csstext
 p {
-  orphans: 0;
 }
 
 #data
 p {
   orphans: -0;
 }
+#errors
+;2;12;m;css:value:not positive integer
 #cssom
 | <p>
-|   orphans: 0
 #csstext
 p {
-  orphans: 0;
 }
+
+#data
+p{oprhans:10e4}
+#errors
+;1;3;m;css:prop:unknown
+#cssom
+| <p>
 
 #data
 p {
   orphans: 000003.000;
 }
+#errors
+;2;12;m;css:value:not positive integer
 #cssom
 | <p>
-|   orphans: 3
 #csstext
 p {
-  orphans: 3;
 }
 
 #data
@@ -487,7 +555,7 @@ p {
   orphans: +inherit;
 }
 #errors
-;2;13;m;CSS syntax error;'orphans'
+;2;12;m;css:value:not positive integer
 #cssom
 | <p>
 
@@ -519,60 +587,60 @@ p {
 p {
   widows: -3;
 }
+#errors
+;2;11;m;css:value:not positive integer
 #cssom
 | <p>
-|   widows: -3
 #csstext
 p {
-  widows: -3;
 }
 
 #data
 p {
   widows: 0;
 }
+#errors
+;2;11;m;css:value:not positive integer
 #cssom
 | <p>
-|   widows: 0
 #csstext
 p {
-  widows: 0;
 }
 
 #data
 p {
   widows: +0;
 }
+#errors
+;2;11;m;css:value:not positive integer
 #cssom
 | <p>
-|   widows: 0
 #csstext
 p {
-  widows: 0;
 }
 
 #data
 p {
   widows: -0;
 }
+#errors
+;2;11;m;css:value:not positive integer
 #cssom
 | <p>
-|   widows: 0
 #csstext
 p {
-  widows: 0;
 }
 
 #data
 p {
   widows: 000003.000;
 }
+#errors
+;2;11;m;css:value:not positive integer
 #cssom
 | <p>
-|   widows: 3
 #csstext
 p {
-  widows: 3;
 }
 
 #data
@@ -588,12 +656,120 @@ p {
   widows: +inherit;
 }
 #errors
-;2;12;m;CSS syntax error;'widows'
+;2;11;m;css:value:not positive integer
 #cssom
 | <p>
 
+#data
+p {page-break-before:avoid}
+#cssom
+| <p>
+|   page-break-before: avoid
 
+#data
+p {page-break-before:always}
+#cssom
+| <p>
+|   page-break-before: always
 
+#data
+p {page-break-before:auto}
+#cssom
+| <p>
+|   page-break-before: auto
 
+#data
+p {page-break-before:LEFT}
+#cssom
+| <p>
+|   page-break-before: left
 
+#data
+p {page-break-before:right}
+#cssom
+| <p>
+|   page-break-before: right
 
+#data
+p {page-break-before:page}
+#errors
+;1;22;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p {page-break-after:avoid}
+#cssom
+| <p>
+|   page-break-after: avoid
+
+#data
+p {page-break-after:always}
+#cssom
+| <p>
+|   page-break-after: always
+
+#data
+p {page-break-after:page}
+#errors
+;1;21;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p {page-break-after:auto}
+#cssom
+| <p>
+|   page-break-after: auto
+
+#data
+p {page-break-after:LEFT}
+#cssom
+| <p>
+|   page-break-after: left
+
+#data
+p {page-break-after:right}
+#cssom
+| <p>
+|   page-break-after: right
+
+#data
+p {page-break-inside:avoid}
+#cssom
+| <p>
+|   page-break-inside: avoid
+
+#data
+p {page-break-inside:always}
+#errors
+;1;22;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p {page-break-inside:auto}
+#cssom
+| <p>
+|   page-break-inside: auto
+
+#data
+p {page-break-inside:LEFT}
+#errors
+;1;22;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p {page-break-inside:right}
+#errors
+;1;22;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p {page-break-inside:page}
+#errors
+;1;22;m;css:keyword:not allowed
+#cssom
+| <p>

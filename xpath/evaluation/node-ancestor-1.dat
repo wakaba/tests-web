@@ -1,0 +1,129 @@
+#xml 1
+<p>aa<q>f<d z="">oo</d></q><q a="1" b="" c=""></q></p>
+
+#data
+parent::node ( )
+#result 1 /
+#result 1 /1
+/
+#result 1 /1/1
+/1
+#result 1 /1/2/1
+/1/2
+#result 1 /1/2/2
+/1/2
+#result 1 /1/2/2/@z
+/1/2/2
+
+#data
+parent::*
+#result 1 /
+#result 1 /1
+#result 1 /1/1
+/1
+#result 1 /1/2/1
+/1/2
+#result 1 /1/2/2
+/1/2
+#result 1 /1/2/2/@z
+/1/2/2
+
+#data
+parent::*/parent::*
+#result 1 /1/2/2/@z
+/1/2
+
+#data
+ancestor::*
+#result 1 /1/2/2/@z
+/1/2/2
+/1/2
+/1
+
+#data
+/ancestor::*
+#result 1
+#result 1 /1/2/2
+
+#data
+ancestor::*
+#result 1
+#result 1 /1/2/2
+/1/2
+/1
+
+#data
+ancestor::comment ()
+#result 1
+#result 1 /1/2/2
+
+#data
+ancestor::node ()
+#result 1 /1/2/2/@z
+/1/2/2
+/1/2
+/1
+/
+
+#data
+ancestor-or-self::*
+#result 1
+#result 1 /1/2/2
+/1/2/2
+/1/2
+/1
+#result 1 /1/2/2/@z
+/1/2/2
+/1/2
+/1
+
+#data
+/ancestor-or-self::*
+#result 1
+#result 1 /1/2/2
+
+#data
+/ancestor-or-self::node()
+#result 1
+/
+#result 1 /1/2/2
+/
+
+#data
+ancestor-or-self::node()
+#result 1
+/
+#result 1 /1/2/2
+/1/2/2
+/1/2
+/1
+/
+#result 1 /1/2/2/@z
+/1/2/2/@z
+/1/2/2
+/1/2
+/1
+/
+
+#data
+ancestor-or-self::comment ()
+#result 1
+#result 1 /1/2/2
+
+#xml 2
+<p>aaa<a><!----></a></p>
+
+#data
+ancestor-or-self :: comment ()
+#result 2 /1/2/1
+/1/2/1
+
+#data
+ancestor-or-self :: q
+#result 1 /1/2/2/1
+/1/2
+
+#data
+ancestor-or-self :: text ()
+#result 1 /1/2/2/1
+/1/2/2/1

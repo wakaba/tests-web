@@ -20,7 +20,6 @@ no DOCTYPE
 |     <p>
 |     <aside>
 
-#skip 1
 #data
 <p><datagrid></datagrid>
 #errors
@@ -215,18 +214,19 @@ no </span>
 |       <span>
 |     "x"
 
-#skip 1
 #data
 <datagrid><p></datagrid>x
 #errors
 no DOCTYPE
+stray </datagrid>
+EOF
 #document
 | <html>
 |   <head>
 |   <body>
 |     <datagrid>
 |       <p>
-|     "x"
+|         "x"
 
 #data
 <datagrid><marquee></datagrid>x
@@ -732,10 +732,10 @@ unmatched </summary>
 |       <rt>
 |     <center>
 
-#skip 1
 #data
 <!DOCTYPE HTML><p><rt><datagrid></datagrid>
 #errors
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1233,3 +1233,157 @@ missing </ul>
 |         <ul>
 |           <li>
 |           "a"
+
+#data
+<!DOCTYPE html><span><main>aaa</span>bbbb
+#errors
+unmatched </span>
+unexpected EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <span>
+|       <main>
+|         "aaabbbb"
+
+#data
+<!DOCTYPE html><p><main>
+#errors
+no </main>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|     <main>
+
+#data
+<!DOCTYPE html><main><p></main>x
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <main>
+|       <p>
+|     "x"
+
+#data escaped
+<!DOCTYPE html><pre>\u0000\u000Aa</pre>
+#errors
+NULL (data state)
+NULL ("in body" insertion mode)
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <pre>
+|       "\u000Aa"
+
+#data escaped
+<!DOCTYPE html><pre>\u0000\u000Da</pre>
+#errors
+NULL (data state)
+NULL ("in body" insertion mode)
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <pre>
+|       "\u000Aa"
+
+#data escaped
+<!DOCTYPE html><pre>\u0000\u000D\u000Aa</pre>
+#errors
+NULL (data state)
+NULL ("in body" insertion mode)
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <pre>
+|       "\u000Aa"
+
+#data escaped
+<!DOCTYPE html><listing>\u0000\u000Aa</listing>
+#errors
+NULL (data state)
+NULL ("in body" insertion mode)
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <listing>
+|       "\u000Aa"
+
+#data escaped
+<!DOCTYPE html><listing>\u0000\u000Da</listing>
+#errors
+NULL (data state)
+NULL ("in body" insertion mode)
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <listing>
+|       "\u000Aa"
+
+#data escaped
+<!DOCTYPE html><listing>\u0000\u000D\u000Aa</listing>
+#errors
+NULL (data state)
+NULL ("in body" insertion mode)
+#document escaped
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <listing>
+|       "\u000Aa"
+
+#data
+<!DOCTYPE html><p><dialog>
+#errors
+no </dialog>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|     <dialog>
+
+#data
+<!DOCTYPE html><dialog><p></dialog>x
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <dialog>
+|       <p>
+|     "x"
+
+#data
+<!DOCTYPE html><span><dialog>aaa</span>bbbb
+#errors
+no </dialog>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <span>
+|       <dialog>
+|         "aaa"
+|     "bbbb"

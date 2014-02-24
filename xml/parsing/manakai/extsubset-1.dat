@@ -1,0 +1,235 @@
+#data
+<!DOCTYPE a SYSTEM "http://a/"[]>
+<a/>
+#errors
+1;1;external entref;;;i
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"[]>
+<a/>
+#resource http://a/
+<!NOTATION foo SYSTEM "aa">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION foo "" "aa">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"[]><a/>
+#resource http://a/
+ <?abc dd?>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <?abc dd?>
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"[<?bbb?>]><a/>
+#resource http://a/
+ <?abc dd?>
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <?bbb ?>
+|   <?abc dd?>
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"[<!ENTITY foo "ab">]><a>&foo;</a>
+#resource http://a/
+  <!ENTITY foo "xy">
+#errors
+[1]1;3;duplicate general entity decl;;foo;w
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "ab"
+#entities
+| <!ENTITY foo "ab" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"[]><a>&foo;</a>
+#resource http://a/
+  <!ENTITY foo "xy">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "xy"
+#entities
+| <!ENTITY foo "xy" "" "" >
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"[]><a>&foo;y</a>
+#resource http://a/
+  <!ENTITY foo "x<p>y">
+#errors
+[1]1;22;in body:#eof;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "x"
+|   <{} p>
+|     "y"
+|   "y"
+#entities
+| <!ENTITY foo "x<p>y" "" "" >
+
+#data
+  <!DOCTYPE foo PUBLIC "abc" "xya"><a/>
+#errors
+1;3;external entref;;;i
+#document
+| <!DOCTYPE foo "abc" "xya">
+| <{} a>
+
+#data
+  <!DOCTYPE foo PUBLIC "abc" "http://xya/"><a/>
+#resource http://xya/
+<?xml encoding="utf-8"?>
+<!ELEMENT hoge (#PCDATA)>
+#errors
+#document
+| <!DOCTYPE foo "abc" "http://xya/">
+|   <!ELEMENT hoge (#PCDATA)>
+| <{} a>
+
+#data
+  <!DOCTYPE foo PUBLIC "abc" "http://xya/"><a/>
+#resource http://xya/
+<?xml  version = "1.0" encoding="utf-8"?>
+<!ATTLIST hoge aaa CDATA "foo">
+#errors
+#document
+| <!DOCTYPE foo "abc" "http://xya/">
+|   <!ELEMENT hoge >
+|     aaa CDATA () EXPLICIT "foo"
+| <{} a>
+
+#data
+  <!DOCTYPE foo PUBLIC "abc" "http://xya/"[
+<!ATTLIST hoge aaa CDATA "bar">
+]><a/>
+#resource http://xya/
+<?xml  version = "1.0" encoding="utf-8"?>
+<!ATTLIST hoge aaa CDATA "foo">
+#errors
+[1]2;1;duplicate attlist decl;;hoge;w
+[1]2;16;duplicate attrdef;;aaa;w
+#document
+| <!DOCTYPE foo "abc" "http://xya/">
+|   <!ELEMENT hoge >
+|     aaa CDATA () EXPLICIT "bar"
+| <{} a>
+
+#data
+  <!DOCTYPE foo PUBLIC "abc" "http://xya/"><hoge/>
+#resource http://xya/
+<?xml  version = "1.0" encoding="utf-8"?>
+<!ATTLIST hoge aaa CDATA "foo">
+#errors
+#document
+| <!DOCTYPE foo "abc" "http://xya/">
+|   <!ELEMENT hoge >
+|     aaa CDATA () EXPLICIT "foo"
+| <{} hoge>
+|   aaa="foo"
+
+#data
+  <!DOCTYPE foo PUBLIC "abc" "http://xya/"><hoge/>
+#resource http://xya/
+<?xml  version = "1.0" encoding="utf-8"?>
+<!ENTITY foo "ab">
+<!ATTLIST hoge aaa CDATA "fo&foo;o">
+#errors
+#document
+| <!DOCTYPE foo "abc" "http://xya/">
+|   <!ELEMENT hoge >
+|     aaa CDATA () EXPLICIT "foabo"
+| <{} hoge>
+|   aaa="foabo"
+
+#data
+  <!DOCTYPE foo PUBLIC "abc" "http://xya/"[<!ENTITY foo "ab">
+]><hoge/>
+#resource http://xya/
+<?xml  version = "1.0" encoding="utf-8"?>
+<!ATTLIST hoge aaa CDATA "fo&foo;o">
+#errors
+#document
+| <!DOCTYPE foo "abc" "http://xya/">
+|   <!ELEMENT hoge >
+|     aaa CDATA () EXPLICIT "foabo"
+| <{} hoge>
+|   aaa="foabo"
+
+#data
+  <!DOCTYPE foo PUBLIC "abc" "http://xya/"[<!ENTITY foo "ab">
+]><hoge/>
+#resource http://xya/
+<?xml  version = "1.0" encoding="utf-8"?>
+<!ENTITY foo "abc">
+<!ATTLIST hoge aaa CDATA "fo&foo;o">
+#errors
+[1]2;1;duplicate general entity decl;;foo;w
+#document
+| <!DOCTYPE foo "abc" "http://xya/">
+|   <!ELEMENT hoge >
+|     aaa CDATA () EXPLICIT "foabo"
+| <{} hoge>
+|   aaa="foabo"
+
+#data
+  <!DOCTYPE foo PUBLIC "abc" "http://xya/"[<!ENTITY foo "ab">
+]><hoge/>
+#resource http://xya/
+<?xml standalone="yes"?>
+<!ENTITY foo "abc">
+#errors
+[1]1;7;attribute missing:encoding;;;m
+[1]1;7;attribute not allowed:standalone;;;m
+[1]2;1;duplicate general entity decl;;foo;w
+#document
+| <!DOCTYPE foo "abc" "http://xya/">
+| <{} hoge>
+
+#data
+  <!DOCTYPE foo PUBLIC "abc" "http://xya/"[<!ENTITY foo "ab">
+]><hoge/>
+#resource http://xya/
+<!ENTITY foo "abc">
+<?xml standalone="yes"?>
+#errors
+[1]1;1;duplicate general entity decl;;foo;w
+#document
+| <!DOCTYPE foo "abc" "http://xya/">
+|   <?xml standalone="yes"?>
+| <{} hoge>
+
+#data
+  <!DOCTYPE foo PUBLIC "abc" "http://xya/"><hoge abc="&foo;"/>
+#resource http://xya/
+<!ENTITY foo "abc"
+#errors
+[1]1;19;unclosed md;;;m
+1;55;entity not declared;;foo;;m
+#document
+| <!DOCTYPE foo "abc" "http://xya/">
+| <{} hoge>
+|   abc="&foo;"
+
+#data
+  <!DOCTYPE foo PUBLIC "abc" "http://xya/"><hoge a="&foo;"/>
+#resource http://xya/
+]><!ENTITY foo "abc">
+#errors
+[1]1;1;string in internal subset;;;m
+#document
+| <!DOCTYPE foo "abc" "http://xya/">
+| <{} hoge>
+|   a="abc"

@@ -1,0 +1,1141 @@
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml"></figure>
+#errors
+/figure;no significant content;s
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+</figure>
+#errors
+/figure;no significant content;s
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<legend/>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/legend;element not allowed:flow;m
+/figure/legend;no significant content;s
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<legend>x</legend>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<!---->x<!---->
+</figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<!---->x<legend>y</legend>
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<legend>x</legend>y<!---->
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<legend>x</legend><legend>y</legend>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/legend;element not allowed:flow;m
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<!---->y<legend>x</legend>z<!---->
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<!---->x<legend>x</legend><legend>y</legend>
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<legend>x</legend><legend>y</legend>z<!---->
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<!---->x<legend>y</legend><legend>z</legend>w<!---->
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<!---->x<legend>y</legend><legend>z</legend><legend>w</legend>v<!---->
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+/figure/legend;element not allowed:flow;m
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<p>x</p><legend>y</legend><legend>z</legend>w<!---->
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<table><tr><td>x</td></tr></table>
+</figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<table><tr><td>x</td></tr></table>
+<legend>x</legend>
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<legend>x</legend>
+<table><tr><td>x</td></tr></table>
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<legend>x</legend>
+<table><tr><td>x</td></tr></table>
+<table><tr><td>x</td></tr></table>
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<legend>x</legend>
+<table>
+<caption>y</caption>
+<tr><td>x</td></tr></table>
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<legend>x</legend>
+<table>
+<tr><td>x</td></tr>
+<caption>y</caption>
+</table>
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+/figure/table/caption;element not allowed;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<legend>x</legend>
+<table>
+<caption>y</caption>
+<tr><td>x</td></tr></table>
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<legend>x</legend>
+<table>
+<caption>y</caption>
+<caption>y</caption>
+<tr><td>x</td></tr></table>
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+/figure/table/caption;element not allowed;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<legend>x</legend>
+<table>
+<caption>y</caption>
+<tr><td>x</td></tr></table>
+<!---->x<!---->
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<legend>x</legend>
+<table>
+<caption>y</caption>
+<tr><td>x</td></tr></table>
+<p>x</p>
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<table>
+<caption>y</caption>
+<tr><td>x</td></tr></table>
+<!---->x<!---->
+<legend>x</legend>
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<table>
+<caption>y</caption>
+<tr><td>x</td></tr></table>
+<legend>x</legend>
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<ins>
+<table>
+<tr><td>x</td></tr></table>
+</ins>
+<legend>x</legend>
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+<ins>
+<table>
+<caption>y</caption>
+<tr><td>x</td></tr></table>
+</ins>
+<legend>x</legend>
+</figure>
+#errors
+/figure/legend;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dd>bb</dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>bb</dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dd>bb</dd>
+  <dt>aa</dt>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt></dt>
+  <dd>bb</dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd></dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dd;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dd>bb</dd>
+  <dt>aa</dt>
+  <dt>aa</dt>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dd;element not allowed:flow;m
+/figure/dt;element not allowed:flow;m
+/figure/dt;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dd>bb</dd>
+  <dt>aa</dt>
+  <dd>aa</dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dd;element not allowed:flow;m
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dd>bb</dd>
+  <dt>aa</dt>
+  <dt>aa</dt>
+  <dd>aa</dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dd;element not allowed:flow;m
+/figure/dt;element not allowed:flow;m
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>bb</dd>
+  <h2>cc</h2>
+</figure>
+#errors
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <h2>cc</h2>
+  <dd>bb</dd>
+</figure>
+#errors
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <h2>cc</h2>
+  <dt>aa</dt>
+  <dd>bb</dd>
+</figure>
+#errors
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd><p>bb</p></dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt><p>aa</p></dt>
+  <dd>bb</dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa<dl><dt>cc</dt><dd>dd</dd></dl></dt>
+  <dd>bb</dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa<dl><dt>cc</dt><dd><p>dd</p></dd></dl></dt>
+  <dd>bb</dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa<dl><dt><p>cc</p></dt><dd>dd</dd></dl></dt>
+  <dd>bb</dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>bb<dl><dt>cc</dt><dd>dd</dd></dl></dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>bb<dl><dt>cc</dt><dd><p>dd</p></dd></dl></dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>bb<dl><dt><p>cc</p></dt><dd>dd</dd></dl></dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>
+    <figure>
+      <dt>cc</dt>
+      <dd>dd</dd>
+    </figure>
+  </dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+/figure/dd/figure;no significant content;s
+/figure/dd/figure/dt;element not allowed:flow;m
+/figure/dd/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>
+    <figure>
+      <dt>aa</dt>
+      <dd>bb</dd>
+    </figure>
+  </dt>
+  <dd>cc</dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+/figure/dt/figure;no significant content;s
+/figure/dt/figure/dt;element not allowed:flow;m
+/figure/dt/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt><div>
+    <figure>
+      <dt>aa</dt>
+      <dd>bb</dd>
+    </figure>
+  </div></dt>
+  <dd>cc</dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dt/div/figure;no significant content;s
+/figure/dt/div/figure/dd;element not allowed:flow;m
+/figure/dt/div/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>
+    <table>
+    </table>
+  </dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>
+    <table>
+      <caption>aa</caption>
+    </table>
+  </dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd><table>
+      <caption>aa</caption>
+    </table></dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>
+    <table>
+      <caption>aa</caption>
+    </table>
+    abc
+  </dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>
+    <ins>
+      <table>
+        <caption>aa</caption>
+      </table>
+    </ins>
+  </dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>
+    <del>
+      <table>
+        <caption>aa</caption>
+      </table>
+    </del>
+  </dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+/figure/dd;no significant content;s
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>
+    abc
+    <table>
+      <caption>aa</caption>
+    </table>
+  </dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>
+    <p>aaA</p>
+    <table>
+      <caption>aa</caption>
+    </table>
+  </dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>
+    <table>
+      <tbody><caption>aa</caption></tbody>
+    </table>
+  </dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dd/table/tbody/caption;element not allowed;m
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>
+    <table>
+      <caption xmlns="">aa</caption>
+    </table>
+  </dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dd/table/caption;element not allowed;m
+/figure/dd/table/caption;unknown namespace element;w
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>
+    <table xmlns="">
+      <caption xmlns="http://www.w3.org/1999/xhtml">aa</caption>
+    </table>
+  </dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+/figure/dd;no significant content;s
+/figure/dd/table;element not allowed:flow;m
+/figure/dd/table;unknown namespace element;w
+
+#data
+<dd xmlns="http://www.w3.org/1999/xhtml">
+  <table>
+    <caption>aa</caption>
+  </table>
+</dd>
+#errors
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>
+    <table>
+      <caption>aa</caption>
+    </table>
+  </dd>
+</details>
+#errors
+/details;child element missing;summary;m
+/details;no significant content;s
+/details/dt;element not allowed:flow;m
+/details/dd;element not allowed:flow;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>
+    <table>
+      <caption>aa</caption>
+    </table>
+  </dd>
+</dl>
+#errors
+
+#data
+<notfigure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>
+    <table>
+      <caption>aa</caption>
+    </table>
+  </dd>
+</notfigure>
+#errors
+/notfigure;element not defined;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <dt>aa</dt>
+  <dd>
+    <table>
+      <caption>aa</caption>
+    </table>
+    <table>
+      <caption>aa</caption>
+    </table>
+  </dd>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/dt;element not allowed:flow;m
+/figure/dd;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+</figure>
+#errors
+/figure;no significant content;s
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  abc
+</figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  <span>abc</span>
+</figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  abc
+  <span>def</span>
+  xyz
+</figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  <span>abc</span>
+  <span>def</span>
+</figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  abc
+  <figcaption>a</figcaption>
+</figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <span>abc</span>
+  <figcaption>a</figcaption>
+</figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  abc
+  <span>def</span>
+  <span>xyz</span>
+  <figcaption>a</figcaption>
+</figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <p>abc</p>
+  <figcaption>a</figcaption>
+</figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  <p>xyz</p>
+  <span>abc</span>
+</figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  <figcaption>b</figcaption>
+</figure>
+#errors
+/figure;no significant content;s
+/figure/figcaption;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>0</figcaption>
+  0
+  <figcaption>a</figcaption>
+</figure>
+#errors
+/figure/figcaption;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  abc
+  <figcaption>a</figcaption>
+  <!---->xyz<!---->
+</figure>
+#errors
+/figure/figcaption;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  abc
+  <figcaption>a</figcaption>
+  <figcaption>a</figcaption>
+  <!---->xyz<!---->
+</figure>
+#errors
+/figure/figcaption;element not allowed:flow;m
+/figure/figcaption;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  abc
+  <figcaption>a</figcaption>
+  <!---->xyz<!---->
+</figure>
+#errors
+/figure/figcaption;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  abc
+  <figcaption>a</figcaption>
+</figure>
+#errors
+/figure/figcaption;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  <span>aa</span>
+  <figcaption>a</figcaption>
+</figure>
+#errors
+/figure/figcaption;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  <figcaption>a</figcaption>
+  <span>aa</span>
+</figure>
+#errors
+/figure/figcaption;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <span>aa</span>
+  <figcaption>a</figcaption>
+  <figcaption>a</figcaption>
+</figure>
+#errors
+/figure/figcaption;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <span>aa</span>
+  <figcaption>a</figcaption>
+  <figcaption>a</figcaption>
+  <span>aa</span>
+</figure>
+#errors
+/figure/figcaption;element not allowed:flow;m
+/figure/figcaption;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <p>aa</p>
+  <figcaption>a</figcaption>
+  <figcaption>a</figcaption>
+  <p>aa</p>
+</figure>
+#errors
+/figure/figcaption;element not allowed:flow;m
+/figure/figcaption;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <style scoped=""></style>
+  <figcaption>a</figcaption>
+  <figcaption>a</figcaption>
+  <p>aa</p>
+</figure>
+#errors
+/figure/figcaption;element not allowed:flow;m
+/figure/figcaption;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  <style scoped=""></style>
+  <p>aa</p>
+</figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  <style scoped=""></style>
+  <style scoped=""></style>
+  <p>aa</p>
+</figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  <style scoped=""></style>
+  <style scoped=""></style>
+  <p>aa</p>
+  <figcaption>a</figcaption>
+</figure>
+#errors
+/figure/figcaption;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  <style scoped=""></style>
+  <p>aa</p>
+  <style scoped=""></style>
+  <figcaption>a</figcaption>
+</figure>
+#errors
+/figure/style;element not allowed:flow style;m
+/figure/figcaption;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <style scoped=""></style>
+  <figcaption>a</figcaption>
+  <p>aa</p>
+  <style scoped=""></style>
+  <figcaption>a</figcaption>
+</figure>
+#errors
+/figure/style;element not allowed:flow style;m
+/figure/figcaption;element not allowed:flow;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <style scoped=""></style>
+  <p>aa</p>
+  <style scoped=""></style>
+  <figcaption>a</figcaption>
+</figure>
+#errors
+/figure/style;element not allowed:flow style;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  <style scoped=""></style>
+  <p>aa</p>
+  <style scoped=""></style>
+</figure>
+#errors
+/figure/style;element not allowed:flow style;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <style scoped=""></style>
+  <style scoped=""></style>
+  <p>aa</p>
+</figure>
+#errors
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <p>aa</p>
+  <style scoped=""></style>
+  <style scoped=""></style>
+</figure>
+#errors
+/figure/style;element not allowed:flow style;m
+/figure/style;element not allowed:flow style;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <!---->aa<!---->
+  <style scoped=""></style>
+  <style scoped=""></style>
+</figure>
+#errors
+/figure/style;element not allowed:flow style;m
+/figure/style;element not allowed:flow style;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  <figure>
+    <figcaption>abc</figcaption>
+  </figure>
+</figure>
+#errors
+/figure/figure;no significant content;s
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  <div>
+    <figcaption>a
+    </figcaption>
+  </div>
+</figure>
+#errors
+/figure/div;no significant content;s
+/figure/div/figcaption;element not allowed:flow;m
+
+#data
+<figcaption xmlns="http://www.w3.org/1999/xhtml"></figcaption>
+#errors
+/figcaption;no significant content;s
+
+#data
+<figcaption xmlns="http://www.w3.org/1999/xhtml">  </figcaption>
+#errors
+/figcaption;no significant content;s
+
+#data
+<figcaption xmlns="http://www.w3.org/1999/xhtml">abc</figcaption>
+#errors
+
+#data
+<figcaption xmlns="http://www.w3.org/1999/xhtml">xyz<span>a</span></figcaption>
+#errors
+
+#data
+<figcaption xmlns="http://www.w3.org/1999/xhtml"><img src="a" alt="b"/></figcaption>
+#errors
+
+#data
+<figcaption xmlns="http://www.w3.org/1999/xhtml"><p>aa</p></figcaption>
+#errors
+
+#data
+<figcaption xmlns="http://www.w3.org/1999/xhtml"><li>aa</li></figcaption>
+#errors
+/figcaption;no significant content;s
+/figcaption/li;element not allowed:flow;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"><figcaption>aa</figcaption></p>
+#errors
+/p;no significant content;s
+/p/figcaption;element not allowed:phrasing;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"><figcaption>aa</figcaption></div>
+#errors
+/div;no significant content;s
+/div/figcaption;element not allowed:flow;m
+
+#data
+<menu xmlns="http://www.w3.org/1999/xhtml">
+  <object data="aa">
+    <li>aa</li>
+  </object>
+</menu>
+#errors
+/menu/object;no significant content;s
+/menu/object/li;element not allowed:flow;m
+
+#data
+<menu xmlns="http://www.w3.org/1999/xhtml">
+  <object data="aa">
+    <p>abc</p>
+  </object>
+</menu>
+#errors
+
+#data
+<section xmlns="http://www.w3.org/1999/xhtml">
+  <object data="aa">
+    <style scoped=""/>
+    x
+  </object>
+</section>
+#errors
+/section/object/style;element not allowed:flow style;m
+
+#data
+<section xmlns="http://www.w3.org/1999/xhtml">
+  <ins/>
+  <object data="aa">
+    <style scoped=""/>
+    x
+  </object>
+</section>
+#errors
+/section/ins;no significant content;s
+/section/object/style;element not allowed:flow style;m
+
+#data
+<ins xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/>aa</ins>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"><ins><style scoped=""/>aa</ins></div>
+#errors
+/div/ins/style;element not allowed:flow style;m

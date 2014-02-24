@@ -26,7 +26,7 @@ p {
 |   margin-top: inherit !important
 #csstext
 p {
-  margin-top: inherit ! important;
+  margin-top: inherit !important;
 }
 #computed 1 p
 #computedtext 1 p
@@ -61,16 +61,17 @@ p {
 }
 #cssom
 | <p>
+|   margin: inherit
 |   margin-bottom: inherit
 |   margin-left: inherit
 |   margin-right: inherit !important
 |   margin-top: inherit
 #csstext
 p {
+  margin-top: inherit;
+  margin-right: inherit !important;
   margin-bottom: inherit;
   margin-left: inherit;
-  margin-right: inherit ! important;
-  margin-top: inherit;
 }
 #computed 1 p
 #computedtext 1 p
@@ -91,7 +92,7 @@ p {
 |   margin-top: inherit !important
 #csstext
 p {
-  margin: inherit ! important;
+  margin: inherit !important;
 }
 #computed 1 p
 #computedtext 1 p
@@ -273,7 +274,7 @@ p {
   margin-bottom: 50;
 }
 #errors
-;2;18;m;CSS syntax error;'margin-bottom'
+;2;18;m;css:value:not length
 #cssom
 | <p>
 #csstext
@@ -285,6 +286,8 @@ p {
   margin-bottom: 50;
 }
 #option q
+#errors
+;2;18;m;css:value:quirky-length
 #cssom
 | <p>
 |   margin-bottom: 50px
@@ -298,12 +301,14 @@ p {
   margin-bottom: 50 !important;
 }
 #option q
+#errors
+;2;18;m;css:value:quirky-length
 #cssom
 | <p>
 |   margin-bottom: 50px !important
 #csstext
 p {
-  margin-bottom: 50px ! important;
+  margin-bottom: 50px !important;
 }
 
 #data
@@ -311,7 +316,8 @@ p {
   margin-bottom: -50
 #option q
 #errors
-;2;21;m;block not closed
+;2;21;w;css:block:eof
+;2;18;m;css:value:quirky-length
 #cssom
 | <p>
 |   margin-bottom: -50px
@@ -392,24 +398,24 @@ p {
 p {
   margin-top: -/**/12%;
 }
+#errors
+;2;15;m;CSS syntax error;length
 #cssom
 | <p>
-|   margin-top: -12%
 #csstext
 p {
-  margin-top: -12%;
 }
 
 #data
 p {
   margin-top: +/**/12%;
 }
+#errors
+;2;15;m;CSS syntax error;length
 #cssom
 | <p>
-|   margin-top: 12%
 #csstext
 p {
-  margin-top: 12%;
 }
 
 #data
@@ -417,7 +423,7 @@ p {
   margin-top: - 12%;
 }
 #errors
-;2;16;m;CSS syntax error;'margin-top'
+;2;15;m;CSS syntax error;length
 #cssom
 | <p>
 #csstext
@@ -453,7 +459,7 @@ p {
 |   margin-left: auto !important
 #csstext
 p {
-  margin-left: auto ! important;
+  margin-left: auto !important;
 }
 
 #data
@@ -461,7 +467,7 @@ p {
   margin-left: -auto;
 }
 #errors
-;2;16;m;CSS syntax error;'margin-left'
+;2;16;m;CSS syntax error;length
 #cssom
 | <p>
 #csstext
@@ -473,7 +479,7 @@ p {
   margin-left: -/**/auto;
 }
 #errors
-;2;21;m;CSS syntax error;'margin-left'
+;2;16;m;CSS syntax error;length
 #cssom
 | <p>
 #csstext
@@ -485,7 +491,7 @@ p {
   margin-left: +auto;
 }
 #errors
-;2;17;m;CSS syntax error;'margin-left'
+;2;16;m;CSS syntax error;length
 #cssom
 | <p>
 #csstext
@@ -545,7 +551,7 @@ p {
   margin: +0 +;
 }
 #errors
-;2;15;m;CSS syntax error;'margin'
+;2;14;m;CSS syntax error;length
 #cssom
 | <p>
 #csstext
@@ -557,7 +563,7 @@ p {
   margin: +0 +auto;
 }
 #errors
-;2;15;m;CSS syntax error;'margin'
+;2;14;m;CSS syntax error;length
 #cssom
 | <p>
 #csstext
@@ -569,7 +575,7 @@ p {
   margin: +0 +0 +;
 }
 #errors
-;2;18;m;CSS syntax error;'margin'
+;2;17;m;CSS syntax error;length
 #cssom
 | <p>
 #csstext
@@ -581,7 +587,7 @@ p {
   margin: +0 +0 +auto;
 }
 #errors
-;2;18;m;CSS syntax error;'margin'
+;2;17;m;CSS syntax error;length
 #cssom
 | <p>
 #csstext
@@ -593,7 +599,7 @@ p {
   margin: +0 +0 +0 +;
 }
 #errors
-;2;21;m;CSS syntax error;'margin'
+;2;20;m;CSS syntax error;length
 #cssom
 | <p>
 #csstext
@@ -605,7 +611,7 @@ p {
   margin: +0 +0 +0 +auto;
 }
 #errors
-;2;21;m;CSS syntax error;'margin'
+;2;11;m;CSS syntax error;'margin'
 #cssom
 | <p>
 #csstext
@@ -617,7 +623,7 @@ p {
   margin: +0 +0 +0 +0 +;
 }
 #errors
-;2;23;m;no property semicolon
+;2;11;m;CSS syntax error;'margin'
 #cssom
 | <p>
 #csstext
@@ -749,7 +755,7 @@ p {
 |   margin-top: 0px !important
 #csstext
 p {
-  margin: 0px ! important;
+  margin: 0px !important;
 }
 
 #data
@@ -759,16 +765,17 @@ p {
 }
 #cssom
 | <p>
+|   margin: 0px 0px 0px 1px
 |   margin-bottom: 0px
 |   margin-left: 1px !important
 |   margin-right: 0px
 |   margin-top: 0px
 #csstext
 p {
-  margin-bottom: 0px;
-  margin-left: 1px ! important;
-  margin-right: 0px;
   margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 1px !important;
 }
 
 #data
@@ -778,16 +785,17 @@ p {
 }
 #cssom
 | <p>
+|   margin: 0px
 |   margin-bottom: 0px
 |   margin-left: 0px
 |   margin-right: 0px
 |   margin-top: 0px !important
 #csstext
 p {
+  margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px ! important;
+  margin-top: 0px !important;
 }
 
 #data
@@ -797,16 +805,17 @@ p {
 }
 #cssom
 | <p>
+|   margin: 0px
 |   margin-bottom: 0px
 |   margin-left: 0px
 |   margin-right: 0px !important
 |   margin-top: 0px
 #csstext
 p {
+  margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
-  margin-right: 0px ! important;
-  margin-top: 0px;
+  margin-right: 0px !important;
 }
 
 #data
@@ -816,16 +825,17 @@ p {
 }
 #cssom
 | <p>
+|   margin: 0px
 |   margin-bottom: 0px !important
 |   margin-left: 0px
 |   margin-right: 0px
 |   margin-top: 0px
 #csstext
 p {
-  margin-bottom: 0px ! important;
-  margin-left: 0px;
-  margin-right: 0px;
   margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: 0px !important;
 }
 
 #data
@@ -835,16 +845,17 @@ p {
 }
 #cssom
 | <p>
+|   margin: 0px
 |   margin-bottom: 0px
 |   margin-left: 0px !important
 |   margin-right: 0px
 |   margin-top: 0px
 #csstext
 p {
-  margin-bottom: 0px;
-  margin-left: 0px ! important;
-  margin-right: 0px;
   margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px !important;
 }
 
 #data
@@ -852,6 +863,8 @@ p {
   margin: 0 !important;
   margin-top: 1px;
 }
+#errors
+;3;3;w;css:prop:ignored
 #cssom
 | <p>
 |   margin: 0px !important
@@ -861,7 +874,7 @@ p {
 |   margin-top: 0px !important
 #csstext
 p {
-  margin: 0px ! important;
+  margin: 0px !important;
 }
 
 #data
@@ -878,7 +891,7 @@ p {
 |   margin-top: 0px !important
 #csstext
 p {
-  margin: 0px ! important;
+  margin: 0px !important;
 }
 
 #data
@@ -894,9 +907,9 @@ p {
 |   margin-top: 0px
 #csstext
 p {
+  margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
-  margin-top: 0px;
 }
 
 #data
@@ -912,9 +925,9 @@ p {
 |   margin-top: inherit
 #csstext
 p {
+  margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
-  margin-right: 0px;
   margin-top: inherit;
 }
 
@@ -931,10 +944,10 @@ p {
 |   margin-top: 0px
 #csstext
 p {
+  margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
   margin-right: inherit;
-  margin-top: 0px;
 }
 
 #data
@@ -950,10 +963,10 @@ p {
 |   margin-top: 0px
 #csstext
 p {
-  margin-bottom: inherit;
-  margin-left: 0px;
-  margin-right: 0px;
   margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: inherit;
 }
 
 #data
@@ -969,10 +982,10 @@ p {
 |   margin-top: 0px
 #csstext
 p {
+  margin-top: 0px;
+  margin-right: 0px;
   margin-bottom: 0px;
   margin-left: inherit;
-  margin-right: 0px;
-  margin-top: 0px;
 }
 
 #data
@@ -989,10 +1002,10 @@ p {
 |   margin-top: inherit
 #csstext
 p {
-  margin-bottom: inherit;
-  margin-left: 0px;
   margin-right: 0px;
+  margin-left: 0px;
   margin-top: inherit;
+  margin-bottom: inherit;
 }
 
 #data
@@ -1000,7 +1013,7 @@ p {
   margin: inherit 0;
 }
 #errors
-;2;19;m;no property semicolon
+;2;11;m;CSS syntax error;length
 #cssom
 | <p>
 #csstext
@@ -1008,9 +1021,42 @@ p {
 }
 
 #data
-/*
-  TODO: border properties
-*/
+p{margin: 12 42 1 5}
+#errors
+;1;11;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{margin: 12 -42 1.2 5}
+#option q
+#errors
+;1;11;m;css:value:quirky-length
+;1;14;m;css:value:quirky-length
+;1;18;m;css:value:quirky-length
+;1;22;m;css:value:quirky-length
+#cssom
+| <p>
+|   margin: 12px -42px 1.2px 5px
+|   margin-bottom: 1.2px
+|   margin-left: 5px
+|   margin-right: -42px
+|   margin-top: 12px
+
+#data
+p{margin: 12 -42 1.2cm 5}
+#option q
+#errors
+;1;11;m;css:value:quirky-length
+;1;14;m;css:value:quirky-length
+;1;24;m;css:value:quirky-length
+#cssom
+| <p>
+|   margin: 12px -42px 1.2cm 5px
+|   margin-bottom: 1.2cm
+|   margin-left: 5px
+|   margin-right: -42px
+|   margin-top: 12px
 
 #data
 p {
@@ -1053,15 +1099,16 @@ p {
 #cssom
 | <p>
 |   border-bottom-color: blue
+|   border-color: blue
 |   border-left-color: blue
 |   border-right-color: blue !important
 |   border-top-color: blue
 #csstext
 p {
+  border-top-color: blue;
   border-bottom-color: blue;
   border-left-color: blue;
-  border-right-color: blue ! important;
-  border-top-color: blue;
+  border-right-color: blue !important;
 }
 
 #data
@@ -1077,10 +1124,10 @@ p {
 |   border-top-color: inherit
 #csstext
 p {
+  border-top-color: inherit;
   border-bottom-color: inherit;
   border-left-color: inherit;
-  border-right-color: blue ! important;
-  border-top-color: inherit;
+  border-right-color: blue !important;
 }
 
 #data
@@ -1107,15 +1154,16 @@ p {
 #cssom
 | <p>
 |   border-bottom-color: green !important
+|   border-color: blue red green
 |   border-left-color: red
 |   border-right-color: red
 |   border-top-color: blue
 #csstext
 p {
-  border-bottom-color: green ! important;
-  border-left-color: red;
-  border-right-color: red;
   border-top-color: blue;
+  border-right-color: red;
+  border-left-color: red;
+  border-bottom-color: green !important;
 }
 
 #data
@@ -1131,10 +1179,10 @@ p {
 |   border-top-color: blue
 #csstext
 p {
-  border-bottom-color: inherit;
-  border-left-color: red;
-  border-right-color: red;
   border-top-color: blue;
+  border-right-color: red;
+  border-left-color: red;
+  border-bottom-color: inherit;
 }
 
 #data
@@ -1143,22 +1191,26 @@ p {
   border-bottom-color: green ! important;
   border-bottom: 1px black dotted;
 }
+#errors
+;4;3;w;css:prop:ignored
 #cssom
 | <p>
+|   border-bottom: 1px dotted green
 |   border-bottom-color: green !important
 |   border-bottom-style: dotted
 |   border-bottom-width: 1px
+|   border-color: blue red green
 |   border-left-color: red
 |   border-right-color: red
 |   border-top-color: blue
 #csstext
 p {
-  border-bottom-color: green ! important;
-  border-bottom-style: dotted;
-  border-bottom-width: 1px;
-  border-left-color: red;
-  border-right-color: red;
   border-top-color: blue;
+  border-right-color: red;
+  border-left-color: red;
+  border-bottom-color: green !important;
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
 }
 
 #data
@@ -1179,11 +1231,385 @@ p {
 |   border-top-color: blue
 #csstext
 p {
-  border-bottom: 1px dotted black;
-  border-left-color: red;
-  border-right-color: red;
-  border-top-color: blue;
+  border-color: blue red black;
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
 }
+
+#data
+p{border-color: red blue #ccc}
+#cssom
+| <p>
+|   border-bottom-color: rgb(204, 204, 204)
+|   border-color: red blue rgb(204, 204, 204)
+|   border-left-color: blue
+|   border-right-color: blue
+|   border-top-color: red
+
+#data
+p{border-color: red inherit #ccc a}
+#errors
+;1;21;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-color: red 120 #ccc}
+#errors
+;1;21;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-color: red 120 #ccc}
+#option q
+#errors
+;1;21;w;css:color:quirky
+#cssom
+| <p>
+|   border-bottom-color: rgb(204, 204, 204)
+|   border-color: red rgb(17, 34, 0) rgb(204, 204, 204)
+|   border-left-color: rgb(17, 34, 0)
+|   border-right-color: rgb(17, 34, 0)
+|   border-top-color: red
+
+#data
+p{border-color:     120 }
+#errors
+;1;21;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-color: red 120 }
+#errors
+;1;21;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-color: red 120 #ccc rgb(1,2,4)}
+#errors
+;1;21;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+P{border-color:red/**/blue/**/green/**/orange}
+#cssom
+| <P>
+|   border-bottom-color: green
+|   border-color: red blue green orange
+|   border-left-color: orange
+|   border-right-color: blue
+|   border-top-color: red
+
+#data
+P {
+  border-bottom-color: inherit !important;
+  border-top-color: inherit;
+  border-right-color: inherit;
+  border-left-color: inherit;
+}
+#cssom
+| <P>
+|   border-bottom-color: inherit !important
+|   border-color: inherit
+|   border-left-color: inherit
+|   border-right-color: inherit
+|   border-top-color: inherit
+#csstext
+P {
+  border-bottom-color: inherit !important;
+  border-top-color: inherit;
+  border-right-color: inherit;
+  border-left-color: inherit;
+}
+
+#data
+p{border-top-style:none}
+#cssom
+| <p>
+|   border-top-style: none
+
+#data
+p{border-top-style:hidden}
+#cssom
+| <p>
+|   border-top-style: hidden
+
+#data
+p{border-top-style:dotted}
+#cssom
+| <p>
+|   border-top-style: dotted
+
+#data
+p{border-top-style:dashed}
+#cssom
+| <p>
+|   border-top-style: dashed
+
+#data
+p{border-top-style:Solid}
+#cssom
+| <p>
+|   border-top-style: solid
+
+#data
+p{border-top-style:DOUBLE}
+#cssom
+| <p>
+|   border-top-style: double
+
+#data
+p{border-top-style:groove}
+#cssom
+| <p>
+|   border-top-style: groove
+
+#data
+p{border-top-style:ridge}
+#cssom
+| <p>
+|   border-top-style: ridge
+
+#data
+p{border-top-style:inset}
+#cssom
+| <p>
+|   border-top-style: inset
+
+#data
+p{border-top-style:outSet}
+#cssom
+| <p>
+|   border-top-style: outset
+
+#data
+p{border-top-style:grove}
+#errors
+;1;20;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{border-top-style:auto}
+#errors
+;1;20;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{border-right-style:none}
+#cssom
+| <p>
+|   border-right-style: none
+
+#data
+p{border-right-style:hidden}
+#cssom
+| <p>
+|   border-right-style: hidden
+
+#data
+p{border-right-style:dotted}
+#cssom
+| <p>
+|   border-right-style: dotted
+
+#data
+p{border-right-style:dashed}
+#cssom
+| <p>
+|   border-right-style: dashed
+
+#data
+p{border-right-style:Solid}
+#cssom
+| <p>
+|   border-right-style: solid
+
+#data
+p{border-right-style:DOUBLE}
+#cssom
+| <p>
+|   border-right-style: double
+
+#data
+p{border-right-style:groove}
+#cssom
+| <p>
+|   border-right-style: groove
+
+#data
+p{border-right-style:ridge}
+#cssom
+| <p>
+|   border-right-style: ridge
+
+#data
+p{border-right-style:inset}
+#cssom
+| <p>
+|   border-right-style: inset
+
+#data
+p{border-right-style:outSet}
+#cssom
+| <p>
+|   border-right-style: outset
+
+#data
+p{border-right-style:auto}
+#errors
+;1;22;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{border-bottom-style:none}
+#cssom
+| <p>
+|   border-bottom-style: none
+
+#data
+p{border-bottom-style:hidden}
+#cssom
+| <p>
+|   border-bottom-style: hidden
+
+#data
+p{border-bottom-style:dotted}
+#cssom
+| <p>
+|   border-bottom-style: dotted
+
+#data
+p{border-bottom-style:dashed}
+#cssom
+| <p>
+|   border-bottom-style: dashed
+
+#data
+p{border-bottom-style:Solid}
+#cssom
+| <p>
+|   border-bottom-style: solid
+
+#data
+p{border-bottom-style:DOUBLE}
+#cssom
+| <p>
+|   border-bottom-style: double
+
+#data
+p{border-bottom-style:groove}
+#cssom
+| <p>
+|   border-bottom-style: groove
+
+#data
+p{border-bottom-style:ridge}
+#cssom
+| <p>
+|   border-bottom-style: ridge
+
+#data
+p{border-bottom-style:inset}
+#cssom
+| <p>
+|   border-bottom-style: inset
+
+#data
+p{border-bottom-style:outSet}
+#cssom
+| <p>
+|   border-bottom-style: outset
+
+#data
+p{border-bottom-style:auto}
+#errors
+;1;23;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{border-left-style:none}
+#cssom
+| <p>
+|   border-left-style: none
+
+#data
+p{border-left-style:hidden}
+#cssom
+| <p>
+|   border-left-style: hidden
+
+#data
+p{border-left-style:dotted}
+#cssom
+| <p>
+|   border-left-style: dotted
+
+#data
+p{border-left-style:dashed}
+#cssom
+| <p>
+|   border-left-style: dashed
+
+#data
+p{border-left-style:Solid}
+#cssom
+| <p>
+|   border-left-style: solid
+
+#data
+p{border-left-style:DOUBLE}
+#cssom
+| <p>
+|   border-left-style: double
+
+#data
+p{border-left-style:groove}
+#cssom
+| <p>
+|   border-left-style: groove
+
+#data
+p{border-left-style:ridge}
+#cssom
+| <p>
+|   border-left-style: ridge
+
+#data
+p{border-left-style:inset}
+#cssom
+| <p>
+|   border-left-style: inset
+
+#data
+p{border-left-style:outSet}
+#cssom
+| <p>
+|   border-left-style: outset
+
+#data
+p{border-left-style:auto}
+#errors
+;1;21;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{border-style :ridge}
+#cssom
+| <p>
+|   border-bottom-style: ridge
+|   border-left-style: ridge
+|   border-right-style: ridge
+|   border-style: ridge
+|   border-top-style: ridge
 
 #data
 p {
@@ -1228,13 +1654,14 @@ p {
 |   border-bottom-style: solid
 |   border-left-style: none
 |   border-right-style: none !important
+|   border-style: solid none
 |   border-top-style: solid
 #csstext
 p {
+  border-top-style: solid;
   border-bottom-style: solid;
   border-left-style: none;
-  border-right-style: none ! important;
-  border-top-style: solid;
+  border-right-style: none !important;
 }
 
 #data
@@ -1254,6 +1681,13 @@ p {
 }
 
 #data
+p{ border-style: auto}
+#errors
+;1;18;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
 p {
   border-style: inherit;
   border-top-style: none;
@@ -1266,10 +1700,26 @@ p {
 |   border-top-style: none
 #csstext
 p {
+  border-right-style: inherit;
   border-bottom-style: inherit;
   border-left-style: inherit;
-  border-right-style: inherit;
   border-top-style: none;
+}
+
+#data
+p{border-style: inherit; border-left-style: unset; border-right-style: unset}
+#cssom
+| <p>
+|   border-bottom-style: inherit
+|   border-left-style: unset
+|   border-right-style: unset
+|   border-top-style: inherit
+#csstext
+p {
+  border-top-style: inherit;
+  border-bottom-style: inherit;
+  border-left-style: unset;
+  border-right-style: unset;
 }
 
 #data
@@ -1301,7 +1751,7 @@ p {
   border-top-width: -5px
 }
 #errors
-;2;21;m;CSS syntax error;'border-top-width'
+;2;21;m;css:value:not nnlength
 #cssom
 | <p>
 #csstext
@@ -1361,7 +1811,7 @@ p {
   border-top-width: 12;
 }
 #errors
-;2;21;m;CSS syntax error;'border-top-width'
+;2;21;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1370,6 +1820,8 @@ p {
   border-top-width: 12;
 }
 #option q
+#errors
+;2;21;m;css:value:quirky-length
 #cssom
 | <p>
 |   border-top-width: 12px
@@ -1379,7 +1831,7 @@ p {
   border-top-width: +12;
 }
 #errors
-;2;21;m;CSS syntax error;'border-top-width'
+;2;21;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1388,6 +1840,8 @@ p {
   border-top-width: +12;
 }
 #option q
+#errors
+;2;21;m;css:value:quirky-length
 #cssom
 | <p>
 |   border-top-width: 12px
@@ -1397,7 +1851,7 @@ p {
   border-top-width: -12;
 }
 #errors
-;2;21;m;CSS syntax error;'border-top-width'
+;2;21;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1407,9 +1861,538 @@ p {
 }
 #option q
 #errors
-;2;21;m;CSS syntax error;'border-top-width'
+;2;21;m;css:value:not nnlength
 #cssom
 | <p>
+
+#data
+p{border-top-width: 0%}
+#errors
+;1;21;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-top-width: THIN}
+#cssom
+| <p>
+|   border-top-width: thin
+
+#data
+p{border-top-width: MEDIUM}
+#cssom
+| <p>
+|   border-top-width: medium
+
+#data
+p{border-top-width: THick}
+#cssom
+| <p>
+|   border-top-width: thick
+
+#data
+p {
+  border-right-width: 5px
+}
+#cssom
+| <p>
+|   border-right-width: 5px
+#csstext
+p {
+  border-right-width: 5px;
+}
+
+#data
+p {
+  border-right-width: +5px
+}
+#cssom
+| <p>
+|   border-right-width: 5px
+#csstext
+p {
+  border-right-width: 5px;
+}
+
+#data
+p {
+  border-right-width: -5px
+}
+#errors
+;2;23;m;css:value:not nnlength
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {
+  border-right-width: 0;
+}
+#cssom
+| <p>
+|   border-right-width: 0px
+
+#data
+p {
+  border-right-width: +0;
+}
+#cssom
+| <p>
+|   border-right-width: 0px
+
+#data
+p {
+  border-right-width: -0;
+}
+#cssom
+| <p>
+|   border-right-width: 0px
+
+#data
+p {
+  border-right-width: 0.0000;
+}
+#cssom
+| <p>
+|   border-right-width: 0px
+
+#data
+p {
+  border-right-width: 00000012px;
+}
+#cssom
+| <p>
+|   border-right-width: 12px
+
+#data
+p {
+  border-right-width: 12.012000px;
+}
+#cssom
+| <p>
+|   border-right-width: 12.012px
+
+#data
+p {
+  border-right-width: 12;
+}
+#errors
+;2;23;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-right-width: 12;
+}
+#option q
+#errors
+;2;23;m;css:value:quirky-length
+#cssom
+| <p>
+|   border-right-width: 12px
+
+#data
+p {
+  border-right-width: +12;
+}
+#errors
+;2;23;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-right-width: +12;
+}
+#option q
+#errors
+;2;23;m;css:value:quirky-length
+#cssom
+| <p>
+|   border-right-width: 12px
+
+#data
+p {
+  border-right-width: -12;
+}
+#errors
+;2;23;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-right-width: -12;
+}
+#option q
+#errors
+;2;23;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-right-width: 0%}
+#errors
+;1;23;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-right-width: THIN}
+#cssom
+| <p>
+|   border-right-width: thin
+
+#data
+p{border-right-width: MEDIUM}
+#cssom
+| <p>
+|   border-right-width: medium
+
+#data
+p{border-right-width: THick}
+#cssom
+| <p>
+|   border-right-width: thick
+
+#data
+p {
+  border-bottom-width: 5px
+}
+#cssom
+| <p>
+|   border-bottom-width: 5px
+#csstext
+p {
+  border-bottom-width: 5px;
+}
+
+#data
+p {
+  border-bottom-width: +5px
+}
+#cssom
+| <p>
+|   border-bottom-width: 5px
+#csstext
+p {
+  border-bottom-width: 5px;
+}
+
+#data
+p {
+  border-bottom-width: -5px
+}
+#errors
+;2;24;m;css:value:not nnlength
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {
+  border-bottom-width: 0;
+}
+#cssom
+| <p>
+|   border-bottom-width: 0px
+
+#data
+p {
+  border-bottom-width: +0;
+}
+#cssom
+| <p>
+|   border-bottom-width: 0px
+
+#data
+p {
+  border-bottom-width: -0;
+}
+#cssom
+| <p>
+|   border-bottom-width: 0px
+
+#data
+p {
+  border-bottom-width: 0.0000;
+}
+#cssom
+| <p>
+|   border-bottom-width: 0px
+
+#data
+p {
+  border-bottom-width: 00000012px;
+}
+#cssom
+| <p>
+|   border-bottom-width: 12px
+
+#data
+p {
+  border-bottom-width: 12.012000px;
+}
+#cssom
+| <p>
+|   border-bottom-width: 12.012px
+
+#data
+p {
+  border-bottom-width: 12;
+}
+#errors
+;2;24;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-bottom-width: 12;
+}
+#option q
+#errors
+;2;24;m;css:value:quirky-length
+#cssom
+| <p>
+|   border-bottom-width: 12px
+
+#data
+p {
+  border-bottom-width: +12;
+}
+#errors
+;2;24;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-bottom-width: +12;
+}
+#option q
+#errors
+;2;24;m;css:value:quirky-length
+#cssom
+| <p>
+|   border-bottom-width: 12px
+
+#data
+p {
+  border-bottom-width: -12;
+}
+#errors
+;2;24;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-bottom-width: -12;
+}
+#option q
+#errors
+;2;24;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-bottom-width: 0%}
+#errors
+;1;24;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-bottom-width: THIN}
+#cssom
+| <p>
+|   border-bottom-width: thin
+
+#data
+p{border-bottom-width: MEDIUM}
+#cssom
+| <p>
+|   border-bottom-width: medium
+
+#data
+p{border-bottom-width: THick}
+#cssom
+| <p>
+|   border-bottom-width: thick
+
+#data
+p {
+  border-left-width: 5px
+}
+#cssom
+| <p>
+|   border-left-width: 5px
+#csstext
+p {
+  border-left-width: 5px;
+}
+
+#data
+p {
+  border-left-width: +5px
+}
+#cssom
+| <p>
+|   border-left-width: 5px
+#csstext
+p {
+  border-left-width: 5px;
+}
+
+#data
+p {
+  border-left-width: -5px
+}
+#errors
+;2;22;m;css:value:not nnlength
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {
+  border-left-width: 0;
+}
+#cssom
+| <p>
+|   border-left-width: 0px
+
+#data
+p {
+  border-left-width: +0;
+}
+#cssom
+| <p>
+|   border-left-width: 0px
+
+#data
+p {
+  border-left-width: -0;
+}
+#cssom
+| <p>
+|   border-left-width: 0px
+
+#data
+p {
+  border-left-width: 0.0000;
+}
+#cssom
+| <p>
+|   border-left-width: 0px
+
+#data
+p {
+  border-left-width: 00000012px;
+}
+#cssom
+| <p>
+|   border-left-width: 12px
+
+#data
+p {
+  border-left-width: 12.012000px;
+}
+#cssom
+| <p>
+|   border-left-width: 12.012px
+
+#data
+p {
+  border-left-width: 12;
+}
+#errors
+;2;22;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-left-width: 12;
+}
+#option q
+#errors
+;2;22;m;css:value:quirky-length
+#cssom
+| <p>
+|   border-left-width: 12px
+
+#data
+p {
+  border-left-width: +12;
+}
+#errors
+;2;22;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-left-width: +12;
+}
+#option q
+#errors
+;2;22;m;css:value:quirky-length
+#cssom
+| <p>
+|   border-left-width: 12px
+
+#data
+p {
+  border-left-width: -12;
+}
+#errors
+;2;22;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p {
+  border-left-width: -12;
+}
+#option q
+#errors
+;2;22;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-left-width: 0%}
+#errors
+;1;22;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-left-width: THIN}
+#cssom
+| <p>
+|   border-left-width: thin
+
+#data
+p{border-left-width: MEDIUM}
+#cssom
+| <p>
+|   border-left-width: medium
+
+#data
+p{border-left-width: THick}
+#cssom
+| <p>
+|   border-left-width: thick
 
 #data
 p {
@@ -1457,10 +2440,10 @@ p {
 |   border-top-width: 5px
 #csstext
 p {
+  border-top-width: 5px;
   border-bottom-width: 5px;
   border-left-width: 5px;
   border-right-width: inherit;
-  border-top-width: 5px;
 }
 
 #data
@@ -1474,12 +2457,13 @@ p {
 |   border-left-width: 5px !important
 |   border-right-width: 5px
 |   border-top-width: 5px
+|   border-width: 5px
 #csstext
 p {
-  border-bottom-width: 5px;
-  border-left-width: 5px ! important;
-  border-right-width: 5px;
   border-top-width: 5px;
+  border-right-width: 5px;
+  border-bottom-width: 5px;
+  border-left-width: 5px !important;
 }
 
 #data
@@ -1523,7 +2507,7 @@ p {
   border-width: 12;
 }
 #errors
-;2;17;m;CSS syntax error;'border-width'
+;2;17;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1532,6 +2516,8 @@ p {
   border-width: 12;
 }
 #option q
+#errors
+;2;17;m;css:value:quirky-length
 #cssom
 | <p>
 |   border-bottom-width: 12px
@@ -1545,7 +2531,7 @@ p {
   border-width: +12;
 }
 #errors
-;2;17;m;CSS syntax error;'border-width'
+;2;17;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1554,6 +2540,8 @@ p {
   border-width: +12;
 }
 #option q
+#errors
+;2;17;m;css:value:quirky-length
 #cssom
 | <p>
 |   border-bottom-width: 12px
@@ -1591,7 +2579,7 @@ p {
   border-width: -5px;
 }
 #errors
-;2;17;m;CSS syntax error;'border-width'
+;2;17;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1624,7 +2612,7 @@ p {
   border-width: 5px -6px;
 }
 #errors
-;2;21;m;CSS syntax error;'border-width'
+;2;21;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1657,7 +2645,7 @@ p {
   border-width: 5px 6px -7px;
 }
 #errors
-;2;25;m;CSS syntax error;'border-width'
+;2;25;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1690,9 +2678,23 @@ p {
   border-width: 5px 6px 7px -8px;
 }
 #errors
-;2;29;m;CSS syntax error;'border-width'
+;2;29;m;css:value:not nnlength
 #cssom
 | <p>
+
+#data
+p{border-width: thin thick medium}
+#cssom
+| <p>
+|   border-bottom-width: medium
+|   border-left-width: thick
+|   border-right-width: thick
+|   border-top-width: thin
+|   border-width: thin thick medium
+#csstext
+p {
+  border-width: thin thick medium;
+}
 
 #data
 p {
@@ -1751,8 +2753,8 @@ p {
 |   border-top-width: 3px
 #csstext
 p {
-  border-top-color: inherit;
   border-top-style: inherit;
+  border-top-color: inherit;
   border-top-width: 3px;
 }
 
@@ -1763,14 +2765,15 @@ p {
 }
 #cssom
 | <p>
+|   border-top: inherit
 |   border-top-color: inherit
 |   border-top-style: inherit
 |   border-top-width: inherit !important
 #csstext
 p {
-  border-top-color: inherit;
   border-top-style: inherit;
-  border-top-width: inherit ! important;
+  border-top-color: inherit;
+  border-top-width: inherit !important;
 }
 
 #data
@@ -1785,8 +2788,8 @@ p {
 |   border-bottom-width: 3px
 #csstext
 p {
-  border-bottom-color: inherit;
   border-bottom-style: inherit;
+  border-bottom-color: inherit;
   border-bottom-width: 3px;
 }
 
@@ -1865,6 +2868,7 @@ p {
 |   border-bottom-color: red
 |   border-bottom-style: solid
 |   border-bottom-width: 2px
+|   border-color: green red red
 |   border-left: 2px solid red
 |   border-left-color: red
 |   border-left-style: solid
@@ -1874,18 +2878,19 @@ p {
 |   border-right-style: solid
 |   border-right-width: 2px
 |   border-style: solid
+|   border-top: 2px solid green
 |   border-top-color: green !important
 |   border-top-style: solid
 |   border-top-width: 2px
 |   border-width: 2px
 #csstext
 p {
+  border-right: 2px solid red;
   border-bottom: 2px solid red;
   border-left: 2px solid red;
-  border-right: 2px solid red;
-  border-top-color: green ! important;
   border-top-style: solid;
   border-top-width: 2px;
+  border-top-color: green !important;
 }
 
 #data
@@ -1914,6 +2919,329 @@ p {
 |   border-top-style: inherit
 |   border-top-width: inherit
 |   border-width: inherit
+
+#data
+p{border-top-color:red}
+#cssom
+| <p>
+|   border-top-color: red
+
+#data
+p{border: 2px thin auto}
+#errors
+;1;15;m;CSS syntax error;'border'
+#cssom
+| <p>
+
+#data
+p{border: 2px red auto}
+#errors
+;1;19;m;CSS syntax error;'border'
+#cssom
+| <p>
+
+#data
+p{border: 2px red hidden}
+#csstext
+p {
+  border: 2px hidden red;
+}
+
+#data
+p{border: 2px rgb(3,5,1) hidden}
+#csstext
+p {
+  border: 2px hidden rgb(3, 5, 1);
+}
+
+#data
+p{border: #aa31aa}
+#csstext
+p {
+  border: medium none rgb(170, 49, 170);
+}
+
+#data
+p{border-top-color:abc}
+#errors
+;1;20;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-top-color:abc}
+#option q
+#errors
+;1;20;w;css:color:quirky
+#cssom
+| <p>
+|   border-top-color: rgb(170, 187, 204)
+
+#data
+p{border-right-color:red}
+#cssom
+| <p>
+|   border-right-color: red
+
+#data
+p{border-right-color:abc}
+#errors
+;1;22;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-right-color:abc}
+#option q
+#errors
+;1;22;w;css:color:quirky
+#cssom
+| <p>
+|   border-right-color: rgb(170, 187, 204)
+
+#data
+p{border-right-color: invert}
+#errors
+;1;23;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-bottom-color:red}
+#cssom
+| <p>
+|   border-bottom-color: red
+
+#data
+p{border-bottom-color:abc}
+#errors
+;1;23;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-bottom-color:abc}
+#option q
+#errors
+;1;23;w;css:color:quirky
+#cssom
+| <p>
+|   border-bottom-color: rgb(170, 187, 204)
+
+#data
+p{border-left-color:red}
+#cssom
+| <p>
+|   border-left-color: red
+
+#data
+p{border-left-color:abc}
+#errors
+;1;21;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-left-color:abc}
+#option q
+#errors
+;1;21;w;css:color:quirky
+#cssom
+| <p>
+|   border-left-color: rgb(170, 187, 204)
+
+#data
+p{border-top: 2px}
+#cssom
+| <p>
+|   border-top: 2px none
+|   border-top-color: currentcolor
+|   border-top-style: none
+|   border-top-width: 2px
+
+#data
+p{border-top: 2}
+#option q
+#errors
+;1;15;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-top: ffabcd}
+#option q
+#errors
+;1;15;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-top: 3px ffabcd}
+#option q
+#errors
+;1;19;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-top: 124441}
+#option q
+#errors
+;1;15;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{border-top: 3px 124441}
+#option q
+#errors
+;1;19;m;CSS syntax error;'border-top'
+#cssom
+| <p>
+
+#data
+p{border-top: red blue}
+#option q
+#errors
+;1;19;m;CSS syntax error;'border-top'
+#cssom
+| <p>
+
+#data
+p{border-top: 2px thick}
+#option q
+#errors
+;1;19;m;CSS syntax error;'border-top'
+#cssom
+| <p>
+
+#data
+p{border-top: 2px thick red blue}
+#option q
+#errors
+;1;19;m;CSS syntax error;'border-top'
+#cssom
+| <p>
+
+#data
+p{border-right: 2px red}
+#cssom
+| <p>
+|   border-right: 2px none red
+|   border-right-color: red
+|   border-right-style: none
+|   border-right-width: 2px
+
+#data
+p{border-right: 2px }
+#cssom
+| <p>
+|   border-right: 2px none
+|   border-right-color: currentcolor
+|   border-right-style: none
+|   border-right-width: 2px
+
+#data
+p{border-right: ridge}
+#cssom
+| <p>
+|   border-right: medium ridge
+|   border-right-color: currentcolor
+|   border-right-style: ridge
+|   border-right-width: medium
+
+#data
+p{border-right: thick}
+#cssom
+| <p>
+|   border-right: thick none
+|   border-right-color: currentcolor
+|   border-right-style: none
+|   border-right-width: thick
+
+#data
+p{border-right: 2px inherit}
+#errors
+;1;21;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border-right: unset}
+#cssom
+| <p>
+|   border-right: unset
+|   border-right-color: unset
+|   border-right-style: unset
+|   border-right-width: unset
+
+#data
+p{border-left: none}
+#cssom
+| <p>
+|   border-left: medium none
+|   border-left-color: currentcolor
+|   border-left-style: none
+|   border-left-width: medium
+
+#data
+p{border-left: none red}
+#cssom
+| <p>
+|   border-left: medium none red
+|   border-left-color: red
+|   border-left-style: none
+|   border-left-width: medium
+
+#data
+p{border-left: groove 2px}
+#cssom
+| <p>
+|   border-left: 2px groove
+|   border-left-color: currentcolor
+|   border-left-style: groove
+|   border-left-width: 2px
+
+#data
+p{border-left: none; border-left-style: INHERIT}
+#cssom
+| <p>
+|   border-left-color: currentcolor
+|   border-left-style: inherit
+|   border-left-width: medium
+
+#data
+p{border-left: groove 2px! important}
+#cssom
+| <p>
+|   border-left: 2px groove !important
+|   border-left-color: currentcolor !important
+|   border-left-style: groove !important
+|   border-left-width: 2px !important
+
+#data
+p{border-top: -moz-use-text-color}
+#option q
+#errors
+;1;15;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{border: 2px thick red blue}
+#option q
+#errors
+;1;15;m;CSS syntax error;'border'
+#cssom
+| <p>
+
+#data
+p{border: -moz-use-text-color}
+#option q
+#errors
+;1;11;m;css:color:syntax error
+#cssom
+| <p>
 
 #data
 p {
@@ -1972,7 +3300,7 @@ p {
   padding-top: -12px;
 }
 #errors
-;2;16;m;CSS syntax error;'padding-top'
+;2;16;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1983,6 +3311,48 @@ p {
 #cssom
 | <p>
 |   padding-top: 120.001px
+
+#data
+p{padding-right: 20px}
+#cssom
+| <p>
+|   padding-right: 20px
+
+#data
+p{padding-bottom: 10}
+#errors
+;1;19;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{padding-right: 10.4}
+#option q
+#errors
+;1;18;m;css:value:quirky-length
+#cssom
+| <p>
+|   padding-right: 10.4px
+
+#data
+p{padding-bottom: -20px}
+#errors
+;1;19;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{padding-right: -20.5%}
+#errors
+;1;18;m;CSS syntax error;'padding-*'
+#cssom
+| <p>
+
+#data
+p{padding-left: -0%}
+#cssom
+| <p>
+|   padding-left: 0%
 
 #data
 p {
@@ -2013,7 +3383,7 @@ p {
 |   padding-top: 1px !important
 #csstext
 p {
-  padding: 1px 2px 3px 4px ! important;
+  padding: 1px 2px 3px 4px !important;
 }
 
 #data
@@ -2071,16 +3441,17 @@ p {
 }
 #cssom
 | <p>
+|   padding: 1px
 |   padding-bottom: 1px
 |   padding-left: 1px
 |   padding-right: 1px
 |   padding-top: 1px !important
 #csstext
 p {
+  padding-right: 1px;
   padding-bottom: 1px;
   padding-left: 1px;
-  padding-right: 1px;
-  padding-top: 1px ! important;
+  padding-top: 1px !important;
 }
 
 #data
@@ -2192,6 +3563,174 @@ p {
 #computedtext 1 p
 
 #data
+p{display:run-in}
+#cssom
+| <p>
+|   display: run-in
+#csstext
+p {
+  display: run-in;
+}
+
+#data
+p{display:list-item}
+#cssom
+| <p>
+|   display: list-item
+#csstext
+p {
+  display: list-item;
+}
+
+#data
+p{DISPLAY:INLINE-BLOCK}
+#cssom
+| <p>
+|   display: inline-block
+
+#data
+p{display: inline-block}
+#unsupported
+prop_value display inline-block
+#errors
+;1;12;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{display: Table}
+#cssom
+| <p>
+|   display: table
+
+#data
+p { display: inline-TABLE }
+#cssom
+| <p>
+|   display: inline-table
+
+#data
+p{display: table-cell}
+#cssom
+| <p>
+|   display: table-cell
+
+#data
+p{display: table-caption}
+#cssom
+| <p>
+|   display: table-caption
+
+#data
+p{display: table-row-group}
+#cssom
+| <p>
+|   display: table-row-group
+
+#data
+p{display: table-header-Group}
+#cssom
+| <p>
+|   display: table-header-group
+
+#data
+p{display: table-footer-group}
+#cssom
+| <p>
+|   display: table-footer-group
+
+#data
+p{display: table-row}
+#cssom
+| <p>
+|   display: table-row
+
+#data
+p{display: table-column-group}
+#cssom
+| <p>
+|   display: table-column-group
+
+#data
+p{display: table-column}
+#cssom
+| <p>
+|   display: table-column
+
+#data
+p{display: table-cell block}
+#errors
+;1;12;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{display: 12px }
+#errors
+;1;12;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{display: }
+#errors
+;1;11;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{display: -moz-inline-block}
+#errors
+;1;12;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{display:hoge}
+#errors
+;1;11;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{position:STatic}
+#cssom
+| <p>
+|   position: static
+
+#data
+p{position:RELATIVE}
+#cssom
+| <p>
+|   position: relative
+
+#data
+p{position:absolute}
+#cssom
+| <p>
+|   position: absolute
+
+#data
+p{position:Fixed}
+#cssom
+| <p>
+|   position: fixed
+
+#data
+p{position:hoge}
+#errors
+;1;12;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{position:hoge.1}
+#errors
+;1;12;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
 p {
   top: 12px;
 }
@@ -2230,6 +3769,28 @@ p {
 #cssom
 | <p>
 |   top: inherit
+
+#data
+p{ top: 0}
+#cssom
+| <p>
+|   top: 0px
+
+#data
+p{ top: 14}
+#errors
+;1;9;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{ top: 14}
+#option q
+#errors
+;1;9;m;css:value:quirky-length
+#cssom
+| <p>
+|   top: 14px
 
 #data
 p {
@@ -2272,6 +3833,28 @@ p {
 |   bottom: inherit
 
 #data
+p{ bottom: 0}
+#cssom
+| <p>
+|   bottom: 0px
+
+#data
+p{ bottom: 14}
+#errors
+;1;12;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{ bottom: 14}
+#option q
+#errors
+;1;12;m;css:value:quirky-length
+#cssom
+| <p>
+|   bottom: 14px
+
+#data
 p {
   left: 12px;
 }
@@ -2312,6 +3895,28 @@ p {
 |   left: inherit
 
 #data
+p{ left: 0}
+#cssom
+| <p>
+|   left: 0px
+
+#data
+p{ left: 14}
+#errors
+;1;10;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{ left: 14}
+#option q
+#errors
+;1;10;m;css:value:quirky-length
+#cssom
+| <p>
+|   left: 14px
+
+#data
 p {
   right: 12px;
 }
@@ -2350,6 +3955,28 @@ p {
 #cssom
 | <p>
 |   right: inherit
+
+#data
+p{ right: 0}
+#cssom
+| <p>
+|   right: 0px
+
+#data
+p{ right: 14}
+#errors
+;1;11;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{ right: 14}
+#option q
+#errors
+;1;11;m;css:value:quirky-length
+#cssom
+| <p>
+|   right: 14px
 
 #data
 /* From CSS 2.1 */
@@ -2427,6 +4054,56 @@ p {
 |   width: 100%
 
 #data
+p{float: left}
+#cssom
+| <p>
+|   float: left
+
+#data
+p { float: right}
+#cssom
+| <p>
+|   float: right
+
+#data
+p { float : none
+}
+#cssom
+| <p>
+|   float: none
+
+#data
+p{clear: left}
+#cssom
+| <p>
+|   clear: left
+
+#data
+p {clear: right}
+#cssom
+| <p>
+|   clear: right
+
+#data
+p{clear: both}
+#cssom
+| <p>
+|   clear: both
+
+#data
+p{clear: NONE}
+#cssom
+| <p>
+|   clear: none
+
+#data
+p{clear: all}
+#errors
+;1;10;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
 p {
   z-index: 10;
 }
@@ -2471,7 +4148,14 @@ p {
   z-index: +inherit;
 }
 #errors
-;2;13;m;CSS syntax error;'z-index'
+;2;12;m;CSS syntax error;'z-index'
+#cssom
+| <p>
+
+#data
+p{z-index: 10.00}
+#errors
+;1;12;m;CSS syntax error;'z-index'
 #cssom
 | <p>
 
@@ -2496,7 +4180,37 @@ p {
   width: -62px;
 }
 #errors
-;2;10;m;CSS syntax error;'width'
+;2;10;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{ width: 00 }
+#cssom
+| <p>
+|   width: 0px
+
+#data
+p{ width: 53 }
+#errors
+;1;11;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p { width: 61 }
+#option q
+#errors
+;1;12;m;css:value:quirky-length
+#cssom
+| <p>
+|   width: 61px
+
+#data
+p { width: -42 } 
+#option q
+#errors
+;1;12;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -2507,6 +4221,13 @@ p {
 #cssom
 | <p>
 |   width: 62%
+
+#data
+p{ width: -5%}
+#errors
+;1;11;m;CSS syntax error;'width'
+#cssom
+| <p>
 
 #data
 p {
@@ -2520,57 +4241,117 @@ p {
 p {
   width: -moz-max-content;
 }
+#errors
+;2;10;m;css:obsolete;-moz-max-content
 #cssom
 | <p>
-|   width: -moz-max-content
+|   width: max-content
 #computed 1 p
 -| width: auto
-+| width: -moz-max-content
++| width: max-content
 #computedtext 1 p
 -  width: auto;
-+  width: -moz-max-content;
++  width: max-content;
 
 #data
 p {
   width: -moz-min-content;
 }
+#errors
+;2;10;m;css:obsolete;-moz-min-content
 #cssom
 | <p>
-|   width: -moz-min-content
+|   width: min-content
 #computed 1 p
 -| width: auto
-+| width: -moz-min-content
++| width: min-content
 #computedtext 1 p
 -  width: auto;
-+  width: -moz-min-content;
++  width: min-content;
 
 #data
 p {
   width: -moz-fit-content;
 }
+#errors
+;2;10;m;css:obsolete;-moz-fit-content
 #cssom
 | <p>
-|   width: -moz-fit-content
+|   width: fit-content
 #computed 1 p
 -| width: auto
-+| width: -moz-fit-content
++| width: fit-content
 #computedtext 1 p
 -  width: auto;
-+  width: -moz-fit-content;
++  width: fit-content;
 
 #data
 p {
   width: -moz-available;
 }
+#errors
+;2;10;m;css:obsolete;-moz-available
 #cssom
 | <p>
-|   width: -moz-available
+|   width: available
 #computed 1 p
 -| width: auto
-+| width: -moz-available
++| width: available
 #computedtext 1 p
 -  width: auto;
-+  width: -moz-available;
++  width: available;
+
+#data
+p{ width: -webkit-min-content }
+#errors
+;1;11;m;css:obsolete;-webkit-min-content
+#cssom
+| <p>
+|   width: min-content
+
+#data
+p{ width: -webkit-max-content }
+#errors
+;1;11;m;css:obsolete;-webkit-max-content
+#cssom
+| <p>
+|   width: max-content
+
+#data
+p{ width: -webkit-Fit-content }
+#errors
+;1;11;m;css:obsolete;-webkit-Fit-content
+#cssom
+| <p>
+|   width: fit-content
+
+#data
+p{ width:  min-content }
+#errors
+#cssom
+| <p>
+|   width: min-content
+
+#data
+p{ width:  max-content }
+#errors
+#cssom
+| <p>
+|   width: max-content
+
+#data
+p{ width:  fit-content }
+#errors
+#cssom
+| <p>
+|   width: fit-content
+
+#data
+p{ width: AVAILABLE }
+#errors
+#cssom
+| <p>
+|   width: available
 
 #data
 p {
@@ -2588,6 +4369,52 @@ p {
 #cssom
 | <p>
 |   width: inherit
+
+#data
+ p { width: auto }
+#unsupported
+prop_value width auto
+#errors
+#cssom
+| <p>
+|   width: auto
+
+#data
+ p { width: available }
+#unsupported
+prop_value width available
+#errors
+;1;13;m;CSS syntax error;'width'
+#cssom
+| <p>
+
+#data
+ p { width: min-content }
+#unsupported
+prop_value width min-content
+#errors
+;1;13;m;CSS syntax error;'width'
+#cssom
+| <p>
+
+#data
+ p { width: -moz-max-content }
+#unsupported
+prop_value width max-content
+#errors
+;1;13;m;css:obsolete;-moz-max-content
+;1;13;m;CSS syntax error;'width'
+#cssom
+| <p>
+
+#data
+ p { width: fit-content }
+#unsupported
+prop_value width fit-content
+#errors
+;1;13;m;CSS syntax error;'width'
+#cssom
+| <p>
 
 #data
 p {
@@ -2610,7 +4437,21 @@ p {
   min-width: -62px;
 }
 #errors
-;2;14;m;CSS syntax error;'min-width'
+;2;14;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p { min-width: 0} 
+#cssom
+| <p>
+|   min-width: 0px
+
+#data
+p{min-width: 42}
+#option q
+#errors
+;1;14;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -2623,11 +4464,18 @@ p {
 |   min-width: 62%
 
 #data
+p{min-width: -31%}
+#errors
+;1;14;m;CSS syntax error;'width'
+#cssom
+| <p>
+
+#data
 p {
   min-width: auto;
 }
 #errors
-;2;14;m;CSS syntax error;'min-width'
+;2;14;m;CSS syntax error;'width'
 #cssom
 | <p>
 
@@ -2635,64 +4483,72 @@ p {
 p {
   min-width: -moz-max-content;
 }
+#errors
+;2;14;m;css:obsolete;-moz-max-content
 #cssom
 | <p>
-|   min-width: -moz-max-content
+|   min-width: max-content
 #computed 1 p
 -| min-width: 0px
-+| min-width: -moz-max-content
++| min-width: max-content
 #computedtext 1 p
 -  min-width: 0px;
-+  min-width: -moz-max-content;
++  min-width: max-content;
 
 #data
 p {
   min-width: -moz-min-content;
 }
+#errors
+;2;14;m;css:obsolete;-moz-min-content
 #cssom
 | <p>
-|   min-width: -moz-min-content
+|   min-width: min-content
 #computed 1 p
 -| min-width: 0px
-+| min-width: -moz-min-content
++| min-width: min-content
 #computedtext 1 p
 -  min-width: 0px;
-+  min-width: -moz-min-content;
++  min-width: min-content;
 
 #data
 p {
   min-width: -moz-fit-content;
 }
+#errors
+;2;14;m;css:obsolete;-moz-fit-content
 #cssom
 | <p>
-|   min-width: -moz-fit-content
+|   min-width: fit-content
 #computed 1 p
 -| min-width: 0px
-+| min-width: -moz-fit-content
++| min-width: fit-content
 #computedtext 1 p
 -  min-width: 0px;
-+  min-width: -moz-fit-content;
++  min-width: fit-content;
 
 #data
 p {
   min-width: -moz-available;
 }
+#errors
+;2;14;m;css:obsolete;-moz-available
 #cssom
 | <p>
-|   min-width: -moz-available
+|   min-width: available
 #computed 1 p
 -| min-width: 0px
-+| min-width: -moz-available
++| min-width: available
 #computedtext 1 p
 -  min-width: 0px;
-+  min-width: -moz-available;
++  min-width: available;
 
 #data
 p {
   min-width: none;
 }
 #errors
-;2;14;m;CSS syntax error;'min-width'
+;2;14;m;CSS syntax error;'width'
 #cssom
 | <p>
 
@@ -2703,6 +4559,55 @@ p {
 #cssom
 | <p>
 |   min-width: inherit
+
+#data
+p{min-width: fit-content}
+#cssom
+| <p>
+|   min-width: fit-content
+
+#data
+p{min-width:max-content}
+#cssom
+| <p>
+|   min-width: max-content
+
+#data
+p{min-width: min-content}
+#cssom
+| <p>
+|   min-width: min-content
+
+#data
+p{min-width: available
+}
+#cssom
+| <p>
+|   min-width: available
+
+#data
+p{min-width: -webkit-min-content}
+#errors
+;1;14;m;css:obsolete;-webkit-min-content
+#cssom
+| <p>
+|   min-width: min-content
+
+#data
+p{min-width: -webkit-max-content}
+#errors
+;1;14;m;css:obsolete;-webkit-max-content
+#cssom
+| <p>
+|   min-width: max-content
+
+#data
+p{min-width: -webkit-fit-content}
+#errors
+;1;14;m;css:obsolete;-webkit-fit-content
+#cssom
+| <p>
+|   min-width: fit-content
 
 #data
 p {
@@ -2725,7 +4630,21 @@ p {
   max-width: -62px;
 }
 #errors
-;2;14;m;CSS syntax error;'max-width'
+;2;14;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p { max-width: 0} 
+#cssom
+| <p>
+|   max-width: 0px
+
+#data
+p{max-width: 42}
+#option q
+#errors
+;1;14;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -2738,11 +4657,18 @@ p {
 |   max-width: 62%
 
 #data
+p{max-width:-2%}
+#errors
+;1;13;m;CSS syntax error;'width'
+#cssom
+| <p>
+
+#data
 p {
   max-width: auto;
 }
 #errors
-;2;14;m;CSS syntax error;'max-width'
+;2;14;m;CSS syntax error;'width'
 #cssom
 | <p>
 
@@ -2750,57 +4676,65 @@ p {
 p {
   max-width: -moz-max-content;
 }
+#errors
+;2;14;m;css:obsolete;-moz-max-content
 #cssom
 | <p>
-|   max-width: -moz-max-content
+|   max-width: max-content
 #computed 1 p
 -| max-width: none
-+| max-width: -moz-max-content
++| max-width: max-content
 #computedtext 1 p
 -  max-width: none;
-+  max-width: -moz-max-content;
++  max-width: max-content;
 
 #data
 p {
   max-width: -moz-min-content;
 }
+#errors
+;2;14;m;css:obsolete;-moz-min-content
 #cssom
 | <p>
-|   max-width: -moz-min-content
+|   max-width: min-content
 #computed 1 p
 -| max-width: none
-+| max-width: -moz-min-content
++| max-width: min-content
 #computedtext 1 p
 -  max-width: none;
-+  max-width: -moz-min-content;
++  max-width: min-content;
 
 #data
 p {
   max-width: -moz-fit-content;
 }
+#errors
+;2;14;m;css:obsolete;-moz-fit-content
 #cssom
 | <p>
-|   max-width: -moz-fit-content
+|   max-width: fit-content
 #computed 1 p
 -| max-width: none
-+| max-width: -moz-fit-content
++| max-width: fit-content
 #computedtext 1 p
 -  max-width: none;
-+  max-width: -moz-fit-content;
++  max-width: fit-content;
 
 #data
 p {
   max-width: -moz-available;
 }
+#errors
+;2;14;m;css:obsolete;-moz-available
 #cssom
 | <p>
-|   max-width: -moz-available
+|   max-width: available
 #computed 1 p
 -| max-width: none
-+| max-width: -moz-available
++| max-width: available
 #computedtext 1 p
 -  max-width: none;
-+  max-width: -moz-available;
++  max-width: available;
 
 #data
 p {
@@ -2817,6 +4751,55 @@ p {
 #cssom
 | <p>
 |   max-width: inherit
+
+#data
+p{max-width: fit-content}
+#cssom
+| <p>
+|   max-width: fit-content
+
+#data
+p{max-width:max-content}
+#cssom
+| <p>
+|   max-width: max-content
+
+#data
+p{max-width: min-content}
+#cssom
+| <p>
+|   max-width: min-content
+
+#data
+p{max-width: available
+}
+#cssom
+| <p>
+|   max-width: available
+
+#data
+p{max-width: -webkit-min-content}
+#errors
+;1;14;m;css:obsolete;-webkit-min-content
+#cssom
+| <p>
+|   max-width: min-content
+
+#data
+p{max-width: -webkit-max-content}
+#errors
+;1;14;m;css:obsolete;-webkit-max-content
+#cssom
+| <p>
+|   max-width: max-content
+
+#data
+p{max-width: -webkit-fit-content}
+#errors
+;1;14;m;css:obsolete;-webkit-fit-content
+#cssom
+| <p>
+|   max-width: fit-content
 
 #data
 p {
@@ -2839,9 +4822,39 @@ p {
   height: -62px;
 }
 #errors
-;2;11;m;CSS syntax error;'height'
+;2;11;m;css:value:not nnlength
 #cssom
 | <p>
+
+#data
+p{ height: -0 }
+#cssom
+| <p>
+|   height: 0px
+
+#data
+p { height: -21 }
+#option q
+#errors
+;1;13;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{ height: 21 }
+#errors
+;1;12;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p { height: 21 }
+#option q
+#errors
+;1;13;m;css:value:quirky-length
+#cssom
+| <p>
+|   height: 21px
 
 #data
 p {
@@ -2850,6 +4863,13 @@ p {
 #cssom
 | <p>
 |   height: 62%
+
+#data
+p{ height: -525% }
+#errors
+;1;12;m;CSS syntax error;'height'
+#cssom
+| <p>
 
 #data
 p {
@@ -2869,12 +4889,134 @@ p {
 | <p>
 
 #data
+p{ height: min-content }
+#cssom
+| <p>
+|   height: min-content
+
+#data
+p { height: max-content }
+#cssom
+| <p>
+|   height: max-content
+
+#data
+p { height: fit-content }
+#cssom
+| <p>
+|   height: fit-content
+
+#data
+p { height: available }
+#cssom
+| <p>
+|   height: available
+
+#data
+p { height: -webkit-min-content }
+#errors
+;1;13;m;css:obsolete;-webkit-min-content
+#cssom
+| <p>
+|   height: min-content
+
+#data
+p { height: -webkit-max-content }
+#errors
+;1;13;m;css:obsolete;-webkit-max-content
+#cssom
+| <p>
+|   height: max-content
+
+#data
+p { height: -webkit-fit-content }
+#errors
+;1;13;m;css:obsolete;-webkit-fit-content
+#cssom
+| <p>
+|   height: fit-content
+
+#data
 p {
   height: inherit
 }
 #cssom
 | <p>
 |   height: inherit
+
+#data
+p { height: -moz-min-content }
+#errors
+;1;13;m;CSS syntax error;'height'
+#cssom
+| <p>
+
+#data
+p { height: -moz-max-content }
+#errors
+;1;13;m;CSS syntax error;'height'
+#cssom
+| <p>
+
+#data
+p { height: -moz-fit-content }
+#errors
+;1;13;m;CSS syntax error;'height'
+#cssom
+| <p>
+
+#data
+p { height: -moz-available }
+#errors
+;1;13;m;CSS syntax error;'height'
+#cssom
+| <p>
+
+#data
+ p { height: auto }
+#unsupported
+prop_value height auto
+#errors
+#cssom
+| <p>
+|   height: auto
+
+#data
+ p { height: available }
+#unsupported
+prop_value height available
+#errors
+;1;14;m;CSS syntax error;'height'
+#cssom
+| <p>
+
+#data
+ p { height: min-content }
+#unsupported
+prop_value height min-content
+#errors
+;1;14;m;CSS syntax error;'height'
+#cssom
+| <p>
+
+#data
+ p { height: -webkit-max-content }
+#unsupported
+prop_value height max-content
+#errors
+;1;14;m;css:obsolete;-webkit-max-content
+;1;14;m;CSS syntax error;'height'
+#cssom
+| <p>
+
+#data
+ p { height: fit-content }
+#unsupported
+prop_value height fit-content
+#errors
+;1;14;m;CSS syntax error;'height'
+#cssom
+| <p>
 
 #data
 p {
@@ -2897,7 +5039,21 @@ p {
   min-height: -62px;
 }
 #errors
-;2;15;m;CSS syntax error;'min-height'
+;2;15;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{min-height: 0}
+#cssom
+| <p>
+|   min-height: 0px
+
+#data
+p{min-height: 1}
+#option q
+#errors
+;1;15;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -2910,11 +5066,18 @@ p {
 |   min-height: 62%
 
 #data
+p{min-height: -31%}
+#errors
+;1;15;m;CSS syntax error;'height'
+#cssom
+| <p>
+
+#data
 p {
   min-height: auto;
 }
 #errors
-;2;15;m;CSS syntax error;'min-height'
+;2;15;m;CSS syntax error;'height'
 #cssom
 | <p>
 
@@ -2923,7 +5086,7 @@ p {
   min-height: none;
 }
 #errors
-;2;15;m;CSS syntax error;'min-height'
+;2;15;m;CSS syntax error;'height'
 #cssom
 | <p>
 
@@ -2934,6 +5097,62 @@ p {
 #cssom
 | <p>
 |   min-height: inherit
+
+#data
+p{min-height: fit-content}
+#cssom
+| <p>
+|   min-height: fit-content
+
+#data
+p{min-height:max-content}
+#cssom
+| <p>
+|   min-height: max-content
+
+#data
+p{min-height: min-content}
+#cssom
+| <p>
+|   min-height: min-content
+
+#data
+p{min-height: available
+}
+#cssom
+| <p>
+|   min-height: available
+
+#data
+p{min-height: -webkit-min-content}
+#errors
+;1;15;m;css:obsolete;-webkit-min-content
+#cssom
+| <p>
+|   min-height: min-content
+
+#data
+p{min-height: -webkit-max-content}
+#errors
+;1;15;m;css:obsolete;-webkit-max-content
+#cssom
+| <p>
+|   min-height: max-content
+
+#data
+p{min-height: -webkit-fit-content}
+#errors
+;1;15;m;css:obsolete;-webkit-fit-content
+#cssom
+| <p>
+|   min-height: fit-content
+
+#data
+p{min-height: -moz-fit-content}
+#errors
+;1;15;m;CSS syntax error;'height'
+#cssom
+| <p>
 
 #data
 p {
@@ -2956,7 +5175,21 @@ p {
   max-height: -62px;
 }
 #errors
-;2;15;m;CSS syntax error;'max-height'
+;2;15;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{max-height: 0}
+#cssom
+| <p>
+|   max-height: 0px
+
+#data
+p{max-height: 1}
+#option q
+#errors
+;1;15;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -2969,11 +5202,18 @@ p {
 |   max-height: 62%
 
 #data
+p{max-height: -31%}
+#errors
+;1;15;m;CSS syntax error;'height'
+#cssom
+| <p>
+
+#data
 p {
   max-height: auto;
 }
 #errors
-;2;15;m;CSS syntax error;'max-height'
+;2;15;m;CSS syntax error;'height'
 #cssom
 | <p>
 
@@ -2992,6 +5232,62 @@ p {
 #cssom
 | <p>
 |   max-height: inherit
+
+#data
+p{max-height: fit-content}
+#cssom
+| <p>
+|   max-height: fit-content
+
+#data
+p{max-height:max-content}
+#cssom
+| <p>
+|   max-height: max-content
+
+#data
+p{max-height: min-content}
+#cssom
+| <p>
+|   max-height: min-content
+
+#data
+p{max-height: available
+}
+#cssom
+| <p>
+|   max-height: available
+
+#data
+p{max-height: -webkit-min-content}
+#errors
+;1;15;m;css:obsolete;-webkit-min-content
+#cssom
+| <p>
+|   max-height: min-content
+
+#data
+p{max-height: -webkit-max-content}
+#errors
+;1;15;m;css:obsolete;-webkit-max-content
+#cssom
+| <p>
+|   max-height: max-content
+
+#data
+p{max-height: -webkit-fit-content}
+#errors
+;1;15;m;css:obsolete;-webkit-fit-content
+#cssom
+| <p>
+|   max-height: fit-content
+
+#data
+p{max-height: -moz-fit-content}
+#errors
+;1;15;m;CSS syntax error;'height'
+#cssom
+| <p>
 
 #data
 p {
@@ -3022,7 +5318,7 @@ p {
   line-height: -12px
 }
 #errors
-;2;16;m;CSS syntax error;'line-height'
+;2;16;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -3110,6 +5406,18 @@ p {
 |   line-height: 0
 
 #data
+p{line-height:NONE}
+#cssom
+| <p>
+|   line-height: none
+
+#data
+p{LIne-height: -moz-use-system-font}
+#cssom
+| <p>
+|   line-height: -moz-use-system-font
+
+#data
 p {
   vertical-align: baseline;
 }
@@ -3192,6 +5500,18 @@ p {
 |   vertical-align: text-bottom
 
 #data
+p{vertical-align: auto}
+#cssom
+| <p>
+|   vertical-align: auto
+
+#data
+p{vertical-align : central}
+#cssom
+| <p>
+|   vertical-align: central
+
+#data
 p {
   vertical-align: 12%;
 }
@@ -3238,6 +5558,20 @@ p {
 #cssom
 | <p>
 |   vertical-align: -12px
+
+#data
+p{vertical-align : 0}
+#cssom
+| <p>
+|   vertical-align: 0px
+
+#data
+p{vertical-align: 21}
+#option q
+#errors
+;1;19;m;css:value:not length
+#cssom
+| <p>
 
 #data
 p {
@@ -3321,14 +5655,12 @@ p {
 p {
   overflow: -webkit-marquee;
 }
+#errors
+;2;13;m;css:keyword:not allowed
 #cssom
 | <p>
-|   overflow: -webkit-marquee
-|   overflow-x: -webkit-marquee
-|   overflow-y: -webkit-marquee
 #csstext
 p {
-  overflow: -webkit-marquee;
 }
 
 #data
@@ -3367,11 +5699,12 @@ p {
 }
 #cssom
 | <p>
+|   overflow: auto
 |   overflow-x: auto !important
 |   overflow-y: auto
 #csstext
 p {
-  overflow-x: auto ! important;
+  overflow-x: auto !important;
   overflow-y: auto;
 }
 
@@ -3382,12 +5715,13 @@ p {
 }
 #cssom
 | <p>
+|   overflow: auto
 |   overflow-x: auto
 |   overflow-y: auto !important
 #csstext
 p {
+  overflow-y: auto !important;
   overflow-x: auto;
-  overflow-y: auto ! important;
 }
 
 #data
@@ -3436,12 +5770,12 @@ p {
 p {
   overflow-y: -webkit-marquee;
 }
+#errors
+;2;15;m;css:keyword:not allowed
 #cssom
 | <p>
-|   overflow-y: -webkit-marquee
 #csstext
 p {
-  overflow-y: -webkit-marquee;
 }
 
 #data
@@ -3471,11 +5805,18 @@ p {
 }
 
 #data
+p{clip: auto 2}
+#errors
+;1;13;m;CSS syntax error;'clip'
+#cssom
+| <p>
+
+#data
 p {
   clip: rect();
 }
 #errors
-;2;14;m;CSS syntax error;'clip'
+;2;9;m;CSS syntax error;'clip'
 #cssom
 | <p>
 
@@ -3484,7 +5825,7 @@ p {
   clip: rect(1px);
 }
 #errors
-;2;17;m;CSS syntax error;'clip'
+;2;9;m;CSS syntax error;'clip'
 #cssom
 | <p>
 
@@ -3493,7 +5834,7 @@ p {
   clip: rect(1px,2px);
 }
 #errors
-;2;21;m;CSS syntax error;'clip'
+;2;9;m;CSS syntax error;'clip'
 #cssom
 | <p>
 
@@ -3502,7 +5843,7 @@ p {
   clip: rect(1px, 2px,3px);
 }
 #errors
-;2;26;m;CSS syntax error;'clip'
+;2;9;m;CSS syntax error;'clip'
 #cssom
 | <p>
 
@@ -3511,9 +5852,19 @@ p {
   clip: rect(1px, 2px, 3px, 4px
 }
 #errors
-;3;1;m;CSS syntax error;'clip'
+;3;2;w;css:block:eof
+;2;9;m;CSS syntax error;'clip'
 #cssom
 | <p>
+
+#data
+p {
+  clip: rect(1px, 2px, 3px, 4px
+#errors
+;2;32;w;css:block:eof
+#cssom
+| <p>
+|   clip: rect(1px, 2px, 3px, 4px)
 
 #data
 p {
@@ -3528,7 +5879,7 @@ p {
   clip: rect(1 1 1 1);
 }
 #errors
-;2;14;m;CSS syntax error;'clip'
+;2;14;m;css:value:not length
 #cssom
 | <p>
 
@@ -3537,6 +5888,11 @@ p {
   clip: rect(1 1 1 1)
 }
 #option q
+#errors
+;2;14;m;css:value:quirky-length
+;2;16;m;css:value:quirky-length
+;2;18;m;css:value:quirky-length
+;2;20;m;css:value:quirky-length
 #cssom
 | <p>
 |   clip: rect(1px, 1px, 1px, 1px)
@@ -3546,7 +5902,28 @@ p {
   clip: rect(0 0 0 12)
 }
 #errors
-;2;20;m;CSS syntax error;'clip'
+;2;20;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p {
+  clip: rect(1 0 auto 1)
+}
+#option q
+#errors
+;2;14;m;css:value:quirky-length
+;2;23;m;css:value:quirky-length
+#cssom
+| <p>
+|   clip: rect(1px, 0px, auto, 1px)
+
+#data
+p {
+  clip: rect(13px 0px auto 20%)
+}
+#errors
+;2;28;m;css:value:not length
 #cssom
 | <p>
 
@@ -3555,9 +5932,28 @@ p {
   clip: rect(0 0 0 12)
 }
 #option q
+#errors
+;2;20;m;css:value:quirky-length
 #cssom
 | <p>
 |   clip: rect(0px, 0px, 0px, 12px)
+
+#data
+p {
+  clip: rect(1px/**/3px/**/2px/**/4px/**/)
+}
+#cssom
+| <p>
+|   clip: rect(1px, 3px, 2px, 4px)
+
+#data
+p {
+  clip: rect(1px/**/3px 2px 4px
+)
+}
+#cssom
+| <p>
+|   clip: rect(1px, 3px, 2px, 4px)
 
 #data
 p {
@@ -3571,9 +5967,10 @@ p {
 p {
   clip: rect(1px 3px 3px, 12px)
 }
+#errors
+;2;9;m;CSS syntax error;'clip'
 #cssom
 | <p>
-|   clip: rect(1px, 3px, 3px, 12px)
 
 #data
 p {
@@ -3611,7 +6008,7 @@ p {
   clip: rect(1px, 2% 4em 6cm);
 } 
 #errors
-;2;19;m;CSS syntax error;'clip'
+;2;9;m;CSS syntax error;'clip'
 #cssom
 | <p>
 
@@ -3619,9 +6016,10 @@ p {
 p {
   clip: rect(1px auto 3px, auto);
 }
+#errors
+;2;9;m;CSS syntax error;'clip'
 #cssom
 | <p>
-|   clip: rect(1px, auto, 3px, auto)
 
 #data
 p {
@@ -3639,11 +6037,19 @@ p {
 +| clip: rect(auto, auto, auto, auto)
 
 #data
+p{CLIP:RECT(AUTO, AutO  ,  AUTO, AUTO)}
+#cssom
+| <p>
+|   clip: rect(auto, auto, auto, auto)
+
+#data
 p {
   clip: rect(inherit, 1px, auto, 2px);
 }
 #errors
-;2;14;m;CSS syntax error;'clip'
+;2;14;m;css:value:not length
+#cssom
+| <p>
 
 #data
 p {
@@ -3658,7 +6064,7 @@ p {
   clip: rect(1px, 2px, 3px, 4px 5px);
 }
 #errors
-;2;33;m;CSS syntax error;'clip'
+;2;9;m;CSS syntax error;'clip'
 #cssom
 | <p>
 
@@ -3667,7 +6073,7 @@ p {
   clip: rect(1px, 2px, 3px, 4px,);
 }
 #errors
-;2;32;m;CSS syntax error;'clip'
+;2;9;m;CSS syntax error;'clip'
 #cssom
 | <p>
 
@@ -3676,9 +6082,27 @@ p {
   clip: rect(1px, 2px, 3px, 4px, 5px);
 }
 #errors
-;2;32;m;CSS syntax error;'clip'
+;2;9;m;CSS syntax error;'clip'
 #cssom
 | <p>
+
+#data
+p{visibility: visible}
+#cssom
+| <p>
+|   visibility: visible
+
+#data
+P{visibility: hidden}
+#cssom
+| <P>
+|   visibility: hidden
+
+#data
+p{visibility: collapse}
+#cssom
+| <p>
+|   visibility: collapse
 
 #data
 p {
@@ -3693,6 +6117,22 @@ p {
 p {
   background-position: inherit;
 }
+
+#data
+p{background-position: TOP}
+#cssom
+| <p>
+|   background-position: 50% top
+|   background-position-x: 50%
+|   background-position-y: top
+
+#data
+p{background-position: BOTTOM}
+#cssom
+| <p>
+|   background-position: 50% bottom
+|   background-position-x: 50%
+|   background-position-y: bottom
 
 #data
 p {
@@ -3728,12 +6168,13 @@ p {
 }
 #cssom
 | <p>
+|   background-position: inherit
 |   background-position-x: inherit
 |   background-position-y: inherit !important
 #csstext
 p {
   background-position-x: inherit;
-  background-position-y: inherit ! important;
+  background-position-y: inherit !important;
 }
 
 #data
@@ -3787,12 +6228,13 @@ p {
 }
 #cssom
 | <p>
+|   background-position: 12.3% 3px
 |   background-position-x: 12.3%
 |   background-position-y: 3px !important
 #csstext
 p {
   background-position-x: 12.3%;
-  background-position-y: 3px ! important;
+  background-position-y: 3px !important;
 }
 
 #data
@@ -3802,11 +6244,12 @@ p {
 }
 #cssom
 | <p>
+|   background-position: 12.3% 3px
 |   background-position-x: 12.3% !important
 |   background-position-y: 3px
 #csstext
 p {
-  background-position-x: 12.3% ! important;
+  background-position-x: 12.3% !important;
   background-position-y: 3px;
 }
 
@@ -3822,7 +6265,7 @@ p {
 |   background-position-y: 3px !important
 #csstext
 p {
-  background-position: 12.3% 3px ! important;
+  background-position: 12.3% 3px !important;
 }
 
 #data
@@ -3857,6 +6300,26 @@ p {
 
 #data
 p {
+  background-position: right +34px;
+}
+#cssom
+| <p>
+|   background-position: right 34px
+|   background-position-x: right
+|   background-position-y: 34px
+
+#data
+p {
+  background-position: center/**/+34px;
+}
+#cssom
+| <p>
+|   background-position: center 34px
+|   background-position-x: center
+|   background-position-y: 34px
+
+#data
+p {
   background-position: +12px bottom
 }
 #cssom
@@ -3880,16 +6343,35 @@ p {
   background-position: +12px left;
 }
 #errors
-;2;30;m;no property semicolon
+;2;30;m;CSS syntax error;position
 #cssom
 | <p>
+
+#data
+p {
+  background-position: +12px right;
+}
+#errors
+;2;30;m;CSS syntax error;position
+#cssom
+| <p>
+
+#data
+p {
+  background-position: +12px center;
+}
+#cssom
+| <p>
+|   background-position: 12px center
+|   background-position-x: 12px
+|   background-position-y: center
 
 #data
 p {
   background-position: 12px +top;
 }
 #errors
-;2;30;m;CSS syntax error;'background-position'
+;2;24;m;CSS syntax error;position
 #cssom
 | <p>
 
@@ -3912,6 +6394,24 @@ p {
 |   background-position: right top
 |   background-position-x: right
 |   background-position-y: top
+
+#data
+p {
+  background-position: top 12%;
+}
+#errors
+;2;24;m;CSS syntax error;position
+#cssom
+| <p>
+
+#data
+p {
+  background-position: bottom 12%;
+}
+#errors
+;2;24;m;CSS syntax error;position
+#cssom
+| <p>
 
 #data
 p {
@@ -3954,6 +6454,193 @@ p {
 |   background-position-y: center
 
 #data
+p{background-position: 12 center}
+#errors
+;1;24;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{background-position: left 12}
+#errors
+;1;29;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{background-position: hoge 12px}
+#errors
+;1;24;m;CSS syntax error;position
+#cssom
+| <p>
+
+#data
+p{background-position: 20em hoge}
+#errors
+;1;29;m;CSS syntax error;position
+#cssom
+| <p>
+
+#data
+p{background-position: hoge fuga}
+#errors
+;1;24;m;CSS syntax error;position
+#cssom
+| <p>
+
+#data
+p{background-position: center center}
+#cssom
+| <p>
+|   background-position: center center
+|   background-position-x: center
+|   background-position-y: center
+
+#data
+p{background-position-x: 0}
+#cssom
+| <p>
+|   background-position-x: 0px
+
+#data
+p{background-position-x: 0%}
+#cssom
+| <p>
+|   background-position-x: 0%
+
+#data
+p{background-position-x: -120cm}
+#cssom
+| <p>
+|   background-position-x: -120cm
+
+#data
+p{background-position-x: 42}
+#errors
+;1;26;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{background-position-x: 42}
+#option q
+#errors
+;1;26;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{background-position-x: 42px 52px}
+#errors
+;1;26;m;CSS syntax error;'background-position-x'
+#cssom
+| <p>
+
+#data
+p{background-position-x:LEFT}
+#cssom
+| <p>
+|   background-position-x: left
+
+#data
+p{background-position-x: right}
+#cssom
+| <p>
+|   background-position-x: right
+
+#data
+p{background-position-x:center}
+#cssom
+| <p>
+|   background-position-x: center
+
+#data
+p{background-position-x:top}
+#errors
+;1;25;m;CSS syntax error;'background-position-x'
+#cssom
+| <p>
+
+#data
+p{background-position-x: bottom}
+#errors
+;1;26;m;CSS syntax error;'background-position-x'
+#cssom
+| <p>
+
+#data
+p{background-position-Y: 0}
+#cssom
+| <p>
+|   background-position-y: 0px
+
+#data
+p{background-position-y: 0%}
+#cssom
+| <p>
+|   background-position-y: 0%
+
+#data
+p{background-position-y: -120cm}
+#cssom
+| <p>
+|   background-position-y: -120cm
+
+#data
+p{background-position-Y: 42}
+#errors
+;1;26;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{background-position-y: 42}
+#option q
+#errors
+;1;26;m;css:value:not length
+#cssom
+| <p>
+
+#data
+p{background-position-y: 42px 52px}
+#errors
+;1;26;m;CSS syntax error;'background-position-y'
+#cssom
+| <p>
+
+#data
+p{background-position-y:top}
+#cssom
+| <p>
+|   background-position-y: top
+
+#data
+p{background-position-y:bottom}
+#cssom
+| <p>
+|   background-position-y: bottom
+
+#data
+p{background-position-y:center}
+#cssom
+| <p>
+|   background-position-y: center
+
+#data
+p{background-position-y:left}
+#errors
+;1;25;m;CSS syntax error;'background-position-y'
+#cssom
+| <p>
+
+#data
+p{background-position-y: right}
+#errors
+;1;26;m;CSS syntax error;'background-position-y'
+#cssom
+| <p>
+
+#data
 p {
   background:;
 }
@@ -3966,8 +6653,8 @@ p {
 p {
   background:
 #errors
+;2;14;w;css:block:eof
 ;2;14;m;CSS syntax error;'background'
-;2;14;m;block not closed
 #cssom
 | <p>
 
@@ -3976,7 +6663,7 @@ p {
   background: -;
 }
 #errors
-;2;16;m;CSS syntax error;'background'
+;2;15;m;CSS syntax error;'background'
 #cssom
 | <p>
 
@@ -3985,7 +6672,7 @@ p {
   background: +;
 }
 #errors
-;2;16;m;CSS syntax error;'background'
+;2;15;m;CSS syntax error;'background'
 #cssom
 | <p>
 
@@ -3993,8 +6680,8 @@ p {
 p {
   background: +
 #errors
-;2;16;m;CSS syntax error;'background'
-;2;16;m;block not closed
+;2;16;w;css:block:eof
+;2;15;m;CSS syntax error;'background'
 #cssom
 | <p>
 
@@ -4004,7 +6691,7 @@ p {
 }
 #cssom
 | <p>
-|   background: transparent none repeat scroll 0% 0%
+|   background: none repeat scroll 0% 0% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4014,7 +6701,7 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
-  background: transparent none repeat scroll 0% 0%;
+  background: none repeat scroll 0% 0% transparent;
 }
 
 #data
@@ -4023,17 +6710,17 @@ p {
 }
 #cssom
 | <p>
-|   background: url(bg)
+|   background: url("bg") repeat scroll 0% 0% transparent
 |   background-attachment: scroll
 |   background-color: transparent
-|   background-image: url(bg)
+|   background-image: url("bg")
 |   background-position: 0% 0%
 |   background-position-x: 0%
 |   background-position-y: 0%
 |   background-repeat: repeat
 #csstext
 p {
-  background: url(bg);
+  background: url("bg") repeat scroll 0% 0% transparent;
 }
 #computed 1 p
 -| background: transparent none repeat scroll 0% 0%
@@ -4046,7 +6733,7 @@ p {
   background: -url(bg);
 }
 #errors
-;2;15;m;CSS syntax error;'background'
+;2;15;m;css:color:syntax error
 #cssom
 | <p>
 
@@ -4055,7 +6742,7 @@ p {
   background: -/**/url(bg);
 }
 #errors
-;2;20;m;CSS syntax error;'background'
+;2;15;m;CSS syntax error;'background'
 #cssom
 | <p>
 
@@ -4064,7 +6751,7 @@ p {
   background: +url(bg);
 }
 #errors
-;2;16;m;CSS syntax error;'background'
+;2;15;m;CSS syntax error;'background'
 #cssom
 | <p>
 
@@ -4074,10 +6761,10 @@ p {
 }
 #cssom
 | <p>
-|   background: url(a) 12% 50%
+|   background: url("a") repeat scroll 12% 50% transparent
 |   background-attachment: scroll
 |   background-color: transparent
-|   background-image: url(a)
+|   background-image: url("a")
 |   background-position: 12% 50%
 |   background-position-x: 12%
 |   background-position-y: 50%
@@ -4088,7 +6775,7 @@ p {
   background: url(a) url(b);
 }
 #errors
-;2;22;m;no property semicolon
+;2;22;m;CSS syntax error;'background'
 #cssom
 | <p>
 
@@ -4098,17 +6785,17 @@ p {
 }
 #cssom
 | <p>
-|   background: fixed center center
+|   background: none repeat fixed center 50% transparent
 |   background-attachment: fixed
 |   background-color: transparent
 |   background-image: none
-|   background-position: center center
+|   background-position: center 50%
 |   background-position-x: center
-|   background-position-y: center
+|   background-position-y: 50%
 |   background-repeat: repeat
 #csstext
 p {
-  background: fixed center center;
+  background: none repeat fixed center 50% transparent;
 }
 
 #data
@@ -4117,13 +6804,13 @@ p {
 }
 #cssom
 | <p>
-|   background: left center
+|   background: none repeat scroll left 50% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
-|   background-position: left center
+|   background-position: left 50%
 |   background-position-x: left
-|   background-position-y: center
+|   background-position-y: 50%
 |   background-repeat: repeat
 
 #data
@@ -4132,7 +6819,7 @@ p {
 }
 #cssom
 | <p>
-|   background: left 1px
+|   background: none repeat scroll left 1px transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4147,7 +6834,7 @@ p {
 }
 #cssom
 | <p>
-|   background: left 1%
+|   background: none repeat scroll left 1% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4162,13 +6849,13 @@ p {
 }
 #cssom
 | <p>
-|   background: left center
+|   background: none repeat scroll left 50% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
-|   background-position: left center
+|   background-position: left 50%
 |   background-position-x: left
-|   background-position-y: center
+|   background-position-y: 50%
 |   background-repeat: repeat
 
 #data
@@ -4177,13 +6864,13 @@ p {
 }
 #cssom
 | <p>
-|   background: url(a) left center
+|   background: url("a") repeat scroll left 50% transparent
 |   background-attachment: scroll
 |   background-color: transparent
-|   background-image: url(a)
-|   background-position: left center
+|   background-image: url("a")
+|   background-position: left 50%
 |   background-position-x: left
-|   background-position-y: center
+|   background-position-y: 50%
 |   background-repeat: repeat
 
 #data
@@ -4192,7 +6879,7 @@ p {
 }
 #cssom
 | <p>
-|   background: left -12px
+|   background: none repeat scroll left -12px transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4207,7 +6894,7 @@ p {
 }
 #cssom
 | <p>
-|   background: left 12px
+|   background: none repeat scroll left 12px transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4221,7 +6908,7 @@ p {
   background: left +;
 }
 #errors
-;2;21;m;CSS syntax error;'background'
+;2;20;m;CSS syntax error;'background'
 #cssom
 | <p>
 
@@ -4230,7 +6917,7 @@ p {
   background: left -;
 }
 #errors
-;2;21;m;CSS syntax error;'background'
+;2;20;m;CSS syntax error;'background'
 #cssom
 | <p>
 
@@ -4240,7 +6927,7 @@ p {
 }
 #cssom
 | <p>
-|   background: left top
+|   background: none repeat scroll left top transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4255,7 +6942,7 @@ p {
 }
 #cssom
 | <p>
-|   background: center top
+|   background: none repeat scroll center top transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4270,7 +6957,7 @@ p {
 }
 #cssom
 | <p>
-|   background: right top
+|   background: none repeat scroll right top transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4285,7 +6972,7 @@ p {
 }
 #cssom
 | <p>
-|   background: left bottom
+|   background: none repeat scroll left bottom transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4300,7 +6987,7 @@ p {
 }
 #cssom
 | <p>
-|   background: center bottom
+|   background: none repeat scroll center bottom transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4315,7 +7002,7 @@ p {
 }
 #cssom
 | <p>
-|   background: right bottom
+|   background: none repeat scroll right bottom transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4330,7 +7017,7 @@ p {
 }
 #cssom
 | <p>
-|   background: right center
+|   background: none repeat scroll right center transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4345,7 +7032,7 @@ p {
 }
 #cssom
 | <p>
-|   background: left center
+|   background: none repeat scroll left center transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4360,7 +7047,7 @@ p {
 }
 #cssom
 | <p>
-|   background: center center
+|   background: none repeat scroll center center transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4374,7 +7061,7 @@ p {
   background: top -12px;
 }
 #errors
-;2;19;m;no property semicolon
+;2;15;m;CSS syntax error;position
 #cssom
 | <p>
 
@@ -4383,7 +7070,7 @@ p {
   background: top +12px;
 }
 #errors
-;2;19;m;no property semicolon
+;2;15;m;CSS syntax error;position
 #cssom
 | <p>
 
@@ -4393,7 +7080,7 @@ p {
 }
 #cssom
 | <p>
-|   background: -12px 50%
+|   background: none repeat scroll -12px 50% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4408,7 +7095,7 @@ p {
 }
 #cssom
 | <p>
-|   background: 12px 50%
+|   background: none repeat scroll 12px 50% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4423,7 +7110,7 @@ p {
 }
 #cssom
 | <p>
-|   background: 2% bottom
+|   background: none repeat scroll 2% bottom transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4437,7 +7124,7 @@ p {
   background: 2% left;
 }
 #errors
-;2;18;m;CSS syntax error;color
+;2;18;m;CSS syntax error;position
 #cssom
 | <p>
 
@@ -4448,6 +7135,7 @@ p {
 }
 #cssom
 | <p>
+|   background: none repeat scroll 0% 0% transparent
 |   background-attachment: scroll !important
 |   background-color: transparent
 |   background-image: none
@@ -4457,11 +7145,11 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
-  background-attachment: scroll ! important;
-  background-color: transparent;
   background-image: none;
-  background-position: 0% 0%;
   background-repeat: repeat;
+  background-position: 0% 0%;
+  background-color: transparent;
+  background-attachment: scroll !important;
 }
 
 #data
@@ -4470,7 +7158,7 @@ p {
 }
 #cssom
 | <p>
-|   background: 0px -12px
+|   background: none repeat scroll 0px -12px transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4485,7 +7173,7 @@ p {
 }
 #cssom
 | <p>
-|   background: 0px 12px
+|   background: none repeat scroll 0px 12px transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4501,6 +7189,7 @@ p {
 }
 #cssom
 | <p>
+|   background: none repeat scroll 0% 0% red
 |   background-attachment: scroll
 |   background-color: red !important
 |   background-image: none
@@ -4510,11 +7199,11 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
-  background-attachment: scroll;
-  background-color: red ! important;
   background-image: none;
-  background-position: 0% 0%;
   background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  background-color: red !important;
 }
 
 #data
@@ -4524,7 +7213,7 @@ p {
 }
 #cssom
 | <p>
-|   background: transparent none repeat scroll 0% 0% !important
+|   background: none repeat scroll 0% 0% transparent !important
 |   background-attachment: scroll !important
 |   background-color: transparent !important
 |   background-image: none !important
@@ -4534,7 +7223,7 @@ p {
 |   background-repeat: repeat !important
 #csstext
 p {
-  background: transparent none repeat scroll 0% 0% ! important;
+  background: none repeat scroll 0% 0% transparent !important;
 }
 
 #data
@@ -4542,9 +7231,11 @@ p {
   background: none !important;
   background-color: blue;
 }
+#errors
+;3;3;w;css:prop:ignored
 #cssom
 | <p>
-|   background: transparent none repeat scroll 0% 0% !important
+|   background: none repeat scroll 0% 0% transparent !important
 |   background-attachment: scroll !important
 |   background-color: transparent !important
 |   background-image: none !important
@@ -4554,7 +7245,7 @@ p {
 |   background-repeat: repeat !important
 #csstext
 p {
-  background: transparent none repeat scroll 0% 0% ! important;
+  background: none repeat scroll 0% 0% transparent !important;
 }
 
 #data
@@ -4564,6 +7255,7 @@ p {
 }
 #cssom
 | <p>
+|   background: none repeat scroll 0% 0% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none !important
@@ -4573,11 +7265,11 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
-  background-attachment: scroll;
-  background-color: transparent;
-  background-image: none ! important;
-  background-position: 0% 0%;
   background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  background-color: transparent;
+  background-image: none !important;
 }
 
 #data
@@ -4587,6 +7279,7 @@ p {
 }
 #cssom
 | <p>
+|   background: none repeat scroll left top transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4596,11 +7289,11 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
+  background-image: none;
+  background-repeat: repeat;
   background-attachment: scroll;
   background-color: transparent;
-  background-image: none;
-  background-position: left top ! important;
-  background-repeat: repeat;
+  background-position: left top !important;
 }
 
 #data
@@ -4610,20 +7303,22 @@ p {
 }
 #cssom
 | <p>
+|   background: none repeat scroll left 0% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
+|   background-position: left 0%
 |   background-position-x: left !important
 |   background-position-y: 0%
 |   background-repeat: repeat
 #csstext
 p {
-  background-attachment: scroll;
-  background-color: transparent;
   background-image: none;
-  background-position-x: left ! important;
-  background-position-y: 0%;
   background-repeat: repeat;
+  background-attachment: scroll;
+  background-position-y: 0%;
+  background-color: transparent;
+  background-position-x: left !important;
 }
 
 #data
@@ -4633,20 +7328,22 @@ p {
 }
 #cssom
 | <p>
+|   background: none repeat scroll 0% 12% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
+|   background-position: 0% 12%
 |   background-position-x: 0%
 |   background-position-y: 12% !important
 |   background-repeat: repeat
 #csstext
 p {
-  background-attachment: scroll;
-  background-color: transparent;
   background-image: none;
-  background-position-x: 0%;
-  background-position-y: 12% ! important;
   background-repeat: repeat;
+  background-attachment: scroll;
+  background-position-x: 0%;
+  background-color: transparent;
+  background-position-y: 12% !important;
 }
 
 #data
@@ -4656,6 +7353,7 @@ p {
 }
 #cssom
 | <p>
+|   background: none no-repeat scroll 0% 0% transparent
 |   background-attachment: scroll
 |   background-color: transparent
 |   background-image: none
@@ -4665,11 +7363,11 @@ p {
 |   background-repeat: no-repeat !important
 #csstext
 p {
-  background-attachment: scroll;
-  background-color: transparent;
   background-image: none;
+  background-attachment: scroll;
   background-position: 0% 0%;
-  background-repeat: no-repeat ! important;
+  background-color: transparent;
+  background-repeat: no-repeat !important;
 }
 
 #data
@@ -4678,7 +7376,7 @@ p {
 }
 #cssom
 | <p>
-|   background: transparent none repeat scroll 0% 0% !important
+|   background: none repeat scroll 0% 0% transparent !important
 |   background-attachment: scroll !important
 |   background-color: transparent !important
 |   background-image: none !important
@@ -4688,7 +7386,7 @@ p {
 |   background-repeat: repeat !important
 #csstext
 p {
-  background: transparent none repeat scroll 0% 0% ! important;
+  background: none repeat scroll 0% 0% transparent !important;
 }
 
 #data
@@ -4707,11 +7405,11 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
+  background-repeat: repeat;
   background-attachment: scroll;
+  background-position: 0% 0%;
   background-color: transparent;
   background-image: inherit;
-  background-position: 0% 0%;
-  background-repeat: repeat;
 }
 
 #data
@@ -4749,11 +7447,11 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
-  background-attachment: scroll;
-  background-color: inherit;
   background-image: none;
-  background-position: 0% 0%;
   background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  background-color: inherit;
 }
 
 #data
@@ -4772,11 +7470,11 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
+  background-image: none;
+  background-repeat: repeat;
   background-attachment: scroll;
   background-color: transparent;
-  background-image: none;
   background-position: inherit;
-  background-repeat: repeat;
 }
 
 #data
@@ -4794,12 +7492,12 @@ p {
 |   background-repeat: inherit
 #csstext
 p {
-  background-attachment: inherit;
-  background-color: inherit;
   background-image: inherit;
-  background-position-x: inherit;
-  background-position-y: -13%;
   background-repeat: inherit;
+  background-attachment: inherit;
+  background-position-x: inherit;
+  background-color: inherit;
+  background-position-y: -13%;
 }
 
 #data
@@ -4818,11 +7516,11 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
+  background-image: none;
+  background-repeat: repeat;
   background-attachment: scroll;
   background-color: blue;
-  background-image: none;
   background-position: inherit;
-  background-repeat: repeat;
 }
 
 #data
@@ -4840,12 +7538,12 @@ p {
 |   background-repeat: inherit
 #csstext
 p {
-  background-attachment: inherit;
-  background-color: inherit;
   background-image: inherit;
-  background-position-x: -13%;
-  background-position-y: inherit;
   background-repeat: inherit;
+  background-attachment: inherit;
+  background-position-y: inherit;
+  background-color: inherit;
+  background-position-x: -13%;
 }
 
 #data
@@ -4863,12 +7561,12 @@ p {
 |   background-repeat: repeat
 #csstext
 p {
-  background-attachment: scroll;
-  background-color: blue;
   background-image: none;
-  background-position-x: 0%;
-  background-position-y: inherit;
   background-repeat: repeat;
+  background-attachment: scroll;
+  background-position-x: 0%;
+  background-color: blue;
+  background-position-y: inherit;
 }
 
 #data
@@ -4882,17 +7580,18 @@ p {
 |   background-attachment: scroll
 |   background-color: blue
 |   background-image: none
+|   background-position: inherit
 |   background-position-x: inherit
 |   background-position-y: inherit !important
 |   background-repeat: repeat
 #csstext
 p {
+  background-image: none;
+  background-repeat: repeat;
   background-attachment: scroll;
   background-color: blue;
-  background-image: none;
   background-position-x: inherit;
-  background-position-y: inherit ! important;
-  background-repeat: repeat;
+  background-position-y: inherit !important;
 }
 
 #data
@@ -4911,12 +7610,270 @@ p {
 |   background-repeat: inherit
 #csstext
 p {
-  background-attachment: scroll;
-  background-color: transparent;
   background-image: none;
+  background-attachment: scroll;
   background-position: 0% 0%;
+  background-color: transparent;
   background-repeat: inherit;
 }
+
+#data
+p{background:#fa1}
+#csstext
+p {
+  background: none repeat scroll 0% 0% rgb(255, 170, 17);
+}
+
+#data
+p{background:red}
+#csstext
+p {
+  background: none repeat scroll 0% 0% red;
+}
+
+#data
+p{background:0}
+#csstext
+p {
+  background: none repeat scroll 0px 50% transparent;
+}
+
+#data
+p{background:30}
+#option q
+#errors
+;1;14;m;css:value:not length
+#csstext
+p {
+}
+
+#data
+p{background: red 20cm}
+#csstext
+p {
+  background: none repeat scroll 20cm 50% red;
+}
+
+#data
+p{backgroud: red 20cm}
+#errors
+;1;3;m;css:prop:unknown
+#csstext
+p {
+}
+
+#data
+p{background: url(ho/ge) fixed currentcolor}
+#csstext
+p {
+  background: url("ho/ge") repeat fixed 0% 0% currentcolor;
+}
+
+#data
+p{background: 30px 320% 21px}
+#errors
+;1;15;m;CSS syntax error;position
+#cssom
+| <p>
+
+#data
+p{background: red fixed blue}
+#errors
+;1;25;m;CSS syntax error;'background'
+#cssom
+| <p>
+
+#data
+p{background: fixed scroll}
+#errors
+;1;21;m;CSS syntax error;'background'
+#cssom
+| <p>
+
+#data
+p{background: red top fixed 20%}
+#errors
+;1;29;m;CSS syntax error;'background'
+#cssom
+| <p>
+
+#data
+p{background: red top fixed none}
+#csstext
+p {
+  background: none repeat fixed 50% top red;
+}
+
+#data
+p{background: red TOP fixed none}
+#csstext
+p {
+  background: none repeat fixed 50% top red;
+}
+
+#data
+p{background: red BOTTOM fixed none}
+#csstext
+p {
+  background: none repeat fixed 50% bottom red;
+}
+
+#data
+p{
+background-color: red;
+}
+#cssom
+| <p>
+|   background-color: red
+
+#data
+p{
+background-color: #red;
+}
+#errors
+;2;19;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{
+background-color: #124;
+}
+#cssom
+| <p>
+|   background-color: rgb(17, 34, 68)
+
+#data
+p{
+background-color: rgb( 20%, 12%, 5%);
+}
+#cssom
+| <p>
+|   background-color: rgb(51, 30.6, 12.75)
+
+#data
+p{
+background-color: 124;
+}
+#errors
+;2;19;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{
+background-color: 124;
+}
+#option q
+#errors
+;2;19;w;css:color:quirky
+#cssom
+| <p>
+|   background-color: rgb(17, 34, 68)
+
+#data
+p{bacKground-color: invert}
+#errors
+;1;21;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{background-color: -moz-rgba(1, 42, 55, 0.45)}
+#errors
+;1;21;m;css:obsolete;-moz-rgba()
+#cssom
+| <p>
+|   background-color: rgba(1, 42, 55, 0.45)
+
+#data
+p{background-color: -moz-hsla(1, 42%, 55%, 0.45)}
+#errors
+;1;21;m;css:obsolete;-moz-hsla()
+#cssom
+| <p>
+|   background-color: rgba(188.445, 93.6615, 92.055, 0.45)
+
+#data
+p{background-repeat: no-repeat}
+#cssom
+| <p>
+|   background-repeat: no-repeat
+
+#data
+p{background-repeat: repeat-x}
+#cssom
+| <p>
+|   background-repeat: repeat-x
+
+#data
+p{background-repeat: repeat-y}
+#cssom
+| <p>
+|   background-repeat: repeat-y
+
+#data
+p{background-repeat: repeat}
+#cssom
+| <p>
+|   background-repeat: repeat
+
+#data
+p{background-attachment: fixed}
+#cssom
+| <p>
+|   background-attachment: fixed
+
+#data
+p{background-attachment: scroll}
+#cssom
+| <p>
+|   background-attachment: scroll
+
+#data
+p{background-image:url()}
+#cssom
+| <p>
+|   background-image: url("")
+
+#data
+p{background-image: url(hoge\ fuga)}
+#cssom
+| <p>
+|   background-image: url("hoge fuga")
+
+#data
+p{background-image: url( http://foo/bar )}
+#cssom
+| <p>
+|   background-image: url("http://foo/bar")
+
+#data
+p{background-image: url( http://foo:AA/bar )}
+#cssom
+| <p>
+|   background-image: url("http://foo:AA/bar")
+
+#data escaped
+p{background-image: url( HTtp://foo/bar\u4e00?\uDC00#\uFFFF )}
+#cssom escaped
+| <p>
+|   background-image: url("HTtp://foo/bar\u4E00?\uDC00#\uFFFF")
+
+#data
+p{background-image: url(hoge fuga)}
+#errors
+;1;30;w;css:url:bad
+;1;21;m;css:url:syntax error
+#cssom
+| <p>
+
+#data
+p{background-image: ""}
+#errors
+;1;21;m;css:url:syntax error
+#cssom
+| <p>
 
 #data
 p {
@@ -4924,7 +7881,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: 0.4
 |   opacity: 0.4
 #csstext
 p {
@@ -4937,7 +7893,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: 0.4
 |   opacity: 0.4
 #csstext
 p {
@@ -4950,7 +7905,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: 0.4
 |   opacity: 0.4
 #csstext
 p {
@@ -4963,7 +7917,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: 0.4
 |   opacity: 0.4
 #csstext
 p {
@@ -4976,7 +7929,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: 0
 |   opacity: 0
 #csstext
 p {
@@ -4989,7 +7941,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: 0
 |   opacity: 0
 #csstext
 p {
@@ -5002,7 +7953,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: 0
 |   opacity: 0
 #csstext
 p {
@@ -5015,7 +7965,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: 0
 |   opacity: 0
 #csstext
 p {
@@ -5028,7 +7977,6 @@ p {
 }
 #cssom
 | <p>
-|   -moz-opacity: inherit
 |   opacity: inherit
 #csstext
 p {
@@ -5040,17 +7988,18 @@ p {
   opacity: +inherit;
 }
 #errors
-;2;13;m;CSS syntax error;'opacity'
+;2;12;m;css:value:not number
 #cssom
 | <p>
 
 #data
 p {
-  -moz-opacity: 0;
+  -webkit-opacity: 0;
 }
+#errors
+;2;19;m;css:obsolete;-webkit-opacity
 #cssom
 | <p>
-|   -moz-opacity: 0
 |   opacity: 0
 #csstext
 p {
@@ -5059,11 +8008,12 @@ p {
 
 #data
 p {
-  -moz-opacity: 0.4;
+  -webkit-opacity: 0.4;
 }
+#errors
+;2;19;m;css:obsolete;-webkit-opacity
 #cssom
 | <p>
-|   -moz-opacity: 0.4
 |   opacity: 0.4
 #csstext
 p {
@@ -5072,11 +8022,12 @@ p {
 
 #data
 p {
-  -moz-opacity: inherit;
+  -webkit-opacity: inherit;
 }
+#errors
+;2;19;m;css:obsolete;-webkit-opacity
 #cssom
 | <p>
-|   -moz-opacity: inherit
 |   opacity: inherit
 #csstext
 p {
@@ -5085,9 +8036,28 @@ p {
 
 #data
 p {
-  -moz-opacity: +inherit;
+  -webkit-opacity: +inherit;
 }
 #errors
-;2;18;m;CSS syntax error;'-moz-opacity'
+;2;19;m;css:obsolete;-webkit-opacity
+;2;20;m;css:value:not number
 #cssom
 | <p>
+
+#data
+p{opacity: +42.4}
+#cssom
+| <p>
+|   opacity: 42.4
+
+#data
+p{opacity: -134}
+#cssom
+| <p>
+|   opacity: -134
+
+#data
+p{opacity: UNSET}
+#cssom
+| <p>
+|   opacity: unset

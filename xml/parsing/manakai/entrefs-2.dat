@@ -63,6 +63,7 @@
 <p q="&copy="/>
 #errors
 1;7;bare ero;;;m
+1;12;charref=;;;m
 #document
 | <{} p>
 |   q="&copy="
@@ -80,6 +81,7 @@
 <p q='&copy='/>
 #errors
 1;7;bare ero;;;m
+1;12;charref=;;;m
 #document
 | <{} p>
 |   q="&copy="
@@ -90,6 +92,7 @@
 1;6;unquoted attr value;;;m
 1;6;bare ero;;;m
 1;11;bad attribute value;;;m
+1;11;charref=;;;m
 #document
 | <{} p>
 |   q="&copy="
@@ -114,7 +117,7 @@
 <p>&
 #errors
 1;4;bare ero;;;m
-1;4;in body:#eof;;;m
+1;5;in body:#eof;;;m
 #document
 | <{} p>
 |   "&"
@@ -123,8 +126,8 @@
 <p q="&
 #errors
 1;7;bare ero;;;m
-1;7;unclosed attribute value;;;m
-1;7;no root element;;;m
+1;8;unclosed attribute value;;;m
+1;8;no root element;;;m
 #document
 
 #data
@@ -210,9 +213,9 @@
 <!ENTITY b "&
 #errors
 2;13;bare ero;;;m
-2;13;unclosed entity value;;;m
-2;13;unclosed internal subset;;;m
-2;13;no root element;;;m
+2;14;unclosed entity value;;;m
+2;14;unclosed internal subset;;;m
+2;14;no root element;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -324,7 +327,7 @@
 4;4;bare ero;;;m
 4;11;nestc;;;m
 4;12;no attr value;;;m
-4;12;in body:#eof;;;m
+4;13;in body:#eof;;;m
 #document
 | <!DOCTYPE a>
 | <{} p>

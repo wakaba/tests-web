@@ -1,0 +1,211 @@
+#data
+boolean(1)
+#result
+true
+
+#data
+boolean(0)
+#result
+false
+
+#data
+boolean (1 div 0)
+#result
+true
+
+#data
+boolean (1 div -0)
+#result
+true
+
+#data
+boolean (0 div 0)
+#result
+false
+
+#data
+boolean (1 div (1 div 0))
+#result
+false
+
+#data
+boolean (1 div (1 div -0))
+#result
+false
+
+#data
+boolean (120 + 523)
+#result
+true
+
+#data
+boolean (1 = 1)
+#result
+true
+
+#data
+boolean (1 = 0)
+#result
+false
+
+#data
+boolean ("abc")
+#result
+true
+
+#data
+boolean ("")
+#result
+false
+
+#data
+boolean ("agaewe  ee")
+#result
+true
+
+#xml 1
+<p>aaagt<!----><q x=""/>e</p>
+
+#data
+boolean (/)
+#result 1
+true
+
+#data
+boolean (/abc)
+#result 1
+false
+
+#data
+boolean (//@*)
+#result 1
+true
+
+#data
+boolean (//@aa)
+#result 1
+false
+
+#data
+not (1 = 1)
+#result
+false
+
+#data
+not (0 = 1)
+#result
+true
+
+#data
+not ("abc")
+#result
+false
+
+#data
+not ("")
+#result
+true
+
+#data
+not (0)
+#result
+true
+
+#data
+not (124)
+#result
+false
+
+#data
+true()
+#result
+true
+
+#data
+false()
+#result
+false
+
+#xml 2
+<p>aaa<q xml:lang="en">f<x>o</x>o</q>as<q xml:lang="en-">aa</q><r xml:lang="fr-fr">zz</r>e</p>
+
+#data
+lang("en")
+#result 2 /
+false
+#result 2 /1
+false
+#result 2 /1/1
+false
+#result 2 /1/2
+true
+
+#data
+//*[lang("en") ]
+#result 2
+/1/2
+/1/2/2
+/1/4
+
+#xml 3
+<q><para xml:lang="en"/><div xml:lang="en"><para/></div><para xml:lang="EN"/><para xml:lang="en-us"/></q>
+
+#data
+//*[lang("en")]
+#result 3
+/1/1
+/1/2
+/1/2/1
+/1/3
+/1/4
+
+#data
+//para[lang("en")]
+#result 3
+/1/1
+/1/2/1
+/1/3
+/1/4
+
+#data
+//para[lang("EN")]
+#result 3
+/1/1
+/1/2/1
+/1/3
+/1/4
+
+#xml 4
+<p>aa<para xml:lang="">a</para><para xml:lang="-">bb</para></p>
+
+#xml 5
+<p>aa<para xml:lang="-">a</para><para xml:lang="--ab">bb</para></p>
+
+#data
+//para[lang("")]
+#result 3
+#result 4
+/1/2
+/1/3
+
+#data
+//para[lang("en-US")]
+#result 3
+/1/4
+#result 4
+
+#data
+//para[lang("-")]
+#result 3
+#result 4
+/1/3
+#result 5
+/1/2
+/1/3
+
+#html 6
+<p lang=en>aaa<p lang><br xml:lang="en">
+
+#data
+//*[lang("en")]
+#result 6

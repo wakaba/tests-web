@@ -2,12 +2,13 @@
 <command>a
 #errors
 no DOCTYPE
+no </command>
 #document
 | <html>
 |   <head>
-|     <command>
 |   <body>
-|     "a"
+|     <command>
+|       "a"
 
 #data
 <eventsource>a
@@ -61,12 +62,13 @@ no DOCTYPE
 <head><command>a
 #errors
 no DOCTYPE
+no </command>
 #document
 | <html>
 |   <head>
-|     <command>
 |   <body>
-|     "a"
+|     <command>
+|       "a"
 
 #data
 <head><eventsource>a
@@ -120,12 +122,13 @@ no DOCTYPE
 </head><command>a
 #errors
 no DOCTYPE
+no </command>
 #document
 | <html>
 |   <head>
 |   <body>
 |     <command>
-|     "a"
+|       "a"
 
 #data
 </head><eventsource>a
@@ -181,12 +184,13 @@ basefont after </head>
 <body><command>a
 #errors
 no DOCTYPE
+no </command>
 #document
 | <html>
 |   <head>
 |   <body>
 |     <command>
-|     "a"
+|       "a"
 
 #data
 <body><eventsource>x
@@ -236,19 +240,22 @@ no DOCTYPE
 
 #data
 <head><noscript><command>x
+#noscript
 #errors
 no DOCTYPE
 no </noscript>
+no </command>
 #document
 | <html>
 |   <head>
 |     <noscript>
 |   <body>
 |     <command>
-|     "x"
+|       "x"
 
 #data
 <head><noscript><eventsource>x
+#noscript
 #errors
 no DOCTYPE
 no </noscript>
@@ -263,6 +270,7 @@ no </eventsource>
 
 #data
 <head><noscript><event-source>x
+#noscript
 #errors
 no DOCTYPE
 no </noscript>
@@ -277,6 +285,7 @@ unexpected EOF
 
 #data
 <head><noscript><bgsound> a
+#noscript
 #errors
 no DOCTYPE
 no </noscript>
@@ -291,6 +300,7 @@ no </noscript>
 
 #data
 <head><noscript><basefont> a
+#noscript
 #errors
 no DOCTYPE
 no </noscript>
@@ -465,11 +475,13 @@ no </i> before </b>
 <command/>
 #errors
 no DOCTYPE
+nestc
+no </command>
 #document
 | <html>
 |   <head>
-|     <command>
 |   <body>
+|     <command>
 
 #data
 <eventsource/>
@@ -795,3 +807,24 @@ bad end tag
 |   <body>
 |     <track>
 |     "a"
+
+#data
+<!DOCTYPE html><menuitem>a
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <menuitem>
+|     "a"
+
+#data
+<!DOCTYPE html><menuitem><frameset></frameset>
+#errors
+<frameset> in body
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <frameset>

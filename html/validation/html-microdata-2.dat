@@ -1,0 +1,405 @@
+#data
+<div itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<meta itemprop="ab" content="ac"/>
+a<link itemprop="a" href="abc"/>
+</div>
+#errors
+
+#data
+<span itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<meta itemprop="ab" content="ac"/>
+a<link itemprop="a" href="abc"/>
+</span>
+#errors
+
+#data
+<ins itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+a<link itemprop="a" href="abc"/>
+<meta itemprop="ab" content="ac"/>
+</ins>
+#errors
+
+#data
+<div itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<ins>
+a<link itemprop="a" href="abc"/>
+<meta itemprop="ab" content="ac"/>
+</ins>
+</div>
+#errors
+
+#data
+<span itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<ins>
+a<link itemprop="a" href="abc"/>
+<meta itemprop="ab" content="ac"/>
+</ins>
+</span>
+#errors
+
+#data
+<ruby itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<link itemprop="a" href="abc"/>
+<meta itemprop="ab" content="ac"/>a
+<rt>aa</rt>
+</ruby>
+#errors
+
+#data
+<ruby itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<meta itemprop="ab" content="ac"/>a<link itemprop="a" href="abc"/>
+<rt>aa</rt>
+</ruby>
+#errors
+
+#data
+<ruby itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+a<link itemprop="a" href="abc"/>
+<meta itemprop="ab" content="ac"/>
+<rt>aa</rt>
+</ruby>
+#errors
+
+#data
+<ruby itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+aa<rt>aa</rt>
+a<link itemprop="a" href="abc"/>
+<meta itemprop="ab" content="ac"/>
+<rt>aa</rt>
+</ruby>
+#errors
+
+#data
+<ruby itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+aa<rp>aa</rp>
+<link itemprop="a" href="abc"/>
+<meta itemprop="ab" content="ac"/>x
+<rt>aa</rt>
+</ruby>
+#errors
+/ruby/link;ps element missing;rt;m
+/ruby/link;ps element missing;rp;m
+
+#data
+<ruby itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+aa<rp>aa</rp>
+<meta itemprop="ab" content="ac"/>
+<link itemprop="a" href="abc"/>x
+<rt>aa</rt>
+</ruby>
+#errors
+/ruby/meta;ps element missing;rt;m
+/ruby/meta;ps element missing;rp;m
+
+#data
+<ruby itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+aa<rp>aa</rp><rt>a</rt>
+<link itemprop="a" href="abc"/>
+<meta itemprop="ab" content="ac"/>x
+<rt>aa</rt>
+</ruby>
+#errors
+/ruby/link;ps element missing;rp;m
+
+#data
+<ruby itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+aa<rp>aa</rp><rt>a</rt>
+<meta itemprop="ab" content="ac"/>
+<link itemprop="a" href="abc"/>x
+<rt>aa</rt>
+</ruby>
+#errors
+/ruby/meta;ps element missing;rp;m
+
+#data
+<ruby itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+aa<rp>aa</rp><rt>a</rt><rp>a</rp>
+<meta itemprop="ab" content="ac"/>
+<link itemprop="a" href="abc"/>x
+<rt>aa</rt>
+</ruby>
+#errors
+
+#data
+<ruby itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+aa<rp>aa</rp><rt>a</rt><rp>a</rp>
+<link itemprop="a" href="abc"/>
+<meta itemprop="ab" content="ac"/>x
+<rt>aa</rt>
+</ruby>
+#errors
+
+#data
+<datalist itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<link itemprop="a" href="abc"/><meta itemprop="ab" content="ac"/>a
+</datalist>
+#errors
+
+#data
+<datalist itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<meta itemprop="ab" content="ac"/><link itemprop="a" href="abc"/>a
+</datalist>
+#errors
+
+#data
+<figure itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+a<link itemprop="a" href="abc"/>
+<meta itemprop="ab" content="ac"/>
+</figure>
+#errors
+
+#data
+<fieldset itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<legend>a</legend>
+a<link itemprop="a" href="abc"/>
+<meta itemprop="ab" content="ac"/>
+</fieldset>
+#errors
+
+#data
+<details itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<summary>a</summary>
+a<link itemprop="a" href="abc"/>
+<meta itemprop="ab" content="ac"/>
+</details>
+#errors
+
+#data
+<menu itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<meta itemprop="ab" content="ac"/>
+a<link itemprop="a" href="abc"/>
+</menu>
+#errors
+
+#data
+<menu itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<link itemprop="a" href="abc"/>
+<meta itemprop="ab" content="ac"/>a
+</menu>
+#errors
+
+#data
+<menu itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+a<link itemprop="a" href="abc"/>
+<meta itemprop="ab" content="ac"/>
+</menu>
+#errors
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml">
+  <link itemprop="a" href="abc"/>
+  <meta itemprop="b" content="c"/>
+</template>
+#errors
+| #df/link;microdata:unused itemprop;m
+| #df/meta;microdata:unused itemprop;m
+
+#data
+<template itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+  <link itemprop="a" href="abc"/>
+  <meta itemprop="b" content="c"/>
+</template>
+#errors
+| #df/link;microdata:unused itemprop;m
+| #df/meta;microdata:unused itemprop;m
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml">
+  <link itemprop="a" href="abc"/>
+  <link rel="stylesheet" href="ag"/>
+  <meta itemprop="b" content="c"/>
+</template>
+#errors
+| #df/link;microdata:unused itemprop;m
+| #df/meta;microdata:unused itemprop;m
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml">
+  <meta charset="utf-8"/>
+  <link itemprop="a" href="abc"/>
+  <meta itemprop="b" content="c"/>
+</template>
+#errors
+| #df/link;microdata:unused itemprop;m
+| #df/meta;microdata:unused itemprop;m
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml">
+  <link itemprop="a" href="abc"/>
+  <meta itemprop="b" content="c"/>
+  abc
+</template>
+#errors
+| #df/link;microdata:unused itemprop;m
+| #df/meta;microdata:unused itemprop;m
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml">
+  <span>abc</span>
+  <link itemprop="a" href="abc"/>
+  <meta itemprop="b" content="c"/>
+</template>
+#errors
+| #df/link;microdata:unused itemprop;m
+| #df/meta;microdata:unused itemprop;m
+
+#data
+<link rel="next" itemprop="foo" href="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/link/@rel;attribute not allowed;m
+/link;microdata:unused itemprop;m
+
+#data
+<head itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<title>aa</title>
+<link itemprop="ab" href="aa"/>
+<meta itemprop="aa" content="af"/>
+</head>
+#errors
+
+#data
+<head itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<title>aa</title>
+<noscript>
+<link itemprop="ab" href="aa"/>
+<meta itemprop="aa" content="af"/>
+</noscript>
+</head>
+#noscript
+#errors
+/head/noscript;in XML:noscript;m
+
+#data
+<head itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<title>aa</title>
+<link rel="next" itemprop="ab" href="aa"/>
+</head>
+#errors
+/head/link/@itemprop;attribute not allowed;m
+
+#data
+<head itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<title>aa</title>
+<meta charset="utf-8" itemprop="charset" content="a"/>
+</head>
+#errors
+/head/meta/@itemprop;attribute not allowed;m
+
+#data
+<head itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<title>aa</title>
+<meta name="application-name" itemprop="ca" content="a"/>
+</head>
+#errors
+/head/meta/@itemprop;attribute not allowed;m
+
+#data
+<head itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<title>aa</title>
+<meta http-equiv="Default-Style" itemprop="ca" content="a"/>
+</head>
+#errors
+/head/meta/@itemprop;attribute not allowed;m
+
+#data
+<head itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<title>aa</title>
+<meta itemprop="ca"/>
+</head>
+#errors
+/head/meta;attribute missing;content;m
+
+#data
+<head itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<title>aa</title>
+<link itemprop="a"/>
+</head>
+#errors
+/head/link;attribute missing;href;m
+
+#data
+<body itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<link itemprop="a"/>
+x</body>
+#errors
+/body/link;attribute missing;href;m
+
+#data
+<body itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<link rel="next" href="x"/>
+x</body>
+#errors
+/body/link;attribute missing;itemprop;m
+
+#data
+<body itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<meta name="application-name" content="x"/>
+x</body>
+#errors
+/body/meta;attribute missing;itemprop;m
+
+#data
+<template itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<meta itemprop="x" content="a"/>
+<meta name="application-name" content="x"/>
+</template>
+#errors
+| #df/meta;microdata:unused itemprop;m
+
+#data
+<template itemscope="" xmlns="http://www.w3.org/1999/xhtml">
+<meta itemprop="x" content="a"/>
+<meta name="application-name" content="x"/>
+x
+</template>
+#errors
+| #df/meta;microdata:unused itemprop;m
+| #df/meta;attribute missing;itemprop;m
+
+#data
+<a itemprop="a" xmlns="http://www.w3.org/1999/xhtml">a</a>
+#errors
+/a;attribute missing;href;m
+/a;microdata:unused itemprop;m
+
+#data
+<iframe itemprop="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/iframe;attribute missing;src;m
+/iframe;microdata:unused itemprop;m
+
+#data
+<embed itemprop="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed;attribute missing;src;m
+/embed;microdata:unused itemprop;m
+
+#data
+<object itemprop="a" xmlns="http://www.w3.org/1999/xhtml">a</object>
+#errors
+/object;attribute missing:data|type;m
+/object;microdata:unused itemprop;m
+
+#data
+<object type="text/html" itemprop="a" xmlns="http://www.w3.org/1999/xhtml">a</object>
+#errors
+/object;attribute missing;data;m
+/object;microdata:unused itemprop;m
+
+#data
+<video itemprop="a" xmlns="http://www.w3.org/1999/xhtml"><source src="x"/>a</video>
+#errors
+/video;attribute missing;src;m
+/video;microdata:unused itemprop;m
+
+#data
+<audio itemprop="a" xmlns="http://www.w3.org/1999/xhtml"><source src="x"/>a</audio>
+#errors
+/audio;attribute missing;src;m
+/audio;microdata:unused itemprop;m
+
+#data
+<area shape="default" itemprop="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/area;attribute missing;href;m
+/area;microdata:unused itemprop;m

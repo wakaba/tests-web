@@ -1,18 +1,20 @@
 #data
 #cssom
 #csstext
+| 
 
 #data
 p
 #errors
-;1;2;m;no declaration block
+;1;2;m;css:qrule:no block
 #cssom
 #csstext
+| 
 
 #data
 p {
 #errors
-;1;4;m;block not closed
+;1;4;w;css:block:eof
 #cssom
 | <p>
 #csstext
@@ -59,7 +61,7 @@ p {
 #data
 p {!;}
 #errors
-;1;4;m;no property name
+;1;4;m;css:decl:bad name
 #cssom
 | <p>
 #csstext
@@ -69,7 +71,7 @@ p {
 #data
 p {a;}
 #errors
-;1;5;m;no property colon
+;1;5;m;css:decl:no colon
 #cssom
 | <p>
 #csstext
@@ -79,7 +81,7 @@ p {
 #data
 p {color:!}
 #errors
-;1;10;m;CSS syntax error;color
+;1;10;m;css:color:syntax error
 #cssom
 | <p>
 #csstext
@@ -99,7 +101,7 @@ p {
 #data
 p {color:blue!}
 #errors
-;1;15;m;priority syntax error
+;1;14;m;css:color:syntax error
 #cssom
 | <p>
 #csstext
@@ -109,7 +111,7 @@ p {
 #data
 p {color:blue!i}
 #errors
-;1;15;m;priority syntax error
+;1;14;m;css:color:syntax error
 #cssom
 | <p>
 #csstext
@@ -124,13 +126,13 @@ p {color:blue!important}
 |   color: blue !important
 #csstext
 p {
-  color: blue ! important;
+  color: blue !important;
 }
 
 #data
 p {color:blue!importants}
 #errors
-;1;15;m;priority syntax error
+;1;14;m;css:color:syntax error
 #cssom
 | <p>
 #csstext
@@ -140,7 +142,7 @@ p {
 #data
 p {color:blue!important!}
 #errors
-;1;24;m;no property semicolon
+;1;14;m;css:color:syntax error
 #cssom
 | <p>
 #csstext
@@ -155,13 +157,13 @@ p {color:blue!important;}
 |   color: blue !important
 #csstext
 p {
-  color: blue ! important;
+  color: blue !important;
 }
 
 #data
 p {color:blue~}
 #errors
-;1;14;m;no property semicolon
+;1;14;m;css:color:syntax error
 #cssom
 | <p>
 #csstext
@@ -197,7 +199,7 @@ p {
 |   color: blue !important
 #csstext
 p {
-  color: blue ! important;
+  color: blue !important;
 }
 
 #data
@@ -285,6 +287,8 @@ p {
   margin-top: 1px ! important;
   margin-top: 2px;
 }
+#errors
+;3;3;w;css:prop:ignored
 #cssom
 | <p>
 |   margin-top: 1px !important
@@ -304,7 +308,7 @@ p {
   margin-top: 1px;
 }
 #errors
-;2;15;m;CSS syntax error;'margin-top'
+;2;15;m;CSS syntax error;length
 #cssom
 | <p>
 |   margin-top: 1px
@@ -315,7 +319,7 @@ p {
   margin-top: invalid;
 }
 #errors
-;3;15;m;CSS syntax error;'margin-top'
+;3;15;m;CSS syntax error;length
 #cssom
 | <p>
 |   margin-top: 1px
@@ -326,7 +330,7 @@ p {
   margin-top: 1px;
 }
 #errors
-;2;15;m;CSS syntax error;'margin-top'
+;2;15;m;CSS syntax error;length
 #cssom
 | <p>
 |   margin-top: 1px
@@ -337,7 +341,7 @@ p {
   margin-top: invalid !important;
 }
 #errors
-;3;15;m;CSS syntax error;'margin-top'
+;3;15;m;CSS syntax error;length
 #cssom
 | <p>
 |   margin-top: 1px

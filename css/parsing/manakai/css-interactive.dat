@@ -27,9 +27,129 @@ p {
   outline-width: -12px;
 }
 #errors
-;2;18;m;CSS syntax error;'outline-width'
+;2;18;m;css:value:not nnlength
 #cssom
 | <p>
+
+#data
+p{outline-width: thin}
+#cssom
+| <p>
+|   outline-width: thin
+
+#data
+p{outline-width: thick}
+#cssom
+| <p>
+|   outline-width: thick
+
+#data
+p{outline-width: medium}
+#cssom
+| <p>
+|   outline-width: medium
+
+#data
+p{outline-width: 0}
+#cssom
+| <p>
+|   outline-width: 0px
+
+#data
+p{outline-width: 12}
+#errors
+;1;18;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{outline-width: 12}
+#option q
+#errors
+;1;18;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{outline-width: 12%}
+#errors
+;1;18;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{outline-width: -12cm}
+#errors
+;1;18;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{outline-style:none}
+#cssom
+| <p>
+|   outline-style: none
+
+#data
+p{outline-style:hidden}
+#errors
+;1;17;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{outline-style:dotted}
+#cssom
+| <p>
+|   outline-style: dotted
+
+#data
+p{outline-style:dashed}
+#cssom
+| <p>
+|   outline-style: dashed
+
+#data
+p{outline-style:Solid}
+#cssom
+| <p>
+|   outline-style: solid
+
+#data
+p{outline-style:DOUBLE}
+#cssom
+| <p>
+|   outline-style: double
+
+#data
+p{outline-style:groove}
+#cssom
+| <p>
+|   outline-style: groove
+
+#data
+p{outline-style:ridge}
+#cssom
+| <p>
+|   outline-style: ridge
+
+#data
+p{outline-style:inset}
+#cssom
+| <p>
+|   outline-style: inset
+
+#data
+p{outline-style:outSet}
+#cssom
+| <p>
+|   outline-style: outset
+
+#data
+p{outline-style:auto}
+#cssom
+| <p>
+|   outline-style: auto
 
 #data
 p {
@@ -37,13 +157,13 @@ p {
 }
 #cssom
 | <p>
-|   outline: 12px none -manakai-invert-or-currentcolor
+|   outline: 12px none
 |   outline-color: -manakai-invert-or-currentcolor
 |   outline-style: none
 |   outline-width: 12px
 #csstext
 p {
-  outline: 12px none -manakai-invert-or-currentcolor;
+  outline: 12px none;
 }
 
 #data
@@ -52,7 +172,7 @@ p {
 }
 #cssom
 | <p>
-|   outline: 12px none -manakai-invert-or-currentcolor
+|   outline: 12px none
 |   outline-color: -manakai-invert-or-currentcolor
 |   outline-style: none
 |   outline-width: 12px
@@ -62,6 +182,573 @@ p {
   outline: -12px;
 }
 #errors
-;2;12;m;CSS syntax error;'outline'
+;2;12;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{outline: 31}
+#errors
+;1;12;m;css:value:not nnlength
+#cssom
+| <p>
+
+#data
+p{outline: 0}
+#cssom
+| <p>
+|   outline: 0px none
+|   outline-color: -manakai-invert-or-currentcolor
+|   outline-style: none
+|   outline-width: 0px
+
+#data
+p{
+  outline: solid;
+  outline-color: currentColor;
+}
+#cssom
+| <p>
+|   outline: medium solid currentcolor
+|   outline-color: currentcolor
+|   outline-style: solid
+|   outline-width: medium
+
+#data
+p{
+  outline: solid !important;
+  outline-color: currentColor;
+}
+#errors
+;3;3;w;css:prop:ignored
+#cssom
+| <p>
+|   outline: medium solid !important
+|   outline-color: -manakai-invert-or-currentcolor !important
+|   outline-style: solid !important
+|   outline-width: medium !important
+
+#data
+p{
+  outline: solid !important;
+  outline-color: currentColor !important;
+}
+#cssom
+| <p>
+|   outline: medium solid currentcolor !important
+|   outline-color: currentcolor !important
+|   outline-style: solid !important
+|   outline-width: medium !important
+
+#data
+p{outline: none}
+#cssom
+| <p>
+|   outline: medium none
+|   outline-color: -manakai-invert-or-currentcolor
+|   outline-style: none
+|   outline-width: medium
+
+#data
+p{outline: hidden 2px}
+#errors
+;1;12;m;CSS syntax error;'outline'
+#cssom
+| <p>
+
+#data
+p{outline: auto}
+#cssom
+| <p>
+|   outline: medium auto
+|   outline-color: -manakai-invert-or-currentcolor
+|   outline-style: auto
+|   outline-width: medium
+
+#data
+p{outline-color:red}
+#cssom
+| <p>
+|   outline-color: red
+
+#data
+p{outline-color:123456}
+#errors
+;1;17;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{outline-color:123456}
+#option q
+#errors
+;1;17;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{outline-color:flavor}
+#errors
+#cssom
+| <p>
+|   outline-color: flavor
+
+#data
+p{outline-color:invert}
+#errors
+#cssom
+| <p>
+|   outline-color: invert
+
+#data
+p{outline-color:invert}
+#unsupported
+prop_value outline-color invert
+#errors
+;1;17;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{outline-color: -manakai-invert-or-currentcolor}
+#csserrors
+XXX
+#cssom
+| <p>
+|   outline-color: -manakai-invert-or-currentcolor
+
+#data
+p{outline-color: -manakai-invert-or-currentcolor}
+#unsupported
+prop_value outline-color invert
+#errors
+;1;18;m;css:color:syntax error
+#cssom
+| <p>
+
+#data
+p{cursor: auto}
+#cssom
+| <p>
+|   cursor: auto
+
+#data
+p{cursor: DEFAULT}
+#cssom
+| <p>
+|   cursor: default
+
+#data
+p{cursor:none}
+#cssom
+| <p>
+|   cursor: none
+
+#data
+p{cursor: context-MEnu}
+#cssom
+| <p>
+|   cursor: context-menu
+
+#data
+p{cursor: help}
+#cssom
+| <p>
+|   cursor: help
+
+#data
+p{cursor: pointer}
+#cssom
+| <p>
+|   cursor: pointer
+
+#data
+p{cursor:progress}
+#cssom
+| <p>
+|   cursor: progress
+
+#data
+p{cursor: wait}
+#cssom
+| <p>
+|   cursor: wait
+
+#data
+p{cursor: cell}
+#cssom
+| <p>
+|   cursor: cell
+
+#data
+p{cursor: crosshair}
+#cssom
+| <p>
+|   cursor: crosshair
+
+#data
+p{cursor: text}
+#cssom
+| <p>
+|   cursor: text
+
+#data
+p{cursor: VERTICAL-TEXT}
+#cssom
+| <p>
+|   cursor: vertical-text
+
+#data
+p{cursor: alias}
+#cssom
+| <p>
+|   cursor: alias
+
+#data
+p{cursor: copy}
+#cssom
+| <p>
+|   cursor: copy
+
+#data
+p{cursor: move}
+#cssom
+| <p>
+|   cursor: move
+
+#data
+p{cursor: no-drop}
+#cssom
+| <p>
+|   cursor: no-drop
+
+#data
+p{cursor: not-allowed}
+#cssom
+| <p>
+|   cursor: not-allowed
+
+#data
+p{cursor: e-resize}
+#cssom
+| <p>
+|   cursor: e-resize
+
+#data
+p{cursor: n-resize}
+#cssom
+| <p>
+|   cursor: n-resize
+
+#data
+p{cursor: ne-resize}
+#cssom
+| <p>
+|   cursor: ne-resize
+
+#data
+p{cursor: nw-resize}
+#cssom
+| <p>
+|   cursor: nw-resize
+
+#data
+p{cursor: s-resize}
+#cssom
+| <p>
+|   cursor: s-resize
+
+#data
+p{cursor: Se-resize}
+#cssom
+| <p>
+|   cursor: se-resize
+
+#data
+p{cursor: SW-resize}
+#cssom
+| <p>
+|   cursor: sw-resize
+
+#data
+p{cursor: W-resize}
+#cssom
+| <p>
+|   cursor: w-resize
+
+#data
+p{cursor: ew-resize}
+#cssom
+| <p>
+|   cursor: ew-resize
+
+#data
+p{cursor: ns-resize}
+#cssom
+| <p>
+|   cursor: ns-resize
+
+#data
+p{cursor: nesw-resize}
+#cssom
+| <p>
+|   cursor: nesw-resize
+
+#data
+p{cursor: nwse-resize}
+#cssom
+| <p>
+|   cursor: nwse-resize
+
+#data
+p{cursor: col-resize}
+#cssom
+| <p>
+|   cursor: col-resize
+
+#data
+p{cursor: row-resize}
+#cssom
+| <p>
+|   cursor: row-resize
+
+#data
+p{cursor: all-scroll}
+#cssom
+| <p>
+|   cursor: all-scroll
+
+#data
+p{cursor:zoom-in}
+#cssom
+| <p>
+|   cursor: zoom-in
+
+#data
+p{cursor: zoom-out}
+#cssom
+| <p>
+|   cursor: zoom-out
+
+#data
+p{cursor: INHERIT}
+#cssom
+| <p>
+|   cursor: inherit
+
+#data
+p{cursor: initial}
+#cssom
+| <p>
+|   cursor: initial
+
+#data
+p{cursor: grab}
+#cssom
+| <p>
+|   cursor: grab
+
+#data
+p{cursor: grabbing}
+#cssom
+| <p>
+|   cursor: grabbing
+
+#data
+p{cursor: hand}
+#errors
+;1;11;m;css:obsolete;hand
+#cssom
+| <p>
+|   cursor: pointer
+
+#data
+p{cursor: -webkit-zoom-in}
+#errors
+;1;11;m;css:obsolete;-webkit-zoom-in
+#cssom
+| <p>
+|   cursor: zoom-in
+
+#data
+p{cursor: -moz-zoom-IN}
+#errors
+;1;11;m;css:obsolete;-moz-zoom-IN
+#cssom
+| <p>
+|   cursor: zoom-in
+
+#data
+p{cursor: -webkit-zoom-out}
+#errors
+;1;11;m;css:obsolete;-webkit-zoom-out
+#cssom
+| <p>
+|   cursor: zoom-out
+
+#data
+p{cursor: -moz-zoom-OUT}
+#errors
+;1;11;m;css:obsolete;-moz-zoom-OUT
+#cssom
+| <p>
+|   cursor: zoom-out
+
+#data
+p{cursor: -webkit-grab}
+#errors
+;1;11;m;css:obsolete;-webkit-grab
+#cssom
+| <p>
+|   cursor: grab
+
+#data
+p{cursor: -moz-grab}
+#errors
+;1;11;m;css:obsolete;-moz-grab
+#cssom
+| <p>
+|   cursor: grab
+
+#data
+p{cursor: -webkit-grabbing}
+#errors
+;1;11;m;css:obsolete;-webkit-grabbing
+#cssom
+| <p>
+|   cursor: grabbing
+
+#data
+p{cursor: -moz-grabbing}
+#errors
+;1;11;m;css:obsolete;-moz-grabbing
+#cssom
+| <p>
+|   cursor: grabbing
+
+#data
+p{cursor: default, none}
+#errors
+;1;18;m;CSS syntax error;'cursor'
+#cssom
+| <p>
+
+#data
+p{cursor: "", none}
+#errors
+;1;11;m;CSS syntax error;'cursor'
+#cssom
+| <p>
+
+#data
+p{cursor:  url("hog e") , none}
+#cssom
+| <p>
+|   cursor: url("hog e"), none
+
+#data
+p{cursor:  url("hog e") ,URL("//a"), default}
+#cssom
+| <p>
+|   cursor: url("hog e"), url("//a"), default
+
+#data
+p{cursor:  url("hog e")}
+#errors
+;1;24;m;CSS syntax error;'cursor'
+#cssom
+| <p>
+
+#data
+p{cursor: auto, url("hog e")}
+#errors
+;1;15;m;CSS syntax error;'cursor'
+#cssom
+| <p>
+
+#data
+p{cursor:  url("hog e")21/**/.4}
+#errors
+;1;32;m;CSS syntax error;'cursor'
+#cssom
+| <p>
+
+#data
+p{cursor:  url("hog e")21/**/.4, e-resize}
+#errors
+#cssom
+| <p>
+|   cursor: url("hog e") 21 0.4, e-resize
+
+#data
+p{cursor:  url("hog e") 0 0 , e-resize}
+#errors
+#cssom
+| <p>
+|   cursor: url("hog e") 0 0, e-resize
+
+#data
+p{cursor:  url("hog e")
+-0021 +4, ne-resize}
+#errors
+#cssom
+| <p>
+|   cursor: url("hog e") -21 4, ne-resize
+
+#data
+p{cursor:  url("hog e")21, e-resize}
+#errors
+;1;26;m;CSS syntax error;'cursor'
+#cssom
+| <p>
+
+#data
+p{cursor:  url("hog e")21 10px, e-resize}
+#errors
+;1;27;m;CSS syntax error;'cursor'
+#cssom
+| <p>
+
+#data
+p{cursor:  url(aaa.cur) 0 0 ,
+URL(eee) , url(hoge.png) 12 -33.4,  nesw-resize}
+#errors
+#cssom
+| <p>
+|   cursor: url("aaa.cur") 0 0, url("eee"), url("hoge.png") 12 -33.4, nesw-resize
+
+#data
+p{cursor:  url(aaa.cur) 0 0
+URL(eee) , url(hoge.png) 12 -33.4,  nesw-resize}
+#errors
+;2;1;m;CSS syntax error;'cursor'
+#cssom
+| <p>
+
+#data
+p{cursor:  url(aaa.cur) 0 0 , hoge}
+#errors
+;1;31;m;CSS syntax error;'cursor'
+#cssom
+| <p>
+
+#data
+p{cursor:  url(aaa.cur) 0 0 , , pointer}
+#errors
+;1;31;m;CSS syntax error;'cursor'
+#cssom
+| <p>
+
+#data
+p{cursor:   , , pointer}
+#errors
+;1;13;m;CSS syntax error;'cursor'
+#cssom
+| <p>
+
+#data
+p{cursor:   copy ,, }
+#errors
+;1;18;m;CSS syntax error;'cursor'
 #cssom
 | <p>

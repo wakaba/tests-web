@@ -82,18 +82,31 @@ no </noframes>
 |       "abc</noframes"
 |   <body>
 
-#XXX when scripting is enabled
 #data
 <!DOCTYPE html><noscript>abc</noscript
+#noscript
 #errors
-no </noscript>
+"abc" in noscript in head
+EOF in end tag
 #document
 | <!DOCTYPE html>
 | <html>
 |   <head>
+|     <noscript>
 |   <body>
+|     "abc"
+
+#data
+<!DOCTYPE html><noscript>abc</noscript
+#errors
+EOF in <noscript>
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
 |     <noscript>
 |       "abc</noscript"
+|   <body>
 
 #data
 <style><!-- </style> --></style>
@@ -1151,7 +1164,6 @@ no </script>
 #document-fragment title
 | "</title>"
 
-#XXX when scripting is enabled
 #data
 </noscript>
 #errors
@@ -1182,3 +1194,252 @@ no </script>
 EOF in escaped script data
 #document-fragment script
 | "<!--"
+
+#data
+<noscript>abc</noscript>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <noscript>
+|       "abc"
+|   <body>
+
+#data
+<noscript>ab<div>c</noscript>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <noscript>
+|       "ab<div>c"
+|   <body>
+
+#data escaped
+<noscript>ab\u0000c</noscript>
+#errors
+no DOCTYPE
+NULL
+#document escaped
+| <html>
+|   <head>
+|     <noscript>
+|       "ab\uFFFDc"
+|   <body>
+
+#data
+<noscript>ab<plaintext>c</noscript>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <noscript>
+|       "ab<plaintext>c"
+|   <body>
+
+#data
+<p><noscript>abc</noscript>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       <noscript>
+|         "abc"
+
+#data
+<table><noscript>abc</noscript>
+#errors
+no DOCTYPE
+<noscript> in table
+EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <noscript>
+|       "abc"
+|     <table>
+
+#data
+<noscript>
+#errors
+no DOCTYPE
+EOF in noscript
+#document
+| <html>
+|   <head>
+|     <noscript>
+|   <body>
+
+#data
+<noscript>abc
+#errors
+no DOCTYPE
+EOF in noscript
+#document
+| <html>
+|   <head>
+|     <noscript>
+|       "abc"
+|   <body>
+
+#data
+<noscript><p>
+#errors
+no DOCTYPE
+EOF in noscript
+#document
+| <html>
+|   <head>
+|     <noscript>
+|       "<p>"
+|   <body>
+
+#data
+<noscript><noscript></noscript>a
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <noscript>
+|       "<noscript>"
+|   <body>
+|     "a"
+
+#data
+<noscript></NoSCRIpt >a
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <noscript>
+|   <body>
+|     "a"
+
+#data
+<noscript>aa</NOscripta>a
+#errors
+no DOCTYPE
+EOF in noscript
+#document
+| <html>
+|   <head>
+|     <noscript>
+|       "aa</NOscripta>a"
+|   <body>
+
+#data
+<noscript><script><!--</noscript>a
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|     <noscript>
+|       "<script><!--"
+|   <body>
+|     "a"
+
+#data
+<noscript><script><!--</noscript>a
+#noscript
+#errors
+no DOCTYPE
+script in noscript
+EOF in escaped data
+EOF in script
+#document
+| <html>
+|   <head>
+|     <noscript>
+|     <script>
+|       "<!--</noscript>a"
+|   <body>
+
+#data
+<p><noscript><script><!--</noscript>--></noscript>a
+#errors
+no DOCTYPE
+stray </noscript>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       <noscript>
+|         "<script><!--"
+|       "-->a"
+
+#data
+<p><noscript><script><!--</noscript>--></script>a
+#noscript
+#errors
+no DOCTYPE
+EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       <noscript>
+|         <script>
+|           "<!--</noscript>-->"
+|         "a"
+
+#data
+#document-fragment
+noscript
+#noscript
+#errors
+#document
+
+#data
+<p>aaa
+#document-fragment
+noscript
+#noscript
+#errors
+#document
+| <p>
+|   "aaa"
+
+#data
+<script>aaa</script>
+#document-fragment
+noscript
+#noscript
+#errors
+#document
+| <script>
+|   "aaa"
+
+#data
+<noscript><p>aaa</noscript>b
+#document-fragment
+noscript
+#noscript
+#errors
+stray </noscript>
+EOF
+#document
+| <noscript>
+|   <p>
+|     "aaab"
+
+#data
+</noscript>a
+#document-fragment
+noscript
+#noscript
+#errors
+stray </noscript>
+#document
+| "a"

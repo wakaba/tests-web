@@ -67,24 +67,24 @@ p {
 p {
   font-family: inherit, a;
 }
+#errors
+;2;23;m;CSS syntax error;'font-family'
 #cssom
 | <p>
-|   font-family: "inherit", "a"
 #csstext
 p {
-  font-family: "inherit", "a";
 }
 
 #data
 p {
   font-family: a,inherit;
 }
+#errors
+;2;25;m;CSS syntax error;'font-family'
 #cssom
 | <p>
-|   font-family: "a", "inherit"
 #csstext
 p {
-  font-family: "a", "inherit";
 }
 
 #data
@@ -103,13 +103,182 @@ p {
 p {
   font-family: inherit a;
 }
+#errors
+;2;23;m;CSS syntax error;'font-family'
 #cssom
 | <p>
-|   font-family: "inherit a"
 #csstext
 p {
-  font-family: "inherit a";
 }
+
+#data
+p{font-family: unset}
+#cssom
+| <p>
+|   font-family: unset
+
+#data
+p{font-family: unset, iherit}
+#errors
+;1;21;m;CSS syntax error;'font-family'
+#cssom
+| <p>
+
+#data
+p{font-family: unset, inherit}
+#errors
+;1;21;m;CSS syntax error;'font-family'
+#cssom
+| <p>
+
+#data
+p{font-family : ab  cd e}
+#cssom
+| <p>
+|   font-family: "ab cd e"
+
+#data
+p{font-family : ab  cd e , "f"}
+#cssom
+| <p>
+|   font-family: "ab cd e", "f"
+
+#data
+p{font-family : "aa   bb  "}
+#cssom
+| <p>
+|   font-family: "aa   bb  "
+
+#data
+p{font-family : ab  cd e  \abc }
+#cssom escaped
+| <p>
+|   font-family: "ab cd e \u0ABC"
+
+#data
+p{font-family : \,}
+#cssom
+| <p>
+|   font-family: ","
+
+#data
+p{font-family : ab,,c}
+#errors
+;1;21;m;CSS syntax error;'font-family'
+#cssom
+| <p>
+
+#data
+p{font-family : ab,,}
+#errors
+;1;21;m;CSS syntax error;'font-family'
+#cssom
+| <p>
+
+#data
+p{font-family : ,ab,c}
+#errors
+;1;18;m;CSS syntax error;'font-family'
+#cssom
+| <p>
+
+#data
+p{font-family: ab.cd}
+#errors
+;1;19;m;CSS syntax error;'font-family'
+#cssom
+| <p>
+
+#data
+p{font-family: -120}
+#errors
+;1;20;m;CSS syntax error;'font-family'
+#cssom
+| <p>
+
+#data
+p{font-family: ea/**/vce}
+#cssom
+| <p>
+|   font-family: "ea vce"
+
+#data
+p{font-family: "", ''}
+#cssom
+| <p>
+|   font-family: "", ""
+
+#data
+p{font-family: "!", \"}
+#cssom
+| <p>
+|   font-family: "!", "\""
+
+#data
+p{font-family: SERIF, SANS-Serif abc, "monoSpace"}
+#cssom
+| <p>
+|   font-family: serif, "SANS-Serif abc", "monoSpace"
+
+#data
+p{font-family: SANS-Serif, MONOSPace, cursiVE, Fantasy, -manakai-Default}
+#cssom
+| <p>
+|   font-family: sans-serif, monospace, cursive, fantasy, -manakai-default
+
+#data
+p{font-family: abc inHerit}
+#cssom
+| <p>
+|   font-family: "abc inHerit"
+
+#data
+p{font-family: -moz-initial abc}
+#errors
+;1;28;m;CSS syntax error;'font-family'
+#cssom
+| <p>
+
+#data
+p{font-family: "hoge" fuga}
+#errors
+;1;27;m;CSS syntax error;'font-family'
+#cssom
+| <p>
+
+#data
+p{font-family: fuga"abc"}
+#errors
+;1;25;m;CSS syntax error;'font-family'
+#cssom
+| <p>
+
+#data
+p{font-family: "aa""bb"}
+#errors
+;1;24;m;CSS syntax error;'font-family'
+#cssom
+| <p>
+
+#data
+p{font-family: cursive"bb"}
+#errors
+;1;27;m;CSS syntax error;'font-family'
+#cssom
+| <p>
+
+#data
+p{font-family: defaulT}
+#errors
+;1;23;m;CSS syntax error;'font-family'
+#cssom
+| <p>
+
+#data
+p{font-family: -moz-use-system-font}
+#cssom
+| <p>
+|   font-family: -moz-use-system-font
 
 #data
 p {
@@ -181,6 +350,12 @@ p {
 }
 
 #data
+p{font-weight: -moz-use-system-font}
+#cssom
+| <p>
+|   font-weight: -moz-use-system-font
+
+#data
 p {
   font-weight: 100;
 }
@@ -208,12 +383,12 @@ p {
 p {
   font-weight: +100.0;
 }
+#errors
+;2;16;m;CSS syntax error;'font-weight'
 #cssom
 | <p>
-|   font-weight: 100
 #csstext
 p {
-  font-weight: 100;
 }
 
 #data
@@ -239,10 +414,22 @@ p {
 
 #data
 p {
+  font-weight: +000100;
+}
+#cssom
+| <p>
+|   font-weight: 100
+#csstext
+p {
+  font-weight: 100;
+}
+
+#data
+p {
   font-weight: +bold
 }
 #errors
-;2;17;m;CSS syntax error;'font-weight'
+;2;16;m;CSS syntax error;'font-weight'
 #cssom
 | <p>
 
@@ -251,7 +438,34 @@ p {
   font-weight: +inherit;
 }
 #errors
-;2;17;m;CSS syntax error;'font-weight'
+;2;16;m;CSS syntax error;'font-weight'
+#cssom
+| <p>
+
+#data
+p {
+  font-weight: 0
+}
+#errors
+;2;16;m;CSS syntax error;'font-weight'
+#cssom
+| <p>
+
+#data
+p {
+  font-weight: -300;
+}
+#errors
+;2;16;m;CSS syntax error;'font-weight'
+#cssom
+| <p>
+
+#data
+p {
+  font-weight: 100e0;
+}
+#errors
+;2;16;m;CSS syntax error;'font-weight'
 #cssom
 | <p>
 
@@ -364,6 +578,12 @@ p {
 #computedtext 1 p
 
 #data
+p{font-stretch: -moz-use-system-font}
+#cssom
+| <p>
+|   font-stretch: -moz-use-system-font
+
+#data
 p {
   font-size: 0;
 }
@@ -404,7 +624,7 @@ p {
   font-size: 12;
 }
 #errors
-;2;14;m;CSS syntax error;'font-size'
+;2;14;m;css:value:not nnlength
 #cssom
 | <p>
 #csstext
@@ -412,10 +632,19 @@ p {
 }
 
 #data
+P{font-size: -30}
+#errors
+;1;14;m;css:value:not nnlength
+#cssom
+| <P>
+
+#data
 p {
   font-size: 12;
 }
 #option q
+#errors
+;2;14;m;css:value:quirky-length
 #cssom
 | <p>
 |   font-size: 12px
@@ -429,7 +658,7 @@ p {
   font-size: +12;
 }
 #errors
-;2;14;m;CSS syntax error;'font-size'
+;2;14;m;css:value:not nnlength
 #cssom
 | <p>
 #csstext
@@ -441,6 +670,8 @@ p {
   font-size: +12;
 }
 #option q
+#errors
+;2;14;m;css:value:quirky-length
 #cssom
 | <p>
 |   font-size: 12px
@@ -486,7 +717,7 @@ p {
   font-size: -12px
 }
 #errors
-;2;14;m;CSS syntax error;'font-size'
+;2;14;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -499,7 +730,7 @@ p {
 |   font-size: 12px !important
 #csstext
 p {
-  font-size: 12px ! important;
+  font-size: 12px !important;
 }
 
 #data
@@ -559,7 +790,7 @@ p {
 |   font-size: inherit !important
 #csstext
 p {
-  font-size: inherit ! important;
+  font-size: inherit !important;
 }
 
 #data
@@ -567,7 +798,7 @@ p {
   font-size: +inherit;
 }
 #errors
-;2;15;m;CSS syntax error;'font-size'
+;2;14;m;CSS syntax error;'font-size'
 #cssom
 | <p>
 
@@ -585,9 +816,15 @@ p {
   font-size: -/**/inherit;
 }
 #errors
-;2;19;m;CSS syntax error;'font-size'
+;2;14;m;CSS syntax error;'font-size'
 #cssom
 | <p>
+
+#data
+p{font-size: -moz-use-system-font}
+#cssom
+| <p>
+|   font-size: -moz-use-system-font
 
 #data
 p {
@@ -679,10 +916,10 @@ p {
 }
 #cssom
 | <p>
-|   font-size: -manakai-xxx-large
+|   font-size: -webkit-xxx-large
 #csstext
 p {
-  font-size: -manakai-xxx-large;
+  font-size: -webkit-xxx-large;
 }
 
 #data
@@ -719,6 +956,18 @@ p {
 #csstext
 p {
   font-size: smaller;
+}
+
+#data
+p {
+  font-size: smaller abc
+}
+#errors
+;2;14;m;CSS syntax error;'font-size'
+#cssom
+| <p>
+#csstext
+p {
 }
 
 #data
@@ -796,7 +1045,7 @@ p {
   font-size-ajust: none;
 }
 #errors
-;2;3;u;unknown property
+;2;3;m;css:prop:unknown
 #cssom
 | <p>
 
@@ -805,9 +1054,51 @@ p {
   font-size-adjast: none;
 }
 #errors
-;2;3;u;unknown property
+;2;3;m;css:prop:unknown
 #cssom
 | <p>
+
+#data
+p {font-style: normal}
+#cssom
+| <p>
+|   font-style: normal
+
+#data
+p {font-style: Italic}
+#cssom
+| <p>
+|   font-style: italic
+
+#data
+p {font-style: oblique}
+#cssom
+| <p>
+|   font-style: oblique
+
+#data
+p{font-style: -moz-use-system-font}
+#cssom
+| <p>
+|   font-style: -moz-use-system-font
+
+#data
+p{font-variant: normal}
+#cssom
+| <p>
+|   font-variant: normal
+
+#data
+p{font-variant: small-caps}
+#cssom
+| <p>
+|   font-variant: small-caps
+
+#data
+p{font-variant: -moz-use-system-font}
+#cssom
+| <p>
+|   font-variant: -moz-use-system-font
 
 #data
 p {
@@ -815,6 +1106,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: none
 |   font: 1px serif
 |   font-family: serif
 |   font-size: 1px
@@ -826,14 +1118,7 @@ p {
 |   line-height: normal
 #csstext
 p {
-  font-family: serif;
-  font-size: 1px;
-  font-size-adjust: none;
-  font-stretch: normal;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: normal;
+  font: 1px serif;
 }
 
 #data
@@ -842,6 +1127,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: none !important
 |   font: 1px serif !important
 |   font-family: serif !important
 |   font-size: 1px !important
@@ -853,42 +1139,38 @@ p {
 |   line-height: normal !important
 #csstext
 p {
-  font-family: serif ! important;
-  font-size: 1px ! important;
-  font-size-adjust: none ! important;
-  font-stretch: normal ! important;
-  font-style: normal ! important;
-  font-variant: normal ! important;
-  font-weight: normal ! important;
-  line-height: normal ! important;
+  font: 1px serif !important;
 }
 
 #data
 p {
   font: 1px inherit;
 }
+#errors
+;2;20;m;CSS syntax error;'font-family'
 #cssom
 | <p>
-|   font: 1px "inherit"
-|   font-family: "inherit"
-|   font-size: 1px
-|   font-size-adjust: none
-|   font-stretch: normal
-|   font-style: normal
-|   font-variant: normal
-|   font-weight: normal
-|   line-height: normal
 #csstext
 p {
-  font-family: "inherit";
-  font-size: 1px;
-  font-size-adjust: none;
-  font-stretch: normal;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: normal;
 }
+
+#data
+p {
+  font: 1px initial;
+}
+#errors
+;2;20;m;CSS syntax error;'font-family'
+#cssom
+| <p>
+
+#data
+p {
+  font: 1px UNSET;
+}
+#errors
+;2;18;m;CSS syntax error;'font-family'
+#cssom
+| <p>
 
 #data
 p {
@@ -896,6 +1178,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: none
 |   font: 1px -manakai-default
 |   font-family: -manakai-default
 |   font-size: 1px
@@ -907,14 +1190,7 @@ p {
 |   line-height: normal
 #csstext
 p {
-  font-family: -manakai-default;
-  font-size: 1px;
-  font-size-adjust: none;
-  font-stretch: normal;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: normal;
+  font: 1px -manakai-default;
 }
 
 #data
@@ -923,6 +1199,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: none
 |   font: bolder 1px "Courier New"
 |   font-family: "Courier New"
 |   font-size: 1px
@@ -934,14 +1211,49 @@ p {
 |   line-height: normal
 #csstext
 p {
-  font-family: "Courier New";
-  font-size: 1px;
-  font-size-adjust: none;
-  font-stretch: normal;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: bolder;
-  line-height: normal;
+  font: bolder 1px "Courier New";
+}
+
+#data
+p {
+  font: initial;
+}
+#cssom
+| <p>
+|   -x-system-font: initial
+|   font: initial
+|   font-family: initial
+|   font-size: initial
+|   font-size-adjust: initial
+|   font-stretch: initial
+|   font-style: initial
+|   font-variant: initial
+|   font-weight: initial
+|   line-height: initial
+#csstext
+p {
+  font: initial;
+}
+
+#data
+p {
+  font: UNSET;
+}
+#cssom
+| <p>
+|   -x-system-font: unset
+|   font: unset
+|   font-family: unset
+|   font-size: unset
+|   font-size-adjust: unset
+|   font-stretch: unset
+|   font-style: unset
+|   font-variant: unset
+|   font-weight: unset
+|   line-height: unset
+#csstext
+p {
+  font: unset;
 }
 
 #data
@@ -950,6 +1262,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: inherit
 |   font: inherit
 |   font-family: inherit
 |   font-size: inherit
@@ -961,14 +1274,7 @@ p {
 |   line-height: inherit
 #csstext
 p {
-  font-family: inherit;
-  font-size: inherit;
-  font-size-adjust: inherit;
-  font-stretch: inherit;
-  font-style: inherit;
-  font-variant: inherit;
-  font-weight: inherit;
-  line-height: inherit;
+  font: inherit;
 }
 
 #data
@@ -977,6 +1283,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: inherit !important
 |   font: inherit !important
 |   font-family: inherit !important
 |   font-size: inherit !important
@@ -988,14 +1295,7 @@ p {
 |   line-height: inherit !important
 #csstext
 p {
-  font-family: inherit ! important;
-  font-size: inherit ! important;
-  font-size-adjust: inherit ! important;
-  font-stretch: inherit ! important;
-  font-style: inherit ! important;
-  font-variant: inherit ! important;
-  font-weight: inherit ! important;
-  line-height: inherit ! important;
+  font: inherit !important;
 }
 
 #data
@@ -1005,6 +1305,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: inherit
 |   font-family: "inherit"
 |   font-size: inherit
 |   font-size-adjust: inherit
@@ -1015,14 +1316,15 @@ p {
 |   line-height: inherit
 #csstext
 p {
-  font-family: "inherit";
-  font-size: inherit;
-  font-size-adjust: inherit;
-  font-stretch: inherit;
   font-style: inherit;
   font-variant: inherit;
   font-weight: inherit;
+  font-stretch: inherit;
+  font-size: inherit;
   line-height: inherit;
+  -x-system-font: inherit;
+  font-size-adjust: inherit;
+  font-family: "inherit";
 }
 
 #data
@@ -1032,6 +1334,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: inherit
 |   font-family: inherit
 |   font-size: 16px
 |   font-size-adjust: inherit
@@ -1042,14 +1345,15 @@ p {
 |   line-height: inherit
 #csstext
 p {
-  font-family: inherit;
-  font-size: 16px;
-  font-size-adjust: inherit;
-  font-stretch: inherit;
   font-style: inherit;
   font-variant: inherit;
   font-weight: inherit;
+  font-stretch: inherit;
   line-height: inherit;
+  font-family: inherit;
+  -x-system-font: inherit;
+  font-size-adjust: inherit;
+  font-size: 16px;
 }
 
 #data
@@ -1059,6 +1363,8 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: inherit
+|   font: inherit
 |   font-family: inherit
 |   font-size: inherit
 |   font-size-adjust: inherit
@@ -1069,14 +1375,15 @@ p {
 |   line-height: inherit
 #csstext
 p {
-  font-family: inherit;
-  font-size: inherit;
-  font-size-adjust: inherit;
-  font-stretch: inherit;
   font-style: inherit;
-  font-variant: inherit ! important;
   font-weight: inherit;
+  font-stretch: inherit;
+  font-size: inherit;
   line-height: inherit;
+  font-family: inherit;
+  -x-system-font: inherit;
+  font-size-adjust: inherit;
+  font-variant: inherit !important;
 }
 
 #data
@@ -1086,6 +1393,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: inherit
 |   font-family: inherit
 |   font-size: inherit
 |   font-size-adjust: inherit
@@ -1096,14 +1404,15 @@ p {
 |   line-height: inherit
 #csstext
 p {
-  font-family: inherit;
-  font-size: inherit;
-  font-size-adjust: inherit;
-  font-stretch: inherit;
   font-style: inherit;
   font-variant: inherit;
-  font-weight: bolder;
+  font-stretch: inherit;
+  font-size: inherit;
   line-height: inherit;
+  font-family: inherit;
+  -x-system-font: inherit;
+  font-size-adjust: inherit;
+  font-weight: bolder;
 }
 
 #data
@@ -1111,7 +1420,7 @@ p {
   font: 800 12 serif;
 }
 #errors
-;2;13;m;CSS syntax error;'font'
+;2;13;m;css:value:not nnlength
 #cssom
 | <p>
 #csstext
@@ -1122,28 +1431,13 @@ p {
 p {
   font: 800 12 serif;
 }
+#errors
+;2;13;m;css:value:not nnlength
 #option q
 #cssom
 | <p>
-|   font: 800 12px serif
-|   font-family: serif
-|   font-size: 12px
-|   font-size-adjust: none
-|   font-stretch: normal
-|   font-style: normal
-|   font-variant: normal
-|   font-weight: 800
-|   line-height: normal
 #csstext
 p {
-  font-family: serif;
-  font-size: 12px;
-  font-size-adjust: none;
-  font-stretch: normal;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 800;
-  line-height: normal;
 }
 
 #data
@@ -1152,6 +1446,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: none
 |   font: 800 12px serif
 |   font-family: serif
 |   font-size: 12px
@@ -1163,14 +1458,7 @@ p {
 |   line-height: normal
 #csstext
 p {
-  font-family: serif;
-  font-size: 12px;
-  font-size-adjust: none;
-  font-stretch: normal;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 800;
-  line-height: normal;
+  font: 800 12px serif;
 }
 
 #data
@@ -1179,6 +1467,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: none
 |   font: 800 12px serif
 |   font-family: serif
 |   font-size: 12px
@@ -1190,14 +1479,7 @@ p {
 |   line-height: normal
 #csstext
 p {
-  font-family: serif;
-  font-size: 12px;
-  font-size-adjust: none;
-  font-stretch: normal;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 800;
-  line-height: normal;
+  font: 800 12px serif;
 }
 
 #data
@@ -1205,7 +1487,7 @@ p {
   font: 800 +12 serif;
 }
 #errors
-;2;13;m;CSS syntax error;'font'
+;2;13;m;css:value:not nnlength
 #cssom
 | <p>
 #csstext
@@ -1216,28 +1498,13 @@ p {
 p {
   font: 800 +12 serif;
 }
+#errors
+;2;13;m;css:value:not nnlength
 #option q
 #cssom
 | <p>
-|   font: 800 12px serif
-|   font-family: serif
-|   font-size: 12px
-|   font-size-adjust: none
-|   font-stretch: normal
-|   font-style: normal
-|   font-variant: normal
-|   font-weight: 800
-|   line-height: normal
 #csstext
 p {
-  font-family: serif;
-  font-size: 12px;
-  font-size-adjust: none;
-  font-stretch: normal;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 800;
-  line-height: normal;
 }
 
 #data
@@ -1245,7 +1512,7 @@ p {
   font: 800 + 12 serif;
 }
 #errors
-;2;14;m;CSS syntax error;'font'
+;2;13;m;CSS syntax error;'font-size'
 #cssom
 | <p>
 #csstext
@@ -1258,7 +1525,7 @@ p {
 }
 #option q
 #errors
-;2;14;m;CSS syntax error;'font'
+;2;13;m;CSS syntax error;'font-size'
 #cssom
 | <p>
 #csstext
@@ -1271,6 +1538,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: none
 |   font: 800 12px serif
 |   font-family: serif
 |   font-size: 12px
@@ -1282,14 +1550,28 @@ p {
 |   line-height: normal
 #csstext
 p {
-  font-family: serif;
-  font-size: 12px;
-  font-size-adjust: none;
-  font-stretch: normal;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 800;
-  line-height: normal;
+  font: 800 12px serif;
+}
+
+#data
+p {
+  font: 000000300 12px serif;
+}
+#cssom
+| <p>
+|   -x-system-font: none
+|   font: 300 12px serif
+|   font-family: serif
+|   font-size: 12px
+|   font-size-adjust: none
+|   font-stretch: normal
+|   font-style: normal
+|   font-variant: normal
+|   font-weight: 300
+|   line-height: normal
+#csstext
+p {
+  font: 300 12px serif;
 }
 
 #data
@@ -1297,7 +1579,19 @@ p {
   font: -800 12px serif;
 }
 #errors
-;2;9;m;CSS syntax error;'font'
+;2;9;m;css:value:not nnlength
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p {
+  font: 500.2 12px serif;
+}
+#errors
+;2;9;m;css:value:not nnlength
 #cssom
 | <p>
 #csstext
@@ -1310,7 +1604,7 @@ p {
 }
 #option q
 #errors
-;2;9;m;CSS syntax error;'font'
+;2;9;m;css:value:not nnlength
 #cssom
 | <p>
 #csstext
@@ -1322,7 +1616,7 @@ p {
   font: -800 serif;
 }
 #errors
-;2;9;m;CSS syntax error;'font'
+;2;9;m;css:value:not nnlength
 #cssom
 | <p>
 #csstext
@@ -1334,27 +1628,12 @@ p {
   font: +12 serif;
 }
 #option q
+#errors
+;2;9;m;css:value:not nnlength
 #cssom
 | <p>
-|   font: 12px serif
-|   font-family: serif
-|   font-size: 12px
-|   font-size-adjust: none
-|   font-stretch: normal
-|   font-style: normal
-|   font-variant: normal
-|   font-weight: normal
-|   line-height: normal
 #csstext
 p {
-  font-family: serif;
-  font-size: 12px;
-  font-size-adjust: none;
-  font-stretch: normal;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: normal;
 }
 
 #data
@@ -1363,6 +1642,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: none
 |   font: 12px serif
 |   font-family: serif
 |   font-size: 12px
@@ -1374,14 +1654,7 @@ p {
 |   line-height: normal
 #csstext
 p {
-  font-family: serif;
-  font-size: 12px;
-  font-size-adjust: none;
-  font-stretch: normal;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: normal;
+  font: 12px serif;
 }
 
 #data
@@ -1390,6 +1663,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: none
 |   font: 12% serif
 |   font-family: serif
 |   font-size: 12%
@@ -1401,14 +1675,7 @@ p {
 |   line-height: normal
 #csstext
 p {
-  font-family: serif;
-  font-size: 12%;
-  font-size-adjust: none;
-  font-stretch: normal;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: normal;
+  font: 12% serif;
 }
 
 #data
@@ -1416,7 +1683,7 @@ p {
   font: normal normal normal 12 serif;
 }
 #errors
-;2;30;m;CSS syntax error;'font'
+;2;30;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1424,18 +1691,11 @@ p {
 p {
   font: normal normal normal 12 serif;
 }
+#errors
+;2;30;m;css:value:not nnlength
 #option q
 #cssom
 | <p>
-|   font: 12px serif
-|   font-family: serif
-|   font-size: 12px
-|   font-size-adjust: none
-|   font-stretch: normal
-|   font-style: normal
-|   font-variant: normal
-|   font-weight: normal
-|   line-height: normal
 
 #data
 p {
@@ -1443,6 +1703,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: none
 |   font: 12px serif
 |   font-family: serif
 |   font-size: 12px
@@ -1455,10 +1716,20 @@ p {
 
 #data
 p {
+  font: normal normal normal -12% serif;
+}
+#errors
+;2;30;m;CSS syntax error;'font-size'
+#cssom
+| <p>
+
+#data
+p {
   font: normal normal normal 12% serif;
 }
 #cssom
 | <p>
+|   -x-system-font: none
 |   font: 12% serif
 |   font-family: serif
 |   font-size: 12%
@@ -1474,7 +1745,7 @@ p {
   font: normal normal normal +12 serif;
 }
 #errors
-;2;30;m;CSS syntax error;'font'
+;2;30;m;css:value:not nnlength
 #cssom
 | <p>
 
@@ -1482,18 +1753,11 @@ p {
 p {
   font: normal normal normal +12 serif;
 }
+#errors
+;2;30;m;css:value:not nnlength
 #option q
 #cssom
 | <p>
-|   font: 12px serif
-|   font-family: serif
-|   font-size: 12px
-|   font-size-adjust: none
-|   font-stretch: normal
-|   font-style: normal
-|   font-variant: normal
-|   font-weight: normal
-|   line-height: normal
 
 #data
 p {
@@ -1501,6 +1765,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: none
 |   font: 12px serif
 |   font-family: serif
 |   font-size: 12px
@@ -1517,6 +1782,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: none
 |   font: 12% serif
 |   font-family: serif
 |   font-size: 12%
@@ -1532,7 +1798,7 @@ p {
   font: normal normal normal ++12 serif;
 }
 #errors
-;2;30;m;CSS syntax error;'font'
+;2;30;m;CSS syntax error;'font-size'
 #cssom
 | <p>
 
@@ -1542,7 +1808,7 @@ p {
 }
 #option q
 #errors
-;2;30;m;CSS syntax error;'font'
+;2;30;m;CSS syntax error;'font-size'
 #cssom
 | <p>
 
@@ -1551,7 +1817,7 @@ p {
   font: normal normal normal ++12px serif;
 }
 #errors
-;2;30;m;CSS syntax error;'font'
+;2;30;m;CSS syntax error;'font-size'
 #cssom
 | <p>
 
@@ -1560,7 +1826,7 @@ p {
   font: normal normal normal ++12% serif;
 }
 #errors
-;2;30;m;CSS syntax error;'font'
+;2;30;m;CSS syntax error;'font-size'
 #cssom
 | <p>
 
@@ -1570,6 +1836,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: none
 |   font: 0px serif
 |   font-family: serif
 |   font-size: 0px
@@ -1587,6 +1854,7 @@ p {
 #option q
 #cssom
 | <p>
+|   -x-system-font: none
 |   font: 0px serif
 |   font-family: serif
 |   font-size: 0px
@@ -1603,6 +1871,7 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: none
 |   font: 0px serif
 |   font-family: serif
 |   font-size: 0px
@@ -1619,9 +1888,556 @@ p {
 }
 #cssom
 | <p>
+|   -x-system-font: none
 |   font: 0% serif
 |   font-family: serif
 |   font-size: 0%
+|   font-size-adjust: none
+|   font-stretch: normal
+|   font-style: normal
+|   font-variant: normal
+|   font-weight: normal
+|   line-height: normal
+
+#data
+p{font: 3.1px / 20 SANS-serif}
+#cssom
+| <p>
+|   -x-system-font: none
+|   font: 3.1px/20 sans-serif
+|   font-family: sans-serif
+|   font-size: 3.1px
+|   font-size-adjust: none
+|   font-stretch: normal
+|   font-style: normal
+|   font-variant: normal
+|   font-weight: normal
+|   line-height: 20
+#csstext
+p {
+  font: 3.1px/20 sans-serif;
+}
+
+#data
+p{font: 3.1px/20 SANS-serif}
+#cssom
+| <p>
+|   -x-system-font: none
+|   font: 3.1px/20 sans-serif
+|   font-family: sans-serif
+|   font-size: 3.1px
+|   font-size-adjust: none
+|   font-stretch: normal
+|   font-style: normal
+|   font-variant: normal
+|   font-weight: normal
+|   line-height: 20
+#csstext
+p {
+  font: 3.1px/20 sans-serif;
+}
+
+#data
+p{font: 3.1px / -20 SANS-serif}
+#errors
+;1;17;m;CSS syntax error;'line-height'
+#cssom
+| <p>
+
+#data
+p{font: 3.1px/20 SANS-serif small-caps}
+#cssom
+| <p>
+|   -x-system-font: none
+|   font: 3.1px/20 "SANS-serif small-caps"
+|   font-family: "SANS-serif small-caps"
+|   font-size: 3.1px
+|   font-size-adjust: none
+|   font-stretch: normal
+|   font-style: normal
+|   font-variant: normal
+|   font-weight: normal
+|   line-height: 20
+
+#data
+p{font: small-caps/**/3.1px/2.0 SANS-serif}
+#cssom
+| <p>
+|   -x-system-font: none
+|   font: small-caps 3.1px/2 sans-serif
+|   font-family: sans-serif
+|   font-size: 3.1px
+|   font-size-adjust: none
+|   font-stretch: normal
+|   font-style: normal
+|   font-variant: small-caps
+|   font-weight: normal
+|   line-height: 2
+
+#data
+p{font: normal NORMAL normal 3.1px/20 SANS-serif}
+#cssom
+| <p>
+|   -x-system-font: none
+|   font: 3.1px/20 sans-serif
+|   font-family: sans-serif
+|   font-size: 3.1px
+|   font-size-adjust: none
+|   font-stretch: normal
+|   font-style: normal
+|   font-variant: normal
+|   font-weight: normal
+|   line-height: 20
+
+#data
+p{font:normal normal normal normal 3.1px/20 SANS-serif}
+#cssom
+| <p>
+|   -x-system-font: none
+|   font: 3.1px/20 sans-serif
+|   font-family: sans-serif
+|   font-size: 3.1px
+|   font-size-adjust: none
+|   font-stretch: normal
+|   font-style: normal
+|   font-variant: normal
+|   font-weight: normal
+|   line-height: 20
+
+#data
+p{font:normal normal normal normal normal 3.1px/20 SANS-serif}
+#errors
+;1;36;m;CSS syntax error;'font'
+#cssom
+| <p>
+
+#data
+p{font:normal normal normal normal 3.1px/}
+#errors
+;1;42;m;CSS syntax error;'line-height'
+#cssom
+| <p>
+
+#data
+p{font:normal normal normal normal 3.1px 20}
+#errors
+;1;44;m;CSS syntax error;'font-family'
+#cssom
+| <p>
+
+#data
+p{font:normal normal normal normal 3.1px -moz-initial}
+#errors
+;1;54;m;CSS syntax error;'font-family'
+#cssom
+| <p>
+
+#data
+p{font:menu}
+#cssom
+| <p>
+|   -x-system-font: menu
+|   font: menu
+|   font-family: -moz-use-system-font
+|   font-size: -moz-use-system-font
+|   font-size-adjust: -moz-use-system-font
+|   font-stretch: -moz-use-system-font
+|   font-style: -moz-use-system-font
+|   font-variant: -moz-use-system-font
+|   font-weight: -moz-use-system-font
+|   line-height: -moz-use-system-font
+#csstext
+p {
+  font: menu;
+}
+
+#data
+p{font:caption}
+#cssom
+| <p>
+|   -x-system-font: caption
+|   font: caption
+|   font-family: -moz-use-system-font
+|   font-size: -moz-use-system-font
+|   font-size-adjust: -moz-use-system-font
+|   font-stretch: -moz-use-system-font
+|   font-style: -moz-use-system-font
+|   font-variant: -moz-use-system-font
+|   font-weight: -moz-use-system-font
+|   line-height: -moz-use-system-font
+#csstext
+p {
+  font: caption;
+}
+
+#data
+p{font:ICON}
+#cssom
+| <p>
+|   -x-system-font: icon
+|   font: icon
+|   font-family: -moz-use-system-font
+|   font-size: -moz-use-system-font
+|   font-size-adjust: -moz-use-system-font
+|   font-stretch: -moz-use-system-font
+|   font-style: -moz-use-system-font
+|   font-variant: -moz-use-system-font
+|   font-weight: -moz-use-system-font
+|   line-height: -moz-use-system-font
+#csstext
+p {
+  font: icon;
+}
+
+#data
+p{font:message-Box}
+#cssom
+| <p>
+|   -x-system-font: message-box
+|   font: message-box
+|   font-family: -moz-use-system-font
+|   font-size: -moz-use-system-font
+|   font-size-adjust: -moz-use-system-font
+|   font-stretch: -moz-use-system-font
+|   font-style: -moz-use-system-font
+|   font-variant: -moz-use-system-font
+|   font-weight: -moz-use-system-font
+|   line-height: -moz-use-system-font
+#csstext
+p {
+  font: message-box;
+}
+
+#data
+p{font:small-caption}
+#cssom
+| <p>
+|   -x-system-font: small-caption
+|   font: small-caption
+|   font-family: -moz-use-system-font
+|   font-size: -moz-use-system-font
+|   font-size-adjust: -moz-use-system-font
+|   font-stretch: -moz-use-system-font
+|   font-style: -moz-use-system-font
+|   font-variant: -moz-use-system-font
+|   font-weight: -moz-use-system-font
+|   line-height: -moz-use-system-font
+#csstext
+p {
+  font: small-caption;
+}
+
+#data
+p{font:status-bar}
+#cssom
+| <p>
+|   -x-system-font: status-bar
+|   font: status-bar
+|   font-family: -moz-use-system-font
+|   font-size: -moz-use-system-font
+|   font-size-adjust: -moz-use-system-font
+|   font-stretch: -moz-use-system-font
+|   font-style: -moz-use-system-font
+|   font-variant: -moz-use-system-font
+|   font-weight: -moz-use-system-font
+|   line-height: -moz-use-system-font
+#csstext
+p {
+  font: status-bar;
+}
+
+#data
+p{font:caption2}
+#errors
+;1;8;m;CSS syntax error;'font-size'
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p{font:caption fuga}
+#errors
+;1;16;m;CSS syntax error;'font'
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p{font:status-bar;
+font-family: hoge}
+#cssom
+| <p>
+|   -x-system-font: status-bar
+|   font-family: "hoge"
+|   font-size: -moz-use-system-font
+|   font-size-adjust: -moz-use-system-font
+|   font-stretch: -moz-use-system-font
+|   font-style: -moz-use-system-font
+|   font-variant: -moz-use-system-font
+|   font-weight: -moz-use-system-font
+|   line-height: -moz-use-system-font
+#csstext
+p {
+  font-style: -moz-use-system-font;
+  font-variant: -moz-use-system-font;
+  font-weight: -moz-use-system-font;
+  font-stretch: -moz-use-system-font;
+  font-size: -moz-use-system-font;
+  line-height: -moz-use-system-font;
+  -x-system-font: status-bar;
+  font-size-adjust: -moz-use-system-font;
+  font-family: "hoge";
+}
+
+#data
+p{font-size: 420px;
+font:status-bar;
+}
+#cssom
+| <p>
+|   -x-system-font: status-bar
+|   font: status-bar
+|   font-family: -moz-use-system-font
+|   font-size: -moz-use-system-font
+|   font-size-adjust: -moz-use-system-font
+|   font-stretch: -moz-use-system-font
+|   font-style: -moz-use-system-font
+|   font-variant: -moz-use-system-font
+|   font-weight: -moz-use-system-font
+|   line-height: -moz-use-system-font
+#csstext
+p {
+  font: status-bar;
+}
+
+#data
+p{font:bold bolder 12px serif}
+#errors
+;1;13;m;CSS syntax error;'font'
+#cssom
+| <p>
+#csstext
+p {
+}
+
+#data
+p{font:small-caps bold normal 12px serif}
+#csstext
+p {
+  font: small-caps bold 12px serif;
+}
+
+#data
+p{font: small-caps bold italic normal 12px serif}
+#csstext
+p {
+  font: italic small-caps bold 12px serif;
+}
+
+#data
+p{font: small-caps bold italic normal normal 12px serif}
+#errors
+;1;39;m;CSS syntax error;'font'
+#csstext
+p {
+}
+
+#data
+p{font: small-caps bold italic expanded normal 12px serif}
+#errors
+;1;41;m;CSS syntax error;'font'
+#csstext
+p {
+}
+
+#data
+p{font: menu; font: 12px serif}
+#cssom
+| <p>
+|   -x-system-font: none
+|   font: 12px serif
+|   font-family: serif
+|   font-size: 12px
+|   font-size-adjust: none
+|   font-stretch: normal
+|   font-style: normal
+|   font-variant: normal
+|   font-weight: normal
+|   line-height: normal
+#csstext
+p {
+  font: 12px serif;
+}
+
+#data
+p{font: 12px serif; font-style: -moz-use-system-font}
+#csstext
+p {
+  font-variant: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  font-size: 12px;
+  line-height: normal;
+  font-family: serif;
+  -x-system-font: none;
+  font-size-adjust: none;
+  font-style: -moz-use-system-font;
+}
+
+#data
+p{font: -moz-use-system-fonT aaa;}
+#errors
+;1;9;m;CSS syntax error;'font'
+#csstext
+p {
+}
+
+#data
+p{font: -moz-use-system-fonT 20px aaa;}
+#errors
+;1;9;m;CSS syntax error;'font'
+#csstext
+p {
+}
+
+#data
+p{font: 12px/-moz-use-system-fonT aaa;}
+#errors
+;1;14;m;CSS syntax error;'font'
+#csstext
+p {
+}
+
+#data
+p{font: 12px/  -moz-use-system-fonT aaa;}
+#errors
+;1;16;m;CSS syntax error;'font'
+#csstext
+p {
+}
+
+#data
+p{font: 12px -moz-use-system-fonT }
+#csstext
+p {
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  font-size: 12px;
+  line-height: normal;
+  font-family: -moz-use-system-font;
+  -x-system-font: none;
+  font-size-adjust: none;
+}
+
+#data
+p{font: 12px -moz-use-system-fonT aaa;}
+#csstext
+p {
+  font: 12px "-moz-use-system-fonT aaa";
+}
+
+#data
+p{font: 12px/
+-moz-use-system-font aaa;}
+#errors
+;2;1;m;CSS syntax error;'font'
+#csstext
+p {
+}
+
+#data
+p{font: 12px/-MOZ-USE-SYSTEM-FONT aaa;}
+#errors
+;1;14;m;CSS syntax error;'font'
+#csstext
+p {
+}
+
+#data
+p{font: 12px serif; font-size-adjust: 12 }
+#csstext
+p {
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  font-size: 12px;
+  line-height: normal;
+  font-family: serif;
+  -x-system-font: none;
+  font-size-adjust: 12;
+}
+
+#data
+p{-x-system-font: none}
+#cssom
+| <p>
+|   -x-system-font: none
+
+#data
+p{-x-system-font: caption}
+#cssom
+| <p>
+|   -x-system-font: caption
+
+#data
+p{-x-system-font: normal}
+#errors
+;1;19;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{font:  small-caption;-x-system-font: menu}
+#csstext
+p {
+  font: menu;
+}
+
+#data
+p{font: 314px ho ge ; -x-systeM-font: Status-bar}
+#csstext
+p {
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  font-stretch: normal;
+  font-size: 314px;
+  line-height: normal;
+  font-family: "ho ge";
+  font-size-adjust: none;
+  -x-system-font: status-bar;
+}
+
+#data
+p {font: larger hoge}
+#cssom
+| <p>
+|   -x-system-font: none
+|   font: larger "hoge"
+|   font-family: "hoge"
+|   font-size: larger
+|   font-size-adjust: none
+|   font-stretch: normal
+|   font-style: normal
+|   font-variant: normal
+|   font-weight: normal
+|   line-height: normal
+
+#data
+p {font: larger /norMal hoge}
+#cssom
+| <p>
+|   -x-system-font: none
+|   font: larger "hoge"
+|   font-family: "hoge"
+|   font-size: larger
 |   font-size-adjust: none
 |   font-stretch: normal
 |   font-style: normal

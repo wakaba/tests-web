@@ -1,0 +1,116 @@
+#data html
+<!DOCTYPE HTML><title>From HTML5 spec</title>
+<nav>
+ <ul>
+  <li> <a href="/">Home</a> </li>
+  <li> <a href="/news">News</a> </li>
+  <li> <a>Examples</a> </li>
+  <li> <a href="/legal">Legal</a> </li>
+ </ul>
+</nav>
+#errors
+/html;attribute missing;lang;w
+
+#data html
+<!DOCTYPE HTML><title>From HTML5 spec</title>
+<aside class="advertising">
+ <h1>Advertising</h1>
+ <a href="http://ad.example.com/?adid=1929&amp;pubid=1422">
+  <section>
+   <h1>Mellblomatic 9000!</h1>
+   <p>Turn all your widgets into mellbloms!</p>
+   <p>Only $9.99 plus shipping and handling.</p>
+  </section>
+ </a>
+ <a href="http://ad.example.com/?adid=375&amp;pubid=1422">
+  <section>
+   <h1>The Mellblom Browser</h1>
+   <p>Web browsing at the speed of light.</p>
+   <p>No other browser goes faster!</p>
+  </section>
+ </a>
+</aside>
+#errors
+/html;attribute missing;lang;w
+
+#data html
+<!DOCTYPE HTML><title>From HTML5 spec</title>
+<p>Account: <input type="text" name="ac" autocomplete="off"></p>
+<p>PIN: <input type="text" name="pin" autocomplete="off"></p>
+#errors
+/html;attribute missing;lang;w
+
+#data html
+<!DOCTYPE HTML><title>From HTML5 spec</title>
+<menu>
+ <li><a href="settings.html" onclick="panels.show('settings')">Settings</a>
+ <li><bb type="makeapp">Download standalone application</bb>
+ <li><a href="help.html" onclick="panels.show('help')">Help</a>
+ <li><a href="logout.html" onclick="panels.show('logout')">Sign out</a>
+</menu>
+#errors
+/html;attribute missing;lang;w
+/html/body/menu/li/a/@onclick;event handler;u
+/html/body/menu/li/a/@onclick;event handler;u
+/html/body/menu/li/a/@onclick;event handler;u
+/html/body/menu/li;no significant content;s
+/html/body/menu/li/bb;element not allowed:flow;m
+/html/body/menu/li/bb;element not defined;m
+/html/body/menu/li/bb/@type;attribute not defined;m
+
+#data html
+<!DOCTYPE HTML><title>From HTML5 spec</title>
+<menu>
+ <a href="settings.html" onclick="panels.show('settings')">Settings</a> |
+ <bb type="makeapp" id="makeapp"> </bb>
+ <a href="help.html" onclick="panels.show('help')">Help</a> |
+ <a href="logout.html" onclick="panels.show('logout')">Sign out</a>
+</menu>
+<script>
+ var bb = document.getElementById('makeapp');
+ if (bb.supported && bb.enabled) {
+   bb.parentNode.nextSibling.textContent = ' | ';
+   bb.textContent = 'Download standalone application';
+ } else {
+   bb.parentNode.removeChild(bb);
+ }
+</script>
+#errors
+/html;attribute missing;lang;w
+/html/body/menu/a/@onclick;event handler;u
+/html/body/menu/a/@onclick;event handler;u
+/html/body/menu/a/@onclick;event handler;u
+/html/body/menu/bb;element not defined;m
+/html/body/menu/bb;element not allowed:menu type=toolbar;m
+/html/body/menu/bb/@type;attribute not defined;m
+/html/body/script;unknown script lang;u
+
+#data html
+<!DOCTYPE HTML><title>From HTML5 spec</title>
+  <h1>The Example Game</h1>
+  <section id="login">
+   <h2>Login</h2>
+   <form>
+    ...
+    <!-- calls login() once the user's credentials have been checked -->
+   </form>
+   <script>
+    function login() {
+      // switch screens
+      document.getElementById('login').hidden = true;
+      document.getElementById('game').hidden = false;
+    }
+   </script>
+  </section>
+  <section id="game" hidden>
+   ...
+  </section>
+#errors
+/html;attribute missing;lang;w
+/html/body/section/script;unknown script lang;u
+
+#data html
+<!DOCTYPE HTML><title>From HTML5 spec</title>
+<label><input type=checkbox name=lost> Lost</label>
+#errors
+/html;attribute missing;lang;w

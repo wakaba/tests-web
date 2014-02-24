@@ -82,6 +82,12 @@ unexpected EOF
 |               <code>
 |                 <cite>
 |                   <code>
+|       <code>
+|         <code>
+|           <div>
+|             <b>
+|               "X"
+|             "TEST"
 
 #data
 <!DOCTYPE HTML>
@@ -103,6 +109,12 @@ unexpected EOF
 |                 <cite>
 |                   <code>
 |                     "Y"
+|       <code>
+|         <code>
+|           <div>
+|             <b>
+|               "X"
+|             "TEST"
 
 #data
 <!DOCTYPE HTML>
@@ -124,6 +136,14 @@ unexpected EOF
 |                 <cite>
 |                   <code>
 |                     "Y"
+|       <code>
+|         <code>
+|           <div>
+|             <b>
+|               "X"
+|             "TEST"
+|             <p>
+|               "a"
 
 #data
 <!DOCTYPE html><i><b>a<button>b</i>c
@@ -395,7 +415,8 @@ no </button>
 #data
 <!DOCTYPE html><form>a<button>b</form>c
 #errors
-no </button>
+stray </form>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -404,8 +425,7 @@ no </button>
 |     <form>
 |       "a"
 |       <button>
-|         "b"
-|     "c"
+|         "bc"
 
 #data
 <!DOCTYPE html><h1>a<button>b</h1>c
@@ -594,9 +614,9 @@ EOF
 |     <noembed>
 |     <table>
 
-#note When scripting is disabled.
 #data
 <!DOCTYPE html><table><b><i>a</b><noscript>
+#noscript
 #errors
 <b> in table
 <i> in table
@@ -950,28 +970,26 @@ unexpected EOF
 |                           <strong>
 |                             <tt>
 |                               <u>
-|                           <tt>
-|                             <u>
-|                           <u>
-|                           <div>
-|                             <u>
-|                               <tt>
-|                                 <strong>
-|                                   "abcdefghijkl"
-|                                 "m"
-|                               "n"
-|                             "o"
+|     <strong>
+|       <tt>
+|         <u>
+|     <tt>
+|       <u>
+|     <u>
+|     <div>
+|       <u>
+|         <tt>
+|           <strong>
+|             <a>
+|               "a"
+|             "bcdefghijkl"
+|           "m"
+|         "n"
+|       "o"
 
 #data
 <!DOCTYPE HTML><a><div><div><div><div><div><div><div><div><div>b</a>c
 #errors
-AAA error
-AAA error
-AAA error
-AAA error
-AAA error
-AAA error
-AAA error
 AAA error
 unexpected EOF
 #document
@@ -980,37 +998,24 @@ unexpected EOF
 |   <head>
 |   <body>
 |     <a>
+|       <div>
+|         <div>
+|           <div>
+|             <div>
+|               <div>
+|                 <div>
+|                   <div>
+|                     <div>
 |     <div>
 |       <a>
-|       <div>
-|         <a>
-|         <div>
-|           <a>
-|           <div>
-|             <a>
-|             <div>
-|               <a>
-|               <div>
-|                 <a>
-|                 <div>
-|                   <a>
-|                   <div>
-|                     <a>
-|                       <div>
-|                         "bc"
+|         "b"
+|       "c"
 
 #data
 <!DOCTYPE HTML><a><div><div><div><div><div><div><div><div><div>b<a>c
 #errors
 unexpected <a>
 AAA error
-AAA error
-AAA error
-AAA error
-AAA error
-AAA error
-AAA error
-AAA error
 unexpected EOF
 #document
 | <!DOCTYPE html>
@@ -1018,24 +1023,77 @@ unexpected EOF
 |   <head>
 |   <body>
 |     <a>
+|       <div>
+|         <div>
+|           <div>
+|             <div>
+|               <div>
+|                 <div>
+|                   <div>
+|                     <div>
 |     <div>
 |       <a>
+|         "b"
+|       <a>
+|         "c"
+
+#data
+<a><b><div>A</a>B
+#errors
+no DOCTYPE
+AAA
+EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <a>
+|       <b>
+|     <b>
 |       <div>
 |         <a>
-|         <div>
-|           <a>
-|           <div>
-|             <a>
-|             <div>
-|               <a>
-|               <div>
-|                 <a>
-|                 <div>
-|                   <a>
-|                   <div>
-|                     <a>
-|                       <div>
-|                         "b"
-|                         <a>
-|                           "c"
+|           "A"
+|         "B"
 
+#data
+<a><b><div><div>A</a>B
+#errors
+no DOCTYPE
+AAA
+EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <a>
+|       <b>
+|         <div>
+|     <b>
+|       <div>
+|         <a>
+|           "A"
+|         "B"
+
+#data
+<!DOCTYPE html><div><b><i><s><u><tt><p></b>123</p></tt></u></s>456
+#errors
+AAA
+EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <div>
+|       <b>
+|         <i>
+|           <s>
+|             <u>
+|               <tt>
+|       <s>
+|         <u>
+|           <tt>
+|             <p>
+|               <b>
+|               "123"
+|       "456"

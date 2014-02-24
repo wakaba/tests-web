@@ -18,7 +18,7 @@ p {
   content: normal "none";
 }
 #errors
-;2;19;m;no property semicolon
+;2;18;m;CSS syntax error;'content'
 #cssom
 | <p>
 
@@ -87,7 +87,7 @@ p {
   content: "normal", "none";
 }
 #errors
-;2;20;m;no property semicolon
+;2;20;m;CSS syntax error;'content'
 #cssom
 | <p>
 
@@ -97,10 +97,10 @@ p {
 }
 #cssom
 | <p>
-|   content: url(a)
+|   content: url("a")
 #csstext
 p {
-  content: url(a);
+  content: url("a");
 }
 
 #data
@@ -109,10 +109,10 @@ p {
 }
 #cssom
 | <p>
-|   content: "IMAGE: " url(image)
+|   content: "IMAGE: " url("image")
 #csstext
 p {
-  content: "IMAGE: " url(image);
+  content: "IMAGE: " url("image");
 }
 
 #data
@@ -156,7 +156,7 @@ p {
   content: counter(a, normal);
 }
 #errors
-;2;23;m;CSS syntax error;'content'
+;2;23;m;css:keyword:not allowed
 #cssom
 | <p>
 
@@ -177,7 +177,7 @@ p {
   content: counter(a, "b");
 }
 #errors
-;2;23;m;CSS syntax error;'content'
+;2;23;m;css:value:not keyword
 #cssom
 | <p>
 
@@ -186,7 +186,56 @@ p {
   content: counter(a, "b", decimal);
 }
 #errors
-;2;23;m;CSS syntax error;'content'
+;2;23;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{content: counter()}
+#errors
+;1;20;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p{content: counter(123)}
+#errors
+;1;20;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p{content: counter(hoGe,)}
+#errors
+;1;25;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{content: counter(hoGe,decimal,)}
+#errors
+;1;25;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{content: counter(hoGe, 12px )}
+#errors
+;1;26;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{content: counter( /**/ /**/ hoGe /**/ , /**/ decimal,)}
+#errors
+;1;48;m;css:value:not keyword
+#cssom
+| <p>
+
+#data
+p{content: counter(hoGe,"")}
+#errors
+;1;25;m;css:value:not keyword
 #cssom
 | <p>
 
@@ -261,7 +310,7 @@ p {
   content: counters(a, "b", c);
 }
 #errors
-;2;29;m;CSS syntax error;'content'
+;2;29;m;css:keyword:not allowed
 #cssom
 | <p>
 
@@ -270,7 +319,71 @@ p {
   content: counters(a, "b", inherit);
 }
 #errors
-;2;29;m;CSS syntax error;'content'
+;2;29;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p {
+  content: counters(a, "b", iniTIAL);
+}
+#errors
+;2;29;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{content: COunters()}
+#errors
+;1;21;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p{content: COunters(,)}
+#errors
+;1;21;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p{content: COunters(DA,)}
+#errors
+;1;24;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p{content: COunters(afw, not)}
+#errors
+;1;26;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p{content: COunters(awe, "")}
+#cssom
+| <p>
+|   content: counters(awe, "", decimal)
+
+#data
+p{content: COunters(afw, "aa" aa)}
+#errors
+;1;31;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p{content: COunters(afw, "aa" ,aa)}
+#errors
+;1;32;m;css:keyword:not allowed
+#cssom
+| <p>
+
+#data
+p{content: COunters(afw, "aa" ,   upper-roman 41)}
+#errors
+;1;35;m;css:value:not keyword
 #cssom
 | <p>
 
@@ -315,7 +428,7 @@ p {
   content: attr(a, b);
 }
 #errors
-;2;18;m;CSS syntax error;'content'
+;2;12;m;CSS syntax error;'content'
 #cssom
 | <p>
 
@@ -325,10 +438,10 @@ p {
 }
 #cssom
 | <p>
-|   content: attr(a)
+|   content: attr(|a)
 #csstext
 p {
-  content: attr(a);
+  content: attr(|a);
 }
 
 #data
@@ -336,7 +449,7 @@ p {
   content: attr(a|);
 }
 #errors
-;2;19;m;CSS syntax error;'content'
+;2;12;m;CSS syntax error;'content'
 #cssom
 | <p>
 
@@ -345,7 +458,7 @@ p {
   content: attr(a||b);
 }
 #errors
-;2;18;m;CSS syntax error;'content'
+;2;12;m;CSS syntax error;'content'
 #cssom
 | <p>
 
@@ -422,6 +535,47 @@ p {
 }
 
 #data
+p{content: "aa" "" open-Quote   at\tr(vc)
+ url(foo)
+}
+#cssom
+| <p>
+|   content: "aa" "" open-quote attr(vc) url("foo")
+
+#data
+p{content:
+counter(aa) counter(BacD1)}
+#cssom
+| <p>
+|   content: counter(aa, decimal) counter(BacD1, decimal)
+
+#data
+@namespace  afe "a";
+@namespace foo "b";
+p{
+content: attr(afe|aa) attr(foo|Bar) attr(a)
+}
+#cssom
+| @namespace afe: <a>
+| @namespace foo: <b>
+| <p>
+|   content: attr(afe|aa) attr(foo|Bar) attr(a)
+
+#data
+p{content: hoge()}
+#errors
+;1;12;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
+p{content: counter(aa), counter(bb)}
+#errors
+;1;23;m;CSS syntax error;'content'
+#cssom
+| <p>
+
+#data
 p {
   quotes:;
 }
@@ -457,7 +611,7 @@ p {
 |   quotes: none !important
 #csstext
 p {
-  quotes: none ! important;
+  quotes: none !important;
 }
 
 #data
@@ -507,7 +661,7 @@ p {
 |   quotes: -manakai-default !important
 #csstext
 p {
-  quotes: -manakai-default ! important;
+  quotes: -manakai-default !important;
 }
 
 #data
@@ -545,7 +699,7 @@ p {
 |   quotes: inherit !important
 #csstext
 p {
-  quotes: inherit ! important;
+  quotes: inherit !important;
 }
 
 #data
@@ -626,10 +780,10 @@ p {
 }
 #cssom
 | <p>
-|   quotes: """ """ "'" "'"
+|   quotes: "\"" "\"" "'" "'"
 #csstext
 p {
-  quotes: """ """ "'" "'";
+  quotes: "\"" "\"" "'" "'";
 }
 
 #data
@@ -675,11 +829,32 @@ p {
 | <p>
 
 #data
+p{quotes: none "a"}
+#errors
+;1;15;m;CSS syntax error;'quotes'
+#cssom
+| <p>
+
+#data
+p{quotes: none "a" "b"}
+#errors
+;1;15;m;CSS syntax error;'quotes'
+#cssom
+| <p>
+
+#data
+p{quotes:  "a" "b" none}
+#errors
+;1;20;m;CSS syntax error;'quotes'
+#cssom
+| <p>
+
+#data
 p {
   counter-reset: ;
 }
 #errors
-;2;18;m;CSS syntax error;'counter-reset'
+;2;17;m;css:counter set:syntax error
 #cssom
 | <p>
 
@@ -737,7 +912,7 @@ p {
 
 #data
 p {
-  counter-reset: inherit ! important;
+  counter-reset: inherit !important;
 }
 #cssom
 | <p>
@@ -748,7 +923,7 @@ p {
   counter-reset: 4
 }
 #errors
-;2;18;m;CSS syntax error;'counter-reset'
+;2;18;m;css:counter set:syntax error
 #cssom
 | <p>
 
@@ -796,7 +971,7 @@ p {
   counter-reset: a 1 2
 }
 #errors
-;2;22;m;no property semicolon
+;2;22;m;css:counter set:syntax error
 
 #data
 p {
@@ -815,7 +990,7 @@ p {
   counter-reset: a,b
 }
 #errors
-;2;19;m;no property semicolon
+;2;19;m;css:counter set:syntax error
 #cssom
 | <p>
 
@@ -828,7 +1003,7 @@ p {
 |   counter-reset: a 0 b 0 !important
 #csstext
 p {
-  counter-reset: a 0 b 0 ! important;
+  counter-reset: a 0 b 0 !important;
 }
 
 #data
@@ -859,9 +1034,10 @@ p {
 p {
   counter-reset: a 10.23 b 5665.4 c -53.4
 }
+#errors
+;2;20;m;css:counter set:syntax error
 #cssom
 | <p>
-|   counter-reset: a 10 b 5665 c -53
 
 #data
 p {
@@ -875,56 +1051,89 @@ p {
 p {
   counter-reset: none 1;
 }
+#errors
+;2;22;m;css:counter set:syntax error
 #cssom
 | <p>
-|   counter-reset: none 1
 
 #data
 p {
   counter-RESET: None 1;
 }
+#errors
+;2;22;m;css:counter set:syntax error
 #cssom
 | <p>
-|   counter-reset: None 1
 
 #data
 p {
   counter-reset: none a;
 }
+#errors
+;2;22;m;css:counter set:syntax error
 #cssom
 | <p>
-|   counter-reset: none 0 a 0
 
 #data
 p {
   counter-reset: inherit 2;
 }
+#errors
+;2;18;m;css:counter set:syntax error
 #cssom
 | <p>
-|   counter-reset: inherit 2
 
 #data
 p {
   Counter-Reset: Inherit 2;
 }
+#errors
+;2;18;m;css:counter set:syntax error
 #cssom
 | <p>
-|   counter-reset: Inherit 2
 
 #data
 p {
   counter-reset: inherit a;
 }
+#errors
+;2;18;m;css:counter set:syntax error
 #cssom
 | <p>
-|   counter-reset: inherit 0 a 0
+
+#data
+p {
+  counter-reset: initIal a;
+}
+#errors
+;2;18;m;css:counter set:syntax error
+#cssom
+| <p>
+
+#data
+p {
+  counter-reset: -moz-initial a;
+}
+#errors
+;2;18;m;css:counter set:syntax error
+#cssom
+| <p>
+
+#data
+p {
+  counter-reset: unset a;
+}
+#errors
+;2;18;m;css:counter set:syntax error
+#cssom
+| <p>
 
 #data
 p {
   counter-increment: ;
 }
 #errors
-;2;22;m;CSS syntax error;'counter-increment'
+;2;21;m;css:counter set:syntax error
 #cssom
 | <p>
 
@@ -993,7 +1202,7 @@ p {
   counter-increment: 4
 }
 #errors
-;2;22;m;CSS syntax error;'counter-increment'
+;2;22;m;css:counter set:syntax error
 #cssom
 | <p>
 
@@ -1041,7 +1250,7 @@ p {
   counter-increment: a 1 2
 }
 #errors
-;2;26;m;no property semicolon
+;2;26;m;css:counter set:syntax error
 
 #data
 p {
@@ -1060,7 +1269,7 @@ p {
   counter-increment: a,b
 }
 #errors
-;2;23;m;no property semicolon
+;2;23;m;css:counter set:syntax error
 #cssom
 | <p>
 
@@ -1073,7 +1282,7 @@ p {
 |   counter-increment: a 1 b 1 !important
 #csstext
 p {
-  counter-increment: a 1 b 1 ! important;
+  counter-increment: a 1 b 1 !important;
 }
 
 #data
@@ -1093,6 +1302,24 @@ p {
 |   counter-increment: a 23 b 55
 
 #data
+p{counter-increment : aaGe 0 hoGG}
+#cssom
+| <p>
+|   counter-increment: aaGe 0 hoGG 1
+
+#data
+p{counter-increment : aaGe 0 hoGG aaGe 5 aage -6}
+#cssom
+| <p>
+|   counter-increment: aaGe 0 hoGG 1 aaGe 5 aage -6
+
+#data
+p{counter-increment : aaGe 0 hoGG IniTIAL 4}
+#cssom
+| <p>
+|   counter-increment: aaGe 0 hoGG 1 IniTIAL 4
+
+#data
 p {
   counter-increment: a -10 b -20
 }
@@ -1104,9 +1331,10 @@ p {
 p {
   counter-increment: a 10.23 b 5665.4 c -53.4
 }
+#errors
+;2;24;m;css:counter set:syntax error
 #cssom
 | <p>
-|   counter-increment: a 10 b 5665 c -53
 
 #data
 p {
@@ -1120,49 +1348,82 @@ p {
 p {
   counter-increment: none 1;
 }
+#errors
+;2;26;m;css:counter set:syntax error
 #cssom
 | <p>
-|   counter-increment: none 1
 
 #data
 p {
   counter-INCREMENT: None 1;
 }
+#errors
+;2;26;m;css:counter set:syntax error
 #cssom
 | <p>
-|   counter-increment: None 1
 
 #data
 p {
   counter-increment: none a;
 }
+#errors
+;2;26;m;css:counter set:syntax error
 #cssom
 | <p>
-|   counter-increment: none 1 a 1
 
 #data
 p {
   counter-increment: inherit 2;
 }
+#errors
+;2;22;m;css:counter set:syntax error
 #cssom
 | <p>
-|   counter-increment: inherit 2
 
 #data
 p {
   Counter-Increment: Inherit 2;
 }
+#errors
+;2;22;m;css:counter set:syntax error
 #cssom
 | <p>
-|   counter-increment: Inherit 2
 
 #data
 p {
   counter-increment: inherit a;
 }
+#errors
+;2;22;m;css:counter set:syntax error
 #cssom
 | <p>
-|   counter-increment: inherit 1 a 1
+
+#data
+p {
+  Counter-Increment: Initial 2;
+}
+#errors
+;2;22;m;css:counter set:syntax error
+#cssom
+| <p>
+
+#data
+p {
+  Counter-Increment: -moz-initial 2;
+}
+#errors
+;2;22;m;css:counter set:syntax error
+#cssom
+| <p>
+
+#data
+p {
+  Counter-Increment: unset 2;
+}
+#errors
+;2;22;m;css:counter set:syntax error
+#cssom
+| <p>
 
 #data
 p {
@@ -1248,7 +1509,7 @@ p {
   marker-offset: 10cml;
 }
 #errors
-;2;18;m;CSS syntax error;'marker-offset'
+;2;18;m;css:value:not length
 #cssom
 | <p>
 
@@ -1265,7 +1526,7 @@ p {
   marker-offset: 3;
 }
 #errors
-;2;18;m;CSS syntax error;'marker-offset'
+;2;18;m;css:value:not length
 #cssom
 | <p>
 
@@ -1273,93 +1534,7 @@ p {
 p {
   marker-offset: 3;
 }
-#option q
-#cssom
-| <p>
-|   marker-offset: 3px
-
-#data
-p {
-  list-style-type: hebrew;
-}
-#cssom
-| <p>
-|   list-style-type: hebrew
-
-#data
-p {
-  list-style-type: CJK-ideographic
-}
-#cssom
-| <p>
-|   list-style-type: cjk-ideographic
-
-#data
-p {
-  list-style-type: kana
-}
 #errors
-;2;20;m;CSS syntax error;'list-style-type'
+;2;18;m;css:value:not length
 #cssom
 | <p>
-
-#data
-p {
-  list-style-type: hiragana;
-}
-#cssom
-| <p>
-|   list-style-type: hiragana
-
-#data
-p {
-  list-style-type: Hirakana;
-} 
-#errors
-;2;20;m;CSS syntax error;'list-style-type'
-#cssom
-| <p>
-
-#data
-p {
-  list-style-type: iroha;
-}
-#errors
-;2;20;m;CSS syntax error;'list-style-type'
-#cssom
-| <p>
-
-#data
-p {
-  list-style-type: hiragana-iroha;
-}
-#cssom
-| <p>
-|   list-style-type: hiragana-iroha
-
-#data
-p {
-  list-style-type: katakana-iroha
-}
-#cssom
-| <p>
-|   list-style-type: katakana-iroha
-
-#data
-p {
-  list-style: none;
-}
-#cssom
-| <p>
-|   list-style: none none outside
-|   list-style-image: none
-|   list-style-position: outside
-|   list-style-type: none
-#csstext
-p {
-  list-style-image: none;
-  list-style-position: outside;
-  list-style-type: none;
-}
-
-
