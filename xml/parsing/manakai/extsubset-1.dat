@@ -233,3 +233,17 @@
 | <!DOCTYPE foo "abc" "http://xya/">
 | <{} hoge>
 |   a="abc"
+
+#data
+<!DOCTYPE hoge >
+<!DOCTYPE foo SYSTEM "http://a/">
+<a>&foo;</a>
+#resource http://a/
+<!ENTITY foo "br">
+#errors
+2;1;second doctype;;;m
+3;4;entity not declared;;foo;;m
+#document
+| <!DOCTYPE hoge>
+| <{} a>
+|   "&foo;"
