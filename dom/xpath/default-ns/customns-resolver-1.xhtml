@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>DOM3 XPath and Default Namespace</title>
+</head>
+<body>
+<h1>DOM3 XPath and Default Namespace</h1>
+
+<p>XPath expression <code>//div</code> with a namespace resolver that
+returns a namespace URL...</p>
+
+<dl>
+<dt><code>&lt;div xmlns=""/></code></dt>
+    <dd><div xmlns="">DON'T MATCH</div></dd>
+<dt><code>&lt;div xmlns="http://www.w3.org/1999/xhtml"/></code></dt>
+    <dd><div xmlns="http://www.w3.org/1999/xhtml">DON'T MATCH</div></dd>
+<dt><code>&lt;h:div xmlns:h="http://www.w3.org/1999/xhtml"/></code></dt>
+    <dd><h:div xmlns:h="http://www.w3.org/1999/xhtml">DON'T MATCH</h:div></dd>
+<dt><code>&lt;div xmlns="http://myns.test/"/></code></dt>
+    <dd><div xmlns="http://myns.test/">DON'T MATCH</div></dd>
+<dt><code>&lt;h:div xmlns:h="http://myns.test/"/></code></dt>
+    <dd><h:div xmlns:h="http://myns.test/">DON'T MATCH</h:div></dd>
+</dl>
+
+<script type="text/javascript">
+  var nl = document.evaluate ('//div', document, function () {
+    return 'http://myns.test/';
+  }, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+  for (var i = 0; i &lt; nl.snapshotLength; i++) {
+    nl.snapshotItem (i).textContent = 'MATCH';
+  }
+</script>
+
+</body>
+</html>

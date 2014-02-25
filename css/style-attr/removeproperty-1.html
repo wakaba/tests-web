@@ -1,0 +1,19 @@
+<!DOCTYPe html>
+<title>removeProperty</title>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var el = document.createElement ('p');
+  el.setAttribute ('style', 'display:block;color:black');
+  el.style.removeProperty ('color');
+  
+  var result = document.getElementById ('result');
+  var actual = el.getAttribute ('style');
+  if (actual === 'display: block;') {
+    result.firstChild.data = 'PASS';
+    result.className = 'PASS';
+  } else {
+    result.firstChild.data = 'FAIL (' + actual + ')';
+  }
+</script>

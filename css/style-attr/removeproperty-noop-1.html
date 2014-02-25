@@ -1,0 +1,13 @@
+<!DOCTYPe html>
+<title>removeProperty</title>
+
+<p id=result>FAIL (noscript)
+
+<script>
+  var el = document.createElement ('p');
+  el.setAttribute ('style', 'display:block');
+  el.style.removeProperty ('color');
+  
+  var result = document.getElementById ('result');
+  result.textContent = '(' + el.getAttribute ('style') + ')';
+</script>

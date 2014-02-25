@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>XPathResult</title>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var doc = document.implementation.createDocument (null, "a", null);
+  var el = doc.createElement ('aa');
+  doc.documentElement.appendChild (el);
+  el.appendChild (doc.createElement ('aa'));
+  var result = document.evaluate ('//p', el, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+  document.body.appendChild (document.createElement ('foo'));
+  
+  var resultEl = document.getElementById ('result');
+  if (!result.invalidIteratorState) {
+    resultEl.firstChild.data = 'PASS';
+    resultEl.class = 'PASS';
+  } else {
+    resultEl.firstChild.data = 'FAIL (' + result.invalidIteratorState + ')';
+  }
+</script>

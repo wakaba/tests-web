@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>XPath</title>
+  </head>
+  <body>
+    <p id="result" class="FAIL">FAIL (noscript)</p>
+
+    <p id="data" xmlns:a="http://a/"></p>
+
+    <script>
+      var result = document.getElementById ('result');
+      var data = document.getElementById ('data');
+      var r = document.evaluate ('boolean(namespace::a)', data, null, 0, null);
+      if (!r.booleanValue) {
+        result.firstChild.data = 'PASS';
+        result.className = 'PASS';
+      } else {
+        result.firstChild.data = 'FAIL (' + r.booleanValue + ')';
+      }
+    </script>
+  </body>
+</html>

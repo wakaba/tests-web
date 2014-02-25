@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>DOM3 XPath and Default Namespace</title>
+</head>
+<body>
+<h1>DOM3 XPath and Default Namespace</h1>
+
+<p>XPath expression <code>//div</code> with a namespace resolver that
+returns a namespace URL...</p>
+
+<dl>
+<dt><code>&lt;div xmlns=""/></code></dt>
+    <dd id=1>
+<dt><code>&lt;div xmlns="http://www.w3.org/1999/xhtml"/></code></dt>
+    <dd id=2>
+<dt><code>&lt;h:div xmlns:h="http://www.w3.org/1999/xhtml"/></code></dt>
+    <dd id=3>
+<dt><code>&lt;div xmlns="http://myns.test/"/></code></dt>
+    <dd id=4>
+<dt><code>&lt;h:div xmlns:h="http://myns.test/"/></code></dt>
+    <dd id=5>
+</dl>
+
+<script>
+  var div1 = document.createElementNS (null, 'div');
+  div1.textContent = "DON'T MATCH";
+  document.getElementById ('1').appendChild (div1);
+
+  var div2 = document.createElementNS ('http://www.w3.org/1999/xhtml', 'div');
+  div2.textContent = "DON'T MATCH";
+  document.getElementById ('2').appendChild (div2);
+
+  var div3 = document.createElementNS ('http://www.w3.org/1999/xhtml', 'h:div');
+  div3.textContent = "DON'T MATCH";
+  document.getElementById ('3').appendChild (div3);
+
+  var div4 = document.createElementNS ('http://myns.test/', 'div');
+  div4.textContent = "DON'T MATCH";
+  document.getElementById ('4').appendChild (div4);
+
+  var div5 = document.createElementNS ('http://myns.test/', 'h:div');
+  div5.textContent = "DON'T MATCH";
+  document.getElementById ('5').appendChild (div5);
+</script>
+
+<script type="text/javascript">
+  var nl = document.evaluate ('//div', document, function () {
+    return 'http://myns.test/';
+  }, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+  for (var i = 0; i < nl.snapshotLength; i++) {
+    nl.snapshotItem (i).textContent = 'MATCH';
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<title>Referrer</title>
+<link rel=last href="referrer-result-1.html">
+
+<p><a href="">Follow this link</a>
+
+<script><!--
+  var resultURL = document.getElementsByTagName ('link')[0].href;
+  document.links[0].href = 'data:text/html,<script>location.replace ("' + resultURL + '")</script>';
+//--></script>

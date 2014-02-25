@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>Literal with non XML Char character</title>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<p id=data>
+
+<script>
+  var result = document.getElementById ('result');
+  var data = document.getElementById ('data');
+  result.firstChild.data = 'FAIL (script)';
+  data.textContent = "\uD800";
+
+  try {
+    var r = document.evaluate ('//p[text() = "\uD800"]', document, null, 0, null);
+  } catch (e) {
+    result.firstChild.data = 'FAIL (exception ' + e + ')';
+  }
+  if (r) {
+    var node = r.iterateNext ();
+    if (node === data) {
+      result.firstChild.data = 'PASS';
+      result.className = 'PASS';
+    } else {
+      result.firstChild.data = 'FAIL (' + node + ')';
+    }
+  }
+</script>

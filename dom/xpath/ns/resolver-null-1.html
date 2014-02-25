@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>NSResolver</title>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var invoked = 0;
+  try {
+    document.evaluate ('aa:bb/bb:cc', document, function () {
+      invoked++;
+      return null;
+    }, 0, null);
+  } catch (e) {
+    if (e.name === 'NamespaceError' && invoked === 1) {
+      window.result.firstChild.data = 'PASS';
+      window.result.className = 'PASS';
+    } else {
+      window.result.firstChild.data = 'FAIL (exception = ' + e.name + ', # = ' + invoked + ')';
+    }
+  }
+</script>
