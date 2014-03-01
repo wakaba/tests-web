@@ -1,0 +1,408 @@
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![[
+  <!ENTITY x "X">
+]]>
+  <!ENTITY y "Y">
+#errors
+1;35;entity not declared;;x;;m
+[1]1;4;ms:no status keyword;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![INCLUDE[
+  <!ENTITY x "X">
+]]>
+  <!ENTITY y "Y">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "XY"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![  INCLUDE[
+  <!ENTITY x "X">
+]]>
+  <!ENTITY y "Y">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "XY"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![INCLUDE   [
+  <!ENTITY x "X">
+]]>
+  <!ENTITY y "Y">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "XY"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![  INCLUDE  [
+  <!ENTITY x "X">
+]]>
+  <!ENTITY y "Y">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "XY"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![INCLUDE[
+  <!ENTITY x "X">
+]]
+  <!ENTITY y "Y">
+#errors
+[1]3;1;ms:bare ]];;;m
+[1]4;18;ms:unclosed;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "XY"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![INCLUDE[
+  <!ENTITY x "X">
+]] >
+  <!ENTITY y "Y">
+#errors
+[1]3;1;ms:bare ]];;;m
+[1]3;4;string in internal subset;;;m
+[1]4;18;ms:unclosed;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "XY"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![INCLUDE[
+  <!ENTITY x "X">
+] ]>
+  <!ENTITY y "Y">
+#errors
+[1]3;1;ms:bare ];;;m
+[1]3;3;ms:bare ];;;m
+[1]3;4;string in internal subset;;;m
+[1]4;18;ms:unclosed;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "XY"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+  <!ENTITY x "X">
+]]>
+  <!ENTITY y "Y">
+#errors
+[1]2;1;string in internal subset;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "XY"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![INCLUDE[
+  <![INCLUDE[
+    <!ENTITY x "X">
+  ]]>
+]]>
+  <!ENTITY y "Y">
+#errors
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "XY"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![IGNORE[
+  <!ENTITY x "X">
+]]>
+  <!ENTITY y "Y">
+#errors
+1;35;entity not declared;;x;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![ IGNORE[
+  <!ENTITY x "X">
+]]>
+  <!ENTITY y "Y">
+#errors
+1;35;entity not declared;;x;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![IGNORE
+[
+  <!ENTITY x "X">
+]]>
+  <!ENTITY y "Y">
+#errors
+1;35;entity not declared;;x;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![include[
+  <!ENTITY x "X">
+]]>
+  <!ENTITY y "Y">
+#errors
+[1]1;4;ms:no status keyword;;;m
+1;35;entity not declared;;x;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![  include[
+  <!ENTITY x "X">
+]]>
+  <!ENTITY y "Y">
+#errors
+[1]1;6;ms:no status keyword;;;m
+1;35;entity not declared;;x;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![ignore[
+  <!ENTITY x "X">
+]]>
+  <!ENTITY y "Y">
+#errors
+[1]1;4;ms:no status keyword;;;m
+1;35;entity not declared;;x;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![INCLUDE2[
+  <!ENTITY x "X">
+]]>
+  <!ENTITY y "Y">
+#errors
+[1]1;11;ms:no dso;;;m
+1;35;entity not declared;;x;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![IGNORE2[
+  <!ENTITY x "X">
+]]>
+  <!ENTITY y "Y">
+#errors
+[1]1;10;ms:no dso;;;m
+1;35;entity not declared;;x;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![INCLUDE IGNORE[
+  <!ENTITY x "X">
+]]>
+  <!ENTITY y "Y">
+#errors
+[1]1;12;ms:no dso;;;m
+1;35;entity not declared;;x;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![INCLUDE
+  <!ENTITY x "X">
+]]>
+  <!ENTITY y "Y">
+#errors
+[1]2;3;ms:no dso;;;m
+1;35;entity not declared;;x;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![
+  <!ENTITY x "X">
+]]>
+  <!ENTITY y "Y">
+#errors
+[1]2;3;ms:no status keyword;;;m
+1;35;entity not declared;;x;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![
+  <!ENTITY x "X">
+]>
+  <!ENTITY y "Y">
+#errors
+[1]2;3;ms:no status keyword;;;m
+[1]3;1;ms:bare ];;;m
+[1]4;18;ms:unclosed;;;m
+1;35;entity not declared;;x;;m
+1;38;entity not declared;;y;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;&y;"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![
+  <!ENTITY x "X">
+]<!ENTITY y "Y">
+#errors
+[1]2;3;ms:no status keyword;;;m
+[1]3;1;ms:bare ];;;m
+[1]3;17;ms:unclosed;;;m
+1;35;entity not declared;;x;;m
+1;38;entity not declared;;y;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;&y;"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<![IGNORE[
+  <![
+    <!ENTITY x "X">
+  ]]>
+]]>
+<!ENTITY y "Y">
+#errors
+1;35;entity not declared;;x;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"[
+  <!ENTITY % a "">
+]><a>&x;&y;</a>
+#resource http://a/
+<![IGNORE[
+  <![
+    <!ENTITY x "X">
+  ]]>
+]]>
+<!ENTITY y "Y">
+#errors
+3;6;entity not declared;;x;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"[
+  <!ENTITY % a "">
+]><a>&x;&y;</a>
+#resource http://a/
+<?xml encoding="utf-8"?><![IGNORE[
+  <![
+    <!ENTITY x "X">
+  ]]>
+]]>
+<!ENTITY y "Y">
+#errors
+3;6;entity not declared;;x;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&x;&y;</a>
+#resource http://a/
+<?xml encoding="utf-8"?><![IGNORE[
+  <![
+    <!ENTITY x "X">
+  ]]>
+]]>
+<!ENTITY y "Y">
+#errors
+1;35;entity not declared;;x;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&x;Y"

@@ -1,0 +1,112 @@
+#data
+<!DOCTYPE a [
+  <![IGNORE[
+    <!ENTITY x "X">
+  ]]>
+  <!ENTITY y "Y">
+]><a>&x;&y;</a>
+#errors
+2;3;condsect in internal subset;;;m
+6;6;entity not declared;;x;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a [
+  <![INCLUDE[
+    <!ENTITY x "X">
+  ]]>
+  <!ENTITY y "Y">
+]><a>&x;&y;</a>
+#errors
+2;3;condsect in internal subset;;;m
+6;6;entity not declared;;x;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % hoge '
+    <![INCLUDE[
+      <!ENTITY x "X">
+    ]]>
+    <!ENTITY y "Y">
+  '>
+  %hoge;
+]><a>&x;&y;</a>
+#errors
+3;5;condsect in internal subset;;;m
+9;6;entity not declared;;x;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "&x;Y"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % hoge SYSTEM "http://b/">
+  %hoge;
+]><a>&x;&y;</a>
+#resource http://b/
+    <![INCLUDE[
+      <!ENTITY x "X">
+    ]]>
+    <!ENTITY y "Y">
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "XY"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % fuga '
+    <![INCLUDE[
+      <!ENTITY x "X">
+    ]]>
+    <!ENTITY y "Y">
+  '>
+  <!ENTITY % hoge SYSTEM "http://b/">
+  %hoge;
+]><a>&x;&y;</a>
+#resource http://b/
+%fuga;
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "XY"
+
+#data
+<!DOCTYPE a [
+  <![IGNORE[
+    <!ENTITY x "X">
+]><a/>
+#errors
+2;3;condsect in internal subset;;;m
+4;1;ms:bare ];;;m
+4;7;ms:unclosed;;;m
+4;7;unclosed internal subset;;;m
+4;7;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
+
+#data
+<!DOCTYPE a [
+  <![INCLUDE[
+    <!ENTITY x "X">
+]><a/>
+#errors
+2;3;condsect in internal subset;;;m
+4;1;ms:bare ];;;m
+4;7;ms:unclosed;;;m
+4;7;unclosed internal subset;;;m
+4;7;no root element;;;m
+#document
+| <!DOCTYPE a>
+#entities
