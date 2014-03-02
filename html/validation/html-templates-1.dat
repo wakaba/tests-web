@@ -31,7 +31,6 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">abace<script/>e</template>
 #errors
-| #df/script;unknown script lang;u
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><style/>abacee</template>
@@ -59,7 +58,6 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><script/><template/><p>gaeeee</p><style scoped=""/></template>
 #errors
-| #df/script;unknown script lang;u
 | #df/style;element not allowed:flow style;m
 
 #data
@@ -73,7 +71,6 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><li>aa</li><script/><li>bb</li><template/></template>
 #errors
-| #df/script;unknown script lang;u
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">abc<li>aa</li></template>
@@ -89,13 +86,10 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><dt>aa</dt><dd>bb</dd><script/><template/></template>
 #errors
-| #df/script;unknown script lang;u
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><script/><dt>aa</dt><dd>bb</dd><script/><template/></template>
 #errors
-| #df/script;unknown script lang;u
-| #df/script;unknown script lang;u
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><figcaption>a</figcaption></template>
@@ -230,7 +224,6 @@
 <template xmlns="http://www.w3.org/1999/xhtml"><script/><track src="x"/><track src="xdf"/><source/></template>
 #errors
 | /template;no significant content;s
-| #df/script;unknown script lang;u
 | #df/track;element not allowed:flow;m
 | #df/track;element not allowed:flow;m
 | #df/source;attribute missing;src;m
@@ -261,7 +254,6 @@
 <template xmlns="http://www.w3.org/1999/xhtml"><col/><script/></template>
 #errors
 | #df/script;element not allowed:colgroup;m
-| #df/script;unknown script lang;u
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><col/><template/></template>
@@ -281,7 +273,6 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><colgroup/><colgroup/><thead/><tbody/><script/><template/><tbody/><tfoot/></template>
 #errors
-| #df/script;unknown script lang;u
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><tr/><tr/></template>
@@ -430,12 +421,10 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menuitem label="x"/><script/><template/><hr/></template>
 #errors
-| #df/script;unknown script lang;u
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><script/><template/></template>
 #errors
-| #df/script;unknown script lang;u
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><figcaption>aa</figcaption>
@@ -549,30 +538,25 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><script/><base href="x"/><template/></template>
 #errors
-| #df/script;unknown script lang;u
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><script/><p>aa</p><template/></template>
 #errors
-| #df/script;unknown script lang;u
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><script/><style></style><p>aa</p></template>
 #errors
-| #df/script;unknown script lang;u
 | #df/p;element not allowed:metadata;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><script/><base href="x"/><template/><style scoped=""/></template>
 #errors
-| #df/script;unknown script lang;u
 | #df/style/@scoped;attribute not allowed;w
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/><script/><base href="x"/><template/></template>
 #errors
 | #df/style/@scoped;attribute not allowed;w
-| #df/script;unknown script lang;u
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><noscript>a</noscript><style scoped=""/><script/><base href="x"/><template/></template>
@@ -581,7 +565,6 @@
 | #df/noscript;in XML:noscript;m
 | #df/noscript/"a";character not allowed;m
 | #df/style/@scoped;attribute not allowed;w
-| #df/script;unknown script lang;u
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><noscript><p>a</p></noscript><style scoped=""/><script/><base href="x"/><template/></template>
@@ -590,7 +573,6 @@
 | #df/noscript;in XML:noscript;m
 | #df/noscript/p;element not allowed:metadata;m
 | #df/style/@scoped;attribute not allowed;w
-| #df/script;unknown script lang;u
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><p>aabc</p><noscript><p>a</p></noscript><style scoped=""/><script/><template/></template>
@@ -598,7 +580,6 @@
 #errors
 | #df/noscript;in XML:noscript;m
 | #df/style;element not allowed:flow style;m
-| #df/script;unknown script lang;u
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><body>a<template><noscript>x</template></noscript></template>

@@ -75,7 +75,6 @@
 /head/title;no significant content;m
 /head/noscript;in XML:noscript;m
 /head/noscript/script;element not allowed:head noscript;m
-/head/noscript/script;unknown script lang;u
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -406,7 +405,6 @@
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><p>ab<script></script></noscript>
 #errors
 1;62;/html/body/noscript;element not allowed:minus;m
-1;62;/html/body/noscript;unknown script lang;u
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><p>ab<noscript>vv</noscript>
@@ -1056,7 +1054,6 @@
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">x<script>y</script></bb>
 #errors
-/bb/script;unknown script lang;u
 /bb;element not defined;m
 
 #data
@@ -2362,42 +2359,36 @@ abc
 <script></script>
 </menu>
 #errors
-/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <script></script>xy
 </menu>
 #errors
-/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <script></script><p>aa</p>
 </menu>
 #errors
-/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <script></script><p>aa</p>aaa
 </menu>
 #errors
-/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <script></script><li>aa</li><li>bb</li>
 </menu>
 #errors
-/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <script></script><li>aa</li><li>bb</li>aa<!---->
 </menu>
 #errors
-/menu/script;unknown script lang;u
 /menu/"aa";character not allowed;m
 
 #data
@@ -2413,7 +2404,6 @@ abc
 </menu>
 #errors
 /menu/"ab";character not allowed;m
-/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
@@ -2585,7 +2575,6 @@ abc
   <hr/><script/><hr/>
 </menu>
 #errors
-/menu/script;unknown script lang;u
 
 #data
 <menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
