@@ -1,0 +1,162 @@
+#data
+<!DOCTYPE foo [<!ENTITY x "X">]>
+<!DOCTYPE bar [<!ENTITY y "Y">]>
+<p>&x;&y;</p>
+#errors
+2;1;second doctype;;;m
+3;7;entity not declared;;y;;m
+#document
+| <!DOCTYPE foo>
+| <{} p>
+|   "X&y;"
+
+#data
+<!DOCTYPE foo>
+<!DOCTYPE bar [<!ENTITY y "Y">]>
+<p>&x;&y;</p>
+#errors
+2;1;second doctype;;;m
+3;4;entity not declared;;x;;m
+3;7;entity not declared;;y;;m
+#document
+| <!DOCTYPE foo>
+| <{} p>
+|   "&x;&y;"
+
+#data
+<!DOCTYPE foo>
+<!DOCTYPE bar SYSTEM "http://x/" [<!ENTITY y "Y">]>
+<p>&x;&y;</p>
+#resource http://x/
+<!ENTITY x "X">
+#errors
+2;1;second doctype;;;m
+3;4;entity not declared;;x;;m
+3;7;entity not declared;;y;;m
+#document
+| <!DOCTYPE foo>
+| <{} p>
+|   "&x;&y;"
+
+#data
+<!DOCTYPE foo>
+<!DOCTYPE bar SYSTEM "http://x/" [<!ENTITY y "Y">]>
+<p>&x;&y;</p>
+#resource http://x/
+hoge
+#errors
+2;1;second doctype;;;m
+3;4;entity not declared;;x;;m
+3;7;entity not declared;;y;;m
+#document
+| <!DOCTYPE foo>
+| <{} p>
+|   "&x;&y;"
+
+#data
+<!DOCTYPE foo>
+<!DOCTYPE bar [<!ENTITY % foo SYSTEM "http://x/"><!ENTITY y "Y">%foo;]>
+<p>&x;&y;</p>
+#resource http://x/
+hoge
+#errors
+2;1;second doctype;;;m
+3;4;entity not declared;;x;;m
+3;7;entity not declared;;y;;m
+#document
+| <!DOCTYPE foo>
+| <{} p>
+|   "&x;&y;"
+
+#data
+<p><!DOCTYPE bar [<!ENTITY % foo SYSTEM "http://x/"><!ENTITY y "Y">%foo;]>&x;&y;</p>
+#resource http://x/
+hoge
+#errors
+1;4;in html:#doctype;;;m
+1;75;entity not declared;;x;;m
+1;78;entity not declared;;y;;m
+#document
+| <{} p>
+|   "&x;&y;"
+
+#data
+<p>&x;&y;</p><!DOCTYPE bar [<!ENTITY % foo SYSTEM "http://x/"><!ENTITY y "Y">%foo;]>
+#resource http://x/
+hoge
+#errors
+1;4;entity not declared;;x;;m
+1;7;entity not declared;;y;;m
+1;14;in html:#doctype;;;m
+#document
+| <{} p>
+|   "&x;&y;"
+
+#data
+<!DOCTYPE foo [
+<!DOCTYPE bar [<!ENTITY % foo SYSTEM "http://x/"><!ENTITY y "Y">%foo;]>
+<!ENTITY X "x">
+]>
+<p>&x;&y;</p>
+#resource http://x/
+hoge
+#errors
+2;1;bogus comment;;;m
+2;65;pe not declared;;foo;;m
+2;65;stop processing;;;i
+3;1;bogus comment;;;m
+4;1;text outside of root element;;;m
+5;4;entity not declared;;x;;m
+#document
+| <!DOCTYPE foo>
+| <!-- ENTITY X "x" -->
+| <{} p>
+|   "&x;Y"
+
+#data
+<!DOCTYPE foo SYSTEM "http://y/">
+<p>&x;&y;</p>
+#resource http://y/
+<!DOCTYPE bar [<!ENTITY % foo SYSTEM "http://x/"><!ENTITY y "Y">%foo;]>
+#resource http://x/
+hoge
+#errors
+[1]1;1;bogus comment;;;m
+[1]1;65;pe not declared;;foo;;m
+[1]1;65;stop processing;;;i
+[1]1;70;string in internal subset;;;m
+2;4;entity not declared;;x;;m
+#document
+| <!DOCTYPE foo "" "http://y/">
+| <{} p>
+|   "&x;Y"
+
+#data
+<!DOCTYPE foo>
+<!DOCTYPE bar [<!ELEMENT hoge EMPTY>]>
+<p/>
+#errors
+2;1;second doctype;;;m
+#document
+| <!DOCTYPE foo>
+| <{} p>
+
+#data
+<!DOCTYPE foo>
+<!DOCTYPE bar [<!NOTATION foo SYSTEM "x">]>
+<p/>
+#errors
+2;1;second doctype;;;m
+#document
+| <!DOCTYPE foo>
+| <{} p>
+
+#data
+<!DOCTYPE foo>
+<!DOCTYPE bar [<!ATTLIST foo hoge CDATA #IMPLIED>]>
+<p/>
+#errors
+2;1;second doctype;;;m
+#document
+| <!DOCTYPE foo>
+| <{} p>
