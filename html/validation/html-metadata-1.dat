@@ -105,7 +105,7 @@
     scroll=""><head><title>a</title></head><body>b</body></html>
 #errors
 /html;attribute missing;lang;w
-/html/@scroll;attribute not defined;m
+/html/@scroll;attr:obsolete;m
 /html/@scroll;enumerated:invalid;m
 
 #data
@@ -113,7 +113,7 @@
     scroll="   "><head><title>a</title></head><body>b</body></html>
 #errors
 /html;attribute missing;lang;w
-/html/@scroll;attribute not defined;m
+/html/@scroll;attr:obsolete;m
 /html/@scroll;enumerated:invalid;m
 
 #data
@@ -121,35 +121,35 @@
     scroll="yes"><head><title>a</title></head><body>b</body></html>
 #errors
 /html;attribute missing;lang;w
-/html/@scroll;attribute not defined;m
+/html/@scroll;attr:obsolete;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"
     scroll="no"><head><title>a</title></head><body>b</body></html>
 #errors
 /html;attribute missing;lang;w
-/html/@scroll;attribute not defined;m
+/html/@scroll;attr:obsolete;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"
     scroll="auto"><head><title>a</title></head><body>b</body></html>
 #errors
 /html;attribute missing;lang;w
-/html/@scroll;attribute not defined;m
+/html/@scroll;attr:obsolete;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"
     scroll="YES"><head><title>a</title></head><body>b</body></html>
 #errors
 /html;attribute missing;lang;w
-/html/@scroll;attribute not defined;m
+/html/@scroll;attr:obsolete;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"
     scroll="yes "><head><title>a</title></head><body>b</body></html>
 #errors
 /html;attribute missing;lang;w
-/html/@scroll;attribute not defined;m
+/html/@scroll;attr:obsolete;m
 /html/@scroll;enumerated:invalid;m
 
 #data
@@ -157,7 +157,7 @@
     scroll="true"><head><title>a</title></head><body>b</body></html>
 #errors
 /html;attribute missing;lang;w
-/html/@scroll;attribute not defined;m
+/html/@scroll;attr:obsolete;m
 /html/@scroll;enumerated:invalid;m
 
 #data
@@ -165,7 +165,7 @@
     scroll="fixed"><head><title>a</title></head><body>b</body></html>
 #errors
 /html;attribute missing;lang;w
-/html/@scroll;attribute not defined;m
+/html/@scroll;attr:obsolete;m
 /html/@scroll;enumerated:invalid;m
 
 #data
@@ -178,12 +178,12 @@
 #data
 <pre-html xmlns="http://www.w3.org/1999/xhtml"></pre-html>
 #errors
-/pre-html;element not defined;m
+/pre-html;element:obsolete;m
 
 #data
 <pre-html xmlns="http://www.w3.org/1999/xhtml"><head></head><body>a</body></pre-html>
 #errors
-/pre-html;element not defined;m
+/pre-html;element:obsolete;m
 /pre-html/head;child element missing;title;m
 
 #data
@@ -191,7 +191,7 @@
     manifest="[]"
 ><head><title>b</title></head><body>a</body></pre-html>
 #errors
-/pre-html;element not defined;m
+/pre-html;element:obsolete;m
 /pre-html/@manifest;attribute not defined;m
 
 #data
@@ -199,7 +199,7 @@
     scroll=""
 ><head><title>b</title></head><body>a</body></pre-html>
 #errors
-/pre-html;element not defined;m
+/pre-html;element:obsolete;m
 /pre-html/@scroll;attribute not defined;m
 
 #data
@@ -207,7 +207,7 @@
     version=""
 ><head><title>b</title></head><body>a</body></pre-html>
 #errors
-/pre-html;element not defined;m
+/pre-html;element:obsolete;m
 /pre-html/@version;attribute not defined;m
 
 #data
@@ -223,7 +223,7 @@
 </head>
 #errors
 /head;child element missing;title;m
-/head/command;element not defined;m
+/head/command;element:obsolete;m
 /head/command;element not allowed:metadata;m
 
 #data
@@ -232,7 +232,7 @@
 </head>
 #errors
 /head;child element missing;title;m
-/head/event-source;element not defined;m
+/head/event-source;element:obsolete;m
 /head/event-source;element not allowed:metadata;m
 
 #data
@@ -241,7 +241,7 @@
 </head>
 #errors
 /head;child element missing;title;m
-/head/eventsource;element not defined;m
+/head/eventsource;element:obsolete;m
 /head/eventsource;element not allowed:metadata;m
 
 #data
@@ -369,7 +369,7 @@
 <title/>
 </head>
 #errors
-/head/command;element not defined;m
+/head/command;element:obsolete;m
 /head/command;element not allowed:metadata;m
 /head/title;no significant content;m
 
@@ -380,7 +380,7 @@
 </head>
 #errors
 /head/title;no significant content;m
-/head/command;element not defined;m
+/head/command;element:obsolete;m
 /head/command;element not allowed:metadata;m
 
 #data
@@ -389,7 +389,7 @@
 <title/>
 </head>
 #errors
-/head/event-source;element not defined;m
+/head/event-source;element:obsolete;m
 /head/event-source;element not allowed:metadata;m
 /head/title;no significant content;m
 
@@ -399,7 +399,7 @@
 <title/>
 </head>
 #errors
-/head/eventsource;element not defined;m
+/head/eventsource;element:obsolete;m
 /head/eventsource;element not allowed:metadata;m
 /head/title;no significant content;m
 
@@ -409,7 +409,7 @@
 <event-source/>
 </head>
 #errors
-/head/event-source;element not defined;m
+/head/event-source;element:obsolete;m
 /head/event-source;element not allowed:metadata;m
 /head/title;no significant content;m
 
@@ -419,7 +419,7 @@
 <eventsource/>
 </head>
 #errors
-/head/eventsource;element not defined;m
+/head/eventsource;element:obsolete;m
 /head/eventsource;element not allowed:metadata;m
 /head/title;no significant content;m
 
@@ -787,7 +787,7 @@
 </html>
 #errors
 /html;attribute missing;lang;w
-/html/head/@profile;attribute not defined;m
+/html/head/@profile;attr:obsolete;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -1317,17 +1317,17 @@ p {color: green
 #data
 <style disabled="" xmlns="http://www.w3.org/1999/xhtml"></style>
 #errors
-/style/@disabled;attribute not defined;m
+/style/@disabled;attr:obsolete;m
 
 #data
 <style disabled="disabled" xmlns="http://www.w3.org/1999/xhtml"></style>
 #errors
-/style/@disabled;attribute not defined;m
+/style/@disabled;attr:obsolete;m
 
 #data
 <style disabled="abc" xmlns="http://www.w3.org/1999/xhtml"></style>
 #errors
-/style/@disabled;attribute not defined;m
+/style/@disabled;attr:obsolete;m
 /style/@disabled;boolean:invalid;m
 
 #data
@@ -1337,7 +1337,7 @@ p {color: green
 </html>
 #errors
 /html;attribute missing;lang;w
-/html/@version;attribute not defined;m
+/html/@version;attr:obsolete;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml" version="-//W3C//DTD HTML 4.01//EN">
@@ -1346,14 +1346,14 @@ p {color: green
 </html>
 #errors
 /html;attribute missing;lang;w
-/html/@version;attribute not defined;m
+/html/@version;attr:obsolete;m
 
 #data
 <head profile="" xmlns="http://www.w3.org/1999/xhtml">
   <title/>
 </head>
 #errors
-/head/@profile;attribute not defined;m
+/head/@profile;attr:obsolete;m
 /head/title;no significant content;m
 
 #data
@@ -1361,7 +1361,7 @@ p {color: green
   <title/>
 </head>
 #errors
-/head/@profile;attribute not defined;m
+/head/@profile;attr:obsolete;m
 /head/title;no significant content;m
 
 #data
@@ -1369,7 +1369,7 @@ p {color: green
   <title/>
 </head>
 #errors
-/head/@profile;attribute not defined;m
+/head/@profile;attr:obsolete;m
 /head/title;no significant content;m
 
 #data
@@ -1377,7 +1377,7 @@ p {color: green
   <title/>
 </head>
 #errors
-/head/@profile;attribute not defined;m
+/head/@profile;attr:obsolete;m
 /head/title;no significant content;m
 
 #data
@@ -1385,7 +1385,7 @@ p {color: green
   <title/>
 </head>
 #errors
-/head/@profile;attribute not defined;m
+/head/@profile;attr:obsolete;m
 /head/@profile;syntax error:iriref3987;m
 /head/title;no significant content;m
 
@@ -1394,7 +1394,7 @@ p {color: green
   <title/>
 </head>
 #errors
-/head/@profile;attribute not defined;m
+/head/@profile;attr:obsolete;m
 /head/title;no significant content;m
 
 #data
@@ -1402,7 +1402,7 @@ p {color: green
   <title/>
 </head>
 #errors
-/head/@profile;attribute not defined;m
+/head/@profile;attr:obsolete;m
 /head/@profile;duplicate token;m
 /head/title;no significant content;m
 
@@ -2037,7 +2037,7 @@ p {color: green
 <link href="http://test/" rel="author" target="_self"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@target;attribute not defined;m
+/link/@target;attr:obsolete;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -2061,86 +2061,86 @@ p {color: green
 #data
 <link rel="alternate" href="A" target="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@target;attribute not defined;m
+/link/@target;attr:obsolete;m
 
 #data
 <link rel="alternate" href="A" target="_" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@target;attribute not defined;m
+/link/@target;attr:obsolete;m
 
 #data
 <link rel="alternate" href="A" target="_self" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@target;attribute not defined;m
+/link/@target;attr:obsolete;m
 
 #data
 <link rel="alternate" href="A" target="_blank" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@target;attribute not defined;m
+/link/@target;attr:obsolete;m
 
 #data
 <link rel="alternate" href="A" target="_b" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@target;attribute not defined;m
+/link/@target;attr:obsolete;m
 
 #data
 <link href="A" rev=" " xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rev;attribute not defined;m
+/link/@rev;attr:obsolete;m
 /link;attribute missing;rel;m
 
 #data
 <link href="A" rev="made" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rev;attribute not defined;m
+/link/@rev;attr:obsolete;m
 /link;attribute missing;rel;m
 
 #data
 <link href="A" rev="made made" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rev;attribute not defined;m
+/link/@rev;attr:obsolete;m
 /link;attribute missing;rel;m
 
 #data
 <link href="A" rel="alternate"
     charset="us-ascii" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@charset;attribute not defined;m
+/link/@charset;attr:obsolete;m
 /link/@charset;non-utf-8 character encoding;m
 
 #data
 <link href="A" rel="alternate"
     charset="x-sjis" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@charset;attribute not defined;m
+/link/@charset;attr:obsolete;m
 /link/@charset;non-utf-8 character encoding;m
 
 #data
 <link href="A" rel="alternate"
     charset="not-registered" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@charset;attribute not defined;m
+/link/@charset;attr:obsolete;m
 /link/@charset;not encoding label;m
 
 #data
 <link href="A" rel="alternate"
     charset="Shift JIS" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@charset;attribute not defined;m
+/link/@charset;attr:obsolete;m
 /link/@charset;not encoding label;m
 
 #data
 <link href="A" rel="alternate"
     charset="Shift&#x4e00;JIS" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@charset;attribute not defined;m
+/link/@charset;attr:obsolete;m
 /link/@charset;not encoding label;m
 
 #data
 <link href="A" rel="alternate"
     charset="ascii" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@charset;attribute not defined;m
+/link/@charset;attr:obsolete;m
 /link/@charset;non-utf-8 character encoding;m
 
 #data
@@ -2281,31 +2281,31 @@ p {color: green
 <link xmlns="http://www.w3.org/1999/xhtml" href="a"
     urn="" rel="alternate"/>
 #errors
-/link/@urn;attribute not defined;m
+/link/@urn;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml" href="a"
     urn="[]" rel="alternate"/>
 #errors
-/link/@urn;attribute not defined;m
+/link/@urn;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml" href="a"
     methods="" rel="alternate"/>
 #errors
-/link/@methods;attribute not defined;m
+/link/@methods;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml" href="a"
     methods="get post" rel="alternate"/>
 #errors
-/link/@methods;attribute not defined;m
+/link/@methods;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml" href="a"
     methods="OPTIONS" rel="alternate"/>
 #errors
-/link/@methods;attribute not defined;m
+/link/@methods;attr:obsolete;m
 
 #data
 <meta xmlns="http://www.w3.org/1999/xhtml">
@@ -3161,296 +3161,296 @@ p {color: green
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size=""/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="  "/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="1"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="2"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="3"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="4"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="5"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="6"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="7"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="+1"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="+2"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="+3"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="+6"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="-6"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="-1"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="0"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="abc"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="-123"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="+213"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="0123"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="0001"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     size="1.0"/>
 #errors
-/basefont;element not defined;m
-/basefont/@size;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@size;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     color=""/>
 #errors
-/basefont;element not defined;m
-/basefont/@color;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@color;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     color="yellow"/>
 #errors
-/basefont;element not defined;m
-/basefont/@color;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@color;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     color="#C0C0C0"/>
 #errors
-/basefont;element not defined;m
-/basefont/@color;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@color;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     color="RED"/>
 #errors
-/basefont;element not defined;m
-/basefont/@color;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@color;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     color="color"/>
 #errors
-/basefont;element not defined;m
-/basefont/@color;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@color;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     color="   "/>
 #errors
-/basefont;element not defined;m
-/basefont/@color;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@color;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     color="rgb(1,2,3)"/>
 #errors
-/basefont;element not defined;m
-/basefont/@color;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@color;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     face=""/>
 #errors
-/basefont;element not defined;m
-/basefont/@face;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@face;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     face="  "/>
 #errors
-/basefont;element not defined;m
-/basefont/@face;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@face;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     face="abc"/>
 #errors
-/basefont;element not defined;m
-/basefont/@face;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@face;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     face="XTA a"/>
 #errors
-/basefont;element not defined;m
-/basefont/@face;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@face;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     face="a,b"/>
 #errors
-/basefont;element not defined;m
-/basefont/@face;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@face;attr:obsolete;m
 
 #data
 <basefont xmlns="http://www.w3.org/1999/xhtml"
     face="a,,b"/>
 #errors
-/basefont;element not defined;m
-/basefont/@face;attribute not defined;m
+/basefont;element:obsolete;m
+/basefont/@face;attr:obsolete;m
 
 #data
 <nextid xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/nextid;element not defined;m
+/nextid;element:obsolete;m
 
 #data
 <nextid xmlns="http://www.w3.org/1999/xhtml">  </nextid>
 #errors
-/nextid;element not defined;m
+/nextid;element:obsolete;m
 
 #data
 <nextid xmlns="http://www.w3.org/1999/xhtml">aa</nextid>
 #errors
-/nextid;element not defined;m
+/nextid;element:obsolete;m
 
 #data
 <nextid xmlns="http://www.w3.org/1999/xhtml"><p>aa</p></nextid>
 #errors
-/nextid;element not defined;m
+/nextid;element:obsolete;m
 
 #data
 <nextid xmlns="http://www.w3.org/1999/xhtml" n=""/>
 #errors
-/nextid;element not defined;m
-/nextid/@n;attribute not defined;m
+/nextid;element:obsolete;m
+/nextid/@n;attr:obsolete;m
 
 #data
 <nextid xmlns="http://www.w3.org/1999/xhtml" n="12345"/>
 #errors
-/nextid;element not defined;m
-/nextid/@n;attribute not defined;m
+/nextid;element:obsolete;m
+/nextid/@n;attr:obsolete;m
 
 #data
 <nextid xmlns="http://www.w3.org/1999/xhtml" n="n33"/>
 #errors
-/nextid;element not defined;m
-/nextid/@n;attribute not defined;m
+/nextid;element:obsolete;m
+/nextid/@n;attr:obsolete;m
 
 #data
 <nextid xmlns="http://www.w3.org/1999/xhtml" n="xyzzy"/>
 #errors
-/nextid;element not defined;m
-/nextid/@n;attribute not defined;m
+/nextid;element:obsolete;m
+/nextid/@n;attr:obsolete;m
 
 #data
 <nextid xmlns="http://www.w3.org/1999/xhtml" n="n"/>
 #errors
-/nextid;element not defined;m
-/nextid/@n;attribute not defined;m
+/nextid;element:obsolete;m
+/nextid/@n;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -3458,7 +3458,7 @@ p {color: green
   <a name="x123">aa</a>
 </div>
 #errors
-/div/nextid;element not defined;m
+/div/nextid;element:obsolete;m
 /div/nextid;element not allowed:flow;m
-/div/nextid/@n;attribute not defined;m
+/div/nextid/@n;attr:obsolete;m
 /div/a/@name;anchor name;s

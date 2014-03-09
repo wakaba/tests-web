@@ -544,44 +544,44 @@
 #data
 <script event="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@event;attribute not defined;m
+/script/@event;attr:obsolete;m
 
 #data
 <script event="abc" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@event;attribute not defined;m
+/script/@event;attr:obsolete;m
 
 #data
 <script event="onload" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@event;attribute not defined;m
+/script/@event;attr:obsolete;m
 
 #data
 <script event="onload()" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@event;attribute not defined;m
+/script/@event;attr:obsolete;m
 
 #data
 <script for="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@for;attribute not defined;m
+/script/@for;attr:obsolete;m
 /script/@for;no referenced element;m
 
 #data
 <script for="abc" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@for;attribute not defined;m
+/script/@for;attr:obsolete;m
 /script/@for;no referenced element;m
 
 #data
 <script id="abc" for="abc" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@for;attribute not defined;m
+/script/@for;attr:obsolete;m
 
 #data
 <script for="abc" xmlns="http://www.w3.org/1999/xhtml"><b id="abc">a</b></script>
 #errors
-/script/@for;attribute not defined;m
+/script/@for;attr:obsolete;m
 /script/b;attribute missing;class;w
 /script/b;last resort;s
 /script/b;element not allowed;m
@@ -591,7 +591,7 @@
   <script for="a"></script>b
 </div>
 #errors
-/div/script/@for;attribute not defined;m
+/div/script/@for;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -599,7 +599,7 @@
   <script for="a"></script>b
 </div>
 #errors
-/div/script/@for;attribute not defined;m
+/div/script/@for;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -607,100 +607,100 @@
   <span id="a">c</span>
 </div>
 #errors
-/div/script/@for;attribute not defined;m
+/div/script/@for;attr:obsolete;m
 
 #data
 <script for="#xyz" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@for;attribute not defined;m
+/script/@for;attr:obsolete;m
 /script/@for;no referenced element;m
 
 #data
 <script for="[]" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@for;attribute not defined;m
+/script/@for;attr:obsolete;m
 /script/@for;no referenced element;m
 
 #data
 <a language="" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="  " xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="javascript" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 
 #data
 <a language="JavaScript" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 
 #data
 <a language="JAVASCRIPT" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 
 #data
 <a language="javascript " xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="js" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="javascript1.1" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="jscript" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="ecmascript" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="vbScript" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="xml" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="language" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <unknown language="" xmlns="http://www.w3.org/1999/xhtml">a</unknown>
 #errors
 /unknown;element not defined;m
-/unknown/@language;attribute not defined;m
+/unknown/@language;attr:obsolete;m
 /unknown/@language;script language:not js;m
 
 #data
@@ -712,24 +712,24 @@
 #data
 <script archive="" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script/@archive;attribute not defined;m
+/script/@archive;attr:obsolete;m
 /script/@archive;url:empty;m
 
 #data
 <script archive="abc" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script/@archive;attribute not defined;m
+/script/@archive;attr:obsolete;m
 
 #data
 <script archive="[]" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script/@archive;attribute not defined;m
+/script/@archive;attr:obsolete;m
 /script/@archive;syntax error:iriref3987;m
 
 #data
 <script implements="" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script/@implements;attribute not defined;m
+/script/@implements;attr:obsolete;m
 
 #data
 <script implement="" xmlns="http://www.w3.org/1999/xhtml"></script>

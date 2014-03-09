@@ -557,77 +557,77 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #data
 <p irrelevant="" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
-/p/@irrelevant;attribute not defined;m
+/p/@irrelevant;attr:obsolete;m
 
 #data
 <p irrelevant=" " xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
-/p/@irrelevant;attribute not defined;m
+/p/@irrelevant;attr:obsolete;m
 
 #data
 <p irrelevant="irrelevant" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
-/p/@irrelevant;attribute not defined;m
+/p/@irrelevant;attr:obsolete;m
 
 #data
 <p irrelevant=" irrelevant" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
-/p/@irrelevant;attribute not defined;m
+/p/@irrelevant;attr:obsolete;m
 
 #data
 <p irrelevant="irrelevant " xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
-/p/@irrelevant;attribute not defined;m
+/p/@irrelevant;attr:obsolete;m
 
 #data
 <p irrelevant=" irrelevant " xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
-/p/@irrelevant;attribute not defined;m
+/p/@irrelevant;attr:obsolete;m
 
 #data
 <p irrelevant="Irrelevant" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
-/p/@irrelevant;attribute not defined;m
+/p/@irrelevant;attr:obsolete;m
 
 #data
 <p irrelevant="IRRELEVANT" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
-/p/@irrelevant;attribute not defined;m
+/p/@irrelevant;attr:obsolete;m
 
 #data
 <p irrelevant="relevant" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
-/p/@irrelevant;attribute not defined;m
+/p/@irrelevant;attr:obsolete;m
 
 #data
 <p irrelevant="irelevant" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
-/p/@irrelevant;attribute not defined;m
+/p/@irrelevant;attr:obsolete;m
 
 #data
 <p irrelevant="irrelevants" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
-/p/@irrelevant;attribute not defined;m
+/p/@irrelevant;attr:obsolete;m
 
 #data
 <p irrelevant="false" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
-/p/@irrelevant;attribute not defined;m
+/p/@irrelevant;attr:obsolete;m
 
 #data
 <p irrelevant="true" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
-/p/@irrelevant;attribute not defined;m
+/p/@irrelevant;attr:obsolete;m
 
 #data
 <p irrelevant="yes" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
-/p/@irrelevant;attribute not defined;m
+/p/@irrelevant;attr:obsolete;m
 
 #data
 <p irrelevant="on" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
-/p/@irrelevant;attribute not defined;m
+/p/@irrelevant;attr:obsolete;m
 
 #data
 <p hidden="" xmlns="http://www.w3.org/1999/xhtml">x</p>
@@ -810,7 +810,7 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 </html>
 #errors
 /html;attribute missing;lang;w
-/html/@application;attribute not defined;m
+/html/@application;attr:obsolete;m
 
 #data html
 <!DOCTYPE html>
@@ -1189,23 +1189,30 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 /p/@datasrc;attribute not defined;m
 
 #data
+<p xmlns:html="http://www.w3.org/1999/xhtml"
+    html:datafld="abc">a</p>
+#errors
+/p;unknown namespace element;w
+/p/@datafld;attribute not defined;m
+
+#data
 <div xmlns="http://www.w3.org/1999/xhtml"
     datasrc="">a</div>
 #errors
-/div/@datasrc;attribute not defined;m
+/div/@datasrc;attr:obsolete;m
 /div/@datasrc;url:empty;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"
     datasrc="abcd">a</div>
 #errors
-/div/@datasrc;attribute not defined;m
+/div/@datasrc;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"
     datasrc="[]">a</div>
 #errors
-/div/@datasrc;attribute not defined;m
+/div/@datasrc;attr:obsolete;m
 /div/@datasrc;syntax error:iriref3987;m
 
 #data
@@ -1238,13 +1245,13 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <div xmlns="http://www.w3.org/1999/xhtml"
     datafld="">a</div>
 #errors
-/div/@datafld;attribute not defined;m
+/div/@datafld;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"
     datafld="abc">a</div>
 #errors
-/div/@datafld;attribute not defined;m
+/div/@datafld;attr:obsolete;m
 
 #data
 <unknown xmlns="http://www.w3.org/1999/xhtml"
@@ -1254,11 +1261,69 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 /unknown/@datafld;attribute not defined;m
 
 #data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    datasrc="">a</div>
+#errors
+/div/@datasrc;attr:obsolete;m
+/div/@datasrc;url:empty;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    datasrc="abcd">a</div>
+#errors
+/div/@datasrc;attr:obsolete;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    datasrc="[]">a</div>
+#errors
+/div/@datasrc;attr:obsolete;m
+/div/@datasrc;syntax error:iriref3987;m
+
+#data
+<unknown xmlns="http://www.w3.org/1999/xhtml"
+    datasrc="">a</unknown>
+#errors
+/unknown;element not defined;m
+/unknown/@datasrc;attribute not defined;m
+
+#data
 <p xmlns:html="http://www.w3.org/1999/xhtml"
-    html:datafld="abc">a</p>
+    html:datasrc="">a</p>
 #errors
 /p;unknown namespace element;w
+/p/@datasrc;attribute not defined;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"
+    datafld="">a</p>
+#errors
 /p/@datafld;attribute not defined;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"
+    datafld="abc">a</p>
+#errors
+/p/@datafld;attribute not defined;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    datafld="">a</div>
+#errors
+/div/@datafld;attr:obsolete;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    datafld="abc">a</div>
+#errors
+/div/@datafld;attr:obsolete;m
+
+#data
+<unknown xmlns="http://www.w3.org/1999/xhtml"
+    datafld="abc">a</unknown>
+#errors
+/unknown;element not defined;m
+/unknown/@datafld;attribute not defined;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
@@ -1348,94 +1413,94 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <div xmlns="http://www.w3.org/1999/xhtml"
     dataformatas="">a</div>
 #errors
-/div/@dataformatas;attribute not defined;m
+/div/@dataformatas;attr:obsolete;m
 /div/@dataformatas;enumerated:invalid;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"
     dataformatas="abc">a</div>
 #errors
-/div/@dataformatas;attribute not defined;m
+/div/@dataformatas;attr:obsolete;m
 /div/@dataformatas;enumerated:invalid;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"
     dataformatas="dataformatas">a</div>
 #errors
-/div/@dataformatas;attribute not defined;m
+/div/@dataformatas;attr:obsolete;m
 /div/@dataformatas;enumerated:invalid;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"
     dataformatas="plaintext">a</div>
 #errors
-/div/@dataformatas;attribute not defined;m
+/div/@dataformatas;attr:obsolete;m
 /div/@dataformatas;enumerated:invalid;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"
     dataformatas="html">a</div>
 #errors
-/div/@dataformatas;attribute not defined;m
+/div/@dataformatas;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"
     dataformatas="PlainText">a</div>
 #errors
-/div/@dataformatas;attribute not defined;m
+/div/@dataformatas;attr:obsolete;m
 /div/@dataformatas;enumerated:invalid;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"
     dataformatas="HTML">a</div>
 #errors
-/div/@dataformatas;attribute not defined;m
+/div/@dataformatas;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"
     dataformatas="html ">a</div>
 #errors
-/div/@dataformatas;attribute not defined;m
+/div/@dataformatas;attr:obsolete;m
 /div/@dataformatas;enumerated:invalid;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"
     dataformatas="text">a</div>
 #errors
-/div/@dataformatas;attribute not defined;m
+/div/@dataformatas;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"
     dataformatas="text ">a</div>
 #errors
-/div/@dataformatas;attribute not defined;m
+/div/@dataformatas;attr:obsolete;m
 /div/@dataformatas;enumerated:invalid;m
 
 #data escaped
 <div xmlns="http://www.w3.org/1999/xhtml"
     dataformatas="pla\u0130ntext">a</div>
 #errors
-/div/@dataformatas;attribute not defined;m
+/div/@dataformatas;attr:obsolete;m
 /div/@dataformatas;enumerated:invalid;m
 
 #data escaped
 <div xmlns="http://www.w3.org/1999/xhtml"
     dataformatas="pla\u0131ntext">a</div>
 #errors
-/div/@dataformatas;attribute not defined;m
+/div/@dataformatas;attr:obsolete;m
 /div/@dataformatas;enumerated:invalid;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"
     dataformatas="localized-text">a</div>
 #errors
-/div/@dataformatas;attribute not defined;m
+/div/@dataformatas;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"
     dataformatas="LOCALIZED-text">a</div>
 #errors
-/div/@dataformatas;attribute not defined;m
+/div/@dataformatas;attr:obsolete;m
 
 #data
 <unknown xmlns="http://www.w3.org/1999/xhtml"
@@ -1455,38 +1520,38 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <tt xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</tt>
 #errors
-/tt;element not defined;m
-/tt/@sdaform;attribute not defined;m
+/tt;element:obsolete;m
+/tt/@sdaform;attr:obsolete;m
 
 #data
 <code xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</code>
 #errors
-/code/@sdaform;attribute not defined;m
+/code/@sdaform;attr:obsolete;m
 
 #data
 <samp xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</samp>
 #errors
-/samp/@sdaform;attribute not defined;m
+/samp/@sdaform;attr:obsolete;m
 
 #data
 <kbd xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</kbd>
 #errors
-/kbd/@sdaform;attribute not defined;m
+/kbd/@sdaform;attr:obsolete;m
 
 #data
 <var xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</var>
 #errors
-/var/@sdaform;attribute not defined;m
+/var/@sdaform;attr:obsolete;m
 
 #data
 <b xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</b>
 #errors
-/b/@sdaform;attribute not defined;m
+/b/@sdaform;attr:obsolete;m
 /b;attribute missing;class;w
 /b;last resort;s
 
@@ -1494,341 +1559,341 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <strong xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</strong>
 #errors
-/strong/@sdaform;attribute not defined;m
+/strong/@sdaform;attr:obsolete;m
 
 #data
 <i xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</i>
 #errors
-/i/@sdaform;attribute not defined;m
+/i/@sdaform;attr:obsolete;m
 /i;attribute missing;class;w
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</em>
 #errors
-/em/@sdaform;attribute not defined;m
+/em/@sdaform;attr:obsolete;m
 
 #data
 <cite xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</cite>
 #errors
-/cite/@sdaform;attribute not defined;m
+/cite/@sdaform;attr:obsolete;m
 
 #data
 <br xmlns="http://www.w3.org/1999/xhtml"
     sdapref=""/>
 #errors
-/br/@sdapref;attribute not defined;m
+/br/@sdapref;attr:obsolete;m
 
 #data
 <span xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</span>
 #errors
-/span/@sdaform;attribute not defined;m
+/span/@sdaform;attr:obsolete;m
 
 #data
 <q xmlns="http://www.w3.org/1999/xhtml"
     sdapref="">a</q>
 #errors
-/q/@sdapref;attribute not defined;m
+/q/@sdapref;attr:obsolete;m
 
 #data
 <q xmlns="http://www.w3.org/1999/xhtml"
     sdasuff="">a</q>
 #errors
-/q/@sdasuff;attribute not defined;m
+/q/@sdasuff;attr:obsolete;m
 
 #data
 <bdo dir="rtl" xmlns="http://www.w3.org/1999/xhtml"
     sdapref="">a</bdo>
 #errors
-/bdo/@sdapref;attribute not defined;m
+/bdo/@sdapref;attr:obsolete;m
 
 #data
 <bdo dir="ltr" xmlns="http://www.w3.org/1999/xhtml"
     sdasuff="">a</bdo>
 #errors
-/bdo/@sdasuff;attribute not defined;m
+/bdo/@sdasuff;attr:obsolete;m
 
 #data
 <sup xmlns="http://www.w3.org/1999/xhtml"
     sdapref="">a</sup>
 #errors
-/sup/@sdapref;attribute not defined;m
+/sup/@sdapref;attr:obsolete;m
 
 #data
 <sub xmlns="http://www.w3.org/1999/xhtml"
     sdapref="">a</sub>
 #errors
-/sub/@sdapref;attribute not defined;m
+/sub/@sdapref;attr:obsolete;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
     sdapref="">a</a>
 #errors
-/a/@sdapref;attribute not defined;m
+/a/@sdapref;attr:obsolete;m
 
 #data
 <img xmlns="http://www.w3.org/1999/xhtml"
     sdapref="" alt="a" src="b"/>
 #errors
-/img/@sdapref;attribute not defined;m
+/img/@sdapref;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</p>
 #errors
-/p/@sdaform;attribute not defined;m
+/p/@sdaform;attr:obsolete;m
 
 #data
 <hr xmlns="http://www.w3.org/1999/xhtml"
     sdapref=""/>
 #errors
-/hr/@sdapref;attribute not defined;m
+/hr/@sdapref;attr:obsolete;m
 
 #data
 <h1 xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</h1>
 #errors
-/h1/@sdaform;attribute not defined;m
+/h1/@sdaform;attr:obsolete;m
 
 #data
 <h2 xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</h2>
 #errors
-/h2/@sdaform;attribute not defined;m
+/h2/@sdaform;attr:obsolete;m
 
 #data
 <h3 xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</h3>
 #errors
-/h3/@sdaform;attribute not defined;m
+/h3/@sdaform;attr:obsolete;m
 
 #data
 <h4 xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</h4>
 #errors
-/h4/@sdaform;attribute not defined;m
+/h4/@sdaform;attr:obsolete;m
 
 #data
 <h5 xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</h5>
 #errors
-/h5/@sdaform;attribute not defined;m
+/h5/@sdaform;attr:obsolete;m
 
 #data
 <h6 xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</h6>
 #errors
-/h6/@sdaform;attribute not defined;m
+/h6/@sdaform;attr:obsolete;m
 
 #data
 <pre xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</pre>
 #errors
-/pre/@sdaform;attribute not defined;m
+/pre/@sdaform;attr:obsolete;m
 
 #data
 <xmp xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</xmp>
 #errors
-/xmp/@sdaform;attribute not defined;m
-/xmp;element not defined;m
+/xmp/@sdaform;attr:obsolete;m
+/xmp;element:obsolete;m
 
 #data
 <xmp xmlns="http://www.w3.org/1999/xhtml"
     sdapref="">a</xmp>
 #errors
-/xmp/@sdapref;attribute not defined;m
-/xmp;element not defined;m
+/xmp/@sdapref;attr:obsolete;m
+/xmp;element:obsolete;m
 
 #data
 <listing xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</listing>
 #errors
-/listing/@sdaform;attribute not defined;m
-/listing;element not defined;m
+/listing/@sdaform;attr:obsolete;m
+/listing;element:obsolete;m
 
 #data
 <listing xmlns="http://www.w3.org/1999/xhtml"
     sdapref="">a</listing>
 #errors
-/listing/@sdapref;attribute not defined;m
-/listing;element not defined;m
+/listing/@sdapref;attr:obsolete;m
+/listing;element:obsolete;m
 
 #data
 <plaintext xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</plaintext>
 #errors
-/plaintext/@sdaform;attribute not defined;m
-/plaintext;element not defined;m
+/plaintext/@sdaform;attr:obsolete;m
+/plaintext;element:obsolete;m
 
 #data
 <dl xmlns="http://www.w3.org/1999/xhtml"
     sdaform=""></dl>
 #errors
-/dl/@sdaform;attribute not defined;m
+/dl/@sdaform;attr:obsolete;m
 
 #data
 <dl xmlns="http://www.w3.org/1999/xhtml"
     sdapref=""></dl>
 #errors
-/dl/@sdapref;attribute not defined;m
+/dl/@sdapref;attr:obsolete;m
 
 #data
 <dt xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</dt>
 #errors
-/dt/@sdaform;attribute not defined;m
+/dt/@sdaform;attr:obsolete;m
 
 #data
 <dd xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</dd>
 #errors
-/dd/@sdaform;attribute not defined;m
+/dd/@sdaform;attr:obsolete;m
 
 #data
 <ol xmlns="http://www.w3.org/1999/xhtml"
     sdaform=""></ol>
 #errors
-/ol/@sdaform;attribute not defined;m
+/ol/@sdaform;attr:obsolete;m
 
 #data
 <ul xmlns="http://www.w3.org/1999/xhtml"
     sdaform=""></ul>
 #errors
-/ul/@sdaform;attribute not defined;m
+/ul/@sdaform;attr:obsolete;m
 
 #data
 <dir xmlns="http://www.w3.org/1999/xhtml"
     sdaform=""></dir>
 #errors
-/dir/@sdaform;attribute not defined;m
-/dir;element not defined;m
+/dir/@sdaform;attr:obsolete;m
+/dir;element:obsolete;m
 
 #data
 <dir xmlns="http://www.w3.org/1999/xhtml"
     sdapref=""/>
 #errors
-/dir/@sdapref;attribute not defined;m
-/dir;element not defined;m
+/dir/@sdapref;attr:obsolete;m
+/dir;element:obsolete;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</menu>
 #errors
-/menu/@sdaform;attribute not defined;m
+/menu/@sdaform;attr:obsolete;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml"
     sdapref="">a</menu>
 #errors
-/menu/@sdapref;attribute not defined;m
+/menu/@sdapref;attr:obsolete;m
 
 #data
 <li xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</li>
 #errors
-/li/@sdaform;attribute not defined;m
+/li/@sdaform;attr:obsolete;m
 
 #data
 <blockquote xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</blockquote>
 #errors
-/blockquote/@sdaform;attribute not defined;m
+/blockquote/@sdaform;attr:obsolete;m
 
 #data
 <address xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</address>
 #errors
-/address/@sdaform;attribute not defined;m
+/address/@sdaform;attr:obsolete;m
 
 #data
 <address xmlns="http://www.w3.org/1999/xhtml"
     sdapref="">a</address>
 #errors
-/address/@sdapref;attribute not defined;m
+/address/@sdapref;attr:obsolete;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"
     sdapref="">a</form>
 #errors
-/form/@sdapref;attribute not defined;m
+/form/@sdapref;attr:obsolete;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"
     sdasuff="">a</form>
 #errors
-/form/@sdasuff;attribute not defined;m
+/form/@sdasuff;attr:obsolete;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
     sdapref=""/>
 #errors
-/input/@sdapref;attribute not defined;m
+/input/@sdapref;attr:obsolete;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml"
     sdaform=""/>
 #errors
-/select/@sdaform;attribute not defined;m
+/select/@sdaform;attr:obsolete;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml"
     sdapref=""/>
 #errors
-/select/@sdapref;attribute not defined;m
+/select/@sdapref;attr:obsolete;m
 
 #data
 <option xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</option>
 #errors
-/option/@sdaform;attribute not defined;m
+/option/@sdaform;attr:obsolete;m
 
 #data
 <option xmlns="http://www.w3.org/1999/xhtml"
     sdapref="">a</option>
 #errors
-/option/@sdapref;attribute not defined;m
+/option/@sdapref;attr:obsolete;m
 
 #data
 <textarea xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</textarea>
 #errors
-/textarea/@sdaform;attribute not defined;m
+/textarea/@sdaform;attr:obsolete;m
 
 #data
 <textarea xmlns="http://www.w3.org/1999/xhtml"
     sdapref="">a</textarea>
 #errors
-/textarea/@sdapref;attribute not defined;m
+/textarea/@sdapref;attr:obsolete;m
 
 #data
 <title xmlns="http://www.w3.org/1999/xhtml"
     sdaform="">a</title>
 #errors
-/title/@sdaform;attribute not defined;m
+/title/@sdaform;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml"
     sdapref="" href="a" rel="alternate"/>
 #errors
-/link/@sdapref;attribute not defined;m
+/link/@sdapref;attr:obsolete;m
 
 #data
 <isindex xmlns="http://www.w3.org/1999/xhtml"
     sdapref=""/>
 #errors
-/isindex/@sdapref;attribute not defined;m
-/isindex;element not defined;m
+/isindex/@sdapref;attr:obsolete;m
+/isindex;element:obsolete;m
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"
     sdaform=""><head><title>a</title></head><body>b</body></html>
 #errors
 /html;attribute missing;lang;w
-/html/@sdaform;attribute not defined;m
+/html/@sdaform;attr:obsolete;m
 
 #data
 <x xmlns="" html:active="" xmlns:html="http://www.w3.org/1999/xhtml"/>
@@ -1918,20 +1983,20 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <p xmlns="http://www.w3.org/1999/xhtml"
     about="">a</p>
 #errors
-/p/@about;attribute not defined;m
+/p/@about;attr:obsolete;m
 
 #data
 <unknown xmlns="http://www.w3.org/1999/xhtml"
     about="">a</unknown>
 #errors
 /unknown;element not defined;m
-/unknown/@about;attribute not defined;m
+/unknown/@about;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     about="[]">a</p>
 #errors
-/p/@about;attribute not defined;m
+/p/@about;attr:obsolete;m
 
 #data
 <x xmlns:html="http://www.w3.org/1999/xhtml"
@@ -1944,20 +2009,20 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <p xmlns="http://www.w3.org/1999/xhtml"
     resource="">a</p>
 #errors
-/p/@resource;attribute not defined;m
+/p/@resource;attr:obsolete;m
 
 #data
 <unknown xmlns="http://www.w3.org/1999/xhtml"
     resource="">a</unknown>
 #errors
 /unknown;element not defined;m
-/unknown/@resource;attribute not defined;m
+/unknown/@resource;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     resource="[]">a</p>
 #errors
-/p/@resource;attribute not defined;m
+/p/@resource;attr:obsolete;m
 
 #data
 <x xmlns:html="http://www.w3.org/1999/xhtml"
@@ -1970,66 +2035,66 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <p xmlns="http://www.w3.org/1999/xhtml"
     atomicselection="">a</p>
 #errors
-/p/@atomicselection;attribute not defined;m
+/p/@atomicselection;attr:obsolete;m
 /p/@atomicselection;enumerated:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     atomicselection="  ">a</p>
 #errors
-/p/@atomicselection;attribute not defined;m
+/p/@atomicselection;attr:obsolete;m
 /p/@atomicselection;enumerated:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     atomicselection="true">a</p>
 #errors
-/p/@atomicselection;attribute not defined;m
+/p/@atomicselection;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     atomicselection="false">a</p>
 #errors
-/p/@atomicselection;attribute not defined;m
+/p/@atomicselection;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     atomicselection="TRUE">a</p>
 #errors
-/p/@atomicselection;attribute not defined;m
+/p/@atomicselection;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     atomicselection="FalSE">a</p>
 #errors
-/p/@atomicselection;attribute not defined;m
+/p/@atomicselection;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     atomicselection="atomicselection">a</p>
 #errors
-/p/@atomicselection;attribute not defined;m
+/p/@atomicselection;attr:obsolete;m
 /p/@atomicselection;enumerated:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     atomicselection="yes">a</p>
 #errors
-/p/@atomicselection;attribute not defined;m
+/p/@atomicselection;attr:obsolete;m
 /p/@atomicselection;enumerated:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     atomicselection="off">a</p>
 #errors
-/p/@atomicselection;attribute not defined;m
+/p/@atomicselection;attr:obsolete;m
 /p/@atomicselection;enumerated:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     atomicselection="AtomicSelection">a</p>
 #errors
-/p/@atomicselection;attribute not defined;m
+/p/@atomicselection;attr:obsolete;m
 /p/@atomicselection;enumerated:invalid;m
 
 #data
@@ -2037,73 +2102,73 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
     atomicselection="">a</unknown>
 #errors
 /unknown;element not defined;m
-/unknown/@atomicselection;attribute not defined;m
+/unknown/@atomicselection;attr:obsolete;m
 /unknown/@atomicselection;enumerated:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     unselectable="">a</p>
 #errors
-/p/@unselectable;attribute not defined;m
+/p/@unselectable;attr:obsolete;m
 /p/@unselectable;enumerated:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     unselectable="  ">a</p>
 #errors
-/p/@unselectable;attribute not defined;m
+/p/@unselectable;attr:obsolete;m
 /p/@unselectable;enumerated:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     unselectable="on">a</p>
 #errors
-/p/@unselectable;attribute not defined;m
+/p/@unselectable;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     unselectable="off">a</p>
 #errors
-/p/@unselectable;attribute not defined;m
+/p/@unselectable;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     unselectable="ON">a</p>
 #errors
-/p/@unselectable;attribute not defined;m
+/p/@unselectable;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     unselectable="Off">a</p>
 #errors
-/p/@unselectable;attribute not defined;m
+/p/@unselectable;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     unselectable="unselectable">a</p>
 #errors
-/p/@unselectable;attribute not defined;m
+/p/@unselectable;attr:obsolete;m
 /p/@unselectable;enumerated:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     unselectable="yes">a</p>
 #errors
-/p/@unselectable;attribute not defined;m
+/p/@unselectable;attr:obsolete;m
 /p/@unselectable;enumerated:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     unselectable="false">a</p>
 #errors
-/p/@unselectable;attribute not defined;m
+/p/@unselectable;attr:obsolete;m
 /p/@unselectable;enumerated:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     unselectable="Unselectable">a</p>
 #errors
-/p/@unselectable;attribute not defined;m
+/p/@unselectable;attr:obsolete;m
 /p/@unselectable;enumerated:invalid;m
 
 #data
@@ -2111,181 +2176,181 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
     unselectable="">a</unknown>
 #errors
 /unknown;element not defined;m
-/unknown/@unselectable;attribute not defined;m
+/unknown/@unselectable;attr:obsolete;m
 /unknown/@unselectable;enumerated:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     hidefocus="">a</p>
 #errors
-/p/@hidefocus;attribute not defined;m
+/p/@hidefocus;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     hidefocus="  ">a</p>
 #errors
-/p/@hidefocus;attribute not defined;m
+/p/@hidefocus;attr:obsolete;m
 /p/@hidefocus;boolean:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     hidefocus="true">a</p>
 #errors
-/p/@hidefocus;attribute not defined;m
+/p/@hidefocus;attr:obsolete;m
 /p/@hidefocus;boolean:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     hidefocus="false">a</p>
 #errors
-/p/@hidefocus;attribute not defined;m
+/p/@hidefocus;attr:obsolete;m
 /p/@hidefocus;boolean:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     hidefocus="TRUE">a</p>
 #errors
-/p/@hidefocus;attribute not defined;m
+/p/@hidefocus;attr:obsolete;m
 /p/@hidefocus;boolean:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     hidefocus="FalSE">a</p>
 #errors
-/p/@hidefocus;attribute not defined;m
+/p/@hidefocus;attr:obsolete;m
 /p/@hidefocus;boolean:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     hidefocus="hidefocus">a</p>
 #errors
-/p/@hidefocus;attribute not defined;m
+/p/@hidefocus;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     hidefocus="yes">a</p>
 #errors
-/p/@hidefocus;attribute not defined;m
+/p/@hidefocus;attr:obsolete;m
 /p/@hidefocus;boolean:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     hidefocus="off">a</p>
 #errors
-/p/@hidefocus;attribute not defined;m
+/p/@hidefocus;attr:obsolete;m
 /p/@hidefocus;boolean:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     hidefocus="Hidefocus">a</p>
 #errors
-/p/@hidefocus;attribute not defined;m
+/p/@hidefocus;attr:obsolete;m
 
 #data
 <unknown xmlns="http://www.w3.org/1999/xhtml"
     hidefocus="">a</unknown>
 #errors
 /unknown;element not defined;m
-/unknown/@hidefocus;attribute not defined;m
+/unknown/@hidefocus;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     disabled="">a</p>
 #errors
-/p/@disabled;attribute not defined;m
+/p/@disabled;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     disabled="  ">a</p>
 #errors
-/p/@disabled;attribute not defined;m
+/p/@disabled;attr:obsolete;m
 /p/@disabled;boolean:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     disabled="true">a</p>
 #errors
-/p/@disabled;attribute not defined;m
+/p/@disabled;attr:obsolete;m
 /p/@disabled;boolean:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     disabled="false">a</p>
 #errors
-/p/@disabled;attribute not defined;m
+/p/@disabled;attr:obsolete;m
 /p/@disabled;boolean:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     disabled="TRUE">a</p>
 #errors
-/p/@disabled;attribute not defined;m
+/p/@disabled;attr:obsolete;m
 /p/@disabled;boolean:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     disabled="FalSE">a</p>
 #errors
-/p/@disabled;attribute not defined;m
+/p/@disabled;attr:obsolete;m
 /p/@disabled;boolean:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     disabled="disabled">a</p>
 #errors
-/p/@disabled;attribute not defined;m
+/p/@disabled;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     disabled="yes">a</p>
 #errors
-/p/@disabled;attribute not defined;m
+/p/@disabled;attr:obsolete;m
 /p/@disabled;boolean:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     disabled="off">a</p>
 #errors
-/p/@disabled;attribute not defined;m
+/p/@disabled;attr:obsolete;m
 /p/@disabled;boolean:invalid;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     disabled="Disabled">a</p>
 #errors
-/p/@disabled;attribute not defined;m
+/p/@disabled;attr:obsolete;m
 
 #data
 <unknown xmlns="http://www.w3.org/1999/xhtml"
     disabled="">a</unknown>
 #errors
 /unknown;element not defined;m
-/unknown/@disabled;attribute not defined;m
+/unknown/@disabled;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     content="">a</p>
 #errors
-/p/@content;attribute not defined;m
+/p/@content;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     content="  ">a</p>
 #errors
-/p/@content;attribute not defined;m
+/p/@content;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     content="abc">a</p>
 #errors
-/p/@content;attribute not defined;m
+/p/@content;attr:obsolete;m
 
 #data
 <unknown xmlns="http://www.w3.org/1999/xhtml"
     content="">a</unknown>
 #errors
 /unknown;element not defined;m
-/unknown/@content;attribute not defined;m
+/unknown/@content;attr:obsolete;m
 
 #data
 <p xmlns:html="http://www.w3.org/1999/xhtml"
@@ -2298,26 +2363,26 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <p xmlns="http://www.w3.org/1999/xhtml"
     datatype="">a</p>
 #errors
-/p/@datatype;attribute not defined;m
+/p/@datatype;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     datatype="  ">a</p>
 #errors
-/p/@datatype;attribute not defined;m
+/p/@datatype;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     datatype="abc">a</p>
 #errors
-/p/@datatype;attribute not defined;m
+/p/@datatype;attr:obsolete;m
 
 #data
 <unknown xmlns="http://www.w3.org/1999/xhtml"
     datatype="">a</unknown>
 #errors
 /unknown;element not defined;m
-/unknown/@datatype;attribute not defined;m
+/unknown/@datatype;attr:obsolete;m
 
 #data
 <p xmlns:html="http://www.w3.org/1999/xhtml"
@@ -2330,26 +2395,26 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <p xmlns="http://www.w3.org/1999/xhtml"
     typeof="">a</p>
 #errors
-/p/@typeof;attribute not defined;m
+/p/@typeof;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     typeof="  ">a</p>
 #errors
-/p/@typeof;attribute not defined;m
+/p/@typeof;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     typeof="abc">a</p>
 #errors
-/p/@typeof;attribute not defined;m
+/p/@typeof;attr:obsolete;m
 
 #data
 <unknown xmlns="http://www.w3.org/1999/xhtml"
     typeof="">a</unknown>
 #errors
 /unknown;element not defined;m
-/unknown/@typeof;attribute not defined;m
+/unknown/@typeof;attr:obsolete;m
 
 #data
 <p xmlns:html="http://www.w3.org/1999/xhtml"
@@ -2362,26 +2427,26 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <p xmlns="http://www.w3.org/1999/xhtml"
     property="">a</p>
 #errors
-/p/@property;attribute not defined;m
+/p/@property;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     property="  ">a</p>
 #errors
-/p/@property;attribute not defined;m
+/p/@property;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"
     property="abc">a</p>
 #errors
-/p/@property;attribute not defined;m
+/p/@property;attr:obsolete;m
 
 #data
 <unknown xmlns="http://www.w3.org/1999/xhtml"
     property="">a</unknown>
 #errors
 /unknown;element not defined;m
-/unknown/@property;attribute not defined;m
+/unknown/@property;attr:obsolete;m
 
 #data
 <p xmlns:html="http://www.w3.org/1999/xhtml"
@@ -2395,77 +2460,77 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <p xml:space="">a</p>
 #errors
 /html;attribute missing;lang;w
-/html/body/p/@xml:space;attribute not defined;m
+/html/body/p/@xml:space;attr:obsolete;m
 
 #data html
 <!DOCTYPE html><title>a</title>
 <p xml:space="  ">a</p>
 #errors
 /html;attribute missing;lang;w
-/html/body/p/@xml:space;attribute not defined;m
+/html/body/p/@xml:space;attr:obsolete;m
 
 #data html
 <!DOCTYPE html><title>a</title>
 <p xml:space="default">a</p>
 #errors
 /html;attribute missing;lang;w
-/html/body/p/@xml:space;attribute not defined;m
+/html/body/p/@xml:space;attr:obsolete;m
 
 #data html
 <!DOCTYPE html><title>a</title>
 <p xml:space="Default">a</p>
 #errors
 /html;attribute missing;lang;w
-/html/body/p/@xml:space;attribute not defined;m
+/html/body/p/@xml:space;attr:obsolete;m
 
 #data html
 <!DOCTYPE html><title>a</title>
 <p xml:space="preserve">a</p>
 #errors
 /html;attribute missing;lang;w
-/html/body/p/@xml:space;attribute not defined;m
+/html/body/p/@xml:space;attr:obsolete;m
 
 #data html
 <!DOCTYPE html><title>a</title>
 <p xml:space="Preserve">a</p>
 #errors
 /html;attribute missing;lang;w
-/html/body/p/@xml:space;attribute not defined;m
+/html/body/p/@xml:space;attr:obsolete;m
 
 #data html
 <!DOCTYPE html><title>a</title>
 <p xml:space="default ">a</p>
 #errors
 /html;attribute missing;lang;w
-/html/body/p/@xml:space;attribute not defined;m
+/html/body/p/@xml:space;attr:obsolete;m
 
 #data html
 <!DOCTYPE html><title>a</title>
 <p xml:space="xml:space">a</p>
 #errors
 /html;attribute missing;lang;w
-/html/body/p/@xml:space;attribute not defined;m
+/html/body/p/@xml:space;attr:obsolete;m
 
 #data html
 <!DOCTYPE html><title>a</title>
 <p xml:space="space">a</p>
 #errors
 /html;attribute missing;lang;w
-/html/body/p/@xml:space;attribute not defined;m
+/html/body/p/@xml:space;attr:obsolete;m
 
 #data html
 <!DOCTYPE html><title>a</title>
 <p xml:space="preserved">a</p>
 #errors
 /html;attribute missing;lang;w
-/html/body/p/@xml:space;attribute not defined;m
+/html/body/p/@xml:space;attr:obsolete;m
 
 #data html
 <!DOCTYPE html><title>a</title>
 <p xml:space="none">a</p>
 #errors
 /html;attribute missing;lang;w
-/html/body/p/@xml:space;attribute not defined;m
+/html/body/p/@xml:space;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="">a</p>

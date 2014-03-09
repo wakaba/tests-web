@@ -1,46 +1,46 @@
 #data
 <datatemplate xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/datatemplate;element not defined;m
+/datatemplate;element:obsolete;m
 
 #data
 <datatemplate xmlns="http://www.w3.org/1999/xhtml"><rule/></datatemplate>
 #errors
-/datatemplate;element not defined;m
-/datatemplate/rule;element not defined;m
+/datatemplate;element:obsolete;m
+/datatemplate/rule;element:obsolete;m
 
 #data
 <datatemplate xmlns="http://www.w3.org/1999/xhtml">
   <rule/>
 </datatemplate>
 #errors
-/datatemplate;element not defined;m
-/datatemplate/rule;element not defined;m
+/datatemplate;element:obsolete;m
+/datatemplate/rule;element:obsolete;m
 
 #data
 <datatemplate xmlns="http://www.w3.org/1999/xhtml">
   <rule/><!-- -->
 </datatemplate>
 #errors
-/datatemplate;element not defined;m
-/datatemplate/rule;element not defined;m
+/datatemplate;element:obsolete;m
+/datatemplate/rule;element:obsolete;m
 
 #data
 <datatemplate xmlns="http://www.w3.org/1999/xhtml"><rule/>aa</datatemplate>
 #errors
-/datatemplate;element not defined;m
-/datatemplate/rule;element not defined;m
+/datatemplate;element:obsolete;m
+/datatemplate/rule;element:obsolete;m
 
 #data
 <datatemplate xmlns="http://www.w3.org/1999/xhtml">aa<rule/></datatemplate>
 #errors
-/datatemplate;element not defined;m
-/datatemplate/rule;element not defined;m
+/datatemplate;element:obsolete;m
+/datatemplate/rule;element:obsolete;m
 
 #data
 <datatemplate xmlns="http://www.w3.org/1999/xhtml"><p/></datatemplate>
 #errors
-/datatemplate;element not defined;m
+/datatemplate;element:obsolete;m
 /datatemplate/p;no significant content;s
 
 #data
@@ -50,7 +50,7 @@
 </head>
 #errors
 /head/title;no significant content;m
-/head/datatemplate;element not defined;m
+/head/datatemplate;element:obsolete;m
 /head/datatemplate;element not allowed:metadata;m
 
 #data
@@ -59,7 +59,7 @@
 </body>
 #errors
 /body;no significant content;s
-/body/datatemplate;element not defined;m
+/body/datatemplate;element:obsolete;m
 /body/datatemplate;element not allowed:flow;m
 
 #data
@@ -68,7 +68,7 @@
 </section>
 #errors
 /section;no significant content;s
-/section/datatemplate;element not defined;m
+/section/datatemplate;element:obsolete;m
 /section/datatemplate;element not allowed:flow;m
 
 #data
@@ -76,7 +76,7 @@
 <datatemplate/>
 </p>
 #errors
-/p/datatemplate;element not defined;m
+/p/datatemplate;element:obsolete;m
 /p/datatemplate;element not allowed:phrasing;m
 /p;no significant content;s
 
@@ -88,34 +88,34 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><p/></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/p;no significant content;s
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">aa</rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><!----><?a?></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><unknownelement/></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/unknownelement;element not defined;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><unknown xmlns=""/></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/unknown;unknown namespace element;w
 
 #data
@@ -123,20 +123,20 @@
 <unknown xmlns="http://www.example.org/"/>
 </rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/unknown;unknown namespace element;w
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><rule/></p>
 #errors
-/p/rule;element not defined;m
+/p/rule;element:obsolete;m
 /p/rule;element not allowed:phrasing;m
 /p;no significant content;s
 
 #data
 <body xmlns="http://www.w3.org/1999/xhtml"><rule/></body>
 #errors
-/body/rule;element not defined;m
+/body/rule;element:obsolete;m
 /body/rule;element not allowed:flow;m
 /body;no significant content;s
 
@@ -144,45 +144,45 @@
 <head xmlns="http://www.w3.org/1999/xhtml"><title/><rule/></head>
 #errors
 /head/title;no significant content;m
-/head/rule;element not defined;m
+/head/rule;element:obsolete;m
 /head/rule;element not allowed:metadata;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/nest;element not defined;m
+/nest;element:obsolete;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml">  </nest>
 #errors
-/nest;element not defined;m
+/nest;element:obsolete;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml">aa</nest>
 #errors
-/nest;element not defined;m
+/nest;element:obsolete;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml"><p/></nest>
 #errors
-/nest;element not defined;m
+/nest;element:obsolete;m
 /nest/p;no significant content;s
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml"><!----></nest>
 #errors
-/nest;element not defined;m
+/nest;element:obsolete;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml"><nest/></nest>
 #errors
-/nest;element not defined;m
-/nest/nest;element not defined;m
+/nest;element:obsolete;m
+/nest/nest;element:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><nest/></p>
 #errors
-/p/nest;element not defined;m
+/p/nest;element:obsolete;m
 /p/nest;element not allowed:phrasing;m
 /p;no significant content;s
 
@@ -190,56 +190,56 @@
 <head xmlns="http://www.w3.org/1999/xhtml"><title/><nest/></head>
 #errors
 /head/title;no significant content;m
-/head/nest;element not defined;m
+/head/nest;element:obsolete;m
 /head/nest;element not allowed:metadata;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><nest/></div>
 #errors
-/div/nest;element not defined;m
+/div/nest;element:obsolete;m
 /div/nest;element not allowed:flow;m
 /div;no significant content;s
 
 #data
 <datatemplate xmlns="http://www.w3.org/1999/xhtml"><nest/></datatemplate>
 #errors
-/datatemplate;element not defined;m
-/datatemplate/nest;element not defined;m
+/datatemplate;element:obsolete;m
+/datatemplate/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><nest/></rule>
 #errors
-/rule;element not defined;m
-/rule/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><br><nest/></br></rule>
 #errors
-/rule;element not defined;m
-/rule/br/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/br/nest;element:obsolete;m
 /rule/br/nest;element not allowed:empty;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><br><nest/>a</br></rule>
 #errors
-/rule;element not defined;m
-/rule/br/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/br/nest;element:obsolete;m
 /rule/br/nest;element not allowed:empty;m
 /rule/br/"a";character not allowed:empty;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><title><nest/></title></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/title;no significant content;m
-/rule/title/nest;element not defined;m
+/rule/title/nest;element:obsolete;m
 /rule/title/nest;element not allowed:text;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><title><nest/>aa</title></rule>
 #errors
-/rule;element not defined;m
-/rule/title/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/title/nest;element:obsolete;m
 /rule/title/nest;element not allowed:text;m
 
 #data
@@ -247,17 +247,17 @@
 <plaintext><nest/></plaintext>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/plaintext;element not defined;m
-/rule/plaintext/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/plaintext;element:obsolete;m
+/rule/plaintext/nest;element:obsolete;m
 /rule/plaintext/nest;element not allowed:text;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><section><nest/></section></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/section;no significant content;s
-/rule/section/nest;element not defined;m
+/rule/section/nest;element:obsolete;m
 /rule/section/nest;element not allowed:flow;m
 
 #data
@@ -265,9 +265,9 @@
 <section><style scoped=""/><nest/></section>
 </rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/section;no significant content;s
-/rule/section/nest;element not defined;m
+/rule/section/nest;element:obsolete;m
 /rule/section/nest;element not allowed:flow;m
 
 #data
@@ -276,8 +276,8 @@
 </rule>
 #errors
 /rule/section;no significant content;s
-/rule;element not defined;m
-/rule/section/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/section/nest;element:obsolete;m
 /rule/section/nest;element not allowed:flow;m
 
 #data
@@ -286,8 +286,8 @@
 </rule>
 #errors
 /rule/section/p;no significant content;s
-/rule;element not defined;m
-/rule/section/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/section/nest;element:obsolete;m
 /rule/section/nest;element not allowed:flow;m
 
 #data
@@ -297,54 +297,54 @@
 #errors
 /rule/section/style;element not allowed:flow style;m
 /rule/section/p;no significant content;s
-/rule;element not defined;m
-/rule/section/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/section/nest;element:obsolete;m
 /rule/section/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><p><nest/></p></rule>
 #errors
 /rule/p;no significant content;s
-/rule;element not defined;m
-/rule/p/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/p/nest;element:obsolete;m
 /rule/p/nest;element not allowed:phrasing;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><p><nest/>aaa</p></rule>
 #errors
-/rule;element not defined;m
-/rule/p/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/p/nest;element:obsolete;m
 /rule/p/nest;element not allowed:phrasing;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><p><!----><nest/></p></rule>
 #errors
 /rule/p;no significant content;s
-/rule;element not defined;m
-/rule/p/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/p/nest;element:obsolete;m
 /rule/p/nest;element not allowed:phrasing;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><body><nest/></body></rule>
 #errors
 /rule/body;no significant content;s
-/rule;element not defined;m
-/rule/body/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/body/nest;element:obsolete;m
 /rule/body/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><em><nest/></em></rule>
 #errors
 /rule/em;no significant content;s
-/rule;element not defined;m
-/rule/em/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/em/nest;element:obsolete;m
 /rule/em/nest;element not allowed:phrasing;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><em>aa<nest/></em></rule>
 #errors
-/rule;element not defined;m
-/rule/em/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/em/nest;element:obsolete;m
 /rule/em/nest;element not allowed:phrasing;m
 
 #data
@@ -352,48 +352,48 @@
 #errors
 /rule/em/i;no significant content;s
 /rule/em/i;attribute missing;class;w
-/rule;element not defined;m
-/rule/em/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/em/nest;element:obsolete;m
 /rule/em/nest;element not allowed:phrasing;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><sub><nest/></sub></rule>
 #errors
 /rule/sub;no significant content;s
-/rule;element not defined;m
-/rule/sub/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/sub/nest;element:obsolete;m
 /rule/sub/nest;element not allowed:phrasing;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><sup><nest/><sub/></sup></rule>
 #errors
 /rule/sup/sub;no significant content;s
-/rule;element not defined;m
-/rule/sup/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/sup/nest;element:obsolete;m
 /rule/sup/nest;element not allowed:phrasing;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><sub><em><nest/></em></sub></rule>
 #errors
 /rule/sub/em;no significant content;s
-/rule;element not defined;m
-/rule/sub/em/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/sub/em/nest;element:obsolete;m
 /rule/sub/em/nest;element not allowed:phrasing;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><div><nest/></div></rule>
 #errors
 /rule/div;no significant content;s
-/rule;element not defined;m
-/rule/div/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/div/nest;element:obsolete;m
 /rule/div/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><div><nest/><p/></div></rule>
 #errors
 /rule/div/p;no significant content;s
-/rule;element not defined;m
-/rule/div/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/div/nest;element:obsolete;m
 /rule/div/nest;element not allowed:flow;m
 
 #data
@@ -401,15 +401,15 @@
 #errors
 /rule/div/i;no significant content;s
 /rule/div/i;attribute missing;class;w
-/rule;element not defined;m
-/rule/div/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/div/nest;element:obsolete;m
 /rule/div/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><div><nest/>aa</div></rule>
 #errors
-/rule;element not defined;m
-/rule/div/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/div/nest;element:obsolete;m
 /rule/div/nest;element not allowed:flow;m
 
 #data
@@ -418,16 +418,16 @@
 /rule/div/p;no significant content;s
 /rule/div/i;no significant content;s
 /rule/div/i;attribute missing;class;w
-/rule;element not defined;m
-/rule/div/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/div/nest;element:obsolete;m
 /rule/div/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><div><p/><nest/></div></rule>
 #errors
 /rule/div/p;no significant content;s
-/rule;element not defined;m
-/rule/div/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/div/nest;element:obsolete;m
 /rule/div/nest;element not allowed:flow;m
 
 #data
@@ -435,38 +435,38 @@
 #errors
 /rule/div/i;no significant content;s
 /rule/div/i;attribute missing;class;w
-/rule;element not defined;m
-/rule/div/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/div/nest;element:obsolete;m
 /rule/div/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><div>aa<nest/></div></rule>
 #errors
-/rule;element not defined;m
-/rule/div/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/div/nest;element:obsolete;m
 /rule/div/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><div>aa<nest/><p/></div></rule>
 #errors
 /rule/div/p;no significant content;s
-/rule;element not defined;m
-/rule/div/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/div/nest;element:obsolete;m
 /rule/div/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><aside><nest/></aside></rule>
 #errors
 /rule/aside;no significant content;s
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><aside><nest/>aa</aside></rule>
 #errors
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -474,23 +474,23 @@
 #errors
 /rule/aside/i;no significant content;s
 /rule/aside/i;attribute missing;class;w
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><aside><nest/><p/></aside></rule>
 #errors
 /rule/aside/p;no significant content;s
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><aside>aa<nest/></aside></rule>
 #errors
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -498,16 +498,16 @@
 #errors
 /rule/aside/i;no significant content;s
 /rule/aside/i;attribute missing;class;w
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><aside><p/><nest/></aside></rule>
 #errors
 /rule/aside/p;no significant content;s
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -516,8 +516,8 @@
 </rule>
 #errors
 /rule/aside;no significant content;s
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -525,8 +525,8 @@
 <aside><nest/><style scoped=""/>aa</aside>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -536,8 +536,8 @@
 #errors
 /rule/aside/i;no significant content;s
 /rule/aside/i;attribute missing;class;w
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -546,8 +546,8 @@
 </rule>
 #errors
 /rule/aside/blockquote;no significant content;s
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -557,8 +557,8 @@
 #errors
 /rule/aside/blockquote;no significant content;s
 /rule/aside/p;no significant content;s
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -569,8 +569,8 @@
 /rule/aside/blockquote;no significant content;s
 /rule/aside/i;no significant content;s
 /rule/aside/i;attribute missing;class;w
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -579,8 +579,8 @@
 </rule>
 #errors
 /rule/aside/p;no significant content;s
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -589,8 +589,8 @@
 </rule>
 #errors
 /rule/aside/style;element not allowed:flow style;m
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -601,8 +601,8 @@
 /rule/aside/style;element not allowed:flow style;m
 /rule/aside/i;no significant content;s
 /rule/aside/i;attribute missing;class;w
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -612,8 +612,8 @@
 #errors
 /rule/aside/style;element not allowed:flow style;m
 /rule/aside/p;no significant content;s
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -621,8 +621,8 @@
 <aside>aa<nest/></aside>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -632,8 +632,8 @@
 #errors
 /rule/aside/i;no significant content;s
 /rule/aside/i;attribute missing;class;w
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -642,8 +642,8 @@
 </rule>
 #errors
 /rule/aside/blockquote;no significant content;s
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -652,8 +652,8 @@
 </rule>
 #errors
 /rule/aside/p;no significant content;s
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -662,8 +662,8 @@
 </rule>
 #errors
 /rule/aside/style;element not allowed:flow style;m
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -674,8 +674,8 @@
 /rule/aside/style;element not allowed:flow style;m
 /rule/aside/i;no significant content;s
 /rule/aside/i;attribute missing;class;w
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -685,8 +685,8 @@
 #errors
 /rule/aside/style;element not allowed:flow style;m
 /rule/aside/blockquote;no significant content;s
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -696,8 +696,8 @@
 #errors
 /rule/aside/style;element not allowed:flow style;m
 /rule/aside/p;no significant content;s
-/rule;element not defined;m
-/rule/aside/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
 
 #data
@@ -705,99 +705,99 @@
 #errors
 /rule/ruby;no significant content at the end;s
 /rule/ruby;element missing;rt;m
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ruby/nest;element not allowed:ruby base;m
-/rule/ruby/nest;element not defined;m
+/rule/ruby/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ruby><nest/><rt>x</rt></ruby></rule>
 #errors
 /rule/ruby/rt;no significant content before;s
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ruby/nest;element not allowed:ruby base;m
-/rule/ruby/nest;element not defined;m
+/rule/ruby/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ruby><nest/>x<rt>y</rt></ruby></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ruby/nest;element not allowed:ruby base;m
-/rule/ruby/nest;element not defined;m
+/rule/ruby/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ruby>x<nest/><rt>y</rt></ruby></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ruby/nest;element not allowed:ruby base;m
-/rule/ruby/nest;element not defined;m
+/rule/ruby/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ruby>x<rt>y</rt><nest/></ruby></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ruby;element missing;rt;m
 /rule/ruby;no significant content at the end;s
 /rule/ruby/nest;element not allowed:ruby base;m
-/rule/ruby/nest;element not defined;m
+/rule/ruby/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ruby>x<rt><nest/></rt></ruby></rule>
 #errors
 /rule/ruby/rt;no significant content;s
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ruby/rt/nest;element not allowed:phrasing;m
-/rule/ruby/rt/nest;element not defined;m
+/rule/ruby/rt/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ruby>x<rp><nest/>(</rp><rt>y</rt><rp>)</rp></ruby></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ruby/rp/nest;element not allowed:phrasing;m
-/rule/ruby/rp/nest;element not defined;m
+/rule/ruby/rp/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ruby>x<rp><nest/></rp><rt>y</rt><rp>)</rp></ruby></rule>
 #errors
 /rule/ruby/rp;no significant content;s
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ruby/rp/nest;element not allowed:phrasing;m
-/rule/ruby/rp/nest;element not defined;m
+/rule/ruby/rp/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ruby>x<rp>(<nest/>(</rp><rt>y</rt><rp>]</rp></ruby></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ruby/rp/nest;element not allowed:phrasing;m
-/rule/ruby/rp/nest;element not defined;m
+/rule/ruby/rp/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ruby>x<rp>[</rp><rt><nest/></rt><rp>]</rp></ruby></rule>
 #errors
 /rule/ruby/rt;no significant content;s
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ruby/rt/nest;element not allowed:phrasing;m
-/rule/ruby/rt/nest;element not defined;m
+/rule/ruby/rt/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ruby>x<rp>[</rp><rt>y</rt><rp>]<nest/></rp></ruby></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ruby/rp/nest;element not allowed:phrasing;m
-/rule/ruby/rp/nest;element not defined;m
+/rule/ruby/rp/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ruby>x<rp>[</rp><rt>y</rt><rp>]<nest/></rp></ruby></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ruby/rp/nest;element not allowed:phrasing;m
-/rule/ruby/rp/nest;element not defined;m
+/rule/ruby/rp/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ruby>x<rp>[</rp><nest/><rt>y</rt><rp>]</rp></ruby></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ruby/nest;element not allowed:ruby base;m
-/rule/ruby/nest;element not defined;m
+/rule/ruby/nest;element:obsolete;m
 /rule/ruby/nest;ps element missing;rp;m
 /rule/ruby/nest;ps element missing;rt;m
 /rule/ruby/rp;no significant content before;s
@@ -808,9 +808,9 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ruby>x<rp>[</rp><rt>y</rt><nest/><rp>]</rp></ruby></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ruby/nest;element not allowed:ruby base;m
-/rule/ruby/nest;element not defined;m
+/rule/ruby/nest;element:obsolete;m
 /rule/ruby/rp;no significant content before;s
 /rule/ruby/nest;ps element missing;rp;m
 /rule/ruby;element missing;rp;m
@@ -819,18 +819,18 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ruby>x<rp>[</rp><rt>c</rt><rp>]</rp><nest/></ruby></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ruby/nest;element not allowed:ruby base;m
-/rule/ruby/nest;element not defined;m
+/rule/ruby/nest;element:obsolete;m
 /rule/ruby;element missing;rt;m
 /rule/ruby;no significant content at the end;s
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ruby>x<rp>[</rp><rt>c</rt><nest/></ruby></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ruby/nest;element not allowed:ruby base;m
-/rule/ruby/nest;element not defined;m
+/rule/ruby/nest;element:obsolete;m
 /rule/ruby/nest;ps element missing;rp;m
 /rule/ruby;element missing;rt;m
 /rule/ruby;no significant content at the end;s
@@ -839,60 +839,60 @@
 <rule xmlns="http://www.w3.org/1999/xhtml"><rt><nest/></rt></rule>
 #errors
 /rule/rt;no significant content;s
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/rt/nest;element not allowed:phrasing;m
-/rule/rt/nest;element not defined;m
+/rule/rt/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><rt>x<nest/></rt></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/rt/nest;element not allowed:phrasing;m
-/rule/rt/nest;element not defined;m
+/rule/rt/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><rp><nest/></rp></rule>
 #errors
 /rule/rp;no significant content;s
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/rp/nest;element not allowed:phrasing;m
-/rule/rp/nest;element not defined;m
+/rule/rp/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><rp>(<nest/></rp></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/rp/nest;element not allowed:phrasing;m
-/rule/rp/nest;element not defined;m
+/rule/rp/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><rp><nest/>)</rp></rule>
 #errors
-/rule;element not defined;m
-/rule/rp/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/rp/nest;element:obsolete;m
 /rule/rp/nest;element not allowed:phrasing;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><rb><nest/></rb></rule>
 #errors
-/rule/rb;element not defined;m
-/rule;element not defined;m
-/rule/rb/nest;element not defined;m
+/rule/rb;element:obsolete;m
+/rule;element:obsolete;m
+/rule/rb/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ins><nest/></ins></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ins;no significant content;s
 /rule/ins/nest;element not allowed:flow;m
-/rule/ins/nest;element not defined;m
+/rule/ins/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><p><ins><nest/></ins></p></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/p/ins;no significant content;s
-/rule/p/ins/nest;element not defined;m
+/rule/p/ins/nest;element:obsolete;m
 /rule/p/ins/nest;element not allowed:phrasing;m
 
 #data
@@ -900,8 +900,8 @@
 #errors
 /rule/html;child element missing;head;m
 /rule/html;child element missing;body;m
-/rule;element not defined;m
-/rule/html/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/html/nest;element:obsolete;m
 /rule/html/nest;element not allowed;m
 
 #data
@@ -911,8 +911,8 @@
 #errors
 /rule/html/head/title;no significant content;m
 /rule/html/body;no significant content;s
-/rule;element not defined;m
-/rule/html/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/html/nest;element:obsolete;m
 /rule/html/nest;element not allowed;m
 
 #data
@@ -922,8 +922,8 @@
 #errors
 /rule/html/head/title;no significant content;m
 /rule/html/body;no significant content;s
-/rule;element not defined;m
-/rule/html/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/html/nest;element:obsolete;m
 /rule/html/nest;element not allowed;m
 
 #data
@@ -933,8 +933,8 @@
 #errors
 /rule/html/head/title;no significant content;m
 /rule/html/body;no significant content;s
-/rule;element not defined;m
-/rule/html/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/html/nest;element:obsolete;m
 /rule/html/nest;element not allowed;m
 
 #data
@@ -946,8 +946,8 @@
 /rule/html/body;element not allowed;m
 /rule/html/body;no significant content;s
 /rule/html/body;no significant content;s
-/rule;element not defined;m
-/rule/html/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/html/nest;element:obsolete;m
 /rule/html/nest;element not allowed;m
 
 #data
@@ -956,9 +956,9 @@
 </html></rule>
 #errors
 /rule/html;child element missing;body;m
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/html/head/title;no significant content;m
-/rule/html/nest;element not defined;m
+/rule/html/nest;element:obsolete;m
 /rule/html/nest;element not allowed;m
 
 #data
@@ -968,8 +968,8 @@
 #errors
 /rule/html/body;ps element missing;head;m
 /rule/html/body;no significant content;s
-/rule;element not defined;m
-/rule/html/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/html/nest;element:obsolete;m
 /rule/html/nest;element not allowed;m
 
 #data
@@ -979,8 +979,8 @@
 #errors
 /rule/html/head/title;no significant content;m
 /rule/html/body;no significant content;s
-/rule;element not defined;m
-/rule/html/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/html/nest;element:obsolete;m
 /rule/html/nest;element not allowed;m
 
 #data
@@ -989,8 +989,8 @@
 </rule>
 #errors
 /rule/head;child element missing;title;m
-/rule;element not defined;m
-/rule/head/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/head/nest;element:obsolete;m
 /rule/head/nest;element not allowed:metadata;m
 
 #data
@@ -998,9 +998,9 @@
 <head><title/><nest/></head>
 </rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/head/title;no significant content;m
-/rule/head/nest;element not defined;m
+/rule/head/nest;element:obsolete;m
 /rule/head/nest;element not allowed:metadata;m
 
 #data
@@ -1008,8 +1008,8 @@
 <head><nest/><title/></head>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/head/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/head/nest;element:obsolete;m
 /rule/head/nest;element not allowed:metadata;m
 /rule/head/title;no significant content;m
 
@@ -1018,8 +1018,8 @@
 <head><nest/><base href="http://www.example.com/"/><title/></head>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/head/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/head/nest;element:obsolete;m
 /rule/head/nest;element not allowed:metadata;m
 /rule/head/title;no significant content;m
 
@@ -1028,8 +1028,8 @@
 <head><base href="http://www.example.com/"/><nest/><title/></head>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/head/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/head/nest;element:obsolete;m
 /rule/head/nest;element not allowed:metadata;m
 /rule/head/title;no significant content;m
 
@@ -1040,8 +1040,8 @@
 #errors
 /rule/head/meta/@charset;in XML:charset;m
 /rule/head/meta/@charset;mismatched charset name;utf-8;m
-/rule;element not defined;m
-/rule/head/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/head/nest;element:obsolete;m
 /rule/head/nest;element not allowed:metadata;m
 /rule/head/title;no significant content;m
 
@@ -1052,8 +1052,8 @@
 #errors
 /rule/head/meta/@charset;in XML:charset;m
 /rule/head/meta/@charset;mismatched charset name;utf-8;m
-/rule;element not defined;m
-/rule/head/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/head/nest;element:obsolete;m
 /rule/head/nest;element not allowed:metadata;m
 /rule/head/title;no significant content;m
 
@@ -1061,30 +1061,30 @@
 <rule xmlns="http://www.w3.org/1999/xhtml"><style><nest/></style></rule>
 #errors
 /rule/style;attribute missing;scoped;m
-/rule;element not defined;m
-/rule/style/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/style/nest;element:obsolete;m
 /rule/style/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><script><nest/></script></rule>
 #errors
-/rule;element not defined;m
-/rule/script/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/script/nest;element:obsolete;m
 /rule/script/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><footer><nest/></footer></rule>
 #errors
 /rule/footer;no significant content;s
-/rule;element not defined;m
-/rule/footer/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/footer/nest;element:obsolete;m
 /rule/footer/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><footer><nest/>a</footer></rule>
 #errors
-/rule;element not defined;m
-/rule/footer/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/footer/nest;element:obsolete;m
 /rule/footer/nest;element not allowed:flow;m
 
 #data
@@ -1092,31 +1092,31 @@
 #errors
 /rule/footer/i;no significant content;s
 /rule/footer/i;attribute missing;class;w
-/rule;element not defined;m
-/rule/footer/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/footer/nest;element:obsolete;m
 /rule/footer/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><footer><nest/><ul/></footer></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/footer;no significant content;s
-/rule/footer/nest;element not defined;m
+/rule/footer/nest;element:obsolete;m
 /rule/footer/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><footer><nest/><p/></footer></rule>
 #errors
 /rule/footer/p;no significant content;s
-/rule;element not defined;m
-/rule/footer/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/footer/nest;element:obsolete;m
 /rule/footer/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><footer>a<nest/></footer></rule>
 #errors
-/rule;element not defined;m
-/rule/footer/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/footer/nest;element:obsolete;m
 /rule/footer/nest;element not allowed:flow;m
 
 #data
@@ -1124,56 +1124,56 @@
 #errors
 /rule/footer/i;no significant content;s
 /rule/footer/i;attribute missing;class;w
-/rule;element not defined;m
-/rule/footer/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/footer/nest;element:obsolete;m
 /rule/footer/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><footer><ol/><nest/></footer></rule>
 #errors
 /rule/footer;no significant content;s
-/rule;element not defined;m
-/rule/footer/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/footer/nest;element:obsolete;m
 /rule/footer/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><footer><p/><nest/></footer></rule>
 #errors
 /rule/footer/p;no significant content;s
-/rule;element not defined;m
-/rule/footer/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/footer/nest;element:obsolete;m
 /rule/footer/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><footer>a<nest/><p/></footer></rule>
 #errors
 /rule/footer/p;no significant content;s
-/rule;element not defined;m
-/rule/footer/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/footer/nest;element:obsolete;m
 /rule/footer/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><footer><p/><nest/>a</footer></rule>
 #errors
 /rule/footer/p;no significant content;s
-/rule;element not defined;m
-/rule/footer/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/footer/nest;element:obsolete;m
 /rule/footer/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><footer><nest/><h1/></footer></rule>
 #errors
 /rule/footer/h1;no significant content;s
-/rule;element not defined;m
-/rule/footer/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/footer/nest;element:obsolete;m
 /rule/footer/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><dialog><nest/></dialog></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/dialog;no significant content;s
-/rule/dialog/nest;element not defined;m
+/rule/dialog/nest;element:obsolete;m
 /rule/dialog/nest;element not allowed:flow;m
 
 #data
@@ -1184,8 +1184,8 @@
 /rule/dialog;no significant content;s
 /rule/dialog/dt;element not allowed:flow;m
 /rule/dialog/dt;no significant content;s
-/rule;element not defined;m
-/rule/dialog/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/dialog/nest;element:obsolete;m
 /rule/dialog/nest;element not allowed:flow;m
 
 #data
@@ -1198,8 +1198,8 @@
 /rule/dialog/dt;no significant content;s
 /rule/dialog/dd;element not allowed:flow;m
 /rule/dialog/dd;no significant content;s
-/rule;element not defined;m
-/rule/dialog/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/dialog/nest;element:obsolete;m
 /rule/dialog/nest;element not allowed:flow;m
 
 #data
@@ -1214,8 +1214,8 @@
 /rule/dialog/dd;no significant content;s
 /rule/dialog/dt;element not allowed:flow;m
 /rule/dialog/dt;no significant content;s
-/rule;element not defined;m
-/rule/dialog/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/dialog/nest;element:obsolete;m
 /rule/dialog/nest;element not allowed:flow;m
 
 #data
@@ -1232,8 +1232,8 @@
 /rule/dialog/dt;no significant content;s
 /rule/dialog/dd;element not allowed:flow;m
 /rule/dialog/dd;no significant content;s
-/rule;element not defined;m
-/rule/dialog/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/dialog/nest;element:obsolete;m
 /rule/dialog/nest;element not allowed:flow;m
 
 #data
@@ -1246,8 +1246,8 @@
 /rule/dialog/dt;no significant content;s
 /rule/dialog/dd;element not allowed:flow;m
 /rule/dialog/dd;no significant content;s
-/rule;element not defined;m
-/rule/dialog/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/dialog/nest;element:obsolete;m
 /rule/dialog/nest;element not allowed:flow;m
 
 #data
@@ -1262,8 +1262,8 @@
 /rule/dialog/dt;no significant content;s
 /rule/dialog/dd;element not allowed:flow;m
 /rule/dialog/dd;no significant content;s
-/rule;element not defined;m
-/rule/dialog/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/dialog/nest;element:obsolete;m
 /rule/dialog/nest;element not allowed:flow;m
 
 #data
@@ -1274,8 +1274,8 @@
 /rule/dialog;no significant content;s
 /rule/dialog/dt;no significant content;s
 /rule/dialog/dt;element not allowed:flow;m
-/rule;element not defined;m
-/rule/dialog/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/dialog/nest;element:obsolete;m
 /rule/dialog/nest;element not allowed:flow;m
 
 #data
@@ -1288,45 +1288,45 @@
 /rule/dialog/dt;element not allowed:flow;m
 /rule/dialog/dd;no significant content;s
 /rule/dialog/dd;element not allowed:flow;m
-/rule;element not defined;m
-/rule/dialog/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/dialog/nest;element:obsolete;m
 /rule/dialog/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ul><nest/></ul></rule>
 #errors
-/rule;element not defined;m
-/rule/ul/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/ul/nest;element:obsolete;m
 /rule/ul/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ul><li/><nest/></ul></rule>
 #errors
 /rule/ul/li;no significant content;s
-/rule;element not defined;m
-/rule/ul/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/ul/nest;element:obsolete;m
 /rule/ul/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ul><nest/><li/></ul></rule>
 #errors
 /rule/ul/li;no significant content;s
-/rule;element not defined;m
-/rule/ul/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/ul/nest;element:obsolete;m
 /rule/ul/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ol><nest/></ol></rule>
 #errors
-/rule;element not defined;m
-/rule/ol/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/ol/nest;element:obsolete;m
 /rule/ol/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><dl><nest/></dl></rule>
 #errors
-/rule;element not defined;m
-/rule/dl/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/dl/nest;element:obsolete;m
 /rule/dl/nest;element not allowed;m
 
 #data
@@ -1334,8 +1334,8 @@
 #errors
 /rule/dl;child element missing;dd;m
 /rule/dl/dt;no significant content;s
-/rule;element not defined;m
-/rule/dl/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/dl/nest;element:obsolete;m
 /rule/dl/nest;element not allowed;m
 
 #data
@@ -1343,8 +1343,8 @@
 #errors
 /rule/dl;child element missing;dd;m
 /rule/dl/dt;no significant content;s
-/rule;element not defined;m
-/rule/dl/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/dl/nest;element:obsolete;m
 /rule/dl/nest;element not allowed;m
 
 #data
@@ -1352,8 +1352,8 @@
 #errors
 /rule/dl/dt;no significant content;s
 /rule/dl/dd;no significant content;s
-/rule;element not defined;m
-/rule/dl/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/dl/nest;element:obsolete;m
 /rule/dl/nest;element not allowed;m
 
 #data
@@ -1361,8 +1361,8 @@
 #errors
 /rule/dl/dt;no significant content;s
 /rule/dl/dd;no significant content;s
-/rule;element not defined;m
-/rule/dl/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/dl/nest;element:obsolete;m
 /rule/dl/nest;element not allowed;m
 
 #data
@@ -1370,8 +1370,8 @@
 #errors
 /rule/dl/dt;no significant content;s
 /rule/dl/dd;no significant content;s
-/rule;element not defined;m
-/rule/dl/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/dl/nest;element:obsolete;m
 /rule/dl/nest;element not allowed;m
 
 #data
@@ -1382,8 +1382,8 @@
 /rule/dl/dt;no significant content;s
 /rule/dl/dd;no significant content;s
 /rule/dl/dd;no significant content;s
-/rule;element not defined;m
-/rule/dl/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/dl/nest;element:obsolete;m
 /rule/dl/nest;element not allowed;m
 
 #data
@@ -1393,8 +1393,8 @@
 #errors
 /rule/dl/dt;no significant content;s
 /rule/dl/dd;no significant content;s
-/rule;element not defined;m
-/rule/dl/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/dl/nest;element:obsolete;m
 /rule/dl/nest;element not allowed;m
 
 #data
@@ -1405,41 +1405,41 @@
 /rule/dl/dt;no significant content;s
 /rule/dl/dd;no significant content;s
 /rule/dl/dd;no significant content;s
-/rule;element not defined;m
-/rule/dl/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/dl/nest;element:obsolete;m
 /rule/dl/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><del><nest/></del></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/del;no significant content;s
 /rule/del/nest;element not allowed:flow;m
-/rule/del/nest;element not defined;m
+/rule/del/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><del><nest/>aa</del></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/del/nest;element not allowed:flow;m
-/rule/del/nest;element not defined;m
+/rule/del/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><del><nest/><p/></del></rule>
 #errors
 /rule/del/p;no significant content;s
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/del/nest;element not allowed:flow;m
-/rule/del/nest;element not defined;m
+/rule/del/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <video src="/"><nest/></video>
 </rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/video;no significant content;s
-/rule/video/nest;element not defined;m
+/rule/video/nest;element:obsolete;m
 /rule/video/nest;element not allowed:flow;m
 
 #data
@@ -1447,9 +1447,9 @@
 <video><nest/><source src="/"/></video>
 </rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/video;no significant content;s
-/rule/video/nest;element not defined;m
+/rule/video/nest;element:obsolete;m
 /rule/video/nest;element not allowed:flow;m
 /rule/video/source;element not allowed:flow;m
 
@@ -1458,9 +1458,9 @@
 <video><source src="/"/><nest/><source src="/"/></video>
 </rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/video;no significant content;s
-/rule/video/nest;element not defined;m
+/rule/video/nest;element:obsolete;m
 /rule/video/nest;element not allowed:flow;m
 /rule/video/source;element not allowed:flow;m
 
@@ -1469,9 +1469,9 @@
 <video><source src="/"/><nest/></video>
 </rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/video;no significant content;s
-/rule/video/nest;element not defined;m
+/rule/video/nest;element:obsolete;m
 /rule/video/nest;element not allowed:flow;m
 
 #data
@@ -1479,8 +1479,8 @@
 <table><nest/></table>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/table/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/table/nest;element:obsolete;m
 /rule/table/nest;element not allowed;m
 
 #data
@@ -1489,8 +1489,8 @@
 </rule>
 #errors
 /rule/table/tr/td;no significant content;s
-/rule;element not defined;m
-/rule/table/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/table/nest;element:obsolete;m
 /rule/table/nest;element not allowed;m
 
 #data
@@ -1499,8 +1499,8 @@
 </rule>
 #errors
 /rule/table/tbody/tr/td;no significant content;s
-/rule;element not defined;m
-/rule/table/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/table/nest;element:obsolete;m
 /rule/table/nest;element not allowed;m
 
 #data
@@ -1509,8 +1509,8 @@
 </rule>
 #errors
 /rule/table/tbody/tr/td;no significant content;s
-/rule;element not defined;m
-/rule/table/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/table/nest;element:obsolete;m
 /rule/table/nest;element not allowed;m
 
 #data
@@ -1522,8 +1522,8 @@
 /rule/table/caption;no significant content;s
 /rule/table/caption;no significant content;s
 /rule/table/tr/td;no significant content;s
-/rule;element not defined;m
-/rule/table/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/table/nest;element:obsolete;m
 /rule/table/nest;element not allowed;m
 
 #data
@@ -1531,8 +1531,8 @@
 <colgroup><nest/></colgroup>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/colgroup/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/colgroup/nest;element:obsolete;m
 /rule/colgroup/nest;element not allowed:colgroup;m
 
 #data
@@ -1540,8 +1540,8 @@
 <colgroup><col/><nest/></colgroup>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/colgroup/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/colgroup/nest;element:obsolete;m
 /rule/colgroup/nest;element not allowed:colgroup;m
 
 #data
@@ -1549,8 +1549,8 @@
 <colgroup><nest/><col/></colgroup>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/colgroup/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/colgroup/nest;element:obsolete;m
 /rule/colgroup/nest;element not allowed:colgroup;m
 
 #data
@@ -1558,8 +1558,8 @@
 <colgroup><col/><nest/><col/></colgroup>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/colgroup/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/colgroup/nest;element:obsolete;m
 /rule/colgroup/nest;element not allowed:colgroup;m
 
 #data
@@ -1567,8 +1567,8 @@
 <tbody><nest/></tbody>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/tbody/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/tbody/nest;element:obsolete;m
 /rule/tbody/nest;element not allowed;m
 
 #data
@@ -1577,8 +1577,8 @@
 </rule>
 #errors
 /rule/tbody/tr/td;no significant content;s
-/rule;element not defined;m
-/rule/tbody/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/tbody/nest;element:obsolete;m
 /rule/tbody/nest;element not allowed;m
 
 #data
@@ -1587,8 +1587,8 @@
 </rule>
 #errors
 /rule/tbody/tr/td;no significant content;s
-/rule;element not defined;m
-/rule/tbody/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/tbody/nest;element:obsolete;m
 /rule/tbody/nest;element not allowed;m
 
 #data
@@ -1596,8 +1596,8 @@
 <tr><nest/></tr>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/tr/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/tr/nest;element:obsolete;m
 /rule/tr/nest;element not allowed;m
 
 #data
@@ -1606,8 +1606,8 @@
 </rule>
 #errors
 /rule/tr/td;no significant content;s
-/rule;element not defined;m
-/rule/tr/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/tr/nest;element:obsolete;m
 /rule/tr/nest;element not allowed;m
 
 #data
@@ -1616,8 +1616,8 @@
 </rule>
 #errors
 /rule/tr/td;no significant content;s
-/rule;element not defined;m
-/rule/tr/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/tr/nest;element:obsolete;m
 /rule/tr/nest;element not allowed;m
 
 #data
@@ -1626,8 +1626,8 @@
 </rule>
 #errors
 /rule/tr/th;no significant content;s
-/rule;element not defined;m
-/rule/tr/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/tr/nest;element:obsolete;m
 /rule/tr/nest;element not allowed;m
 
 #data
@@ -1637,42 +1637,42 @@
 #errors
 /rule/tr/th;no significant content;s
 /rule/tr/td;no significant content;s
-/rule;element not defined;m
-/rule/tr/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/tr/nest;element:obsolete;m
 /rule/tr/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><form/></rule>
 #errors
 /rule/form;no significant content;s
-/rule;element not defined;m
+/rule;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><form><nest/></form></rule>
 #errors
 /rule/form;no significant content;s
-/rule;element not defined;m
-/rule/form/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/form/nest;element:obsolete;m
 /rule/form/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><form><style scoped=""></style><nest/></form></rule>
 #errors
 /rule/form;no significant content;s
-/rule;element not defined;m
-/rule/form/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/form/nest;element:obsolete;m
 /rule/form/nest;element not allowed:flow;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><input/></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><input><nest/></input></rule>
 #errors
-/rule;element not defined;m
-/rule/input/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/input/nest;element:obsolete;m
 /rule/input/nest;element not allowed:empty;m
 
 #data
@@ -1680,8 +1680,8 @@
 <nest/>
 </input></rule>
 #errors
-/rule;element not defined;m
-/rule/input/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/input/nest;element:obsolete;m
 /rule/input/nest;element not allowed:empty;m
 
 #data
@@ -1691,95 +1691,95 @@
 #noscript
 #errors
 /rule/head/noscript;in XML:noscript;m
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/head/title;no significant content;m
-/rule/head/noscript/nest;element not defined;m
+/rule/head/noscript/nest;element:obsolete;m
 /rule/head/noscript/nest;element not allowed:metadata;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><button>x</button></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><button><nest/></button></rule>
 #errors
 /rule/button;no significant content;s
-/rule;element not defined;m
-/rule/button/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/button/nest;element:obsolete;m
 /rule/button/nest;element not allowed:phrasing;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><button>x<nest/></button></rule>
 #errors
-/rule;element not defined;m
-/rule/button/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/button/nest;element:obsolete;m
 /rule/button/nest;element not allowed:phrasing;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><label>x</label></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><label><nest/></label></rule>
 #errors
 /rule/label;no significant content;s
-/rule;element not defined;m
-/rule/label/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/label/nest;element:obsolete;m
 /rule/label/nest;element not allowed:phrasing;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><label>x<nest/></label></rule>
 #errors
-/rule;element not defined;m
-/rule/label/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/label/nest;element:obsolete;m
 /rule/label/nest;element not allowed:phrasing;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><select/></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><select><nest/></select></rule>
 #errors
-/rule;element not defined;m
-/rule/select/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/select/nest;element:obsolete;m
 /rule/select/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><select><option><nest/></option></select></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/select/option;no significant content;m
-/rule/select/option/nest;element not defined;m
+/rule/select/option/nest;element:obsolete;m
 /rule/select/option/nest;element not allowed:text;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><select><option>x</option><nest/><option>u</option></select></rule>
 #errors
-/rule;element not defined;m
-/rule/select/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/select/nest;element:obsolete;m
 /rule/select/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><datalist/></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><datalist><nest/></datalist></rule>
 #errors
-/rule;element not defined;m
-/rule/datalist/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/datalist/nest;element:obsolete;m
 /rule/datalist/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><datalist><nest/><option/></datalist></rule>
 #errors
-/rule;element not defined;m
-/rule/datalist/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/datalist/nest;element:obsolete;m
 /rule/datalist/nest;element not allowed;m
 /rule/datalist/option;no significant content;m
 
@@ -1787,8 +1787,8 @@
 <rule xmlns="http://www.w3.org/1999/xhtml"><datalist><nest/><option/>x</datalist></rule>
 #errors
 /rule/datalist/"x";character not allowed;m
-/rule;element not defined;m
-/rule/datalist/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/datalist/nest;element:obsolete;m
 /rule/datalist/nest;element not allowed;m
 /rule/datalist/option;no significant content;m
 
@@ -1796,8 +1796,8 @@
 <rule xmlns="http://www.w3.org/1999/xhtml"><datalist><nest/>x<option/></datalist></rule>
 #errors
 /rule/datalist/option;element not allowed:phrasing;m
-/rule;element not defined;m
-/rule/datalist/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/datalist/nest;element:obsolete;m
 /rule/datalist/nest;element not allowed;m
 /rule/datalist/option;no significant content;m
 
@@ -1805,17 +1805,17 @@
 <rule xmlns="http://www.w3.org/1999/xhtml"><datalist>x<nest/><option/></datalist></rule>
 #errors
 /rule/datalist/option;element not allowed:phrasing;m
-/rule;element not defined;m
-/rule/datalist/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/datalist/nest;element:obsolete;m
 /rule/datalist/nest;element not allowed:phrasing;m
 /rule/datalist/option;no significant content;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><datalist><option/><nest/><option/></datalist></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/datalist/option;no significant content;m
-/rule/datalist/nest;element not defined;m
+/rule/datalist/nest;element:obsolete;m
 /rule/datalist/nest;element not allowed;m
 /rule/datalist/option;no significant content;m
 
@@ -1823,64 +1823,64 @@
 <rule xmlns="http://www.w3.org/1999/xhtml"><optgroup/></rule>
 #errors
 /rule/optgroup;attribute missing;label;m
-/rule;element not defined;m
+/rule;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><optgroup><nest/></optgroup></rule>
 #errors
 /rule/optgroup;attribute missing;label;m
-/rule;element not defined;m
-/rule/optgroup/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/optgroup/nest;element:obsolete;m
 /rule/optgroup/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><option/></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/option;no significant content;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><option><nest/></option></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/option;no significant content;m
-/rule/option/nest;element not defined;m
+/rule/option/nest;element:obsolete;m
 /rule/option/nest;element not allowed:text;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><textarea/></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><textarea>xx</textarea></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><textarea><nest/></textarea></rule>
 #errors
-/rule;element not defined;m
-/rule/textarea/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/textarea/nest;element:obsolete;m
 /rule/textarea/nest;element not allowed:text;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><textarea>aa<nest/>bb</textarea></rule>
 #errors
-/rule;element not defined;m
-/rule/textarea/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/textarea/nest;element:obsolete;m
 /rule/textarea/nest;element not allowed:text;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><output>x</output></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><output>x<nest/></output></rule>
 #errors
-/rule;element not defined;m
-/rule/output/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/output/nest;element:obsolete;m
 /rule/output/nest;element not allowed:phrasing;m
 
 #data
@@ -1890,9 +1890,9 @@
 #noscript
 #errors
 /rule/head/noscript;in XML:noscript;m
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/head/title;no significant content;m
-/rule/head/noscript/nest;element not defined;m
+/rule/head/noscript/nest;element:obsolete;m
 /rule/head/noscript/nest;element not allowed:metadata;m
 
 #data
@@ -1900,18 +1900,18 @@
 <datagrid><nest/></datagrid>
 </rule>
 #errors
-/rule/datagrid;element not defined;m
-/rule;element not defined;m
-/rule/datagrid/nest;element not defined;m
+/rule/datagrid;element:obsolete;m
+/rule;element:obsolete;m
+/rule/datagrid/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <datagrid><nest/><table/></datagrid>
 </rule>
 #errors
-/rule/datagrid;element not defined;m
-/rule;element not defined;m
-/rule/datagrid/nest;element not defined;m
+/rule/datagrid;element:obsolete;m
+/rule;element:obsolete;m
+/rule/datagrid/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -1919,9 +1919,9 @@
 </rule>
 #errors
 /rule/datagrid/p;no significant content;s
-/rule/datagrid;element not defined;m
-/rule;element not defined;m
-/rule/datagrid/nest;element not defined;m
+/rule/datagrid;element:obsolete;m
+/rule;element:obsolete;m
+/rule/datagrid/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -1929,9 +1929,9 @@
 </rule>
 #errors
 /rule/datagrid/p;no significant content;s
-/rule/datagrid;element not defined;m
-/rule;element not defined;m
-/rule/datagrid/nest;element not defined;m
+/rule/datagrid;element:obsolete;m
+/rule;element:obsolete;m
+/rule/datagrid/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -1939,38 +1939,38 @@
 </rule>
 #errors
 /rule/datagrid/p;no significant content;s
-/rule/datagrid;element not defined;m
-/rule;element not defined;m
-/rule/datagrid/nest;element not defined;m
+/rule/datagrid;element:obsolete;m
+/rule;element:obsolete;m
+/rule/datagrid/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><bb>x</bb></rule>
 #errors
-/rule/bb;element not defined;m
-/rule;element not defined;m
+/rule/bb;element:obsolete;m
+/rule;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><bb>x<nest/></bb></rule>
 #errors
-/rule/bb;element not defined;m
-/rule;element not defined;m
-/rule/bb/nest;element not defined;m
+/rule/bb;element:obsolete;m
+/rule;element:obsolete;m
+/rule/bb/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ins><bb>x</bb></ins></rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/ins;no significant content;s
 /rule/ins/bb;element not allowed:flow;m
-/rule/ins/bb;element not defined;m
+/rule/ins/bb;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <menu><nest/></menu>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/menu/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/menu/nest;element:obsolete;m
 /rule/menu/nest;element not allowed:menu type=toolbar;m
 
 #data
@@ -1979,8 +1979,8 @@
 </rule>
 #errors
 /rule/menu/li;no significant content;s
-/rule;element not defined;m
-/rule/menu/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/menu/nest;element:obsolete;m
 /rule/menu/nest;element not allowed:menu type=toolbar;m
 
 #data
@@ -1989,8 +1989,8 @@
 </rule>
 #errors
 /rule/menu/li;no significant content;s
-/rule;element not defined;m
-/rule/menu/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/menu/nest;element:obsolete;m
 /rule/menu/nest;element not allowed:menu type=toolbar;m
 
 #data
@@ -2000,8 +2000,8 @@
 #errors
 /rule/menu/li;no significant content;s
 /rule/menu/li;no significant content;s
-/rule;element not defined;m
-/rule/menu/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/menu/nest;element:obsolete;m
 /rule/menu/nest;element not allowed:menu type=toolbar;m
 
 #data
@@ -2009,8 +2009,8 @@
 <menu>aa<nest/></menu>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/menu/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/menu/nest;element:obsolete;m
 /rule/menu/nest;element not allowed:menu type=toolbar;m
 
 #data
@@ -2018,8 +2018,8 @@
 <menu><nest/>aa</menu>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/menu/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/menu/nest;element:obsolete;m
 /rule/menu/nest;element not allowed:menu type=toolbar;m
 
 #data
@@ -2027,8 +2027,8 @@
 <menu>aa<nest/>bb</menu>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/menu/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/menu/nest;element:obsolete;m
 /rule/menu/nest;element not allowed:menu type=toolbar;m
 
 #data
@@ -2038,8 +2038,8 @@
 #errors
 /rule/menu/li;element not allowed:menu type=toolbar;m
 /rule/menu/li;no significant content;s
-/rule;element not defined;m
-/rule/menu/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/menu/nest;element:obsolete;m
 /rule/menu/nest;element not allowed:menu type=toolbar;m
 
 #data
@@ -2049,8 +2049,8 @@
 #errors
 /rule/menu/"aa";character not allowed;m
 /rule/menu/li;no significant content;s
-/rule;element not defined;m
-/rule/menu/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/menu/nest;element:obsolete;m
 /rule/menu/nest;element not allowed:menu type=toolbar;m
 
 #data
@@ -2058,78 +2058,78 @@
 <datatemplate><nest/></datatemplate>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/datatemplate;element not defined;m
-/rule/datatemplate/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/datatemplate;element:obsolete;m
+/rule/datatemplate/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <datatemplate><nest/><rule/></datatemplate>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/datatemplate;element not defined;m
-/rule/datatemplate/nest;element not defined;m
-/rule/datatemplate/rule;element not defined;m
+/rule;element:obsolete;m
+/rule/datatemplate;element:obsolete;m
+/rule/datatemplate/nest;element:obsolete;m
+/rule/datatemplate/rule;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <datatemplate><rule/><nest/></datatemplate>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/datatemplate;element not defined;m
-/rule/datatemplate/rule;element not defined;m
-/rule/datatemplate/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/datatemplate;element:obsolete;m
+/rule/datatemplate/rule;element:obsolete;m
+/rule/datatemplate/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <rule><nest/></rule>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/rule;element not defined;m
-/rule/rule/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/rule;element:obsolete;m
+/rule/rule/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <a:author xmlns:a="http://www.w3.org/2005/Atom"><a:name><nest/></a:name></a:author>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/author/name/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/author/name/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <a:author xmlns:a="http://www.w3.org/2005/Atom"><a:name><nest/>aa</a:name></a:author>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/author/name/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/author/name/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <a:author xmlns:a="http://www.w3.org/2005/Atom"><a:name>aa<nest/></a:name></a:author>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/author/name/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/author/name/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <a:author xmlns:a="http://www.w3.org/2005/Atom"><a:uri><nest/>http://www.example.org/</a:uri><a:name/></a:author>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/author/uri/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/author/uri/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <a:author xmlns:a="http://www.w3.org/2005/Atom"><a:email><nest/>a@example.com</a:email><a:name/></a:author>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/author/email/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/author/email/nest;element:obsolete;m
 /rule/author/email/nest;element not allowed;m
 
 #data
@@ -2137,16 +2137,16 @@
 <a:published xmlns:a="http://www.w3.org/2005/Atom">2006-12-31T00:00:00Z<nest/></a:published>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/published/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/published/nest;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <a:entry xmlns:a="http://www.w3.org/2005/Atom"><a:id>http://www.example.org/</a:id><a:title/><a:content/><a:author><a:name/></a:author><a:updated>2006-12-31T00:00:00Z</a:updated><nest/></a:entry>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/entry/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/entry/nest;element:obsolete;m
 /rule/entry/nest;element not allowed;m
 
 #data
@@ -2154,8 +2154,8 @@
 <a:entry xmlns:a="http://www.w3.org/2005/Atom"><nest/><a:id>http://www.example.org/</a:id><a:title/><a:content/><a:author><a:name/></a:author><a:updated>2006-12-31T00:00:00Z</a:updated></a:entry>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/entry/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/entry/nest;element:obsolete;m
 /rule/entry/nest;element not allowed;m
 
 #data
@@ -2163,8 +2163,8 @@
 <a:feed xmlns:a="http://www.w3.org/2005/Atom"><nest/><a:id>http://www.example.org/</a:id><a:title/><a:link rel="self" href="/"/><a:author><a:name/></a:author><a:updated>2006-12-31T00:00:00Z</a:updated></a:feed>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/feed/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/feed/nest;element:obsolete;m
 /rule/feed/nest;element not allowed;m
 
 #data
@@ -2172,8 +2172,8 @@
 <a:feed xmlns:a="http://www.w3.org/2005/Atom"><a:id>http://www.example.org/</a:id><a:title/><a:link rel="self" href="/"/><a:author><a:name/></a:author><a:updated>2006-12-31T00:00:00Z</a:updated><nest/></a:feed>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/feed/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/feed/nest;element:obsolete;m
 /rule/feed/nest;element not allowed;m
 
 #data
@@ -2182,8 +2182,8 @@
 </rule>
 #errors
 /rule/feed/entry;child element missing:atom;author;m
-/rule;element not defined;m
-/rule/feed/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/feed/nest;element:obsolete;m
 /rule/feed/nest;element not allowed;m
 
 #data
@@ -2193,8 +2193,8 @@
 #errors
 /rule/feed/entry;child element missing:atom;author;m
 /rule/feed/entry;child element missing:atom;author;m
-/rule;element not defined;m
-/rule/feed/nest;element not defined;m
+/rule;element:obsolete;m
+/rule/feed/nest;element:obsolete;m
 /rule/feed/nest;element not allowed;m
 
 #data
@@ -2204,12 +2204,12 @@
 </div>
 #errors
 /div;no significant content;s
-/div/datatemplate;element not defined;m
+/div/datatemplate;element:obsolete;m
 /div/datatemplate;element not allowed:flow;m
 /div/nest;element not allowed:flow;m
-/div/nest;element not defined;m
-/div/datatemplate/nest;element not defined;m
-/div/datatemplate/rule;element not defined;m
+/div/nest;element:obsolete;m
+/div/datatemplate/nest;element:obsolete;m
+/div/datatemplate/rule;element:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -2217,243 +2217,243 @@
 </div>
 #errors
 /div;no significant content;s
-/div/datatemplate;element not defined;m
+/div/datatemplate;element:obsolete;m
 /div/datatemplate;element not allowed:flow;m
-/div/datatemplate/nest;element not defined;m
-/div/datatemplate/rule;element not defined;m
+/div/datatemplate/nest;element:obsolete;m
+/div/datatemplate/rule;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml" mode=""/>
 #errors
-/rule;element not defined;m
-/rule/@mode;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@mode;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml" mode="  "/>
 #errors
-/rule;element not defined;m
-/rule/@mode;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@mode;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml" mode="a"/>
 #errors
-/rule;element not defined;m
-/rule/@mode;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@mode;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml" mode="a b"/>
 #errors
-/rule;element not defined;m
-/rule/@mode;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@mode;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml" mode="a  b"/>
 #errors
-/rule;element not defined;m
-/rule/@mode;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@mode;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml" mode="a A"/>
 #errors
-/rule;element not defined;m
-/rule/@mode;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@mode;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml" mode="a a"/>
 #errors
-/rule;element not defined;m
-/rule/@mode;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@mode;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml" mode="a&#x9;a&#xA;"/>
 #errors
-/rule;element not defined;m
-/rule/@mode;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@mode;attr:obsolete;m
 
 #data
 <?xml version="1.1"?>
 <rule xmlns="http://www.w3.org/1999/xhtml" mode="a&#x0b;a"/>
 #errors
-/rule;element not defined;m
-/rule/@mode;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@mode;attr:obsolete;m
 /rule/@mode;text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <rule xmlns="http://www.w3.org/1999/xhtml" mode="a a&#x0b;"/>
 #errors
-/rule;element not defined;m
-/rule/@mode;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@mode;attr:obsolete;m
 /rule/@mode;text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <rule xmlns="http://www.w3.org/1999/xhtml" mode="&#x0b;a a"/>
 #errors
-/rule;element not defined;m
-/rule/@mode;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@mode;attr:obsolete;m
 /rule/@mode;text:bad char;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml" condition=""/>
 #errors
-/rule;element not defined;m
-/rule/@condition;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@condition;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml" condition="  "/>
 #errors
-/rule;element not defined;m
-/rule/@condition;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@condition;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml" condition="a"/>
 #errors
-/rule;element not defined;m
-/rule/@condition;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@condition;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml" condition="a b "/>
 #errors
-/rule;element not defined;m
-/rule/@condition;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@condition;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml" condition="a, b"/>
 #errors
-/rule;element not defined;m
-/rule/@condition;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@condition;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml" condition="a|b"/>
 #errors
-/rule;element not defined;m
-/rule/@condition;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@condition;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml" condition="a["/>
 #errors
-/rule;element not defined;m
-/rule/@condition;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@condition;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml" condition="*/**/*"/>
 #errors
-/rule;element not defined;m
-/rule/@condition;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@condition;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml" filter=""/>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/@filter;attribute not defined;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml" mode=""/>
 #errors
-/nest;element not defined;m
-/nest/@mode;attribute not defined;m
+/nest;element:obsolete;m
+/nest/@mode;attr:obsolete;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml" mode=" "/>
 #errors
-/nest;element not defined;m
-/nest/@mode;attribute not defined;m
+/nest;element:obsolete;m
+/nest/@mode;attr:obsolete;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml" mode="a"/>
 #errors
-/nest;element not defined;m
-/nest/@mode;attribute not defined;m
+/nest;element:obsolete;m
+/nest/@mode;attr:obsolete;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml" mode="a "/>
 #errors
-/nest;element not defined;m
-/nest/@mode;attribute not defined;m
+/nest;element:obsolete;m
+/nest/@mode;attr:obsolete;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml" mode="a b"/>
 #errors
-/nest;element not defined;m
-/nest/@mode;attribute not defined;m
+/nest;element:obsolete;m
+/nest/@mode;attr:obsolete;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml" mode="a&#x9;a&#xA;"/>
 #errors
-/nest;element not defined;m
-/nest/@mode;attribute not defined;m
+/nest;element:obsolete;m
+/nest/@mode;attr:obsolete;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml" mode="&#x3000;"/>
 #errors
-/nest;element not defined;m
-/nest/@mode;attribute not defined;m
+/nest;element:obsolete;m
+/nest/@mode;attr:obsolete;m
 
 #data
 <?xml version="1.1"?>
 <nest xmlns="http://www.w3.org/1999/xhtml" mode="a&#x0b;"/>
 #errors
-/nest;element not defined;m
-/nest/@mode;attribute not defined;m
+/nest;element:obsolete;m
+/nest/@mode;attr:obsolete;m
 /nest/@mode;text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <nest xmlns="http://www.w3.org/1999/xhtml" mode="&#x0b;a"/>
 #errors
-/nest;element not defined;m
-/nest/@mode;attribute not defined;m
+/nest;element:obsolete;m
+/nest/@mode;attr:obsolete;m
 /nest/@mode;text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <nest xmlns="http://www.w3.org/1999/xhtml" mode="a&#x0b;a"/>
 #errors
-/nest;element not defined;m
-/nest/@mode;attribute not defined;m
+/nest;element:obsolete;m
+/nest/@mode;attr:obsolete;m
 /nest/@mode;text:bad char;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml" filter=""/>
 #errors
-/nest;element not defined;m
-/nest/@filter;attribute not defined;m
+/nest;element:obsolete;m
+/nest/@filter;attr:obsolete;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml" filter="  "/>
 #errors
-/nest;element not defined;m
-/nest/@filter;attribute not defined;m
+/nest;element:obsolete;m
+/nest/@filter;attr:obsolete;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml" filter="a b"/>
 #errors
-/nest;element not defined;m
-/nest/@filter;attribute not defined;m
+/nest;element:obsolete;m
+/nest/@filter;attr:obsolete;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml" filter="a + b"/>
 #errors
-/nest;element not defined;m
-/nest/@filter;attribute not defined;m
+/nest;element:obsolete;m
+/nest/@filter;attr:obsolete;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml" filter="a.b#c[d]"/>
 #errors
-/nest;element not defined;m
-/nest/@filter;attribute not defined;m
+/nest;element:obsolete;m
+/nest/@filter;attr:obsolete;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml" filter="a|b"/>
 #errors
-/nest;element not defined;m
-/nest/@filter;attribute not defined;m
+/nest;element:obsolete;m
+/nest/@filter;attr:obsolete;m
 
 #data
 <nest xmlns="http://www.w3.org/1999/xhtml" condition="a|b"/>
 #errors
-/nest;element not defined;m
+/nest;element:obsolete;m
 /nest/@condition;attribute not defined;m
 
 #data
@@ -2463,8 +2463,8 @@
   </datatemplate>
 </div>
 #errors
-/div/@template;attribute not defined;m
-/div/datatemplate;element not defined;m
+/div/@template;attr:obsolete;m
+/div/datatemplate;element:obsolete;m
 /div/datatemplate;element not allowed:flow;m
 
 #data
@@ -2473,9 +2473,9 @@
   <p template="#a">x</p>
 </div>
 #errors
-/div/datatemplate;element not defined;m
+/div/datatemplate;element:obsolete;m
 /div/datatemplate;element not allowed:flow;m
-/div/p/@template;attribute not defined;m
+/div/p/@template;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -2483,8 +2483,8 @@
   <datatemplate id="a"/>
 </div>
 #errors
-/div/p/@template;attribute not defined;m
-/div/datatemplate;element not defined;m
+/div/p/@template;attr:obsolete;m
+/div/datatemplate;element:obsolete;m
 /div/datatemplate;element not allowed:flow;m
 
 #data
@@ -2492,8 +2492,8 @@
   <div template="#a">x<datatemplate id="a"></datatemplate></div>
 </div>
 #errors
-/div/div/@template;attribute not defined;m
-/div/div/datatemplate;element not defined;m
+/div/div/@template;attr:obsolete;m
+/div/div/datatemplate;element:obsolete;m
 /div/div/datatemplate;element not allowed:flow;m
 
 #data
@@ -2502,28 +2502,28 @@
   <p id="a">y</p>
 </div>
 #errors
-/div/p/@template;attribute not defined;m
+/div/p/@template;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <p template="#">x</p>
 </div>
 #errors
-/div/p/@template;attribute not defined;m
+/div/p/@template;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <p template="">x</p>
 </div>
 #errors
-/div/p/@template;attribute not defined;m
+/div/p/@template;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <p template="#no-such-template">x</p>
 </div>
 #errors
-/div/p/@template;attribute not defined;m
+/div/p/@template;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -2531,38 +2531,38 @@
   <datatemplate id=""/>
 </div>
 #errors
-/div/p/@template;attribute not defined;m
+/div/p/@template;attr:obsolete;m
 /div/datatemplate/@id;empty attribute value;m
-/div/datatemplate;element not defined;m
+/div/datatemplate;element:obsolete;m
 /div/datatemplate;element not allowed:flow;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"
     template="external-template">x</div>
 #errors
-/div/@template;attribute not defined;m
+/div/@template;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"
     template="external-inline-template#temlate">x</div>
 #errors
-/div/@template;attribute not defined;m
+/div/@template;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <p id="itself" template="#itself">x</p>
 </div>
 #errors
-/div/p/@template;attribute not defined;m
+/div/p/@template;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <datatemplate id="itself" template="#itself"/>x
 </div>
 #errors
-/div/datatemplate;element not defined;m
+/div/datatemplate;element:obsolete;m
 /div/datatemplate;element not allowed:flow;m
-/div/datatemplate/@template;attribute not defined;m
+/div/datatemplate/@template;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -2571,9 +2571,9 @@
   <datatemplate id="t"/>
 </div>
 #errors
-/div/div/@template;attribute not defined;m
-/div/div/@ref;attribute not defined;m
-/div/datatemplate;element not defined;m
+/div/div/@template;attr:obsolete;m
+/div/div/@ref;attr:obsolete;m
+/div/datatemplate;element:obsolete;m
 /div/datatemplate;element not allowed:flow;m
 
 #data
@@ -2583,9 +2583,9 @@
   <datatemplate id="t"/>
 </div>
 #errors
-/div/div/@template;attribute not defined;m
-/div/div/@ref;attribute not defined;m
-/div/datatemplate;element not defined;m
+/div/div/@template;attr:obsolete;m
+/div/div/@ref;attr:obsolete;m
+/div/datatemplate;element:obsolete;m
 /div/datatemplate;element not allowed:flow;m
 
 #data
@@ -2596,9 +2596,9 @@
 </div>
 #errors
 /div/div/@id;empty attribute value;m
-/div/div/@template;attribute not defined;m
-/div/div/@ref;attribute not defined;m
-/div/datatemplate;element not defined;m
+/div/div/@template;attr:obsolete;m
+/div/div/@ref;attr:obsolete;m
+/div/datatemplate;element:obsolete;m
 /div/datatemplate;element not allowed:flow;m
 
 #data
@@ -2607,9 +2607,9 @@
   <datatemplate id="t"/>
 </div>
 #errors
-/div/div/@template;attribute not defined;m
-/div/div/@ref;attribute not defined;m
-/div/datatemplate;element not defined;m
+/div/div/@template;attr:obsolete;m
+/div/div/@ref;attr:obsolete;m
+/div/datatemplate;element:obsolete;m
 /div/datatemplate;element not allowed:flow;m
 
 #data
@@ -2618,9 +2618,9 @@
   <datatemplate id="t"/>
 </div>
 #errors
-/div/div/@template;attribute not defined;m
-/div/div/@ref;attribute not defined;m
-/div/datatemplate;element not defined;m
+/div/div/@template;attr:obsolete;m
+/div/div/@ref;attr:obsolete;m
+/div/datatemplate;element:obsolete;m
 /div/datatemplate;element not allowed:flow;m
 
 #data
@@ -2629,9 +2629,9 @@
   <datatemplate id="t"/>
 </div>
 #errors
-/div/div/@template;attribute not defined;m
-/div/div/@ref;attribute not defined;m
-/div/datatemplate;element not defined;m
+/div/div/@template;attr:obsolete;m
+/div/div/@ref;attr:obsolete;m
+/div/datatemplate;element:obsolete;m
 /div/datatemplate;element not allowed:flow;m
 
 #data
@@ -2640,9 +2640,9 @@
   <datatemplate id="t"/>
 </div>
 #errors
-/div/div/@template;attribute not defined;m
-/div/div/@ref;attribute not defined;m
-/div/datatemplate;element not defined;m
+/div/div/@template;attr:obsolete;m
+/div/div/@ref;attr:obsolete;m
+/div/datatemplate;element:obsolete;m
 /div/datatemplate;element not allowed:flow;m
 
 #data
@@ -2651,9 +2651,9 @@
   <datatemplate id="t"/>
 </div>
 #errors
-/div/div/@template;attribute not defined;m
-/div/div/@ref;attribute not defined;m
-/div/datatemplate;element not defined;m
+/div/div/@template;attr:obsolete;m
+/div/div/@ref;attr:obsolete;m
+/div/datatemplate;element:obsolete;m
 /div/datatemplate;element not allowed:flow;m
 
 #data
@@ -2662,52 +2662,52 @@
   <datatemplate id="t"/>
 </div>
 #errors
-/div/div/@template;attribute not defined;m
-/div/div/@ref;attribute not defined;m
-/div/datatemplate;element not defined;m
+/div/div/@template;attr:obsolete;m
+/div/div/@ref;attr:obsolete;m
+/div/datatemplate;element:obsolete;m
 /div/datatemplate;element not allowed:flow;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml" ref="x">x</div>
 #errors
-/div/@ref;attribute not defined;m
+/div/@ref;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"
     registrationmark="">x</div>
 #errors
-/div/@registrationmark;attribute not defined;m
+/div/@registrationmark;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"
     registrationmark="">x</rule>
 #errors
-/rule;element not defined;m
-/rule/@registrationmark;attribute not defined;m
+/rule;element:obsolete;m
+/rule/@registrationmark;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
   <div registrationmark="">x</div>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/div/@registrationmark;attribute not defined;m
+/rule;element:obsolete;m
+/rule/div/@registrationmark;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
   <div registrationmark="xxxx">x</div>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/div/@registrationmark;attribute not defined;m
+/rule;element:obsolete;m
+/rule/div/@registrationmark;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
   <div registrationmark="a b c">x</div>
 </rule>
 #errors
-/rule/div/@registrationmark;attribute not defined;m
-/rule;element not defined;m
+/rule/div/@registrationmark;attr:obsolete;m
+/rule;element:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -2715,9 +2715,9 @@
   <div registrationmark="a">x</div>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/div/@registrationmark;attribute not defined;m
-/rule/div/@registrationmark;attribute not defined;m
+/rule;element:obsolete;m
+/rule/div/@registrationmark;attr:obsolete;m
+/rule/div/@registrationmark;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -2726,9 +2726,9 @@
   </rule>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/rule;element not defined;m
-/rule/rule/div/@registrationmark;attribute not defined;m
+/rule;element:obsolete;m
+/rule/rule;element:obsolete;m
+/rule/rule/div/@registrationmark;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -2737,9 +2737,9 @@
   <div registrationmark="a">x</div>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/rule;element not defined;m
-/rule/div/@registrationmark;attribute not defined;m
+/rule;element:obsolete;m
+/rule/rule;element:obsolete;m
+/rule/div/@registrationmark;attr:obsolete;m
 
 #data
 <datatemplate xmlns="http://www.w3.org/1999/xhtml">
@@ -2748,9 +2748,9 @@
   <div registrationmark="a">x</div>
 </datatemplate>
 #errors
-/datatemplate;element not defined;m
-/datatemplate/rule;element not defined;m
-/datatemplate/div/@registrationmark;attribute not defined;m
+/datatemplate;element:obsolete;m
+/datatemplate/rule;element:obsolete;m
+/datatemplate/div/@registrationmark;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -2759,8 +2759,8 @@
   </div>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/div/div/@registrationmark;attribute not defined;m
+/rule;element:obsolete;m
+/rule/div/div/@registrationmark;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -2769,10 +2769,10 @@
   </div>
 </rule>
 #errors
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/div/nest;element not allowed:flow;m
-/rule/div/nest;element not defined;m
-/rule/div/nest/@registrationmark;attribute not defined;m
+/rule/div/nest;element:obsolete;m
+/rule/div/nest/@registrationmark;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -2784,15 +2784,15 @@
 </rule>
 #errors
 /rule/div/rule;element not allowed:flow;m
-/rule;element not defined;m
+/rule;element:obsolete;m
 /rule/div;no significant content;s
-/rule/div/rule;element not defined;m
-/rule/div/rule/@registrationmark;attribute not defined;m
+/rule/div/rule;element:obsolete;m
+/rule/div/rule/@registrationmark;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
   <div registrationmark="a">x</div>
 </rule>
 #errors
-/rule;element not defined;m
-/rule/div/@registrationmark;attribute not defined;m
+/rule;element:obsolete;m
+/rule/div/@registrationmark;attr:obsolete;m
