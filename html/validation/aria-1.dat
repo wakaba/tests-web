@@ -135,20 +135,18 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <table role=" grid" xmlns="http://www.w3.org/1999/xhtml"><tr><td>a</td></tr></table>
 #errors
-/table;aria:role:no required owned element;row rowgroup;m
-/table/@role;aria:redundant role;w
+/table/@role;aria:role:default role;m
 
 #data
 <table role=" grid" xmlns="http://www.w3.org/1999/xhtml"><tr role="row"><td>a</td></tr></table>
 #errors
-/table/@role;aria:redundant role;w
-/table/tr/@role;aria:redundant role;w
-/table/tr;aria:role:no required owned element;columnheader gridcell rowheader;m
+/table/@role;aria:role:default role;m
+/table/tr/@role;aria:role:default role;m
 
 #data
 <td role="gridcell" xmlns="http://www.w3.org/1999/xhtml">a</td>
 #errors
-/td/@role;aria:redundant role;w
+/td/@role;aria:role:default role;m
 
 #data
 <fieldset role="group" xmlns="http://www.w3.org/1999/xhtml"><legend>a</legend>a</fieldset>
@@ -242,30 +240,28 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <tr role="row" xmlns="http://www.w3.org/1999/xhtml"><td>a</td></tr>
 #errors
-/tr;aria:role:no required owned element;columnheader gridcell rowheader;m
-/tr/@role;aria:redundant role;w
+/tr/@role;aria:role:default role;m
 
 #data
 <tbody role="rowgroup" xmlns="http://www.w3.org/1999/xhtml"><tr><td>a</td></tr></tbody>
 #errors
-/tbody;aria:role:no required owned element;row;m
-/tbody/@role;aria:redundant role;w
+/tbody/@role;aria:role:default role;m
 
 #data
 <tbody role="rowgroup" aria-busy="false" xmlns="http://www.w3.org/1999/xhtml"></tbody>
 #errors
 /tbody;aria:role:no required owned element;row;m
-/tbody/@role;aria:redundant role;w
+/tbody/@role;aria:role:default role;m
 
 #data
 <tbody role="rowgroup" aria-busy="true" xmlns="http://www.w3.org/1999/xhtml"></tbody>
 #errors
-/tbody/@role;aria:redundant role;w
+/tbody/@role;aria:role:default role;m
 
 #data
 <tbody role="rowgroup" aria-busy="tRUE" xmlns="http://www.w3.org/1999/xhtml"></tbody>
 #errors
-/tbody/@role;aria:redundant role;w
+/tbody/@role;aria:role:default role;m
 
 #data
 <p role="hoge fuga" xmlns="http://www.w3.org/1999/xhtml">a</p>
@@ -1321,3 +1317,67 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 /select/@role;aria:role:conflict with semantics;m
 /select/@role;aria:not preferred markup:html-element;menu;w
 /select;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
+
+#data
+<table role="heading" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/table/@role;aria:role:conflict with semantics;m
+/table/@role;aria:not preferred markup:html-element;h1;w
+
+#data
+<table aria-readonly="true" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/table/@aria-readonly;aria:attr not allowed for element;m
+
+#data
+<table aria-readonly="false" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/table/@aria-readonly;aria:attr not allowed for element;m
+
+#data
+<tbody role="heading" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/tbody/@role;aria:role:conflict with semantics;m
+/tbody/@role;aria:not preferred markup:html-element;h1;w
+
+#data
+<thead role="grid" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/thead;aria:role:no required owned element;row rowgroup;m
+/thead/@role;aria:role:conflict with semantics;m
+/thead/@role;aria:not preferred markup:html-element;table;w
+
+#data
+<tfoot role="application" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/tfoot;attribute missing;aria-labelledby;s
+/tfoot/@role;aria:role:conflict with semantics;m
+
+#data
+<tr role="gridcell" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/tr/@role;aria:not preferred markup:html-element;td;w
+/tr/@role;aria:role:conflict with semantics;m
+
+#data
+<th role="row" xmlns="http://www.w3.org/1999/xhtml">a</th>
+#errors
+/th/@role;aria:not preferred markup:html-element;tr;w
+/th/@role;aria:role:conflict with semantics;m
+/th;aria:role:no required owned element;columnheader gridcell rowheader;m
+
+#data
+<td role="textbox" xmlns="http://www.w3.org/1999/xhtml">d</td>
+#errors
+/td/@role;aria:not preferred markup:textbox;w
+/td/@role;aria:role:conflict with semantics;m
+
+#data
+<th role="rowheader" xmlns="http://www.w3.org/1999/xhtml">a</th>
+#errors
+/th/@role;aria:not preferred markup:th;row;w
+
+#data
+<th role="columnheader" xmlns="http://www.w3.org/1999/xhtml">a</th>
+#errors
+/th/@role;aria:not preferred markup:th;col;w
