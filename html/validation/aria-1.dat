@@ -420,12 +420,10 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <select aria-disabled="true" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
 #errors
-/select/@aria-disabled;aria:not preferred markup:html-attr;inert;w
 
 #data
 <select aria-disabled="true" disabled="" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
 #errors
-/select/@aria-disabled;aria:not preferred markup:html-attr;inert;w
 
 #data
 <h1 aria-level="1" xmlns="http://www.w3.org/1999/xhtml">a</h1>
@@ -1091,12 +1089,12 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <div aria-disabled="true" inert="" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
-/div/@aria-disabled;aria:redundant:html-attr;inert;w
+/div/@inert;attr:obsolete;m
 
 #data
 <div inert="" xmlns="http://www.w3.org/1999/xhtml"><div aria-disabled="false">a</div>a</div>
 #errors
-/div/div/@aria-disabled;aria:attr not allowed for element;m
+/div/@inert;attr:obsolete;m
 
 #data
 <ul role="presentation" xmlns="http://www.w3.org/1999/xhtml">
