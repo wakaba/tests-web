@@ -75,7 +75,6 @@
 /head/title;no significant content;m
 /head/noscript;in XML:noscript;m
 /head/noscript/script;element not allowed:head noscript;m
-/head/noscript/script;unknown script lang;u
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -115,8 +114,8 @@
 /head/title;no significant content;m
 /head/noscript;in XML:noscript;m
 /head/noscript/event-source;element not allowed:metadata;m
-/head/noscript/event-source;element not defined;m
-/head/noscript/event-source/@src;attribute not defined;m
+/head/noscript/event-source;element:obsolete;m
+/head/noscript/event-source/@src;attr:obsolete;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -130,8 +129,8 @@
 /head/title;no significant content;m
 /head/noscript;in XML:noscript;m
 /head/noscript/eventsource;element not allowed:metadata;m
-/head/noscript/eventsource;element not defined;m
-/head/noscript/eventsource/@src;attribute not defined;m
+/head/noscript/eventsource;element:obsolete;m
+/head/noscript/eventsource/@src;attr:obsolete;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -406,7 +405,6 @@
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><p>ab<script></script></noscript>
 #errors
 1;62;/html/body/noscript;element not allowed:minus;m
-1;62;/html/body/noscript;unknown script lang;u
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><p>ab<noscript>vv</noscript>
@@ -445,28 +443,28 @@
 <em xmlns="http://www.w3.org/1999/xhtml"><eventsource/></em>
 #errors
 /em;no significant content;s
-/em/eventsource;element not defined;m
+/em/eventsource;element:obsolete;m
 /em/eventsource;element not allowed:phrasing;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><eventsource/></p>
 #errors
 /p;no significant content;s
-/p/eventsource;element not defined;m
+/p/eventsource;element:obsolete;m
 /p/eventsource;element not allowed:phrasing;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><eventsource/></div>
 #errors
 /div;no significant content;s
-/div/eventsource;element not defined;m
+/div/eventsource;element:obsolete;m
 /div/eventsource;element not allowed:flow;m
 
 #data
 <section xmlns="http://www.w3.org/1999/xhtml"><eventsource/></section>
 #errors
 /section;no significant content;s
-/section/eventsource;element not defined;m
+/section/eventsource;element:obsolete;m
 /section/eventsource;element not allowed:flow;m
 
 #data
@@ -1019,102 +1017,101 @@
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml"></bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">   </bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">x</bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml"><em>x</em></bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">x<em>y</em>z</bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml"><p>x</p></bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml"><meta name="keywords" content="y"/></bb>
 #errors
 /bb/meta;attribute missing;itemprop;m
 /bb/meta/@name;metadata:proposed;keywords;w
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">x<script>y</script></bb>
 #errors
-/bb/script;unknown script lang;u
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml"><ins>x</ins></bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml"><ins><p>x</p></ins></bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><bb>x</bb></p>
 #errors
 /p;no significant content;s
-/p/bb;element not defined;m
+/p/bb;element:obsolete;m
 /p/bb;element not allowed:phrasing;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml"><bb>x</bb></em>
 #errors
 /em;no significant content;s
-/em/bb;element not defined;m
+/em/bb;element:obsolete;m
 /em/bb;element not allowed:phrasing;m
 
 #data
 <br xmlns="http://www.w3.org/1999/xhtml"><bb>x</bb></br>
 #errors
 /br/bb;element not allowed:empty;m
-/br/bb;element not defined;m
+/br/bb;element:obsolete;m
 
 #data
 <title xmlns="http://www.w3.org/1999/xhtml"><bb>x</bb></title>
 #errors
 /title;no significant content;m
 /title/bb;element not allowed:text;m
-/title/bb;element not defined;m
+/title/bb;element:obsolete;m
 
 #data
 <td xmlns="http://www.w3.org/1999/xhtml"><bb>x</bb></td>
 #errors
 /td;no significant content;s
-/td/bb;element not defined;m
+/td/bb;element:obsolete;m
 /td/bb;element not allowed:flow;m
 
 #data
 <ins xmlns="http://www.w3.org/1999/xhtml"><bb>x</bb></ins>
 #errors
 /ins;no significant content;s
-/ins/bb;element not defined;m
+/ins/bb;element:obsolete;m
 /ins/bb;element not allowed:flow;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><del><bb>x</bb></del>y</p>
 #errors
 /p/del;no significant content;s
-/p/del/bb;element not defined;m
+/p/del/bb;element:obsolete;m
 /p/del/bb;element not allowed:phrasing;m
 
 #data
@@ -1122,7 +1119,7 @@
 #errors
 /p;no significant content;s
 /p/bb/style;attribute missing;scoped;m
-/p/bb;element not defined;m
+/p/bb;element:obsolete;m
 /p/bb;element not allowed:phrasing;m
 
 #data
@@ -1130,77 +1127,77 @@
 <a>a</a>
 </bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">
 <video src="a">a</video>
 </bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">
 <video src="a" controls="">a</video>
 </bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">
 <audio src="a">a</audio>
 </bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">
 <audio src="a" controls="">a</audio>
 </bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">
 <label>a</label>
 </bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">
 <input/>x
 </bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">
 <button>a</button>
 </bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">
 <select><option>a</option></select>
 </bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">
 <textarea>a</textarea>
 </bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">
 <details><legend>x</legend>a</details>
 </bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 /bb/details;child element missing;summary;m
 /bb/details/legend;element not allowed:flow;m
 
@@ -1209,30 +1206,30 @@
 <datagrid>a</datagrid>
 </bb>
 #errors
-/bb;element not defined;m
-/bb/datagrid;element not defined;m
+/bb;element:obsolete;m
+/bb/datagrid;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">
 <bb>a</bb>
 </bb>
 #errors
-/bb;element not defined;m
-/bb/bb;element not defined;m
+/bb;element:obsolete;m
+/bb/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">
 <menu>a</menu>
 </bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">
 <menu type="toolbar">a</menu>
 </bb>
 #errors
-/bb;element not defined;m
+/bb;element:obsolete;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">
@@ -1247,49 +1244,49 @@
 </datatemplate>
 </bb>
 #errors
-/bb;element not defined;m
-/bb/datatemplate;element not defined;m
-/bb/datatemplate/rule;element not defined;m
+/bb;element:obsolete;m
+/bb/datatemplate;element:obsolete;m
+/bb/datatemplate/rule;element:obsolete;m
 
 #data
 <event-source xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/event-source;element not defined;m
+/event-source;element:obsolete;m
 
 #data
 <event-source src="http://test/" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/event-source;element not defined;m
-/event-source/@src;attribute not defined;m
+/event-source;element:obsolete;m
+/event-source/@src;attr:obsolete;m
 
 #data
 <event-source src="http://test/`" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/event-source;element not defined;m
-/event-source/@src;attribute not defined;m
+/event-source;element:obsolete;m
+/event-source/@src;attr:obsolete;m
 
 #data
 <event-source src="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/event-source;element not defined;m
-/event-source/@src;attribute not defined;m
+/event-source;element:obsolete;m
+/event-source/@src;attr:obsolete;m
 
 #data
 <eventsource xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/eventsource;element not defined;m
+/eventsource;element:obsolete;m
 
 #data
 <eventsource src="http://test/" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/eventsource;element not defined;m
-/eventsource/@src;attribute not defined;m
+/eventsource;element:obsolete;m
+/eventsource/@src;attr:obsolete;m
 
 #data
 <eventsource src="http://test/`" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/eventsource/@src;attribute not defined;m
-/eventsource;element not defined;m
+/eventsource/@src;attr:obsolete;m
+/eventsource;element:obsolete;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml"/>
@@ -1518,152 +1515,152 @@ b
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml">  </datagrid>
 #errors
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"><!----></datagrid>
 #errors
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml">aaa</datagrid>
 #errors
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"><p/></datagrid>
 #errors
 /datagrid/p;no significant content;s
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"><br/></datagrid>
 #errors
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"><p/><p/></datagrid>
 #errors
 /datagrid/p;no significant content;s
 /datagrid/p;no significant content;s
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml">  <p/>  <p/> </datagrid>
 #errors
 /datagrid/p;no significant content;s
 /datagrid/p;no significant content;s
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"><p/>&amp;<p/></datagrid>
 #errors
 /datagrid/p;no significant content;s
 /datagrid/p;no significant content;s
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"><p/><table/></datagrid>
 #errors
 /datagrid/p;no significant content;s
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"><ul/></datagrid>
 #errors
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"><table/></datagrid>
 #errors
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"><table/><table/></datagrid>
 #errors
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"><table/><p/><table/></datagrid>
 #errors
 /datagrid/p;no significant content;s
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml">xx<table/></datagrid>
 #errors
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml">xx<select/></datagrid>
 #errors
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml">xx<datalist/></datagrid>
 #errors
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml">xx<p/><table/></datagrid>
 #errors
 /datagrid/p;no significant content;s
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml">xx<p/><select/></datagrid>
 #errors
 /datagrid/p;no significant content;s
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml">xx<p/><datalist/></datagrid>
 #errors
 /datagrid/p;no significant content;s
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"><select/></datagrid>
 #errors
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"><datalist/></datagrid>
 #errors
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"><table/>aa</datagrid>
 #errors
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"><select/>aa</datagrid>
 #errors
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"><datalist/>aa</datagrid>
 #errors
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"><datagrid/></datagrid>
 #errors
-/datagrid;element not defined;m
-/datagrid/datagrid;element not defined;m
+/datagrid;element:obsolete;m
+/datagrid/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml"><div><datagrid/></div></datagrid>
 #errors
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 /datagrid/div;no significant content;s
-/datagrid/div/datagrid;element not defined;m
+/datagrid/div/datagrid;element:obsolete;m
 /datagrid/div/datagrid;element not allowed:flow;m
 
 #data
@@ -1672,7 +1669,7 @@ b
 </datagrid>
 #errors
 /datagrid/p/a;no significant content;s
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <datagrid xmlns="http://www.w3.org/1999/xhtml">
@@ -1683,7 +1680,7 @@ b
 /datagrid/details;no significant content;s
 /datagrid/details/legend;element not allowed:flow;m
 /datagrid/details/legend;no significant content;s
-/datagrid;element not defined;m
+/datagrid;element:obsolete;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
@@ -1718,7 +1715,7 @@ b
 #errors
 /a/datagrid;element not allowed:flow;m
 /a;no significant content;s
-/a/datagrid;element not defined;m
+/a/datagrid;element:obsolete;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
@@ -1727,456 +1724,456 @@ b
 #errors
 /a/span/datagrid;element not allowed:phrasing;m
 /a/span;no significant content;s
-/a/span/datagrid;element not defined;m
+/a/span/datagrid;element:obsolete;m
 
 #data
 <datagrid disabled="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/datagrid;element not defined;m
-/datagrid/@disabled;attribute not defined;m
+/datagrid;element:obsolete;m
+/datagrid/@disabled;attr:obsolete;m
 
 #data
 <datagrid disabled="disabled" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/datagrid;element not defined;m
-/datagrid/@disabled;attribute not defined;m
+/datagrid;element:obsolete;m
+/datagrid/@disabled;attr:obsolete;m
 
 #data
 <datagrid disabled="Disabled" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/datagrid;element not defined;m
-/datagrid/@disabled;attribute not defined;m
+/datagrid;element:obsolete;m
+/datagrid/@disabled;attr:obsolete;m
 
 #data
 <datagrid disabled="true" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/datagrid;element not defined;m
-/datagrid/@disabled;attribute not defined;m
+/datagrid;element:obsolete;m
+/datagrid/@disabled;attr:obsolete;m
 /datagrid/@disabled;boolean:invalid;m
 
 #data
 <datagrid multiple="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/datagrid;element not defined;m
-/datagrid/@multiple;attribute not defined;m
+/datagrid;element:obsolete;m
+/datagrid/@multiple;attr:obsolete;m
 
 #data
 <datagrid multiple="multiple" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/datagrid;element not defined;m
-/datagrid/@multiple;attribute not defined;m
+/datagrid;element:obsolete;m
+/datagrid/@multiple;attr:obsolete;m
 
 #data
 <datagrid multiple="MULTIPLE" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/datagrid;element not defined;m
-/datagrid/@multiple;attribute not defined;m
+/datagrid;element:obsolete;m
+/datagrid/@multiple;attr:obsolete;m
 
 #data
 <datagrid multiple="true" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/datagrid;element not defined;m
-/datagrid/@multiple;attribute not defined;m
+/datagrid;element:obsolete;m
+/datagrid/@multiple;attr:obsolete;m
 
 #data
 <command xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
+/command;element:obsolete;m
 
 #data
 <command default="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@default;attribute not defined;m
+/command;element:obsolete;m
+/command/@default;attr:obsolete;m
 
 #data
 <command default="default" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@default;attribute not defined;m
+/command;element:obsolete;m
+/command/@default;attr:obsolete;m
 
 #data
 <command default="DEFAULT" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@default;attribute not defined;m
+/command;element:obsolete;m
+/command/@default;attr:obsolete;m
 
 #data
 <command default="true" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@default;attribute not defined;m
+/command;element:obsolete;m
+/command/@default;attr:obsolete;m
 
 #data
 <command type="command" default="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
-/command/@default;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
+/command/@default;attr:obsolete;m
 
 #data
 <command type="checkbox" default="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
-/command/@default;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
+/command/@default;attr:obsolete;m
 
 #data
 <command type="radio" default="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
-/command/@default;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
+/command/@default;attr:obsolete;m
 
 #data
 <command checked="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@checked;attribute not defined;m
+/command;element:obsolete;m
+/command/@checked;attr:obsolete;m
 
 #data
 <command checked="checked" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@checked;attribute not defined;m
+/command;element:obsolete;m
+/command/@checked;attr:obsolete;m
 
 #data
 <command checked="Checked" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@checked;attribute not defined;m
+/command;element:obsolete;m
+/command/@checked;attr:obsolete;m
 
 #data
 <command checked="true" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@checked;attribute not defined;m
+/command;element:obsolete;m
+/command/@checked;attr:obsolete;m
 
 #data
 <command type="radio" checked="checked" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
-/command/@checked;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
+/command/@checked;attr:obsolete;m
 
 #data
 <command type="checkbox" checked="checked" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
-/command/@checked;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
+/command/@checked;attr:obsolete;m
 
 #data
 <command type="RaDiO" checked="checked" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
-/command/@checked;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
+/command/@checked;attr:obsolete;m
 
 #data
 <command hidden="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
+/command;element:obsolete;m
 
 #data
 <command hidden="hidden" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
+/command;element:obsolete;m
 
 #data
 <command hidden="HIDDEN" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
+/command;element:obsolete;m
 
 #data
 <command hidden="true" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
+/command;element:obsolete;m
 /command/@hidden;boolean:invalid;m
 
 #data
 <command disabled="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@disabled;attribute not defined;m
+/command;element:obsolete;m
+/command/@disabled;attr:obsolete;m
 
 #data
 <command disabled="disabled" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@disabled;attribute not defined;m
+/command;element:obsolete;m
+/command/@disabled;attr:obsolete;m
 
 #data
 <command disabled="Disabled" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@disabled;attribute not defined;m
+/command;element:obsolete;m
+/command/@disabled;attr:obsolete;m
 
 #data
 <command disabled="true" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@disabled;attribute not defined;m
+/command;element:obsolete;m
+/command/@disabled;attr:obsolete;m
 /command/@disabled;boolean:invalid;m
 
 #data
 <command label="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@label;attribute not defined;m
+/command;element:obsolete;m
+/command/@label;attr:obsolete;m
 
 #data
 <command label=" " xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@label;attribute not defined;m
+/command;element:obsolete;m
+/command/@label;attr:obsolete;m
 
 #data
 <command label="aaa" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@label;attribute not defined;m
+/command;element:obsolete;m
+/command/@label;attr:obsolete;m
 
 #data
 <command label="label" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@label;attribute not defined;m
+/command;element:obsolete;m
+/command/@label;attr:obsolete;m
 
 #data
 <command label="&#x4E00;" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@label;attribute not defined;m
+/command;element:obsolete;m
+/command/@label;attr:obsolete;m
 
 #data
 <command label="&#xA;" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@label;attribute not defined;m
+/command;element:obsolete;m
+/command/@label;attr:obsolete;m
 
 #data
 <command title="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
+/command;element:obsolete;m
 
 #data
 <command title="aaa" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
+/command;element:obsolete;m
 
 #data
 <command radiogroup="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@radiogroup;attribute not defined;m
+/command;element:obsolete;m
+/command/@radiogroup;attr:obsolete;m
 
 #data
 <command radiogroup="aa" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@radiogroup;attribute not defined;m
+/command;element:obsolete;m
+/command/@radiogroup;attr:obsolete;m
 
 #data
 <command type="command" radiogroup="aa" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
-/command/@radiogroup;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
+/command/@radiogroup;attr:obsolete;m
 
 #data
 <command type="checkbox" radiogroup="aa" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
-/command/@radiogroup;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
+/command/@radiogroup;attr:obsolete;m
 
 #data
 <command type="radio" radiogroup="aa" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
-/command/@radiogroup;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
+/command/@radiogroup;attr:obsolete;m
 
 #data
 <command type="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
 
 #data
 <command type=" " xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
 
 #data
 <command type="default" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
 
 #data
 <command type="command" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
 
 #data
 <command type="Command" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
 
 #data
 <command type=" command" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
 
 #data
 <command type="command " xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
 
 #data
 <command type="commandline" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
 
 #data
 <command type="checkbox" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
 
 #data
 <command type="CheckBox" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
 
 #data
 <command type="check" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
 
 #data
 <command type="radio" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
 
 #data
 <command type="Radio" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
 
 #data
 <command type="radiobutton" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
 
 #data escaped
 <command type="rad\u0130o" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
 
 #data escaped
 <command type="rad\u0131o" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@type;attribute not defined;m
+/command;element:obsolete;m
+/command/@type;attr:obsolete;m
 
 #data
 <command icon="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@icon;attribute not defined;m
+/command;element:obsolete;m
+/command/@icon;attr:obsolete;m
 
 #data
 <command icon="http://test/" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@icon;attribute not defined;m
+/command;element:obsolete;m
+/command/@icon;attr:obsolete;m
 
 #data
 <command icon="http://test/#test" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@icon;attribute not defined;m
+/command;element:obsolete;m
+/command/@icon;attr:obsolete;m
 
 #data
 <command icon="test" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@icon;attribute not defined;m
+/command;element:obsolete;m
+/command/@icon;attr:obsolete;m
 
 #data
 <command icon="[]" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@icon;attribute not defined;m
+/command;element:obsolete;m
+/command/@icon;attr:obsolete;m
 
 #data
 <command icon="a b" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/command;element not defined;m
-/command/@icon;attribute not defined;m
+/command;element:obsolete;m
+/command/@icon;attr:obsolete;m
 
 #data
 <bb type="" xmlns="http://www.w3.org/1999/xhtml"></bb>
 #errors
-/bb;element not defined;m
-/bb/@type;attribute not defined;m
+/bb;element:obsolete;m
+/bb/@type;attr:obsolete;m
 
 #data
 <bb type="type" xmlns="http://www.w3.org/1999/xhtml"></bb>
 #errors
-/bb;element not defined;m
-/bb/@type;attribute not defined;m
+/bb;element:obsolete;m
+/bb/@type;attr:obsolete;m
 
 #data
 <bb type="null" xmlns="http://www.w3.org/1999/xhtml"></bb>
 #errors
-/bb;element not defined;m
-/bb/@type;attribute not defined;m
+/bb;element:obsolete;m
+/bb/@type;attr:obsolete;m
 
 #data
 <bb type="makeapp" xmlns="http://www.w3.org/1999/xhtml"></bb>
 #errors
-/bb;element not defined;m
-/bb/@type;attribute not defined;m
+/bb;element:obsolete;m
+/bb/@type;attr:obsolete;m
 
 #data
 <bb type="make application" xmlns="http://www.w3.org/1999/xhtml"></bb>
 #errors
-/bb;element not defined;m
-/bb/@type;attribute not defined;m
+/bb;element:obsolete;m
+/bb/@type;attr:obsolete;m
 
 #data
 <bb type="MakeApp" xmlns="http://www.w3.org/1999/xhtml"></bb>
 #errors
-/bb;element not defined;m
-/bb/@type;attribute not defined;m
+/bb;element:obsolete;m
+/bb/@type;attr:obsolete;m
 
 #data
 <bb type=" makeapp " xmlns="http://www.w3.org/1999/xhtml"></bb>
 #errors
-/bb;element not defined;m
-/bb/@type;attribute not defined;m
+/bb;element:obsolete;m
+/bb/@type;attr:obsolete;m
 
 #data
 <bb type="button" xmlns="http://www.w3.org/1999/xhtml"></bb>
 #errors
-/bb;element not defined;m
-/bb/@type;attribute not defined;m
+/bb;element:obsolete;m
+/bb/@type;attr:obsolete;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml"/>
@@ -2286,27 +2283,27 @@ b
 #data
 <menu autosubmit="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menu/@autosubmit;attribute not defined;m
+/menu/@autosubmit;attr:obsolete;m
 
 #data
 <menu autosubmit="autosubmit" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menu/@autosubmit;attribute not defined;m
+/menu/@autosubmit;attr:obsolete;m
 
 #data
 <menu autosubmit="yes" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menu/@autosubmit;attribute not defined;m
+/menu/@autosubmit;attr:obsolete;m
 
 #data
 <menu autosubmit="AUTOSubmit" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menu/@autosubmit;attribute not defined;m
+/menu/@autosubmit;attr:obsolete;m
 
 #data
 <menu autosubmit="AutoSubmit" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menu/@autosubmit;attribute not defined;m
+/menu/@autosubmit;attr:obsolete;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
@@ -2362,42 +2359,36 @@ abc
 <script></script>
 </menu>
 #errors
-/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <script></script>xy
 </menu>
 #errors
-/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <script></script><p>aa</p>
 </menu>
 #errors
-/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <script></script><p>aa</p>aaa
 </menu>
 #errors
-/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <script></script><li>aa</li><li>bb</li>
 </menu>
 #errors
-/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <script></script><li>aa</li><li>bb</li>aa<!---->
 </menu>
 #errors
-/menu/script;unknown script lang;u
 /menu/"aa";character not allowed;m
 
 #data
@@ -2413,7 +2404,6 @@ abc
 </menu>
 #errors
 /menu/"ab";character not allowed;m
-/menu/script;unknown script lang;u
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
@@ -2585,7 +2575,6 @@ abc
   <hr/><script/><hr/>
 </menu>
 #errors
-/menu/script;unknown script lang;u
 
 #data
 <menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
@@ -3082,108 +3071,108 @@ abc
 #data
 <device xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/device;element not defined;m
+/device;element:obsolete;m
 
 #data
 <device xmlns="http://www.w3.org/1999/xhtml">  </device>
 #errors
-/device;element not defined;m
+/device;element:obsolete;m
 
 #data
 <device xmlns="http://www.w3.org/1999/xhtml">abc</device>
 #errors
-/device;element not defined;m
+/device;element:obsolete;m
 
 #data
 <device xmlns="http://www.w3.org/1999/xhtml"><div>a</div></device>
 #errors
-/device;element not defined;m
+/device;element:obsolete;m
 
 #data
 <device xmlns="http://www.w3.org/1999/xhtml"><span>a</span></device>
 #errors
-/device;element not defined;m
+/device;element:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><device/></div>
 #errors
 /div;no significant content;s
-/div/device;element not defined;m
+/div/device;element:obsolete;m
 /div/device;element not allowed:flow;m
 
 #data
 <span xmlns="http://www.w3.org/1999/xhtml"><device/></span>
 #errors
 /span;no significant content;s
-/span/device;element not defined;m
+/span/device;element:obsolete;m
 /span/device;element not allowed:phrasing;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><ins><device/></ins></div>
 #errors
 /div/ins;no significant content;s
-/div/ins/device;element not defined;m
+/div/ins/device;element:obsolete;m
 /div/ins/device;element not allowed:flow;m
 
 #data
 <device xmlns="http://www.w3.org/1999/xhtml"
     type=""/>
 #errors
-/device;element not defined;m
-/device/@type;attribute not defined;m
+/device;element:obsolete;m
+/device/@type;attr:obsolete;m
 
 #data
 <device xmlns="http://www.w3.org/1999/xhtml"
     type="fs"/>
 #errors
-/device;element not defined;m
-/device/@type;attribute not defined;m
+/device;element:obsolete;m
+/device/@type;attr:obsolete;m
 
 #data
 <device xmlns="http://www.w3.org/1999/xhtml"
     type="media"/>
 #errors
-/device;element not defined;m
-/device/@type;attribute not defined;m
+/device;element:obsolete;m
+/device/@type;attr:obsolete;m
 
 #data
 <device xmlns="http://www.w3.org/1999/xhtml"
     type="rs232"/>
 #errors
-/device;element not defined;m
-/device/@type;attribute not defined;m
+/device;element:obsolete;m
+/device/@type;attr:obsolete;m
 
 #data
 <device xmlns="http://www.w3.org/1999/xhtml"
     type="usb"/>
 #errors
-/device;element not defined;m
-/device/@type;attribute not defined;m
+/device;element:obsolete;m
+/device/@type;attr:obsolete;m
 
 #data
 <device xmlns="http://www.w3.org/1999/xhtml"
     type="RS232"/>
 #errors
-/device;element not defined;m
-/device/@type;attribute not defined;m
+/device;element:obsolete;m
+/device/@type;attr:obsolete;m
 
 #data
 <device xmlns="http://www.w3.org/1999/xhtml"
     type="rs232c"/>
 #errors
-/device;element not defined;m
-/device/@type;attribute not defined;m
+/device;element:obsolete;m
+/device/@type;attr:obsolete;m
 
 #data
 <device xmlns="http://www.w3.org/1999/xhtml"
     type="filesystem"/>
 #errors
-/device;element not defined;m
-/device/@type;attribute not defined;m
+/device;element:obsolete;m
+/device/@type;attr:obsolete;m
 
 #data
 <device xmlns="http://www.w3.org/1999/xhtml"
     type="video"/>
 #errors
-/device;element not defined;m
-/device/@type;attribute not defined;m
+/device;element:obsolete;m
+/device/@type;attr:obsolete;m

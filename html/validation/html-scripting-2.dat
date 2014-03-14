@@ -1,7 +1,6 @@
 #data
 <script defer="" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script;unknown script lang;u
 /script/@defer;attribute not allowed;m
 
 #data
@@ -27,7 +26,6 @@
 | //--&gt;
 | </script>
 #errors
-/script;unknown script lang;u
 
 #data
 | <script xmlns="http://www.w3.org/1999/xhtml">
@@ -35,9 +33,10 @@
 | <span>//-</span>-&gt;
 | </script>
 #errors
-/script;unknown script lang;u
 /script/br;element not allowed;m
 /script/span;element not allowed;m
+3;17;/script;js:parse error;Expected expression but found '>
+';m
 
 #data
 | <script xmlns="http://www.w3.org/1999/xhtml">
@@ -45,7 +44,8 @@
 | --&gt;
 | </script>
 #errors
-/script;unknown script lang;u
+3;1;/script;js:parse error;Expected expression but found '>
+';m
 
 #data
 | <script xmlns="http://www.w3.org/1999/xhtml">
@@ -53,7 +53,8 @@
 | --&gt;&lt;!----&gt;
 | </script>
 #errors
-/script;unknown script lang;u
+3;1;/script;js:parse error;Expected expression but found '><!---->
+';m
 
 #data
 | <script xmlns="http://www.w3.org/1999/xhtml">
@@ -61,15 +62,14 @@
 | </script>
 #errors
 2;1;/script;style:unclosed cdo;m
-/script;unknown script lang;u
 
 #data
 | <script xmlns="http://www.w3.org/1999/xhtml">
 | &lt;!-<span>-</span>
 | </script>
-#errors
+#errors escaped
 2;1;/script;style:unclosed cdo;m
-/script;unknown script lang;u
+2;1;/script;js:parse error;Expected statement or function declaration but found '<!-\u000A';m
 /script/span;element not allowed;m
 
 #data
@@ -85,7 +85,6 @@
 | &lt;!-- &lt;script> --&gt;
 | </script>
 #errors
-/script;unknown script lang;u
 2;9;/script;script:nested <script>;m
 
 #data
@@ -93,7 +92,6 @@
 | &lt;!-- --> &lt;script> --&gt;
 | </script>
 #errors
-/script;unknown script lang;u
 
 #data
 | <script src="xyz" xmlns="http://www.w3.org/1999/xhtml">
@@ -197,7 +195,6 @@
   <br/>
 </script>
 #errors
-/script;unknown script lang;u
 /script/br;element not allowed;m
 
 #data
@@ -230,13 +227,11 @@
 #data
 <script xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script;unknown script lang;u
 
 #data
 <script type="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@type;IMT:no type;m
-/script;unknown script lang;u
 
 #data
 <script type="text" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -252,36 +247,30 @@
 #data
 <script type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script;unknown script lang;u
 
 #data
 <script type="text/javascript;e4x=1" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script;unknown script lang;u
 
 #data
 <script type="text/JavaScript;E4X=1" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script;unknown script lang;u
 
 #data
 <script type="text/javascript;e4x=&quot;1&quot;"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script;unknown script lang;u
 
 #data
 <script type="text/javascript;e4x=&quot;\1&quot;"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script;unknown script lang;u
 
 #data
 <script type="text/javascript; ~=a"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@type;IMT:attribute syntax error;m
-/script;unknown script lang;u
 
 #data
 <script type="text~/javascript"
@@ -329,7 +318,6 @@
 #data
 <script defer="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script;unknown script lang;u
 /script/@defer;attribute not allowed;m
 
 #data
@@ -340,7 +328,6 @@
 #data
 <script defer="defer" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script;unknown script lang;u
 /script/@defer;attribute not allowed;m
 
 #data
@@ -351,7 +338,6 @@
 #data
 <script defer="DEFER" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script;unknown script lang;u
 /script/@defer;attribute not allowed;m
 
 #data
@@ -359,7 +345,6 @@
 #errors
 /script/@defer;boolean:invalid;m
 /script/@defer;attribute not allowed;m
-/script;unknown script lang;u
 
 #data
 <script src="http://test/" defer="true"
@@ -370,7 +355,6 @@
 #data
 <script async="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script;unknown script lang;u
 /script/@async;attribute not allowed;m
 
 #data
@@ -381,7 +365,6 @@
 #data
 <script async="async" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script;unknown script lang;u
 /script/@async;attribute not allowed;m
 
 #data
@@ -393,7 +376,6 @@
 <script async="true" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@async;boolean:invalid;m
-/script;unknown script lang;u
 /script/@async;attribute not allowed;m
 
 #data
@@ -410,14 +392,12 @@
 #data
 <script defer="" async="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script;unknown script lang;u
 /script/@async;attribute not allowed;m
 /script/@defer;attribute not allowed;m
 
 #data
 <script defer="defer" async="async" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script;unknown script lang;u
 /script/@async;attribute not allowed;m
 /script/@defer;attribute not allowed;m
 
@@ -429,43 +409,36 @@
 <script language="javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@language;script language;s
-/script;unknown script lang;u
 
 #data
 <script langauge="javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@langauge;attribute not defined;m
-/script;unknown script lang;u
 
 #data
 <script langage="javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@langage;attribute not defined;m
-/script;unknown script lang;u
 
 #data
 <script languege="javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@languege;attribute not defined;m
-/script;unknown script lang;u
 
 #data
 <script language="JavaScript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@language;script language;s
-/script;unknown script lang;u
 
 #data
 <script language="jscript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@language;script language:not js;m
-/script;unknown script lang;u
 
 #data
 <script language="javascript1.2" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@language;script language:not js;m
-/script;unknown script lang;u
 
 #data
 <script language="vbscript" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -483,37 +456,31 @@
 <script langage="javascript" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@langage;attribute not defined;m
-/script;unknown script lang;u
 
 #data
 <script langage="JavaScript" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@langage;attribute not defined;m
-/script;unknown script lang;u
 
 #data
 <script language="javascript" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@language;script language;s
-/script;unknown script lang;u
 
 #data
 <script language="JavaScript" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@language;script language;s
-/script;unknown script lang;u
 
 #data
 <script language="javascript" type="TEXt/javaScript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@language;script language;s
-/script;unknown script lang;u
 
 #data
 <script language="java script" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@language;script language:not js;m
-/script;unknown script lang;u
 
 #data
 <script language="javascript" type="text/vbscript" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -533,14 +500,12 @@
 <script language="jscript" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@language;script language:not js;m
-/script;unknown script lang;u
 
 #data
 <script charset="us-ascii" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@charset;attribute not allowed;m
 /script/@charset;non-utf-8 character encoding;m
-/script;unknown script lang;u
 
 #data
 <script charset="UTF-8" src="a" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -579,52 +544,44 @@
 #data
 <script event="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@event;attribute not defined;m
-/script;unknown script lang;u
+/script/@event;attr:obsolete;m
 
 #data
 <script event="abc" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@event;attribute not defined;m
-/script;unknown script lang;u
+/script/@event;attr:obsolete;m
 
 #data
 <script event="onload" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@event;attribute not defined;m
-/script;unknown script lang;u
+/script/@event;attr:obsolete;m
 
 #data
 <script event="onload()" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@event;attribute not defined;m
-/script;unknown script lang;u
+/script/@event;attr:obsolete;m
 
 #data
 <script for="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@for;attribute not defined;m
+/script/@for;attr:obsolete;m
 /script/@for;no referenced element;m
-/script;unknown script lang;u
 
 #data
 <script for="abc" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@for;attribute not defined;m
+/script/@for;attr:obsolete;m
 /script/@for;no referenced element;m
-/script;unknown script lang;u
 
 #data
 <script id="abc" for="abc" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@for;attribute not defined;m
-/script;unknown script lang;u
+/script/@for;attr:obsolete;m
 
 #data
 <script for="abc" xmlns="http://www.w3.org/1999/xhtml"><b id="abc">a</b></script>
 #errors
-/script/@for;attribute not defined;m
-/script;unknown script lang;u
+/script/@for;attr:obsolete;m
 /script/b;attribute missing;class;w
 /script/b;last resort;s
 /script/b;element not allowed;m
@@ -634,8 +591,7 @@
   <script for="a"></script>b
 </div>
 #errors
-/div/script;unknown script lang;u
-/div/script/@for;attribute not defined;m
+/div/script/@for;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -643,8 +599,7 @@
   <script for="a"></script>b
 </div>
 #errors
-/div/script;unknown script lang;u
-/div/script/@for;attribute not defined;m
+/div/script/@for;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -652,103 +607,100 @@
   <span id="a">c</span>
 </div>
 #errors
-/div/script;unknown script lang;u
-/div/script/@for;attribute not defined;m
+/div/script/@for;attr:obsolete;m
 
 #data
 <script for="#xyz" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@for;attribute not defined;m
+/script/@for;attr:obsolete;m
 /script/@for;no referenced element;m
-/script;unknown script lang;u
 
 #data
 <script for="[]" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@for;attribute not defined;m
+/script/@for;attr:obsolete;m
 /script/@for;no referenced element;m
-/script;unknown script lang;u
 
 #data
 <a language="" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="  " xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="javascript" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 
 #data
 <a language="JavaScript" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 
 #data
 <a language="JAVASCRIPT" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 
 #data
 <a language="javascript " xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="js" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="javascript1.1" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="jscript" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="ecmascript" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="vbScript" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="xml" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <a language="language" xmlns="http://www.w3.org/1999/xhtml">a</a>
 #errors
-/a/@language;attribute not defined;m
+/a/@language;attr:obsolete;m
 /a/@language;script language:not js;m
 
 #data
 <unknown language="" xmlns="http://www.w3.org/1999/xhtml">a</unknown>
 #errors
 /unknown;element not defined;m
-/unknown/@language;attribute not defined;m
+/unknown/@language;attr:obsolete;m
 /unknown/@language;script language:not js;m
 
 #data
@@ -760,58 +712,49 @@
 #data
 <script archive="" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script/@archive;attribute not defined;m
+/script/@archive;attr:obsolete;m
 /script/@archive;url:empty;m
-/script;unknown script lang;u
 
 #data
 <script archive="abc" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script/@archive;attribute not defined;m
-/script;unknown script lang;u
+/script/@archive;attr:obsolete;m
 
 #data
 <script archive="[]" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script/@archive;attribute not defined;m
+/script/@archive;attr:obsolete;m
 /script/@archive;syntax error:iriref3987;m
-/script;unknown script lang;u
 
 #data
 <script implements="" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script/@implements;attribute not defined;m
-/script;unknown script lang;u
+/script/@implements;attr:obsolete;m
 
 #data
 <script implement="" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
 /script/@implement;attribute not defined;m
-/script;unknown script lang;u
 
 #data
 <script crossorigin="" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script;unknown script lang;u
 /script/@crossorigin;attribute not allowed;w
 
 #data
 <script crossorigin="ANONYMOUS" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script;unknown script lang;u
 /script/@crossorigin;attribute not allowed;w
 
 #data
 <script crossorigin="use-credentials" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script;unknown script lang;u
 /script/@crossorigin;attribute not allowed;w
 
 #data
 <script crossorigin="use-credential" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
 /script/@crossorigin;enumerated:invalid;m
-/script;unknown script lang;u
 /script/@crossorigin;attribute not allowed;w
 
 #data

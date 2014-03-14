@@ -1,0 +1,314 @@
+#data
+<p>&lt;</p>
+#errors
+#document
+| <{} p>
+|   "<"
+
+#data
+<!DOCTYPE a>
+<p>&lt;</p>
+#errors
+2;4;entity not declared;;lt;;w
+#document
+| <!DOCTYPE a>
+| <{} p>
+|   "<"
+
+#data
+<!DOCTYPE a>
+<p>&copy;</p>
+#errors
+2;4;entity not declared;;copy;;m
+#document escaped
+| <!DOCTYPE a>
+| <{} p>
+|   "\u00A9"
+
+#data
+<p>&copy;</p>
+#errors
+1;4;entity not declared;;copy;;m
+#document escaped
+| <{} p>
+|   "\u00A9"
+
+#data
+<!DOCTYPE hoge PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "">
+<p>&copy;</p>
+#errors
+#document escaped
+| <!DOCTYPE hoge "-//W3C//DTD XHTML 1.0 Transitional//EN" "">
+| <{} p>
+|   "\u00A9"
+
+#data
+<!DOCTYPE hoge PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN  " "">
+<p>&copy;</p>
+#errors
+2;4;entity not declared;;copy;;m
+#document escaped
+| <!DOCTYPE hoge "-//W3C//DTD XHTML 1.0 Transitional//EN  " "">
+| <{} p>
+|   "\u00A9"
+
+#data
+<!DOCTYPE hoge PUBLIC "-//W3C//DTD XHTML 1.1//EN" "">
+<p>&amp;</p>
+#errors
+#document escaped
+| <!DOCTYPE hoge "-//W3C//DTD XHTML 1.1//EN" "">
+| <{} p>
+|   "&"
+
+#data
+<!DOCTYPE hoge PUBLIC "-//w3c//DTD XHTML 1.1//EN" "">
+<p>&amp;</p>
+#errors
+2;4;entity not declared;;amp;;w
+#document escaped
+| <!DOCTYPE hoge "-//w3c//DTD XHTML 1.1//EN" "">
+| <{} p>
+|   "&"
+
+#data
+<!DOCTYPE foo SYSTEM "http://hoge/">
+<foo>&copy;</foo>
+#resource http://hoge/
+<!ENTITY % bar PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "">
+%bar;
+#errors
+#document escaped
+| <!DOCTYPE foo "" "http://hoge/">
+| <{} foo>
+|   "\u00A9"
+
+#data
+<!DOCTYPE foo [
+<!ENTITY % bar PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://hoge/">
+%bar;
+]>
+<foo>&copy;</foo>
+#resource http://hoge/
+abc
+#errors
+#document escaped
+| <!DOCTYPE foo>
+| <{} foo>
+|   "\u00A9"
+
+#data
+<!DOCTYPE bar>
+<!DOCTYPE foo [
+<!ENTITY % bar PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://hoge/">
+%bar;
+]>
+<foo>&copy;</foo>
+#resource http://hoge/
+abc
+#errors
+2;1;second doctype;;;m
+6;6;entity not declared;;copy;;m
+#document escaped
+| <!DOCTYPE bar>
+| <{} foo>
+|   "\u00A9"
+
+#data
+<!DOCTYPE foo [
+<!ENTITY % bar PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://hoge/">
+%foo;
+%bar;
+]>
+<foo>&copy;</foo>
+#errors
+3;1;pe not declared;;foo;;m
+3;1;stop processing;;;i
+6;6;entity not declared;;copy;;m
+#document escaped
+| <!DOCTYPE foo>
+| <{} foo>
+|   "\u00A9"
+
+#data
+<!DOCTYPE foo [
+<!ENTITY % hoge SYSTEM "foo">
+%hoge;
+<!ENTITY % bar PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://hoge/">
+%bar;
+]>
+<foo>&copy;</foo>
+#errors
+3;1;external entref;;hoge;;i
+#XXX
+#document escaped
+| <!DOCTYPE foo>
+| <{} foo>
+|   "\u00A9"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo PUBLIC "-//W3C//DTD XHTML Basic 1.0//EN" "">
+  %foo;
+]><a>&copy;</a>
+#errors
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   "\u00A9"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo PUBLIC "-//W3C//DTD XHTML Basic 1.0//EN" "">
+  %foo;
+]><a>&copy;</a>
+#errors
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   "\u00A9"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&copy;</a>
+#resource http://a/
+  <!ENTITY % foo PUBLIC "-//W3C//DTD XHTML Basic 1.0//EN" "">
+  %foo;
+#errors
+#document escaped
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "\u00A9"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&copy;</a>
+#resource http://a/
+  <!ENTITY % foo PUBLIC "-//W3C//DTD XHTML Basic 1.0//EN" "">
+  <!ENTITY % bar "%foo;">
+  %bar;
+#errors
+1;35;entity not declared;;copy;;m
+#document escaped
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "\u00A9"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&copy;</a>
+#resource http://a/
+  <!ENTITY % foo PUBLIC "-//W3C//DTD XHTML Basic 1.0//EN" "">
+  <!ENTITY % bar %foo;>
+  %bar;
+#errors
+1;35;entity not declared;;copy;;m
+[1]2;23;no md def;;;m
+#document escaped
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "\u00A9"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo SYSTEM "http://a/">
+]>
+<a>&foo;</a>
+#resource http://a/
+&copy;
+#errors
+[1]1;1;entity not declared;;copy;;m
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   "\u00A9"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo SYSTEM "http://a/">
+  <!ENTITY % hoge PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "">
+  %hoge;
+]>
+<a>&foo;</a>
+#resource http://a/
+&copy;
+#errors
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   "\u00A9"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % hoge PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "">
+  %hoge;
+  <!ATTLIST foo aa CDATA "&copy;">
+]><a/>
+#resource http://a/
+&copy;
+#errors
+#document escaped
+| <!DOCTYPE a>
+|   <!ELEMENT foo >
+|     aa CDATA () EXPLICIT "\u00A9"
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % hoge PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "">
+  <!ATTLIST foo aa CDATA "&copy;">
+  %hoge;
+]><a/>
+#resource http://a/
+&copy;
+#errors
+3;27;entity not declared;;copy;;m
+#document escaped
+| <!DOCTYPE a>
+|   <!ELEMENT foo >
+|     aa CDATA () EXPLICIT "\u00A9"
+| <{} a>
+
+#data
+<!DOCTYPE hoge PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "">
+<p>&copy;</p>
+#errors
+#document escaped
+| <!DOCTYPE hoge "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "">
+| <{} p>
+|   "\u00A9"
+
+#data
+<!DOCTYPE hoge PUBLIC "-//W3C//DTD MathML 2.0//EN" "">
+<p>&copy;</p>
+#errors
+#document escaped
+| <!DOCTYPE hoge "-//W3C//DTD MathML 2.0//EN" "">
+| <{} p>
+|   "\u00A9"
+
+#data
+<!DOCTYPE hoge PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "">
+<p>&copy;</p>
+#errors
+#document escaped
+| <!DOCTYPE hoge "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "">
+| <{} p>
+|   "\u00A9"
+
+#data escaped
+<!DOCTYPE hoge PUBLIC "-//WAPFORUM//DTD\u00A0XHTML\u00A0Mobile\u00A01.0//EN" "">
+<p>&copy;</p>
+#errors
+2;4;entity not declared;;copy;;m
+#document escaped
+| <!DOCTYPE hoge "-//WAPFORUM//DTD\u00A0XHTML\u00A0Mobile\u00A01.0//EN" "">
+| <{} p>
+|   "\u00A9"
+
+#data
+<!DOCTYPE hoge PUBLIC "-//W3C//ENTITIES HTML MathML Set//EN//XML" "">
+<p>&copy;</p>
+#errors
+2;4;entity not declared;;copy;;m
+#document escaped
+| <!DOCTYPE hoge "-//W3C//ENTITIES HTML MathML Set//EN//XML" "">
+| <{} p>
+|   "\u00A9"

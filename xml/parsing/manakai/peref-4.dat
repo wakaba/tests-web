@@ -1,0 +1,160 @@
+#data
+<!DOCTYPE %foo; SYSTEM "http://abc/"><a/>
+#resource http://abc/
+<!ENTITY % foo "">
+#errors
+#document
+| <!DOCTYPE %foo; "" "http://abc/">
+| <{} a>
+#entities
+<!ENTITY % foo "" "" "" >
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo "">
+  <!ENTITY %foo; bar "baz">
+]><a b="&bar;"/>
+#errors
+3;12;WFC:PEs in Internal Subset;;%foo;;m
+3;12;stop processing;;;i
+4;9;entity not declared;;bar;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   b="&bar;"
+#entities
+<!ENTITY % foo "" "" "" >
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo "">
+  <!ENTITY % bar "
+    <!ENTITY &#x25;foo; bar 'baz'>
+  ">
+  %bar;
+]><a b="&bar;"/>
+#errors
+4;14;WFC:PEs in Internal Subset;;%foo;;m
+4;14;stop processing;;;i
+7;9;entity not declared;;bar;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   b="&bar;"
+#entities
+<!ENTITY % bar "
+    <!ENTITY %foo; bar 'baz'>
+  " "" "" >
+<!ENTITY % foo "" "" "" >
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo "">
+  <!ENTITY % bar "
+    <!ENTITY &#x25; baz SYSTEM 'http://baz/'>
+  ">
+  %bar;
+  %baz;
+]><a b="&bar;"/>
+#resource http://baz/
+<!ENTITY %foo; bar 'baz'>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   b="baz"
+#entities
+<!ENTITY bar "baz" "" "" >
+<!ENTITY % bar "
+    <!ENTITY % baz SYSTEM 'http://baz/'>
+  " "" "" >
+<!ENTITY % baz "" "" "http://baz/" >
+<!ENTITY % foo "" "" "" >
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo "">
+  <!ENTITY % bar SYSTEM "http://bar/">
+  %bar;
+]><a b="&bar;"/>
+#resource http://bar/
+<!ENTITY %foo; bar 'baz'>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   b="baz"
+#entities
+<!ENTITY bar "baz" "" "" >
+<!ENTITY % bar "" "" "http://bar/" >
+<!ENTITY % foo "" "" "" >
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo " ]> <!ENTITY bar 'baz'> ">
+  %foo;
+]><a>&bar;</a>
+#errors
+2;20;string in internal subset;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "baz"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo SYSTEM "http://a/">
+  %foo;
+]><a>&bar;</a>
+#resource http://a/
+]> <!ENTITY bar 'baz'>
+#errors
+[1]1;1;string in internal subset;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "baz"
+
+#data
+<!DOCTYPE a  SYSTEM "http://a/" [
+]><a>&bar;</a>
+#resource http://a/
+]> <!ENTITY bar 'baz'>
+#errors
+[1]1;1;string in internal subset;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "baz"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % hoge "">
+  <!ENTITY x "%hoge;X">
+  <!ENTITY y "Y">
+]><a>&x;&y;</a>
+#errors
+3;15;WFC:PEs in Internal Subset;;%hoge;;m
+3;15;stop processing;;;i
+5;6;entity not declared;;x;;m
+5;9;entity not declared;;y;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "&x;&y;"
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % hoge "">
+  <![%hoge; IGNORE [
+    <!ENTITY y "Y">
+  ]]>
+  <!ENTITY x "X">
+]><a>&x;&y;</a>
+#errors
+3;3;condsect in internal subset;;;m
+7;9;entity not declared;;y;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "X&y;"

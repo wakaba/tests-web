@@ -1,0 +1,19 @@
+#data
+<p onclick="hoge fuga" xmlns="http://www.w3.org/1999/xhtml">a</p>
+#errors
+1;13;/p/@onclick;js:parse error;Expected semicolon, '}' or end of line but found ' fuga';m
+
+#data
+<p onclick="hoge ;
+abc fuga" xmlns="http://www.w3.org/1999/xhtml">a</p>
+#errors
+1;13;/p/@onclick;js:parse error;Expected semicolon, '}' or end of line but found ' fuga';m
+
+#data html
+<!DOCTYPE html>
+<html lang=en><title>a</title>
+<p onclick="a();
+ a;
+  *++*">a</p>
+#errors
+5;1;/html/body/p/@onclick;js:parse error;Expected statement or function declaration but found '*++*';m
