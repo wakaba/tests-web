@@ -1,0 +1,94 @@
+#data
+<unknown xmlns="http://purl.org/syndication/thread/1.0"/>
+#errors
+/unknown;element not defined;m
+
+#data
+<name hoge="" xmlns="http://purl.org/syndication/thread/1.0"/>
+#errors
+/name;element not defined;m
+/name/@hoge;attribute not defined;m
+
+#data
+<name data-hoge="" xmlns="http://purl.org/syndication/thread/1.0"/>
+#errors
+/name;element not defined;m
+/name/@data-hoge;attribute not defined;m
+
+#data
+<in-reply-to xmlns="http://purl.org/syndication/thread/1.0" href="http://s/" ref="http://y/"/>
+#errors
+
+#data
+<in-reply-to xmlns="http://purl.org/syndication/thread/1.0" href="http[]://s/" ref="http://y/"/>
+#errors
+/in-reply-to/@href;syntax error:iriref3987;m
+
+#data
+<in-reply-to xmlns="http://purl.org/syndication/thread/1.0" href="http://s/" ref="h[]ttp://y/"/>
+#errors
+/in-reply-to/@ref;syntax error:iri3987;m
+/in-reply-to/@ref;syntax error:iriref3987;m
+
+#data
+<in-reply-to ref="" xmlns="http://purl.org/syndication/thread/1.0" href="http://s/"/>
+#errors
+/in-reply-to/@ref;syntax error:iri3987;m
+
+#data
+<in-reply-to ref="fuga" xmlns="http://purl.org/syndication/thread/1.0" href="http://s/"/>
+#errors
+/in-reply-to/@ref;syntax error:iri3987;m
+
+#data
+<in-reply-to ref="http://a/" xmlns="http://purl.org/syndication/thread/1.0" href="http://s/"/>
+#errors
+
+#data
+<in-reply-to ref="http://a/ " xmlns="http://purl.org/syndication/thread/1.0" href="http://s/"/>
+#errors
+/in-reply-to/@ref;syntax error:iri3987;m
+/in-reply-to/@ref;syntax error:iriref3987;m
+
+#data
+<in-reply-to type="" xmlns="http://purl.org/syndication/thread/1.0" ref="http://y/"/>
+#errors
+/in-reply-to/@type;IMT:no type;m
+
+#data
+<in-reply-to type="text/plain" xmlns="http://purl.org/syndication/thread/1.0" ref="http://y/"/>
+#errors
+
+#data
+<in-reply-to type="text/hoge/fuga" xmlns="http://purl.org/syndication/thread/1.0" ref="http://y/"/>
+#errors
+/in-reply-to/@type;params:garbage;m
+/in-reply-to/@type;IMT:unknown subtype;u
+
+#data
+<in-reply-to xmlns="http://purl.org/syndication/thread/1.0" href="http://s/" ref="http://y/"></in-reply-to>
+#errors
+
+#data
+<in-reply-to xmlns="http://purl.org/syndication/thread/1.0" href="http://s/" ref="http://y/">  </in-reply-to>
+#errors
+
+#data
+<in-reply-to xmlns="http://purl.org/syndication/thread/1.0" href="http://s/" ref="http://y/">abc</in-reply-to>
+#errors
+/in-reply-to/"abc";character not allowed:empty;m
+
+#data
+<in-reply-to xmlns="http://purl.org/syndication/thread/1.0" href="http://s/" ref="http://y/"><foo/></in-reply-to>
+#errors
+/in-reply-to/foo;element not allowed:empty;m
+/in-reply-to/foo;element not defined;m
+
+#data
+<abc>
+<in-reply-to xmlns="http://purl.org/syndication/thread/1.0" href="http://s/" ref="http://y/"/>
+<base href="http://x/" xmlns="http://www.w3.org/1999/xhtml"/>
+</abc>
+#errors
+/abc;unknown namespace element;w
+/abc/base;basehref after URL attribute;m

@@ -1,0 +1,112 @@
+#data
+<generator xmlns="http://www.w3.org/2005/Atom"></generator>
+#errors
+
+#data
+<generator xmlns="http://www.w3.org/2005/Atom">  </generator>
+#errors
+
+#data
+<generator xmlns="http://www.w3.org/2005/Atom">abc</generator>
+#errors
+
+#data
+<generator xmlns="http://www.w3.org/2005/Atom"><name/></generator>
+#errors
+/generator/name;element not allowed:text;m
+
+#data
+<generator version="" xmlns="http://www.w3.org/2005/Atom"></generator>
+#errors
+
+#data
+<generator version="hoge" xmlns="http://www.w3.org/2005/Atom"></generator>
+#errors
+
+#data
+<generator uri="" xmlns="http://www.w3.org/2005/Atom"></generator>
+#errors
+
+#data
+<generator uri="http://hoge/" xmlns="http://www.w3.org/2005/Atom"></generator>
+#errors
+
+#data
+<generator uri=" http://hoge/" xmlns="http://www.w3.org/2005/Atom"></generator>
+#errors
+/generator/@uri;syntax error:iriref3987;m
+
+#data
+<generator uri="[]http://hoge/" xmlns="http://www.w3.org/2005/Atom"></generator>
+#errors
+/generator/@uri;syntax error:iriref3987;m
+
+#data
+<generator url="http://hoge/" xmlns="http://www.w3.org/2005/Atom"></generator>
+#errors
+/generator/@url;attribute not defined;m
+
+#data
+<category xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+/category;attribute missing;term;m
+
+#data
+<category term="" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<category term="abc" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<category label="" term="x" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<category label="  " term="x" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<category label="abc" term="x" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<category scheme="" term="x" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<category scheme="http://a/" term="x" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<category scheme="bb" term="x" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<category scheme="http://foo/ " term="x" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+/category/@scheme;syntax error:iriref3987;m
+
+#data
+<category scheme="[]http://a/" term="x" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+/category/@scheme;syntax error:iriref3987;m
+
+#data
+<category term="x" xmlns="http://www.w3.org/2005/Atom"></category>
+#errors
+
+#data
+<category term="x" xmlns="http://www.w3.org/2005/Atom">  </category>
+#errors
+
+#data
+<category term="x" xmlns="http://www.w3.org/2005/Atom">abc</category>
+#errors
+/category/"abc";character not allowed:empty;m
+
+#data
+<category term="x" xmlns="http://www.w3.org/2005/Atom"><name/></category>
+#errors
+/category/name;element not allowed:empty;m

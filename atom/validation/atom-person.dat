@@ -52,6 +52,24 @@ gae+`P..@hoge.fUga  </email>
 /email;email:syntax error;m
 
 #data
+<email xmlns="http://www.w3.org/2005/Atom"><name>gaeM/</name>+`P..@hoge.fUga</email>
+#errors
+/email/name;element not allowed:text;m
+
+#data
 <email xmlns="http://www.w3.org/2005/Atom"><name>gae+`P..@hoge.fUga</name></email>
 #errors
-/email/name;element not allowed;m
+/email/name;element not allowed:text;m
+/email;email:syntax error;m
+
+#data
+<name xmlns="http://www.w3.org/2005/Atom"></name>
+#errors
+
+#data
+<name xmlns="http://www.w3.org/2005/Atom">  </name>
+#errors
+
+#data
+<name xmlns="http://www.w3.org/2005/Atom">hoge</name>
+#errors

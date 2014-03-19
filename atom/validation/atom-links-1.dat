@@ -1,0 +1,104 @@
+#data
+<link rel="self" href="" xmlns="http://www.w3.org/2005/Atom"></link>
+#errors
+
+#data
+<link rel="self" href="" xmlns="http://www.w3.org/2005/Atom">  </link>
+#errors
+
+#data
+<link rel="self" href="" xmlns="http://www.w3.org/2005/Atom">hoge</link>
+#errors
+/link/"hoge";character not allowed:empty;m
+
+#data
+<link rel="self" href="" xmlns="http://www.w3.org/2005/Atom"><name/></link>
+#errors
+/link/name;element not allowed:empty;m
+
+#data
+<link rel="self" href="" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<link rel="self" href="x" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<link rel="self" href="http://foo/" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<link rel="self" href="[]x" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+/link/@href;syntax error:iriref3987;m
+
+#data
+<link rel="self" href="http://a/" hreflang="" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+/link/@hreflang;langtag:language:invalid;m
+/link/@hreflang;langtag:language:syntax;m
+
+#data
+<link rel="self" href="http://a/" hreflang="ja" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<link rel="self" href="http://a/" hreflang="-xy" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+/link/@hreflang;langtag:language:invalid;m
+/link/@hreflang;langtag:language:syntax;m
+/link/@hreflang;langtag:region:case;s
+/link/@hreflang;langtag:region:private;w
+
+#data
+<link rel="self" href="http://foo/" length="" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<link rel="self" href="http://foo/" length="125" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<link rel="self" href="http://foo/" length="large" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<link rel="self" href="http://foo/" title="" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<link rel="self" href="http://foo/" title="abc" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<link rel="self" href="http://foo/" type="" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+/link/@type;IMT:no type;m
+
+#data
+<link rel="self" href="http://foo/" type="text/plain" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<link rel="self" href="http://foo/" type="TEXT/plain" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<link rel="self" href="http://foo/" type="application/atom+xml;
+type=entry" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<link rel="self" href="http://foo/" type="foo" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+/link/@type;IMT:no /;m
+
+#data
+<abc>
+<link xmlns="http://www.w3.org/2005/Atom" href="http://s/" rel="self"/>
+<base href="http://x/" xmlns="http://www.w3.org/1999/xhtml"/>
+</abc>
+#errors
+/abc;unknown namespace element;w
+/abc/base;basehref after URL attribute;m
