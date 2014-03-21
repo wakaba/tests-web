@@ -1,0 +1,33 @@
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>aa</title>
+  <id>http://hoge/</id>
+  <link rel="self" href="aa"/>
+  <updated>2011-01-03T00:11:22Z</updated>
+  <!---->abc<!---->
+</feed>
+#errors
+/feed/"abc";character not allowed;m
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>aa</title>
+  <id>http://hoge/</id>
+  <link rel="self" href="aa"/>
+  <updated>2011-01-03T00:11:22Z</updated>
+  <aa></aa>
+</feed>
+#errors
+/feed/aa;element not defined;m
+/feed/aa;element not allowed;m
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>aa</title>
+  <id>http://hoge/</id>
+  <link rel="self" href="aa"/>
+  <updated>2011-01-03T00:11:22Z</updated>
+  <in-reply-to xmlns="http://purl.org/syndication/thread/1.0" href="http://s/" ref="http://y/"/>
+</feed>
+#errors
+/feed/in-reply-to;element not allowed;m

@@ -1,0 +1,59 @@
+#data
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://hoge/1</id>
+  <link rel="alternate" href=""/>
+  <author><name>a</name></author>
+  <updated>2014-01-02T00:00:00Z</updated>
+  <title>aa</title>
+  <rights>aa</rights>
+  <rights>aa</rights>
+</entry>
+#errors
+/entry/rights;element not allowed:duplicate;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://hoge/1</id>
+  <link rel="alternate" href=""/>
+  <author><name>a</name></author>
+  <updated>2014-01-02T00:00:00Z</updated>
+  <title>aa</title>
+  <id>http://aa/</id>
+</entry>
+#errors
+/entry/id;element not allowed:duplicate;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://hoge/1</id>
+  <link rel="alternate" href=""/>
+  <author><name>a</name></author>
+  <updated>2014-01-02T00:00:00Z</updated>
+  <title>aa</title>
+  <!---->abc<!---->
+</entry>
+#errors
+/entry/"abc";character not allowed;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://hoge/1</id>
+  <link rel="alternate" href=""/>
+  <author><name>a</name></author>
+  <updated>2014-01-02T00:00:00Z</updated>
+  <title>aa</title>
+  <link rel="alternate" href=""/>
+</entry>
+#errors
+/entry/link;element not allowed:atom|link rel=alternate;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://hoge/1</id>
+  <link rel="alternate" href=""/>
+  <author><name>a</name></author>
+  <updated>2014-01-02T00:00:00Z</updated>
+  <title>aa</title>
+  <link rel="alternate" href="" hreflang="en"/>
+</entry>
+#errors

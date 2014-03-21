@@ -176,7 +176,7 @@
 <title>x</title>
 </feed>
 #errors
-/feed/author/uri;element not allowed:atom|PersonConstruct;m
+/feed/author/uri;element not allowed:duplicate;m
 
 #data
 <feed xmlns="http://www.w3.org/2005/Atom">
@@ -195,7 +195,7 @@
 <updated>2000-01-02T03:04:05Z</updated>
 </feed>
 #errors
-/feed/author/email;element not allowed:atom|PersonConstruct;m
+/feed/author/email;element not allowed:duplicate;m
 
 #data
 <feed xmlns="http://www.w3.org/2005/Atom">
@@ -218,7 +218,7 @@
 </feed>
 #errors
 /feed/author;child element missing:atom;name;m
-/feed/author/title;element not allowed:atom|PersonConstruct;m
+/feed/author/title;element not allowed;m
 
 #data
 <feed xmlns="http://www.w3.org/2005/Atom">
@@ -230,7 +230,7 @@
 </feed>
 #errors
 /feed/author;child element missing:atom;name;m
-/feed/author/p;element not allowed:atom|PersonConstruct;m
+/feed/author/p;element not allowed;m
 /feed/author/p;element not defined;m
 
 #data
@@ -326,13 +326,11 @@
 #errors
 /feed;child element missing:atom;author;m
 /feed/entry;child element missing:atom;author;m
-/feed/link;element not allowed;m
-/feed/title;element not allowed;m
-/feed/updated;element not allowed;m
 /feed/entry;child element missing:atom;id;m
 /feed/entry;child element missing:atom;title;m
 /feed/entry;child element missing:atom;updated;m
 /feed/entry;child element missing:atom:link:alternate;m
+/feed/link;element after entry;m
 
 #data
 <feed xmlns="http://www.w3.org/2005/Atom">
@@ -348,10 +346,7 @@
 /feed/entry;child element missing:atom;title;m
 /feed/entry;child element missing:atom;updated;m
 /feed/entry;child element missing:atom:link:alternate;m
-/feed/author;element not allowed;m
-/feed/link;element not allowed;m
-/feed/updated;element not allowed;m
-/feed/title;element not allowed;m
+/feed/author;element after entry;m
 
 #data
 <feed xmlns="http://www.w3.org/2005/Atom">

@@ -73,3 +73,15 @@ gae+`P..@hoge.fUga  </email>
 #data
 <name xmlns="http://www.w3.org/2005/Atom">hoge</name>
 #errors
+
+#data
+<author xmlns="http://www.w3.org/2005/Atom">hoge</author>
+#errors
+/author/"hoge";character not allowed;m
+/author;child element missing:atom;name;m
+
+#data
+<author xmlns="http://www.w3.org/2005/Atom"><rights>a</rights></author>
+#errors
+/author/rights;element not allowed;m
+/author;child element missing:atom;name;m
