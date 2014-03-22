@@ -1,0 +1,83 @@
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:fh="http://purl.org/syndication/history/1.0">
+  <title>x</title>
+  <id>http://a/</id>
+  <updated>2051-03-03T00:12:11Z</updated>
+  <link rel="self" href="http://b/"/>
+  <link rel="alternate" href="http://b/"/>
+  <fh:complete/>
+</feed>
+#errors
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:fh="http://purl.org/syndication/history/1.0">
+  <title>x</title>
+  <id>http://a/</id>
+  <updated>2051-03-03T00:12:11Z</updated>
+  <link rel="self" href="http://b/"/>
+  <link rel="alternate" href="http://b/"/>
+  <fh:archive/>
+</feed>
+#errors
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:fh="http://purl.org/syndication/history/1.0">
+  <title>x</title>
+  <id>http://a/</id>
+  <updated>2051-03-03T00:12:11Z</updated>
+  <link rel="self" href="http://b/"/>
+  <link rel="alternate" href="http://b/"/>
+  <fh:complete/>
+  <fh:complete/>
+</feed>
+#errors
+/feed/complete;element not allowed:duplicate;m
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:fh="http://purl.org/syndication/history/1.0">
+  <title>x</title>
+  <id>http://a/</id>
+  <updated>2051-03-03T00:12:11Z</updated>
+  <link rel="self" href="http://b/"/>
+  <link rel="alternate" href="http://b/"/>
+  <fh:archive/>
+  <fh:archive/>
+</feed>
+#errors
+/feed/archive;element not allowed:duplicate;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:fh="http://purl.org/syndication/history/1.0">
+  <title>x</title>
+  <id>http://a/</id>
+  <updated>2051-03-03T00:12:11Z</updated>
+  <link rel="alternate" href="http://b/"/>
+  <author><name>aM</name></author>
+  <fh:archive/>
+</entry>
+#errors
+/entry/archive;element not allowed;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:fh="http://purl.org/syndication/history/1.0">
+  <title>x</title>
+  <id>http://a/</id>
+  <updated>2051-03-03T00:12:11Z</updated>
+  <link rel="alternate" href="http://b/"/>
+  <author><name>aM</name></author>
+  <fh:complete/>
+</entry>
+#errors
+/entry/complete;element not allowed;m
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:fh="http://purl.org/syndication/history/1.0">
+  <title>x</title>
+  <id>http://a/</id>
+  <updated>2051-03-03T00:12:11Z</updated>
+  <link rel="self" href="http://b/"/>
+  <link rel="alternate" href="http://b/"/>
+  <fh:complete/>
+  <fh:archive/>
+</feed>
+#errors
