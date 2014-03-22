@@ -42,3 +42,19 @@
 <fh:hoge xmlns:fh="http://purl.org/syndication/history/1.0"/>
 #errors
 /hoge;element not defined;m
+
+#data
+<fh:complete xmlns:fh="http://purl.org/syndication/history/1.0">
+  <hoge/>
+</fh:complete>
+#errors
+/complete/hoge;element not allowed:empty;m
+/complete/hoge;unknown namespace element;w
+
+#data
+<fh:complete xmlns:fh="http://purl.org/syndication/history/1.0">
+  <hoge xmlns="http://x/"/>
+</fh:complete>
+#errors
+/complete/hoge;element not allowed:empty;m
+/complete/hoge;unknown namespace element;w

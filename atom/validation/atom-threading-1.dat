@@ -92,3 +92,19 @@
 #errors
 /abc;unknown namespace element;w
 /abc/base;basehref after URL attribute;m
+
+#data
+<in-reply-to xmlns="http://purl.org/syndication/thread/1.0" href="http://s/" ref="http://y/">
+  <hoge xmlns=""/>
+</in-reply-to>
+#errors
+/in-reply-to/hoge;element not allowed:empty;m
+/in-reply-to/hoge;unknown namespace element;w
+
+#data
+<in-reply-to xmlns="http://purl.org/syndication/thread/1.0" href="http://s/" ref="http://y/">
+  <hoge xmlns="http://hoge/"/>
+</in-reply-to>
+#errors
+/in-reply-to/hoge;element not allowed:empty;m
+/in-reply-to/hoge;unknown namespace element;w

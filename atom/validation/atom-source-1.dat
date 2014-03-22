@@ -11,3 +11,18 @@
 </source>
 #errors
 /source/p;element not allowed;m
+
+#data
+<source xmlns="http://www.w3.org/2005/Atom">
+  <p xmlns=""/>
+</source>
+#errors
+/source/p;element not allowed;m
+/source/p;unknown namespace element;w
+
+#data
+<source xmlns="http://www.w3.org/2005/Atom">
+  <p xmlns="http://foo/"/>
+</source>
+#errors
+/source/p;unknown namespace element;w

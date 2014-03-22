@@ -57,3 +57,31 @@
   <link rel="alternate" href="" hreflang="en"/>
 </entry>
 #errors
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://hoge/1</id>
+  <link rel="alternate" href=""/>
+  <author><name>a</name></author>
+  <updated>2014-01-02T00:00:00Z</updated>
+  <title>aa</title>
+  <link rel="alternate" href="" hreflang="en"/>
+  <hoge xmlns=""/>
+</entry>
+#errors
+/entry/hoge;element not allowed;m
+/entry/hoge;unknown namespace element;w
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://hoge/1</id>
+  <link rel="alternate" href=""/>
+  <author><name>a</name></author>
+  <updated>2014-01-02T00:00:00Z</updated>
+  <title>aa</title>
+  <link rel="alternate" href="" hreflang="en"/>
+  <hoge xmlns="http://hoge/"><fuga/></hoge>
+</entry>
+#errors
+/entry/hoge;unknown namespace element;w
+/entry/hoge/fuga;unknown namespace element;w

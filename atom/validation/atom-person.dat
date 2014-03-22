@@ -85,3 +85,20 @@ gae+`P..@hoge.fUga  </email>
 #errors
 /author/rights;element not allowed;m
 /author;child element missing:atom;name;m
+
+#data
+<author xmlns="http://www.w3.org/2005/Atom">
+  <name>a</name>
+  <foo xmlns=""/>
+</author>
+#errors
+/author/foo;element not allowed;m
+/author/foo;unknown namespace element;w
+
+#data
+<author xmlns="http://www.w3.org/2005/Atom">
+  <name>a</name>
+  <foo xmlns="http://a/"/>
+</author>
+#errors
+/author/foo;unknown namespace element;w
