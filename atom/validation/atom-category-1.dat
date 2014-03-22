@@ -1,0 +1,115 @@
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"/>
+#is-document
+#errors
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
+    fixed="yes"/>
+#errors
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
+    fixed="no"/>
+#errors
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
+    fixed="YES"/>
+#errors
+/categories;invalid attribute value;m
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
+    fixed="no "/>
+#errors
+/categories;invalid attribute value;m
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
+    fixed="true"/>
+#errors
+/categories;invalid attribute value;m
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
+    scheme="hoge"/>
+#errors
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
+    scheme="http://hoge/"/>
+#errors
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
+    scheme="[]:"/>
+#errors
+/categories/@scheme;syntax error:iriref3987;m
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
+    href="hoge"/>
+#errors
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
+    href="http://hoge/"/>
+#errors
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
+    href="[]:"/>
+#errors
+/categories/@href;syntax error:iriref3987;m
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
+    href="http://hoge/" fixed="yes"/>
+#errors
+/categories/@fixed;attribute not allowed;m
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
+    href="http://hoge/" scheme="http://foo/"/>
+#errors
+/categories/@scheme;attribute not allowed;m
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
+    href="http://hoge/">
+  <atom:category term="foo"/>
+  <atom:category term="bar"/>
+</app:categories>
+#errors
+/categories/category;element not allowed:empty;m
+/categories/category;element not allowed:empty;m
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
+  <atom:category term="foo"/>
+</app:categories>
+#errors
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
+  <atom:category term="foo"/>
+  <atom:category term="bar"/>
+</app:categories>
+#errors
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
+  <hoge xmlns=""/>
+</app:categories>
+#errors
+/categories/hoge;element not allowed;m
+/categories/hoge;unknown namespace element;w
+
+#data
+<app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
+  <hoge xmlns="http://foo/"/>
+</app:categories>
+#errors
+/categories/hoge;element not allowed;m
+/categories/hoge;unknown namespace element;w

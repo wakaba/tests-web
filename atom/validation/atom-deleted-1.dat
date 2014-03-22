@@ -1,0 +1,194 @@
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0">
+</at:deleted-entry>
+#errors
+/deleted-entry;attribute missing;ref;m
+/deleted-entry;attribute missing;when;m
+
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/">
+</at:deleted-entry>
+#errors
+/deleted-entry;attribute missing;when;m
+
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="htt">
+</at:deleted-entry>
+#errors
+/deleted-entry;attribute missing;when;m
+
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
+</at:deleted-entry>
+#errors
+
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http:[]//hoge/" when="2012-01-01T01:11:21Z">
+</at:deleted-entry>
+#errors
+/deleted-entry/@ref;syntax error:iriref3987;m
+
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
+  <at:by><name xmlns="http://www.w3.org/2005/Atom">aa</name></at:by>
+</at:deleted-entry>
+#errors
+
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
+  <at:by><name xmlns="http://www.w3.org/2005/Atom">aa</name></at:by>
+  <at:by><name xmlns="http://www.w3.org/2005/Atom">aa</name></at:by>
+</at:deleted-entry>
+#errors
+/deleted-entry/by;element not allowed:duplicate;m
+
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
+  <at:comment>aa</at:comment>
+</at:deleted-entry>
+#errors
+
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
+  <at:comment>aa</at:comment>
+  <at:comment>aa</at:comment>
+</at:deleted-entry>
+#errors
+/deleted-entry/comment;element not allowed:duplicate;m
+
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
+  <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="http://foo/"/>
+</at:deleted-entry>
+#errors
+
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
+  <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="http://foo/"/>
+  <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="http://foo/"/>
+</at:deleted-entry>
+#errors
+
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
+  <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="alternate" href="http://foo/"/>
+  <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="alternate" href="http://foo/"/>
+</at:deleted-entry>
+#errors
+
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
+  <atom:source xmlns:atom="http://www.w3.org/2005/Atom"/>
+</at:deleted-entry>
+#errors
+
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
+  <atom:source xmlns:atom="http://www.w3.org/2005/Atom"/>
+  <atom:source xmlns:atom="http://www.w3.org/2005/Atom"/>
+</at:deleted-entry>
+#errors
+/deleted-entry/source;element not allowed:duplicate;m
+
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
+  <source xmlns=""/>
+</at:deleted-entry>
+#errors
+/deleted-entry/source;element not allowed;m
+/deleted-entry/source;unknown namespace element;w
+
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
+  <source xmlns="http://x/"/>
+</at:deleted-entry>
+#errors
+/deleted-entry/source;unknown namespace element;w
+
+#data
+<at:by xmlns:at="http://purl.org/atompub/tombstones/1.0">
+</at:by>
+#errors
+/by;child element missing:atom;name;m
+
+#data
+<at:by xmlns:at="http://purl.org/atompub/tombstones/1.0" xmlns="http://www.w3.org/2005/Atom">
+  <name>aa</name>
+</at:by>
+#errors
+
+#data
+<at:by xmlns:at="http://purl.org/atompub/tombstones/1.0" xmlns="http://www.w3.org/2005/Atom">
+  <name>aa</name>
+  <email>a@b.foo.test</email>
+</at:by>
+#errors
+
+#data
+<at:comment xmlns:at="http://purl.org/atompub/tombstones/1.0">
+</at:comment>
+#errors
+
+#data
+<at:comment xmlns:at="http://purl.org/atompub/tombstones/1.0">
+ hoge
+</at:comment>
+#errors
+
+#data
+<at:comment xmlns:at="http://purl.org/atompub/tombstones/1.0" type="text">
+foo &lt;bar
+</at:comment>
+#errors
+
+#data
+<at:comment xmlns:at="http://purl.org/atompub/tombstones/1.0" type="html">
+  &lt;p>aaaa
+</at:comment>
+#errors
+
+#data
+<at:comment xmlns:at="http://purl.org/atompub/tombstones/1.0" type="html">
+  &lt;p>aaaa&lt;s
+</at:comment>
+#errors
+3;1;/comment;unclosed tag;m
+
+#data
+<at:comment xmlns:at="http://purl.org/atompub/tombstones/1.0" type="xhtml">
+  <div xmlns="http://www.w3.org/1999/xhtml">
+    <p>hoge</p>
+  </div>
+</at:comment>
+#errors
+
+#data
+<at:comment xmlns:at="http://purl.org/atompub/tombstones/1.0" type="xhtml">
+  <div xmlns="http://www.w3.org/1999/xhtml">
+    <d>hoge</d>
+  </div>
+</at:comment>
+#errors
+/comment/div/d;element not allowed:flow;m
+/comment/div/d;element not defined;m
+/comment/div;no significant content;s
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>aa</title>
+  <id>http://hoge/</id>
+  <link rel="self" href="aa"/>
+  <updated>2011-01-03T00:11:22Z</updated>
+  <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0"
+       ref="http://hoge.foo/" when="3021-11-21T00:12:31Z">
+  </at:deleted-entry>
+  <entry>
+    <id>http://hoge.foo/</id>
+    <link rel="alternate" href=""/>
+    <author><name>a</name></author>
+    <updated>2014-01-02T00:00:00Z</updated>
+    <title>aa</title>
+    <link rel="alternate" href="" hreflang="en"/>
+  </entry>
+</feed>
+#errors

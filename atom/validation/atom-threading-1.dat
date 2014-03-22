@@ -108,3 +108,69 @@
 #errors
 /in-reply-to/hoge;element not allowed:empty;m
 /in-reply-to/hoge;unknown namespace element;w
+
+#data
+<total xmlns="http://purl.org/syndication/thread/1.0"></total>
+#errors
+/total;xs:nonNegativeInteger:bad value;m
+
+#data
+<total xmlns="http://purl.org/syndication/thread/1.0">  </total>
+#errors
+/total;xs:nonNegativeInteger:bad value;m
+
+#data
+<total xmlns="http://purl.org/syndication/thread/1.0">120</total>
+#errors
+
+#data
+<total xmlns="http://purl.org/syndication/thread/1.0">-0</total>
+#errors
+
+#data
+<total xmlns="http://purl.org/syndication/thread/1.0">+0</total>
+#errors
+
+#data
+<total xmlns="http://purl.org/syndication/thread/1.0">+000000</total>
+#errors
+
+#data
+<total xmlns="http://purl.org/syndication/thread/1.0">0000311</total>
+#errors
+
+#data
+<total xmlns="http://purl.org/syndication/thread/1.0">+1241422</total>
+#errors
+
+#data
+<total xmlns="http://purl.org/syndication/thread/1.0">.3133</total>
+#errors
+/total;xs:nonNegativeInteger:bad value;m
+
+#data
+<total xmlns="http://purl.org/syndication/thread/1.0">-12133</total>
+#errors
+/total;xs:nonNegativeInteger:bad value;m
+
+#data
+<total xmlns="http://purl.org/syndication/thread/1.0">21.411</total>
+#errors
+/total;xs:nonNegativeInteger:bad value;m
+
+#data
+<total xmlns="http://purl.org/syndication/thread/1.0">abc</total>
+#errors
+/total;xs:nonNegativeInteger:bad value;m
+
+#data
+<total xmlns="http://purl.org/syndication/thread/1.0">421 </total>
+#errors
+/total;xs:nonNegativeInteger:bad value;m
+
+#data
+<total xmlns="http://purl.org/syndication/thread/1.0"><name/>aa</total>
+#errors
+/total;xs:nonNegativeInteger:bad value;m
+/total/name;element not defined;m
+/total/name;element not allowed:text;m
