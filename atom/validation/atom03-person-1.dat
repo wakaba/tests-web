@@ -1,0 +1,190 @@
+#data
+<name xmlns="http://purl.org/atom/ns#"></name>
+#errors
+/name;element:obsolete;m
+
+#data
+<name xmlns="http://purl.org/atom/ns#">aaM></name>
+#errors
+/name;element:obsolete;m
+
+#data
+<name xmlns="http://purl.org/atom/ns#">aa<name>M</name></name>
+#errors
+/name;element:obsolete;m
+/name/name;element:obsolete;m
+/name/name;element not allowed:text;m
+
+#data
+<url xmlns="http://purl.org/atom/ns#"></url>
+#errors
+/url;element:obsolete;m
+
+#data
+<url xmlns="http://purl.org/atom/ns#">aaM</url>
+#errors
+/url;element:obsolete;m
+
+#data
+<url xmlns="http://purl.org/atom/ns#">http://aaM/</url>
+#errors
+/url;element:obsolete;m
+/url;URL:uppercase host;w
+
+#data
+<url xmlns="http://purl.org/atom/ns#">http:][//aaM/</url>
+#errors
+/url;element:obsolete;m
+/url;syntax error:iriref3987;m
+
+#data
+<url xmlns="http://purl.org/atom/ns#">aa<url>M</url></url>
+#errors
+/url;element:obsolete;m
+/url/url;element:obsolete;m
+/url/url;element not allowed:text;m
+
+#data
+<email xmlns="http://purl.org/atom/ns#"></email>
+#errors
+/email;element:obsolete;m
+/email;email:syntax error;m
+
+#data
+<email xmlns="http://purl.org/atom/ns#">aaM</email>
+#errors
+/email;element:obsolete;m
+/email;email:syntax error;m
+
+#data
+<email xmlns="http://purl.org/atom/ns#">foo@bar.baz</email>
+#errors
+/email;element:obsolete;m
+
+#data
+<email xmlns="http://purl.org/atom/ns#">aa<email>M</email></email>
+#errors
+/email;element:obsolete;m
+/email;email:syntax error;m
+/email/email;element:obsolete;m
+/email/email;element not allowed:text;m
+/email/email;email:syntax error;m
+
+#data
+<author xmlns="http://purl.org/atom/ns#">
+  <email>M@baz.test</email>
+</author>
+#errors
+/author;element:obsolete;m
+/author;child element missing:atom;name;m
+/author/email;element:obsolete;m
+
+#data
+<author xmlns="http://purl.org/atom/ns#">
+  <name>M@baz.test.</name>
+  <email>M@baz.test</email>
+</author>
+#errors
+/author;element:obsolete;m
+/author/name;element:obsolete;m
+/author/email;element:obsolete;m
+
+#data
+<author xmlns="http://purl.org/atom/ns#">
+  <name>M@baz.test.</name>
+  <name>M@baz.test.</name>
+</author>
+#errors
+/author;element:obsolete;m
+/author/name;element:obsolete;m
+/author/name;element:obsolete;m
+/author/name;element not allowed:duplicate;m
+
+#data
+<author xmlns="http://purl.org/atom/ns#">
+  <name>M@baz.test.</name>
+  <email>hoge@fo.test</email>
+  <email>hoge@fo.test</email>
+</author>
+#errors
+/author;element:obsolete;m
+/author/name;element:obsolete;m
+/author/email;element:obsolete;m
+/author/email;element:obsolete;m
+/author/email;element not allowed:duplicate;m
+
+#data
+<author xmlns="http://purl.org/atom/ns#">
+  <name>M@baz.test.</name>
+  <url>mailto:hoge@fo.test</url>
+  <url>mailto:hoge@fo.test</url>
+</author>
+#errors
+/author;element:obsolete;m
+/author/name;element:obsolete;m
+/author/url;element:obsolete;m
+/author/url;element:obsolete;m
+/author/url;element not allowed:duplicate;m
+
+#data
+<author xmlns="http://purl.org/atom/ns#">
+  <name>M@baz.test.</name>
+  <url>mailto:hoge@fo.test</url>
+  <hoge>mailto:hoge@fo.test</hoge>
+</author>
+#errors
+/author;element:obsolete;m
+/author/name;element:obsolete;m
+/author/url;element:obsolete;m
+/author/hoge;element not defined;m
+/author/hoge;element not allowed;m
+
+#data
+<author xmlns="http://purl.org/atom/ns#">
+  <name>M@baz.test.</name>
+  <url>mailto:hoge@fo.test</url>
+  <hoge xmlns="">mailto:hoge@fo.test</hoge>
+</author>
+#errors
+/author;element:obsolete;m
+/author/name;element:obsolete;m
+/author/url;element:obsolete;m
+/author/hoge;unknown namespace element;w
+/author/hoge;element not allowed;m
+
+#data
+<author xmlns="http://purl.org/atom/ns#">
+  <name>M@baz.test.</name>
+  <url>mailto:hoge@fo.test</url>
+  <hoge xmlns="http://x/">mailto:hoge@fo.test</hoge>
+</author>
+#errors
+/author;element:obsolete;m
+/author/name;element:obsolete;m
+/author/url;element:obsolete;m
+/author/hoge;unknown namespace element;w
+/author/hoge;element not allowed;m
+
+#data
+<author xmlns="http://purl.org/atom/ns#">
+  <name>M@baz.test.</name>
+  <!---->atwa<!---->
+  <url>mailto:hoge@fo.test</url>
+</author>
+#errors
+/author;element:obsolete;m
+/author/name;element:obsolete;m
+/author/url;element:obsolete;m
+/author/"atwa";character not allowed;m
+
+#data
+<contributor xmlns="http://purl.org/atom/ns#">
+  <name>M@baz.test.</name>
+  <!---->atwa<!---->
+  <url>mailto:hoge@fo.test</url>
+</contributor>
+#errors
+/contributor;element:obsolete;m
+/contributor/name;element:obsolete;m
+/contributor/url;element:obsolete;m
+/contributor/"atwa";character not allowed;m

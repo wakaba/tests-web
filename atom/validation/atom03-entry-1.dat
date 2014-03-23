@@ -1,0 +1,553 @@
+#data
+<entry xmlns="http://purl.org/atom/ns#"></entry>
+#errors
+/entry;element:obsolete;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;issued;m
+/entry;child element missing:atom;link;m
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;modified;m
+/entry;child element missing:atom;title;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <hoge/>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/hoge;element not defined;m
+/entry/hoge;element not allowed;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;issued;m
+/entry;child element missing:atom;link;m
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;modified;m
+/entry;child element missing:atom;title;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <feed/>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;issued;m
+/entry;child element missing:atom;link;m
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;modified;m
+/entry;child element missing:atom;title;m
+/entry/feed;element:obsolete;m
+/entry/feed;element not allowed;m
+/entry/feed;attribute missing;version;m
+/entry/feed;attribute missing;xml:lang;s
+/entry/feed;child element missing:atom;link;m
+/entry/feed;child element missing:atom:link:alternate;m
+/entry/feed;child element missing:atom;modified;m
+/entry/feed;child element missing:atom;title;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <hoge xmlns=""/>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/hoge;unknown namespace element;w
+/entry/hoge;element not allowed;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;issued;m
+/entry;child element missing:atom;link;m
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;modified;m
+/entry;child element missing:atom;title;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <hoge xmlns="http://a/a/"/>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/hoge;unknown namespace element;w
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;issued;m
+/entry;child element missing:atom;link;m
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;modified;m
+/entry;child element missing:atom;title;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/"/>
+  <title>aa</title>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/title;element:obsolete;m
+/entry/title;element:obsolete;m
+/entry/title;element not allowed:duplicate;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/"/>
+  <link rel="alternate" href="http://ax.b/"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/link;element not allowed:atom|link rel=alternate;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/" type="text/plain"/>
+  <link rel="alternate" href="http://ax.b/" type="text/plain"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/link/@type;attr:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/link/@type;attr:obsolete;m
+/entry/link;element not allowed:atom|link rel=alternate;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/" type="text/plain"/>
+  <link rel="alternate" href="http://ax.b/" type="text/html"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/link/@type;attr:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/link/@type;attr:obsolete;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/"/>
+  <link rel="self" href="http://ax.b/"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+  <author><name>aa</name></author>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/author;element not allowed:duplicate;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+  <contributor><name>aa</name></contributor>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+/entry/contributor;element:obsolete;m
+/entry/contributor/name;element:obsolete;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+  <contributor><name>aa</name></contributor>
+  <contributor><name>aa</name></contributor>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+/entry/contributor;element:obsolete;m
+/entry/contributor/name;element:obsolete;m
+/entry/contributor;element:obsolete;m
+/entry/contributor/name;element:obsolete;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+  <contributor><name>aa</name></contributor>
+  <id>http://hoge/</id>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+/entry/contributor;element:obsolete;m
+/entry/contributor/name;element:obsolete;m
+/entry/id;element:obsolete;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+  <contributor><name>aa</name></contributor>
+  <id>http://hoge/</id>
+  <id>http://hoge/</id>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+/entry/contributor;element:obsolete;m
+/entry/contributor/name;element:obsolete;m
+/entry/id;element:obsolete;m
+/entry/id;element:obsolete;m
+/entry/id;element not allowed:duplicate;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+  <contributor><name>aa</name></contributor>
+  <id>http://hoge/</id>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+/entry/contributor;element:obsolete;m
+/entry/contributor/name;element:obsolete;m
+/entry/id;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/modified;element not allowed:duplicate;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+  <issued>3012-03-30T11:22:33Z</issued>
+  <contributor><name>aa</name></contributor>
+  <id>http://hoge/</id>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+/entry/contributor;element:obsolete;m
+/entry/contributor/name;element:obsolete;m
+/entry/id;element:obsolete;m
+/entry/issued;element:obsolete;m
+/entry/issued;element not allowed:duplicate;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+  <created>3012-03-30T11:22:33Z</created>
+  <contributor><name>aa</name></contributor>
+  <id>http://hoge/</id>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+/entry/contributor;element:obsolete;m
+/entry/contributor/name;element:obsolete;m
+/entry/id;element:obsolete;m
+/entry/created;element:obsolete;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+  <created>3012-03-30T11:22:33Z</created>
+  <created>3012-03-30T11:22:33Z</created>
+  <contributor><name>aa</name></contributor>
+  <id>http://hoge/</id>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+/entry/contributor;element:obsolete;m
+/entry/contributor/name;element:obsolete;m
+/entry/id;element:obsolete;m
+/entry/created;element:obsolete;m
+/entry/created;element:obsolete;m
+/entry/created;element not allowed:duplicate;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+  <contributor><name>aa</name></contributor>
+  <id>http://hoge/</id>
+  <summary>aa</summary>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+/entry/contributor;element:obsolete;m
+/entry/contributor/name;element:obsolete;m
+/entry/id;element:obsolete;m
+/entry/summary;element:obsolete;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+  <contributor><name>aa</name></contributor>
+  <id>http://hoge/</id>
+  <summary>aa</summary>
+  <summary>aa</summary>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+/entry/contributor;element:obsolete;m
+/entry/contributor/name;element:obsolete;m
+/entry/id;element:obsolete;m
+/entry/summary;element:obsolete;m
+/entry/summary;element:obsolete;m
+/entry/summary;element not allowed:duplicate;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+  <contributor><name>aa</name></contributor>
+  <id>http://hoge/</id>
+  <content>aa</content>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+/entry/contributor;element:obsolete;m
+/entry/contributor/name;element:obsolete;m
+/entry/id;element:obsolete;m
+/entry/content;element:obsolete;m
+
+#data
+<entry xmlns="http://purl.org/atom/ns#">
+  <author><name>aa</name></author>
+  <link rel="alternate" href="http://ax.b/"/>
+  <title>aa</title>
+  <modified>3012-03-30T11:22:33Z</modified>
+  <issued>3012-03-30T11:22:33Z</issued>
+  <contributor><name>aa</name></contributor>
+  <id>http://hoge/</id>
+  <content>aa</content>
+  <content>aa</content>
+</entry>
+#errors
+/entry;element:obsolete;m
+/entry/author;element:obsolete;m
+/entry/author/name;element:obsolete;m
+/entry/link;element:obsolete;m
+/entry/link/@rel;attr:obsolete;m
+/entry/link/@href;attr:obsolete;m
+/entry/title;element:obsolete;m
+/entry/modified;element:obsolete;m
+/entry/issued;element:obsolete;m
+/entry/contributor;element:obsolete;m
+/entry/contributor/name;element:obsolete;m
+/entry/id;element:obsolete;m
+/entry/content;element:obsolete;m
+/entry/content;element:obsolete;m

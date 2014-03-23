@@ -1,0 +1,118 @@
+#data
+<link xmlns="http://purl.org/atom/ns#"/>
+#errors
+/link;element:obsolete;m
+/link;attribute missing;rel;m
+/link;attribute missing;href;m
+
+#data
+<link rel="self" xmlns="http://purl.org/atom/ns#"/>
+#errors
+/link;element:obsolete;m
+/link;attribute missing;href;m
+/link/@rel;attr:obsolete;m
+
+#data
+<link href="http://hoge/" xmlns="http://purl.org/atom/ns#"/>
+#errors
+/link;element:obsolete;m
+/link;attribute missing;rel;m
+/link/@href;attr:obsolete;m
+
+#data
+<link rel="alternate" href="http://hoge/" xmlns="http://purl.org/atom/ns#"/>
+#errors
+/link;element:obsolete;m
+/link/@rel;attr:obsolete;m
+/link/@href;attr:obsolete;m
+
+#data
+<link rel="alternate" href="/hoge/" xmlns="http://purl.org/atom/ns#"/>
+#errors
+/link;element:obsolete;m
+/link/@rel;attr:obsolete;m
+/link/@href;attr:obsolete;m
+
+#data
+<link rel="alternate" href="[]http://hoge/" xmlns="http://purl.org/atom/ns#"/>
+#errors
+/link;element:obsolete;m
+/link/@rel;attr:obsolete;m
+/link/@href;attr:obsolete;m
+/link/@href;syntax error:iriref3987;m
+
+#data
+<link rel="alternate" href="http://hoge/" type="text/plain" xmlns="http://purl.org/atom/ns#"/>
+#errors
+/link;element:obsolete;m
+/link/@rel;attr:obsolete;m
+/link/@href;attr:obsolete;m
+/link/@type;attr:obsolete;m
+
+#data
+<link rel="alternate" href="http://hoge/" type="text?plain" xmlns="http://purl.org/atom/ns#"/>
+#errors
+/link;element:obsolete;m
+/link/@rel;attr:obsolete;m
+/link/@href;attr:obsolete;m
+/link/@type;attr:obsolete;m
+/link/@type;IMT:no /;m
+
+#data
+<link rel="alternate" href="http://hoge/" hreflang="text/plain" xmlns="http://purl.org/atom/ns#"/>
+#errors
+/link;element:obsolete;m
+/link/@rel;attr:obsolete;m
+/link/@href;attr:obsolete;m
+/link/@hreflang;attribute not defined;m
+
+#data
+<link rel="alternate" href="http://hoge/" length="text/plain" xmlns="http://purl.org/atom/ns#"/>
+#errors
+/link;element:obsolete;m
+/link/@rel;attr:obsolete;m
+/link/@href;attr:obsolete;m
+/link/@length;attribute not defined;m
+
+#data
+<link rel="alternate" href="http://hoge/" title="" xmlns="http://purl.org/atom/ns#"/>
+#errors
+/link;element:obsolete;m
+/link/@rel;attr:obsolete;m
+/link/@href;attr:obsolete;m
+/link/@title;attr:obsolete;m
+
+#data
+<link rel="alternate" href="http://hoge/" title="text/plain" xmlns="http://purl.org/atom/ns#"/>
+#errors
+/link;element:obsolete;m
+/link/@rel;attr:obsolete;m
+/link/@href;attr:obsolete;m
+/link/@title;attr:obsolete;m
+
+#data
+<link rel="alternate" href="http://hoge/" xmlns="http://purl.org/atom/ns#">
+</link>
+#errors
+/link;element:obsolete;m
+/link/@rel;attr:obsolete;m
+/link/@href;attr:obsolete;m
+
+#data
+<link rel="alternate" href="http://hoge/" xmlns="http://purl.org/atom/ns#">abc</link>
+#errors
+/link;element:obsolete;m
+/link/@rel;attr:obsolete;m
+/link/@href;attr:obsolete;m
+/link/"abc";character not allowed:empty;m
+
+#data
+<link rel="alternate" href="http://hoge/" xmlns="http://purl.org/atom/ns#">
+  <name>abcM</name>
+</link>
+#errors
+/link;element:obsolete;m
+/link/@rel;attr:obsolete;m
+/link/@href;attr:obsolete;m
+/link/name;element not allowed:empty;m
+/link/name;element:obsolete;m
