@@ -5,6 +5,7 @@
   ">
 ]><a>b&foo;c</a>
 #errors
+1;1;no XML decl;;;s
 5;7;entity not declared;;foo;;m
 #document
 | <!DOCTYPE a>
@@ -19,6 +20,7 @@
   %hoge;
 ]><a>b&foo;c</a>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -32,6 +34,7 @@
   %hoge;
 ]><a>b&foo;c</a>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -48,6 +51,7 @@
   %hoge;
 ]><a>b&foo;c</a>
 #errors
+1;1;no XML decl;;;s
 2;30;in body:#eof;;;m
 #document
 | <!DOCTYPE a>
@@ -65,6 +69,7 @@
   %hoge;
 ]><a>b&foo;c</a>
 #errors
+1;1;no XML decl;;;s
 4;3;unclosed entity value;;;m
 6;7;entity not declared;;foo;;m
 #document
@@ -81,6 +86,7 @@
   %hoge;
 ]><a>b&foo;c</a>
 #errors
+1;1;no XML decl;;;s
 3;5;WFC:No Recursion;;%hoge;;m
 3;5;stop processing;;;i
 7;7;entity not declared;;foo;;m
@@ -99,6 +105,7 @@
   %hoge;
 ]><a>b&foo;c</a>
 #errors
+1;1;no XML decl;;;s
 6;20;WFC:No Recursion;;%hoge;;m
 6;20;stop processing;;;i
 8;7;entity not declared;;foo;;m
@@ -117,6 +124,8 @@
     %fuga;
     <!ENTITY foo 'hoge <p>foo</p>'>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 3;20;WFC:No Recursion;;%hoge;;m
 3;20;stop processing;;;i
 5;7;entity not declared;;foo;;m
@@ -138,6 +147,9 @@
     %fuga;
     <!ENTITY foo 'hoge <p>foo</p>'>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[2]1;1;no XML decl;;;s
 3;20;WFC:No Recursion;;%hoge;;m
 3;20;stop processing;;;i
 5;7;entity not declared;;foo;;m

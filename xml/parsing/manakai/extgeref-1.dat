@@ -3,6 +3,7 @@
   <!ENTITY x SYSTEM "http://foo/">
 ]><a>&x;</a>
 #errors
+1;1;no XML decl;;;s
 3;6;external entref;;x;;i
 #document
 | <!DOCTYPE a>
@@ -15,6 +16,8 @@
 #resource http://foo/
 hoge
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -26,6 +29,7 @@ hoge
 ]><a>&x;</a>
 #resource http://foo/bar
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -38,6 +42,7 @@ hoge
 <?xml encoding="utf-8"?>
 hoge
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -51,6 +56,7 @@ hoge
 #resource http://foo/
 <?xml?>hoge
 #errors
+1;1;no XML decl;;;s
 [1]1;1;attribute missing:encoding;;;m
 #document
 | <!DOCTYPE a>
@@ -64,6 +70,7 @@ hoge
 #resource http://foo/
 <?xml  version="1.0"?>hoge
 #errors
+1;1;no XML decl;;;s
 [1]1;21;attribute missing:encoding;;;m
 #document
 | <!DOCTYPE a>
@@ -77,6 +84,7 @@ hoge
 #resource http://foo/
 <?xml  version="1.0" encoding="shift_jis"?>hoge
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -89,6 +97,7 @@ hoge
 #resource http://foo/
 <?xml  version="1.4" encoding="shift_jis"?>hoge
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -101,6 +110,7 @@ hoge
 #resource http://foo/
 <?xml  version="1.1" encoding="shift_jis"?>hoge
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -113,6 +123,7 @@ hoge
 #resource http://foo/
 <?xml encoding="unknown"?>hoge
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -125,6 +136,7 @@ hoge
 #resource http://foo/
 <?xml encoding="unknown!?"?>hoge
 #errors
+1;1;no XML decl;;;s
 [1]1;17;XML encoding:syntax error;;unknown!?;m
 #document
 | <!DOCTYPE a>
@@ -137,6 +149,7 @@ hoge
 <?xml encoding="utf-8" hoge
 ?>hoge
 #errors
+1;1;no XML decl;;;s
 [1]1;24;bogus XML declaration;;;m
 #document
 | <!DOCTYPE a>
@@ -149,6 +162,7 @@ hoge
 <?xml
 fuga?>hoge
 #errors
+1;1;no XML decl;;;s
 [1]2;1;bogus XML declaration;;;m
 [1]2;1;attribute missing:encoding;;;m
 #document
@@ -162,6 +176,7 @@ fuga?>hoge
 <?xml
 encoding="UTF-8" standalone="no"?>hoge
 #errors
+1;1;no XML decl;;;s
 [1]2;18;attribute not allowed:standalone;;;m
 #document
 | <!DOCTYPE a>
@@ -174,6 +189,7 @@ encoding="UTF-8" standalone="no"?>hoge
 <?xml  encoding="utf-8"
 encoding="UTF-8" ?>hoge
 #errors
+1;1;no XML decl;;;s
 [1]2;1;bogus XML declaration;;;m
 #document
 | <!DOCTYPE a>
@@ -185,6 +201,7 @@ encoding="UTF-8" ?>hoge
 #resource http://foo/
 <?xml  encoding='utf-8' ?>hoge
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -195,6 +212,7 @@ encoding="UTF-8" ?>hoge
 #resource http://foo/
 <?xml  encoding='utf-8' ?>ho<p>g</p>e
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -211,6 +229,7 @@ encoding="UTF-8" ?>hoge
 #resource http://bar/
 <?xml?>aa
 #errors
+1;1;no XML decl;;;s
 [2]1;1;attribute missing:encoding;;;m
 #document
 | <!DOCTYPE a>
@@ -225,6 +244,8 @@ encoding="UTF-8" ?>hoge
 #resource http://foo/
  <?xml  encoding='utf-8' ?>ho<p>g</p>e
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -240,6 +261,8 @@ encoding="UTF-8" ?>hoge
 #resource http://foo/
  <!DOCTYPE x>ho<p>g</p>e
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;2;in html:#doctype;;;m
 #document
 | <!DOCTYPE a>
@@ -254,6 +277,8 @@ encoding="UTF-8" ?>hoge
 #resource http://foo/
 x&y;b</p>b
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 1;62;in body:#eof;;;m
 [1]1;6;unmatched end tag;p;;m
 #document
@@ -269,6 +294,7 @@ x&y;b</p>b
   <!ENTITY b "<?xml version='1.0' encoding='iso-2022-jp'?>abc">
 ]><a>&b;</a>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -284,6 +310,8 @@ x&y;b</p>b
 #resource http://c/
 <!ENTITY b "<p>b</p>">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -301,6 +329,8 @@ x&y;b</p>b
 #resource http://c/
 <!ENTITY b "<p>b">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;17;in body:#eof;;;m
 #document
 | <!DOCTYPE a>
@@ -320,6 +350,8 @@ x&y;b</p>b
 #resource http://c/
 <!ENTITY b "&c;">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 4;19;in body:#eof;;;m
 #document
 | <!DOCTYPE a>

@@ -4,6 +4,8 @@
 <!ENTITY % fuga "xy">
 <!NOTATION %fuga;SYSTEM "aa">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!NOTATION xy "" "aa">
@@ -15,6 +17,8 @@
 <!ENTITY % fuga "xy">
 <!NOTATION %fuga; SYSTEM "aa">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!NOTATION xy "" "aa">
@@ -26,6 +30,8 @@
 <!ENTITY % fuga "xy  SYSTEM">
 <!NOTATION %fuga;  "aa">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!NOTATION xy "" "aa">
@@ -38,6 +44,8 @@
 <!ENTITY % fuga "&#x25;bar;">
 <!NOTATION %fuga; SYSTEM "aa">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;17;mdc in pe in md;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -49,6 +57,8 @@
 <!ENTITY % bar "">
 <!NOTATION a SYSTEM "aa"%bar;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!NOTATION a "" "aa">

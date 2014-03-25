@@ -1,6 +1,7 @@
 #data
 <p>&</p>
 #errors
+1;1;no XML decl;;;s
 1;4;bare ero;;;m
 #document
 | <{} p>
@@ -9,6 +10,7 @@
 #data
 <p q="&<"/>
 #errors
+1;1;no XML decl;;;s
 1;7;bare ero;;;m
 1;8;lt in attr value;;;m
 #document
@@ -18,6 +20,7 @@
 #data
 <p>&&</p>
 #errors
+1;1;no XML decl;;;s
 1;4;bare ero;;;m
 1;5;bare ero;;;m
 #document
@@ -27,6 +30,7 @@
 #data
 <p q="&&"/>
 #errors
+1;1;no XML decl;;;s
 1;7;bare ero;;;m
 1;8;bare ero;;;m
 #document
@@ -36,6 +40,7 @@
 #data
 <p q="&="/>
 #errors
+1;1;no XML decl;;;s
 1;7;bare ero;;;m
 #document
 | <{} p>
@@ -44,6 +49,7 @@
 #data
 <p q='&='/>
 #errors
+1;1;no XML decl;;;s
 1;7;bare ero;;;m
 #document
 | <{} p>
@@ -52,6 +58,7 @@
 #data
 <p q=&= />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;6;bare ero;;;m
 1;7;bad attribute value;;;m
@@ -62,6 +69,7 @@
 #data
 <p q="&copy="/>
 #errors
+1;1;no XML decl;;;s
 1;7;bare ero;;;m
 1;12;charref=;;;m
 #document
@@ -71,6 +79,7 @@
 #data
 <p q="&copy&"/>
 #errors
+1;1;no XML decl;;;s
 1;12;no refc;;;m
 1;12;bare ero;;;m
 #document escaped
@@ -80,6 +89,7 @@
 #data
 <p q='&copy='/>
 #errors
+1;1;no XML decl;;;s
 1;7;bare ero;;;m
 1;12;charref=;;;m
 #document
@@ -89,6 +99,7 @@
 #data
 <p q=&copy= />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;6;bare ero;;;m
 1;11;bad attribute value;;;m
@@ -100,6 +111,7 @@
 #data
 <p>& </p>
 #errors
+1;1;no XML decl;;;s
 1;4;bare ero;;;m
 #document
 | <{} p>
@@ -108,6 +120,7 @@
 #data escaped
 <p>&\u0009</p>
 #errors
+1;1;no XML decl;;;s
 1;4;bare ero;;;m
 #document escaped
 | <{} p>
@@ -116,6 +129,7 @@
 #data
 <p>&
 #errors
+1;1;no XML decl;;;s
 1;4;bare ero;;;m
 1;5;in body:#eof;;;m
 #document
@@ -125,6 +139,7 @@
 #data
 <p q="&
 #errors
+1;1;no XML decl;;;s
 1;7;bare ero;;;m
 1;8;unclosed attribute value;;;m
 1;8;no root element;;;m
@@ -133,6 +148,7 @@
 #data
 <p q="&"/>
 #errors
+1;1;no XML decl;;;s
 1;7;bare ero;;;m
 #document
 | <{} p>
@@ -141,6 +157,7 @@
 #data
 <p q='&'/>
 #errors
+1;1;no XML decl;;;s
 1;7;bare ero;;;m
 #document
 | <{} p>
@@ -149,6 +166,7 @@
 #data
 <p q="&'"/>
 #errors
+1;1;no XML decl;;;s
 1;7;bare ero;;;m
 #document
 | <{} p>
@@ -157,6 +175,7 @@
 #data
 <p q='&"'/>
 #errors
+1;1;no XML decl;;;s
 1;7;bare ero;;;m
 #document
 | <{} p>
@@ -165,6 +184,7 @@
 #data
 <p q="& "/>
 #errors
+1;1;no XML decl;;;s
 1;7;bare ero;;;m
 #document
 | <{} p>
@@ -175,6 +195,7 @@
 <!ENTITY b "&&">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;13;bare ero;;;m
 2;14;bare ero;;;m
 #document
@@ -188,6 +209,7 @@
 <!ENTITY b '&&'>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;13;bare ero;;;m
 2;14;bare ero;;;m
 #document
@@ -201,6 +223,7 @@
 <!ENTITY b "&<">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;13;bare ero;;;m
 #document
 | <!DOCTYPE a>
@@ -212,6 +235,7 @@
 <!DOCTYPE a[
 <!ENTITY b "&
 #errors
+1;1;no XML decl;;;s
 2;13;bare ero;;;m
 2;14;unclosed entity value;;;m
 2;14;unclosed internal subset;;;m
@@ -225,6 +249,7 @@
 <!ENTITY b "& ">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;13;bare ero;;;m
 #document
 | <!DOCTYPE a>
@@ -237,6 +262,7 @@
 <!ENTITY b "&\u0009">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;13;bare ero;;;m
 #document
 | <!DOCTYPE a>
@@ -249,6 +275,7 @@
 <!ENTITY b "&\u000a">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;13;bare ero;;;m
 #document
 | <!DOCTYPE a>
@@ -261,6 +288,7 @@
 <!ENTITY b "&\u000d">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;13;bare ero;;;m
 #document
 | <!DOCTYPE a>
@@ -274,6 +302,7 @@
 ]>
 <a>&\u4e00\u4e01;</a>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -285,6 +314,7 @@
 ]>
 <a>&\u4e00\u4e01yy;</a>
 #errors escaped
+1;1;no XML decl;;;s
 4;4;entity not declared;;\u4e00\u4e01yy;;m
 #document escaped
 | <!DOCTYPE a>
@@ -297,6 +327,7 @@
 ]>
 <a>&:::;</a>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -305,6 +336,7 @@
 #data
 <p>&a&amp;</p>
 #errors
+1;1;no XML decl;;;s
 1;4;bare ero;;;m
 #document
 | <{} p>
@@ -313,6 +345,7 @@
 #data
 <p>&a </p>
 #errors
+1;1;no XML decl;;;s
 1;4;bare ero;;;m
 #document
 | <{} p>
@@ -324,6 +357,7 @@
 ]>
 <p>&a<b;</p>
 #errors
+1;1;no XML decl;;;s
 4;4;bare ero;;;m
 4;11;nestc;;;m
 4;12;no attr value;;;m
@@ -343,6 +377,7 @@
 ]>
 <a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>

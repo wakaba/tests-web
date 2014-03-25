@@ -6,6 +6,7 @@
   <!ENTITY y "Y">
 ]><a>&x;&y;</a>
 #errors
+1;1;no XML decl;;;s
 2;3;condsect in internal subset;;;m
 6;6;entity not declared;;x;;m
 #document
@@ -21,6 +22,7 @@
   <!ENTITY y "Y">
 ]><a>&x;&y;</a>
 #errors
+1;1;no XML decl;;;s
 2;3;condsect in internal subset;;;m
 6;6;entity not declared;;x;;m
 #document
@@ -39,6 +41,7 @@
   %hoge;
 ]><a>&x;&y;</a>
 #errors
+1;1;no XML decl;;;s
 3;5;condsect in internal subset;;;m
 9;6;entity not declared;;x;;m
 #document
@@ -57,6 +60,8 @@
     ]]>
     <!ENTITY y "Y">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -76,6 +81,8 @@
 #resource http://b/
 %fuga;
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -87,6 +94,7 @@
     <!ENTITY x "X">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;3;condsect in internal subset;;;m
 4;1;ms:bare ];;;m
 4;7;ms:unclosed;;;m
@@ -102,6 +110,7 @@
     <!ENTITY x "X">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;3;condsect in internal subset;;;m
 4;1;ms:bare ];;;m
 4;7;ms:unclosed;;;m

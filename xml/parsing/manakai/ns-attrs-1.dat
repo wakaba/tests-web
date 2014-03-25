@@ -1,6 +1,7 @@
 #data
 <a xmlns=""/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   xmlns xmlns=""
@@ -8,6 +9,7 @@
 #data
 <a xmlns="b"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{b} a>
 |   xmlns xmlns="b"
@@ -15,6 +17,7 @@
 #data
 <a xmlns="b" xmlns:c="d"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{b} a>
 |   xmlns c="d"
@@ -23,6 +26,7 @@
 #data
 <a xmlns:xml="http://www.w3.org/XML/1998/namespace"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   xmlns xml="http://www.w3.org/XML/1998/namespace"
@@ -30,6 +34,7 @@
 #data
 <a xmlns="http://www.w3.org/XML/1998/namespace"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   xmlns xmlns="http://www.w3.org/XML/1998/namespace"
@@ -37,6 +42,7 @@
 #data
 <a xmlns="http://www.w3.org/2000/xmlns/"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   xmlns xmlns="http://www.w3.org/2000/xmlns/"
@@ -44,6 +50,7 @@
 #data
 <a xmlns:xmlns="http://www.w3.org/2000/xmlns/"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   xmlns:xmlns="http://www.w3.org/2000/xmlns/"
@@ -51,6 +58,7 @@
 #data
 <a xmlns:xml="http://www.w3.org/2000/xmlns/" xml:lang="en"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   xml lang="en"
@@ -59,6 +67,7 @@
 #data
 <x xmlns:a="http://www.w3.org/XML/1998/namespace" a:b="c"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} x>
 |   a:b="c"
@@ -67,6 +76,7 @@
 #data
 <x xmlns:a="http://www.w3.org/2000/xmlns/" a:b="c"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} x>
 |   a:b="c"
@@ -75,12 +85,14 @@
 #data
 <a:b/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a:b>
 
 #data
 <a:b xmlns:a="c"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{c} b>
 |   xmlns a="c"
@@ -88,6 +100,7 @@
 #data
 <a xmlns="b"/><b xmlns="c"/><c/>
 #errors
+1;1;no XML decl;;;s
 1;15;second root element;;;m
 1;29;second root element;;;m
 #document
@@ -97,6 +110,7 @@
 #data
 <a xmlns:a=""/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   xmlns a=""
@@ -104,6 +118,7 @@
 #data
 <x xmlns:a="" a:b=""/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} x>
 |   a:b=""
@@ -112,6 +127,7 @@
 #data
 <x xmlns:a="a" xmlns:b="a" a:m="1" b:m="2"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} x>
 |   b:m="2"
@@ -122,6 +138,7 @@
 #data
 <x xmlns:a="a" xmlns:b="a" b:m="2" a:m="1"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} x>
 |   a:m="1"
@@ -132,6 +149,7 @@
 #data
 <z><a xmlns=""/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} a>
@@ -140,6 +158,7 @@
 #data
 <z><a xmlns="b"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{b} a>
@@ -148,6 +167,7 @@
 #data
 <z><a xmlns="b" xmlns:c="d"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{b} a>
@@ -157,6 +177,7 @@
 #data
 <z><a xmlns:xml="http://www.w3.org/XML/1998/namespace"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} a>
@@ -165,6 +186,7 @@
 #data
 <z><a xmlns="http://www.w3.org/XML/1998/namespace"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} a>
@@ -173,6 +195,7 @@
 #data
 <z><a xmlns="http://www.w3.org/2000/xmlns/"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} a>
@@ -181,6 +204,7 @@
 #data
 <z><a xmlns:xmlns="http://www.w3.org/2000/xmlns/"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} a>
@@ -189,6 +213,7 @@
 #data
 <z><a xmlns:xml="http://www.w3.org/2000/xmlns/" xml:lang="en"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} a>
@@ -198,6 +223,7 @@
 #data
 <z><x xmlns:a="http://www.w3.org/XML/1998/namespace" a:b="c"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} x>
@@ -207,6 +233,7 @@
 #data
 <z><x xmlns:a="http://www.w3.org/2000/xmlns/" a:b="c"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} x>
@@ -216,6 +243,7 @@
 #data
 <z><a:b/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} a:b>
@@ -223,6 +251,7 @@
 #data
 <z><a:b xmlns:a="c"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{c} b>
@@ -231,6 +260,7 @@
 #data
 <z><a xmlns="b"/><b xmlns="c"/><c/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{b} a>
@@ -242,6 +272,7 @@
 #data
 <z><a xmlns:a=""/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} a>
@@ -250,6 +281,7 @@
 #data
 <z><x xmlns:a="" a:b=""/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} x>
@@ -259,6 +291,7 @@
 #data
 <z><x xmlns:a="a" xmlns:b="a" a:m="1" b:m="2"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} x>
@@ -270,6 +303,7 @@
 #data
 <z><x xmlns:a="a" xmlns:b="a" b:m="2" a:m="1"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} x>
@@ -281,6 +315,7 @@
 #data
 <a xmlns="b"><c/></a>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{b} a>
 |   xmlns xmlns="b"
@@ -289,6 +324,7 @@
 #data
 <a xmlns="b"><c xmlns="d"/></a>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{b} a>
 |   xmlns xmlns="b"
@@ -298,6 +334,7 @@
 #data
 <a xmlns:b="c"><b:d/></a>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   xmlns b="c"
@@ -306,6 +343,7 @@
 #data
 <a xmlns:b="c"><b:d xmlns:b="e"/></a>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   xmlns b="c"
@@ -315,6 +353,7 @@
 #data
 <a xmlns="b"><c><d/></c></a>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{b} a>
 |   xmlns xmlns="b"
@@ -324,6 +363,7 @@
 #data
 <a xmlns:a="b"><c><a:d/></c></a>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   xmlns a="b"
@@ -333,6 +373,7 @@
 #data
 <a xmlns="b"><b xmlns=""><d/></b></a>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{b} a>
 |   xmlns xmlns="b"
@@ -343,6 +384,7 @@
 #data
 <a xmlns:b="c"><d b:e=""><f b:g="" xmlns:b=""><h b:i=""/></f></d></a>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   xmlns b="c"
@@ -357,6 +399,7 @@
 #data
 <p :="x"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} p>
 |   :="x"
@@ -364,6 +407,7 @@
 #data
 <p a:b="x"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} p>
 |   a:b="x"
@@ -371,6 +415,7 @@
 #data
 <p a:b="x" xmlns:a=""/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} p>
 |   a:b="x"
@@ -379,6 +424,7 @@
 #data
 <p a:="x"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} p>
 |   a:="x"
@@ -386,6 +432,7 @@
 #data
 <p a:="x" xmlns:a="y"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} p>
 |   a:="x"
@@ -394,6 +441,7 @@
 #data
 <p :a="x"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} p>
 |   :a="x"
@@ -401,6 +449,7 @@
 #data
 <p :a="x" xmlns:="y"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} p>
 |   :a="x"
@@ -409,6 +458,7 @@
 #data
 <p a:b:c="x"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} p>
 |   a:b:c="x"
@@ -416,6 +466,7 @@
 #data
 <p a:b:c="x" xmlns:a="y"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} p>
 |   xmlns a="y"
@@ -424,6 +475,7 @@
 #data
 <p a:b:c="x" xmlns:a:b="y"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} p>
 |   a:b:c="x"
@@ -432,6 +484,7 @@
 #data
 <p xmlns::="x"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} p>
 |   xmlns :="x"
@@ -439,6 +492,7 @@
 #data
 <p xmlns::="x" ::a="y"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} p>
 |   ::a="y"
@@ -447,6 +501,7 @@
 #data
 <z><p :="x"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} p>
@@ -455,6 +510,7 @@
 #data
 <z><p a:b="x"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} p>
@@ -463,6 +519,7 @@
 #data
 <z><p a:b="x" xmlns:a=""/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} p>
@@ -472,6 +529,7 @@
 #data
 <z><p a:="x"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} p>
@@ -480,6 +538,7 @@
 #data
 <z><p a:="x" xmlns:a="y"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} p>
@@ -489,6 +548,7 @@
 #data
 <z><p :a="x"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} p>
@@ -497,6 +557,7 @@
 #data
 <z><p :a="x" xmlns:="y"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} p>
@@ -506,6 +567,7 @@
 #data
 <z><p a:b:c="x"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} p>
@@ -514,6 +576,7 @@
 #data
 <z><p a:b:c="x" xmlns:a="y"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} p>
@@ -523,6 +586,7 @@
 #data
 <z><p a:b:c="x" xmlns:a:b="y"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} p>
@@ -532,6 +596,7 @@
 #data
 <z><p xmlns::="x"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} p>
@@ -540,6 +605,7 @@
 #data
 <z><p xmlns::="x" ::a="y"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} z>
 |   <{} p>

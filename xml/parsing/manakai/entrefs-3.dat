@@ -1,6 +1,7 @@
 #data
 <!DOCTYPE html [<!ENTITY hoge "a<b>aa</b>aaa">]><foo>&hoge;</foo>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE html>
 | <{} foo>
@@ -12,6 +13,7 @@
 #data
 <!DOCTYPE html [<!ENTITY hoge "a<b>aa</b>aaa">]><foo>&hoge</foo>
 #errors
+1;1;no XML decl;;;s
 1;54;bare ero;;;m
 #document
 | <!DOCTYPE html>
@@ -21,6 +23,7 @@
 #data
 <!DOCTYPE html [<!ENTITY hoge "a<b>aa</b>aaa">]><foo>&hogeab</foo>
 #errors
+1;1;no XML decl;;;s
 1;54;bare ero;;;m
 #document
 | <!DOCTYPE html>
@@ -30,6 +33,7 @@
 #data
 <!DOCTYPE html [<!ENTITY hoge "a<b>aa</b>aaa">]><foo>&hogeab;</foo>
 #errors
+1;1;no XML decl;;;s
 1;54;entity not declared;;hogeab;;m
 #document
 | <!DOCTYPE html>
@@ -39,6 +43,7 @@
 #data
 <!DOCTYPE html [<!ENTITY hoge "a<b>aa</b>aaa">]><foo>&hoge;<hoge xmlns="http://a/">&hoge;</hoge></foo>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE html>
 | <{} foo>
@@ -56,6 +61,7 @@
 #data
 <!DOCTYPE html [<!ENTITY hoge "a<b>aa</b>aaa">]><foo>&hoge;&hoge;</foo>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE html>
 | <{} foo>
@@ -72,6 +78,7 @@
 <!ENTITY hoge "a&hoge;b">
 ]><p>&hoge;</p>
 #errors
+1;1;no XML decl;;;s
 2;17;WFC:No Recursion;;&hoge;;m
 #document
 | <!DOCTYPE html>
@@ -84,6 +91,7 @@
 <!ENTITY fuga "A&hoge;B">
 ]><p>&hoge;</p>
 #errors
+1;1;no XML decl;;;s
 3;17;WFC:No Recursion;;&hoge;;m
 #document
 | <!DOCTYPE html>
@@ -96,6 +104,7 @@
 <!ENTITY fuga "A&hoge;B">
 ]><p>&fuga;</p>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE html>
 | <{} p>
@@ -110,6 +119,7 @@
 <!ENTITY fuga "A&hoge;B">
 ]><p>&fuga;</p>
 #errors
+1;1;no XML decl;;;s
 2;22;in body:#eof;;;m
 #document
 | <!DOCTYPE html>
@@ -124,6 +134,7 @@
   <!ENTITY hb " ab <p>aa</p>  bf ee ">
 ]>&hb;
 #errors
+1;1;no XML decl;;;s
 3;3;ref outside of root element;;hb;;m
 3;7;no root element;;;m
 #document
@@ -135,6 +146,7 @@
   <!ENTITY hb " ab <p>aa</p>  bf ee ">
 ]>&ha;
 #errors
+1;1;no XML decl;;;s
 4;3;ref outside of root element;;ha;;m
 4;7;no root element;;;m
 #document
@@ -146,6 +158,7 @@
   <!ENTITY hb " ab <p>aa</p>  bf <q>e</q>e<!----> ">
 ]>&ha;
 #errors
+1;1;no XML decl;;;s
 4;3;ref outside of root element;;ha;;m
 4;7;no root element;;;m
 #document
@@ -157,6 +170,7 @@
   <!ENTITY hb " ab <p>aa</p>  bf <q>e</q>e<!----> ">
 ]><template xmlns="http://www.w3.org/1999/xhtml">&ha;</template>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <template>
@@ -178,6 +192,7 @@
   <!ENTITY hb " ab <p>aa</p>  bf <q>e</q>e<!----> ">
 ]><a xmlns="http://www.w3.org/1999/xhtml"><template>&ha;</template></a>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <a>
@@ -200,6 +215,7 @@
   <!ENTITY hb " ab <p>aa</p>  bf ee ">
 ]><b/>&ha;
 #errors
+1;1;no XML decl;;;s
 4;7;ref outside of root element;;ha;;m
 #document
 | <!DOCTYPE a>
@@ -211,6 +227,7 @@
   <!ENTITY hb " ab <p>aa  bf ee ">
 ]><b/>&ha;
 #errors
+1;1;no XML decl;;;s
 4;7;ref outside of root element;;ha;;m
 #document
 | <!DOCTYPE a>
@@ -222,6 +239,7 @@
   <!ENTITY bar "v&foo;z">
 ]><a>&foo;x</a>
 #errors
+1;1;no XML decl;;;s
 3;18;WFC:No Recursion;;&foo;;m
 #document
 | <!DOCTYPE a>

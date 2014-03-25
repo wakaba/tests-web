@@ -4,6 +4,8 @@
 <!ENTITY % fuga "xy">
 <!ELEMENT %fuga;EMPTY>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT xy EMPTY>
@@ -15,6 +17,8 @@
 <!ENTITY % fuga "xy">
 <!ELEMENT %fuga; EMPTY>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT xy EMPTY>
@@ -26,6 +30,8 @@
 <!ENTITY % fuga "xy">
 <!ELEMENT ab (%fuga;)>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab (xy)>
@@ -37,6 +43,8 @@
 <!ENTITY % fuga "xy">
 <!ELEMENT ab (%fuga; )>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab (xy)>
@@ -48,6 +56,8 @@
 <!ENTITY % fuga "xy">
 <!ELEMENT ab ( %fuga;)>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab (xy)>
@@ -59,6 +69,8 @@
 <!ENTITY % fuga " xy">
 <!ELEMENT ab (%fuga;)>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab (xy)>
@@ -70,6 +82,8 @@
 <!ENTITY % fuga "xy,aa">
 <!ELEMENT ab (%fuga;)>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab (xy, aa)>
@@ -81,6 +95,8 @@
 <!ENTITY % fuga "xy |  aa">
 <!ELEMENT ab (%fuga;)>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab (xy | aa)>
@@ -92,6 +108,8 @@
 <!ENTITY % fuga "|">
 <!ELEMENT ab (bb%fuga;w)>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab (bb | w)>
@@ -103,6 +121,8 @@
 <!ENTITY % fuga "+">
 <!ELEMENT ab (foo%fuga;)>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;18;after element name;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -114,6 +134,8 @@
 <!ENTITY % fuga "+">
 <!ELEMENT ab foo%fuga;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;18;string after md def;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -125,6 +147,8 @@
 <!ENTITY % fuga "(xy |  aa)">
 <!ELEMENT ab (%fuga;)>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab ((xy | aa))>
@@ -136,6 +160,8 @@
 <!ENTITY % fuga "(#PCDATA) ">
 <!ELEMENT ab %fuga;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab (#PCDATA)>
@@ -147,6 +173,8 @@
 <!ENTITY % fuga "#PCDATA">
 <!ELEMENT ab (%fuga;)>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab (#PCDATA)>
@@ -158,6 +186,8 @@
 <!ENTITY % fuga "PCDATA">
 <!ELEMENT ab (#%fuga;)>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;18;after element name;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -169,6 +199,8 @@
 <!ENTITY % fuga "#PCDATA|abc">
 <!ELEMENT ab (%fuga;)>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab (#PCDATA | abc)>
@@ -180,6 +212,8 @@
 <!ENTITY % fuga "ab">
 <!ELEMENT ab (%fuga;cd)>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]2;21;after element name;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -191,6 +225,8 @@
 <!ENTITY % fuga "ab">
 <!ELEMENT ab (cd%fuga;)>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;18;after element name;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -202,6 +238,8 @@
 <!ENTITY % fuga "DATA">
 <!ELEMENT ab (#PC%fuga;)>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;18;after element name;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -213,6 +251,8 @@
 <!ENTITY % fuga "TY">
 <!ELEMENT ab EMP%fuga;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;18;string after md def;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -224,6 +264,8 @@
 <!ENTITY % fuga "EMP">
 <!ELEMENT ab %fuga;TY>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]2;20;string after md def;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -235,6 +277,8 @@
 <!ENTITY % fuga "EMPTY>">
 <!ELEMENT ab %fuga;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;23;mdc in pe in md;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -246,6 +290,8 @@
 <!ENTITY % fuga "EMPTY>">
 <!ELEMENT ab (%fuga;)>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;23;mdc in pe in md;;;m
 #document
 | <!DOCTYPE a "" "http://a/">

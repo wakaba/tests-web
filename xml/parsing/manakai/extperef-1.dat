@@ -6,6 +6,8 @@
 #resource http://x/
 <!ENTITY bar "abc">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -20,6 +22,8 @@
 #resource http://x/
 <!ENTITY bar "abc">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 4;3;duplicate general entity decl;;bar;w
 #document
 | <!DOCTYPE a>
@@ -35,6 +39,8 @@
 #resource http://x/
 <!ENTITY bar "abc">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;1;duplicate general entity decl;;bar;w
 #document
 | <!DOCTYPE a>
@@ -50,6 +56,9 @@
 #resource http://x/
   <!ENTITY bar "abc">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;3;duplicate general entity decl;;bar;w
 #document
 | <!DOCTYPE a>
@@ -67,6 +76,9 @@
 #resource http://y/
   <!ENTITY bar "abc">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[2]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -83,6 +95,9 @@
 #resource http://y/
   <!ENTITY bar "abc">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[2]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -97,6 +112,8 @@
 #resource http://x/
  %foo;
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;2;stop processing;;;i
 [1]1;2;WFC:No Recursion;;%foo;;m
 5;9;entity not declared;;bar;;m
@@ -117,6 +134,9 @@
 #resource http://y/
    %foo;
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[2]1;1;no XML decl;;;s
 [2]1;4;stop processing;;;i
 [2]1;4;WFC:No Recursion;;%foo;;m
 6;9;entity not declared;;bar;;m
@@ -133,6 +153,9 @@
 #resource http://hoge/
 <!ENTITY abc "xyz">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[2]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://fpoo/">
 | <{} a>
@@ -149,6 +172,9 @@
 #resource http://hoge/
 <!ENTITY abc "xyz">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[2]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://fpoo/">
 | <{} a>

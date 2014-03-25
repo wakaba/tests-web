@@ -1,6 +1,7 @@
 #data
 <p>&lt;</p>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} p>
 |   "<"
@@ -9,6 +10,7 @@
 <!DOCTYPE a>
 <p>&lt;</p>
 #errors
+1;1;no XML decl;;;s
 2;4;entity not declared;;lt;;w
 #document
 | <!DOCTYPE a>
@@ -19,6 +21,7 @@
 <!DOCTYPE a>
 <p>&copy;</p>
 #errors
+1;1;no XML decl;;;s
 2;4;entity not declared;;copy;;m
 #document escaped
 | <!DOCTYPE a>
@@ -28,6 +31,7 @@
 #data
 <p>&copy;</p>
 #errors
+1;1;no XML decl;;;s
 1;4;entity not declared;;copy;;m
 #document escaped
 | <{} p>
@@ -37,6 +41,7 @@
 <!DOCTYPE hoge PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "">
 <p>&copy;</p>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <!DOCTYPE hoge "-//W3C//DTD XHTML 1.0 Transitional//EN" "">
 | <{} p>
@@ -46,6 +51,7 @@
 <!DOCTYPE hoge PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN  " "">
 <p>&copy;</p>
 #errors
+1;1;no XML decl;;;s
 2;4;entity not declared;;copy;;m
 #document escaped
 | <!DOCTYPE hoge "-//W3C//DTD XHTML 1.0 Transitional//EN  " "">
@@ -56,6 +62,7 @@
 <!DOCTYPE hoge PUBLIC "-//W3C//DTD XHTML 1.1//EN" "">
 <p>&amp;</p>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <!DOCTYPE hoge "-//W3C//DTD XHTML 1.1//EN" "">
 | <{} p>
@@ -65,6 +72,7 @@
 <!DOCTYPE hoge PUBLIC "-//w3c//DTD XHTML 1.1//EN" "">
 <p>&amp;</p>
 #errors
+1;1;no XML decl;;;s
 2;4;entity not declared;;amp;;w
 #document escaped
 | <!DOCTYPE hoge "-//w3c//DTD XHTML 1.1//EN" "">
@@ -78,6 +86,8 @@
 <!ENTITY % bar PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "">
 %bar;
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document escaped
 | <!DOCTYPE foo "" "http://hoge/">
 | <{} foo>
@@ -92,6 +102,7 @@
 #resource http://hoge/
 abc
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <!DOCTYPE foo>
 | <{} foo>
@@ -107,6 +118,7 @@ abc
 #resource http://hoge/
 abc
 #errors
+1;1;no XML decl;;;s
 2;1;second doctype;;;m
 6;6;entity not declared;;copy;;m
 #document escaped
@@ -122,6 +134,7 @@ abc
 ]>
 <foo>&copy;</foo>
 #errors
+1;1;no XML decl;;;s
 3;1;pe not declared;;foo;;m
 3;1;stop processing;;;i
 6;6;entity not declared;;copy;;m
@@ -139,6 +152,7 @@ abc
 ]>
 <foo>&copy;</foo>
 #errors
+1;1;no XML decl;;;s
 3;1;external entref;;hoge;;i
 #XXX
 #document escaped
@@ -152,6 +166,7 @@ abc
   %foo;
 ]><a>&copy;</a>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <!DOCTYPE a>
 | <{} a>
@@ -163,6 +178,7 @@ abc
   %foo;
 ]><a>&copy;</a>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <!DOCTYPE a>
 | <{} a>
@@ -174,6 +190,8 @@ abc
   <!ENTITY % foo PUBLIC "-//W3C//DTD XHTML Basic 1.0//EN" "">
   %foo;
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document escaped
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
@@ -186,7 +204,9 @@ abc
   <!ENTITY % bar "%foo;">
   %bar;
 #errors
+1;1;no XML decl;;;s
 1;35;entity not declared;;copy;;m
+[1]1;1;no XML decl;;;s
 #document escaped
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
@@ -199,7 +219,9 @@ abc
   <!ENTITY % bar %foo;>
   %bar;
 #errors
+1;1;no XML decl;;;s
 1;35;entity not declared;;copy;;m
+[1]1;1;no XML decl;;;s
 [1]2;23;no md def;;;m
 #document escaped
 | <!DOCTYPE a "" "http://a/">
@@ -214,6 +236,8 @@ abc
 #resource http://a/
 &copy;
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;1;entity not declared;;copy;;m
 #document escaped
 | <!DOCTYPE a>
@@ -230,6 +254,8 @@ abc
 #resource http://a/
 &copy;
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document escaped
 | <!DOCTYPE a>
 | <{} a>
@@ -244,6 +270,7 @@ abc
 #resource http://a/
 &copy;
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <!DOCTYPE a>
 |   <!ELEMENT foo >
@@ -259,6 +286,7 @@ abc
 #resource http://a/
 &copy;
 #errors
+1;1;no XML decl;;;s
 3;27;entity not declared;;copy;;m
 #document escaped
 | <!DOCTYPE a>
@@ -270,6 +298,7 @@ abc
 <!DOCTYPE hoge PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "">
 <p>&copy;</p>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <!DOCTYPE hoge "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "">
 | <{} p>
@@ -279,6 +308,7 @@ abc
 <!DOCTYPE hoge PUBLIC "-//W3C//DTD MathML 2.0//EN" "">
 <p>&copy;</p>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <!DOCTYPE hoge "-//W3C//DTD MathML 2.0//EN" "">
 | <{} p>
@@ -288,6 +318,7 @@ abc
 <!DOCTYPE hoge PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "">
 <p>&copy;</p>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <!DOCTYPE hoge "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "">
 | <{} p>
@@ -297,6 +328,7 @@ abc
 <!DOCTYPE hoge PUBLIC "-//WAPFORUM//DTD\u00A0XHTML\u00A0Mobile\u00A01.0//EN" "">
 <p>&copy;</p>
 #errors
+1;1;no XML decl;;;s
 2;4;entity not declared;;copy;;m
 #document escaped
 | <!DOCTYPE hoge "-//WAPFORUM//DTD\u00A0XHTML\u00A0Mobile\u00A01.0//EN" "">
@@ -307,6 +339,7 @@ abc
 <!DOCTYPE hoge PUBLIC "-//W3C//ENTITIES HTML MathML Set//EN//XML" "">
 <p>&copy;</p>
 #errors
+1;1;no XML decl;;;s
 2;4;entity not declared;;copy;;m
 #document escaped
 | <!DOCTYPE hoge "-//W3C//ENTITIES HTML MathML Set//EN//XML" "">

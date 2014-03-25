@@ -1,6 +1,7 @@
 #data
 <![CDATA[]]>
 #errors
+1;1;no XML decl;;;s
 1;1;cdata outside of root element;;;m
 1;13;no root element;;;m
 #document
@@ -8,6 +9,7 @@
 #data
 <![CDATA[  ]]>
 #errors
+1;1;no XML decl;;;s
 1;1;cdata outside of root element;;;m
 1;15;no root element;;;m
 #document
@@ -15,6 +17,7 @@
 #data
 <![CDATA[ab]]>
 #errors
+1;1;no XML decl;;;s
 1;1;cdata outside of root element;;;m
 1;15;no root element;;;m
 #document
@@ -22,6 +25,7 @@
 #data
 a<![CDATA[bb]]>ccc
 #errors
+1;1;no XML decl;;;s
 1;1;text outside of root element;;;m
 1;19;no root element;;;m
 #document
@@ -29,6 +33,7 @@ a<![CDATA[bb]]>ccc
 #data
 <p>a<![CDATA[bb]]>ccc</p>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} p>
 |   "abbccc"
@@ -36,6 +41,7 @@ a<![CDATA[bb]]>ccc
 #data
 <a/><![CDATA[]]>
 #errors
+1;1;no XML decl;;;s
 1;5;cdata outside of root element;;;m
 #document
 | <{} a>
@@ -43,6 +49,7 @@ a<![CDATA[bb]]>ccc
 #data
 <a/><![CDATA[  ]]>
 #errors
+1;1;no XML decl;;;s
 1;5;cdata outside of root element;;;m
 #document
 | <{} a>
@@ -50,6 +57,7 @@ a<![CDATA[bb]]>ccc
 #data
 <a/><![CDATA[aa]]>
 #errors
+1;1;no XML decl;;;s
 1;5;cdata outside of root element;;;m
 #document
 | <{} a>
@@ -57,6 +65,7 @@ a<![CDATA[bb]]>ccc
 #data
 <a/><![CDATA[]]>  a
 #errors
+1;1;no XML decl;;;s
 1;5;cdata outside of root element;;;m
 #document
 | <{} a>
@@ -64,6 +73,7 @@ a<![CDATA[bb]]>ccc
 #data
 <![CDATA[
 #errors
+1;1;no XML decl;;;s
 1;1;cdata outside of root element;;;m
 1;10;no mse;;;m
 1;10;no root element;;;m
@@ -72,6 +82,7 @@ a<![CDATA[bb]]>ccc
 #data
 <p><![CDATA[
 #errors
+1;1;no XML decl;;;s
 1;13;no mse;;;m
 1;13;in body:#eof;;;m
 #document
@@ -80,6 +91,7 @@ a<![CDATA[bb]]>ccc
 #data
 <![CDATA[a
 #errors
+1;1;no XML decl;;;s
 1;11;no mse;;;m
 1;1;cdata outside of root element;;;m
 1;11;no root element;;;m
@@ -88,6 +100,7 @@ a<![CDATA[bb]]>ccc
 #data
 <p><![CDATA[a
 #errors
+1;1;no XML decl;;;s
 1;14;no mse;;;m
 1;14;in body:#eof;;;m
 #document
@@ -97,6 +110,7 @@ a<![CDATA[bb]]>ccc
 #data
 <![CDATA[a]
 #errors
+1;1;no XML decl;;;s
 1;12;no mse;;;m
 1;1;cdata outside of root element;;;m
 1;12;no root element;;;m
@@ -105,6 +119,7 @@ a<![CDATA[bb]]>ccc
 #data
 <p><![CDATA[a]
 #errors
+1;1;no XML decl;;;s
 1;15;no mse;;;m
 1;15;in body:#eof;;;m
 #document
@@ -114,6 +129,7 @@ a<![CDATA[bb]]>ccc
 #data
 <![CDATA[a]]
 #errors
+1;1;no XML decl;;;s
 1;13;no mse;;;m
 1;1;cdata outside of root element;;;m
 1;13;no root element;;;m
@@ -122,6 +138,7 @@ a<![CDATA[bb]]>ccc
 #data
 <p><![CDATA[a]]
 #errors
+1;1;no XML decl;;;s
 1;16;no mse;;;m
 1;16;in body:#eof;;;m
 #document
@@ -131,6 +148,7 @@ a<![CDATA[bb]]>ccc
 #data
 <![CDATA[a]]><![CDATA[b]]><a/>
 #errors
+1;1;no XML decl;;;s
 1;1;cdata outside of root element;;;m
 #document
 | <{} a>
@@ -138,6 +156,7 @@ a<![CDATA[bb]]>ccc
 #data escaped
 <![CDATA[\u0000]]>
 #errors
+1;1;no XML decl;;;s
 1;1;cdata outside of root element;;;m
 1;14;no root element;;;m
 #document escaped
@@ -145,6 +164,7 @@ a<![CDATA[bb]]>ccc
 #data escaped
 <!DOCTYPE p><![CDATA[\u0000]]><p></p>
 #errors
+1;1;no XML decl;;;s
 1;13;cdata outside of root element;;;m
 #document escaped
 | <!DOCTYPE p>
@@ -153,6 +173,7 @@ a<![CDATA[bb]]>ccc
 #data escaped
 <p><![CDATA[\u0000]]></p>
 #errors
+1;1;no XML decl;;;s
 1;4;NULL;;;m
 #document escaped
 | <{} p>
@@ -161,6 +182,7 @@ a<![CDATA[bb]]>ccc
 #data escaped
 <p></p><![CDATA[\u0000]]>
 #errors
+1;1;no XML decl;;;s
 1;8;cdata outside of root element;;;m
 #document escaped
 | <{} p>
@@ -168,6 +190,7 @@ a<![CDATA[bb]]>ccc
 #data escaped
 <p></p><![CDATA[a\u0000b]]>
 #errors
+1;1;no XML decl;;;s
 1;8;cdata outside of root element;;;m
 #document escaped
 | <{} p>

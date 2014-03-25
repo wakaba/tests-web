@@ -2,6 +2,7 @@
 <!DOCTYPE a SYSTEM "http://a/"[]>
 <a/>
 #errors
+1;1;no XML decl;;;s
 1;1;external entref;;;i
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -13,6 +14,8 @@
 #resource http://a/
 <!NOTATION foo SYSTEM "aa">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!NOTATION foo "" "aa">
@@ -23,6 +26,8 @@
 #resource http://a/
  <?abc dd?>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <?abc dd?>
@@ -33,6 +38,8 @@
 #resource http://a/
  <?abc dd?>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <?bbb ?>
@@ -44,6 +51,8 @@
 #resource http://a/
   <!ENTITY foo "xy">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;3;duplicate general entity decl;;foo;w
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -57,6 +66,8 @@
 #resource http://a/
   <!ENTITY foo "xy">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
@@ -69,6 +80,8 @@
 #resource http://a/
   <!ENTITY foo "x<p>y">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;22;in body:#eof;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -83,6 +96,7 @@
 #data
   <!DOCTYPE foo PUBLIC "abc" "xya"><a/>
 #errors
+1;1;no XML decl;;;s
 1;3;external entref;;;i
 #document
 | <!DOCTYPE foo "abc" "xya">
@@ -94,6 +108,7 @@
 <?xml encoding="utf-8"?>
 <!ELEMENT hoge (#PCDATA)>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE foo "abc" "http://xya/">
 |   <!ELEMENT hoge (#PCDATA)>
@@ -105,6 +120,7 @@
 <?xml  version = "1.0" encoding="utf-8"?>
 <!ATTLIST hoge aaa CDATA "foo">
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE foo "abc" "http://xya/">
 |   <!ELEMENT hoge >
@@ -119,6 +135,7 @@
 <?xml  version = "1.0" encoding="utf-8"?>
 <!ATTLIST hoge aaa CDATA "foo">
 #errors
+1;1;no XML decl;;;s
 [1]2;1;duplicate attlist decl;;hoge;w
 [1]2;16;duplicate attrdef;;aaa;w
 #document
@@ -133,6 +150,7 @@
 <?xml  version = "1.0" encoding="utf-8"?>
 <!ATTLIST hoge aaa CDATA "foo">
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE foo "abc" "http://xya/">
 |   <!ELEMENT hoge >
@@ -147,6 +165,7 @@
 <!ENTITY foo "ab">
 <!ATTLIST hoge aaa CDATA "fo&foo;o">
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE foo "abc" "http://xya/">
 |   <!ELEMENT hoge >
@@ -161,6 +180,7 @@
 <?xml  version = "1.0" encoding="utf-8"?>
 <!ATTLIST hoge aaa CDATA "fo&foo;o">
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE foo "abc" "http://xya/">
 |   <!ELEMENT hoge >
@@ -176,6 +196,7 @@
 <!ENTITY foo "abc">
 <!ATTLIST hoge aaa CDATA "fo&foo;o">
 #errors
+1;1;no XML decl;;;s
 [1]2;1;duplicate general entity decl;;foo;w
 #document
 | <!DOCTYPE foo "abc" "http://xya/">
@@ -191,6 +212,7 @@
 <?xml standalone="yes"?>
 <!ENTITY foo "abc">
 #errors
+1;1;no XML decl;;;s
 [1]1;7;attribute missing:encoding;;;m
 [1]1;7;attribute not allowed:standalone;;;m
 [1]2;1;duplicate general entity decl;;foo;w
@@ -205,6 +227,8 @@
 <!ENTITY foo "abc">
 <?xml standalone="yes"?>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;1;duplicate general entity decl;;foo;w
 #document
 | <!DOCTYPE foo "abc" "http://xya/">
@@ -216,6 +240,8 @@
 #resource http://xya/
 <!ENTITY foo "abc"
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;19;unclosed md;;;m
 1;55;entity not declared;;foo;;m
 #document
@@ -228,6 +254,8 @@
 #resource http://xya/
 ]><!ENTITY foo "abc">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;1;string in internal subset;;;m
 #document
 | <!DOCTYPE foo "abc" "http://xya/">
@@ -241,6 +269,7 @@
 #resource http://a/
 <!ENTITY foo "br">
 #errors
+1;1;no XML decl;;;s
 2;1;second doctype;;;m
 3;4;entity not declared;;foo;;m
 #document

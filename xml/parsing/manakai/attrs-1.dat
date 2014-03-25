@@ -1,6 +1,7 @@
 #data
 <a XYZ=""/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   XYZ=""
@@ -8,6 +9,7 @@
 #data
 <a lMn="" PQR=""/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   PQR=""
@@ -16,6 +18,7 @@
 #data
 <a b="" c=""/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   b=""
@@ -24,6 +27,7 @@
 #data
 <a><b c="" d=""/></a>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   <{} b>
@@ -33,6 +37,7 @@
 #data
 <a/><b c="" d=""/>
 #errors
+1;1;no XML decl;;;s
 1;5;second root element;;;m
 #document
 | <{} a>
@@ -40,6 +45,7 @@
 #data
 <a b=c />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 #document
 | <{} a>
@@ -48,6 +54,7 @@
 #data
 <a b=cdefg />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 #document
 | <{} a>
@@ -56,6 +63,7 @@
 #data
 <a bcdef=g />
 #errors
+1;1;no XML decl;;;s
 1;10;unquoted attr value;;;m
 #document
 | <{} a>
@@ -64,6 +72,7 @@
 #data
 <a bcdef = ghi />
 #errors
+1;1;no XML decl;;;s
 1;12;unquoted attr value;;;m
 #document
 | <{} a>
@@ -72,6 +81,7 @@
 #data
 <a bcd== />
 #errors
+1;1;no XML decl;;;s
 1;8;bad attribute value;;;m
 #document
 | <{} a>
@@ -80,6 +90,7 @@
 #data
 <a b=& />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;6;bare ero;;;m
 #document
@@ -89,6 +100,7 @@
 #data
 <a b=Q& />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;7;bare ero;;;m
 #document
@@ -98,6 +110,7 @@
 #data
 <a b=&= />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;6;bare ero;;;m
 1;7;bad attribute value;;;m
@@ -108,6 +121,7 @@
 #data
 <a b=&< />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;6;bare ero;;;m
 1;7;bad attribute value;;;m
@@ -118,6 +132,7 @@
 #data
 <a b=&` />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;6;bare ero;;;m
 1;7;bad attribute value;;;m
@@ -128,6 +143,7 @@
 #data
 <a b=&" />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;6;bare ero;;;m
 1;7;bad attribute value;;;m
@@ -138,6 +154,7 @@
 #data
 <a b=&'a />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;6;bare ero;;;m
 1;7;bad attribute value;;;m
@@ -148,6 +165,7 @@
 #data
 <a b=&?= />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;6;bare ero;;;m
 1;8;bad attribute value;;;m
@@ -158,6 +176,7 @@
 #data
 <a b=&abc= />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;6;bare ero;;;m
 1;10;bad attribute value;;;m
@@ -168,6 +187,7 @@
 #data
 <a b=Q&= />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;7;bare ero;;;m
 1;8;bad attribute value;;;m
@@ -178,6 +198,7 @@
 #data
 <a b=Q`A` />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;7;bad attribute value;;;m
 1;9;bad attribute value;;;m
@@ -188,6 +209,7 @@
 #data
 <a b=Q<A< />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;7;bad attribute value;;;m
 1;9;bad attribute value;;;m
@@ -198,6 +220,7 @@
 #data
 <a b=Q<A` />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;7;bad attribute value;;;m
 1;9;bad attribute value;;;m
@@ -208,6 +231,7 @@
 #data
 <a b="<"/>
 #errors
+1;1;no XML decl;;;s
 1;7;lt in attr value;;;m
 #document
 | <{} a>
@@ -216,6 +240,7 @@
 #data
 <a b='<'/>
 #errors
+1;1;no XML decl;;;s
 1;7;lt in attr value;;;m
 #document
 | <{} a>
@@ -224,6 +249,7 @@
 #data
 <a b="xxx<"/>
 #errors
+1;1;no XML decl;;;s
 1;10;lt in attr value;;;m
 #document
 | <{} a>
@@ -232,6 +258,7 @@
 #data
 <a b='xxx<'/>
 #errors
+1;1;no XML decl;;;s
 1;10;lt in attr value;;;m
 #document
 | <{} a>
@@ -240,6 +267,7 @@
 #data
 <a b="&lt;"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   b="<"
@@ -247,6 +275,7 @@
 #data
 <a b="xxxxx&lt;"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   b="xxxxx<"
@@ -254,6 +283,7 @@
 #data
 <a b="<<<"/>
 #errors
+1;1;no XML decl;;;s
 1;7;lt in attr value;;;m
 1;8;lt in attr value;;;m
 1;9;lt in attr value;;;m
@@ -264,6 +294,7 @@
 #data
 <a b='<<<'/>
 #errors
+1;1;no XML decl;;;s
 1;7;lt in attr value;;;m
 1;8;lt in attr value;;;m
 1;9;lt in attr value;;;m
@@ -274,6 +305,7 @@
 #data
 <a b=< />
 #errors
+1;1;no XML decl;;;s
 1;6;bad attribute value;;;m
 #document
 | <{} a>
@@ -282,6 +314,7 @@
 #data
 <a b=xxxx< />
 #errors
+1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;10;bad attribute value;;;m
 #document
@@ -291,6 +324,7 @@
 #data
 <a b/>
 #errors
+1;1;no XML decl;;;s
 1;5;no attr value;;;m
 #document
 | <{} a>
@@ -299,6 +333,7 @@
 #data
 <a bcd/>
 #errors
+1;1;no XML decl;;;s
 1;7;no attr value;;;m
 #document
 | <{} a>
@@ -307,6 +342,7 @@
 #data
 <a b />
 #errors
+1;1;no XML decl;;;s
 1;6;no attr value;;;m
 #document
 | <{} a>
@@ -315,6 +351,7 @@
 #data
 <a bcd />
 #errors
+1;1;no XML decl;;;s
 1;8;no attr value;;;m
 #document
 | <{} a>
@@ -323,6 +360,7 @@
 #data
 <a b></a>
 #errors
+1;1;no XML decl;;;s
 1;5;no attr value;;;m
 #document
 | <{} a>
@@ -331,6 +369,7 @@
 #data
 <a bcd></a>
 #errors
+1;1;no XML decl;;;s
 1;7;no attr value;;;m
 #document
 | <{} a>
@@ -339,6 +378,7 @@
 #data
 <a bcd ></a>
 #errors
+1;1;no XML decl;;;s
 1;8;no attr value;;;m
 #document
 | <{} a>
@@ -347,6 +387,7 @@
 #data
 <a b="" c d=""></a>
 #errors
+1;1;no XML decl;;;s
 1;11;no attr value;;;m
 #document
 | <{} a>
@@ -357,6 +398,7 @@
 #data escaped
 <a b="ab\u0020\u0009\u000C\u000D\u000Acd"/>
 #errors
+1;1;no XML decl;;;s
 1;11;control char;;U+000C;m
 #document
 | <{} a>
@@ -365,6 +407,7 @@
 #data
 <a b="ab&#xd;&#xa;&#x9;&#x20;&#xc;"/>
 #errors
+1;1;no XML decl;;;s
 1;30;invalid character reference;U+000C;;m
 #document escaped
 | <{} a>
@@ -373,6 +416,7 @@
 #data
 <a b="ab&#xd;&#xa;&#x9;&#x20;&#xf;"/>
 #errors
+1;1;no XML decl;;;s
 1;30;invalid character reference;U+000F;;m
 #document escaped
 | <{} a>

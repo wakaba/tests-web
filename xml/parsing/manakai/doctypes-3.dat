@@ -3,6 +3,7 @@
 <!DOCTYPE bar [<!ENTITY y "Y">]>
 <p>&x;&y;</p>
 #errors
+1;1;no XML decl;;;s
 2;1;second doctype;;;m
 3;7;entity not declared;;y;;m
 #document
@@ -15,6 +16,7 @@
 <!DOCTYPE bar [<!ENTITY y "Y">]>
 <p>&x;&y;</p>
 #errors
+1;1;no XML decl;;;s
 2;1;second doctype;;;m
 3;4;entity not declared;;x;;m
 3;7;entity not declared;;y;;m
@@ -30,6 +32,7 @@
 #resource http://x/
 <!ENTITY x "X">
 #errors
+1;1;no XML decl;;;s
 2;1;second doctype;;;m
 3;4;entity not declared;;x;;m
 3;7;entity not declared;;y;;m
@@ -45,6 +48,7 @@
 #resource http://x/
 hoge
 #errors
+1;1;no XML decl;;;s
 2;1;second doctype;;;m
 3;4;entity not declared;;x;;m
 3;7;entity not declared;;y;;m
@@ -60,6 +64,7 @@ hoge
 #resource http://x/
 hoge
 #errors
+1;1;no XML decl;;;s
 2;1;second doctype;;;m
 3;4;entity not declared;;x;;m
 3;7;entity not declared;;y;;m
@@ -73,6 +78,7 @@ hoge
 #resource http://x/
 hoge
 #errors
+1;1;no XML decl;;;s
 1;4;in html:#doctype;;;m
 1;75;entity not declared;;x;;m
 1;78;entity not declared;;y;;m
@@ -85,6 +91,7 @@ hoge
 #resource http://x/
 hoge
 #errors
+1;1;no XML decl;;;s
 1;4;entity not declared;;x;;m
 1;7;entity not declared;;y;;m
 1;14;in html:#doctype;;;m
@@ -101,6 +108,7 @@ hoge
 #resource http://x/
 hoge
 #errors
+1;1;no XML decl;;;s
 2;1;bogus comment;;;m
 2;65;pe not declared;;foo;;m
 2;65;stop processing;;;i
@@ -121,6 +129,8 @@ hoge
 #resource http://x/
 hoge
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;1;bogus comment;;;m
 [1]1;65;pe not declared;;foo;;m
 [1]1;65;stop processing;;;i
@@ -136,6 +146,7 @@ hoge
 <!DOCTYPE bar [<!ELEMENT hoge EMPTY>]>
 <p/>
 #errors
+1;1;no XML decl;;;s
 2;1;second doctype;;;m
 #document
 | <!DOCTYPE foo>
@@ -146,6 +157,7 @@ hoge
 <!DOCTYPE bar [<!NOTATION foo SYSTEM "x">]>
 <p/>
 #errors
+1;1;no XML decl;;;s
 2;1;second doctype;;;m
 #document
 | <!DOCTYPE foo>
@@ -156,6 +168,7 @@ hoge
 <!DOCTYPE bar [<!ATTLIST foo hoge CDATA #IMPLIED>]>
 <p/>
 #errors
+1;1;no XML decl;;;s
 2;1;second doctype;;;m
 #document
 | <!DOCTYPE foo>

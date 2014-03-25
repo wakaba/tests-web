@@ -3,6 +3,7 @@
 %a;
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;pe not declared;;a;;m
 2;1;stop processing;;;i
 #document
@@ -14,6 +15,7 @@
 %abc
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;0;no refc;;;m
 #document
 | <!DOCTYPE a>
@@ -24,6 +26,7 @@
 %abc<!ENTITY abc "yy">
 ]><a x="&abc;"/>
 #errors
+1;1;no XML decl;;;s
 2;5;no refc;;;m
 #document
 | <!DOCTYPE a>
@@ -36,6 +39,7 @@
 %abc%def;
 ]><a x="&abc;"/>
 #errors
+1;1;no XML decl;;;s
 3;5;no refc;;;m
 4;9;entity not declared;;abc;;m
 #document
@@ -49,6 +53,7 @@
 %abc!?aa;
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;1;stop processing;;;i
 3;1;pe not declared;;abc!?aa;;m
 #document

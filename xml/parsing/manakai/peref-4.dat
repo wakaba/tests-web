@@ -3,6 +3,8 @@
 #resource http://abc/
 <!ENTITY % foo "">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE %foo; "" "http://abc/">
 | <{} a>
@@ -15,6 +17,7 @@
   <!ENTITY %foo; bar "baz">
 ]><a b="&bar;"/>
 #errors
+1;1;no XML decl;;;s
 3;12;WFC:PEs in Internal Subset;;%foo;;m
 3;12;stop processing;;;i
 4;9;entity not declared;;bar;;m
@@ -34,6 +37,7 @@
   %bar;
 ]><a b="&bar;"/>
 #errors
+1;1;no XML decl;;;s
 4;14;WFC:PEs in Internal Subset;;%foo;;m
 4;14;stop processing;;;i
 7;9;entity not declared;;bar;;m
@@ -59,6 +63,8 @@
 #resource http://baz/
 <!ENTITY %foo; bar 'baz'>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -80,6 +86,8 @@
 #resource http://bar/
 <!ENTITY %foo; bar 'baz'>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -95,6 +103,7 @@
   %foo;
 ]><a>&bar;</a>
 #errors
+1;1;no XML decl;;;s
 2;20;string in internal subset;;;m
 #document
 | <!DOCTYPE a>
@@ -109,6 +118,8 @@
 #resource http://a/
 ]> <!ENTITY bar 'baz'>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;1;string in internal subset;;;m
 #document
 | <!DOCTYPE a>
@@ -121,6 +132,8 @@
 #resource http://a/
 ]> <!ENTITY bar 'baz'>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;1;string in internal subset;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -134,6 +147,7 @@
   <!ENTITY y "Y">
 ]><a>&x;&y;</a>
 #errors
+1;1;no XML decl;;;s
 3;15;WFC:PEs in Internal Subset;;%hoge;;m
 3;15;stop processing;;;i
 5;6;entity not declared;;x;;m
@@ -152,6 +166,7 @@
   <!ENTITY x "X">
 ]><a>&x;&y;</a>
 #errors
+1;1;no XML decl;;;s
 3;3;condsect in internal subset;;;m
 7;9;entity not declared;;y;;m
 #document
