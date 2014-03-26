@@ -1,0 +1,47 @@
+#data
+<!DOCTYPE a [
+  <!ATTLIST b c CDATA "  d  e  ">
+]><a/>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT b >
+|     c CDATA () EXPLICIT "  d  e  "
+| <{} a>
+
+#data escaped
+<!DOCTYPE a [
+  <!ATTLIST b c CDATA "  d \u0009e  ">
+]><a/>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT b >
+|     c CDATA () EXPLICIT "  d  e  "
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ATTLIST b c CDATA "  d  e &#x0A;">
+]><a/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+|   <!ELEMENT b >
+|     c CDATA () EXPLICIT "  d  e \u000A"
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ATTLIST b c NMTOKENS "  d  e &#x0A;f">
+]><a/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+|   <!ELEMENT b >
+|     c NMTOKENS () EXPLICIT "d e \u000Af"
+| <{} a>

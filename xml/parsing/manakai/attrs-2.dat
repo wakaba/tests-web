@@ -446,3 +446,157 @@ xmlns NMTOKEN " x  y \u0009"
 | <{} z>
 |   <{x y} a>
 |     xmlns xmlns="x y"
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e\u0009d ">
+]><a b="&c;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e\u0009d ">
+  <!ENTITY d "&c;">
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e\u000Ad ">
+  <!ENTITY d "&c;">
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e\u000Dd ">
+  <!ENTITY d "&c;">
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e&#x9;d ">
+  <!ENTITY d "&c;">
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e\u0009d ">
+  <!ENTITY d "&c;\u000A">
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d  "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e\u0009d ">
+  <!ENTITY d "&c;&#10;">
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d  "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e\u000Dd ">
+  <!ENTITY d "&c;\u000A">
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d  "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e\u0009d ">
+  <!ENTITY d "&c;&#10;">
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d  "
+
+#data escaped
+<a b="&#13;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <{} a>
+|   b="\u000D"
+
+#data escaped
+<a b="&#10;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <{} a>
+|   b="\u000A"
+
+#data escaped
+<a b="&#x9;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <{} a>
+|   b="\u0009"
+
+#data escaped
+<a b="\u000D"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <{} a>
+|   b=" "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e&#x9;d ">
+  <!ENTITY d "&c;">
+  <!ATTLIST a b ID #IMPLIED>
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+|   <!ELEMENT a >
+|     b ID () IMPLIED ""
+| <{} a>
+|   b="e d"
