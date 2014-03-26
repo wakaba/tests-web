@@ -390,6 +390,7 @@
 [1]1;1;no XML decl;;;s
 [1]1;17;pe not declared;;foo;;m
 [1]1;17;stop processing;;;i
+[1]1;1;xml:dtd:entity ignored;;;w
 1;35;entity not declared;;hoge;;m
 #document
 | <!DOCTYPE a "" "http://b/">
@@ -405,6 +406,7 @@
 [1]1;1;no XML decl;;;s
 [1]1;17;pe not declared;;foo;;m
 [1]1;17;stop processing;;;i
+[1]1;1;xml:dtd:entity ignored;;;w
 1;35;entity not declared;;hoge;;m
 #document
 | <!DOCTYPE a "" "http://b/">
@@ -422,6 +424,8 @@
 [1]1;17;pe not declared;;foo;;m
 [1]1;17;stop processing;;;i
 1;35;entity not declared;;hoge;;m
+[1]1;1;xml:dtd:entity ignored;;;w
+[1]2;1;xml:dtd:entity ignored;;;w
 #document
 | <!DOCTYPE a "" "http://b/">
 | <{} a>
@@ -438,6 +442,7 @@
 [1]1;17;pe not declared;;foo;;m
 [1]1;17;stop processing;;;i
 1;35;entity not declared;;hoge;;m
+[1]2;1;xml:dtd:entity ignored;;;w
 #document
 | <!DOCTYPE a "" "http://b/">
 | <{} a>

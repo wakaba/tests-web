@@ -89,6 +89,7 @@
 1;1;no XML decl;;;s
 3;5;WFC:No Recursion;;%hoge;;m
 3;5;stop processing;;;i
+4;5;xml:dtd:entity ignored;;;w
 7;7;entity not declared;;foo;;m
 #document
 | <!DOCTYPE a>
@@ -106,6 +107,7 @@
 ]><a>b&foo;c</a>
 #errors
 1;1;no XML decl;;;s
+4;5;xml:dtd:entity ignored;;;w
 6;20;WFC:No Recursion;;%hoge;;m
 6;20;stop processing;;;i
 8;7;entity not declared;;foo;;m
@@ -126,6 +128,7 @@
 #errors
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
+[1]2;5;xml:dtd:entity ignored;;;w
 3;20;WFC:No Recursion;;%hoge;;m
 3;20;stop processing;;;i
 5;7;entity not declared;;foo;;m
@@ -150,6 +153,7 @@
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
 [2]1;1;no XML decl;;;s
+[2]2;5;xml:dtd:entity ignored;;;w
 3;20;WFC:No Recursion;;%hoge;;m
 3;20;stop processing;;;i
 5;7;entity not declared;;foo;;m
