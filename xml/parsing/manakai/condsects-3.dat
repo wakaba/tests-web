@@ -43,6 +43,7 @@
 #errors
 1;1;no XML decl;;;s
 3;5;condsect in internal subset;;;m
+6;5;xml:dtd:ext decl;;;w
 9;6;entity not declared;;x;;m
 #document
 | <!DOCTYPE a>
@@ -62,6 +63,8 @@
 #errors
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
+[1]2;7;xml:dtd:ext decl;;;w
+[1]4;5;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -83,6 +86,8 @@
 #errors
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
+4;7;xml:dtd:ext decl;;;w
+6;5;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a>
 | <{} a>

@@ -21,6 +21,7 @@
 ]><a>b&foo;c</a>
 #errors
 1;1;no XML decl;;;s
+3;5;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -35,6 +36,7 @@
 ]><a>b&foo;c</a>
 #errors
 1;1;no XML decl;;;s
+3;5;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -52,6 +54,7 @@
 ]><a>b&foo;c</a>
 #errors
 1;1;no XML decl;;;s
+3;5;xml:dtd:ext decl;;;w
 2;30;in body:#eof;;;m
 #document
 | <!DOCTYPE a>
@@ -152,6 +155,7 @@
 #errors
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [2]1;1;no XML decl;;;s
 [2]2;5;xml:dtd:entity ignored;;;w
 3;20;WFC:No Recursion;;%hoge;;m

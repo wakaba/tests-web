@@ -16,6 +16,7 @@
 #errors
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!NOTATION foo "" "aa">
@@ -28,6 +29,7 @@
 #errors
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
+[1]1;2;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <?abc dd?>
@@ -39,7 +41,9 @@
  <?abc dd?>
 #errors
 1;1;no XML decl;;;s
+1;32;xml:dtd:pi;;;w
 [1]1;1;no XML decl;;;s
+[1]1;2;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <?bbb ?>
@@ -68,6 +72,7 @@
 #errors
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
+[1]1;3;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
@@ -82,6 +87,7 @@
 #errors
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
+[1]1;3;xml:dtd:ext decl;;;w
 [1]1;22;in body:#eof;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -109,6 +115,7 @@
 <!ELEMENT hoge (#PCDATA)>
 #errors
 1;1;no XML decl;;;s
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE foo "abc" "http://xya/">
 |   <!ELEMENT hoge (#PCDATA)>
@@ -121,6 +128,7 @@
 <!ATTLIST hoge aaa CDATA "foo">
 #errors
 1;1;no XML decl;;;s
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE foo "abc" "http://xya/">
 |   <!ELEMENT hoge >
@@ -137,6 +145,7 @@
 #errors
 1;1;no XML decl;;;s
 [1]2;1;duplicate attlist decl;;hoge;w
+[1]2;1;xml:dtd:ext decl;;;w
 [1]2;16;duplicate attrdef;;aaa;w
 #document
 | <!DOCTYPE foo "abc" "http://xya/">
@@ -151,6 +160,7 @@
 <!ATTLIST hoge aaa CDATA "foo">
 #errors
 1;1;no XML decl;;;s
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE foo "abc" "http://xya/">
 |   <!ELEMENT hoge >
@@ -166,6 +176,8 @@
 <!ATTLIST hoge aaa CDATA "fo&foo;o">
 #errors
 1;1;no XML decl;;;s
+[1]2;1;xml:dtd:ext decl;;;w
+[1]3;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE foo "abc" "http://xya/">
 |   <!ELEMENT hoge >
@@ -181,6 +193,7 @@
 <!ATTLIST hoge aaa CDATA "fo&foo;o">
 #errors
 1;1;no XML decl;;;s
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE foo "abc" "http://xya/">
 |   <!ELEMENT hoge >
@@ -198,6 +211,7 @@
 #errors
 1;1;no XML decl;;;s
 [1]2;1;duplicate general entity decl;;foo;w
+[1]3;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE foo "abc" "http://xya/">
 |   <!ELEMENT hoge >
@@ -230,6 +244,7 @@
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
 [1]1;1;duplicate general entity decl;;foo;w
+[1]2;1;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE foo "abc" "http://xya/">
 |   <?xml standalone="yes"?>
@@ -257,6 +272,7 @@
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
 [1]1;1;string in internal subset;;;m
+[1]1;3;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE foo "abc" "http://xya/">
 | <{} hoge>
