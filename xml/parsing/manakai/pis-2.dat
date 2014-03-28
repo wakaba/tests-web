@@ -204,3 +204,83 @@ true
 |   <?x ?>
 |   <?y ?>
 | <{} a>
+
+#data
+<!DOCTYPE a[
+  <?a+b ?>
+]><a/>
+#errors
+1;1;no XML decl;;;s
+2;3;xml:dtd:pi;;;w
+#document
+| <!DOCTYPE a>
+|   <?a+b ?>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+  <?a+b ?>
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;3;xml:dtd:pi;;;w
+2;3;xml:not name;;a+b;m
+#document
+| <!DOCTYPE a>
+|   <?a+b ?>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+  <?xml ?>
+]><a/>
+#errors
+1;1;no XML decl;;;s
+2;3;xml:dtd:pi;;;w
+#document
+| <!DOCTYPE a>
+|   <?xml ?>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+  <?xml ?>
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;3;xml:dtd:pi;;;w
+2;3;xml:pi:target:xml;;xml;m
+#document
+| <!DOCTYPE a>
+|   <?xml ?>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+  <?xMl ?>
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;3;xml:dtd:pi;;;w
+2;3;xml:pi:target:xml;;xMl;m
+#document
+| <!DOCTYPE a>
+|   <?xMl ?>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+  <?XML ?>
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;3;xml:dtd:pi;;;w
+2;3;xml:pi:target:xml;;XML;m
+#document
+| <!DOCTYPE a>
+|   <?XML ?>
+| <{} a>

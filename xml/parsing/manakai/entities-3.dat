@@ -1,0 +1,226 @@
+#data
+<!DOCTYPE a [
+  <!ENTITY foo "a%abcd">
+]><a/>
+#errors
+1;1;no XML decl;;;s
+2;23;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo "a&abcd">
+]><a/>
+#errors
+1;1;no XML decl;;;s
+2;23;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo "a&abc;d">
+]><a/>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo "a&abc;d&x">
+]><a/>
+#errors
+1;1;no XML decl;;;s
+2;26;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+<!ENTITY % foo "a&abc;d&x">
+]><a/>
+#errors
+1;1;no XML decl;;;s
+2;26;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo "a&abc@@;d">
+]><a/>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo "a&abc@@;d">
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;19;xml:not name;;abc@@;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo "a abc@@;d">
+  <!ENTITY foo "a&abc@@;d">
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+3;3;duplicate general entity decl;;foo;w
+3;19;xml:not name;;abc@@;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % foo "a abc@@;d">
+  <!ENTITY % foo "a&abc@@;d">
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+3;3;duplicate para entity decl;;foo;w
+3;21;xml:not name;;abc@@;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo "ad">
+  <!ENTITY foo SYSTEM "a" NDATA ab@>
+]><a/>
+#errors
+1;1;no XML decl;;;s
+3;3;duplicate general entity decl;;foo;w
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo "ad">
+  <!ENTITY foo SYSTEM "a" NDATA ab@>
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+3;3;duplicate general entity decl;;foo;w
+3;3;xml:not name;;ab@;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY foo SYSTEM "a" NDATA ab@>
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;3;xml:not name;;ab@;m
+#document
+| <!DOCTYPE a>
+|   <!ENTITY foo "" "" "a" ab@>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY fo+ "a">
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;3;xml:not name;;fo+;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY % fo+ "a">
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;3;xml:not name;;fo+;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY fo+ SYSTEM "a" NDATA aa>
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;3;xml:not name;;fo+;m
+#document
+| <!DOCTYPE a>
+|   <!ENTITY fo+ "" "" "a" aa>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ENTITY fo+ SYSTEM "a" NDATA aa>
+]><a/>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE a>
+|   <!ENTITY fo+ "" "" "a" aa>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+  <!ENTITY hoge PUBLIC "`ab" "">
+]><a/>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+  <!ENTITY hoge PUBLIC "`ab" "">
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;3;xml:pubid:bad char;;`ab;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+  <!ENTITY hoge PUBLIC "ab" "">
+  <!ENTITY hoge PUBLIC "`ab" "">
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+3;3;duplicate general entity decl;;hoge;w
+3;3;xml:pubid:bad char;;`ab;m
+#document
+| <!DOCTYPE a>
+| <{} a>

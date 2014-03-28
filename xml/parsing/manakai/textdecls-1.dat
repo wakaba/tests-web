@@ -1,0 +1,96 @@
+#data
+<!DOCTYPE hoge SYSTEM "http://a/"><hoge/>
+#resource http://a/
+<?xml version="1.0" encoding="utf-8"?>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE hoge "" "http://a/">
+| <{} hoge>
+
+#data
+<!DOCTYPE hoge SYSTEM "http://a/"><hoge/>
+#resource http://a/
+<?xml version="1.1" encoding="utf-8"?>
+#errors
+1;1;no XML decl;;;s
+[1]1;16;xml:version:not 1.0;;1.1;s
+#document
+| <!DOCTYPE hoge "" "http://a/">
+| <{} hoge>
+
+#data
+<!DOCTYPE hoge SYSTEM "http://a/"><hoge/>
+#resource http://a/
+<?xml version="1.00" encoding="utf-8"?>
+#errors
+1;1;no XML decl;;;s
+[1]1;16;xml:version:not 1.0;;1.00;s
+#document
+| <!DOCTYPE hoge "" "http://a/">
+| <{} hoge>
+
+#data
+<!DOCTYPE hoge SYSTEM "http://a/"><hoge/>
+#resource http://a/
+<?xml version="1.1 " encoding="utf-8"?>
+#errors
+1;1;no XML decl;;;s
+[1]1;16;XML version:syntax error;;1.1 ;m
+#document
+| <!DOCTYPE hoge "" "http://a/">
+| <{} hoge>
+
+#data
+<!DOCTYPE hoge SYSTEM "http://a/"><hoge/>
+#resource http://a/
+<?xml version="hoge" encoding="utf-8"?>
+#errors
+1;1;no XML decl;;;s
+[1]1;16;XML version:syntax error;;hoge;m
+#document
+| <!DOCTYPE hoge "" "http://a/">
+| <{} hoge>
+
+#data
+<!DOCTYPE hoge SYSTEM "http://a/"><hoge/>
+#resource http://a/
+<?xml version="2.0" encoding="utf-8"?>
+#errors
+1;1;no XML decl;;;s
+[1]1;16;XML version:syntax error;;2.0;m
+#document
+| <!DOCTYPE hoge "" "http://a/">
+| <{} hoge>
+
+#data
+<!DOCTYPE hoge SYSTEM "http://a/"><hoge/>
+#resource http://a/
+<?xml encoding="utf-8"?>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE hoge "" "http://a/">
+| <{} hoge>
+
+#data
+<!DOCTYPE hoge SYSTEM "http://a/"><hoge/>
+#resource http://a/
+<?xml encoding="1252"?>
+#errors
+1;1;no XML decl;;;s
+[1]1;17;XML encoding:syntax error;;1252;m
+#document
+| <!DOCTYPE hoge "" "http://a/">
+| <{} hoge>
+
+#data
+<!DOCTYPE hoge SYSTEM "http://a/"><hoge/>
+#resource http://a/
+<?xml encoding="!>"?>
+#errors
+1;1;no XML decl;;;s
+[1]1;17;XML encoding:syntax error;;!>;m
+#document
+| <!DOCTYPE hoge "" "http://a/">
+| <{} hoge>
