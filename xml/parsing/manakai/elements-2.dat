@@ -1,0 +1,103 @@
+#data
+<ho+ge/>
+#errors
+1;1;no XML decl;;;s
+#document
+| <{} ho+ge>
+
+#data
+<ho+ge/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;1;xml:not ncname;;ho+ge;m
+#document
+| <{} ho+ge>
+
+#data
+<fuga><ho+ge/></fuga>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;7;xml:not ncname;;ho+ge;m
+#document
+| <{} fuga>
+|   <{} ho+ge>
+
+#data
+<f ho+ge=""/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;4;xml:not ncname;;ho+ge;m
+#document
+| <{} f>
+|   ho+ge=""
+
+#data
+<x><f ho+ge=""/></x>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;7;xml:not ncname;;ho+ge;m
+#document
+| <{} x>
+|   <{} f>
+|     ho+ge=""
+
+#data
+<ho+ge:fuga xmlns:ho+ge="http://x/"/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;1;xml:not ncname;;ho+ge;m
+#document
+| <{http://x/} fuga>
+|   xmlns ho+ge="http://x/"
+
+#data
+<fuga xmlns:ho+ge="http://x/"/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;7;xml:not ncname;;ho+ge;m
+#document
+| <{} fuga>
+|   xmlns ho+ge="http://x/"
+
+#data
+<fuga ho+ge:fuga="" xmlns:ho+ge="http://x/"/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;7;xml:not ncname;;ho+ge;m
+#document
+| <{} fuga>
+|   xmlns ho+ge="http://x/"
+|   {http://x/} fuga=""
+
+#data
+<fuga xmlns:ho:ge="http://x/"/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;7;xml:not ncname;;ho:ge;m
+#document
+| <{} fuga>
+|   xmlns ho:ge="http://x/"
+
+#data
+<fuga:abc:def/>
+#errors
+1;1;no XML decl;;;s
+#document
+| <{} fuga:abc:def>
+
+#data
+<fuga:abc:def/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;1;xml:not ncname;;fuga:abc:def;m
+#document
+| <{} fuga:abc:def>
