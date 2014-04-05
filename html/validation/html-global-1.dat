@@ -768,6 +768,38 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
 /dialog/@tabindex;attribute not allowed:dialog tabindex;m
 
+#data
+<button xmlns="http://www.w3.org/1999/xhtml">
+  <span tabindex="1">aaa</span>
+</button>
+#errors
+/button/span;element not allowed:minus;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml">
+  <em>
+    <audio src="x" tabindex="1">aaa</audio>f
+  </em>
+</button>
+#errors
+/button/em/audio;element not allowed:minus;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml">
+  <hoge tabindex="1" xmlns=""/>a
+</button>
+#errors
+/button/hoge;unknown namespace element;w
+/button/hoge;element not allowed:phrasing;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml">
+  <svg tabindex="1" xmlns="http://www.w3.org/2000/svg"/>a
+</button>
+#errors
+/button/svg;unknown element;u
+/button/svg/@tabindex;attribute not defined;m
+
 #data html
 <!DOCTYPE html>
 <html>
