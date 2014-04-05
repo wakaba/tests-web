@@ -1,0 +1,149 @@
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <menu type="toolbar">
+    <menu>aa</menu>
+  </menu>
+</canvas>
+#errors
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <menu type="popup">
+    <menu>aa</menu>
+  </menu>
+</canvas>
+#errors
+/canvas;no significant content;s
+/canvas/menu/menu/"aa";character not allowed;m
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <input type="checkbox"/>
+</canvas>
+#errors
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <input type="radio" value="x"/>
+</canvas>
+#errors
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <input type="button" value="f"/>
+</canvas>
+#errors
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <input type="submit"/>
+</canvas>
+#errors
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <input type="reset"/>
+</canvas>
+#errors
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <input type="image" src="foo" alt="x" />
+</canvas>
+#errors
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <select multiple=""><option>a</option></select>
+</canvas>
+#errors
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <select size="2"><option>a</option></select>
+</canvas>
+#errors
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <select size="4"><option>a</option></select>
+</canvas>
+#errors
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <select size="1"><option>a</option></select>
+</canvas>
+#errors
+/canvas/select;element not allowed:minus;m
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <span tabindex="4">aa</span>
+</canvas>
+#errors
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <div tabindex="4">
+    <span tabindex="4">aa</span>
+  </div>
+</canvas>
+#errors
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <a href="a">
+    <span tabindex="4">aa</span>
+  </a>
+</canvas>
+#errors
+/canvas/a/span;element not allowed:minus;m
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <details><summary>aa</summary>dd</details>
+</canvas>
+#errors
+/canvas/details;element not allowed:minus;m
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <iframe src="a"></iframe>
+</canvas>
+#errors
+/canvas/iframe;element not allowed:minus;m
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <img src="aa" alt="a"/>
+</canvas>
+#errors
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <object data="gew" >aa</object>
+</canvas>
+#errors
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <object data="gew" usemap="#aa">aa</object>
+  <map name="aa">a</map>
+</canvas>
+#errors
+/canvas/object;element not allowed:minus;m
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <input type="file"/>
+</canvas>
+#errors
+/canvas/input;element not allowed:minus;m
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <video controls="" src="aa">i</video>
+</canvas>
+#errors
+/canvas/video;element not allowed:minus;m
