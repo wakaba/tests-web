@@ -1,0 +1,25 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://x/">
+  <rdf:Description>
+    <hoge>foo</hoge>
+    <hoge xml:lang="en">bar</hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://x/hoge> "foo"
+/RDF/Description/hoge _:g0 <http://x/hoge> "bar"@en
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://x/" xml:lang="fr">
+  <rdf:Description>
+    <hoge>foo</hoge>
+    <hoge xml:lang="">foo</hoge>
+    <hoge xml:lang="en">bar</hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://x/hoge> "foo"@fr
+/RDF/Description/hoge _:g0 <http://x/hoge> "foo"
+/RDF/Description/hoge _:g0 <http://x/hoge> "bar"@en
+#errors

@@ -1,0 +1,35 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+#triples
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="aa">
+  </rdf:Description>
+</rdf:RDF>
+#triples
+#errors
+
+#data
+#triples
+#errors
+/;rdfxml:no root element;;;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="aa">
+    <hoge xmlns="http://x/">aa</hoge>
+  </rdf:Description>
+</rdf:RDF> <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="aa">
+    <hoge xmlns="http://x/">bb</hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge <aa> <http://x/hoge> "aa"
+#errors
+/" ";character not allowed;;;m
+/RDF;second node element;;;m
+#nonrdf
+/RDF

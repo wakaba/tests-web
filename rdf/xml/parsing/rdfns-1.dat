@@ -1,0 +1,39 @@
+#data
+<rdf:DF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#R">
+</rdf:DF>
+#triples
+#errors
+/DF;bad rdf namespace;;;m
+#nonrdf
+
+#data
+<rdf:DF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#R">
+  <rdf:escription rdfa:bout="http://bb/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#D" xmlns:rdfa="http://www.w3.org/1999/02/22-rdf-syntax-ns#a">
+    <hoge xmlns="http://foo/b">aa</hoge>
+  </rdf:escription>
+</rdf:DF>
+#triples
+/DF/escription/hoge <http://bb/> <http://foo/bhoge> "aa"
+#errors
+/DF;bad rdf namespace;;;m
+/DF/escription;bad rdf namespace;;;m
+/DF/escription/@bout;bad rdf namespace;;;m
+#nonrdf
+
+#data
+<rdf:ns#RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-">
+</rdf:ns#RDF>
+#triples
+#errors
+#nonrdf
+
+#data
+<rdf:ns#RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-">
+  <rdf:ns#Description rdf:ns#about="http://xx/">
+    <ho xmlns="http://xx/">aa</ho>
+  </rdf:ns#Description>
+</rdf:ns#RDF>
+#triples
+/ns#RDF/ns#Description/ho <http://xx/> <http://xx/ho> "aa"
+#errors
+#nonrdf

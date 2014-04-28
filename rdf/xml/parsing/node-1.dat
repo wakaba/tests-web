@@ -1,0 +1,88 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:li>aa</rdf:li>
+</rdf:RDF>
+#triples
+/RDF/li _:g0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#li>
+#errors
+/RDF/li;element not allowed;;;m
+/RDF/li/"aa";character not allowed;;;m
+#nonrdf
+/RDF/li/"aa"
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xml:base="http://a/">
+  <rdf:Description rdf:ID="aa">
+    <hoge xmlns="http://f/">bb</hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge <http://a/#aa> <http://f/hoge> "bb"
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xml:base="http://a/">
+  <rdf:Description ID="aa">
+    <hoge xmlns="http://f/">bb</hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge <http://a/#aa> <http://f/hoge> "bb"
+#errors
+/RDF/Description/@ID;unqualified rdf attr;;;s
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xml:base="http://a/">
+  <rdf:Description ID="aa" rdf:ID="aa">
+    <hoge xmlns="http://f/">bb</hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge <http://a/#aa> <http://f/hoge> "bb"
+#errors
+/RDF/Description/@ID;unqualified rdf attr;;;s
+/RDF/Description/@ID;attribute not allowed;;;m
+/RDF/Description/@ID;duplicate unqualified attr;;;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xml:base="http://a/">
+  <rdf:Description rdf:ID="aa" ID="aa">
+    <hoge xmlns="http://f/">bb</hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge <http://a/#aa> <http://f/hoge> "bb"
+#errors
+/RDF/Description/@ID;unqualified rdf attr;;;s
+/RDF/Description/@ID;attribute not allowed;;;m
+/RDF/Description/@ID;duplicate unqualified attr;;;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xml:base="http://a/">
+  <rdf:Description rdf:ID="aa" ID="bb">
+    <hoge xmlns="http://f/">bb</hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge <http://a/#aa> <http://f/hoge> "bb"
+#errors
+/RDF/Description/@ID;unqualified rdf attr;;;s
+/RDF/Description/@ID;attribute not allowed;;;m
+/RDF/Description/@ID;duplicate unqualified attr;;;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description hoge="">
+    <hoge xmlns="http://f/">bb</hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/@hoge _:g0 <hoge> ""
+/RDF/Description/hoge _:g0 <http://f/hoge> "bb"
+#errors
+/RDF/Description/@hoge;unqualified attr;;;m

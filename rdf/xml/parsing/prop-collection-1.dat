@@ -1,0 +1,28 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://hoge/" rdf:parseType="Collection">
+      <!---->aaaa<!---->
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://hoge/hoge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil>
+#errors
+/RDF/Description/hoge/"aaaa";character not allowed;;;m
+#nonrdf
+/RDF/Description/hoge/"aaaa"
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://hoge/" rdf:parseType="Collection">
+      <?aa?>
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://hoge/hoge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil>
+#errors
+#nonrdf
+/RDF/Description/hoge/<?aa?>

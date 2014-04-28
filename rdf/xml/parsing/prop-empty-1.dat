@@ -1,0 +1,58 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/"></hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://a/hoge> ""
+#errors
+#nonrdf
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/"><?aa?></hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://a/hoge> ""
+#errors
+#nonrdf
+/RDF/Description/hoge/<?aa?>
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/"><!--<?aa?>--></hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://a/hoge> ""
+#errors
+#nonrdf
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/">abc<fuga/>b</hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://a/hoge> "abcb"
+#errors
+/RDF/Description/hoge/fuga;element not allowed;;;m
+#nonrdf
+/RDF/Description/hoge/fuga
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/">abc<?aa?>b</hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://a/hoge> "abcb"
+#errors
+#nonrdf
+/RDF/Description/hoge/<?aa?>
