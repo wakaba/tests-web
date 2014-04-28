@@ -9,6 +9,8 @@
 /RDF/li/"aa";character not allowed;;;m
 #nonrdf
 /RDF/li/"aa"
+#attrs
+/RDF/@rdf common
 
 #data
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -20,6 +22,11 @@
 #triples
 /RDF/Description/hoge <http://a/#aa> <http://f/hoge> "bb"
 #errors
+#attrs
+/RDF/@rdf common
+/RDF/@base common
+/RDF/Description/@ID rdf-id
+/RDF/Description/hoge/@xmlns common
 
 #data
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -32,6 +39,11 @@
 /RDF/Description/hoge <http://a/#aa> <http://f/hoge> "bb"
 #errors
 /RDF/Description/@ID;unqualified rdf attr;;;s
+#attrs
+/RDF/@rdf common
+/RDF/@base common
+/RDF/Description/@ID rdf-id
+/RDF/Description/hoge/@xmlns common
 
 #data
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -46,6 +58,12 @@
 /RDF/Description/@ID;unqualified rdf attr;;;s
 /RDF/Description/@ID;attribute not allowed;;;m
 /RDF/Description/@ID;duplicate unqualified attr;;;m
+#attrs
+/RDF/@rdf common
+/RDF/@base common
+/RDF/Description/@ID rdf-id
+/RDF/Description/@ID rdf-id
+/RDF/Description/hoge/@xmlns common
 
 #data
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -60,6 +78,12 @@
 /RDF/Description/@ID;unqualified rdf attr;;;s
 /RDF/Description/@ID;attribute not allowed;;;m
 /RDF/Description/@ID;duplicate unqualified attr;;;m
+#attrs
+/RDF/@rdf common
+/RDF/@base common
+/RDF/Description/@ID rdf-id
+/RDF/Description/@ID rdf-id
+/RDF/Description/hoge/@xmlns common
 
 #data
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -74,6 +98,12 @@
 /RDF/Description/@ID;unqualified rdf attr;;;s
 /RDF/Description/@ID;attribute not allowed;;;m
 /RDF/Description/@ID;duplicate unqualified attr;;;m
+#attrs
+/RDF/@rdf common
+/RDF/@base common
+/RDF/Description/@ID rdf-id
+/RDF/Description/@ID rdf-id
+/RDF/Description/hoge/@xmlns common
 
 #data
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -86,3 +116,7 @@
 /RDF/Description/hoge _:g0 <http://f/hoge> "bb"
 #errors
 /RDF/Description/@hoge;unqualified attr;;;m
+#attrs
+/RDF/@rdf common
+/RDF/Description/@hoge string
+/RDF/Description/hoge/@xmlns common

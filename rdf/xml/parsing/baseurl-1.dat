@@ -7,6 +7,10 @@
 #triples
 /RDF/Description/hoge <about:blank#aa> <http://example/hoge> "foo"
 #errors
+#attrs
+/RDF/@rdf common
+/RDF/Description/@about url
+/RDF/Description/hoge/@xmlns common
 
 #data
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -17,6 +21,10 @@
 #triples
 /RDF/Description/hoge <about:blank> <http://example/hoge> "foo"
 #errors
+#attrs
+/RDF/@rdf common
+/RDF/Description/@about url
+/RDF/Description/hoge/@xmlns common
 
 #data
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -27,6 +35,10 @@
 #triples
 /RDF/Description/hoge <aa> <http://example/hoge> "foo"
 #errors
+#attrs
+/RDF/@rdf common
+/RDF/Description/@about url
+/RDF/Description/hoge/@xmlns common
 
 #data
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xml:base="http://x/d">
@@ -37,3 +49,8 @@
 #triples
 /RDF/Description/hoge <http://x/aa> <http://example/hoge> "foo"
 #errors
+#attrs
+/RDF/@rdf common
+/RDF/@base common
+/RDF/Description/@about url
+/RDF/Description/hoge/@xmlns common

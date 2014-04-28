@@ -5,6 +5,8 @@
 #errors
 /DF;bad rdf namespace;;;m
 #nonrdf
+#attrs
+/DF/@rdf common
 
 #data
 <rdf:DF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#R">
@@ -19,6 +21,12 @@
 /DF/escription;bad rdf namespace;;;m
 /DF/escription/@bout;bad rdf namespace;;;m
 #nonrdf
+#attrs
+/DF/@rdf common
+/DF/escription/@bout url
+/DF/escription/@rdf common
+/DF/escription/@rdfa common
+/DF/escription/hoge/@xmlns common
 
 #data
 <rdf:ns#RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-">
@@ -26,6 +34,8 @@
 #triples
 #errors
 #nonrdf
+#attrs
+/ns#RDF/@rdf common
 
 #data
 <rdf:ns#RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-">
@@ -37,3 +47,7 @@
 /ns#RDF/ns#Description/ho <http://xx/> <http://xx/ho> "aa"
 #errors
 #nonrdf
+#attrs
+/ns#RDF/@rdf common
+/ns#RDF/ns#Description/@ns#about url
+/ns#RDF/ns#Description/ho/@xmlns common
