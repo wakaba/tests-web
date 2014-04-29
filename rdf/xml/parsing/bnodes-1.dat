@@ -1,0 +1,46 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:nodeID="g0">
+    <hoge xmlns="http://ho/"/>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:bg0 <http://ho/hoge> ""
+#errors
+#attrs
+/RDF/@rdf common
+/RDF/Description/@nodeID rdf-id
+/RDF/Description/hoge/@xmlns common
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:nodeID="bg0">
+    <hoge xmlns="http://ho/"/>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:bbg0 <http://ho/hoge> ""
+#errors
+#attrs
+/RDF/@rdf common
+/RDF/Description/@nodeID rdf-id
+/RDF/Description/hoge/@xmlns common
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://foo/"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="g0">
+    <hoge xmlns="http://ho/"/>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://foo/hoge> ""
+/RDF/Description/hoge _:bg0 <http://ho/hoge> ""
+#errors
+#attrs
+/RDF/@rdf common
+/RDF/Description/hoge/@xmlns common
+/RDF/Description/@nodeID rdf-id
+/RDF/Description/hoge/@xmlns common
