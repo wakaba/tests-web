@@ -1,0 +1,88 @@
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aA</title>
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description>
+    </rdf:Description>
+  </rdf:RDF>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aA</title>
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description>
+    </rdf:Description>
+  </rdf:RDF>
+  <base href="http://foio/"/>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aA</title>
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="foo">
+      <foo xmlns="http://a/"/>
+    </rdf:Description>
+  </rdf:RDF>
+  <base href="http://foio/"/>
+</head>
+#errors
+/head/base;basehref after URL attribute;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aA</title>
+  <base href="http://foio/"/>
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="foo">
+      <foo xmlns="http://a/"/>
+    </rdf:Description>
+  </rdf:RDF>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aA</title>
+  <base href="http://foio/[]/"/>
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="foo">
+      <foo xmlns="http://a/"/>
+    </rdf:Description>
+  </rdf:RDF>
+</head>
+#errors
+/head/base/@href;syntax error:iriref3987;m
+/head/RDF/Description/foo;syntax error:iriref3987;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml" xml:base="http://foo/[]/">
+  <title>aA</title>
+  <base href="http://foio/"/>
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="foo">
+      <foo xmlns="http://a/"/>
+    </rdf:Description>
+  </rdf:RDF>
+</head>
+#errors
+/head/RDF/Description/foo;syntax error:iriref3987;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aA</title>
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="foo">
+      <foo xmlns="http://a/"/>
+    </rdf:Description>
+  </rdf:RDF>
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="foo">
+      <foo xmlns="http://a/"/>
+    </rdf:Description>
+  </rdf:RDF>
+</head>
+#errors

@@ -1,0 +1,30 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://foo/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://foo/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"><![CDATA[
+      <p>foo
+    ]]></hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://foo/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"><![CDATA[
+      <r>aa
+    ]]></hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/hoge;element not defined;m
+3;5;/RDF/Description/hoge;no end tag at EOF;r;m

@@ -1,0 +1,59 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="http:/[]"/>
+</rdf:RDF>
+#errors
+/RDF/Description/@about;syntax error:iriref3987;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description about="http:/[]"/>
+</rdf:RDF>
+#errors
+/RDF/Description/@about;syntax error:iriref3987;m
+/RDF/Description/@about;unqualified rdf attr;s
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:resource="http:/[]"/>
+</rdf:RDF>
+#errors
+/RDF/Description/@resource;attribute not allowed;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:type="http:/[]"/>
+</rdf:RDF>
+#errors
+/RDF/Description/@type;syntax error:iriref3987;m
+/RDF/Description/@type;syntax error:iriref3987;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://hopge/" rdf:type="http:/[]"/>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/hoge/@type;syntax error:iriref3987;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://hopge/" rdf:resource="http:/[]"/>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/hoge/@resource;syntax error:iriref3987;m
+/RDF/Description/hoge;syntax error:iriref3987;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://hopge/" rdf:datatype="http:/[]"/>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/hoge/@datatype;syntax error:iriref3987;m
+/RDF/Description/hoge;syntax error:iriref3987;m
+/RDF/Description/hoge;xsd:rdf:non-standard datatype;w

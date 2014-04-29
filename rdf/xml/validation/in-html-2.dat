@@ -1,0 +1,136 @@
+#data
+<video src="x" xmlns="http://www.w3.org/1999/xhtml">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="foo">
+      <t:foo xmlns:t="http://a/" rdf:parseType="Literal">
+        <audio src="y">aa</audio>
+      </t:foo>
+    </rdf:Description>
+  </rdf:RDF>
+  bb
+</video>
+#errors
+/video/RDF;element not allowed:flow;m
+/video/RDF/Description/foo/audio;element not allowed:minus;m
+
+#data
+<video src="x" xmlns="http://www.w3.org/1999/xhtml">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="foo">
+      <t:foo xmlns:t="http://a/" rdf:parseType="Literal">
+        <div><audio src="y">aa</audio>b</div>
+      </t:foo>
+    </rdf:Description>
+  </rdf:RDF>
+  bb
+</video>
+#errors
+/video/RDF;element not allowed:flow;m
+/video/RDF/Description/foo/div/audio;element not allowed:minus;m
+
+#data
+<video src="x" xmlns="http://www.w3.org/1999/xhtml">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="foo">
+      <t:foo xmlns:t="http://a/" rdf:parseType="Literal">
+        <div tabindex="1">aa</div>
+      </t:foo>
+    </rdf:Description>
+  </rdf:RDF>
+  bb
+</video>
+#errors
+/video/RDF;element not allowed:flow;m
+
+#data
+<a href="x" xmlns="http://www.w3.org/1999/xhtml">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="foo">
+      <t:foo xmlns:t="http://a/" rdf:parseType="Literal">
+        <div tabindex="1">aa</div>
+      </t:foo>
+    </rdf:Description>
+  </rdf:RDF>
+  bb
+</a>
+#errors
+/a/RDF;element not allowed:flow;m
+/a/RDF/Description/foo/div;element not allowed:minus;m
+
+#data
+<a href="x" xmlns="http://www.w3.org/1999/xhtml">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="foo">
+      <t:foo xmlns:t="http://a/">
+        aaa
+        <div tabindex="1">aa</div>
+      </t:foo>
+    </rdf:Description>
+  </rdf:RDF>
+  bb
+</a>
+#errors
+/a/RDF;element not allowed:flow;m
+/a/RDF/Description/foo/div;element not allowed;m
+
+#data
+<a href="x" xmlns="http://www.w3.org/1999/xhtml">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="foo">
+      <t:foo xmlns:t="http://a/">
+        aaa
+        <span><div tabindex="1">aa</div></span>
+      </t:foo>
+    </rdf:Description>
+  </rdf:RDF>
+  bb
+</a>
+#errors
+/a/RDF;element not allowed:flow;m
+/a/RDF/Description/foo/span;element not allowed;m
+/a/RDF/Description/foo/span/div;element not allowed:minus;m
+
+#data
+<a href="x" xmlns="http://www.w3.org/1999/xhtml">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="foo">
+      <t:foo xmlns:t="http://a/">
+        aaa <img src="ggf" ismap="" alt="x"/>
+      </t:foo>
+    </rdf:Description>
+  </rdf:RDF>
+  bb
+</a>
+#errors
+/a/RDF;element not allowed:flow;m
+/a/RDF/Description/foo/img;element not allowed;m
+
+#data
+<span xmlns="http://www.w3.org/1999/xhtml">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="foo">
+      <t:foo xmlns:t="http://a/">
+        aaa <img src="ggf" ismap="" alt="x"/>
+      </t:foo>
+    </rdf:Description>
+  </rdf:RDF>
+  bb
+</span>
+#errors
+/span/RDF;element not allowed:phrasing;m
+/span/RDF/Description/foo/img;element not allowed;m
+/span/RDF/Description/foo/img/@ismap;attribute not allowed:ismap;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="foo">
+      <t:foo xmlns:t="http://a/" rdf:parseType="Literal">
+        aaa <input id="hoge"/>
+      </t:foo>
+    </rdf:Description>
+  </rdf:RDF>
+  <label for="hoge">aa</label>
+</div>
+#errors
+/div/RDF;element not allowed:flow;m

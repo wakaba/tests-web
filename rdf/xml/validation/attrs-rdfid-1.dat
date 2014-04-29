@@ -1,0 +1,99 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:ID=""/>
+</rdf:RDF>
+#errors
+/RDF/Description/@ID;rdf-id:syntax error;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description ID=""/>
+</rdf:RDF>
+#errors
+/RDF/Description/@ID;unqualified rdf attr;s
+/RDF/Description/@ID;rdf-id:syntax error;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:ID="hoge"/>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:ID="&#x4e00;&#x6000;"/>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:ID="ab c"/>
+</rdf:RDF>
+#errors
+/RDF/Description/@ID;rdf-id:syntax error;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:ID="124"/>
+</rdf:RDF>
+#errors
+/RDF/Description/@ID;rdf-id:syntax error;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:ID="a:b"/>
+</rdf:RDF>
+#errors
+/RDF/Description/@ID;rdf-id:syntax error;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:ID="_abc"/>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:ID="0"/>
+</rdf:RDF>
+#errors
+/RDF/Description/@ID;rdf-id:syntax error;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:nodeID=""/>
+</rdf:RDF>
+#errors
+/RDF/Description/@nodeID;rdf-id:syntax error;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:nodeID="abc"/>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:nodeID="_aaa"/>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:nodeID="&#x4e00;"/>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:nodeID="a  nb"/>
+</rdf:RDF>
+#errors
+/RDF/Description/@nodeID;rdf-id:syntax error;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:nodeID="a:nb"/>
+</rdf:RDF>
+#errors
+/RDF/Description/@nodeID;rdf-id:syntax error;m
