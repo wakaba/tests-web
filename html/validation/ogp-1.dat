@@ -1,0 +1,62 @@
+#data
+<meta property="og:title" content="hoge" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@property;ogp:missing prop;og:type;m
+
+#data
+<meta property="og:type" content="hoge" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@property;ogp:missing prop;og:title;m
+/meta/@content;ogp:og:type:bad value;m
+
+#data
+<meta property="og:type" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@property;ogp:missing prop;og:title;m
+/meta;attribute missing;content;m
+
+#data
+<meta property="og:type" content="hoge" name="keywords" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@property;ogp:missing prop;og:title;m
+/meta/@content;ogp:og:type:bad value;m
+/meta/@name;metadata:proposed;keywords;w
+/meta/@property;attribute not allowed;m
+
+#data
+<meta property="og:title" content="text/html; charset=utf-8" http-equiv="content-type" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@property;ogp:missing prop;og:type;m
+/meta/@property;attribute not allowed;m
+/meta/@content;in XML:charset;m
+
+#data
+<meta property="og:title" content="hoge" charset="utf-8" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@property;ogp:missing prop;og:type;m
+/meta/@property;attribute not allowed;m
+
+#data
+<meta property="og:title" content="hoge" itemprop="utf-8" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@property;ogp:missing prop;og:type;m
+/meta/@property;attribute not allowed;m
+/meta;microdata:unused itemprop;m
+
+#data
+<meta property="og:title" content="hoge" xmlns="http://www.w3.org/1999/xhtml">
+</meta>
+#errors
+/meta/@property;ogp:missing prop;og:type;m
+
+#data
+<meta property="og:title" content="hoge" xmlns="http://www.w3.org/1999/xhtml">abc</meta>
+#errors
+/meta/@property;ogp:missing prop;og:type;m
+/meta/"abc";character not allowed:empty;m
+
+#data
+<meta property="og:title" content="hoge" xmlns="http://www.w3.org/1999/xhtml"><p>abc</p></meta>
+#errors
+/meta/@property;ogp:missing prop;og:type;m
+/meta/p;element not allowed:empty;m

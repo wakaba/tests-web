@@ -1,0 +1,140 @@
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+  <meta property="hoge" content=""/>
+</head>
+#errors
+/head/meta/@property;ogp:bad property;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+  <meta property="OG:title" content=""/>
+</head>
+#errors
+/head/meta/@property;ogp:private property;w
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:" content=""/>
+</head>
+#errors
+/head/meta/@property;ogp:bad property;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+  <meta property="mixi:hoge" content=""/>
+</head>
+#errors
+/head/meta/@property;ogp:bad property;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+  <meta property="myfoo:hoge" content=""/>
+</head>
+#errors
+/head/meta/@property;ogp:private property;w
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="bb"/>
+</head>
+#errors
+/head/meta/@property;ogp:prop:duplicate;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="bb"/>
+  <meta property="og:image" content="cc"/>
+  <meta property="og:image" content="dd"/>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="bb"/>
+  <meta property="og:image:width" content="315"/>
+  <meta property="og:image" content="cc"/>
+  <meta property="og:image" content="dd"/>
+  <meta property="og:image:width" content="313"/>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:latitude" content="12.411"/>
+</head>
+#errors
+/head/meta/@property;ogp:prop:deprecated;s
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="fitness.course"/>
+  <meta property="fitness:calories" content="12411"/>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+  <meta property="fitness:calories" content="12411"/>
+</head>
+#errors
+/head/meta/@property;ogp:prop:bad og:type;fitness.course;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="product"/>
+  <meta property="product:price:amount" content="12411"/>
+</head>
+#errors
+/head/meta/@property;ogp:missing prop;product:price:currency;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="book.genre"/>
+  <meta property="books:canonical_name" content="hoge"/>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="book.genre"/>
+</head>
+#errors
+/head/meta/@content;ogp:missing prop;books:canonical_name;m

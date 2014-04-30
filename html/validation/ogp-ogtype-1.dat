@@ -1,0 +1,61 @@
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="article"/>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="hoge"/>
+</head>
+#errors
+/head/meta/@content;ogp:og:type:bad value;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="article:foo"/>
+</head>
+#errors
+/head/meta/@content;ogp:og:type:bad value;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="ara3:hhh"/>
+</head>
+#errors
+/head/meta/@content;ogp:og:type:private value;w
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="12:11"/>
+</head>
+#errors
+/head/meta/@content;ogp:og:type:private value;w
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="ara:"/>
+</head>
+#errors
+/head/meta/@content;ogp:og:type:bad value;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="foo.bar"/>
+</head>
+#errors
+/head/meta/@content;ogp:og:type:bad value;m
