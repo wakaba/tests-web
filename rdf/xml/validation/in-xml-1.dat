@@ -1,0 +1,14 @@
+#data
+<foo xml:lang="[]">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description>
+      <hoge xmlns="http://a/"/>
+    </rdf:Description>
+  </rdf:RDF>
+</foo>
+#errors
+/foo;unknown namespace element;w
+/foo/@lang;langtag:language:syntax;m
+/foo/@lang;langtag:language:invalid;m
+/foo/RDF/Description/hoge;langtag:language:invalid;m
+/foo/RDF/Description/hoge;langtag:language:syntax;m

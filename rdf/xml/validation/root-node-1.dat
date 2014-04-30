@@ -1,0 +1,42 @@
+#data
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+</rdf:Description>
+#is-document
+#errors
+/Description;element not defined;m
+/Description;element not allowed:root;m
+
+#data
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+</rdf:Description>
+#is-document
+#mime application/rdf+xml
+#errors
+
+#data
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <hoge xmlns="http://a/"/>
+</rdf:Description>
+#is-document
+#mime application/rdf+xml
+#errors
+
+#data
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <hoge[] xmlns="http://a/"/>
+</rdf:Description>
+#is-document
+#mime application/rdf+xml
+#errors
+/Description/hoge[];syntax error:iriref3987;m
+
+#data
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <hoge xmlns="http://a/" rdf:parseType="Literal">
+    <s>aaa</s>
+  </hoge>
+</rdf:Description>
+#is-document
+#mime application/rdf+xml
+#errors
+/Description/hoge/s;unknown namespace element;w
