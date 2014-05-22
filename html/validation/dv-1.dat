@@ -1,0 +1,48 @@
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://data-vocabulary.org/Event">
+  <span itemprop="endDate">aa</span>
+</div>
+#errors
+/div;microdata:no required itemprop;startDate;m
+/div;microdata:no required itemprop;summary;m
+/div/span;date:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://data-vocabulary.org/Event">
+  <span itemprop="endDate">2012-01-04</span>
+</div>
+#errors
+/div;microdata:no required itemprop;startDate;m
+/div;microdata:no required itemprop;summary;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://data-vocabulary.org/Event">
+  <span itemprop="duration">2012-01-04</span>
+</div>
+#errors
+/div;microdata:no required itemprop;startDate;m
+/div;microdata:no required itemprop;summary;m
+/div/span;duration:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://data-vocabulary.org/Event">
+  <span itemprop="duration">20s</span>
+</div>
+#errors
+/div;microdata:no required itemprop;startDate;m
+/div;microdata:no required itemprop;summary;m
+/div/span;datetime:lowercase designator;w
+/div/span;duration:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://data-vocabulary.org/Event">
+  <span itemprop="duration">P20M10D</span>
+</div>
+#errors
+/div;microdata:no required itemprop;startDate;m
+/div;microdata:no required itemprop;summary;m

@@ -198,3 +198,15 @@ foo &lt;bar
   </entry>
 </feed>
 #errors
+
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21">
+</at:deleted-entry>
+#errors
+/deleted-entry/@when;datetime:syntax error;m
+
+#data
+<at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01">
+</at:deleted-entry>
+#errors
+/deleted-entry/@when;datetime:syntax error;m

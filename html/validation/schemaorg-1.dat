@@ -1,0 +1,115 @@
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://schema.org/Action">
+  <time itemprop="endTime">3012-04-11T00:12:22Z</time>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://schema.org/Action">
+  <time itemprop="endTime">-3012-04-11T00:12:22Z</time>
+</div>
+#errors
+/div/time;datetime:pre-gregorio year;w
+/div/time;datetime:expanded year;w
+/div/time;duration:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://schema.org/CreativeWork">
+  <time itemprop="dateModified">-3012-04-11T00:12:22</time>
+</div>
+#errors
+/div/time;duration:syntax error;m
+/div/time;date:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://schema.org/CreativeWork">
+  <time itemprop="dateModified">-3012-04-11</time>
+</div>
+#errors
+/div/time;duration:syntax error;m
+/div/time;datetime:pre-gregorio year;w
+/div/time;datetime:expanded year;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://schema.org/OpeningHoursSpecification">
+  <time itemprop="opens">-3012-04-11</time>
+</div>
+#errors
+/div/time;duration:syntax error;m
+/div/time;datetime:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://schema.org/OpeningHoursSpecification">
+  <time itemprop="opens">10:20</time>
+</div>
+#errors
+/div/time;datetime:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://schema.org/OpeningHoursSpecification">
+  <span itemprop="opens">10:20</span>
+</div>
+#errors
+/div/span;datetime:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://schema.org/OpeningHoursSpecification">
+  <span itemprop="opens">10:20:21Z</span>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://schema.org/OpeningHoursSpecification">
+  <time itemprop="opens">10:20:30</time>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://schema.org/CivicStructure">
+  <span itemprop="openingHours">sa</span>
+</div>
+#errors
+/div/span;datetime:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://schema.org/CivicStructure">
+  <span itemprop="openingHours">Mo-Sa 12:22-21:00</span>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://schema.org/CreativeWork">
+  <time itemprop="timeRequired">x</time>
+</div>
+#errors
+/div/time;duration:syntax error;m
+/div/time;duration:syntax error;m
+/div/time;datetime:lowercase designator;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://schema.org/CreativeWork">
+  <time itemprop="timeRequired">PT12M</time>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://schema.org/CreativeWork">
+  <time itemprop="timeRequired">21s</time>
+</div>
+#errors
+/div/time;duration:syntax error;m
+/div/time;datetime:lowercase designator;w

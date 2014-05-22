@@ -30,3 +30,16 @@
 <created xmlns="http://purl.org/atom/ns#">2012-01-21T00:21:43.211Z</created>
 #errors
 /created;element:obsolete;m
+
+#data
+<created xmlns="http://purl.org/atom/ns#">2012-01-21T00:21:43<span>.21</span>1Z</created>
+#errors
+/created;element:obsolete;m
+/created/span;element not defined;m
+/created;datetime:syntax error;m
+/created/span;element not allowed:text;m
+
+#data
+<created xmlns="http://purl.org/atom/ns#">2012-01-21</created>
+#errors
+/created;element:obsolete;m

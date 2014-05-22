@@ -518,6 +518,18 @@
 /b;last resort;s
 
 #data
+<time xmlns="http://www.w3.org/1999/xhtml"></time>
+#errors
+/time;duration:syntax error;m
+/time;no significant content;s
+
+#data
+<time xmlns="http://www.w3.org/1999/xhtml">   </time>
+#errors
+/time;duration:syntax error;m
+/time;no significant content;s
+
+#data
 <time xmlns="http://www.w3.org/1999/xhtml">2008-12-23</time>
 #errors
 
@@ -526,11 +538,12 @@
 2008-12-23
 </time>
 #errors
+/time;duration:syntax error;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml">2008-12-23T</time>
 #errors
-/time;dateortime:syntax error;m
+/time;duration:syntax error;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml">14:44:44</time>
@@ -539,16 +552,17 @@
 #data
 <time xmlns="http://www.w3.org/1999/xhtml"> 14:44:44 </time>
 #errors
+/time;duration:syntax error;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml">14:44:44Z</time>
 #errors
-/time;dateortime:syntax error;m
+/time;time:syntax error;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml">2008-12-23T14:44:44 +09:00</time>
 #errors
-/time;dateortime:syntax error;m
+/time;datetime:syntax error;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml">0000-12-23T14:44:44+09:00</time>
@@ -563,7 +577,7 @@
 #data
 <time xmlns="http://www.w3.org/1999/xhtml">2008-12-23T14:44:44+0900</time>
 #errors
-/time;dateortime:syntax error;m
+/time;datetime-local:syntax error;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml">2008-12-23T14:44:44+09:00</time>
@@ -590,17 +604,16 @@
 #data
 <time xmlns="http://www.w3.org/1999/xhtml">2008-12-23 14:44:44Z</time>
 #errors
-/time;dateortime:syntax error;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml">2008-12-23T14:44:44.Z</time>
 #errors
-/time;dateortime:syntax error;m
+/time;datetime:syntax error;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml">2008-12-23T14:44.44Z</time>
 #errors
-/time;dateortime:syntax error;m
+/time;datetime:syntax error;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml">2008-12-23T14:44:44.00Z</time>
@@ -626,46 +639,46 @@
 #data
 <time xmlns="http://www.w3.org/1999/xhtml">2008-12-23&#x3000;14:44:44Z</time>
 #errors
-/time;dateortime:syntax error;m
+/time;datetime:syntax error;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml">2008-12-23&#x0a;14:44:44Z</time>
 #errors
-/time;dateortime:syntax error;m
+/time;duration:syntax error;m
 
 #data
 <?xml version="1.1"?>
 <time xmlns="http://www.w3.org/1999/xhtml">2008-12-23&#x0b;14:44:44Z</time>
 #errors escaped
-/time;dateortime:syntax error;m
+/time;datetime:syntax error;m
 /time/"2008-12-23\u000B14:44:44Z";text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <time xmlns="http://www.w3.org/1999/xhtml">2008-12-23&#x0b;T14:44:44Z</time>
 #errors escaped
-/time;dateortime:syntax error;m
+/time;duration:syntax error;m
 /time/"2008-12-23\u000BT14:44:44Z";text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <time xmlns="http://www.w3.org/1999/xhtml">2008-12-23T&#x0b;14:44:44Z</time>
 #errors escaped
-/time;dateortime:syntax error;m
+/time;duration:syntax error;m
 /time/"2008-12-23T\u000B14:44:44Z";text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <time xmlns="http://www.w3.org/1999/xhtml">2008-12-23 14:44:44&#x0b;Z</time>
 #errors escaped
-/time;dateortime:syntax error;m
+/time;datetime:syntax error;m
 /time/"2008-12-23 14:44:44\u000BZ";text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <time xmlns="http://www.w3.org/1999/xhtml">2008-12-23 14:44:44Z&#x0b;</time>
 #errors escaped
-/time;dateortime:syntax error;m
+/time;datetime-local:syntax error;m
 /time/"2008-12-23 14:44:44Z\u000B";text:bad char;m
 
 #data
@@ -673,6 +686,7 @@
 <time xmlns="http://www.w3.org/1999/xhtml">&#x0b;2008-12-23T14:44:44Z</time>
 #errors escaped
 /time/"\u000B2008-12-23T14:44:44Z";text:bad char;m
+/time;duration:syntax error;m
 
 #data
 <?xml version="1.1"?>
@@ -680,69 +694,70 @@
 #errors escaped
 /time/"\u000B2008-12-23T14:44:44Z\u000B";text:bad char;m
 /time/"\u000B2008-12-23T14:44:44Z\u000B";text:bad char;m
+/time;duration:syntax error;m
 
 #data
 <?xml version="1.1"?>
 <time xmlns="http://www.w3.org/1999/xhtml" datetime="&#x0b;2008-12-23T14:44:44Z">a</time>
 #errors escaped
-/time/@datetime;dateortime:syntax error;m
+/time/@datetime;duration:syntax error;m
 /time/@datetime;text:bad char;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml">2008-12-2314:44:44Z</time>
 #errors
-/time;dateortime:syntax error;m
+/time;datetime:syntax error;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml" datetime="1990-10-10T">Z</time>
 #errors
-/time/@datetime;dateortime:syntax error;m
+/time/@datetime;duration:syntax error;m
 
 #data
 <time datetime="2008-12-23&#x3000;14:44:44Z" xmlns="http://www.w3.org/1999/xhtml">today</time>
 #errors
-/time/@datetime;dateortime:syntax error;m
+/time/@datetime;datetime:syntax error;m
 
 #data
 <?xml version="1.1"?>
 <time datetime="2008-12-23&#x0b;14:44:44Z" xmlns="http://www.w3.org/1999/xhtml">today</time>
 #errors escaped
-/time/@datetime;dateortime:syntax error;m
+/time/@datetime;datetime:syntax error;m
 /time/@datetime;text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <time datetime="2008-12-23T&#x0b;14:44:44Z" xmlns="http://www.w3.org/1999/xhtml">today</time>
 #errors
-/time/@datetime;dateortime:syntax error;m
+/time/@datetime;duration:syntax error;m
 /time/@datetime;text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <time datetime="2008-12-23&#x0b;T14:44:44Z" xmlns="http://www.w3.org/1999/xhtml">today</time>
 #errors
-/time/@datetime;dateortime:syntax error;m
+/time/@datetime;duration:syntax error;m
 /time/@datetime;text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <time datetime="2008-12-23 14:44:44&#x0b;Z" xmlns="http://www.w3.org/1999/xhtml">today</time>
 #errors
-/time/@datetime;dateortime:syntax error;m
+/time/@datetime;datetime:syntax error;m
 /time/@datetime;text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <time datetime="2008-12-23 14:44:44Z&#x0b;" xmlns="http://www.w3.org/1999/xhtml">today</time>
 #errors
-/time/@datetime;dateortime:syntax error;m
+/time/@datetime;datetime-local:syntax error;m
 /time/@datetime;text:bad char;m
 
 #data
 <?xml version="1.1"?>
 <time datetime="&#x0b;2008-12-23 14:44:44Z" xmlns="http://www.w3.org/1999/xhtml">today</time>
 #errors
-/time/@datetime;dateortime:syntax error;m
+/time/@datetime;duration:syntax error;m
 /time/@datetime;text:bad char;m
 
 #data
@@ -767,125 +782,130 @@
 /time/@datetime;datetime:-00:00;m
 
 #data
+<time xmlns="http://www.w3.org/1999/xhtml">1994</time>
+#errors
+
+#data
+<time xmlns="http://www.w3.org/1999/xhtml">0000</time>
+#errors
+/time;datetime:bad year;m
+
+#data
+<time datetime="2012-01" xmlns="http://www.w3.org/1999/xhtml">0000</time>
+#errors
+
+#data
+<time datetime="2012-01" xmlns="http://www.w3.org/1999/xhtml">00<span>0</span>0</time>
+#errors
+
+#data
+<time datetime="2012-01" xmlns="http://www.w3.org/1999/xhtml">00<p>0</p>0</time>
+#errors
+/time/p;element not allowed:phrasing;m
+
+#data
+<time xmlns="http://www.w3.org/1999/xhtml">2012-05-<em>01</em></time>
+#errors
+/time/em;element not allowed:text;m
+
+#data
+<time xmlns="http://www.w3.org/1999/xhtml" datetime="hoge">2012-05-01</time>
+#errors
+/time/@datetime;duration:syntax error;m
+
+#data
 <time xmlns="http://www.w3.org/1999/xhtml">
   <time>2009-12-12T00:00:00Z</time>
 </time>
 #errors
-/time/time;element not allowed:minus;m
+/time;duration:syntax error;m
+/time/time;element not allowed:text;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml"
-    pubdate="">
-  2009-10-10
-</time>
+    pubdate="">2009-10-10</time>
 #errors
 /time/@pubdate;attr:obsolete;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml"
-    pubdate="pubdate">
-  2009-10-10
-</time>
+    pubdate="pubdate">2009-10-10</time>
 #errors
 /time/@pubdate;attr:obsolete;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml"
-    pubdate="PubDate">
-  2009-10-10
-</time>
+    pubdate="PubDate">2009-10-10</time>
 #errors
 /time/@pubdate;attr:obsolete;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml"
-    pubdate="PUBDATE">
-  2009-10-10
-</time>
+    pubdate="PUBDATE">2009-10-10</time>
 #errors
 /time/@pubdate;attr:obsolete;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml"
-    pubdate="  ">
-  2009-10-10
-</time>
+    pubdate="  ">2009-10-10</time>
 #errors
 /time/@pubdate;attr:obsolete;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml"
-    pubdate=" Pub date">
-  2009-10-10
-</time>
+    pubdate=" Pub date">2009-10-10</time>
 #errors
 /time/@pubdate;attr:obsolete;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml"
-    pubdate="true">
-  2009-10-10
-</time>
+    pubdate="true">2009-10-10</time>
 #errors
 /time/@pubdate;attr:obsolete;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml"
-    pubdate="">
-  00:00:00
-</time>
+    pubdate="">00:00:00</time>
 #errors
 /time/@pubdate;attr:obsolete;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml"
-    pubdate="">
-  2009-10-10T00:00:00Z
-</time>
+    pubdate="">2009-10-10T00:00:00Z</time>
 #errors
 /time/@pubdate;attr:obsolete;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml"
-    pubdate="">
-  2009-10-10T00:00
-</time>
+    pubdate="">2009-10-10T00:00</time>
 #errors
 /time/@pubdate;attr:obsolete;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml"
     pubdate=""
-    datetime="2009-10-10T00:00">
-  00:00:00
-</time>
+    datetime="2009-10-10T00:00">00:00:00</time>
 #errors
 /time/@pubdate;attr:obsolete;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml"
     pubdate=""
-    datetime="1000-10-10">
-  00:00:00
-</time>
+    datetime="1000-10-10">00:00:00</time>
 #errors
 /time/@pubdate;attr:obsolete;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml"
     pubdate=""
-    datetime="00:00:00">
-  00:00:00
-</time>
+    datetime="00:00:00">00:00:00</time>
 #errors
 /time/@pubdate;attr:obsolete;m
 
 #data
 <time xmlns="http://www.w3.org/1999/xhtml"
     pubdate=""
-    datetime="00:00">
-  2009-10-10T00:00:00
-</time>
+    datetime="00:00">2009-10-10T00:00:00</time>
 #errors
 /time/@pubdate;attr:obsolete;m
 

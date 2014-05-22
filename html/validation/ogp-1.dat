@@ -60,3 +60,56 @@
 #errors
 /meta/@property;ogp:missing prop;og:type;m
 /meta/p;element not allowed:empty;m
+
+#data
+<meta property="article:modified_time" content="hoge" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@content;datetime:syntax error;m
+/meta/@property;ogp:missing prop;og:type;m
+/meta/@property;ogp:missing prop;og:title;m
+/meta/@property;ogp:prop:bad og:type;article;m
+/meta/@content;datetime:lowercase designator;w
+
+#data
+<meta property="article:modified_time" content="2012-01-21"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@property;ogp:missing prop;og:type;m
+/meta/@property;ogp:missing prop;og:title;m
+/meta/@property;ogp:prop:bad og:type;article;m
+
+#data
+<meta property="article:modified_time" content="2012-01-12T00:12:22Z"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@content;datetime:syntax error;m
+/meta/@property;ogp:missing prop;og:type;m
+/meta/@property;ogp:missing prop;og:title;m
+/meta/@property;ogp:prop:bad og:type;article;m
+
+#data
+<meta property="article:modified_time" content="2012-01-12T00:12:22"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@content;datetime:syntax error;m
+/meta/@property;ogp:missing prop;og:type;m
+/meta/@property;ogp:missing prop;og:title;m
+/meta/@property;ogp:prop:bad og:type;article;m
+
+#data
+<meta property="article:modified_time" content="2012-01-12T00:12"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@property;ogp:missing prop;og:type;m
+/meta/@property;ogp:missing prop;og:title;m
+/meta/@property;ogp:prop:bad og:type;article;m
+
+#data
+<meta property="article:modified_time" content="-2012-01-12T00:12"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@property;ogp:missing prop;og:type;m
+/meta/@property;ogp:missing prop;og:title;m
+/meta/@property;ogp:prop:bad og:type;article;m
+/meta/@content;datetime:expanded year;w
+/meta/@content;datetime:pre-gregorio year;w
