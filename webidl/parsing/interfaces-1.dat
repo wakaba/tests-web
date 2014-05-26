@@ -41,3 +41,19 @@ interface a {
     }
   ]
 }
+
+#data
+interface Foo : Bar {
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "Foo",
+      "super_name": "Bar",
+      "members": []
+    }
+  ]
+}
