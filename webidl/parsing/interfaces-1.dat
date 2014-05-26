@@ -1,0 +1,43 @@
+#data
+interface
+#parsed
+#errors
+9;webidl:parse error;identifier, ;;m
+
+#data
+  interface goo { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 2,
+      "definition_type": "interface",
+      "name": "goo",
+      "members": []
+    }
+  ]
+}
+
+#data
+interface a { 
+  const long bar = 12.44;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "a",
+      "members": [
+        {
+          "index": 17,
+          "member_type": "const",
+          "type": "long",
+          "name": "bar",
+          "value_float": 12.44
+        }
+      ]
+    }
+  ]
+}
