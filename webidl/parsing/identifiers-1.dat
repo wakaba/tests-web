@@ -1,0 +1,135 @@
+#data
+interface __foo {};
+#errors
+10;webidl:parse error;identifier, ;;m
+
+#data
+interface _foo {};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "foo",
+      "members": []
+    }
+  ]
+}
+
+#data
+partial interface _foo {};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "partial": 1,
+      "name": "foo",
+      "members": []
+    }
+  ]
+}
+
+#data
+exception _foo {};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "exception",
+      "name": "foo",
+      "members": []
+    }
+  ]
+}
+
+#data
+dictionary _foo {};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "dictionary",
+      "name": "foo",
+      "members": []
+    }
+  ]
+}
+
+#data
+partial  dictionary _foo {};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "partial": 1,
+      "definition_type": "dictionary",
+      "name": "foo",
+      "members": []
+    }
+  ]
+}
+
+#data
+enum
+_foo {"abd"};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "enum",
+      "name": "foo",
+      "value_strings": ["abd"]
+    }
+  ]
+}
+
+#data
+callback _foo = void ();
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "callback",
+      "name": "foo",
+      "type": "void",
+      "arguments": []
+    }
+  ]
+}
+
+#data
+callback interface _foo {};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "callback": 1,
+      "name": "foo",
+      "members": []
+    }
+  ]
+}
+
+#data
+typedef Hoge _foo;
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "typedef",
+      "name": "foo",
+      "type_name": "Hoge"
+    }
+  ]
+}

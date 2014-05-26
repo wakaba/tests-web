@@ -57,3 +57,24 @@ interface Foo : Bar {
     }
   ]
 }
+
+#data
+interface A {};
+interface B {};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": []
+    },
+    {
+      "index": 16,
+      "definition_type": "interface",
+      "name": "B",
+      "members": []
+    }
+  ]
+}
