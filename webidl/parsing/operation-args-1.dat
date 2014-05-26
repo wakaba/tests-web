@@ -1,0 +1,212 @@
+#data
+interface A {
+  void foo (long... hh);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "name": "foo",
+          "type": "void",
+          "arguments": [
+            {
+              "index": 26,
+              "name": "hh",
+              "type": "long",
+              "variadic": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  void foo (long... hh, long foo);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "name": "foo",
+          "type": "void",
+          "arguments": [
+            {
+              "index": 26,
+              "name": "hh",
+              "type": "long",
+              "variadic": 1
+            },
+            {
+              "index": 38,
+              "name": "foo",
+              "type": "long"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  void foo (optional/**/long hh);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "name": "foo",
+          "type": "void",
+          "arguments": [
+            {
+              "index": 26,
+              "name": "hh",
+              "type": "long",
+              "optional": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  void foo (optional/**/long hh//
+,Fuga bar);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "name": "foo",
+          "type": "void",
+          "arguments": [
+            {
+              "index": 26,
+              "name": "hh",
+              "type": "long",
+              "optional": 1
+            },
+            {
+              "index": 49,
+              "name": "bar",
+              "type_name": "Fuga"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  void foo (optional long hh = 30);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "name": "foo",
+          "type": "void",
+          "arguments": [
+            {
+              "index": 26,
+              "name": "hh",
+              "type": "long",
+              "optional": 1,
+              "value_integer": 30
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  void foo (optional DOMString hh = "abc");
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "name": "foo",
+          "type": "void",
+          "arguments": [
+            {
+              "index": 26,
+              "name": "hh",
+              "type": "DOMString",
+              "optional": 1,
+              "value_string": "abc"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  void foo ( long hh = 30);
+};
+#errors
+35;webidl:parse error;,, ;;m
+
+#data
+interface A {
+  void foo ( long... hh = 30);
+};
+#errors
+38;webidl:parse error;,, ;;m

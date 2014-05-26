@@ -1,0 +1,117 @@
+#data
+interface A {
+  getter getter  boolean hoge ();
+};
+#errors
+23;webidl:duplicate keyword;;getter;m
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "getter": 1,
+          "name": "hoge",
+          "type": "boolean",
+          "arguments": []
+        }
+      ]    
+    }
+  ]
+}
+
+#data
+interface A {
+  getter creator getter  boolean hoge ();
+};
+#errors
+23;webidl:duplicate keyword;;getter;m
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "creator": 1,
+          "getter": 1,
+          "name": "hoge",
+          "type": "boolean",
+          "arguments": []
+        }
+      ]    
+    }
+  ]
+}
+
+#data
+interface A {
+  stringifier;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "stringifier": 1,
+          "type": "DOMString",
+          "arguments": []
+        }
+      ]    
+    }
+  ]
+}
+
+#data
+interface A {
+  serializer  boolean hoge ();
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "serializer": 1,
+          "name": "hoge",
+          "type": "boolean",
+          "arguments": []
+        }
+      ]    
+    }
+  ]
+}
+
+#data
+interface A {
+  deleter  serializer  boolean hoge ();
+};
+#errors
+25;webidl:parse error;getter, ;;m
+
+#data
+interface A {
+  serializer getter boolean hoge ();
+};
+#errors
+27;webidl:parse error;unsigned, ;;m

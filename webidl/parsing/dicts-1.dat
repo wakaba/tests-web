@@ -1,0 +1,30 @@
+#data
+dictionary  D1 {
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "dictionary",
+      "name": "D1",
+      "members": []
+    }
+  ]
+}
+
+#data
+dictionary  D1 : D2 {
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "dictionary",
+      "name": "D1",
+      "super_name": "D2",
+      "members": []
+    }
+  ]
+}
