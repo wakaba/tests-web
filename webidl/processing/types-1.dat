@@ -1,0 +1,183 @@
+#data
+typedef long Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": "long"
+  }]
+}
+
+#data
+typedef unsigned long Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": "unsigned long"
+  }]
+}
+
+#data
+typedef unrestricted double Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": "unrestricted double"
+  }]
+}
+
+#data
+typedef unrestricted double ? Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", "unrestricted double"]
+  }]
+}
+
+#data
+typedef unsigned long[ ] Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["array", "unsigned long"]
+  }]
+}
+
+#data
+typedef unsigned long[ ][] Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["array", ["array", "unsigned long"]]
+  }]
+}
+
+#data
+typedef unsigned long[ ][]? Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", ["array", ["array", "unsigned long"]]]
+  }]
+}
+
+#data
+typedef unsigned long[ ]?[] Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["array", ["nullable", ["array", "unsigned long"]]]
+  }]
+}
+
+#data
+typedef unsigned long?[ ][] Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["array", ["array", ["nullable", "unsigned long"]]]
+  }]
+}
+
+#data
+typedef Fuga Hoge;
+#errors
+1;0;webidl:not defined;;Fuga;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["ref", "Fuga"]
+  }]
+}
+
+#data
+typedef Fuga? Hoge;
+#errors
+1;0;webidl:not defined;;Fuga;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", ["ref", "Fuga"]]
+  }]
+}
+
+#data
+typedef Fuga?[] Hoge;
+#errors
+1;0;webidl:not defined;;Fuga;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["array", ["nullable", ["ref", "Fuga"]]]
+  }]
+}
+
+#data
+typedef Fuga?[]? Hoge;
+#errors
+1;0;webidl:not defined;;Fuga;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", ["array", ["nullable", ["ref", "Fuga"]]]]
+  }]
+}
+
+#data
+typedef sequence<long> Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["sequence", "long"]
+  }]
+}
+
+#data
+typedef sequence<long?> Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["sequence", ["nullable", "long"]]
+  }]
+}
+
+#data
+typedef sequence<long[]> Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["sequence", ["array", "long"]]
+  }]
+}
+
+#data
+typedef sequence<sequence<long>> Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["sequence", ["sequence", "long"]]
+  }]
+}
+
+#data
+typedef sequence<sequence<long>?> Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["sequence", ["nullable", ["sequence", "long"]]]
+  }]
+}
+
+#data
+callback hoge = sequence<sequence<long>?>? ();
+#processed
+{
+  "hoge": ["callback", {
+    "overload_set": {
+      "": {
+        "type": ["nullable", ["sequence", ["nullable", ["sequence", "long"]]]],
+        "args": []
+      }
+    }
+  }]
+}

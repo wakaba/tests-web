@@ -1,0 +1,57 @@
+#data
+partial interface  A {};
+#errors
+1;0;webidl:not defined;;A;m
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+partial interface A {};
+#data
+interface A {};
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+partial interface A {};
+partial interface A {};
+partial interface A {};
+#data
+interface A {};
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+partial dictionary  A {};
+#errors
+1;0;webidl:not defined;;A;m
+#processed
+{
+  "A": ["dictionary", {"members": {}}]
+}
+
+#data
+partial dictionary A {};
+#data
+dictionary A {};
+#processed
+{
+  "A": ["dictionary", {"members": {}}]
+}
+
+#data
+partial dictionary A {};
+#data
+dictionary A {};
+partial dictionary A {};
+partial dictionary A {};
+#processed
+{
+  "A": ["dictionary", {"members": {}}]
+}

@@ -1,0 +1,118 @@
+#data
+interface A {
+  attribute long foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {"type": "long", "getter": 1, "setter": 1}]
+    }
+  }]
+}
+
+#data
+interface A {
+  attribute long foo;
+};
+partial interface A {
+  readonly attribute octet bar;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {"type": "long", "getter": 1, "setter": 1}],
+      "bar": ["attribute", {"type": "octet", "getter": 1}]
+    }
+  }]
+}
+
+#data
+interface A {
+  attribute long foo;
+};
+partial interface A {
+  readonly attribute octet foo;
+};
+#errors
+1;63;webidl:duplicate;;foo;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {"type": "long", "getter": 1, "setter": 1}]
+    }
+  }]
+}
+
+#data
+interface A {
+  attribute long foo;
+  readonly attribute octet foo;
+};
+#errors
+1;38;webidl:duplicate;;foo;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {"type": "long", "getter": 1, "setter": 1}]
+    }
+  }]
+}
+
+#data
+interface A {
+  attribute long foo;
+  const octet foo = 12;
+};
+#errors
+1;38;webidl:duplicate;;foo;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {"type": "long", "getter": 1, "setter": 1}]
+    }
+  }]
+}
+
+#data
+interface A {
+  const long foo  = 31;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["const", {"type": "long", "value": ["integer", 31]}]
+    }
+  }]
+}
+
+#data
+interface A {
+  const double foo  = 31.4;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["const", {"type": "double", "value": ["float", 31.4]}]
+    }
+  }]
+}
+
+#data
+interface A {
+  const unrestricted double foo  =  NaN;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["const", {"type": "unrestricted double", "value": "NaN"}]
+    }
+  }]
+}

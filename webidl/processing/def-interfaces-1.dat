@@ -1,0 +1,15 @@
+#data
+interface A { };
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+interface A { };
+interface B {};
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {}}]
+}
