@@ -1,0 +1,22 @@
+#data
+typedef sequence<DOMString> A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_parameterized": {
+    "type_outer": "sequence",
+    "type": "DOMString"
+  }
+} ] }
+
+#data
+typedef sequence<DOMString ?> A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_parameterized": {
+    "type_outer": "sequence",
+    "type": "DOMString",
+    "type_nullable": 1
+  }
+} ] }

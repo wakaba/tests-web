@@ -1,0 +1,121 @@
+#data
+typedef DOMString [] A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type": "DOMString",
+  "type_array": {
+  }
+} ] }
+
+#data
+typedef DOMString? [] A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type": "DOMString",
+  "type_nullable": 1,
+  "type_array": {
+  }
+} ] }
+
+#data
+typedef DOMString [] ? A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type": "DOMString",
+  "type_array": {
+    "type_nullable": 1
+  }
+} ] }
+
+#data
+typedef DOMString [] [] A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type": "DOMString",
+  "type_array": {
+    "type_array": {
+    }
+  }
+} ] }
+
+#data
+typedef DOMString [] ? [] A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type": "DOMString",
+  "type_array": {
+    "type_nullable": 1,
+    "type_array": {
+    }
+  }
+} ] }
+
+#data
+typedef DOMString [] ? [] ? A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type": "DOMString",
+  "type_array": {
+    "type_nullable": 1,
+    "type_array": {
+      "type_nullable": 1
+    }
+  }
+} ] }
+
+#data
+typedef DOMString [] ? ? A;
+#errors
+23;webidl:parse error;[, ;;m
+
+#data
+typedef DOMString [] ? [] ? [] A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type": "DOMString",
+  "type_array": {
+    "type_nullable": 1,
+    "type_array": {
+      "type_nullable": 1,
+      "type_array": {}
+    }
+  }
+} ] }
+
+#data
+typedef long [] A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type": "long",
+  "type_array": {
+  }
+} ] }
+
+#data
+typedef any [] A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type": "any",
+  "type_array": {
+  }
+} ] }
+
+#data
+typedef any [] ? A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type": "any",
+  "type_array": {
+    "type_nullable": 1
+  }
+} ] }
