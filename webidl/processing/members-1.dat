@@ -439,3 +439,297 @@ interface A {
     }]
   }}]
 }
+
+#data
+interface A {
+  serializer;
+};
+#processed
+{
+  "A": ["interface", {
+    "serializer": ["serializer", {
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  attribute DOMString abc;
+  serializer = { abc };
+};
+#processed
+{
+  "A": ["interface", {
+    "serializer": ["serializer", {"value": ["map",
+      ["attrref", "abc"]
+    ]}],
+    "members": {
+      "abc": ["attribute", {"type": "DOMString", "getter":1, "setter": 1}]
+    }
+  }]
+}
+
+#data
+interface A {
+  attribute DOMString abc;
+  attribute DOMString def;
+  serializer = { abc, def };
+};
+#processed
+{
+  "A": ["interface", {
+    "serializer": ["serializer", {"value": ["map",
+      ["attrref", "abc"],
+      ["attrref", "def"]
+    ]}],
+    "members": {
+      "abc": ["attribute", {"type": "DOMString", "getter":1, "setter": 1}],
+      "def": ["attribute", {"type": "DOMString", "getter":1, "setter": 1}]
+    }
+  }]
+}
+
+#data
+interface A {
+  attribute DOMString abc;
+  attribute DOMString def;
+  serializer = [ abc, def ];
+};
+#processed
+{
+  "A": ["interface", {
+    "serializer": ["serializer", {"value": ["list",
+      ["attrref", "abc"],
+      ["attrref", "def"]
+    ]}],
+    "members": {
+      "abc": ["attribute", {"type": "DOMString", "getter":1, "setter": 1}],
+      "def": ["attribute", {"type": "DOMString", "getter":1, "setter": 1}]
+    }
+  }]
+}
+
+#data
+interface B { serializer = { attribute } ; };
+interface A : B {
+  serializer = { inherit };
+};
+#processed
+{
+  "B": ["interface", {
+    "serializer": ["serializer", {"value": ["map", "attribute"]}],
+    "members": {}
+  }],
+  "A": ["interface", {
+    "serializer": ["serializer", {"value": ["map",
+      "inherit"
+    ]}],
+    "members": {}
+  }]
+}
+
+#data
+interface B { serializer = {  } ; };
+interface A : B {
+  serializer = { inherit };
+};
+#processed
+{
+  "B": ["interface", {
+    "serializer": ["serializer", {"value": ["map"]}],
+    "members": {}
+  }],
+  "A": ["interface", {
+    "serializer": ["serializer", {"value": ["map",
+      "inherit"
+    ]}],
+    "members": {}
+  }]
+}
+
+#data
+interface B { serializer = { attribute } ; };
+interface A : B {
+  attribute DOMString def;
+  serializer = { inherit, def };
+};
+#processed
+{
+  "B": ["interface", {
+    "serializer": ["serializer", {"value": ["map", "attribute"]}],
+    "members": {}
+  }],
+  "A": ["interface", {
+    "serializer": ["serializer", {"value": ["map",
+      "inherit",
+      ["attrref", "def"]
+    ]}],
+    "members": {
+      "def": ["attribute", {"type": "DOMString", "getter":1, "setter": 1}]
+    }
+  }]
+}
+
+#data
+interface B { serializer = { attribute } ; };
+interface A : B {
+  serializer = { inherit, attribute };
+};
+#processed
+{
+  "B": ["interface", {
+    "serializer": ["serializer", {"value": ["map", "attribute"]}],
+    "members": {}
+  }],
+  "A": ["interface", {
+    "serializer": ["serializer", {"value": ["map",
+      "inherit", "attribute"
+    ]}],
+    "members": {}
+  }]
+}
+
+#data
+interface B {
+  serializer = { getter } ;
+};
+#processed
+{
+  "B": ["interface", {
+    "serializer": ["serializer", {"value": ["map", "getter"]}],
+    "members": {}
+  }]
+}
+
+#data
+interface B {
+  serializer = [ getter ];
+};
+#processed
+{
+  "B": ["interface", {
+    "serializer": ["serializer", {"value": ["list", "getter"]}],
+    "members": {}
+  }]
+}
+
+#data
+interface B {
+  attribute DOMString foo;
+  serializer = foo;
+};
+#processed
+{
+  "B": ["interface", {
+    "serializer": ["serializer", {"value": ["attrref", "foo"]}],
+    "members": {
+      "foo": ["attribute", {"type": "DOMString", "getter": 1, "setter": 1}]
+    }
+  }]
+}
+
+#data
+interface A {
+  serializer;
+  serializer;
+};
+#errors
+1;30;webidl:duplicate;;serializer;m
+#processed
+{
+  "A": ["interface", {
+    "serializer": ["serializer", {}],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  serializer DOMString ();
+};
+#processed
+{
+  "A": ["interface", {
+    "serializer": ["operation", {
+      "overloadSet": {
+        "": {"type": "DOMString", "args": []}
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  serializer DOMString (long foo);
+};
+#errors
+1;16;webidl:bad args;;serializer;m
+#processed
+{
+  "A": ["interface", {
+    "serializer": ["operation", {
+      "overloadSet": {
+        "long": {"type": "DOMString", "args": [
+          {"name": "foo", "type": "long", "optionality": "required"}
+        ]}
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  serializer DOMString (long foo);
+  serializer;
+};
+#errors
+1;16;webidl:bad args;;serializer;m
+1;16;webidl:duplicate;;serializer;m
+#processed
+{
+  "A": ["interface", {
+    "serializer": ["serializer", {}],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  serializer;
+  serializer DOMString (long foo);
+};
+#errors
+1;30;webidl:bad args;;serializer;m
+1;30;webidl:duplicate;;serializer;m
+#processed
+{
+  "A": ["interface", {
+    "serializer": ["serializer", {}],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  serializer DOMString ();
+  serializer DOMString (long foo);
+};
+#errors
+1;43;webidl:bad args;;serializer;m
+#processed
+{
+  "A": ["interface", {
+    "serializer": ["operation", {
+      "overloadSet": {
+        "": {"type": "DOMString", "args": []},
+        "long": {"type": "DOMString", "args": [
+          {"name": "foo", "type": "long", "optionality": "required"}
+        ]}
+      }
+    }],
+    "members": {}
+  }]
+}

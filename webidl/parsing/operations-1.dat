@@ -20,3 +20,27 @@ interface A {
     }
   ]
 }
+
+#data
+interface A {
+  serializer DOMString ();
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "type": "DOMString",
+          "serializer": 1,
+          "arguments": []
+        }
+      ]
+    }
+  ]
+}

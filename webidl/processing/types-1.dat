@@ -181,3 +181,186 @@ callback hoge = sequence<sequence<long>?>? ();
     }
   }]
 }
+
+#data
+interface A { 
+  legacycaller Promise ();
+};
+#errors
+1;17;webidl:bad type;;Promise;m
+#processed
+{
+  "A": ["interface", {
+    "legacycaller": ["operation", {
+      "overloadSet": {"": {"type": "Promise", "args": []}}
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A { 
+  legacycaller Promise<long> ();
+};
+#errors
+1;17;webidl:bad type;;Promise[long];m
+#processed
+{
+  "A": ["interface", {
+    "legacycaller": ["operation", {
+      "overloadSet": {"": {"type": ["Promise", "long"], "args": []}}
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A { 
+  stringifier;
+};
+#processed
+{
+  "A": ["interface", {
+    "stringifier": ["operation", {
+      "overloadSet": {"": {"type": "DOMString", "args": []}}
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A { 
+  stringifier DOMString ();
+};
+#processed
+{
+  "A": ["interface", {
+    "stringifier": ["operation", {
+      "overloadSet": {"": {"type": "DOMString", "args": []}}
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A { 
+  stringifier DOMString hoge ();
+};
+#processed
+{
+  "A": ["interface", {
+    "stringifier": ["operation", {
+      "overloadSet": {"": {"type": "DOMString", "args": []}}
+    }],
+    "members": {
+      "hoge": ["operation", {
+        "overloadSet": {"": {"type": "DOMString", "args": []}}
+      }]
+    }
+  }]
+}
+
+#data
+interface A { 
+  stringifier long hoge ();
+};
+#errors
+1;17;webidl:bad type;;long;m
+#processed
+{
+  "A": ["interface", {
+    "stringifier": ["operation", {
+      "overloadSet": {"": {"type": "long", "args": []}}
+    }],
+    "members": {
+      "hoge": ["operation", {
+        "overloadSet": {"": {"type": "long", "args": []}}
+      }]
+    }
+  }]
+}
+
+#data
+interface A { 
+  stringifier DOMString hoge (long foo);
+};
+#errors
+1;17;webidl:bad args;;stringifier;m
+#processed
+{
+  "A": ["interface", {
+    "stringifier": ["operation", {
+      "overloadSet": {"long": {"type": "DOMString", "args": [{"type":"long","name":"foo","optionality":"required"}]}}
+    }],
+    "members": {
+      "hoge": ["operation", {
+        "overloadSet": {"long": {"type": "DOMString", "args": [{"type":"long","name":"foo","optionality":"required"}]}}
+      }]
+    }
+  }]
+}
+
+#data
+interface A { 
+  stringifier DOMString hoge (optional long foo);
+};
+#errors
+1;17;webidl:bad args;;stringifier;m
+#processed
+{
+  "A": ["interface", {
+    "stringifier": ["operation", {
+      "overloadSet": {
+        "": {"type": "DOMString", "args": []},
+        "long": {"type": "DOMString", "args": [{"type":"long","name":"foo","optionality":"optional"}]}
+      }
+    }],
+    "members": {
+      "hoge": ["operation", {
+        "overloadSet": {
+          "": {"type": "DOMString", "args": []},
+          "long": {"type": "DOMString", "args": [{"type":"long","name":"foo","optionality":"optional"}]}
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A { 
+  stringifier DOMString ();
+  stringifier DOMString ();
+};
+#errors
+1;45;webidl:not distinguishable;;;m
+#processed
+{
+  "A": ["interface", {
+    "stringifier": ["operation", {
+      "overloadSet": {"": {"type": "DOMString", "args": []}}
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A { 
+  stringifier DOMString ();
+  stringifier DOMString (long foo);
+};
+#errors
+1;45;webidl:bad args;;stringifier;m
+#processed
+{
+  "A": ["interface", {
+    "stringifier": ["operation", {
+      "overloadSet": {
+        "": {"type": "DOMString", "args": []},
+        "long": {"type": "DOMString", "args": [
+          {"name": "foo", "type": "long", "optionality": "required"}
+        ]}
+      }
+    }],
+    "members": {}
+  }]
+}
