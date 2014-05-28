@@ -733,3 +733,566 @@ interface A {
     "members": {}
   }]
 }
+
+#data
+interface  A  {
+  getter A (unsigned long b);
+};
+#processed
+{
+  "A": ["interface", {
+    "indexedGetter": ["operation", {
+      "overloadSet": {
+        "unsigned long": {
+          "type": ["ref", "A"],
+          "args": [{"name": "b", "type": "unsigned long", "optionality": "required"}]
+        }
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface  A  {
+  getter A (DOMString b);
+};
+#processed
+{
+  "A": ["interface", {
+    "namedGetter": ["operation", {
+      "overloadSet": {
+        "DOMString": {
+          "type": ["ref", "A"],
+          "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface  A  {
+  getter A (unsigned long c);
+  getter A (DOMString b);
+};
+#processed
+{
+  "A": ["interface", {
+    "indexedGetter": ["operation", {
+      "overloadSet": {
+        "unsigned long": {
+          "type": ["ref", "A"],
+          "args": [{"name": "c", "type": "unsigned long", "optionality": "required"}]
+        }
+      }
+    }],
+    "namedGetter": ["operation", {
+      "overloadSet": {
+        "DOMString": {
+          "type": ["ref", "A"],
+          "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface  A  {
+  getter A (unsigned long c);
+  getter A (DOMString b);
+  getter A ();
+};
+#errors
+1;74;webidl:bad args;;;m
+1;74;webidl:no name operation;;;m
+#processed
+{
+  "A": ["interface", {
+    "indexedGetter": ["operation", {
+      "overloadSet": {
+        "unsigned long": {
+          "type": ["ref", "A"],
+          "args": [{"name": "c", "type": "unsigned long", "optionality": "required"}]
+        }
+      }
+    }],
+    "namedGetter": ["operation", {
+      "overloadSet": {
+        "DOMString": {
+          "type": ["ref", "A"],
+          "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface  A  {
+  getter A (DOMString b, long hoge);
+};
+#processed
+{
+  "A": ["interface", {
+    "namedGetter": ["operation", {
+      "overloadSet": {
+        "DOMString,long": {
+          "type": ["ref", "A"],
+          "args": [
+            {"name": "b", "type": "DOMString", "optionality": "required"},
+            {"name": "hoge", "type": "long", "optionality": "required"}
+          ]
+        }
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface  A  {
+  getter A (unsigned long c);
+  getter A (DOMString b);
+  deleter A (unsigned long d);
+  deleter A (DOMString e);
+};
+#processed
+{
+  "A": ["interface", {
+    "indexedGetter": ["operation", {
+      "overloadSet": {
+        "unsigned long": {
+          "type": ["ref", "A"],
+          "args": [{"name": "c", "type": "unsigned long", "optionality": "required"}]
+        }
+      }
+    }],
+    "namedGetter": ["operation", {
+      "overloadSet": {
+        "DOMString": {
+          "type": ["ref", "A"],
+          "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }],
+    "indexedDeleter": ["operation", {
+      "overloadSet": {
+        "unsigned long": {
+          "type": ["ref", "A"],
+          "args": [{"name": "d", "type": "unsigned long", "optionality": "required"}]
+        }
+      }
+    }],
+    "namedDeleter": ["operation", {
+      "overloadSet": {
+        "DOMString": {
+          "type": ["ref", "A"],
+          "args": [{"name": "e", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  getter deleter DOMString ();
+};
+#errors
+1;16;webidl:bad args;;;m
+1;16;webidl:no name operation;;;m
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+interface  A  {
+  getter A (unsigned long c);
+  getter A (DOMString b);
+  setter A (unsigned long d, long foo);
+  setter A (DOMString e, long foo);
+};
+#processed
+{
+  "A": ["interface", {
+    "indexedGetter": ["operation", {
+      "overloadSet": {
+        "unsigned long": {
+          "type": ["ref", "A"],
+          "args": [{"name": "c", "type": "unsigned long", "optionality": "required"}]
+        }
+      }
+    }],
+    "namedGetter": ["operation", {
+      "overloadSet": {
+        "DOMString": {
+          "type": ["ref", "A"],
+          "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }],
+    "indexedSetter": ["operation", {
+      "overloadSet": {
+        "unsigned long,long": {
+          "type": ["ref", "A"],
+          "args": [{"name": "d", "type": "unsigned long", "optionality": "required"},
+                   {"name": "foo", "type": "long", "optionality": "required"}]
+        }
+      }
+    }],
+    "namedSetter": ["operation", {
+      "overloadSet": {
+        "DOMString,long": {
+          "type": ["ref", "A"],
+          "args": [{"name": "e", "type": "DOMString", "optionality": "required"},
+                   {"name": "foo", "type": "long", "optionality": "required"}]
+        }
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface  A  {
+  getter A (unsigned long c);
+  getter A (DOMString b);
+  creator A (unsigned long d, long foo);
+  creator A (DOMString e, long foo);
+};
+#processed
+{
+  "A": ["interface", {
+    "indexedGetter": ["operation", {
+      "overloadSet": {
+        "unsigned long": {
+          "type": ["ref", "A"],
+          "args": [{"name": "c", "type": "unsigned long", "optionality": "required"}]
+        }
+      }
+    }],
+    "namedGetter": ["operation", {
+      "overloadSet": {
+        "DOMString": {
+          "type": ["ref", "A"],
+          "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }],
+    "indexedCreator": ["operation", {
+      "overloadSet": {
+        "unsigned long,long": {
+          "type": ["ref", "A"],
+          "args": [{"name": "d", "type": "unsigned long", "optionality": "required"},
+                   {"name": "foo", "type": "long", "optionality": "required"}]
+        }
+      }
+    }],
+    "namedCreator": ["operation", {
+      "overloadSet": {
+        "DOMString,long": {
+          "type": ["ref", "A"],
+          "args": [{"name": "e", "type": "DOMString", "optionality": "required"},
+                   {"name": "foo", "type": "long", "optionality": "required"}]
+        }
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface  A  {
+  getter A (unsigned long c);
+  getter A (DOMString b);
+  setter A (unsigned long d, long foo,DOMString a);
+  setter A (DOMString e, long foo, DOMString a);
+};
+#processed
+{
+  "A": ["interface", {
+    "indexedGetter": ["operation", {
+      "overloadSet": {
+        "unsigned long": {
+          "type": ["ref", "A"],
+          "args": [{"name": "c", "type": "unsigned long", "optionality": "required"}]
+        }
+      }
+    }],
+    "namedGetter": ["operation", {
+      "overloadSet": {
+        "DOMString": {
+          "type": ["ref", "A"],
+          "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }],
+    "indexedSetter": ["operation", {
+      "overloadSet": {
+        "unsigned long,long,DOMString": {
+          "type": ["ref", "A"],
+          "args": [{"name": "d", "type": "unsigned long", "optionality": "required"},
+                   {"name": "foo", "type": "long", "optionality": "required"},
+                   {"name": "a", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }],
+    "namedSetter": ["operation", {
+      "overloadSet": {
+        "DOMString,long,DOMString": {
+          "type": ["ref", "A"],
+          "args": [{"name": "e", "type": "DOMString", "optionality": "required"},
+                   {"name": "foo", "type": "long", "optionality": "required"},
+                   {"name": "a", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface  A  {
+  getter A (unsigned long c);
+  getter A (DOMString b);
+  creator A (unsigned long d, long foo,DOMString a);
+  creator A (DOMString e, long foo,DOMString a);
+};
+#processed
+{
+  "A": ["interface", {
+    "indexedGetter": ["operation", {
+      "overloadSet": {
+        "unsigned long": {
+          "type": ["ref", "A"],
+          "args": [{"name": "c", "type": "unsigned long", "optionality": "required"}]
+        }
+      }
+    }],
+    "namedGetter": ["operation", {
+      "overloadSet": {
+        "DOMString": {
+          "type": ["ref", "A"],
+          "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }],
+    "indexedCreator": ["operation", {
+      "overloadSet": {
+        "unsigned long,long,DOMString": {
+          "type": ["ref", "A"],
+          "args": [{"name": "d", "type": "unsigned long", "optionality": "required"},
+                   {"name": "foo", "type": "long", "optionality": "required"},
+                   {"name": "a", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }],
+    "namedCreator": ["operation", {
+      "overloadSet": {
+        "DOMString,long,DOMString": {
+          "type": ["ref", "A"],
+          "args": [{"name": "e", "type": "DOMString", "optionality": "required"},
+                   {"name": "foo", "type": "long", "optionality": "required"},
+                   {"name": "a", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  getter setter creator deleter void (double foo);
+};
+#errors
+1;16;webidl:bad args;;;m
+1;16;webidl:no name operation;;;m
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+interface  A {
+  getter DOMString (unsigned long f);
+  getter DOMString (unsigned long g);
+};
+#errors
+1;55;webidl:not distinguishable;;unsigned long;m
+#processed
+{
+  "A": ["interface", {
+    "indexedGetter": ["operation", {
+      "overloadSet": {
+        "unsigned long": {"type": "DOMString", "args": [
+          {"name": "f", "type": "unsigned long", "optionality": "required"}
+        ]}
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface  A {
+  getter DOMString (unsigned long f);
+  setter DOMString (unsigned long g, long d);
+  setter DOMString (unsigned long g, long e);
+};
+#errors
+1;101;webidl:not distinguishable;;unsigned long,long;m
+#processed
+{
+  "A": ["interface", {
+    "indexedGetter": ["operation", {
+      "overloadSet": {
+        "unsigned long": {"type": "DOMString", "args": [
+          {"name": "f", "type": "unsigned long", "optionality": "required"}
+        ]}
+      }
+    }],
+    "indexedSetter": ["operation", {
+      "overloadSet": {
+        "unsigned long,long": {"type": "DOMString", "args": [
+          {"name": "g", "type": "unsigned long", "optionality": "required"},
+          {"name": "d", "type": "long", "optionality": "required"}
+        ]}
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  stringifier DOMString hoge (long... foo);
+};
+#errors
+1;44;webidl:bad optionality;;foo;m
+1;16;webidl:bad args;;stringifier;m
+#processed
+{
+  "A": ["interface", {
+    "stringifier": ["operation", {
+      "overloadSet": {
+        "": {"type": "DOMString", "args": []},
+        "long": {"type": "DOMString", "args": [
+          {"name": "foo", "type": "long", "optionality": "variadic"}
+        ]}
+      }
+    }],
+    "members": {
+      "hoge": ["operation", {
+        "overloadSet": {
+          "": {"type": "DOMString", "args": []},
+          "long": {"type": "DOMString", "args": [
+            {"name": "foo", "type": "long", "optionality": "variadic"}
+          ]}
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  getter DOMString hoge (unsigned long... foo);
+};
+#errors
+1;39;webidl:bad optionality;;foo;m
+#processed
+{
+  "A": ["interface", {
+    "indexedGetter": ["operation", {
+      "overloadSet": {
+        "": {"type": "DOMString", "args": []},
+        "unsigned long": {"type": "DOMString", "args": [
+          {"name": "foo", "type": "unsigned long", "optionality": "variadic"}
+        ]}
+      }
+    }],
+    "members": {
+      "hoge": ["operation", {
+        "overloadSet": {
+          "": {"type": "DOMString", "args": []},
+          "unsigned long": {"type": "DOMString", "args": [
+            {"name": "foo", "type": "unsigned long", "optionality": "variadic"}
+          ]}
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  getter DOMString hoge (DOMString... foo);
+};
+#errors
+1;39;webidl:bad optionality;;foo;m
+#processed
+{
+  "A": ["interface", {
+    "namedGetter": ["operation", {
+      "overloadSet": {
+        "": {"type": "DOMString", "args": []},
+        "DOMString": {"type": "DOMString", "args": [
+          {"name": "foo", "type": "DOMString", "optionality": "variadic"}
+        ]}
+      }
+    }],
+    "members": {
+      "hoge": ["operation", {
+        "overloadSet": {
+          "": {"type": "DOMString", "args": []},
+          "DOMString": {"type": "DOMString", "args": [
+            {"name": "foo", "type": "DOMString", "optionality": "variadic"}
+          ]}
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  getter DOMString hoge (DOMString? foo);
+};
+#errors
+1;16;webidl:bad args;;hoge;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoge": ["operation", {
+        "overloadSet": {
+          "nullable[DOMString]": {"type": "DOMString", "args": [
+            {"name": "foo", "type": ["nullable" , "DOMString"], "optionality": "required"}
+          ]}
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  deleter DOMString  (unsigned long? foo);
+};
+#errors
+1;16;webidl:bad args;;;m
+1;16;webidl:no name operation;;;m
+#processed
+{
+  "A": ["interface", {
+    "members": {}
+  }]
+}
