@@ -40,14 +40,14 @@ exception B {};
 enum A { "foo" };
 #processed
 {
-  "A": ["enum", {"values": {"foo": 1}}]
+  "A": ["enum", {"value": ["stringset", {"foo": 1}]}]
 }
 
 #data
 enum A { "foo", "", "bar" };
 #processed
 {
-  "A": ["enum", {"values": {"foo": 1, "bar": 1, "": 1}}]
+  "A": ["enum", {"value": ["stringset", {"foo": 1, "bar": 1, "": 1}]}]
 }
 
 #data
@@ -56,7 +56,7 @@ enum A { "foo", "bar", "foo" };
 1;0;webidl:duplicate;;foo;m
 #processed
 {
-  "A": ["enum", {"values": {"foo": 1, "bar": 1}}]
+  "A": ["enum", {"value": ["stringset", {"foo": 1, "bar": 1}]}]
 }
 
 #data
@@ -162,7 +162,7 @@ enum  _iterator { "abc" };
 1;0;webidl:reserved;;iterator;m
 #processed
 {
-  "iterator": ["enum", {"values": {"abc":1}}]
+  "iterator": ["enum", {"value": ["stringset", {"abc":1}]}]
 }
 
 #data
@@ -181,4 +181,71 @@ typedef DOMString _constructor ;
 #processed
 {
   "constructor": ["typedef", {"type": "DOMString"}]
+}
+
+#data
+dictionary A {
+  DOMString foo;
+  DOMString bar;
+};
+#processed
+{
+  "A": ["dictionary", {
+    "members": {
+      "foo": ["dictionary_member", {"type": "DOMString"}],
+      "bar": ["dictionary_member", {"type": "DOMString"}]
+    }
+  }]
+}
+
+#data
+dictionary A {
+  DOMString foo;
+  DOMString? foo;
+};
+#errors
+1;34;webidl:duplicate;;foo;m
+#processed
+{
+  "A": ["dictionary", {
+    "members": {
+      "foo": ["dictionary_member", {"type": "DOMString"}]
+    }
+  }]
+}
+
+#data
+partial dictionary A {
+  DOMString foo;
+};
+#data
+dictionary A {
+  DOMString bar;
+};
+#processed
+{
+  "A": ["dictionary", {
+    "members": {
+      "foo": ["dictionary_member", {"type": "DOMString"}],
+      "bar": ["dictionary_member", {"type": "DOMString"}]
+    }
+  }]
+}
+
+#data
+exception Error {};
+#errors
+1;0;webidl:reserved;;Error;m
+#processed
+{
+  "Error": ["exception", {"members": {}}]
+}
+
+#data
+exception TypeError {};
+#errors
+1;0;webidl:reserved;;TypeError;m
+#processed
+{
+  "TypeError": ["exception", {"members": {}}]
 }

@@ -365,3 +365,64 @@ interface A {
     "members": {}
   }]
 }
+
+#data
+typedef (long or unsigned long) Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["union", "long", "unsigned long"]
+  }]
+}
+
+#data
+typedef (long or unsigned long)? Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", ["union", "long", "unsigned long"]]
+  }]
+}
+
+#data
+typedef sequence <(long or unsigned long)> Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["sequence", ["union", "long", "unsigned long"]]
+  }]
+}
+
+#data
+typedef (long or unsigned long)[]? Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", ["array", ["union", "long", "unsigned long"]]]
+  }]
+}
+
+#data
+typedef (long or (double or unsigned long)) Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["union", "long", ["union", "double", "unsigned long"]]
+  }]
+}
+
+#data
+typedef (long[] or unsigned long[]) Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["union", ["array", "long"], ["array", "unsigned long"]]
+  }]
+}
+
+#data
+typedef (any or long or unsigned long) Hoge;
+#errors
+1;13;webidl:parse error;[, ;;m
+#processed
+{}

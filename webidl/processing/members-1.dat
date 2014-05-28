@@ -266,7 +266,7 @@ interface A {
 {
   "A": ["interface", {
     "members": {
-      "foo": ["static attribute", {"type": "long", "getter": 1, "setter": 1}]
+      "foo": ["static_attribute", {"type": "long", "getter": 1, "setter": 1}]
     }
   }]
 }
@@ -282,7 +282,7 @@ interface A {
 {
   "A": ["interface", {
     "members": {
-      "foo": ["static attribute", {"type": "long", "getter": 1, "setter": 1}]
+      "foo": ["static_attribute", {"type": "long", "getter": 1, "setter": 1}]
     }
   }]
 }
@@ -312,7 +312,7 @@ interface A  {
 {
   "A": ["interface", {
     "members": {
-      "prototype": ["static attribute", {"type": "long", "getter": 1, "setter": 1}]
+      "prototype": ["static_attribute", {"type": "long", "getter": 1, "setter": 1}]
     }
   }]
 }
@@ -402,7 +402,7 @@ interface A {
 #processed
 {
   "A": ["interface", {"members": {
-    "prototype": ["static operation", {
+    "prototype": ["static_operation", {
       "overloadSet": {"": {"type": "void", "args": []}}
     }]
   }}]
@@ -434,7 +434,7 @@ interface A {
 #processed
 {
   "A": ["interface", {"members": {
-    "hoge": ["static operation", {
+    "hoge": ["static_operation", {
       "overloadSet": {"": {"type": "void", "args": []}}
     }]
   }}]
@@ -1293,6 +1293,287 @@ interface A {
 #processed
 {
   "A": ["interface", {
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  static attribute DOMString foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static_attribute", {"type": "DOMString", "getter": 1, "setter": 1}]
+    }
+  }]
+}
+
+#data
+interface A {
+  static readonly attribute DOMString foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static_attribute", {"type": "DOMString", "getter": 1}]
+    }
+  }]
+}
+
+#data
+interface A {
+  static DOMString foo ();
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static_operation", {
+        "overloadSet": {
+          "": {"type": "DOMString", "args": []}
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  static DOMString foo ();
+  static DOMString foo (long foo);
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static_operation", {
+        "overloadSet": {
+          "": {"type": "DOMString", "args": []},
+          "long": {"type": "DOMString", "args": [
+            {"type": "long", "name": "foo", "optionality": "required"}
+          ]}
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  static DOMString foo (optional long foo);
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static_operation", {
+        "overloadSet": {
+          "": {"type": "DOMString", "args": []},
+          "long": {"type": "DOMString", "args": [
+            {"type": "long", "name": "foo", "optionality": "optional"}
+          ]}
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  static DOMString foo (optional long foo);
+  static DOMString foo ();
+};
+#errors
+1;60;webidl:not distinguishable;;;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static_operation", {
+        "overloadSet": {
+          "": {"type": "DOMString", "args": []},
+          "long": {"type": "DOMString", "args": [
+            {"type": "long", "name": "foo", "optionality": "optional"}
+          ]}
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  static DOMString foo (optional long foo);
+  DOMString foo ();
+};
+#errors
+1;60;webidl:duplicate;;foo;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static_operation", {
+        "overloadSet": {
+          "": {"type": "DOMString", "args": []},
+          "long": {"type": "DOMString", "args": [
+            {"type": "long", "name": "foo", "optionality": "optional"}
+          ]}
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  static DOMString foo (long foo);
+  DOMString foo ();
+};
+#errors
+1;51;webidl:duplicate;;foo;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static_operation", {
+        "overloadSet": {
+          "long": {"type": "DOMString", "args": [
+            {"type": "long", "name": "foo", "optionality": "required"}
+          ]}
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  DOMString foo ();
+  static DOMString foo (long foo);
+};
+#errors
+1;36;webidl:duplicate;;foo;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overloadSet": {
+          "": {"type": "DOMString", "args": []}
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  static getter DOMString ();
+};
+#errors
+1;23;webidl:parse error;readonly, ;;m
+#processed
+{}
+
+#data
+interface A  {
+  static stringifier attribute DOMString foo;
+};
+#errors
+1;24;webidl:parse error;readonly, ;;m
+#processed
+{}
+
+#data
+callback interface A {
+  static attribute DOMString foo;
+};
+#errors
+1;25;webidl:not allowed;;foo;m
+#processed
+{
+  "A": ["callback_interface", {
+    "members": {"foo": ["static_attribute", {
+      "type": "DOMString", "getter": 1, "setter": 1
+    }]}
+  }]
+}
+
+#data
+callback interface A {
+  static DOMString foo ();
+};
+#errors
+1;25;webidl:not allowed;;foo;m
+#processed
+{
+  "A": ["callback_interface", {
+    "members": {"foo": ["static_operation", {
+      "overloadSet": {"": {"type": "DOMString", "args": []}}
+    }]}
+  }]
+}
+
+#data
+interface A {
+  boolean iterator;
+};
+#processed
+{
+  "A": ["interface", {
+    "iterator": ["iterator", {"type": "boolean"}],
+    "members": {}
+  }]
+}
+
+#data
+interface B {
+  DOMString iterator object;
+};
+interface A {
+  boolean iterator = B;
+};
+#processed
+{
+  "A": ["interface", {
+    "iterator": ["iterator", {"type": "boolean", "value": ["interfaceref", "B"]}],
+    "members": {}
+  }],
+  "B": ["interface", {
+    "iteratorObject": ["iterator_object", {"type": "DOMString"}],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  boolean iterator;
+  long iterator;
+};
+#errors
+1;36;webidl:duplicate;;iterator;m
+#processed
+{
+  "A": ["interface", {
+    "iterator": ["iterator", {"type": "boolean"}],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  boolean iterator object;
+  long iterator object;
+};
+#errors
+1;43;webidl:duplicate;;iterator object;m
+#processed
+{
+  "A": ["interface", {
+    "iteratorObject": ["iterator_object", {"type": "boolean"}],
     "members": {}
   }]
 }

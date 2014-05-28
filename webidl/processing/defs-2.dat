@@ -1,0 +1,10 @@
+#data
+enum A {  "foo", "foo" };
+#errors
+1;0;webidl:duplicate;;foo;m
+#processed
+{
+  "A": ["enum", {
+    "value": ["stringset", {"foo": 1}]
+  }]
+}
