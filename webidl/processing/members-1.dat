@@ -116,3 +116,326 @@ interface A {
     }
   }]
 }
+
+#data
+interface A {
+  attribute DOMString toString;
+};
+#errors
+1;16;webidl:reserved;;toString;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "toString": ["attribute", {"type": "DOMString", "getter":1,"setter":1}]
+    }
+  }]
+}
+
+#data
+interface A {
+  const long _iterator = 3;
+};
+#errors
+1;16;webidl:reserved;;iterator;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "iterator": ["const", {"type": "long", "value": ["integer", 3]}]
+    }
+  }]
+}
+
+#data
+interface A {
+  const long prototype = 3;
+};
+#errors
+1;16;webidl:reserved;;prototype;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "prototype": ["const", {"type": "long", "value": ["integer", 3]}]
+    }
+  }]
+}
+
+#data
+interface A {
+  const long _prototype = 3;
+};
+#errors
+1;16;webidl:reserved;;prototype;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "prototype": ["const", {"type": "long", "value": ["integer", 3]}]
+    }
+  }]
+}
+
+#data
+exception A {
+  DOMString _toJSON;
+};
+#errors
+1;16;webidl:reserved;;toJSON;m
+#processed
+{
+  "A": ["exception", {
+    "members": {
+      "toJSON": ["field", {"type": "DOMString"}]
+    }
+  }]
+}
+
+#data
+dictionary A {
+  DOMString _toJSON;
+};
+#errors
+1;17;webidl:reserved;;toJSON;m
+#processed
+{
+  "A": ["dictionary", {
+    "members": {
+      "toJSON": ["dictionary_member", {"type": "DOMString"}]
+    }
+  }]
+}
+
+#data
+interface A {
+  long _iterator  ();
+};
+#errors
+1;16;webidl:reserved;;iterator;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "iterator": ["operation", {
+        "overloadSet": {"": {"type": "long", "args": []}}
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  long A (long toJSON);
+};
+#errors
+1;16;webidl:reserved;;toJSON;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "A": ["operation", {
+        "overloadSet": {"long": {"type": "long", "args": [
+          {"name": "toJSON", "type": "long", "optionality": "required"}
+        ]}}
+      }]
+    }
+  }]
+}
+
+#data
+dictionary A {
+  DOMString _toJSON = "abc";
+};
+#errors
+1;17;webidl:reserved;;toJSON;m
+#processed
+{
+  "A": ["dictionary", {
+    "members": {
+      "toJSON": ["dictionary_member", {"type": "DOMString", "value": ["string", "abc"]}]
+    }
+  }]
+}
+
+#data
+interface A {
+  static attribute long foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static attribute", {"type": "long", "getter": 1, "setter": 1}]
+    }
+  }]
+}
+
+#data
+interface A {
+  static attribute long foo;
+  attribute long foo;
+};
+#errors
+1;45;webidl:duplicate;;foo;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static attribute", {"type": "long", "getter": 1, "setter": 1}]
+    }
+  }]
+}
+
+#data
+interface A {
+  attribute long prototype;
+};
+#errors
+1;16;webidl:reserved;;prototype;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "prototype": ["attribute", {"type": "long", "getter": 1, "setter": 1}]
+    }
+  }]
+}
+
+#data
+interface A  {
+  static attribute long prototype;
+};
+#errors
+1;17;webidl:reserved;;prototype;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "prototype": ["static attribute", {"type": "long", "getter": 1, "setter": 1}]
+    }
+  }]
+}
+
+#data
+interface B { };
+interface A : B {
+  inherit readonly attribute long proto;
+};
+#errors
+1;37;webidl:not allowed;;inherit;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "proto": ["attribute", {"type": "long", "getter": 1}]
+    }
+  }],
+  "B": ["interface", {"members": {}}]
+}
+
+#data
+interface B { };
+interface A : B {
+  static inherit attribute long proto;
+};
+#errors
+1;44;webidl:parse error;readonly, ;;m
+#processed
+{
+}
+
+#data
+interface B { };
+interface A : B {
+  inherit static attribute long proto;
+};
+#errors
+1;45;webidl:parse error;readonly, ;;m
+#processed
+{
+}
+
+#data
+interface A {
+  void ();
+};
+#errors
+1;16;webidl:no name operation;;;m
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+interface A {
+  static void ();
+};
+#errors
+1;16;webidl:no name operation;;;m
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+interface A {
+  void prototype ();
+};
+#errors
+1;16;webidl:reserved;;prototype;m
+#processed
+{
+  "A": ["interface", {"members": {
+    "prototype": ["operation", {
+      "overloadSet": {"": {"type": "void", "args": []}}
+    }]
+  }}]
+}
+
+#data
+interface A {
+  static void prototype ();
+};
+#errors
+1;16;webidl:reserved;;prototype;m
+#processed
+{
+  "A": ["interface", {"members": {
+    "prototype": ["static operation", {
+      "overloadSet": {"": {"type": "void", "args": []}}
+    }]
+  }}]
+}
+
+#data
+interface A {
+  void hoge ();
+  static void hoge ( long a);
+};
+#errors
+1;32;webidl:duplicate;;hoge;m
+#processed
+{
+  "A": ["interface", {"members": {
+    "hoge": ["operation", {
+      "overloadSet": {"": {"type": "void", "args": []}}
+    }]
+  }}]
+}
+
+#data
+interface A {
+  static void hoge ();
+  void hoge (long a);
+};
+#errors
+1;39;webidl:duplicate;;hoge;m
+#processed
+{
+  "A": ["interface", {"members": {
+    "hoge": ["static operation", {
+      "overloadSet": {"": {"type": "void", "args": []}}
+    }]
+  }}]
+}

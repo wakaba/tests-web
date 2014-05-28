@@ -7,7 +7,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
-        "overload_set": {
+        "overloadSet": {
           "": {
             "args": [],
             "type": "void"
@@ -28,7 +28,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
-        "overload_set": {
+        "overloadSet": {
           "": {
             "args": [],
             "type": "void"
@@ -55,7 +55,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
-        "overload_set": {
+        "overloadSet": {
           "": {
             "args": [],
             "type": "void"
@@ -78,7 +78,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
-        "overload_set": {
+        "overloadSet": {
           "": {
             "args": [],
             "type": "long"
@@ -107,7 +107,7 @@ partial interface A {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
-        "overload_set": {
+        "overloadSet": {
           "long": {
             "args": [{"name": "bar", "type": "long", "optionality": "required"}],
             "type": "void"
@@ -128,7 +128,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
-        "overload_set": {
+        "overloadSet": {
           "long,long,long": {
             "args": [
               {"name": "bar", "type": "long", "optionality": "required"},
@@ -153,7 +153,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
-        "overload_set": {
+        "overloadSet": {
           "long,long": {
             "args": [
               {"name": "bar", "type": "long", "optionality": "required"},
@@ -185,7 +185,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
-        "overload_set": {
+        "overloadSet": {
           "long,long,long": {
             "args": [
               {"name": "bar", "type": "long", "optionality": "required"},
@@ -210,7 +210,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
-        "overload_set": {
+        "overloadSet": {
           "long,long": {
             "args": [
               {"name": "bar", "type": "long", "optionality": "required"},
@@ -242,7 +242,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
-        "overload_set": {
+        "overloadSet": {
           "long": {
             "args": [
               {"name": "bar", "type": "long", "optionality": "required"}
@@ -280,7 +280,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
-        "overload_set": {
+        "overloadSet": {
           "": {
             "args": [],
             "type": "void"
@@ -322,7 +322,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
-        "overload_set": {
+        "overloadSet": {
           "": {
             "args": [],
             "type": "void"
@@ -376,3 +376,44 @@ interface A {
     }
   }]
 }
+
+#data
+interface A {
+  void foo (long... a, long b);
+};
+#errors
+1;26;webidl:bad optionality;;a;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overloadSet": {
+          "long,long": {
+            "type": "void",
+            "args": [{"type": "long", "name": "a", "optionality": "required"},
+                     {"type": "long", "name": "b", "optionality": "required"}]
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  void foo (optional long... a);
+};
+#errors
+1;39;webidl:parse error;long, ;;m
+#processed
+{}
+
+#data
+interface A {
+  void foo (long... a = 133);
+};
+#errors
+1;36;webidl:parse error;,, ;;m
+#processed
+{}

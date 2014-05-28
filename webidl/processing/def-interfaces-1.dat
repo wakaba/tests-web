@@ -13,3 +13,18 @@ interface B {};
   "A": ["interface", {"members": {}}],
   "B": ["interface", {"members": {}}]
 }
+
+#data
+callback interface A { };
+#processed
+{
+  "A": ["callback interface", {"members": {}}]
+}
+
+#data
+callback interface A { };
+partial interface A { };
+#processed
+{
+  "A": ["callback interface", {"members": {}}]
+}

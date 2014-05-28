@@ -1,0 +1,81 @@
+#data
+interface A {
+  void foo (optional long foo = 13);
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overloadSet": {
+          "": {
+            "args": [],
+            "type": "void"
+          },
+          "long": {
+            "args": [
+              {"name": "foo", "type": "long", "value": ["integer", 13],
+               "optionality": "optional"}
+            ],
+            "type": "void"
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  void foo (long a, long b);
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overloadSet": {
+          "long,long": {
+            "args": [
+              {"name": "a", "type": "long", "optionality": "required"},
+              {"name": "b", "type": "long", "optionality": "required"}
+            ],
+            "type": "void"
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  void foo (long a, long b);
+  void foo (long a, long b, long c);
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overloadSet": {
+          "long,long": {
+            "args": [
+              {"name": "a", "type": "long", "optionality": "required"},
+              {"name": "b", "type": "long", "optionality": "required"}
+            ],
+            "type": "void"
+          },
+          "long,long,long": {
+            "args": [
+              {"name": "a", "type": "long", "optionality": "required"},
+              {"name": "b", "type": "long", "optionality": "required"},
+              {"name": "c", "type": "long", "optionality": "required"}
+            ],
+            "type": "void"
+          }
+        }
+      }]
+    }
+  }]
+}

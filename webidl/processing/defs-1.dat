@@ -64,7 +64,7 @@ callback hoge = DOMString (optional long foo);
 #processed
 {
   "hoge": ["callback", {
-    "overload_set": {
+    "overloadSet": {
       "": {
         "type": "DOMString",
         "args": []
@@ -84,7 +84,7 @@ callback hoge = DOMString (long... foo);
 #processed
 {
   "hoge": ["callback", {
-    "overload_set": {
+    "overloadSet": {
       "": {
         "type": "DOMString",
         "args": []
@@ -97,4 +97,88 @@ callback hoge = DOMString (long... foo);
       }
     }
   }]
+}
+
+#data
+interface toString { };
+#errors
+1;0;webidl:reserved;;toString;m
+#processed
+{
+  "toString": ["interface", {"members": {}}]
+}
+
+#data
+interface toString { };
+partial interface toString  { };
+#errors
+1;0;webidl:reserved;;toString;m
+#processed
+{
+  "toString": ["interface", {"members": {}}]
+}
+
+#data
+exception toJSON { };
+#errors
+1;0;webidl:reserved;;toJSON;m
+#processed
+{
+  "toJSON": ["exception", {"members": {}}]
+}
+
+#data
+dictionary constructor { };
+#errors
+1;0;webidl:reserved;;constructor;m
+#processed
+{
+  "constructor": ["dictionary", {"members": {}}]
+}
+
+#data
+dictionary constructor { };
+partial dictionary constructor { };
+#errors
+1;0;webidl:reserved;;constructor;m
+#processed
+{
+  "constructor": ["dictionary", {"members": {}}]
+}
+
+#data
+dictionary _constructor { };
+partial dictionary constructor { };
+#errors
+1;0;webidl:reserved;;constructor;m
+#processed
+{
+  "constructor": ["dictionary", {"members": {}}]
+}
+
+#data
+enum  _iterator { "abc" };
+#errors
+1;0;webidl:reserved;;iterator;m
+#processed
+{
+  "iterator": ["enum", {"values": {"abc":1}}]
+}
+
+#data
+callback _toString = void ();
+#errors
+1;0;webidl:reserved;;toString;m
+#processed
+{
+  "toString": ["callback", {"overloadSet": {"": {"type": "void", "args": []}}}]
+}
+
+#data
+typedef DOMString _constructor ;
+#errors
+1;0;webidl:reserved;;constructor;m
+#processed
+{
+  "constructor": ["typedef", {"type": "DOMString"}]
 }
