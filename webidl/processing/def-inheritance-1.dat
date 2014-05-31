@@ -188,3 +188,83 @@ interface B {};
   "A": ["callback_interface", {"members": {}}],
   "B": ["interface", {"members": {}}]
 }
+
+#data
+callback interface A {};
+callback interface B {};
+B implements A;
+#errors
+1;50;webidl:bad type;;A;m
+#processed
+{
+  "A": ["callback_interface", {"members": {}}],
+  "B": ["callback_interface", {"members": {}}]
+}
+
+#data
+interface A {};
+callback interface B {};
+B implements A;
+#errors
+1;41;webidl:bad type;;A;m
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["callback_interface", {"members": {}}]
+}
+
+#data
+dictionary A {};
+dictionary B : A {};
+#processed
+{
+  "A": ["dictionary", {"members": {}}],
+  "B": ["dictionary", {"members": {},
+                       "implements": {"A": {"depth": 1}}}]
+}
+
+#data
+dictionary A {};
+dictionary B : A {};
+dictionary C : B {};
+#processed
+{
+  "A": ["dictionary", {"members": {}}],
+  "B": ["dictionary", {"members": {},
+                       "implements": {"A": {"depth": 1}}}],
+  "C": ["dictionary", {"members": {},
+                       "implements": {"A": {"depth": 2},
+                                      "B": {"depth": 1}}}]
+}
+
+#data
+dictionary B : A {};
+dictionary A : B {};
+#errors
+1;21;webidl:cyclic inheritance;;B;m
+#processed
+{
+  "A": ["dictionary", {"members": {}}],
+  "B": ["dictionary", {"members": {},
+                       "implements": {"A": {"depth": 1}}}]
+}
+
+#data
+dictionary A : B {};
+#errors
+1;0;webidl:not defined;;B;m
+#processed
+{
+  "A": ["dictionary", {"members": {}}]
+}
+
+#data
+interface B {};
+dictionary A : B {};
+#errors
+1;16;webidl:bad type;;B;m
+#processed
+{
+  "A": ["dictionary", {"members": {}}],
+  "B": ["interface", {"members": {}}]
+}

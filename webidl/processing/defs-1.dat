@@ -249,3 +249,73 @@ exception TypeError {};
 {
   "TypeError": ["exception", {"members": {}}]
 }
+
+#data
+partial interface A { };
+#errors
+1;0;webidl:not defined;;A;m
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+partial dictionary A { };
+#errors
+1;0;webidl:not defined;;A;m
+#processed
+{
+  "A": ["dictionary", {"members": {}}]
+}
+
+#data
+partial interface A { long foo (); };
+exception A {};
+#errors
+1;38;webidl:bad type;;exception;m
+#processed
+{
+  "A": ["exception", {"members": {}}]
+}
+
+#data
+partial dictionary A { long hoge;  };
+interface A {};
+#errors
+1;38;webidl:bad type;;interface;m
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+interface A {};
+partial dictionary A { long foo;};
+#errors
+1;16;webidl:bad type;;dictionary;m
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+dictionary A {};
+partial interface A { long foo ();};
+#errors
+1;17;webidl:bad type;;interface;m
+#processed
+{
+  "A": ["dictionary", {"members": {}}]
+}
+
+#data
+partial dictionary A { long bar ; };
+partial interface A { long foo ();};
+exception A {};
+#errors
+1;37;webidl:bad type;;interface;m
+1;74;webidl:bad type;;exception;m
+#processed
+{
+  "A": ["exception", {"members": {}}]
+}
