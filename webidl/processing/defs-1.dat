@@ -319,3 +319,20 @@ exception A {};
 {
   "A": ["exception", {"members": {}}]
 }
+
+#data
+interface A {
+  readonly attribute DOMString foo;
+};
+interface B : A {
+  inherit attribute DOMString foo;
+};
+#processed
+{
+  "A": ["interface", {"members": {
+    "foo": ["attribute", {"type": "DOMString", "getter": 1}]
+  }}],
+  "B": ["interface", {"members": {
+    "foo": ["attribute", {"type": "DOMString", "getter": "inherit", "setter": 1}]
+  }, "implements": {"A": {"depth": 1}}}]
+}

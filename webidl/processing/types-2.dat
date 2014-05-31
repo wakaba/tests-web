@@ -68,3 +68,78 @@ dictionary D {};
   "T": ["typedef", {"type": ["sequence", ["ref_dictionary", "D"]]}],
   "D": ["dictionary", {"members": {}}]
 }
+
+#data
+typedef (long or object) T;
+#processed
+{
+  "T": ["typedef", {"type": ["union",
+    ["long", "object"],
+    {"long": "long",
+     "object": "object"}
+  ]}]
+}
+
+#data
+typedef (long or (object or Date)) T;
+#processed
+{
+  "T": ["typedef", {"type": ["union",
+    ["long", ["union",
+              ["object", "Date"],
+              {"object": "object", "Date": "Date"}]],
+    {"long": "long",
+     "object": "object",
+     "Date": "Date"}
+  ]}]
+}
+
+#data
+typedef (long or (object or Date or _Date)) T;
+#errors
+1;;webidl:not defined;;_Date;m
+#processed
+{
+  "T": ["typedef", {"type": ["union",
+    ["long", ["union",
+              ["object", "Date", ["ref", "_Date"]],
+              {"object": "object", "Date": "Date",
+               "ref[_Date]": ["ref", "_Date"]}]],
+    {"long": "long",
+     "object": "object",
+     "Date": "Date",
+     "ref[_Date]": ["ref", "_Date"]}
+  ]}]
+}
+
+#data
+typedef (long or sequence<long>) T;
+#processed
+{
+  "T": ["typedef", {"type": ["union",
+    ["long", ["sequence", "long"]],
+    {"long": "long", "sequence[long]": ["sequence", "long"]}
+  ]}]
+}
+
+#data
+typedef (long or long) T;
+#errors
+1;0;webidl:not distinguishable;;long;m
+#processed
+{
+  "T": ["typedef", {"type": ["union", ["long", "long"], {"long": "long"}]}]
+}
+
+#data
+typedef (long or (object or long)) T;
+#errors
+1;0;webidl:not distinguishable;;long;m
+#processed
+{
+  "T": ["typedef", {"type": ["union",
+    ["long",
+     ["union", ["object", "long"], {"object": "object", "long": "long"}]],
+    {"long": "long", "object": "object"}
+  ]}]
+}
