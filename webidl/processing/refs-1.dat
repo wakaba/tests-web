@@ -55,3 +55,125 @@ partial dictionary A {};
 {
   "A": ["dictionary", {"members": {}}]
 }
+
+#data
+typedef A B;
+interface A {
+  B foo ();
+};
+#processed
+{
+  "B": ["typedef", {"type": ["ref_interface", "A"]}],
+  "A": ["interface", {"members": {
+    "foo": ["operation", {
+      "overload_set": {"": {"type": ["ref_typedef", "B"], "args": []}}
+    }]
+  }}]
+}
+
+#data
+dictionary B {};
+interface A {
+  B foo ();
+};
+#processed
+{
+  "B": ["dictionary", {"members":{}}],
+  "A": ["interface", {"members": {
+    "foo": ["operation", {
+      "overload_set": {"": {"type": ["ref_dictionary", "B"], "args": []}}
+    }]
+  }}]
+}
+
+#data
+exception B {};
+interface A {
+  B foo ();
+};
+#processed
+{
+  "B": ["exception", {"members":{}}],
+  "A": ["interface", {"members": {
+    "foo": ["operation", {
+      "overload_set": {"": {"type": ["ref_exception", "B"], "args": []}}
+    }]
+  }}]
+}
+
+#data
+class B {};
+interface A {
+  B foo ();
+};
+#processed
+{
+  "B": ["class", {"members":{}}],
+  "A": ["interface", {"members": {
+    "foo": ["operation", {
+      "overload_set": {"": {"type": ["ref_class", "B"], "args": []}}
+    }]
+  }}]
+}
+
+#data
+callback interface B {};
+interface A {
+  B foo ();
+};
+#processed
+{
+  "B": ["callback_interface", {"members":{}}],
+  "A": ["interface", {"members": {
+    "foo": ["operation", {
+      "overload_set": {"": {"type": ["ref_callback_interface", "B"], "args": []}}
+    }]
+  }}]
+}
+
+#data
+callback B = void ();
+interface A {
+  B foo ();
+};
+#processed
+{
+  "B": ["callback", {
+    "overload_set": {"": {"type": "void", "args": []}}
+  }],
+  "A": ["interface", {"members": {
+    "foo": ["operation", {
+      "overload_set": {"": {"type": ["ref_callback", "B"], "args": []}}
+    }]
+  }}]
+}
+
+#data
+enum B {"a"};
+interface A {
+  B foo ();
+};
+#processed
+{
+  "B": ["enum", {"value":["stringset", {"a":1}]}],
+  "A": ["interface", {"members": {
+    "foo": ["operation", {
+      "overload_set": {"": {"type": ["ref_enum", "B"], "args": []}}
+    }]
+  }}]
+}
+
+#data
+interface A {
+  B foo ();
+};
+#errors
+1;16;webidl:not defined;;B;m
+#processed
+{
+  "A": ["interface", {"members": {
+    "foo": ["operation", {
+      "overload_set": {"": {"type": ["ref", "B"], "args": []}}
+    }]
+  }}]
+}

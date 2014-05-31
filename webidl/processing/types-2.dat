@@ -1,0 +1,70 @@
+#data
+typedef any T;
+#processed
+{
+  "T": ["typedef", {"type": "any"}]
+}
+
+#data
+typedef void T;
+#errors
+1;8;webidl:parse error;unsigned, ;;m
+#processed
+{}
+
+#data
+typedef any? T;
+#errors
+1;11;webidl:parse error;[, ;;m
+#processed
+{}
+
+#data
+typedef (any or long) T;
+#errors
+1;13;webidl:parse error;[, ;;m
+#processed
+{}
+
+#data
+typedef (DOMString or any or long) T;
+#errors
+1;26;webidl:parse error;[, ;;m
+#processed
+{}
+
+#data
+typedef sequence<long>[] T;
+#errors
+1;22;webidl:parse error;?, ;;m
+#processed
+{}
+
+#data
+typedef D[] T;
+#errors
+1;0;webidl:not defined;;D;m
+#processed
+{
+  "T": ["typedef", {"type": ["array", ["ref", "D"]]}]
+}
+
+#data
+typedef D[] T;
+dictionary D {};
+#errors
+1;0;webidl:bad type;;ref_dictionary[D];m
+#processed
+{
+  "T": ["typedef", {"type": ["array", ["ref_dictionary", "D"]]}],
+  "D": ["dictionary", {"members": {}}]
+}
+
+#data
+typedef sequence<D> T;
+dictionary D {};
+#processed
+{
+  "T": ["typedef", {"type": ["sequence", ["ref_dictionary", "D"]]}],
+  "D": ["dictionary", {"members": {}}]
+}
