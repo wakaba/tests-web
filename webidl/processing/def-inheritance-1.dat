@@ -1,0 +1,190 @@
+#data
+interface A { };
+interface B : A {};
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {}, "implements": {
+    "A": {"depth": 1}
+  }}]
+}
+
+#data
+interface B : A {};
+#data
+interface A { };
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {}, "implements": {
+    "A": {"depth": 1}
+  }}]
+}
+
+#data
+interface A : B {};
+#errors
+1;0;webidl:not defined;;B;m
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+interface A : B {};
+exception B { };
+#errors
+1;0;webidl:bad type;;B;m
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["exception", {"members": {}}]
+}
+
+#data
+interface A : B {};
+class B { };
+#errors
+1;0;webidl:bad type;;B;m
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["class", {"members": {}}]
+}
+
+#data
+class A extends B {};
+exception B { };
+#errors
+1;0;webidl:bad type;;B;m
+#processed
+{
+  "A": ["class", {"members": {}}],
+  "B": ["exception", {"members": {}}]
+}
+
+#data
+exception A : B {};
+interface B { };
+#errors
+1;0;webidl:bad type;;B;m
+#processed
+{
+  "A": ["exception", {"members": {}}],
+  "B": ["interface", {"members": {}}]
+}
+
+#data
+class A extends B {};
+class B { };
+#errors
+#processed
+{
+  "A": ["class", {"members": {}, "implements": {"B": {"depth": 1}}}],
+  "B": ["class", {"members": {}}]
+}
+
+#data
+exception A : B {};
+exception B { };
+#errors
+#processed
+{
+  "A": ["exception", {"members": {}, "implements": {"B": {"depth": 1}}}],
+  "B": ["exception", {"members": {}}]
+}
+
+#data
+interface A {};
+interface B : A {};
+interface C : B {};
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {}, "implements": {"A": {"depth": 1}}}],
+  "C": ["interface", {"members": {}, "implements": {"A": {"depth": 2},
+                                                    "B": {"depth": 1}}}]
+}
+
+#data
+interface C : B {};
+interface A {};
+interface B : A {};
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {}, "implements": {"A": {"depth": 1}}}],
+  "C": ["interface", {"members": {}, "implements": {"A": {"depth": 2},
+                                                    "B": {"depth": 1}}}]
+}
+
+#data
+interface B : A {};
+interface A {};
+interface C : B {};
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {}, "implements": {"A": {"depth": 1}}}],
+  "C": ["interface", {"members": {}, "implements": {"A": {"depth": 2},
+                                                    "B": {"depth": 1}}}]
+}
+
+#data
+interface C : B {};
+interface B : A {};
+interface A {};
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {}, "implements": {"A": {"depth": 1}}}],
+  "C": ["interface", {"members": {}, "implements": {"A": {"depth": 2},
+                                                    "B": {"depth": 1}}}]
+}
+
+#data
+interface A : B {};
+interface B : A {};
+#errors
+1;20;webidl:cyclic inheritance;;A;m
+#processed
+{
+  "A": ["interface", {"members": {}, "implements": {"B": {"depth": 1}}}],
+  "B": ["interface", {"members": {}}]
+}
+
+#data
+interface A : B {};
+interface B : C {};
+interface C : A {};
+#errors
+1;40;webidl:cyclic inheritance;;A;m
+#processed
+{
+  "A": ["interface", {"members": {}, "implements": {"B": {"depth": 1},
+                                                    "C": {"depth": 2}}}],
+  "B": ["interface", {"members": {}, "implements": {"C": {"depth": 1}}}],
+  "C": ["interface", {"members": {}}]
+}
+
+#data
+interface A : B {};
+callback interface B {};
+#errors
+1;0;webidl:bad type;;B;m
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["callback_interface", {"members": {}}]
+}
+
+#data
+callback interface A : B {};
+interface B {};
+#errors
+1;0;webidl:bad type;;B;m
+#processed
+{
+  "A": ["callback_interface", {"members": {}}],
+  "B": ["interface", {"members": {}}]
+}

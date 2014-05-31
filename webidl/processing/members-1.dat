@@ -329,7 +329,8 @@ interface A : B {
   "A": ["interface", {
     "members": {
       "proto": ["attribute", {"type": "long", "getter": 1}]
-    }
+    },
+    "implements": {"B": {"depth": 1}}
   }],
   "B": ["interface", {"members": {}}]
 }
@@ -525,7 +526,8 @@ interface A : B {
     "serializer": ["serializer", {"value": ["map",
       "inherit"
     ]}],
-    "members": {}
+    "members": {},
+    "implements": {"B": {"depth": 1}}
   }]
 }
 
@@ -544,7 +546,8 @@ interface A : B {
     "serializer": ["serializer", {"value": ["map",
       "inherit"
     ]}],
-    "members": {}
+    "members": {},
+    "implements": {"B": {"depth": 1}}
   }]
 }
 
@@ -567,7 +570,8 @@ interface A : B {
     ]}],
     "members": {
       "def": ["attribute", {"type": "DOMString", "getter":1, "setter": 1}]
-    }
+    },
+    "implements": {"B": {"depth": 1}}
   }]
 }
 
@@ -586,7 +590,8 @@ interface A : B {
     "serializer": ["serializer", {"value": ["map",
       "inherit", "attribute"
     ]}],
-    "members": {}
+    "members": {},
+    "implements": {"B": {"depth": 1}}
   }]
 }
 
