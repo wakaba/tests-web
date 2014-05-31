@@ -173,7 +173,7 @@ callback hoge = sequence<sequence<long>?>? ();
 #processed
 {
   "hoge": ["callback", {
-    "overloadSet": {
+    "overload_set": {
       "": {
         "type": ["nullable", ["sequence", ["nullable", ["sequence", "long"]]]],
         "args": []
@@ -192,7 +192,7 @@ interface A {
 {
   "A": ["interface", {
     "legacycaller": ["operation", {
-      "overloadSet": {"": {"type": "Promise", "args": []}}
+      "overload_set": {"": {"type": "Promise", "args": []}}
     }],
     "members": {}
   }]
@@ -208,7 +208,7 @@ interface A {
 {
   "A": ["interface", {
     "legacycaller": ["operation", {
-      "overloadSet": {"": {"type": ["Promise", "long"], "args": []}}
+      "overload_set": {"": {"type": ["Promise", "long"], "args": []}}
     }],
     "members": {}
   }]
@@ -222,7 +222,7 @@ interface A {
 {
   "A": ["interface", {
     "stringifier": ["operation", {
-      "overloadSet": {"": {"type": "DOMString", "args": []}}
+      "overload_set": {"": {"type": "DOMString", "args": []}}
     }],
     "members": {}
   }]
@@ -236,7 +236,7 @@ interface A {
 {
   "A": ["interface", {
     "stringifier": ["operation", {
-      "overloadSet": {"": {"type": "DOMString", "args": []}}
+      "overload_set": {"": {"type": "DOMString", "args": []}}
     }],
     "members": {}
   }]
@@ -250,11 +250,11 @@ interface A {
 {
   "A": ["interface", {
     "stringifier": ["operation", {
-      "overloadSet": {"": {"type": "DOMString", "args": []}}
+      "overload_set": {"": {"type": "DOMString", "args": []}}
     }],
     "members": {
       "hoge": ["operation", {
-        "overloadSet": {"": {"type": "DOMString", "args": []}}
+        "overload_set": {"": {"type": "DOMString", "args": []}}
       }]
     }
   }]
@@ -270,11 +270,11 @@ interface A {
 {
   "A": ["interface", {
     "stringifier": ["operation", {
-      "overloadSet": {"": {"type": "long", "args": []}}
+      "overload_set": {"": {"type": "long", "args": []}}
     }],
     "members": {
       "hoge": ["operation", {
-        "overloadSet": {"": {"type": "long", "args": []}}
+        "overload_set": {"": {"type": "long", "args": []}}
       }]
     }
   }]
@@ -290,11 +290,11 @@ interface A {
 {
   "A": ["interface", {
     "stringifier": ["operation", {
-      "overloadSet": {"long": {"type": "DOMString", "args": [{"type":"long","name":"foo","optionality":"required"}]}}
+      "overload_set": {"long": {"type": "DOMString", "args": [{"type":"long","name":"foo","optionality":"required"}]}}
     }],
     "members": {
       "hoge": ["operation", {
-        "overloadSet": {"long": {"type": "DOMString", "args": [{"type":"long","name":"foo","optionality":"required"}]}}
+        "overload_set": {"long": {"type": "DOMString", "args": [{"type":"long","name":"foo","optionality":"required"}]}}
       }]
     }
   }]
@@ -311,14 +311,14 @@ interface A {
 {
   "A": ["interface", {
     "stringifier": ["operation", {
-      "overloadSet": {
+      "overload_set": {
         "": {"type": "DOMString", "args": []},
         "long": {"type": "DOMString", "args": [{"type":"long","name":"foo","optionality":"optional"}]}
       }
     }],
     "members": {
       "hoge": ["operation", {
-        "overloadSet": {
+        "overload_set": {
           "": {"type": "DOMString", "args": []},
           "long": {"type": "DOMString", "args": [{"type":"long","name":"foo","optionality":"optional"}]}
         }
@@ -338,7 +338,7 @@ interface A {
 {
   "A": ["interface", {
     "stringifier": ["operation", {
-      "overloadSet": {"": {"type": "DOMString", "args": []}}
+      "overload_set": {"": {"type": "DOMString", "args": []}}
     }],
     "members": {}
   }]
@@ -355,7 +355,7 @@ interface A {
 {
   "A": ["interface", {
     "stringifier": ["operation", {
-      "overloadSet": {
+      "overload_set": {
         "": {"type": "DOMString", "args": []},
         "long": {"type": "DOMString", "args": [
           {"name": "foo", "type": "long", "optionality": "required"}

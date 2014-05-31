@@ -218,7 +218,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "iterator": ["operation", {
-        "overloadSet": {"": {"type": "long", "args": []}}
+        "overload_set": {"": {"type": "long", "args": []}}
       }]
     }
   }]
@@ -235,7 +235,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "A": ["operation", {
-        "overloadSet": {"long": {"type": "long", "args": [
+        "overload_set": {"long": {"type": "long", "args": [
           {"name": "toJSON", "type": "long", "optionality": "required"}
         ]}}
       }]
@@ -388,7 +388,7 @@ interface A {
 {
   "A": ["interface", {"members": {
     "prototype": ["operation", {
-      "overloadSet": {"": {"type": "void", "args": []}}
+      "overload_set": {"": {"type": "void", "args": []}}
     }]
   }}]
 }
@@ -403,7 +403,7 @@ interface A {
 {
   "A": ["interface", {"members": {
     "prototype": ["static_operation", {
-      "overloadSet": {"": {"type": "void", "args": []}}
+      "overload_set": {"": {"type": "void", "args": []}}
     }]
   }}]
 }
@@ -419,7 +419,7 @@ interface A {
 {
   "A": ["interface", {"members": {
     "hoge": ["operation", {
-      "overloadSet": {"": {"type": "void", "args": []}}
+      "overload_set": {"": {"type": "void", "args": []}}
     }]
   }}]
 }
@@ -435,7 +435,7 @@ interface A {
 {
   "A": ["interface", {"members": {
     "hoge": ["static_operation", {
-      "overloadSet": {"": {"type": "void", "args": []}}
+      "overload_set": {"": {"type": "void", "args": []}}
     }]
   }}]
 }
@@ -652,7 +652,7 @@ interface A {
 {
   "A": ["interface", {
     "serializer": ["operation", {
-      "overloadSet": {
+      "overload_set": {
         "": {"type": "DOMString", "args": []}
       }
     }],
@@ -670,7 +670,7 @@ interface A {
 {
   "A": ["interface", {
     "serializer": ["operation", {
-      "overloadSet": {
+      "overload_set": {
         "long": {"type": "DOMString", "args": [
           {"name": "foo", "type": "long", "optionality": "required"}
         ]}
@@ -723,7 +723,7 @@ interface A {
 {
   "A": ["interface", {
     "serializer": ["operation", {
-      "overloadSet": {
+      "overload_set": {
         "": {"type": "DOMString", "args": []},
         "long": {"type": "DOMString", "args": [
           {"name": "foo", "type": "long", "optionality": "required"}
@@ -741,8 +741,8 @@ interface  A  {
 #processed
 {
   "A": ["interface", {
-    "indexedGetter": ["operation", {
-      "overloadSet": {
+    "indexed_getter": ["operation", {
+      "overload_set": {
         "unsigned long": {
           "type": ["ref", "A"],
           "args": [{"name": "b", "type": "unsigned long", "optionality": "required"}]
@@ -760,8 +760,8 @@ interface  A  {
 #processed
 {
   "A": ["interface", {
-    "namedGetter": ["operation", {
-      "overloadSet": {
+    "named_getter": ["operation", {
+      "overload_set": {
         "DOMString": {
           "type": ["ref", "A"],
           "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
@@ -780,16 +780,16 @@ interface  A  {
 #processed
 {
   "A": ["interface", {
-    "indexedGetter": ["operation", {
-      "overloadSet": {
+    "indexed_getter": ["operation", {
+      "overload_set": {
         "unsigned long": {
           "type": ["ref", "A"],
           "args": [{"name": "c", "type": "unsigned long", "optionality": "required"}]
         }
       }
     }],
-    "namedGetter": ["operation", {
-      "overloadSet": {
+    "named_getter": ["operation", {
+      "overload_set": {
         "DOMString": {
           "type": ["ref", "A"],
           "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
@@ -812,16 +812,16 @@ interface  A  {
 #processed
 {
   "A": ["interface", {
-    "indexedGetter": ["operation", {
-      "overloadSet": {
+    "indexed_getter": ["operation", {
+      "overload_set": {
         "unsigned long": {
           "type": ["ref", "A"],
           "args": [{"name": "c", "type": "unsigned long", "optionality": "required"}]
         }
       }
     }],
-    "namedGetter": ["operation", {
-      "overloadSet": {
+    "named_getter": ["operation", {
+      "overload_set": {
         "DOMString": {
           "type": ["ref", "A"],
           "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
@@ -839,8 +839,8 @@ interface  A  {
 #processed
 {
   "A": ["interface", {
-    "namedGetter": ["operation", {
-      "overloadSet": {
+    "named_getter": ["operation", {
+      "overload_set": {
         "DOMString,long": {
           "type": ["ref", "A"],
           "args": [
@@ -864,32 +864,32 @@ interface  A  {
 #processed
 {
   "A": ["interface", {
-    "indexedGetter": ["operation", {
-      "overloadSet": {
+    "indexed_getter": ["operation", {
+      "overload_set": {
         "unsigned long": {
           "type": ["ref", "A"],
           "args": [{"name": "c", "type": "unsigned long", "optionality": "required"}]
         }
       }
     }],
-    "namedGetter": ["operation", {
-      "overloadSet": {
+    "named_getter": ["operation", {
+      "overload_set": {
         "DOMString": {
           "type": ["ref", "A"],
           "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
         }
       }
     }],
-    "indexedDeleter": ["operation", {
-      "overloadSet": {
+    "indexed_deleter": ["operation", {
+      "overload_set": {
         "unsigned long": {
           "type": ["ref", "A"],
           "args": [{"name": "d", "type": "unsigned long", "optionality": "required"}]
         }
       }
     }],
-    "namedDeleter": ["operation", {
-      "overloadSet": {
+    "named_deleter": ["operation", {
+      "overload_set": {
         "DOMString": {
           "type": ["ref", "A"],
           "args": [{"name": "e", "type": "DOMString", "optionality": "required"}]
@@ -922,24 +922,24 @@ interface  A  {
 #processed
 {
   "A": ["interface", {
-    "indexedGetter": ["operation", {
-      "overloadSet": {
+    "indexed_getter": ["operation", {
+      "overload_set": {
         "unsigned long": {
           "type": ["ref", "A"],
           "args": [{"name": "c", "type": "unsigned long", "optionality": "required"}]
         }
       }
     }],
-    "namedGetter": ["operation", {
-      "overloadSet": {
+    "named_getter": ["operation", {
+      "overload_set": {
         "DOMString": {
           "type": ["ref", "A"],
           "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
         }
       }
     }],
-    "indexedSetter": ["operation", {
-      "overloadSet": {
+    "indexed_setter": ["operation", {
+      "overload_set": {
         "unsigned long,long": {
           "type": ["ref", "A"],
           "args": [{"name": "d", "type": "unsigned long", "optionality": "required"},
@@ -947,8 +947,8 @@ interface  A  {
         }
       }
     }],
-    "namedSetter": ["operation", {
-      "overloadSet": {
+    "named_setter": ["operation", {
+      "overload_set": {
         "DOMString,long": {
           "type": ["ref", "A"],
           "args": [{"name": "e", "type": "DOMString", "optionality": "required"},
@@ -970,24 +970,24 @@ interface  A  {
 #processed
 {
   "A": ["interface", {
-    "indexedGetter": ["operation", {
-      "overloadSet": {
+    "indexed_getter": ["operation", {
+      "overload_set": {
         "unsigned long": {
           "type": ["ref", "A"],
           "args": [{"name": "c", "type": "unsigned long", "optionality": "required"}]
         }
       }
     }],
-    "namedGetter": ["operation", {
-      "overloadSet": {
+    "named_getter": ["operation", {
+      "overload_set": {
         "DOMString": {
           "type": ["ref", "A"],
           "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
         }
       }
     }],
-    "indexedCreator": ["operation", {
-      "overloadSet": {
+    "indexed_creator": ["operation", {
+      "overload_set": {
         "unsigned long,long": {
           "type": ["ref", "A"],
           "args": [{"name": "d", "type": "unsigned long", "optionality": "required"},
@@ -995,8 +995,8 @@ interface  A  {
         }
       }
     }],
-    "namedCreator": ["operation", {
-      "overloadSet": {
+    "named_creator": ["operation", {
+      "overload_set": {
         "DOMString,long": {
           "type": ["ref", "A"],
           "args": [{"name": "e", "type": "DOMString", "optionality": "required"},
@@ -1018,24 +1018,24 @@ interface  A  {
 #processed
 {
   "A": ["interface", {
-    "indexedGetter": ["operation", {
-      "overloadSet": {
+    "indexed_getter": ["operation", {
+      "overload_set": {
         "unsigned long": {
           "type": ["ref", "A"],
           "args": [{"name": "c", "type": "unsigned long", "optionality": "required"}]
         }
       }
     }],
-    "namedGetter": ["operation", {
-      "overloadSet": {
+    "named_getter": ["operation", {
+      "overload_set": {
         "DOMString": {
           "type": ["ref", "A"],
           "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
         }
       }
     }],
-    "indexedSetter": ["operation", {
-      "overloadSet": {
+    "indexed_setter": ["operation", {
+      "overload_set": {
         "unsigned long,long,DOMString": {
           "type": ["ref", "A"],
           "args": [{"name": "d", "type": "unsigned long", "optionality": "required"},
@@ -1044,8 +1044,8 @@ interface  A  {
         }
       }
     }],
-    "namedSetter": ["operation", {
-      "overloadSet": {
+    "named_setter": ["operation", {
+      "overload_set": {
         "DOMString,long,DOMString": {
           "type": ["ref", "A"],
           "args": [{"name": "e", "type": "DOMString", "optionality": "required"},
@@ -1068,24 +1068,24 @@ interface  A  {
 #processed
 {
   "A": ["interface", {
-    "indexedGetter": ["operation", {
-      "overloadSet": {
+    "indexed_getter": ["operation", {
+      "overload_set": {
         "unsigned long": {
           "type": ["ref", "A"],
           "args": [{"name": "c", "type": "unsigned long", "optionality": "required"}]
         }
       }
     }],
-    "namedGetter": ["operation", {
-      "overloadSet": {
+    "named_getter": ["operation", {
+      "overload_set": {
         "DOMString": {
           "type": ["ref", "A"],
           "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
         }
       }
     }],
-    "indexedCreator": ["operation", {
-      "overloadSet": {
+    "indexed_creator": ["operation", {
+      "overload_set": {
         "unsigned long,long,DOMString": {
           "type": ["ref", "A"],
           "args": [{"name": "d", "type": "unsigned long", "optionality": "required"},
@@ -1094,8 +1094,8 @@ interface  A  {
         }
       }
     }],
-    "namedCreator": ["operation", {
-      "overloadSet": {
+    "named_creator": ["operation", {
+      "overload_set": {
         "DOMString,long,DOMString": {
           "type": ["ref", "A"],
           "args": [{"name": "e", "type": "DOMString", "optionality": "required"},
@@ -1130,8 +1130,8 @@ interface  A {
 #processed
 {
   "A": ["interface", {
-    "indexedGetter": ["operation", {
-      "overloadSet": {
+    "indexed_getter": ["operation", {
+      "overload_set": {
         "unsigned long": {"type": "DOMString", "args": [
           {"name": "f", "type": "unsigned long", "optionality": "required"}
         ]}
@@ -1152,15 +1152,15 @@ interface  A {
 #processed
 {
   "A": ["interface", {
-    "indexedGetter": ["operation", {
-      "overloadSet": {
+    "indexed_getter": ["operation", {
+      "overload_set": {
         "unsigned long": {"type": "DOMString", "args": [
           {"name": "f", "type": "unsigned long", "optionality": "required"}
         ]}
       }
     }],
-    "indexedSetter": ["operation", {
-      "overloadSet": {
+    "indexed_setter": ["operation", {
+      "overload_set": {
         "unsigned long,long": {"type": "DOMString", "args": [
           {"name": "g", "type": "unsigned long", "optionality": "required"},
           {"name": "d", "type": "long", "optionality": "required"}
@@ -1182,7 +1182,7 @@ interface A {
 {
   "A": ["interface", {
     "stringifier": ["operation", {
-      "overloadSet": {
+      "overload_set": {
         "": {"type": "DOMString", "args": []},
         "long": {"type": "DOMString", "args": [
           {"name": "foo", "type": "long", "optionality": "variadic"}
@@ -1191,7 +1191,7 @@ interface A {
     }],
     "members": {
       "hoge": ["operation", {
-        "overloadSet": {
+        "overload_set": {
           "": {"type": "DOMString", "args": []},
           "long": {"type": "DOMString", "args": [
             {"name": "foo", "type": "long", "optionality": "variadic"}
@@ -1211,8 +1211,8 @@ interface A {
 #processed
 {
   "A": ["interface", {
-    "indexedGetter": ["operation", {
-      "overloadSet": {
+    "indexed_getter": ["operation", {
+      "overload_set": {
         "": {"type": "DOMString", "args": []},
         "unsigned long": {"type": "DOMString", "args": [
           {"name": "foo", "type": "unsigned long", "optionality": "variadic"}
@@ -1221,7 +1221,7 @@ interface A {
     }],
     "members": {
       "hoge": ["operation", {
-        "overloadSet": {
+        "overload_set": {
           "": {"type": "DOMString", "args": []},
           "unsigned long": {"type": "DOMString", "args": [
             {"name": "foo", "type": "unsigned long", "optionality": "variadic"}
@@ -1241,8 +1241,8 @@ interface A {
 #processed
 {
   "A": ["interface", {
-    "namedGetter": ["operation", {
-      "overloadSet": {
+    "named_getter": ["operation", {
+      "overload_set": {
         "": {"type": "DOMString", "args": []},
         "DOMString": {"type": "DOMString", "args": [
           {"name": "foo", "type": "DOMString", "optionality": "variadic"}
@@ -1251,7 +1251,7 @@ interface A {
     }],
     "members": {
       "hoge": ["operation", {
-        "overloadSet": {
+        "overload_set": {
           "": {"type": "DOMString", "args": []},
           "DOMString": {"type": "DOMString", "args": [
             {"name": "foo", "type": "DOMString", "optionality": "variadic"}
@@ -1273,7 +1273,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "hoge": ["operation", {
-        "overloadSet": {
+        "overload_set": {
           "nullable[DOMString]": {"type": "DOMString", "args": [
             {"name": "foo", "type": ["nullable" , "DOMString"], "optionality": "required"}
           ]}
@@ -1332,7 +1332,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["static_operation", {
-        "overloadSet": {
+        "overload_set": {
           "": {"type": "DOMString", "args": []}
         }
       }]
@@ -1350,7 +1350,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["static_operation", {
-        "overloadSet": {
+        "overload_set": {
           "": {"type": "DOMString", "args": []},
           "long": {"type": "DOMString", "args": [
             {"type": "long", "name": "foo", "optionality": "required"}
@@ -1370,7 +1370,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["static_operation", {
-        "overloadSet": {
+        "overload_set": {
           "": {"type": "DOMString", "args": []},
           "long": {"type": "DOMString", "args": [
             {"type": "long", "name": "foo", "optionality": "optional"}
@@ -1393,7 +1393,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["static_operation", {
-        "overloadSet": {
+        "overload_set": {
           "": {"type": "DOMString", "args": []},
           "long": {"type": "DOMString", "args": [
             {"type": "long", "name": "foo", "optionality": "optional"}
@@ -1416,7 +1416,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["static_operation", {
-        "overloadSet": {
+        "overload_set": {
           "": {"type": "DOMString", "args": []},
           "long": {"type": "DOMString", "args": [
             {"type": "long", "name": "foo", "optionality": "optional"}
@@ -1439,7 +1439,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["static_operation", {
-        "overloadSet": {
+        "overload_set": {
           "long": {"type": "DOMString", "args": [
             {"type": "long", "name": "foo", "optionality": "required"}
           ]}
@@ -1461,7 +1461,7 @@ interface A {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
-        "overloadSet": {
+        "overload_set": {
           "": {"type": "DOMString", "args": []}
         }
       }]
@@ -1512,7 +1512,7 @@ callback interface A {
 {
   "A": ["callback_interface", {
     "members": {"foo": ["static_operation", {
-      "overloadSet": {"": {"type": "DOMString", "args": []}}
+      "overload_set": {"": {"type": "DOMString", "args": []}}
     }]}
   }]
 }
@@ -1543,7 +1543,7 @@ interface A {
     "members": {}
   }],
   "B": ["interface", {
-    "iteratorObject": ["iterator_object", {"type": "DOMString"}],
+    "iterator_object": ["iterator_object", {"type": "DOMString"}],
     "members": {}
   }]
 }
@@ -1573,7 +1573,7 @@ interface A {
 #processed
 {
   "A": ["interface", {
-    "iteratorObject": ["iterator_object", {"type": "boolean"}],
+    "iterator_object": ["iterator_object", {"type": "boolean"}],
     "members": {}
   }]
 }
