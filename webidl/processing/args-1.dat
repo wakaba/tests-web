@@ -79,3 +79,207 @@ interface A {
     }
   }]
 }
+
+#data
+dictionary D {};
+interface A {
+  void foo ((D or DOMString) aa);
+};
+#errors
+1;33;webidl:bad optionality;;aa;m
+#processed
+{
+  "D": ["dictionary", {"members": {}}],
+  "A": ["interface", {"members": {
+    "foo": ["operation", {
+      "overload_set": {"union[ref[D],DOMString]": {
+        "type": "void",
+        "args": [{"name": "aa", "type": ["union", {
+                    "def": [["ref_dictionary", "D"], "DOMString"],
+                    "flattened": {"ref_dictionary[D]": ["ref_dictionary", "D"],
+                                  "DOMString": "DOMString"},
+                    "has_dictionary": 1
+                  }],
+                  "optionality": "required",
+                  "value": ["dictionary_value", {}]}]
+      }}
+    }]
+  }}]
+}
+
+#data
+dictionary D {};
+interface A {
+  void foo (optional (D or DOMString) aa = "abc");
+};
+#processed
+{
+  "D": ["dictionary", {"members": {}}],
+  "A": ["interface", {"members": {
+    "foo": ["operation", {
+      "overload_set": {"": {
+        "type": "void",
+        "args": []
+      }, "union[ref[D],DOMString]": {
+        "type": "void",
+        "args": [{"name": "aa", "type": ["union", {
+                    "def": [["ref_dictionary", "D"], "DOMString"],
+                    "flattened": {"ref_dictionary[D]": ["ref_dictionary", "D"],
+                                  "DOMString": "DOMString"},
+                    "has_dictionary": 1
+                  }],
+                  "optionality": "optional",
+                  "value": ["string", "abc"]}]
+      }}
+    }]
+  }}]
+}
+
+#data
+dictionary D {};
+interface A {
+  void foo (D aa);
+};
+#errors
+1;33;webidl:bad optionality;;aa;m
+#processed
+{
+  "D": ["dictionary", {"members": {}}],
+  "A": ["interface", {"members": {
+    "foo": ["operation", {
+      "overload_set": {"ref[D]": {
+        "type": "void",
+        "args": [{"name": "aa", "type": ["ref_dictionary", "D"],
+                  "optionality": "required",
+                  "value": ["dictionary_value", {}]}]
+      }}
+    }]
+  }}]
+}
+
+#data
+dictionary D {};
+interface A {
+  void foo (optional D aa);
+};
+#processed
+{
+  "D": ["dictionary", {"members": {}}],
+  "A": ["interface", {"members": {
+    "foo": ["operation", {
+      "overload_set": {"": {
+        "type": "void",
+        "args": []
+      }, "ref[D]": {
+        "type": "void",
+        "args": [{"name": "aa", "type": ["ref_dictionary", "D"],
+                  "optionality": "optional",
+                  "value": ["dictionary_value", {}]}]
+      }}
+    }]
+  }}]
+}
+
+#data
+dictionary D {};
+interface A {
+  void foo (D... aa);
+};
+#processed
+{
+  "D": ["dictionary", {"members": {}}],
+  "A": ["interface", {"members": {
+    "foo": ["operation", {
+      "overload_set": {"": {
+        "type": "void",
+        "args": []
+      }, "ref[D]": {
+        "type": "void",
+        "args": [{"name": "aa", "type": ["ref_dictionary", "D"],
+                  "optionality": "variadic",
+                  "value": ["dictionary_value", {}]}]
+      }}
+    }]
+  }}]
+}
+
+#data
+dictionary D {};
+interface A {
+  void foo (optional D aa, optional long foo);
+};
+#processed
+{
+  "D": ["dictionary", {"members": {}}],
+  "A": ["interface", {"members": {
+    "foo": ["operation", {
+      "overload_set": {"": {
+        "type": "void",
+        "args": []
+      }, "ref[D]": {
+        "type": "void",
+        "args": [{"name": "aa", "type": ["ref_dictionary", "D"],
+                  "optionality": "optional",
+                  "value": ["dictionary_value", {}]}]
+      }, "ref[D],long": {
+        "type": "void",
+        "args": [{"name": "aa", "type": ["ref_dictionary", "D"],
+                  "optionality": "optional",
+                  "value": ["dictionary_value", {}]},
+                 {"name": "foo", "type": "long", "optionality": "optional"}]
+      }}
+    }]
+  }}]
+}
+
+#data
+dictionary D {};
+interface A {
+  void foo (optional D aa, optional D foo);
+};
+#processed
+{
+  "D": ["dictionary", {"members": {}}],
+  "A": ["interface", {"members": {
+    "foo": ["operation", {
+      "overload_set": {"": {
+        "type": "void",
+        "args": []
+      }, "ref[D]": {
+        "type": "void",
+        "args": [{"name": "aa", "type": ["ref_dictionary", "D"],
+                  "optionality": "optional",
+                  "value": ["dictionary_value", {}]}]
+      }, "ref[D],ref[D]": {
+        "type": "void",
+        "args": [{"name": "aa", "type": ["ref_dictionary", "D"],
+                  "optionality": "optional",
+                  "value": ["dictionary_value", {}]},
+                 {"name": "foo", "type": ["ref_dictionary", "D"],
+                  "optionality": "optional",
+                  "value": ["dictionary_value", {}]}]
+      }}
+    }]
+  }}]
+}
+
+#data
+dictionary D {};
+interface A {
+  void foo (D aa, long foo);
+};
+#processed
+{
+  "D": ["dictionary", {"members": {}}],
+  "A": ["interface", {"members": {
+    "foo": ["operation", {
+      "overload_set": {"ref[D],long": {
+        "type": "void",
+        "args": [{"name": "aa", "type": ["ref_dictionary", "D"],
+                  "optionality": "required"},
+                 {"name": "foo", "type": "long",
+                  "optionality": "required"}]
+      }}
+    }]
+  }}]
+}

@@ -73,53 +73,53 @@ dictionary D {};
 typedef (long or object) T;
 #processed
 {
-  "T": ["typedef", {"type": ["union",
+  "T": ["typedef", {"type": ["union", {"def":
     ["long", "object"],
-    {"long": "long",
+    "flattened": {"long": "long",
      "object": "object"}
-  ]}]
+  }]}]
 }
 
 #data
 typedef (long or (object or Date)) T;
 #processed
 {
-  "T": ["typedef", {"type": ["union",
-    ["long", ["union",
+  "T": ["typedef", {"type": ["union", {"def":
+    ["long", ["union", {"def":
               ["object", "Date"],
-              {"object": "object", "Date": "Date"}]],
-    {"long": "long",
+              "flattened": {"object": "object", "Date": "Date"}}]],
+    "flattened": {"long": "long",
      "object": "object",
-     "Date": "Date"}
+     "Date": "Date"}}
   ]}]
 }
 
 #data
 typedef (long or (object or Date or _Date)) T;
 #errors
-1;;webidl:not defined;;_Date;m
+1;0;webidl:not defined;;_Date;m
 #processed
 {
-  "T": ["typedef", {"type": ["union",
-    ["long", ["union",
-              ["object", "Date", ["ref", "_Date"]],
-              {"object": "object", "Date": "Date",
-               "ref[_Date]": ["ref", "_Date"]}]],
-    {"long": "long",
+  "T": ["typedef", {"type": ["union", {
+    "def": ["long", ["union", {
+              "def": ["object", "Date", ["ref", "_Date"]],
+              "flattened": {"object": "object", "Date": "Date",
+               "ref[_Date]": ["ref", "_Date"]}}]],
+    "flattened": {"long": "long",
      "object": "object",
      "Date": "Date",
      "ref[_Date]": ["ref", "_Date"]}
-  ]}]
+  }]}]
 }
 
 #data
 typedef (long or sequence<long>) T;
 #processed
 {
-  "T": ["typedef", {"type": ["union",
-    ["long", ["sequence", "long"]],
-    {"long": "long", "sequence[long]": ["sequence", "long"]}
-  ]}]
+  "T": ["typedef", {"type": ["union", {
+    "def": ["long", ["sequence", "long"]],
+    "flattened": {"long": "long", "sequence[long]": ["sequence", "long"]}
+  }]}]
 }
 
 #data
@@ -128,7 +128,7 @@ typedef (long or long) T;
 1;0;webidl:not distinguishable;;long;m
 #processed
 {
-  "T": ["typedef", {"type": ["union", ["long", "long"], {"long": "long"}]}]
+  "T": ["typedef", {"type": ["union", {"def": ["long", "long"], "flattened": {"long": "long"}}]}]
 }
 
 #data
@@ -137,9 +137,9 @@ typedef (long or (object or long)) T;
 1;0;webidl:not distinguishable;;long;m
 #processed
 {
-  "T": ["typedef", {"type": ["union",
-    ["long",
-     ["union", ["object", "long"], {"object": "object", "long": "long"}]],
-    {"long": "long", "object": "object"}
-  ]}]
+  "T": ["typedef", {"type": ["union", {
+    "def": ["long",
+     ["union", {"def": ["object", "long"], "flattened": {"object": "object", "long": "long"}}]],
+    "flattened": {"long": "long", "object": "object"}
+  }]}]
 }

@@ -371,7 +371,10 @@ typedef (long or unsigned long) Hoge;
 #processed
 {
   "Hoge": ["typedef", {
-    "type": ["union", ["long", "unsigned long"], {"long": "long", "unsigned long": "unsigned long"}]
+    "type": ["union", {
+      "def": ["long", "unsigned long"],
+      "flattened": {"long": "long", "unsigned long": "unsigned long"}
+    }]
   }]
 }
 
@@ -380,7 +383,10 @@ typedef (long or unsigned long)? Hoge;
 #processed
 {
   "Hoge": ["typedef", {
-    "type": ["nullable", ["union", ["long", "unsigned long"], {"long": "long", "unsigned long": "unsigned long"}]]
+    "type": ["nullable", ["union", {
+      "def": ["long", "unsigned long"],
+      "flattened": {"long": "long", "unsigned long": "unsigned long"}
+    }]]
   }]
 }
 
@@ -389,7 +395,10 @@ typedef sequence <(long or unsigned long)> Hoge;
 #processed
 {
   "Hoge": ["typedef", {
-    "type": ["sequence", ["union", ["long", "unsigned long"], {"long": "long", "unsigned long": "unsigned long"}]]
+    "type": ["sequence", ["union", {
+      "def": ["long", "unsigned long"],
+      "flattened": {"long": "long", "unsigned long": "unsigned long"}
+    }]]
   }]
 }
 
@@ -398,7 +407,10 @@ typedef (long or unsigned long)[]? Hoge;
 #processed
 {
   "Hoge": ["typedef", {
-    "type": ["nullable", ["array", ["union", ["long", "unsigned long"], {"long": "long", "unsigned long": "unsigned long"}]]]
+    "type": ["nullable", ["array", ["union", {
+      "def": ["long", "unsigned long"],
+      "flattened": {"long": "long", "unsigned long": "unsigned long"}
+    }]]]
   }]
 }
 
@@ -407,7 +419,13 @@ typedef (long or (double or unsigned long)) Hoge;
 #processed
 {
   "Hoge": ["typedef", {
-    "type": ["union", ["long", ["union", ["double", "unsigned long"], {"double": "double", "unsigned long": "unsigned long"}]], {"long": "long", "double": "double", "unsigned long": "unsigned long"}]
+    "type": ["union", {
+      "def": ["long", ["union", {
+        "def": ["double", "unsigned long"],
+        "flattened": {"double": "double", "unsigned long": "unsigned long"}
+      }]],
+      "flattened": {"long": "long", "double": "double", "unsigned long": "unsigned long"}
+    }]
   }]
 }
 
@@ -416,7 +434,10 @@ typedef (long[] or unsigned long[]) Hoge;
 #processed
 {
   "Hoge": ["typedef", {
-    "type": ["union", [["array", "long"], ["array", "unsigned long"]], {"array[long]": ["array", "long"], "array[unsigned long]": ["array", "unsigned long"]}]
+    "type": ["union", {
+      "def": [["array", "long"], ["array", "unsigned long"]],
+      "flattened": {"array[long]": ["array", "long"], "array[unsigned long]": ["array", "unsigned long"]}
+    }]
   }]
 }
 
@@ -432,7 +453,16 @@ typedef (long or ((double or RegExp) or unsigned long)) Hoge;
 #processed
 {
   "Hoge": ["typedef", {
-    "type": ["union", ["long", ["union", [["union", ["double", "RegExp"], {"double": "double", "RegExp": "RegExp"}], "unsigned long"], {"double": "double", "unsigned long": "unsigned long", "RegExp": "RegExp"}]], {"long": "long", "double": "double", "unsigned long": "unsigned long", "RegExp": "RegExp"}]
+    "type": ["union", {
+      "def": ["long", ["union", {
+        "def": [["union", {
+          "def": ["double", "RegExp"],
+          "flattened": {"double": "double", "RegExp": "RegExp"}
+        }], "unsigned long"],
+        "flattened": {"double": "double", "unsigned long": "unsigned long", "RegExp": "RegExp"}
+      }]],
+      "flattened": {"long": "long", "double": "double", "unsigned long": "unsigned long", "RegExp": "RegExp"}
+    }]
   }]
 }
 
@@ -441,10 +471,13 @@ typedef (long? or object) Hoge;
 #processed
 {
   "Hoge": ["typedef", {
-    "type": ["union", [["nullable", "long"], "object"], {
-      "long": "long",
-      "null": "null",
-      "object": "object"
+    "type": ["union", {
+      "def": [["nullable", "long"], "object"],
+      "flattened": {
+        "long": "long",
+        "null": "null",
+        "object": "object"
+      }
     }]
   }]
 }
@@ -456,10 +489,13 @@ typedef (long? or object?) Hoge;
 #processed
 {
   "Hoge": ["typedef", {
-    "type": ["union", [["nullable", "long"], ["nullable", "object"]], {
-      "long": "long",
-      "null": "null",
-      "object": "object"
+    "type": ["union", {
+      "def": [["nullable", "long"], ["nullable", "object"]],
+      "flattened": {
+        "long": "long",
+        "null": "null",
+        "object": "object"
+      }
     }]
   }]
 }
@@ -471,13 +507,19 @@ typedef ((long or Date)? or object?) Hoge;
 #processed
 {
   "Hoge": ["typedef", {
-    "type": ["union", [["nullable",
-        ["union", ["long", "Date"], {"long": "long", "Date": "Date"}]
-      ], ["nullable", "object"]], {
-      "long": "long",
-      "null": "null",
-      "object": "object",
-      "Date": "Date"
+    "type": ["union", {
+      "def": [["nullable",
+        ["union", {
+          "def": ["long", "Date"],
+          "flattened": {"long": "long", "Date": "Date"}
+        }]
+      ], ["nullable", "object"]],
+      "flattened": {
+        "long": "long",
+        "null": "null",
+        "object": "object",
+        "Date": "Date"
+      }
     }]
   }]
 }
@@ -489,15 +531,20 @@ typedef ((long or Date?) or object?) Hoge;
 #processed
 {
   "Hoge": ["typedef", {
-    "type": ["union", [
-      ["union", ["long", ["nullable", "Date"]],
-                {"long": "long", "Date": "Date", "null": "null"}],
-      ["nullable", "object"]
-    ], {
-      "long": "long",
-      "null": "null",
-      "object": "object",
-      "Date": "Date"
+    "type": ["union", {
+      "def": [
+        ["union", {
+          "def": ["long", ["nullable", "Date"]],
+          "flattened": {"long": "long", "Date": "Date", "null": "null"}
+        }],
+        ["nullable", "object"]
+      ],
+      "flattened": {
+        "long": "long",
+        "null": "null",
+        "object": "object",
+        "Date": "Date"
+      }
     }]
   }]
 }
@@ -509,16 +556,24 @@ typedef ((long or Date?) or (object? or DOMString)) Hoge;
 #processed
 {
   "Hoge": ["typedef", {
-    "type": ["union", [
-      ["union", ["long", ["nullable", "Date"]],
-                {"long": "long", "Date": "Date", "null": "null"}],
-      ["union", [["nullable", "object"], "DOMString"], {"object": "object", "DOMString": "DOMString", "null": "null"}]
-    ], {
-      "long": "long",
-      "null": "null",
-      "object": "object",
-      "Date": "Date",
-      "DOMString": "DOMString"
+    "type": ["union", {
+      "def": [
+        ["union", {
+          "def": ["long", ["nullable", "Date"]],
+          "flattened": {"long": "long", "Date": "Date", "null": "null"}
+        }],
+        ["union", {
+          "def": [["nullable", "object"], "DOMString"],
+          "flattened": {"object": "object", "DOMString": "DOMString", "null": "null"}
+        }]
+      ],
+      "flattened": {
+        "long": "long",
+        "null": "null",
+        "object": "object",
+        "Date": "Date",
+        "DOMString": "DOMString"
+      }
     }]
   }]
 }
@@ -530,13 +585,19 @@ typedef ((long or Date?)? or DOMString) Hoge;
 #processed
 {
   "Hoge": ["typedef", {
-    "type": ["union", [
-      ["nullable", ["union", ["long", ["nullable", "Date"]], {"long": "long", "Date": "Date", "null": "null"}]], "DOMString"
-    ], {
-      "long": "long",
-      "null": "null",
-      "Date": "Date",
-      "DOMString": "DOMString"
+    "type": ["union", {
+      "def": [
+        ["nullable", ["union", {
+          "def": ["long", ["nullable", "Date"]],
+          "flattened": {"long": "long", "Date": "Date", "null": "null"}
+        }]], "DOMString"
+      ],
+      "flattened": {
+        "long": "long",
+        "null": "null",
+        "Date": "Date",
+        "DOMString": "DOMString"
+      }
     }]
   }]
 }
@@ -549,14 +610,14 @@ dictionary D {};
 #processed
 {
   "D": ["dictionary", {"members": {}}],
-  "T": ["typedef", {"type": ["union", [
+  "T": ["typedef", {"type": ["union", {"def": [
     ["ref_dictionary", "D"],
     ["nullable", "long"]
-  ], {
+  ], "flattened": {
     "ref_dictionary[D]": ["ref_dictionary", "D"],
     "long": "long",
     "null": "null"
-  }]}]
+  }, "has_dictionary": 1}]}]
 }
 
 #data
@@ -569,15 +630,37 @@ dictionary E {};
 {
   "D": ["dictionary", {"members": {}}],
   "E": ["dictionary", {"members": {}}],
-  "T": ["typedef", {"type": ["union", [
-    ["union", [["ref_dictionary", "D"], ["ref_dictionary", "E"]],
-              {"ref_dictionary[D]": ["ref_dictionary", "D"],
-               "ref_dictionary[E]": ["ref_dictionary", "E"]}],
+  "T": ["typedef", {"type": ["union", {"def": [
+    ["union", {"def": [["ref_dictionary", "D"], ["ref_dictionary", "E"]],
+               "flattened": {"ref_dictionary[D]": ["ref_dictionary", "D"],
+               "ref_dictionary[E]": ["ref_dictionary", "E"]},
+               "has_dictionary": 1  }],
     ["nullable", "long"]
-  ], {
+  ], "flattened": {
     "ref_dictionary[D]": ["ref_dictionary", "D"],
     "ref_dictionary[E]": ["ref_dictionary", "E"],
     "long": "long",
     "null": "null"
-  }]}]
+  }, "has_dictionary": 1}]}]
+}
+
+#data
+typedef ((D or E) or long) T;
+dictionary D {};
+dictionary E {};
+#processed
+{
+  "D": ["dictionary", {"members": {}}],
+  "E": ["dictionary", {"members": {}}],
+  "T": ["typedef", {"type": ["union", {"def": [
+    ["union", {"def": [["ref_dictionary", "D"], ["ref_dictionary", "E"]],
+               "flattened": {"ref_dictionary[D]": ["ref_dictionary", "D"],
+               "ref_dictionary[E]": ["ref_dictionary", "E"]},
+               "has_dictionary": 1}],
+    "long"
+  ], "flattened": {
+    "ref_dictionary[D]": ["ref_dictionary", "D"],
+    "ref_dictionary[E]": ["ref_dictionary", "E"],
+    "long": "long"
+  }, "has_dictionary": 1}]}]
 }
