@@ -1,0 +1,420 @@
+#data
+[hoge] interface A {};
+#errors
+1;1;webidl:not allowed;;hoge;m
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+[ArrayClass] interface A {};
+#processed
+{
+  "A": ["interface", {
+    "ArrayClass": 1,
+    "members": {}
+  }]
+}
+
+#data
+[ArrayClass] callback interface A {};
+#processed
+{
+  "A": ["callback_interface", {
+    "ArrayClass": 1,
+    "members": {}
+  }]
+}
+
+#data
+[ArrayClass()] interface A {};
+#errors
+1;1;webidl:bad args;;ArrayClass;m
+#processed
+{
+  "A": ["interface", {
+    "ArrayClass": 1,
+    "members": {}
+  }]
+}
+
+#data
+[ArrayClass=foo()] interface A {};
+#errors
+1;1;webidl:bad args;;ArrayClass;m
+#processed
+{
+  "A": ["interface", {
+    "ArrayClass": 1,
+    "members": {}
+  }]
+}
+
+#data
+[ArrayClass=foo] interface A {};
+#errors
+1;1;webidl:bad args;;ArrayClass;m
+#processed
+{
+  "A": ["interface", {
+    "ArrayClass": 1,
+    "members": {}
+  }]
+}
+
+#data
+[ArrayClass=foo,bar] interface A {};
+#errors
+1;1;webidl:bad args;;ArrayClass;m
+#processed
+{
+  "A": ["interface", {
+    "ArrayClass": 1,
+    "members": {}
+  }]
+}
+
+#data
+[ArrayClass(long,long)] interface A {};
+#errors
+1;1;webidl:bad args;;ArrayClass;m
+#processed
+{
+  "A": ["interface", {
+    "ArrayClass": 1,
+    "members": {}
+  }]
+}
+
+#data
+interface B {};
+[ArrayClass] interface A : B {};
+#errors
+1;17;webidl:not allowed;;ArrayClass;m
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "implements": {"B": {"depth": 1}}
+  }],
+  "B": ["interface", {"members": {}}]
+}
+
+#data
+interface A {};
+[ArrayClass] partial interface  A {};
+#errors
+1;17;webidl:not allowed;;ArrayClass;m
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+[ArrayClass] exception A {};
+#errors
+1;1;webidl:not allowed;;ArrayClass;m
+#processed
+{
+  "A": ["exception", {"members": {}}]
+}
+
+#data
+dictionary A {
+  [Clamp] long  lhoo;
+};
+#processed
+{
+  "A": ["dictionary", {
+    "members": {
+      "lhoo": ["dictionary_member", {
+        "Clamp": 1,
+        "type": "long"
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Clamp] attribute long  lhoo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "lhoo": ["attribute", {
+        "Clamp": 1,
+        "type": "long",
+        "getter": 1, "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Clamp] readonly attribute long  lhoo;
+};
+#errors
+1;17;webidl:not allowed;;Clamp;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "lhoo": ["attribute", {
+        "type": "long",
+        "getter": 1
+      }]
+    }
+  }]
+}
+
+#data
+exception A {
+  [Clamp]  long  lhoo;
+};
+#errors
+1;17;webidl:not allowed;;Clamp;m
+#processed
+{
+  "A": ["exception", {
+    "members": {
+      "lhoo": ["field", {
+        "type": "long"
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Clamp,Clamp] attribute long  lhoo;
+};
+#errors
+1;23;webidl:not allowed;;Clamp;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "lhoo": ["attribute", {
+        "Clamp": 1,
+        "type": "long",
+        "getter": 1, "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+[Constructor]
+interface A {};
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "Constructor": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        }
+      }
+    }]
+  }]
+}
+
+#data
+[Constructor(long foo)]
+interface A {};
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "Constructor": ["operation", {
+      "overload_set": {
+        "long": {
+          "type": ["ref_interface", "A"],
+          "args": [{"name":"foo","type":"long","optionality":"required"}]
+        }
+      }
+    }]
+  }]
+}
+
+#data
+[Constructor(long foo),Constructor]
+interface A {};
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "Constructor": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        },
+        "long": {
+          "type": ["ref_interface", "A"],
+          "args": [{"name":"foo","type":"long","optionality":"required"}]
+        }
+      }
+    }]
+  }]
+}
+
+#data
+[Constructor(optional long foo)]
+interface A {};
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "Constructor": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        },
+        "long": {
+          "type": ["ref_interface", "A"],
+          "args": [{"name":"foo","type":"long","optionality":"optional"}]
+        }
+      }
+    }]
+  }]
+}
+
+#data
+[Constructor,Constructor(optional long foo)]
+interface A {};
+#errors
+1;13;webidl:not distinguishable;;;m
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "Constructor": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        },
+        "long": {
+          "type": ["ref_interface", "A"],
+          "args": [{"name":"foo","type":"long","optionality":"optional"}]
+        }
+      }
+    }]
+  }]
+}
+
+#data
+interface A {};
+[Constructor(optional long foo)]
+partial interface A {};
+#errors
+1;17;webidl:not allowed;;Constructor;m
+#processed
+{
+  "A": ["interface", {
+    "members": {}
+  }]
+}
+
+#data
+[Constructor]
+interface A {};
+[Constructor(long foo)]
+partial interface A {};
+#errors
+1;31;webidl:not allowed;;Constructor;m
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "Constructor": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        }
+      }
+    }]
+  }]
+}
+
+#data
+[Constructor]
+dictionary A {};
+#processed
+{
+  "A": ["dictionary", {
+    "members": {},
+    "Constructor": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_dictionary", "A"],
+          "args": []
+        }
+      }
+    }]
+  }]
+}
+
+#data
+[Constructor]
+partial dictionary A {};
+dictionary A {};
+#errors
+1;1;webidl:not allowed;;Constructor;m
+#processed
+{
+  "A": ["dictionary", {
+    "members": {}
+  }]
+}
+
+#data
+[Constructor]
+exception A {};
+#errors
+1;1;webidl:not allowed;;Constructor;m
+#processed
+{
+  "A": ["exception", {
+    "members": {}
+  }]
+}
+
+#data
+[Constructor]
+callback interface A {};
+#errors
+1;1;webidl:not allowed;;Constructor;m
+#processed
+{
+  "A": ["callback_interface", {
+    "members": {}
+  }]
+}
+
+#data
+[Constructor]
+A implements B;
+interface A {};
+interface B {};
+#errors
+1;1;webidl:not allowed;;Constructor;m
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "implements": {"B": {"depth": 1, "consequential": 1, "supplemental": 1}}
+  }],
+  "B": ["interface", {
+    "members": {}
+  }]
+}
