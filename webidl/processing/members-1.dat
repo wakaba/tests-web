@@ -463,7 +463,7 @@ interface A {
 {
   "A": ["interface", {
     "serializer": ["serializer", {"value": ["map",
-      ["attrref", "abc"]
+      ["ref_attribute", "abc"]
     ]}],
     "members": {
       "abc": ["attribute", {"type": "DOMString", "getter":1, "setter": 1}]
@@ -481,8 +481,8 @@ interface A {
 {
   "A": ["interface", {
     "serializer": ["serializer", {"value": ["map",
-      ["attrref", "abc"],
-      ["attrref", "def"]
+      ["ref_attribute", "abc"],
+      ["ref_attribute", "def"]
     ]}],
     "members": {
       "abc": ["attribute", {"type": "DOMString", "getter":1, "setter": 1}],
@@ -501,8 +501,8 @@ interface A {
 {
   "A": ["interface", {
     "serializer": ["serializer", {"value": ["list",
-      ["attrref", "abc"],
-      ["attrref", "def"]
+      ["ref_attribute", "abc"],
+      ["ref_attribute", "def"]
     ]}],
     "members": {
       "abc": ["attribute", {"type": "DOMString", "getter":1, "setter": 1}],
@@ -566,7 +566,7 @@ interface A : B {
   "A": ["interface", {
     "serializer": ["serializer", {"value": ["map",
       "inherit",
-      ["attrref", "def"]
+      ["ref_attribute", "def"]
     ]}],
     "members": {
       "def": ["attribute", {"type": "DOMString", "getter":1, "setter": 1}]
@@ -627,7 +627,7 @@ interface B {
 #processed
 {
   "B": ["interface", {
-    "serializer": ["serializer", {"value": ["attrref", "foo"]}],
+    "serializer": ["serializer", {"value": ["ref_attribute", "foo"]}],
     "members": {
       "foo": ["attribute", {"type": "DOMString", "getter": 1, "setter": 1}]
     }
@@ -1544,7 +1544,7 @@ interface A {
 #processed
 {
   "A": ["interface", {
-    "iterator": ["iterator", {"type": "boolean", "value": ["interfaceref", "B"]}],
+    "iterator": ["iterator", {"type": "boolean", "value": ["ref_interface", "B"]}],
     "members": {}
   }],
   "B": ["interface", {

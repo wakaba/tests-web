@@ -418,3 +418,922 @@ interface B {};
     "members": {}
   }]
 }
+
+#data
+dictionary A {
+  [EnforceRange] long hoge;
+};
+#processed
+{
+  "A": ["dictionary", {
+    "members": {
+      "hoge": ["dictionary_member", {
+        "EnforceRange": 1,
+        "type": "long"
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [EnforceRange] attribute long hoge;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoge": ["attribute", {
+        "EnforceRange": 1,
+        "type": "long",
+        "getter": 1, "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Clamp,EnforceRange] attribute long hoge;
+};
+#errors
+1;16;webidl:not allowed;;EnforceRange;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoge": ["attribute", {
+        "Clamp": 1,
+        "EnforceRange": 1,
+        "type": "long",
+        "getter": 1, "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [EnforceRange] static attribute long hoge;
+};
+#errors
+1;17;webidl:not allowed;;EnforceRange;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoge": ["static_attribute", {
+        "type": "long",
+        "getter": 1, "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [EnforceRange] readonly attribute long hoge;
+};
+#errors
+1;17;webidl:not allowed;;EnforceRange;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoge": ["attribute", {
+        "type": "long",
+        "getter": 1
+      }]
+    }
+  }]
+}
+
+#data
+[Constructor([EnforceRange] unsigned long a)]
+interface A {};
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "Constructor": ["operation", {
+      "overload_set": {"unsigned long": {
+        "type": ["ref_interface", "A"],
+        "args": [{
+          "EnforceRange": 1,
+          "type": "unsigned long",
+          "optionality": "required",
+          "name": "a"
+        }]
+      }}
+    }]
+  }]
+}
+
+#data
+interface A {
+  void foo ([EnsureUTF16] DOMString hoge);
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "DOMString": {
+            "type": "void",
+            "args": [{"name": "hoge", "type": "DOMString",
+                      "EnsureUTF16": 1, "optionality": "required"}]
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+[ImplicitThis]
+interface A { };
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "ImplicitThis": 1
+  }]
+}
+
+#data
+[ImplicitThis]
+callback interface A { };
+#processed
+{
+  "A": ["callback_interface", {
+    "members": {},
+    "ImplicitThis": 1
+  }]
+}
+
+#data
+interface A {
+  [LenientThis] attribute long foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "type": "long",
+        "LenientThis": 1,
+        "getter": 1, "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [LenientThis] static attribute long foo;
+};
+#errors
+1;17;webidl:not allowed;;LenientThis;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static_attribute", {
+        "type": "long",
+        "getter": 1, "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+[MapClass]
+interface A {};
+#errors
+1;1;webidl:bad args;;MapClass;m
+#processed
+{
+  "A": ["interface", {
+    "members": {}
+  }]
+}
+
+#data
+[MapClass(long, B)]
+interface A {};
+interface B {};
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "MapClass": {
+      "key_type": "long",
+      "value_type": ["ref_interface", "B"]
+    }
+  }],
+  "B": ["interface", {"members": {}}]
+}
+
+#data
+[MapClass(long, B)]
+interface A {};
+#errors
+1;1;webidl:not defined;;B;m
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "MapClass": {
+      "key_type": "long",
+      "value_type": ["ref", "B"]
+    }
+  }]
+}
+
+#data
+[MapClass(long, B)]
+interface A : B {};
+interface B {};
+#errors
+1;1;webidl:not allowed;;MapClass;m
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "implements": {"B": {"depth": 1}}
+  }],
+  "B": ["interface", {"members": {}}]
+}
+
+#data
+[ArrayClass, MapClass(long, B)]
+interface A  {};
+interface B {};
+#errors
+1;0;webidl:not allowed;;MapClass;m
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "ArrayClass": 1,
+    "MapClass": {
+      "key_type": "long",
+      "value_type": ["ref_interface", "B"]
+    }
+  }],
+  "B": ["interface", {"members": {}}]
+}
+
+#data
+interface A {
+  [NewObject] A foo ();
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "type": ["ref_interface", "A"],
+            "args": [],
+            "NewObject": 1
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [NewObject] A foo (optional long foo, long... bar);
+  A foo (A hoge);
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "type": ["ref_interface", "A"],
+            "args": [],
+            "NewObject": 1
+          },
+          "long": {
+            "type": ["ref_interface", "A"],
+            "args": [
+              {"name": "foo", "optionality": "optional", "type": "long"}
+            ],
+            "NewObject": 1
+          },
+          "long,long": {
+            "type": ["ref_interface", "A"],
+            "args": [
+              {"name": "foo", "optionality": "optional", "type": "long"},
+              {"name": "bar", "optionality": "variadic", "type": "long"}
+            ],
+            "NewObject": 1
+          },
+          "ref[A]": {
+            "type": ["ref_interface", "A"],
+            "args": [
+              {"name": "hoge", "optionality": "required", "type": ["ref_interface", "A"]}
+            ]
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [NewObject] getter A (DOMString foo);
+};
+#errors
+1;17;webidl:not allowed;;NewObject;m
+#processed
+{
+  "A": ["interface", {
+    "named_getter": ["operation", {
+      "overload_set": {
+        "DOMString": {
+          "type": ["ref_interface", "A"],
+          "args": [
+            {"name": "foo", "type": "DOMString", "optionality": "required"}
+          ]
+        }
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  [NewObject] getter A f (DOMString foo);
+};
+#processed
+{
+  "A": ["interface", {
+    "named_getter": ["operation", {
+      "overload_set": {
+        "DOMString": {
+          "type": ["ref_interface", "A"],
+          "args": [
+            {"name": "foo", "type": "DOMString", "optionality": "required"}
+          ],
+          "NewObject": 1
+        }
+      }
+    }],
+    "members": {
+      "f": ["operation", {
+        "overload_set": {
+          "DOMString": {
+            "type": ["ref_interface", "A"],
+            "args": [
+              {"name": "foo", "type": "DOMString", "optionality": "required"}
+            ],
+            "NewObject": 1
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+[NoInterfaceObject]
+interface A { };
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "NoInterfaceObject": 1
+  }]
+}
+
+#data
+[NoInterfaceObject]
+exception A { };
+#processed
+{
+  "A": ["exception", {
+    "members": {},
+    "NoInterfaceObject": 1
+  }]
+}
+
+#data
+[NoInterfaceObject]
+callback interface A {
+  const long foo = 13;
+};
+#processed
+{
+  "A": ["callback_interface", {
+    "members": {
+      "foo": ["const", {
+        "type": "long",
+        "value": ["integer", 13]
+      }]
+    },
+    "NoInterfaceObject": 1
+  }]
+}
+
+#data
+[OverrideBuiltins]
+interface A {
+  getter long  (DOMString a);
+};
+#processed
+{
+  "A": ["interface", {
+    "OverrideBuiltins": 1,
+    "members": {},
+    "named_getter": ["operation", {
+      "overload_set": {
+        "DOMString": {
+          "type": "long",
+          "args": [{"name": "a", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }]
+  }]
+}
+
+#data
+interface A {
+  [PutForwards=href] readonly attribute Link foo;
+};
+interface Link {
+  attribute DOMString href;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "type": ["ref_interface", "Link"],
+        "getter": 1,
+        "setter": ["ref_attribute", "href"]
+      }]
+    }
+  }],
+  "Link": ["interface", {
+    "members": {
+      "href": ["attribute", {
+        "type": "DOMString",
+        "getter": 1, "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [PutForwards=href]  attribute Link foo;
+};
+interface Link {
+  attribute DOMString href;
+};
+#errors
+1;17;webidl:duplicate;;PutForwards;w
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "type": ["ref_interface", "Link"],
+        "getter": 1,
+        "setter": ["ref_attribute", "href"]
+      }]
+    }
+  }],
+  "Link": ["interface", {
+    "members": {
+      "href": ["attribute", {
+        "type": "DOMString",
+        "getter": 1, "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [PutForwards=href] static readonly attribute Link foo;
+};
+interface Link {
+  attribute DOMString href;
+};
+#errors
+1;17;webidl:not allowed;;PutForwards;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static_attribute", {
+        "type": ["ref_interface", "Link"],
+        "getter": 1
+      }]
+    }
+  }],
+  "Link": ["interface", {
+    "members": {
+      "href": ["attribute", {
+        "type": "DOMString",
+        "getter": 1, "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Replaceable] readonly attribute long hoge;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoge": ["attribute", {
+        "type": "long",
+        "getter": 1,
+        "setter": "replaceable"
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Replaceable] static readonly attribute long hoge;
+};
+#errors
+1;17;webidl:not allowed;;Replaceable;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoge": ["static_attribute", {
+        "type": "long",
+        "getter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Replaceable]  attribute long hoge;
+};
+#errors
+1;17;webidl:duplicate;;Replaceable;w
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoge": ["attribute", {
+        "type": "long",
+        "getter": 1,
+        "setter": "replaceable"
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Replaceable, PutForwards=foo] readonly attribute Foo hoge;
+};
+interface Foo {
+  attribute DOMString foo;
+};
+#errors
+1;30;webidl:duplicate;;PutForwards;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoge": ["attribute", {
+        "type": ["ref_interface", "Foo"],
+        "getter": 1,
+        "setter": ["ref_attribute", "foo"]
+      }]
+    }
+  }],
+  "Foo": ["interface", {
+    "members": {
+      "foo": ["attribute", {"type": "DOMString", "getter": 1, "setter": 1}]
+    }
+  }]
+}
+
+#data
+interface A {
+  [SameObject] readonly attribute long[] Foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "Foo": ["attribute", {
+        "type": ["array", "long"],
+        "getter": 1,
+        "SameObject": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [SameObject] static readonly attribute long[] Foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "Foo": ["static_attribute", {
+        "type": ["array", "long"],
+        "getter": 1,
+        "SameObject": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [SameObject]  attribute long[] Foo;
+};
+#errors
+1;17;webidl:not allowed;;SameObject;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "Foo": ["attribute", {
+        "type": ["array", "long"],
+        "getter": 1,
+        "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+[TreatNonObjectAsNull]
+callback Hoge = void ();
+#processed
+{
+  "Hoge": ["callback", {
+    "TreatNonObjectAsNull": 1,
+    "overload_set": {
+      "": {
+        "type": "void",
+        "args": []
+      }
+    }
+  }]
+}
+
+#data
+interface A {
+  [ TreatNullAs = EmptyString]attribute DOMString foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "type": "DOMString",
+        "TreatNullAs": "EmptyString",
+        "getter": 1, "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [ TreatNullAs ]attribute DOMString foo;
+};
+#errors
+1;18;webidl:bad args;;TreatNullAs;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "type": "DOMString",
+        "getter": 1, "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [ TreatNullAs =Null ]attribute DOMString foo;
+};
+#errors
+1;18;webidl:bad args;;TreatNullAs;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "type": "DOMString",
+        "getter": 1, "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [ TreatNullAs=EmptyString ] readonly attribute DOMString foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "type": "DOMString",
+        "TreatNullAs": "EmptyString",
+        "getter": 1
+      }]
+    }
+  }]
+}
+
+#data
+callback interface A {
+  [TreatNullAs=EmptyString] DOMString foo ();
+};
+#processed
+{
+  "A": ["callback_interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "type": "DOMString",
+            "TreatNullAs": "EmptyString",
+            "args": []
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+[Unforgeable]
+interface A {};
+#processed
+{
+  "A": ["interface", {
+    "Unforgeable": 1,
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  [Unforgeable] attribute DOMString foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "type": "DOMString",
+        "getter": 1, "setter": 1,
+        "Unforgeable": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Unforgeable] static attribute DOMString foo;
+};
+#errors
+1;17;webidl:not allowed;;Unforgeable;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static_attribute", {
+        "type": "DOMString",
+        "getter": 1, "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Unforgeable] void foo ();
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "Unforgeable": 1,
+        "overload_set": {
+          "": {
+            "type": "void",
+            "args": []
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Unforgeable] static void foo ();
+};
+#errors
+1;17;webidl:not allowed;;Unforgeable;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static_operation", {
+        "overload_set": {
+          "": {
+            "type": "void",
+            "args": []
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Unforgeable] void foo ();
+  [Unforgeable] void foo (long a);
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "Unforgeable": 1,
+        "overload_set": {
+          "": {
+            "type": "void",
+            "args": []
+          },
+          "long": {
+            "type": "void",
+            "args": [{"name":"a","type":"long","optionality":"required"}]
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Unforgeable] void foo ();
+  void foo (long a);
+};
+#errors
+1;16;webidl:bad unforgeablility;;;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "Unforgeable": 1,
+        "overload_set": {
+          "": {
+            "type": "void",
+            "args": []
+          },
+          "long": {
+            "type": "void",
+            "args": [{"name":"a","type":"long","optionality":"required"}]
+          }
+        }
+      }]
+    }
+  }]
+}
