@@ -210,11 +210,17 @@ interface A {
 #data
 [Constructor]
 interface A {};
+#errors
+1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
-  "A": ["interface", {
-    "members": {},
-    "Constructor": ["operation", {
+  "idl_defs": {
+    "A": ["interface", {
+      "members": {}
+    }]
+  },
+  "global_members": {
+    "A": ["operation", {
       "overload_set": {
         "": {
           "type": ["ref_interface", "A"],
@@ -222,17 +228,23 @@ interface A {};
         }
       }
     }]
-  }]
+  }
 }
 
 #data
 [Constructor(long foo)]
 interface A {};
+#errors
+1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
-  "A": ["interface", {
-    "members": {},
-    "Constructor": ["operation", {
+  "idl_defs": {
+    "A": ["interface", {
+      "members": {}
+    }]
+  },
+  "global_members": {
+    "A": ["operation", {
       "overload_set": {
         "long": {
           "type": ["ref_interface", "A"],
@@ -240,17 +252,23 @@ interface A {};
         }
       }
     }]
-  }]
+  }
 }
 
 #data
 [Constructor(long foo),Constructor]
 interface A {};
+#errors
+1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
-  "A": ["interface", {
-    "members": {},
-    "Constructor": ["operation", {
+  "idl_defs": {
+    "A": ["interface", {
+      "members": {}
+    }]
+  },
+  "global_members": {
+    "A": ["operation", {
       "overload_set": {
         "": {
           "type": ["ref_interface", "A"],
@@ -262,17 +280,23 @@ interface A {};
         }
       }
     }]
-  }]
+  }
 }
 
 #data
 [Constructor(optional long foo)]
 interface A {};
+#errors
+1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
-  "A": ["interface", {
-    "members": {},
-    "Constructor": ["operation", {
+  "idl_defs": {
+    "A": ["interface", {
+      "members": {}
+    }]
+  },
+  "global_members": {
+    "A": ["operation", {
       "overload_set": {
         "": {
           "type": ["ref_interface", "A"],
@@ -284,7 +308,7 @@ interface A {};
         }
       }
     }]
-  }]
+  }
 }
 
 #data
@@ -292,11 +316,16 @@ interface A {};
 interface A {};
 #errors
 1;13;webidl:not distinguishable;;;m
+1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
-  "A": ["interface", {
-    "members": {},
-    "Constructor": ["operation", {
+  "idl_defs": {
+    "A": ["interface", {
+      "members": {}
+    }]
+  },
+  "global_members": {
+    "A": ["operation", {
       "overload_set": {
         "": {
           "type": ["ref_interface", "A"],
@@ -308,7 +337,7 @@ interface A {};
         }
       }
     }]
-  }]
+  }
 }
 
 #data
@@ -317,11 +346,18 @@ interface A {};
 partial interface A {};
 #errors
 1;17;webidl:not allowed;;Constructor;m
+1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
-  "A": ["interface", {
-    "members": {}
-  }]
+  "idl_defs": {
+    "A": ["interface", {
+      "members": {}
+    }]
+  },
+  "global_members": {
+    "A": ["object", {
+    }]
+  }
 }
 
 #data
@@ -331,11 +367,16 @@ interface A {};
 partial interface A {};
 #errors
 1;31;webidl:not allowed;;Constructor;m
+1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
-  "A": ["interface", {
-    "members": {},
-    "Constructor": ["operation", {
+  "idl_defs": {
+    "A": ["interface", {
+      "members": {}
+    }]
+  },
+  "global_members": {
+    "A": ["operation", {
       "overload_set": {
         "": {
           "type": ["ref_interface", "A"],
@@ -343,17 +384,23 @@ partial interface A {};
         }
       }
     }]
-  }]
+  }
 }
 
 #data
 [Constructor]
 dictionary A {};
+#errors
+1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
-  "A": ["dictionary", {
-    "members": {},
-    "Constructor": ["operation", {
+  "idl_defs": {
+    "A": ["dictionary", {
+      "members": {}
+    }]
+  },
+  "global_members": {
+    "A": ["operation", {
       "overload_set": {
         "": {
           "type": ["ref_dictionary", "A"],
@@ -361,7 +408,7 @@ dictionary A {};
         }
       }
     }]
-  }]
+  }
 }
 
 #data
@@ -370,11 +417,15 @@ partial dictionary A {};
 dictionary A {};
 #errors
 1;1;webidl:not allowed;;Constructor;m
+1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
-  "A": ["dictionary", {
-    "members": {}
-  }]
+  "idl_defs": {
+    "A": ["dictionary", {
+      "members": {}
+    }]
+  },
+  "global_members": {}
 }
 
 #data
@@ -382,11 +433,18 @@ dictionary A {};
 exception A {};
 #errors
 1;1;webidl:not allowed;;Constructor;m
+1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
-  "A": ["exception", {
-    "members": {}
-  }]
+  "idl_defs": {
+    "A": ["exception", {
+      "members": {}
+    }]
+  },
+  "global_members": {
+    "A": ["object", {
+    }]
+  }
 }
 
 #data
@@ -394,11 +452,15 @@ exception A {};
 callback interface A {};
 #errors
 1;1;webidl:not allowed;;Constructor;m
+1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
-  "A": ["callback_interface", {
-    "members": {}
-  }]
+  "idl_defs": {
+    "A": ["callback_interface", {
+      "members": {}
+    }]
+  },
+  "global_members": {}
 }
 
 #data
@@ -408,8 +470,10 @@ interface A {};
 interface B {};
 #errors
 1;1;webidl:not allowed;;Constructor;m
+1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
+  "idl_defs": {
   "A": ["interface", {
     "members": {},
     "implements": {"B": {"depth": 1, "consequential": 1, "supplemental": 1}}
@@ -417,6 +481,13 @@ interface B {};
   "B": ["interface", {
     "members": {}
   }]
+  },
+  "global_members": {
+    "A": ["object", {
+    }],
+    "B": ["object", {
+    }]
+  }
 }
 
 #data
@@ -511,11 +582,18 @@ interface A {
 #data
 [Constructor([EnforceRange] unsigned long a)]
 interface A {};
+#errors
+1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
+  "idl_defs":
+{
   "A": ["interface", {
-    "members": {},
-    "Constructor": ["operation", {
+    "members": {}
+  }]
+},
+  "global_members": {
+    "A": ["operation", {
       "overload_set": {"unsigned long": {
         "type": ["ref_interface", "A"],
         "args": [{
@@ -526,7 +604,7 @@ interface A {};
         }]
       }}
     }]
-  }]
+  }
 }
 
 #data

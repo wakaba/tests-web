@@ -10,6 +10,9 @@ interface A { };
   },
   "idl_defs": {
     "A": ["interface", {"members": {}, "Global": 1, "Exposed": {}}]
+  },
+  "global_members": {
+    "A": ["object", {"Exposed": {}}]
   }
 }
 
@@ -24,6 +27,9 @@ interface A { };
   "primary_global": "A",
   "idl_defs": {
     "A": ["interface", {"members": {}, "Global": 1, "Exposed": {"A":1}}]
+  },
+  "global_members": {
+    "A": ["object", {"Exposed": {"A":1}}]
   }
 }
 
@@ -41,6 +47,10 @@ interface A { };
   "idl_defs": {
     "A": ["interface", {"members": {}, "Global": 1, "Exposed": {}}],
     "B": ["interface", {"members": {}, "Global": 1, "Exposed": {}}]
+  },
+  "global_members": {
+    "A": ["object", {"Exposed": {}}],
+    "B": ["object", {"Exposed": {}}]
   }
 }
 
@@ -57,6 +67,10 @@ interface A { };
   "idl_defs": {
     "A": ["interface", {"members": {}, "Global": 1, "Exposed": {"B":1}}],
     "B": ["interface", {"members": {}, "Global": 1, "Exposed": {"B":1}}]
+  },
+  "global_members": {
+    "A": ["object", {"Exposed": {"B":1}}],
+    "B": ["object", {"Exposed": {"B":1}}]
   }
 }
 
@@ -71,6 +85,9 @@ interface A { };
   },
   "idl_defs": {
     "A": ["interface", {"members": {}, "Global": 1, "Exposed": {}}]
+  },
+  "global_members": {
+    "A": ["object", { "Exposed": {}}]
   }
 }
 
@@ -86,6 +103,9 @@ interface A { };
   },
   "idl_defs": {
     "A": ["interface", {"members": {}, "Global": 1, "Exposed": {}}]
+  },
+  "global_members": {
+    "A": ["object", {"Exposed": {}}]
   }
 }
 
@@ -102,6 +122,10 @@ interface A { };
   "idl_defs": {
     "A": ["interface", {"members": {}, "Global": 1, "Exposed": {}}],
     "B": ["interface", {"members": {}, "Global": 1, "Exposed": {}}]
+  },
+  "global_members": {
+    "A": ["object", {"Exposed": {}}],
+    "B": ["object", {"Exposed": {}}]
   }
 }
 
@@ -120,6 +144,11 @@ exception X {};
     "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
     "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
     "X": ["exception", {"members": {}, "Exposed": {"G1":1, "G2": 1}}]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}],
+    "G2": ["object", { "Exposed": {"G1":1}}],
+    "X": ["object", {"Exposed": {"G1":1,"G2":1}}]
   }
 }
 
@@ -138,6 +167,11 @@ interface I {};
     "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
     "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
     "I": ["interface", {"members": {}, "Exposed": {"G1":1}}]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}],
+    "G2": ["object", { "Exposed": {"G1":1}}],
+    "I": ["object", {"Exposed": {"G1":1}}]
   }
 }
 
@@ -156,6 +190,11 @@ interface I {};
     "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
     "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
     "I": ["interface", {"members": {}, "Exposed": {"G1":1}}]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}],
+    "G2": ["object", { "Exposed": {"G1":1}}],
+    "I": ["object", { "Exposed": {"G1":1}}]
   }
 }
 
@@ -174,6 +213,11 @@ interface I {};
     "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
     "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
     "I": ["interface", {"members": {}, "Exposed": {"G2":1}}]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}],
+    "G2": ["object", { "Exposed": {"G1":1}}],
+    "I": ["object", {"Exposed": {"G2":1}}]
   }
 }
 
@@ -192,6 +236,11 @@ interface I {};
     "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
     "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
     "I": ["interface", {"members": {}, "Exposed": {"G1":1, "G2": 1}}]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}],
+    "G2": ["object", { "Exposed": {"G1":1}}],
+    "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
@@ -209,6 +258,11 @@ interface I {};
     "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
     "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
     "I": ["interface", {"members": {}, "Exposed": {"G1":1, "G2": 1}}]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}],
+    "G2": ["object", { "Exposed": {"G1":1}}],
+    "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
@@ -229,6 +283,11 @@ interface I {};
     "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
     "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
     "I": ["interface", {"members": {}, "Exposed": {}}]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}],
+    "G2": ["object", { "Exposed": {"G1":1}}],
+    "I": ["object", { "Exposed": {}}]
   }
 }
 
@@ -247,6 +306,10 @@ interface I {};
   "idl_defs": {
     "G1": ["interface", {"members": {}, "Exposed": {"G1":1}, "Global": 1}],
     "G2": ["interface", {"members": {}, "Exposed": {"G1":1}, "Global": 1}]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}],
+    "G2": ["object", { "Exposed": {"G1":1}}]
   }
 }
 
@@ -276,6 +339,9 @@ partial interface G1 {
       "Exposed": {"G1":1},
       "Global": 1
     }]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}]
   }
 }
 
@@ -306,6 +372,9 @@ partial interface G1 {
       "Exposed": {},
       "Global": 1
     }]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {}}]
   }
 }
 
@@ -322,6 +391,9 @@ interface A { };
   },
   "idl_defs": {
     "A": ["interface", {"members": {}, "Global": 1, "Exposed": {}, "OverrideBuiltins": 1}]
+  },
+  "global_members": {
+    "A": ["object", {"Exposed": {}}]
   }
 }
 
@@ -338,6 +410,9 @@ interface A { };
   "primary_global": "A",
   "idl_defs": {
     "A": ["interface", {"members": {}, "Global": 1, "Exposed": {"A":1}, "OverrideBuiltins": 1}]
+  },
+  "global_members": {
+    "A": ["object", {"Exposed": {"A":1}}]
   }
 }
 
@@ -371,6 +446,11 @@ interface I {
       },
       "Exposed": {"G1":1,"G2":1}
     }]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}],
+    "G2": ["object", { "Exposed": {"G1":1}}],
+    "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
@@ -406,6 +486,11 @@ interface I {
       },
       "Exposed": {"G1":1}
     }]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}],
+    "G2": ["object", { "Exposed": {"G1":1}}],
+    "I": ["object", { "Exposed": {"G1":1}}]
   }
 }
 
@@ -435,6 +520,11 @@ partial interface I {
       },
       "Exposed": {"G1":1,"G2":1}
     }]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}],
+    "G2": ["object", { "Exposed": {"G1":1}}],
+    "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
@@ -466,6 +556,11 @@ partial interface I {
       },
       "Exposed": {"G1":1,"G2":1}
     }]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}],
+    "G2": ["object", { "Exposed": {"G1":1}}],
+    "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
@@ -499,6 +594,11 @@ partial interface I {
       },
       "Exposed": {"G1": 1, "G2":1}
     }]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}],
+    "G2": ["object", { "Exposed": {"G1":1}}],
+    "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
@@ -529,6 +629,11 @@ partial interface I {
       },
       "Exposed": {"G1": 1, "G2":1}
     }]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}],
+    "G2": ["object", { "Exposed": {"G1":1}}],
+    "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
@@ -563,6 +668,11 @@ interface I {
       },
       "Exposed": {"G1": 1, "G2":1}
     }]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}],
+    "G2": ["object", { "Exposed": {"G1":1}}],
+    "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
@@ -604,6 +714,11 @@ interface I {
       },
       "Exposed": {"G1": 1, "G2":1}
     }]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}],
+    "G2": ["object", { "Exposed": {"G1":1}}],
+    "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
@@ -644,6 +759,434 @@ interface I {
         }]
       },
       "Exposed": {"G1": 1, "G2":1}
+    }]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {"G1":1}}],
+    "G2": ["object", { "Exposed": {"G1":1}}],
+    "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+callback interface C {};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "C": ["callback_interface", {"members":{},"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+callback interface C {
+  const long foo = 124;
+};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "C": ["callback_interface", {"members":{
+      "foo": ["const", {"type":"long","value":["integer",124]}]
+    },"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "C": ["object", {"Exposed":{"G":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[Global,Exposed=G2] interface G2 {};
+[Exposed=G,G2]
+callback interface C {
+  [Exposed=G2] const long foo = 124;
+};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
+    "C": ["callback_interface", {"members":{
+      "foo": ["const", {"type":"long","value":["integer",124],"Exposed":{"G2":1}}]
+    },"Exposed":{"G":1,"G2":1}}]
+  },
+  "global_names": {"G":{"G":1},"G2":{"G2":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "G2": ["object", {"Exposed":{"G2":1}}],
+    "C": ["object", {"Exposed":{"G":1,"G2":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[NoInterfaceObject] callback interface C {
+  const long foo = 124;
+};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "C": ["callback_interface", {"members":{
+      "foo": ["const", {"type":"long","value":["integer",124]}]
+    },"Exposed":{"G":1},"NoInterfaceObject":1}]
+  },
+  "global_names": {"G":{"G":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+exception X {};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "X": ["exception", {"members":{},"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "X": ["object", {"Exposed":{"G":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[NoInterfaceObject ]exception X {};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "X": ["exception", {"members":{},"Exposed":{"G":1},"NoInterfaceObject":1}]
+  },
+  "global_names": {"G":{"G":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[NoInterfaceObject ] interface X {};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "X": ["interface", {"members":{},"Exposed":{"G":1},"NoInterfaceObject":1}]
+  },
+  "global_names": {"G":{"G":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[Constructor] dictionary D {};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "D": ["dictionary", {"members":{},"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "D": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_dictionary", "D"],
+          "args": []
+        }
+      },
+      "Exposed":{"G":1}
+    }]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[Global,Exposed=G2] interface G2 {};
+[Constructor,Exposed=G2] dictionary D {};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
+    "D": ["dictionary", {"members":{},"Exposed":{"G2":1}}]
+  },
+  "global_names": {"G":{"G":1},"G2": {"G2":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "G2": ["object", {"Exposed":{"G2":1}}],
+    "D": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_dictionary", "D"],
+          "args": []
+        }
+      },
+      "Exposed":{"G2":1}
+    }]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[Global,Exposed=G2] interface G2 {};
+[NamedConstructor=Hoge] interface A {};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
+    "A": ["interface", {"members":{},"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1},"G2": {"G2":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "G2": ["object", {"Exposed":{"G2":1}}],
+    "A": ["object", {"Exposed":{"G":1}}],
+    "Hoge": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        }
+      },
+      "Exposed":{"G":1}
+    }]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[Global,Exposed=G2] interface G2 {};
+[Constructor, NamedConstructor=Hoge] interface A {};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
+    "A": ["interface", {"members":{},"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1},"G2": {"G2":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "G2": ["object", {"Exposed":{"G2":1}}],
+    "A": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        }
+      },
+      "Exposed":{"G":1}
+    }],
+    "Hoge": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        }
+      },
+      "Exposed":{"G":1}
+    }]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[Global,Exposed=G2] interface G2 {};
+[NoInterfaceObject, NamedConstructor=Hoge] interface A {};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
+    "A": ["interface", {"members":{},"Exposed":{"G":1},"NoInterfaceObject":1}]
+  },
+  "global_names": {"G":{"G":1},"G2": {"G2":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "G2": ["object", {"Exposed":{"G2":1}}],
+    "Hoge": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        }
+      },
+      "Exposed":{"G":1}
+    }]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[Global,Exposed=G2] interface G2 {};
+[NamedConstructor=Hoge] callback interface A {};
+#errors
+1;70;webidl:not allowed;;NamedConstructor;m
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
+    "A": ["callback_interface", {"members":{},"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1},"G2": {"G2":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "G2": ["object", {"Exposed":{"G2":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[Global,Exposed=G2] interface G2 {};
+interface A {};
+[NamedConstructor=A] interface B {};
+#errors
+1;;webidl:duplicate;;A;m
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
+    "A": ["interface", {"members":{},"Exposed":{"G":1}}],
+    "B": ["interface", {"members":{},"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1},"G2": {"G2":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "G2": ["object", {"Exposed":{"G2":1}}],
+    "A": ["object", {"Exposed":{"G":1}}],
+    "B": ["object", {"Exposed":{"G":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[Global,Exposed=G2] interface G2 {};
+[NoInterfaceObject] interface A {};
+[NamedConstructor=A] interface B {};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
+    "A": ["interface", {"members":{},"Exposed":{"G":1},"NoInterfaceObject":1}],
+    "B": ["interface", {"members":{},"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1},"G2": {"G2":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "G2": ["object", {"Exposed":{"G2":1}}],
+    "A": ["operation", {
+      "Exposed":{"G":1},
+      "overload_set": {
+        "": {"type":["ref_interface","B"],"args":[]}
+      }
+    }],
+    "B": ["object", {"Exposed":{"G":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[Global,Exposed=G2] interface G2 {};
+[NamedConstructor=Hoge, NamedConstructor=Fuga] interface A {};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
+    "A": ["interface", {"members":{},"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1},"G2": {"G2":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "G2": ["object", {"Exposed":{"G2":1}}],
+    "A": ["object", {"Exposed":{"G":1}}],
+    "Hoge": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        }
+      },
+      "Exposed":{"G":1}
+    }],
+    "Fuga": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        }
+      },
+      "Exposed":{"G":1}
+    }]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[Global,Exposed=G2] interface G2 {};
+[NamedConstructor=Hoge, NamedConstructor=Hoge(DOMString bxs)] interface A {};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
+    "A": ["interface", {"members":{},"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1},"G2": {"G2":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "G2": ["object", {"Exposed":{"G2":1}}],
+    "A": ["object", {"Exposed":{"G":1}}],
+    "Hoge": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        },
+        "DOMString": {
+          "type": ["ref_interface", "A"],
+          "args": [{"name":"bxs","type":"DOMString","optionality":"required"}]
+        }
+      },
+      "Exposed":{"G":1}
     }]
   }
 }
