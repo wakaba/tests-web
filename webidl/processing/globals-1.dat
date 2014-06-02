@@ -531,3 +531,119 @@ partial interface I {
     }]
   }
 }
+
+#data
+[PrimaryGlobal] interface G1 {};
+[Global] interface G2 {};
+[Exposed=G1, G2]
+interface I {
+  [Exposed=G1] long hoge ();
+};
+#processed
+{
+  "global_names": {
+    "G1": {"G1": 1},
+    "G2": {"G2": 1}
+  },
+  "primary_global": "G1",
+  "idl_defs": {
+    "G1": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
+    "I": ["interface", {
+      "members": {
+        "hoge": ["operation", {
+          "Exposed": {"G1": 1},
+          "overload_set": {
+            "": {
+              "type": "long",
+              "args": []
+            }
+          }
+        }]
+      },
+      "Exposed": {"G1": 1, "G2":1}
+    }]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G1 {};
+[Global] interface G2 {};
+[Exposed=G1, G2]
+interface I {
+  [Exposed=G1] long hoge ();
+  [Exposed=G2] double hoge (long a);
+};
+#errors
+1;92;webidl:inconsistent;;[Exposed];m
+#processed
+{
+  "global_names": {
+    "G1": {"G1": 1},
+    "G2": {"G2": 1}
+  },
+  "primary_global": "G1",
+  "idl_defs": {
+    "G1": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
+    "I": ["interface", {
+      "members": {
+        "hoge": ["operation", {
+          "Exposed": {"G1": 1},
+          "overload_set": {
+            "": {
+              "type": "long",
+              "args": []
+            },
+            "long": {
+              "type": "double",
+              "args": [{"name":"a","type":"long","optionality":"required"}]
+            }
+          }
+        }]
+      },
+      "Exposed": {"G1": 1, "G2":1}
+    }]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G1 {};
+[Global] interface G2 {};
+[Exposed=G1, G2]
+interface I {
+  [Exposed=G1] long hoge ();
+  double hoge (long a);
+};
+#errors
+1;92;webidl:inconsistent;;[Exposed];m
+#processed
+{
+  "global_names": {
+    "G1": {"G1": 1},
+    "G2": {"G2": 1}
+  },
+  "primary_global": "G1",
+  "idl_defs": {
+    "G1": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
+    "I": ["interface", {
+      "members": {
+        "hoge": ["operation", {
+          "Exposed": {"G1": 1},
+          "overload_set": {
+            "": {
+              "type": "long",
+              "args": []
+            },
+            "long": {
+              "type": "double",
+              "args": [{"name":"a","type":"long","optionality":"required"}]
+            }
+          }
+        }]
+      },
+      "Exposed": {"G1": 1, "G2":1}
+    }]
+  }
+}
