@@ -1,0 +1,416 @@
+#data
+interface A { };
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+interface A { };
+interface B {};
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {}}]
+}
+
+#data
+callback interface A { };
+#processed
+{
+  "A": ["callback_interface", {"members": {}}]
+}
+
+#data
+callback interface A { };
+partial interface A { };
+#processed
+{
+  "A": ["callback_interface", {"members": {}}]
+}
+
+#data
+interface A {};
+interface B {};
+A implements B;
+#processed
+{
+  "A": ["interface", {"members": {},
+                      "implements": {"B": {"depth": 1,
+                                           "supplemental": 1,
+                                           "consequential": 1}}}],
+  "B": ["interface", {"members": {}}]
+}
+
+#data
+interface A {};
+callback interface B {};
+A implements B;
+#errors
+1;41;webidl:bad type;;B;m
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["callback_interface", {"members": {}}]
+}
+
+#data
+callback interface A {};
+interface B {};
+A implements B;
+#errors
+1;41;webidl:bad type;;B;m
+#processed
+{
+  "A": ["callback_interface", {"members": {}}],
+  "B": ["interface", {"members": {}}]
+}
+
+#data
+callback  interface A {};
+callback interface B {};
+A implements B;
+#errors
+1;51;webidl:bad type;;B;m
+#processed
+{
+  "A": ["callback_interface", {"members": {}}],
+  "B": ["callback_interface", {"members": {}}]
+}
+
+#data
+exception A {};
+interface B {};
+A implements B;
+#errors
+1;32;webidl:bad type;;B;m
+#processed
+{
+  "A": ["exception", {"members": {}}],
+  "B": ["interface", {"members": {}}]
+}
+
+#data
+interface A {};
+dictionary B {};
+A implements B;
+#errors
+1;33;webidl:bad type;;B;m
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["dictionary", {"members": {}}]
+}
+
+#data
+interface A {};
+class B {};
+A implements B;
+#errors
+1;28;webidl:bad type;;B;m
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["class", {"members": {}}]
+}
+
+#data
+interface A {};
+A implements B;
+#errors
+1;16;webidl:not defined;;B;m
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+interface A {};
+A implements A;
+#errors
+1;16;webidl:cyclic inheritance;;A;m
+1;16;webidl:implements implements;;A;w
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+interface A {};
+interface B : A {};
+B implements A;
+#errors
+1;36;webidl:cyclic inheritance;;A;m
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {}, "implements": {"A": {"depth": 1}}}]
+}
+
+#data
+interface A {};
+interface B : A {};
+A implements B;
+#errors
+1;36;webidl:cyclic inheritance;;B;m
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {}, "implements": {"A": {"depth": 1}}}]
+}
+
+#data
+interface A {};
+interface B : A {};
+interface C : B {};
+A implements C;
+#errors
+1;56;webidl:cyclic inheritance;;C;m
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {}, "implements": {"A": {"depth": 1}}}],
+  "C": ["interface", {"members": {}, "implements": {"B": {"depth": 1},
+                                                    "A": {"depth": 2}}}]
+}
+
+#data
+interface A {};
+interface B : A {};
+interface C : B {};
+C implements A;
+#errors
+1;56;webidl:cyclic inheritance;;A;m
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {}, "implements": {"A": {"depth": 1}}}],
+  "C": ["interface", {"members": {}, "implements": {"B": {"depth": 1},
+                                                    "A": {"depth": 2}}}]
+}
+
+#data
+interface A {};
+interface B {};
+interface C {};
+A implements B;
+B implements C;
+#errors
+1;64;webidl:implements implements;;B;w
+#processed
+{
+  "A":["interface", {"members": {},
+                     "implements":{"B":{"depth":1,"supplemental":1,
+                                        "consequential":1},
+                                   "C":{"depth":2,"supplemental":1,
+                                        "consequential":1}}}],
+  "B":["interface", {"members": {},
+                     "implements":{"C":{"depth":1,"supplemental":1,
+                                        "consequential":1}}}],
+  "C":["interface", {"members": {}}]
+}
+
+#data
+interface A {};
+interface B {};
+interface C {};
+A implements B;
+B implements C;
+C implements A;
+#errors
+1;80;webidl:cyclic inheritance;;A;m
+1;48;webidl:implements implements;;A;w
+1;64;webidl:implements implements;;B;w
+1;80;webidl:implements implements;;C;w
+#processed
+{
+  "A":["interface", {"members": {},
+                     "implements":{"B":{"depth":1,"supplemental":1,
+                                        "consequential":1},
+                                   "C":{"depth":2,"supplemental":1,
+                                        "consequential":1}}}],
+  "B":["interface", {"members": {},
+                     "implements":{"C":{"depth":1,"supplemental":1,
+                                        "consequential":1}}}],
+  "C":["interface", {"members": {}}]
+}
+
+#data
+interface A {};
+interface B {};
+A implements B;
+B implements A;
+#errors
+1;48;webidl:cyclic inheritance;;A;m
+1;32;webidl:implements implements;;A;w
+1;48;webidl:implements implements;;B;w
+#processed
+{
+  "A":["interface", {"members": {},
+                     "implements":{"B":{"depth":1,"supplemental":1,
+                                        "consequential":1}}}],
+  "B":["interface", {"members": {}}]
+}
+
+#data
+interface A {};
+interface B : A {};
+interface C {};
+C implements B;
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {},
+                      "implements": {"A": {"depth":1}}}],
+  "C": ["interface", {"members": {},
+                      "implements": {"B": {"depth":1,
+                                           "supplemental": 1,
+                                           "consequential": 1},
+                                     "A": {"depth":2,
+                                           "supplemental": 1,
+                                           "consequential": 1}}}]
+}
+
+#data
+interface Z {};
+interface A {};
+interface B : A {};
+interface C {};
+C implements B;
+B implements Z;
+#errors
+1;84;webidl:implements implements;;B;w
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {},
+                      "implements": {"A": {"depth":1},
+                                     "Z": {"depth": 1,
+                                           "supplemental": 1,
+                                           "consequential": 1}}}],
+  "C": ["interface", {"members": {},
+                      "implements": {"B": {"depth":1,
+                                           "supplemental": 1,
+                                           "consequential": 1},
+                                     "A": {"depth":2,
+                                           "supplemental": 1,
+                                           "consequential": 1},
+                                     "Z": {"depth": 2,
+                                           "supplemental": 1,
+                                           "consequential": 1}}}],
+  "Z": ["interface", {"members": {}}]
+}
+
+#data
+interface Z {};
+interface A {};
+interface B : A {};
+interface C {};
+B implements Z;
+C implements B;
+#errors
+1;68;webidl:implements implements;;B;w
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {},
+                      "implements": {"A": {"depth":1},
+                                     "Z": {"depth": 1,
+                                           "supplemental": 1,
+                                           "consequential": 1}}}],
+  "C": ["interface", {"members": {},
+                      "implements": {"B": {"depth":1,
+                                           "supplemental": 1,
+                                           "consequential": 1},
+                                     "A": {"depth":2,
+                                           "supplemental": 1,
+                                           "consequential": 1},
+                                     "Z": {"depth": 2,
+                                           "supplemental": 1,
+                                           "consequential": 1}}}],
+  "Z": ["interface", {"members": {}}]
+}
+
+#data
+interface Z {};
+interface A {};
+interface B : A {};
+interface C {};
+C implements B;
+A implements Z;
+#errors
+1;84;webidl:implements implements;;A;w
+#processed
+{
+  "A": ["interface", {"members": {},
+                      "implements": {"Z": {"depth": 1,
+                                           "supplemental": 1,
+                                           "consequential": 1}}}],
+  "B": ["interface", {"members": {},
+                      "implements": {"A": {"depth":1},
+                                     "Z": {"depth": 2,
+                                           "supplemental": 1}}}],
+  "C": ["interface", {"members": {},
+                      "implements": {"B": {"depth":1,
+                                           "supplemental": 1,
+                                           "consequential": 1},
+                                     "A": {"depth":2,
+                                           "supplemental": 1,
+                                           "consequential": 1},
+                                     "Z": {"depth": 3,
+                                           "supplemental": 1,
+                                           "consequential": 1}}}],
+  "Z": ["interface", {"members": {}}]
+}
+
+#data
+interface Z {};
+interface A {};
+interface B : A {};
+interface C {};
+A implements Z;
+C implements B;
+#errors
+1;68;webidl:implements implements;;A;w
+#processed
+{
+  "A": ["interface", {"members": {},
+                      "implements": {"Z": {"depth": 1,
+                                           "supplemental": 1,
+                                           "consequential": 1}}}],
+  "B": ["interface", {"members": {},
+                      "implements": {"A": {"depth":1},
+                                     "Z": {"depth": 2,
+                                           "supplemental": 1}}}],
+  "C": ["interface", {"members": {},
+                      "implements": {"B": {"depth":1,
+                                           "supplemental": 1,
+                                           "consequential": 1},
+                                     "A": {"depth":2,
+                                           "supplemental": 1,
+                                           "consequential": 1},
+                                     "Z": {"depth": 3,
+                                           "supplemental": 1,
+                                           "consequential": 1}}}],
+  "Z": ["interface", {"members": {}}]
+}
+
+#data
+interface A {};
+interface B : A {};
+interface C {};
+A implements C;
+#processed
+{
+  "A": ["interface", {"members": {},
+                      "implements": {
+                        "C": {"depth": 1, "supplemental": 1,
+                              "consequential": 1}
+                      }}],
+  "B": ["interface", {"members": {},
+                      "implements": {
+                        "A": {"depth": 1},
+                        "C": {"depth": 2, "supplemental": 1}
+                      }}],
+  "C": ["interface", {"members": {}}]
+}

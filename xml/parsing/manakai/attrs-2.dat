@@ -6,6 +6,7 @@ b CDATA "c"
 ]>
 <a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -22,6 +23,7 @@ d ENTITIES "e"
 ]>
 <a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -39,6 +41,7 @@ b CDATA #FIXED "c"
 ]>
 <a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -54,6 +57,7 @@ b CDATA "c"
 ]>
 <a b="d"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -69,6 +73,7 @@ xmlns CDATA "c"
 ]>
 <a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -84,6 +89,7 @@ xmlns:b CDATA "c"
 ]>
 <a b:e="f"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -100,6 +106,7 @@ xmlns:b CDATA "c"
 ]>
 <a xmlns:b="d" b:e="f"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -117,6 +124,7 @@ xmlns:b CDATA "x"
 ]>
 <a e:c="f" xmlns:e="x"/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -136,6 +144,7 @@ b CDATA " c\u0009d\u000a"
 ]>
 <a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -151,6 +160,7 @@ b NMTOKEN " c  \u0009d\u000a "
 ]>
 <a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -166,6 +176,7 @@ b IDREF "c &#x9;d &#xa; "
 ]>
 <a/>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -181,6 +192,7 @@ b NMTOKENS #IMPLIED
 ]>
 <a b="c &#x9;d  e\u000a"/>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -196,6 +208,7 @@ xmlns NMTOKEN " x  y \u0009"
 ]>
 <a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -211,6 +224,7 @@ b CDATA "c"
 ]>
 <z><a/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -228,6 +242,7 @@ d ENTITIES "e"
 ]>
 <z><a/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -246,6 +261,7 @@ b CDATA #FIXED "c"
 ]>
 <z><a/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -262,6 +278,7 @@ b CDATA "c"
 ]>
 <z><a b="d"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -278,6 +295,7 @@ xmlns CDATA "c"
 ]>
 <z><a/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -294,6 +312,7 @@ xmlns:b CDATA "c"
 ]>
 <z><a b:e="f"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -311,6 +330,7 @@ xmlns:b CDATA "c"
 ]>
 <z><a xmlns:b="d" b:e="f"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -329,6 +349,7 @@ xmlns:b CDATA "x"
 ]>
 <z><a e:c="f" xmlns:e="x"/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -349,6 +370,7 @@ b CDATA " c\u0009d\u000a"
 ]>
 <z><a/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -365,6 +387,7 @@ b NMTOKEN " c  \u0009d\u000a "
 ]>
 <z><a/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -381,6 +404,7 @@ b IDREF "c &#x9;d &#xa; "
 ]>
 <z><a/></z>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -397,6 +421,7 @@ b NMTOKENS #IMPLIED
 ]>
 <z><a b="c &#x9;d  e\u000a"/></z>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -413,6 +438,7 @@ xmlns NMTOKEN " x  y \u0009"
 ]>
 <z><a/></z>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -420,3 +446,157 @@ xmlns NMTOKEN " x  y \u0009"
 | <{} z>
 |   <{x y} a>
 |     xmlns xmlns="x y"
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e\u0009d ">
+]><a b="&c;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e\u0009d ">
+  <!ENTITY d "&c;">
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e\u000Ad ">
+  <!ENTITY d "&c;">
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e\u000Dd ">
+  <!ENTITY d "&c;">
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e&#x9;d ">
+  <!ENTITY d "&c;">
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e\u0009d ">
+  <!ENTITY d "&c;\u000A">
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d  "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e\u0009d ">
+  <!ENTITY d "&c;&#10;">
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d  "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e\u000Dd ">
+  <!ENTITY d "&c;\u000A">
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d  "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e\u0009d ">
+  <!ENTITY d "&c;&#10;">
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" e d  "
+
+#data escaped
+<a b="&#13;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <{} a>
+|   b="\u000D"
+
+#data escaped
+<a b="&#10;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <{} a>
+|   b="\u000A"
+
+#data escaped
+<a b="&#x9;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <{} a>
+|   b="\u0009"
+
+#data escaped
+<a b="\u000D"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <{} a>
+|   b=" "
+
+#data escaped
+<!DOCTYPE a [
+  <!ENTITY c " e&#x9;d ">
+  <!ENTITY d "&c;">
+  <!ATTLIST a b ID #IMPLIED>
+]><a b="&d;"/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+|   <!ELEMENT a >
+|     b ID () IMPLIED ""
+| <{} a>
+|   b="e d"

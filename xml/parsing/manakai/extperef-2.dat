@@ -5,8 +5,174 @@
 ]>
 <a b="&bar;x"/>
 #errors
+1;1;no XML decl;;;s
+2;19;xml:dtd:pi;;;w
+2;44;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a>
 |   <?xml encoding='utf-8' ?>
 | <{} a>
 |   b="aax"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&hoge;</a>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo;>
+#resource http://b/
+<?xml version="1.0" encoding="utf-8"?>hoge "foo"
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "foo"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&hoge;</a>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo;>
+#resource http://b/
+<?xml version="1.0" encoding="utf-8"?><?xml version="1.0" encoding="utf-8"?>hoge "foo"
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[2]1;45;string after DOCTYPE name;;;m
+[2]1;76;mdc in pe in md;;;m
+1;35;entity not declared;;hoge;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "&hoge;"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&hoge;</a>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo;>
+#resource http://b/
+<?xml  encoding="utf-8"?>hoge "foo"
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "foo"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&hoge;</a>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo;>
+#resource http://b/
+<?xml version="1.0"encoding="utf-8"?>hoge "foo"
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[2]1;20;no space before attr name;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "foo"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&hoge;</a>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo;>
+#resource http://b/
+<?xml version="1.0"?>hoge "foo"
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[2]1;20;attribute missing:encoding;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "foo"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&hoge;</a>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo;>
+#resource http://b/
+<?xml encoding   = 'utf-8'?>hoge "foo"
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "foo"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&hoge;</a>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo;>
+#resource http://b/
+<?xml encoding   = 'utf-8?>hoge "foo"
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[2]1;7;attribute missing:encoding;;;m
+[2]1;7;bogus XML declaration;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "foo"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&hoge;</a>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo;>
+#resource http://b/
+<?xml
+?>hoge "foo"
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[2]1;1;attribute missing:encoding;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "foo"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a>&hoge;</a>
+#resource http://a/
+<!ENTITY % foo SYSTEM "http://b/">
+<!ENTITY %foo;>
+#resource http://b/
+<?xml foo?>hoge "foo"
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[2]1;7;attribute missing:encoding;;;m
+[2]1;7;bogus XML declaration;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+|   "foo"

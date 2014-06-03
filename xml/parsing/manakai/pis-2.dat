@@ -3,6 +3,8 @@
 <?x?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
+2;1;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?x ?>
@@ -13,6 +15,8 @@
 <?x y?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
+2;1;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?x y?>
@@ -24,6 +28,9 @@
 <?y?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
+2;1;xml:dtd:pi;;;w
+3;1;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?x ?>
@@ -37,6 +44,8 @@
 <?y?>
 <a/>
 #errors
+1;1;no XML decl;;;s
+2;1;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?x ?>
@@ -48,6 +57,8 @@
 <?x ?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
+2;1;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?x ?>
@@ -58,6 +69,8 @@
 <?x ??y?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
+2;1;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?x ??y?>
@@ -67,6 +80,7 @@
 <!DOCTYPE a[
 <?x
 #errors
+1;1;no XML decl;;;s
 2;4;no pic;;;m
 2;4;unclosed internal subset;;;m
 2;4;no root element;;;m
@@ -77,6 +91,7 @@
 <!DOCTYPE a[
 <?x\u0020
 #errors
+1;1;no XML decl;;;s
 2;5;no pic;;;m
 2;5;unclosed internal subset;;;m
 2;5;no root element;;;m
@@ -87,6 +102,7 @@
 <!DOCTYPE a[
 <?x y
 #errors
+1;1;no XML decl;;;s
 2;6;no pic;;;m
 2;6;unclosed internal subset;;;m
 2;6;no root element;;;m
@@ -97,6 +113,7 @@
 <!DOCTYPE a[
 <?x ?
 #errors
+1;1;no XML decl;;;s
 2;6;no pic;;;m
 2;6;unclosed internal subset;;;m
 2;6;no root element;;;m
@@ -107,6 +124,7 @@
 <!DOCTYPE a[
 <?
 #errors
+1;1;no XML decl;;;s
 2;1;bare pio;;;m
 2;3;unclosed internal subset;;;m
 2;3;no root element;;;m
@@ -117,6 +135,7 @@
 <!DOCTYPE a[
 <?>
 #errors
+1;1;no XML decl;;;s
 2;4;no pic;;;m
 2;4;unclosed internal subset;;;m
 2;4;no root element;;;m
@@ -128,6 +147,7 @@
 <?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;7;no pic;;;m
 3;7;unclosed internal subset;;;m
 3;7;no root element;;;m
@@ -140,7 +160,9 @@
 <?x?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;bare pio;;;m
+3;1;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?x ?>
@@ -153,8 +175,11 @@
 <?y?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
+2;1;xml:dtd:pi;;;w
 3;1;pe not declared;;b;;m
 3;1;stop processing;;;i
+4;1;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?x ?>
@@ -169,7 +194,9 @@
 <?y?>
 ]><a/>
 #errors
+3;1;xml:dtd:pi;;;w
 4;1;pe not declared;;b;;m
+5;1;xml:dtd:pi;;;w
 #xml-standalone
 true
 #document
@@ -177,3 +204,231 @@ true
 |   <?x ?>
 |   <?y ?>
 | <{} a>
+
+#data
+<!DOCTYPE a[
+  <?a+b ?>
+]><a/>
+#errors
+1;1;no XML decl;;;s
+2;3;xml:dtd:pi;;;w
+#document
+| <!DOCTYPE a>
+|   <?a+b ?>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+  <?a+b ?>
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;3;xml:dtd:pi;;;w
+2;3;xml:not name;;a+b;m
+#document
+| <!DOCTYPE a>
+|   <?a+b ?>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+  <?xml ?>
+]><a/>
+#errors
+1;1;no XML decl;;;s
+2;3;xml:dtd:pi;;;w
+#document
+| <!DOCTYPE a>
+|   <?xml ?>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+  <?xml ?>
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;3;xml:dtd:pi;;;w
+2;3;xml:pi:target:xml;;xml;m
+#document
+| <!DOCTYPE a>
+|   <?xml ?>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+  <?xMl ?>
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;3;xml:dtd:pi;;;w
+2;3;xml:pi:target:xml;;xMl;m
+#document
+| <!DOCTYPE a>
+|   <?xMl ?>
+| <{} a>
+
+#data
+<!DOCTYPE a[
+  <?XML ?>
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;3;xml:dtd:pi;;;w
+2;3;xml:pi:target:xml;;XML;m
+#document
+| <!DOCTYPE a>
+|   <?XML ?>
+| <{} a>
+
+#data
+<?ho+ge?><a/>
+#errors
+1;1;no XML decl;;;s
+#document
+| <?ho+ge ?>
+| <{} a>
+
+#data
+<!DOCTYPE a><?ho+ge?><a/>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE a>
+| <?ho+ge ?>
+| <{} a>
+
+#data
+<a/><?ho+ge?>
+#errors
+1;1;no XML decl;;;s
+#document
+| <{} a>
+| <?ho+ge ?>
+
+#data
+<a><?ho+ge?></a>
+#errors
+1;1;no XML decl;;;s
+#document
+| <{} a>
+|   <?ho+ge ?>
+
+#data
+<?XML?><a/>
+#errors
+1;1;no XML decl;;;s
+#document
+| <?XML ?>
+| <{} a>
+
+#data
+<!DOCTYPE a><?xml?><a/>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE a>
+| <?xml ?>
+| <{} a>
+
+#data
+<a/><?xml?>
+#errors
+1;1;no XML decl;;;s
+#document
+| <{} a>
+| <?xml ?>
+
+#data
+<a><?xml?></a>
+#errors
+1;1;no XML decl;;;s
+#document
+| <{} a>
+|   <?xml ?>
+
+#data
+<?ho+ge?><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;1;xml:not name;;ho+ge;m
+#document
+| <?ho+ge ?>
+| <{} a>
+
+#data
+<!DOCTYPE a><?ho+ge?><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;13;xml:not name;;ho+ge;m
+#document
+| <!DOCTYPE a>
+| <?ho+ge ?>
+| <{} a>
+
+#data
+<a/><?ho+ge?>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;5;xml:not name;;ho+ge;m
+#document
+| <{} a>
+| <?ho+ge ?>
+
+#data
+<a><?ho+ge?></a>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;4;xml:not name;;ho+ge;m
+#document
+| <{} a>
+|   <?ho+ge ?>
+
+#data
+<?XML?><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;1;xml:pi:target:xml;;XML;m
+#document
+| <?XML ?>
+| <{} a>
+
+#data
+<!DOCTYPE a><?xml?><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;13;xml:pi:target:xml;;xml;m
+#document
+| <!DOCTYPE a>
+| <?xml ?>
+| <{} a>
+
+#data
+<a/><?xml?>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;5;xml:pi:target:xml;;xml;m
+#document
+| <{} a>
+| <?xml ?>
+
+#data
+<a><?xml?></a>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;4;xml:pi:target:xml;;xml;m
+#document
+| <{} a>
+|   <?xml ?>

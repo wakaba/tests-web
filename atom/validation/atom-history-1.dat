@@ -1,0 +1,60 @@
+#data
+<fh:complete xmlns:fh="http://purl.org/syndication/history/1.0"/>
+#errors
+
+#data
+<fh:complete xmlns:fh="http://purl.org/syndication/history/1.0"> </fh:complete>
+#errors
+
+#data
+<fh:complete xmlns:fh="http://purl.org/syndication/history/1.0">abc</fh:complete>
+#errors
+/complete/"abc";character not allowed:empty;m
+
+#data
+<fh:complete xmlns:fh="http://purl.org/syndication/history/1.0">
+<p xmlns="http://www.w3.org/1999/xhtml">a</p>
+</fh:complete>
+#errors
+/complete/p;element not allowed:empty;m
+
+#data
+<fh:archive xmlns:fh="http://purl.org/syndication/history/1.0"/>
+#errors
+
+#data
+<fh:archive xmlns:fh="http://purl.org/syndication/history/1.0"> </fh:archive>
+#errors
+
+#data
+<fh:archive xmlns:fh="http://purl.org/syndication/history/1.0">abc</fh:archive>
+#errors
+/archive/"abc";character not allowed:empty;m
+
+#data
+<fh:archive xmlns:fh="http://purl.org/syndication/history/1.0">
+<p xmlns="http://www.w3.org/1999/xhtml">a</p>
+</fh:archive>
+#errors
+/archive/p;element not allowed:empty;m
+
+#data
+<fh:hoge xmlns:fh="http://purl.org/syndication/history/1.0"/>
+#errors
+/hoge;element not defined;m
+
+#data
+<fh:complete xmlns:fh="http://purl.org/syndication/history/1.0">
+  <hoge/>
+</fh:complete>
+#errors
+/complete/hoge;element not allowed:empty;m
+/complete/hoge;unknown namespace element;w
+
+#data
+<fh:complete xmlns:fh="http://purl.org/syndication/history/1.0">
+  <hoge xmlns="http://x/"/>
+</fh:complete>
+#errors
+/complete/hoge;element not allowed:empty;m
+/complete/hoge;unknown namespace element;w

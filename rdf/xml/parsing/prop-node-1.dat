@@ -1,0 +1,70 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/">
+      <rdf:Description/>
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://a/hoge> _:g1
+#errors
+#attrs
+/RDF/@rdf common
+/RDF/Description/hoge/@xmlns common
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/">
+      <rdf:Description/>
+      <rdf:Description/>
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://a/hoge> _:g1
+#errors
+/RDF/Description/hoge/Description;second node element;;;m
+#nonrdf
+/RDF/Description/hoge/Description
+#attrs
+/RDF/@rdf common
+/RDF/Description/hoge/@xmlns common
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/">
+      <rdf:Description/>
+      <!---->aa<!---->
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://a/hoge> _:g1
+#errors
+/RDF/Description/hoge/"aa";character not allowed;;;m
+#nonrdf
+/RDF/Description/hoge/"aa"
+#attrs
+/RDF/@rdf common
+/RDF/Description/hoge/@xmlns common
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/">
+      <rdf:Description/>
+      <?aa?>
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://a/hoge> _:g1
+#errors
+#nonrdf
+/RDF/Description/hoge/<?aa?>
+#attrs
+/RDF/@rdf common
+/RDF/Description/hoge/@xmlns common

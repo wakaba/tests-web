@@ -1,0 +1,63 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/">
+      foo
+      <p>aa</p>
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/hoge/p;element not allowed;m
+/RDF/Description/hoge/p;unknown namespace element;w
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/">
+      foo
+      <p xmlns="http://www.w3.org/1999/xhtml">aa</p>
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/hoge/p;element not allowed;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/">
+      foo
+      <r xmlns="http://www.w3.org/1999/xhtml">aa</r>
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/hoge/r;element not allowed;m
+/RDF/Description/hoge/r;element not defined;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/">
+      foo
+      <rdf:RDF/>
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/hoge/RDF;element not allowed;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/">
+      foo
+      <rdf:RDF>
+        <rdf:Description/>
+      </rdf:RDF>
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/hoge/RDF;element not allowed;m

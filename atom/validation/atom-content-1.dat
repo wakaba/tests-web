@@ -1,0 +1,198 @@
+#data
+<content xmlns="http://www.w3.org/2005/Atom"></content>
+#errors
+
+#data
+<content type="text" xmlns="http://www.w3.org/2005/Atom"></content>
+#errors
+
+#data
+<content type="text" xmlns="http://www.w3.org/2005/Atom">  </content>
+#errors
+
+#data
+<content type="text" xmlns="http://www.w3.org/2005/Atom">abc</content>
+#errors
+
+#data
+<content type="text" xmlns="http://www.w3.org/2005/Atom">
+  <title>aa</title>
+</content>
+#errors
+/content/title;element not allowed:atom|TextConstruct;m
+
+#data
+<content type="html" xmlns="http://www.w3.org/2005/Atom"></content>
+#errors
+/content;no significant content;s
+
+#data
+<content type="html" xmlns="http://www.w3.org/2005/Atom">  </content>
+#errors
+/content;no significant content;s
+
+#data
+<content type="html" xmlns="http://www.w3.org/2005/Atom">abc</content>
+#errors
+
+#data
+<content type="html" xmlns="http://www.w3.org/2005/Atom">
+  <title>aa</title>
+</content>
+#errors
+/content;no significant content;s
+/content/title;element not allowed:atom|TextConstruct;m
+
+#data
+<content type="html" xmlns="http://www.w3.org/2005/Atom"><![CDATA[
+  abc
+]]></content>
+#errors
+
+#data
+<content type="html" xmlns="http://www.w3.org/2005/Atom"><![CDATA[
+  abc<p>abb<p>
+]]></content>
+#errors
+2;12;/content;no significant content;s
+
+#data
+<content type="html" xmlns="http://www.w3.org/2005/Atom"><![CDATA[
+  abc<p>abb
+]]></content>
+#errors
+
+#data
+<content type="xhtml" xmlns="http://www.w3.org/2005/Atom"></content>
+#errors
+/content;child element missing;div;m
+
+#data
+<content type="xhtml" xmlns="http://www.w3.org/2005/Atom">  </content>
+#errors
+/content;child element missing;div;m
+
+#data
+<content type="xhtml" xmlns="http://www.w3.org/2005/Atom"><div xmlns="http://www.w3.org/1999/xhtml"></div></content>
+#errors
+/content/div;no significant content;s
+
+#data
+<content type="xhtml" xmlns="http://www.w3.org/2005/Atom"><div xmlns="http://www.w3.org/1999/xhtml"></div><div xmlns="http://www.w3.org/1999/xhtml"></div></content>
+#errors
+/content/div;no significant content;s
+/content/div;no significant content;s
+/content/div;element not allowed:atom|TextConstruct;m
+
+#data
+<content type="xhtml" xmlns="http://www.w3.org/2005/Atom">
+<div xmlns="http://www.w3.org/1999/xhtml"></div>
+</content>
+#errors
+/content/div;no significant content;s
+
+#data
+<content type="xhtml" xmlns="http://www.w3.org/2005/Atom">
+<div xmlns="http://www.w3.org/1999/xhtml">abc</div>
+</content>
+#errors
+
+#data
+<content type="xhtml" xmlns="http://www.w3.org/2005/Atom">
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <p>abc</p>
+</div>
+</content>
+#errors
+
+#data
+<content type="xhtml" xmlns="http://www.w3.org/2005/Atom">
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <r>abc</r>
+</div>
+</content>
+#errors
+/content/div;no significant content;s
+/content/div/r;element not defined;m
+/content/div/r;element not allowed:flow;m
+
+#data
+<content type="text/plain" xmlns="http://www.w3.org/2005/Atom"></content>
+#errors
+/content;atom|content not supported;text/plain;u
+
+#data
+<content type="text/plain" xmlns="http://www.w3.org/2005/Atom">
+abc
+</content>
+#errors
+/content;atom|content not supported;text/plain;u
+
+#data
+<content type="text/plain" xmlns="http://www.w3.org/2005/Atom"><title>aa</title></content>
+#errors
+/content;atom|content not supported;text/plain;u
+/content/title;element not allowed:atom|TextConstruct;m
+
+#data
+<content type="message/http" xmlns="http://www.w3.org/2005/Atom"><title>aa</title></content>
+#errors
+/content/@type;IMT:composite;m
+/content;atom|content not supported;message/http;u
+
+#data
+<content type="text/xml" xmlns="http://www.w3.org/2005/Atom"><title>aa</title></content>
+#errors
+/content;atom|content not supported;text/xml;u
+
+#data
+<content type="text/xml" xmlns="http://www.w3.org/2005/Atom">abc</content>
+#errors
+/content;atom|content not supported;text/xml;u
+/content/"abc";character not allowed:atom|TextConstruct;m
+
+#data
+<content type="text/xml" src="aa" xmlns="http://www.w3.org/2005/Atom"></content>
+#errors
+/content;atom|content not supported;text/xml;u
+
+#data
+<content type="text/plain" src="aa" xmlns="http://www.w3.org/2005/Atom"></content>
+#errors
+/content;atom|content not supported;text/plain;u
+
+#data
+<content type="text" src="aa" xmlns="http://www.w3.org/2005/Atom"></content>
+#errors
+/content/@type;not IMT;m
+
+#data
+<content type="html" src="aa" xmlns="http://www.w3.org/2005/Atom"></content>
+#errors
+/content/@type;not IMT;m
+/content;no significant content;s
+
+#data
+<content type="xhtml" src="aa" xmlns="http://www.w3.org/2005/Atom"></content>
+#errors
+/content/@type;not IMT;m
+/content;child element missing;div;m
+
+#data
+<content type="hoge" src="aa" xmlns="http://www.w3.org/2005/Atom"></content>
+#errors
+/content/@type;IMT:no /;m
+/content;atom|content not supported;hoge;u
+
+#data
+<content type="text/plain" src="aa" xmlns="http://www.w3.org/2005/Atom">abc</content>
+#errors
+/content/"abc";character not allowed:empty;m
+/content;atom|content not supported;text/plain;u
+
+#data
+<content type="text/plain" src="aa" xmlns="http://www.w3.org/2005/Atom">ab<title>c</title></content>
+#errors
+/content/"ab";character not allowed:empty;m
+/content/title;element not allowed:atom|TextConstruct;m
+/content;atom|content not supported;text/plain;u

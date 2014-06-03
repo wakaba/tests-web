@@ -1,0 +1,43 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://foo/" rdf:parseType="Literal">
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://foo/" rdf:parseType="Literal">
+      <p xmlns="http://www.w3.org/1999/xhtml">aa</p>
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://foo/" rdf:parseType="Literal">
+      <p xmlns="http://www.w3.org/1999/xhtml">a<r>a</r></p>
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/hoge/p/r;element not defined;m
+/RDF/Description/hoge/p/r;element not allowed:phrasing;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://foo/" rdf:parseType="Literal">
+      <rdf:RDF>
+        <fuga>abc</fuga>
+      </rdf:RDF>
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/hoge/RDF/fuga/"abc";character not allowed;m

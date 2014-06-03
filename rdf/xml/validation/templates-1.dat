@@ -1,0 +1,32 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <template xmlns="http://www.w3.org/1999/xhtml">
+    <q><p>aa</p></q>
+  </template>
+</rdf:RDF>
+#errors
+| #df/q/p;element not allowed:phrasing;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <template xmlns="http://www.w3.org/1999/xhtml">
+      <q><p>aa</p></q>
+    </template>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+| #df/q/p;element not allowed:phrasing;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+      <template xmlns="http://www.w3.org/1999/xhtml">
+        <q><p>aa</p></q>
+      </template>
+    </p>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+| #df/q/p;element not allowed:phrasing;m

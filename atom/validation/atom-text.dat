@@ -60,3 +60,18 @@
 2;11;/content;element not allowed:flow;m
 2;11;/content;element not defined;m
 3;0;/content;not closed before ancestor end tag;hoge;m
+
+#data
+<summary type="text/html" xmlns="http://www.w3.org/2005/Atom"></summary>
+#errors
+/summary/@type;invalid attribute value;m
+
+#data
+<summary type="message/rfc822" xmlns="http://www.w3.org/2005/Atom"></summary>
+#errors
+/summary/@type;invalid attribute value;m
+
+#data
+<summary type="message" xmlns="http://www.w3.org/2005/Atom"></summary>
+#errors
+/summary/@type;invalid attribute value;m

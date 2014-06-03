@@ -1,6 +1,7 @@
 #data
 &#x20;<a/>
 #errors
+1;1;no XML decl;;;s
 1;1;ref outside of root element;;#x20;;m
 #document
 | <{} a>
@@ -8,6 +9,7 @@
 #data
 &#32;<a/>
 #errors
+1;1;no XML decl;;;s
 1;1;ref outside of root element;;#32;;m
 #document
 | <{} a>
@@ -15,6 +17,7 @@
 #data
  &#x20;<a/>
 #errors
+1;1;no XML decl;;;s
 1;2;ref outside of root element;;#x20;;m
 #document
 | <{} a>
@@ -22,6 +25,7 @@
 #data
 &#x20; <a/>
 #errors
+1;1;no XML decl;;;s
 1;1;ref outside of root element;;#x20;;m
 #document
 | <{} a>
@@ -30,6 +34,7 @@
 <a/>
 &#x20;
 #errors
+1;1;no XML decl;;;s
 2;1;ref outside of root element;;#x20;;m
 #document
 | <{} a>
@@ -37,6 +42,7 @@
 #data
 <a/>&#32;
 #errors
+1;1;no XML decl;;;s
 1;5;ref outside of root element;;#32;;m
 #document
 | <{} a>
@@ -44,6 +50,7 @@
 #data
 <!DOCTYPE a>&#x20;<a/>
 #errors
+1;1;no XML decl;;;s
 1;13;ref outside of root element;;#x20;;m
 #document
 | <!DOCTYPE a>
@@ -52,6 +59,7 @@
 #data
 <!DOCTYPE a> &#x20;<a/>
 #errors
+1;1;no XML decl;;;s
 1;14;ref outside of root element;;#x20;;m
 #document
 | <!DOCTYPE a>
@@ -60,6 +68,7 @@
 #data
 <!DOCTYPE a>&#x20; <a/>
 #errors
+1;1;no XML decl;;;s
 1;13;ref outside of root element;;#x20;;m
 #document
 | <!DOCTYPE a>
@@ -68,6 +77,7 @@
 #data
 <a>&#x20;</a>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 |   " "
@@ -75,6 +85,7 @@
 #data
 <a>&#X20;</a>
 #errors
+1;1;no XML decl;;;s
 1;6;uppercase hcro;;;m
 #document
 | <{} a>
@@ -83,6 +94,7 @@
 #data
 <a>&abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;entity not declared;;abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz;;m
 #document
 | <{} a>
@@ -91,6 +103,7 @@
 #data
 <a>&#x0;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0000;;m
 #document escaped
 | <{} a>
@@ -99,6 +112,7 @@
 #data
 <a>&#0;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0000;;m
 #document escaped
 | <{} a>
@@ -129,6 +143,7 @@
 #data
 <a>&#x1;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0001;;m
 #document escaped
 | <{} a>
@@ -137,6 +152,7 @@
 #data
 <a>&#01;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0001;;m
 #document escaped
 | <{} a>
@@ -167,6 +183,7 @@
 #data
 <a>&#x2;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0002;;m
 #document escaped
 | <{} a>
@@ -175,6 +192,7 @@
 #data
 <a>&#2;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0002;;m
 #document escaped
 | <{} a>
@@ -205,6 +223,7 @@
 #data
 <a>&#x3;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0003;;m
 #document escaped
 | <{} a>
@@ -213,6 +232,7 @@
 #data
 <a>&#3;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0003;;m
 #document escaped
 | <{} a>
@@ -243,6 +263,7 @@
 #data
 <a>&#x4;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0004;;m
 #document escaped
 | <{} a>
@@ -251,6 +272,7 @@
 #data
 <a>&#4;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0004;;m
 #document escaped
 | <{} a>
@@ -281,6 +303,7 @@
 #data
 <a>&#x5;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0005;;m
 #document escaped
 | <{} a>
@@ -289,6 +312,7 @@
 #data
 <a>&#5;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0005;;m
 #document escaped
 | <{} a>
@@ -319,6 +343,7 @@
 #data
 <a>&#x6;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0006;;m
 #document escaped
 | <{} a>
@@ -327,6 +352,7 @@
 #data
 <a>&#6;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0006;;m
 #document escaped
 | <{} a>
@@ -357,6 +383,7 @@
 #data
 <a>&#x7;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0007;;m
 #document escaped
 | <{} a>
@@ -365,6 +392,7 @@
 #data
 <a>&#7;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0007;;m
 #document escaped
 | <{} a>
@@ -395,6 +423,7 @@
 #data
 <a>&#x8;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0008;;m
 #document escaped
 | <{} a>
@@ -403,6 +432,7 @@
 #data
 <a>&#8;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0008;;m
 #document escaped
 | <{} a>
@@ -433,6 +463,7 @@
 #data
 <a>&#x9;</a>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <{} a>
 |   "\u0009"
@@ -440,6 +471,7 @@
 #data
 <a>&#9;</a>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <{} a>
 |   "\u0009"
@@ -467,6 +499,7 @@
 #data
 <a>&#xA;</a>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <{} a>
 |   "\u000A"
@@ -474,6 +507,7 @@
 #data
 <a>&#10;</a>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <{} a>
 |   "\u000A"
@@ -501,6 +535,7 @@
 #data
 <a>&#xB;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+000B;;m
 #document escaped
 | <{} a>
@@ -509,6 +544,7 @@
 #data
 <a>&#11;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+000B;;m
 #document escaped
 | <{} a>
@@ -539,6 +575,7 @@
 #data
 <a>&#xC;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+000C;;m
 #document escaped
 | <{} a>
@@ -547,6 +584,7 @@
 #data
 <a>&#12;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+000C;;m
 #document escaped
 | <{} a>
@@ -577,6 +615,7 @@
 #data
 <a>&#xD;</a>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <{} a>
 |   "\u000D"
@@ -584,6 +623,7 @@
 #data
 <a>&#13;</a>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <{} a>
 |   "\u000D"
@@ -611,6 +651,7 @@
 #data
 <a>&#x0D;&#x0a;</a>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <{} a>
 |   "\u000D\u000A"
@@ -618,6 +659,7 @@
 #data
 <a>&#13;&#10;</a>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <{} a>
 |   "\u000D\u000A"
@@ -625,6 +667,7 @@
 #data
 <a>&#xE;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+000E;;m
 #document escaped
 | <{} a>
@@ -633,6 +676,7 @@
 #data
 <a>&#14;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+000E;;m
 #document escaped
 | <{} a>
@@ -663,6 +707,7 @@
 #data
 <a>&#xF;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+000F;;m
 #document escaped
 | <{} a>
@@ -671,6 +716,7 @@
 #data
 <a>&#15;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+000F;;m
 #document escaped
 | <{} a>
@@ -701,6 +747,7 @@
 #data
 <a>&#x10;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0010;;m
 #document escaped
 | <{} a>
@@ -709,6 +756,7 @@
 #data
 <a>&#16;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0010;;m
 #document escaped
 | <{} a>
@@ -739,6 +787,7 @@
 #data
 <a>&#x11;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0011;;m
 #document escaped
 | <{} a>
@@ -747,6 +796,7 @@
 #data
 <a>&#17;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0011;;m
 #document escaped
 | <{} a>
@@ -777,6 +827,7 @@
 #data
 <a>&#x12;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0012;;m
 #document escaped
 | <{} a>
@@ -785,6 +836,7 @@
 #data
 <a>&#18;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0012;;m
 #document escaped
 | <{} a>
@@ -815,6 +867,7 @@
 #data
 <a>&#x13;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0013;;m
 #document escaped
 | <{} a>
@@ -823,6 +876,7 @@
 #data
 <a>&#19;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0013;;m
 #document escaped
 | <{} a>
@@ -853,6 +907,7 @@
 #data
 <a>&#x14;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0014;;m
 #document escaped
 | <{} a>
@@ -861,6 +916,7 @@
 #data
 <a>&#20;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0014;;m
 #document escaped
 | <{} a>
@@ -891,6 +947,7 @@
 #data
 <a>&#x15;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0015;;m
 #document escaped
 | <{} a>
@@ -899,6 +956,7 @@
 #data
 <a>&#21;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0015;;m
 #document escaped
 | <{} a>
@@ -929,6 +987,7 @@
 #data
 <a>&#x16;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0016;;m
 #document escaped
 | <{} a>
@@ -937,6 +996,7 @@
 #data
 <a>&#22;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0016;;m
 #document escaped
 | <{} a>
@@ -967,6 +1027,7 @@
 #data
 <a>&#x17;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0017;;m
 #document escaped
 | <{} a>
@@ -975,6 +1036,7 @@
 #data
 <a>&#23;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0017;;m
 #document escaped
 | <{} a>
@@ -1005,6 +1067,7 @@
 #data
 <a>&#x18;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0018;;m
 #document escaped
 | <{} a>
@@ -1013,6 +1076,7 @@
 #data
 <a>&#24;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0018;;m
 #document escaped
 | <{} a>
@@ -1043,6 +1107,7 @@
 #data
 <a>&#x19;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0019;;m
 #document escaped
 | <{} a>
@@ -1051,6 +1116,7 @@
 #data
 <a>&#25;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0019;;m
 #document escaped
 | <{} a>
@@ -1081,6 +1147,7 @@
 #data
 <a>&#x1A;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+001A;;m
 #document escaped
 | <{} a>
@@ -1089,6 +1156,7 @@
 #data
 <a>&#26;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+001A;;m
 #document escaped
 | <{} a>
@@ -1119,6 +1187,7 @@
 #data
 <a>&#x1B;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+001B;;m
 #document escaped
 | <{} a>
@@ -1127,6 +1196,7 @@
 #data
 <a>&#27;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+001B;;m
 #document escaped
 | <{} a>
@@ -1157,6 +1227,7 @@
 #data
 <a>&#x1C;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+001C;;m
 #document escaped
 | <{} a>
@@ -1165,6 +1236,7 @@
 #data
 <a>&#28;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+001C;;m
 #document escaped
 | <{} a>
@@ -1195,6 +1267,7 @@
 #data
 <a>&#x1D;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+001D;;m
 #document escaped
 | <{} a>
@@ -1203,6 +1276,7 @@
 #data
 <a>&#29;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+001D;;m
 #document escaped
 | <{} a>
@@ -1233,6 +1307,7 @@
 #data
 <a>&#x1E;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+001E;;m
 #document escaped
 | <{} a>
@@ -1241,6 +1316,7 @@
 #data
 <a>&#30;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+001E;;m
 #document escaped
 | <{} a>
@@ -1271,6 +1347,7 @@
 #data
 <a>&#x1F;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+001F;;m
 #document escaped
 | <{} a>
@@ -1279,6 +1356,7 @@
 #data
 <a>&#31;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+001F;;m
 #document escaped
 | <{} a>
@@ -1309,6 +1387,7 @@
 #data
 <a>&#x7F;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+007F;;w
 #document escaped
 | <{} a>
@@ -1317,6 +1396,7 @@
 #data
 <a>&#127;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+007F;;w
 #document escaped
 | <{} a>
@@ -1347,6 +1427,7 @@
 #data
 <a>&#x80;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0080;;w
 #document escaped
 | <{} a>
@@ -1355,6 +1436,7 @@
 #data
 <a>&#128;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0080;;w
 #document escaped
 | <{} a>
@@ -1385,6 +1467,7 @@
 #data
 <a>&#x81;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0081;;w
 #document escaped
 | <{} a>
@@ -1393,6 +1476,7 @@
 #data
 <a>&#129;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0081;;w
 #document escaped
 | <{} a>
@@ -1423,6 +1507,7 @@
 #data
 <a>&#x82;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0082;;w
 #document escaped
 | <{} a>
@@ -1431,6 +1516,7 @@
 #data
 <a>&#130;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0082;;w
 #document escaped
 | <{} a>
@@ -1461,6 +1547,7 @@
 #data
 <a>&#x83;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0083;;w
 #document escaped
 | <{} a>
@@ -1469,6 +1556,7 @@
 #data
 <a>&#131;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0083;;w
 #document escaped
 | <{} a>
@@ -1499,6 +1587,7 @@
 #data
 <a>&#x84;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0084;;w
 #document escaped
 | <{} a>
@@ -1507,6 +1596,7 @@
 #data
 <a>&#132;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0084;;w
 #document escaped
 | <{} a>
@@ -1537,6 +1627,7 @@
 #data
 <a>&#x85;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0085;;w
 #document escaped
 | <{} a>
@@ -1545,6 +1636,7 @@
 #data
 <a>&#133;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0085;;w
 #document escaped
 | <{} a>
@@ -1573,6 +1665,7 @@
 #data
 <a>&#x86;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0086;;w
 #document escaped
 | <{} a>
@@ -1581,6 +1674,7 @@
 #data
 <a>&#134;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0086;;w
 #document escaped
 | <{} a>
@@ -1611,6 +1705,7 @@
 #data
 <a>&#x87;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0087;;w
 #document escaped
 | <{} a>
@@ -1619,6 +1714,7 @@
 #data
 <a>&#135;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0087;;w
 #document escaped
 | <{} a>
@@ -1649,6 +1745,7 @@
 #data
 <a>&#x88;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0088;;w
 #document escaped
 | <{} a>
@@ -1657,6 +1754,7 @@
 #data
 <a>&#136;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0088;;w
 #document escaped
 | <{} a>
@@ -1687,6 +1785,7 @@
 #data
 <a>&#x89;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0089;;w
 #document escaped
 | <{} a>
@@ -1695,6 +1794,7 @@
 #data
 <a>&#137;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0089;;w
 #document escaped
 | <{} a>
@@ -1725,6 +1825,7 @@
 #data
 <a>&#x8A;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+008A;;w
 #document escaped
 | <{} a>
@@ -1733,6 +1834,7 @@
 #data
 <a>&#138;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+008A;;w
 #document escaped
 | <{} a>
@@ -1763,6 +1865,7 @@
 #data
 <a>&#x8B;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+008B;;w
 #document escaped
 | <{} a>
@@ -1771,6 +1874,7 @@
 #data
 <a>&#139;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+008B;;w
 #document escaped
 | <{} a>
@@ -1801,6 +1905,7 @@
 #data
 <a>&#x8C;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+008C;;w
 #document escaped
 | <{} a>
@@ -1809,6 +1914,7 @@
 #data
 <a>&#140;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+008C;;w
 #document escaped
 | <{} a>
@@ -1839,6 +1945,7 @@
 #data
 <a>&#x8D;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+008D;;w
 #document escaped
 | <{} a>
@@ -1847,6 +1954,7 @@
 #data
 <a>&#141;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+008D;;w
 #document escaped
 | <{} a>
@@ -1877,6 +1985,7 @@
 #data
 <a>&#x8E;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+008E;;w
 #document escaped
 | <{} a>
@@ -1885,6 +1994,7 @@
 #data
 <a>&#142;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+008E;;w
 #document escaped
 | <{} a>
@@ -1915,6 +2025,7 @@
 #data
 <a>&#x8F;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+008F;;w
 #document escaped
 | <{} a>
@@ -1923,6 +2034,7 @@
 #data
 <a>&#143;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+008F;;w
 #document escaped
 | <{} a>
@@ -1953,6 +2065,7 @@
 #data
 <a>&#x90;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0090;;w
 #document escaped
 | <{} a>
@@ -1961,6 +2074,7 @@
 #data
 <a>&#144;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0090;;w
 #document escaped
 | <{} a>
@@ -1991,6 +2105,7 @@
 #data
 <a>&#x91;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0091;;w
 #document escaped
 | <{} a>
@@ -1999,6 +2114,7 @@
 #data
 <a>&#145;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0091;;w
 #document escaped
 | <{} a>
@@ -2029,6 +2145,7 @@
 #data
 <a>&#x92;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0092;;w
 #document escaped
 | <{} a>
@@ -2037,6 +2154,7 @@
 #data
 <a>&#146;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0092;;w
 #document escaped
 | <{} a>
@@ -2067,6 +2185,7 @@
 #data
 <a>&#x93;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0093;;w
 #document escaped
 | <{} a>
@@ -2075,6 +2194,7 @@
 #data
 <a>&#147;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0093;;w
 #document escaped
 | <{} a>
@@ -2105,6 +2225,7 @@
 #data
 <a>&#x94;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0094;;w
 #document escaped
 | <{} a>
@@ -2113,6 +2234,7 @@
 #data
 <a>&#148;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0094;;w
 #document escaped
 | <{} a>
@@ -2143,6 +2265,7 @@
 #data
 <a>&#x95;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0095;;w
 #document escaped
 | <{} a>
@@ -2151,6 +2274,7 @@
 #data
 <a>&#149;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0095;;w
 #document escaped
 | <{} a>
@@ -2181,6 +2305,7 @@
 #data
 <a>&#x96;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0096;;w
 #document escaped
 | <{} a>
@@ -2189,6 +2314,7 @@
 #data
 <a>&#150;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0096;;w
 #document escaped
 | <{} a>
@@ -2219,6 +2345,7 @@
 #data
 <a>&#x97;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0097;;w
 #document escaped
 | <{} a>
@@ -2227,6 +2354,7 @@
 #data
 <a>&#151;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0097;;w
 #document escaped
 | <{} a>
@@ -2257,6 +2385,7 @@
 #data
 <a>&#x98;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0098;;w
 #document escaped
 | <{} a>
@@ -2265,6 +2394,7 @@
 #data
 <a>&#152;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0098;;w
 #document escaped
 | <{} a>
@@ -2295,6 +2425,7 @@
 #data
 <a>&#x99;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0099;;w
 #document escaped
 | <{} a>
@@ -2303,6 +2434,7 @@
 #data
 <a>&#153;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+0099;;w
 #document escaped
 | <{} a>
@@ -2333,6 +2465,7 @@
 #data
 <a>&#x9A;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+009A;;w
 #document escaped
 | <{} a>
@@ -2341,6 +2474,7 @@
 #data
 <a>&#154;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+009A;;w
 #document escaped
 | <{} a>
@@ -2371,6 +2505,7 @@
 #data
 <a>&#x9B;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+009B;;w
 #document escaped
 | <{} a>
@@ -2379,6 +2514,7 @@
 #data
 <a>&#155;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+009B;;w
 #document escaped
 | <{} a>
@@ -2409,6 +2545,7 @@
 #data
 <a>&#x9C;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+009C;;w
 #document escaped
 | <{} a>
@@ -2417,6 +2554,7 @@
 #data
 <a>&#156;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+009C;;w
 #document escaped
 | <{} a>
@@ -2447,6 +2585,7 @@
 #data
 <a>&#x9D;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+009D;;w
 #document escaped
 | <{} a>
@@ -2455,6 +2594,7 @@
 #data
 <a>&#157;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+009D;;w
 #document escaped
 | <{} a>
@@ -2485,6 +2625,7 @@
 #data
 <a>&#x9E;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+009E;;w
 #document escaped
 | <{} a>
@@ -2493,6 +2634,7 @@
 #data
 <a>&#158;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+009E;;w
 #document escaped
 | <{} a>
@@ -2523,6 +2665,7 @@
 #data
 <a>&#x9F;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+009F;;w
 #document escaped
 | <{} a>
@@ -2531,6 +2674,7 @@
 #data
 <a>&#159;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+009F;;w
 #document escaped
 | <{} a>
@@ -2561,6 +2705,7 @@
 #data
 <a>&#xd800;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+D800;;m
 #document escaped
 | <{} a>
@@ -2569,6 +2714,7 @@
 #data
 <a>&#55296;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+D800;;m
 #document escaped
 | <{} a>
@@ -2599,6 +2745,7 @@
 #data
 <a>&#xdfff;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+DFFF;;m
 #document escaped
 | <{} a>
@@ -2607,6 +2754,7 @@
 #data
 <a>&#57343;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+DFFF;;m
 #document escaped
 | <{} a>
@@ -2615,6 +2763,7 @@
 #data
 <a>&#xFDD0;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+FDD0;;w
 #document escaped
 | <{} a>
@@ -2623,6 +2772,7 @@
 #data
 <a>&#x0000000000000000000000000000FDD0;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+FDD0;;w
 #document escaped
 | <{} a>
@@ -2631,6 +2781,7 @@
 #data
 <a>&#64976;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+FDD0;;w
 #document escaped
 | <{} a>
@@ -2661,6 +2812,7 @@
 #data
 <a>&#xFFFE;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+FFFE;;m
 #document escaped
 | <{} a>
@@ -2669,6 +2821,7 @@
 #data
 <a>&#65534;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+FFFE;;m
 #document escaped
 | <{} a>
@@ -2699,6 +2852,7 @@
 #data
 <a>&#xFFFF;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+FFFF;;m
 #document escaped
 | <{} a>
@@ -2707,6 +2861,7 @@
 #data
 <a>&#65535;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+FFFF;;m
 #document escaped
 | <{} a>
@@ -2737,6 +2892,7 @@
 #data
 <a>&#x10FFFF;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+10FFFF;;w
 #document escaped
 | <{} a>
@@ -2745,6 +2901,7 @@
 #data
 <a>&#1114111;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U+10FFFF;;w
 #document escaped
 | <{} a>
@@ -2775,6 +2932,7 @@
 #data
 <a>&#x11FFFF;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U-0011FFFF;;m
 #document escaped
 | <{} a>
@@ -2783,6 +2941,7 @@
 #data
 <a>&#1114112;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U-00110000;;m
 #document escaped
 | <{} a>
@@ -2813,6 +2972,7 @@
 #data
 <a>&#xffffffff;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U-FFFFFFFF;;m
 #document escaped
 | <{} a>
@@ -2821,6 +2981,7 @@
 #data
 <a>&#x100000000;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U-FFFFFFFF;;m
 #document escaped
 | <{} a>
@@ -2829,6 +2990,7 @@
 #data
 <a>&#x10000000fafeafaaaeeeccc0;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U-FFFFFFFF;;m
 #document escaped
 | <{} a>
@@ -2837,6 +2999,7 @@
 #data
 <a>&#4294967295;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U-FFFFFFFF;;m
 #document escaped
 | <{} a>
@@ -2845,6 +3008,7 @@
 #data
 <a>&#42777777794967295000;</a>
 #errors
+1;1;no XML decl;;;s
 1;4;invalid character reference;U-FFFFFFFF;;m
 #document escaped
 | <{} a>
@@ -2853,6 +3017,7 @@
 #data
 <a>&#0000000000000000000000000000512333;</a>
 #errors
+1;1;no XML decl;;;s
 #document escaped
 | <{} a>
 |   "\U0007D14D"

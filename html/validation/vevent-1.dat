@@ -1,0 +1,164 @@
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <time itemprop="dtstart">2012-01-01</time>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <time itemprop="dtstart">2012-01-01T01:12:11Z</time>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <time itemprop="dtstart">2012-01-01?</time>
+</div>
+#errors
+/div/time;duration:syntax error;m
+/div/time;dateandopttime:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <time itemprop="dtstart">2012-01-01</time>
+  <time itemprop="dtend">2012-01-02...</time>
+</div>
+#errors
+/div/time;duration:syntax error;m
+/div/time;dateandopttime:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <time itemprop="dtstart">2012-01-01</time>
+  <time itemprop="duration">2012-01-02</time>
+</div>
+#errors
+/div/time;duration:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <time itemprop="dtstart">2012-01-01</time>
+  <time itemprop="duration">20d 12s</time>
+</div>
+#errors
+/div/time;duration:html duration;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <time itemprop="dtstart">2012-01-01</time>
+  <time itemprop="duration">PT21M31S</time>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <time itemprop="exdate">2012-01-01</time>
+</div>
+#errors
+/div;microdata:no required itemprop;dtstart;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <time itemprop="exdate">2012-01-01T00:12:22</time>
+</div>
+#errors
+/div/time;dateandopttime:syntax error;m
+/div;microdata:no required itemprop;dtstart;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <time itemprop="rdate">2012-01-01T00:12:22</time>
+</div>
+#errors
+/div/time;dateandopttime:syntax error;m
+/div;microdata:no required itemprop;dtstart;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <time itemprop="rdate">2012-01-01T00:12:22+00:12</time>
+</div>
+#errors
+/div;microdata:no required itemprop;dtstart;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <time itemprop="rdate">2012-01-01</time>
+</div>
+#errors
+/div;microdata:no required itemprop;dtstart;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <time itemprop="rdate">2012-01-01T00:12:22+00:12/2012-04-01T00:12:22Z</time>
+</div>
+#errors
+/div;microdata:no required itemprop;dtstart;m
+/div/time;datetime:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <time itemprop="rdate">2012-01-01T00:12:22+00:12/2012-04-01</time>
+</div>
+#errors
+/div;microdata:no required itemprop;dtstart;m
+/div/time;datetime:syntax error;m
+/div/time;datetime:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <time itemprop="rdate">2012-01-01T00:12:22+00:12/2011-04-01T00:12:22Z</time>
+</div>
+#errors
+/div;microdata:no required itemprop;dtstart;m
+/div/time;interval:not 1<=2;m
+/div/time;datetime:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <span itemprop="rdate">2012-01-01T00:12:22+00:12/20m</span>
+</div>
+#errors
+/div;microdata:no required itemprop;dtstart;m
+/div/span;duration:html duration;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <span itemprop="rdate">2012-01-01T00:12:22+00:12/P10W</span>
+</div>
+#errors
+/div;microdata:no required itemprop;dtstart;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <span itemprop="created">2012-01-01T00:12:22+00:12+</span>
+</div>
+#errors
+/div;microdata:no required itemprop;dtstart;m
+/div/span;datetime:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope="" itemtype="http://microformats.org/profile/hcalendar#vevent">
+  <span itemprop="last-modified">2012-01-01T00:12:22+00:12+</span>
+</div>
+#errors
+/div;microdata:no required itemprop;dtstart;m
+/div/span;datetime:syntax error;m

@@ -1,0 +1,666 @@
+#data
+typedef long Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": "long"
+  }]
+}
+
+#data
+typedef unsigned long Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": "unsigned long"
+  }]
+}
+
+#data
+typedef unrestricted double Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": "unrestricted double"
+  }]
+}
+
+#data
+typedef unrestricted double ? Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", "unrestricted double"]
+  }]
+}
+
+#data
+typedef unsigned long[ ] Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["array", "unsigned long"]
+  }]
+}
+
+#data
+typedef unsigned long[ ][] Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["array", ["array", "unsigned long"]]
+  }]
+}
+
+#data
+typedef unsigned long[ ][]? Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", ["array", ["array", "unsigned long"]]]
+  }]
+}
+
+#data
+typedef unsigned long[ ]?[] Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["array", ["nullable", ["array", "unsigned long"]]]
+  }]
+}
+
+#data
+typedef unsigned long?[ ][] Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["array", ["array", ["nullable", "unsigned long"]]]
+  }]
+}
+
+#data
+typedef Fuga Hoge;
+#errors
+1;0;webidl:not defined;;Fuga;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["ref", "Fuga"]
+  }]
+}
+
+#data
+typedef Fuga? Hoge;
+#errors
+1;0;webidl:not defined;;Fuga;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", ["ref", "Fuga"]]
+  }]
+}
+
+#data
+typedef Fuga?[] Hoge;
+#errors
+1;0;webidl:not defined;;Fuga;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["array", ["nullable", ["ref", "Fuga"]]]
+  }]
+}
+
+#data
+typedef Fuga?[]? Hoge;
+#errors
+1;0;webidl:not defined;;Fuga;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", ["array", ["nullable", ["ref", "Fuga"]]]]
+  }]
+}
+
+#data
+typedef sequence<long> Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["sequence", "long"]
+  }]
+}
+
+#data
+typedef sequence<long?> Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["sequence", ["nullable", "long"]]
+  }]
+}
+
+#data
+typedef sequence<long[]> Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["sequence", ["array", "long"]]
+  }]
+}
+
+#data
+typedef sequence<sequence<long>> Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["sequence", ["sequence", "long"]]
+  }]
+}
+
+#data
+typedef sequence<sequence<long>?> Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["sequence", ["nullable", ["sequence", "long"]]]
+  }]
+}
+
+#data
+callback hoge = sequence<sequence<long>?>? ();
+#processed
+{
+  "hoge": ["callback", {
+    "overload_set": {
+      "": {
+        "type": ["nullable", ["sequence", ["nullable", ["sequence", "long"]]]],
+        "args": []
+      }
+    }
+  }]
+}
+
+#data
+interface A { 
+  legacycaller Promise ();
+};
+#errors
+1;17;webidl:bad type;;Promise;m
+#processed
+{
+  "A": ["interface", {
+    "legacycaller": ["operation", {
+      "overload_set": {"": {"type": "Promise", "args": []}}
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A { 
+  legacycaller Promise<long> ();
+};
+#errors
+1;17;webidl:bad type;;Promise[long];m
+#processed
+{
+  "A": ["interface", {
+    "legacycaller": ["operation", {
+      "overload_set": {"": {"type": ["Promise", "long"], "args": []}}
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A { 
+  stringifier;
+};
+#processed
+{
+  "A": ["interface", {
+    "stringifier": ["operation", {
+      "overload_set": {"": {"type": "DOMString", "args": []}}
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A { 
+  stringifier DOMString ();
+};
+#processed
+{
+  "A": ["interface", {
+    "stringifier": ["operation", {
+      "overload_set": {"": {"type": "DOMString", "args": []}}
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A { 
+  stringifier DOMString hoge ();
+};
+#processed
+{
+  "A": ["interface", {
+    "stringifier": ["operation", {
+      "overload_set": {"": {"type": "DOMString", "args": []}}
+    }],
+    "members": {
+      "hoge": ["operation", {
+        "overload_set": {"": {"type": "DOMString", "args": []}}
+      }]
+    }
+  }]
+}
+
+#data
+interface A { 
+  stringifier long hoge ();
+};
+#errors
+1;17;webidl:bad type;;long;m
+#processed
+{
+  "A": ["interface", {
+    "stringifier": ["operation", {
+      "overload_set": {"": {"type": "long", "args": []}}
+    }],
+    "members": {
+      "hoge": ["operation", {
+        "overload_set": {"": {"type": "long", "args": []}}
+      }]
+    }
+  }]
+}
+
+#data
+interface A { 
+  stringifier DOMString hoge (long foo);
+};
+#errors
+1;17;webidl:bad args;;stringifier;m
+#processed
+{
+  "A": ["interface", {
+    "stringifier": ["operation", {
+      "overload_set": {"long": {"type": "DOMString", "args": [{"type":"long","name":"foo","optionality":"required"}]}}
+    }],
+    "members": {
+      "hoge": ["operation", {
+        "overload_set": {"long": {"type": "DOMString", "args": [{"type":"long","name":"foo","optionality":"required"}]}}
+      }]
+    }
+  }]
+}
+
+#data
+interface A { 
+  stringifier DOMString hoge (optional long foo);
+};
+#errors
+1;45;webidl:bad optionality:special;;foo;m
+1;17;webidl:bad args;;stringifier;m
+#processed
+{
+  "A": ["interface", {
+    "stringifier": ["operation", {
+      "overload_set": {
+        "": {"type": "DOMString", "args": []},
+        "long": {"type": "DOMString", "args": [{"type":"long","name":"foo","optionality":"optional"}]}
+      }
+    }],
+    "members": {
+      "hoge": ["operation", {
+        "overload_set": {
+          "": {"type": "DOMString", "args": []},
+          "long": {"type": "DOMString", "args": [{"type":"long","name":"foo","optionality":"optional"}]}
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A { 
+  stringifier DOMString ();
+  stringifier DOMString ();
+};
+#errors
+1;45;webidl:not distinguishable;;;m
+#processed
+{
+  "A": ["interface", {
+    "stringifier": ["operation", {
+      "overload_set": {"": {"type": "DOMString", "args": []}}
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A { 
+  stringifier DOMString ();
+  stringifier DOMString (long foo);
+};
+#errors
+1;45;webidl:bad args;;stringifier;m
+#processed
+{
+  "A": ["interface", {
+    "stringifier": ["operation", {
+      "overload_set": {
+        "": {"type": "DOMString", "args": []},
+        "long": {"type": "DOMString", "args": [
+          {"name": "foo", "type": "long", "optionality": "required"}
+        ]}
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+typedef (long or unsigned long) Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["union", {
+      "def": ["long", "unsigned long"],
+      "flattened": {"long": "long", "unsigned long": "unsigned long"}
+    }]
+  }]
+}
+
+#data
+typedef (long or unsigned long)? Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", ["union", {
+      "def": ["long", "unsigned long"],
+      "flattened": {"long": "long", "unsigned long": "unsigned long"}
+    }]]
+  }]
+}
+
+#data
+typedef sequence <(long or unsigned long)> Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["sequence", ["union", {
+      "def": ["long", "unsigned long"],
+      "flattened": {"long": "long", "unsigned long": "unsigned long"}
+    }]]
+  }]
+}
+
+#data
+typedef (long or unsigned long)[]? Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", ["array", ["union", {
+      "def": ["long", "unsigned long"],
+      "flattened": {"long": "long", "unsigned long": "unsigned long"}
+    }]]]
+  }]
+}
+
+#data
+typedef (long or (double or unsigned long)) Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["union", {
+      "def": ["long", ["union", {
+        "def": ["double", "unsigned long"],
+        "flattened": {"double": "double", "unsigned long": "unsigned long"}
+      }]],
+      "flattened": {"long": "long", "double": "double", "unsigned long": "unsigned long"}
+    }]
+  }]
+}
+
+#data
+typedef (long[] or unsigned long[]) Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["union", {
+      "def": [["array", "long"], ["array", "unsigned long"]],
+      "flattened": {"array[long]": ["array", "long"], "array[unsigned long]": ["array", "unsigned long"]}
+    }]
+  }]
+}
+
+#data
+typedef (any or long or unsigned long) Hoge;
+#errors
+1;13;webidl:parse error;[, ;;m
+#processed
+{}
+
+#data
+typedef (long or ((double or RegExp) or unsigned long)) Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["union", {
+      "def": ["long", ["union", {
+        "def": [["union", {
+          "def": ["double", "RegExp"],
+          "flattened": {"double": "double", "RegExp": "RegExp"}
+        }], "unsigned long"],
+        "flattened": {"double": "double", "unsigned long": "unsigned long", "RegExp": "RegExp"}
+      }]],
+      "flattened": {"long": "long", "double": "double", "unsigned long": "unsigned long", "RegExp": "RegExp"}
+    }]
+  }]
+}
+
+#data
+typedef (long? or object) Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["union", {
+      "def": [["nullable", "long"], "object"],
+      "flattened": {
+        "long": "long",
+        "null": "null",
+        "object": "object"
+      }
+    }]
+  }]
+}
+
+#data
+typedef (long? or object?) Hoge;
+#errors
+1;0;webidl:not distinguishable;;null;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["union", {
+      "def": [["nullable", "long"], ["nullable", "object"]],
+      "flattened": {
+        "long": "long",
+        "null": "null",
+        "object": "object"
+      }
+    }]
+  }]
+}
+
+#data
+typedef ((long or Date)? or object?) Hoge;
+#errors
+1;0;webidl:not distinguishable;;null;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["union", {
+      "def": [["nullable",
+        ["union", {
+          "def": ["long", "Date"],
+          "flattened": {"long": "long", "Date": "Date"}
+        }]
+      ], ["nullable", "object"]],
+      "flattened": {
+        "long": "long",
+        "null": "null",
+        "object": "object",
+        "Date": "Date"
+      }
+    }]
+  }]
+}
+
+#data
+typedef ((long or Date?) or object?) Hoge;
+#errors
+1;0;webidl:not distinguishable;;null;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["union", {
+      "def": [
+        ["union", {
+          "def": ["long", ["nullable", "Date"]],
+          "flattened": {"long": "long", "Date": "Date", "null": "null"}
+        }],
+        ["nullable", "object"]
+      ],
+      "flattened": {
+        "long": "long",
+        "null": "null",
+        "object": "object",
+        "Date": "Date"
+      }
+    }]
+  }]
+}
+
+#data
+typedef ((long or Date?) or (object? or DOMString)) Hoge;
+#errors
+1;0;webidl:not distinguishable;;null;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["union", {
+      "def": [
+        ["union", {
+          "def": ["long", ["nullable", "Date"]],
+          "flattened": {"long": "long", "Date": "Date", "null": "null"}
+        }],
+        ["union", {
+          "def": [["nullable", "object"], "DOMString"],
+          "flattened": {"object": "object", "DOMString": "DOMString", "null": "null"}
+        }]
+      ],
+      "flattened": {
+        "long": "long",
+        "null": "null",
+        "object": "object",
+        "Date": "Date",
+        "DOMString": "DOMString"
+      }
+    }]
+  }]
+}
+
+#data
+typedef ((long or Date?)? or DOMString) Hoge;
+#errors
+1;0;webidl:not distinguishable;;null;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["union", {
+      "def": [
+        ["nullable", ["union", {
+          "def": ["long", ["nullable", "Date"]],
+          "flattened": {"long": "long", "Date": "Date", "null": "null"}
+        }]], "DOMString"
+      ],
+      "flattened": {
+        "long": "long",
+        "null": "null",
+        "Date": "Date",
+        "DOMString": "DOMString"
+      }
+    }]
+  }]
+}
+
+#data
+typedef (D or long?) T;
+dictionary D {};
+#errors
+1;0;webidl:bad type;;ref_dictionary[D];m
+#processed
+{
+  "D": ["dictionary", {"members": {}}],
+  "T": ["typedef", {"type": ["union", {"def": [
+    ["ref_dictionary", "D"],
+    ["nullable", "long"]
+  ], "flattened": {
+    "ref_dictionary[D]": ["ref_dictionary", "D"],
+    "long": "long",
+    "null": "null"
+  }, "has_dictionary": 1}]}]
+}
+
+#data
+typedef ((D or E) or long?) T;
+dictionary D {};
+dictionary E {};
+#errors
+1;0;webidl:bad type;;ref_dictionary[E];m
+#processed
+{
+  "D": ["dictionary", {"members": {}}],
+  "E": ["dictionary", {"members": {}}],
+  "T": ["typedef", {"type": ["union", {"def": [
+    ["union", {"def": [["ref_dictionary", "D"], ["ref_dictionary", "E"]],
+               "flattened": {"ref_dictionary[D]": ["ref_dictionary", "D"],
+               "ref_dictionary[E]": ["ref_dictionary", "E"]},
+               "has_dictionary": 1  }],
+    ["nullable", "long"]
+  ], "flattened": {
+    "ref_dictionary[D]": ["ref_dictionary", "D"],
+    "ref_dictionary[E]": ["ref_dictionary", "E"],
+    "long": "long",
+    "null": "null"
+  }, "has_dictionary": 1}]}]
+}
+
+#data
+typedef ((D or E) or long) T;
+dictionary D {};
+dictionary E {};
+#processed
+{
+  "D": ["dictionary", {"members": {}}],
+  "E": ["dictionary", {"members": {}}],
+  "T": ["typedef", {"type": ["union", {"def": [
+    ["union", {"def": [["ref_dictionary", "D"], ["ref_dictionary", "E"]],
+               "flattened": {"ref_dictionary[D]": ["ref_dictionary", "D"],
+               "ref_dictionary[E]": ["ref_dictionary", "E"]},
+               "has_dictionary": 1}],
+    "long"
+  ], "flattened": {
+    "ref_dictionary[D]": ["ref_dictionary", "D"],
+    "ref_dictionary[E]": ["ref_dictionary", "E"],
+    "long": "long"
+  }, "has_dictionary": 1}]}]
+}

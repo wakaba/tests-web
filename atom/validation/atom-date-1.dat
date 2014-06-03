@@ -1,0 +1,24 @@
+#data
+<updated xmlns="http://www.w3.org/2005/Atom">2013-01-12T01:1<sa>2</sa>:44Z</updated>
+#errors
+/updated/sa;element not allowed:text;m
+/updated/sa;element not defined;m
+/updated;datetime:syntax error;m
+
+#data
+<updated xmlns="http://www.w3.org/2005/Atom">2013-01-12</updated>
+#errors
+/updated;datetime:syntax error;m
+
+#data
+<app:edited xmlns:app="http://www.w3.org/2007/app">2013-01-12T01:1<sa>2</sa>:44Z</app:edited>
+#errors
+/edited/sa;element not allowed:text;m
+/edited/sa;unknown namespace element;w
+/edited;datetime:syntax error;m
+
+#data
+<app:edited xmlns:app="http://www.w3.org/2007/app">2013-01-12T01:12:44Z</app:edited>
+#errors
+
+

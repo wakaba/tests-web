@@ -228,3 +228,12 @@
 <input pattern="?" title="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@pattern;Quantifier follows nothing;m
+
+#data
+<input type="datetime" min="0091-02-12T00:00:00Z" max="1990-12-02T12:31:11Z" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<input type="datetime" max="0091-02-12T00:00:00Z" min="1990-12-02T12:31:11Z" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/input/@max;max lt min;m

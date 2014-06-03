@@ -1,0 +1,140 @@
+#data
+interface A {
+  attribute Hoge _foo ;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "attribute",
+          "name": "foo",
+          "type_name": "Hoge"
+        }
+      ]
+    }
+  ]
+}
+
+#data
+exception Foo {
+  Hoge _foo;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "exception",
+      "name": "Foo",
+      "members": [
+        {
+          "index": 18,
+          "member_type": "field",
+          "name": "foo",
+          "type_name": "Hoge"
+        }
+      ]
+    }
+  ]
+}
+
+#data
+dictionary Foo {
+  Hoge _fuga;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "dictionary",
+      "name": "Foo",
+      "members": [
+        {
+          "index": 19,
+          "member_type": "dictionary_member",
+          "name": "fuga",
+          "type_name": "Hoge"
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const long _foo = 12.1;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "long",
+          "value_float": 12.1
+        }
+      ]
+    }
+  ]
+}
+
+#data
+exception A {
+  const long _foo = 12.1;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "exception",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "long",
+          "value_float": 12.1
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  void _foo ();
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "name": "foo",
+          "type": "void",
+          "arguments": []
+        }
+      ]
+    }
+  ]
+}

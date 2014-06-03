@@ -1,0 +1,81 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://foo/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://foo/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"><![CDATA[
+      <p>hoge</p>
+    ]]></hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/hoge;unknown namespace element;w
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://foo/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"><![CDATA[
+      <p xmlns="">hoge</p>
+    ]]></hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/hoge;unknown namespace element;w
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://foo/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"><![CDATA[
+      <p xmlns="">hoge</p>
+      <p xmlns="">hoge</p>
+    ]]></hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/hoge;unknown namespace element;w
+/RDF/Description/hoge;unknown namespace element;w
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://foo/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"><![CDATA[
+      <foobar>hoge
+    ]]></hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/hoge;in body:#eof;m
+/RDF/Description/hoge;unknown namespace element;w
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://foo/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"><![CDATA[
+      <foo:bar>hoge</foo:bar>
+    ]]></hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/hoge;unknown namespace element;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="foo">
+      <t:foo xmlns:t="http://a/"><![CDATA[
+        aaa <input id="hoge" xmlns="http://www.w3.org/1999/xhtml"/>
+      ]]></t:foo>
+    </rdf:Description>
+  </rdf:RDF>
+  <label for="hoge">aa</label>
+</div>
+#errors
+/div/RDF;element not allowed:flow;m
+/div/label/@for;no referenced control;m

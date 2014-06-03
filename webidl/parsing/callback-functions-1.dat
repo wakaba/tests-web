@@ -1,0 +1,35 @@
+#data
+callback foo = void ();
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "callback",
+      "name": "foo",
+      "type": "void",
+      "arguments": []
+    }
+  ]
+}
+
+#data
+callback foo = void (bac xx);
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "callback",
+      "name": "foo",
+      "type": "void",
+      "arguments": [
+        {
+          "index": 21,
+          "name": "xx",
+          "type_name": "bac"
+        }
+      ]
+    }
+  ]
+}

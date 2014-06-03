@@ -1996,7 +1996,6 @@ xxax
     xmlsucks>
 #errors
 /html;attribute missing;lang;w
-/html/body/embed/@xmlsucks;attribute not defined;m
 
 #data html
 <!DOCTYPE HTML><title>x</title>
@@ -2044,6 +2043,23 @@ xxax
 #errors
 /html;attribute missing;lang;w
 /html/body/embed/@xml:space;attr:obsolete;m
+
+#data
+<embed xmllang="en" src="ll" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<embed XMLlang="en" src="ll" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/embed/@XMLlang;attribute not defined;m
+
+#data
+<embed xml5="en" src="ll" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<embed xml="en" src="ll" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
 
 #data
 <embed src="ll" xmlns="http://www.w3.org/1999/xhtml"

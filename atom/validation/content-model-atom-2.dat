@@ -37,12 +37,12 @@
 #data
 <feed xmlns="http://www.w3.org/2005/Atom"><updated>2005-07-31t12:29:29Z</updated><link rel="self" href="http://example.org/1"/><id>tag:example.org,1</id><title/></feed>
 #errors
-/feed/updated;datetime:syntax error;m
+/feed/updated;datetime:lowercase designator;m
 
 #data
 <feed xmlns="http://www.w3.org/2005/Atom"><updated>2005-07-31T12:29:29z</updated><link rel="self" href="http://example.org/1"/><id>tag:example.org,1</id><title/></feed>
 #errors
-/feed/updated;datetime:syntax error;m
+/feed/updated;datetime:lowercase designator;m
 
 #data
 <feed xmlns="http://www.w3.org/2005/Atom"><updated>2005-07-31T12:29Z</updated><link rel="self" href="http://example.org/1"/><id>tag:example.org,1</id><title/></feed>
@@ -96,18 +96,22 @@
 #data
 <feed xmlns="http://www.w3.org/2005/Atom"><updated>1972-12-31T23:59:60+00:00</updated><link rel="self" href="http://example.org/1"/><id>tag:example.org,1</id><title/></feed>
 #errors
+/feed/updated;datetime:bad second;m
 
 #data
 <feed xmlns="http://www.w3.org/2005/Atom"><updated>1973-01-01T00:59:60+00:00</updated><link rel="self" href="http://example.org/1"/><id>tag:example.org,1</id><title/></feed>
 #errors
+/feed/updated;datetime:bad second;m
 
 #data
 <feed xmlns="http://www.w3.org/2005/Atom"><link title="" rel="self" href="http://example.org/1"/><updated>1973-01-01T00:59:60+00:00</updated><id>tag:example.org,1</id><title/></feed>
 #errors
+/feed/updated;datetime:bad second;m
 
 #data
 <feed xmlns="http://www.w3.org/2005/Atom"><link title="a b c" rel="self" href="http://example.org/1"/><updated>1973-01-01T00:59:60+00:00</updated><id>tag:example.org,1</id><title/></feed>
 #errors
+/feed/updated;datetime:bad second;m
 
 #data
 <feed xmlns="http://www.w3.org/2005/Atom"><updated>2005-07-31T12:29:29Z</updated><link rel="self" href="http://example.org/1"
@@ -245,9 +249,7 @@
 
 </feed>
 #errors
-/feed/entry/foo;element not allowed;m
 /feed/entry/foo;unknown namespace element;w
-/feed/entry/foo;element not allowed;m
 /feed/entry/foo;unknown namespace element;w
 /feed/entry;child element missing:atom:link:alternate;m
 /feed/entry;child element missing:atom:link:alternate;m

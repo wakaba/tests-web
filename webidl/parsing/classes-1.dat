@@ -1,0 +1,54 @@
+#data
+class A  {
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "class",
+      "name": "A",
+      "members": []
+    }
+  ]
+}
+
+#data
+class A extends B {
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "class",
+      "name": "A",
+      "super_name": "B",
+      "members": []
+    }
+  ]
+}
+
+#data
+class A  {
+  void goo ();
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "class",
+      "name": "A",
+      "members": [
+        {
+          "index": 13,
+          "member_type": "operation",
+          "name": "goo",
+          "type": "void",
+          "arguments": []
+        }
+      ]
+    }
+  ]
+}

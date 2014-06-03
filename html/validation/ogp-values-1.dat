@@ -1,0 +1,259 @@
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="bb[]"/>
+</head>
+#errors
+/head/meta/@content;syntax error:iriref3987;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="bb"/>
+  <meta property="og:image:width" content="120"/>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="bb"/>
+  <meta property="og:image:width" content="-120"/>
+</head>
+#errors
+/head/meta/@content;nninteger:syntax error;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:determiner" content=""/>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:determiner" content="a"/>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:determiner" content="hoge"/>
+</head>
+#errors
+/head/meta/@content;ogp:enum:bad value;og:determiner;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="book.author"/>
+  <meta property="books:gender" content="male"/>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="book.author"/>
+  <meta property="books:gender" content="malE"/>
+</head>
+#errors
+/head/meta/@content;ogp:enum:bad value;books:gender;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="business.business"/>
+  <meta property="business:contact_data:email" content="foo@bar.example"/>
+</head>
+#errors
+/head/meta/@content;ogp:missing prop;business:contact_data;m
+/head/meta/@content;ogp:missing prop;place:location;m
+/head/meta/@property;ogp:missing prop;business:contact_data:country_name;m
+/head/meta/@property;ogp:missing prop;business:contact_data:locality;m
+/head/meta/@property;ogp:missing prop;business:contact_data:postal_code;m
+/head/meta/@property;ogp:missing prop;business:contact_data:street_address;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="business.business"/>
+  <meta property="business:contact_data:email" content="foo.bar.example"/>
+</head>
+#errors
+/head/meta/@content;ogp:missing prop;business:contact_data;m
+/head/meta/@content;ogp:missing prop;place:location;m
+/head/meta/@property;ogp:missing prop;business:contact_data:country_name;m
+/head/meta/@property;ogp:missing prop;business:contact_data:locality;m
+/head/meta/@property;ogp:missing prop;business:contact_data:postal_code;m
+/head/meta/@property;ogp:missing prop;business:contact_data:street_address;m
+/head/meta/@content;email:syntax error;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="business.business"/>
+  <meta property="fitness:custom_unit_energy:value" content="132"/>
+  <meta property="fitness:custom_unit_energy:units" content="cm"/>
+</head>
+#errors
+/head/meta/@content;ogp:missing prop;business:contact_data;m
+/head/meta/@content;ogp:missing prop;place:location;m
+/head/meta/@property;ogp:prop:bad og:type;fitness.course;m
+/head/meta/@property;ogp:prop:bad og:type;fitness.course;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="business.business"/>
+  <meta property="fitness:custom_unit_energy:value" content="132"/>
+  <meta property="fitness:custom_unit_energy:units" content="jour"/>
+</head>
+#errors
+/head/meta/@content;OGP unit:bad value;m
+/head/meta/@content;ogp:missing prop;business:contact_data;m
+/head/meta/@content;ogp:missing prop;place:location;m
+/head/meta/@property;ogp:prop:bad og:type;fitness.course;m
+/head/meta/@property;ogp:prop:bad og:type;fitness.course;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="music.song"/>
+  <meta property="music:album:url" content="http://hoge/"/>
+  <meta property="music:album:disc" content="132"/>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="music.song"/>
+  <meta property="music:album:url" content="http://hoge/"/>
+  <meta property="music:album:disc" content="-132"/>
+</head>
+#errors
+/head/meta/@content;nninteger:syntax error;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="music.song"/>
+  <meta property="music:album:url" content="http://hoge/"/>
+  <meta property="music:album:disc" content="0"/>
+</head>
+#errors
+/head/meta/@content;nninteger:zero;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="music.song"/>
+  <meta property="music:album:url" content="http://hoge/"/>
+  <meta property="music:album:disc" content="000132"/>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="music.song"/>
+  <meta property="og:image" content="http://hoge/"/>
+  <meta property="og:image:type" content="image/png"/>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="music.song"/>
+  <meta property="og:image" content="http://hoge/"/>
+  <meta property="og:image:type" content="132"/>
+</head>
+#errors
+/head/meta/@content;IMT:no /;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="music.song"/>
+  <meta property="og:locale" content="en-US"/>
+</head>
+#errors
+/head/meta/@content;OGP locale:bad value;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="music.song"/>
+  <meta property="og:locale" content="en_US"/>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="music.song"/>
+  <meta property="og:locale" content="fn_UW"/>
+</head>
+#errors
+/head/meta/@content;langtag:language:invalid;m
+/head/meta/@content;langtag:region:invalid;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="music.song"/>
+  <meta property="og:restrictions:country:allowed" content="en_US"/>
+</head>
+#errors
+/head/meta/@content;langtag:region:invalid;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="music.song"/>
+  <meta property="og:restrictions:country:allowed" content="US"/>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="music.song"/>
+  <meta property="og:restrictions:country:allowed" content="Zy"/>
+</head>
+#errors
+/head/meta/@content;langtag:region:invalid;m

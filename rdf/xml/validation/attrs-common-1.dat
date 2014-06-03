@@ -1,0 +1,112 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://ff/">
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://ff/[]">
+</rdf:RDF>
+#errors
+/RDF/@xmlns;syntax error:iriref3987;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description
+    xmlns="http://ff/[]">
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/@xmlns;syntax error:iriref3987;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <foo xmlns="http://ff/[]"/>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/foo;syntax error:iriref3987;m
+/RDF/Description/foo/@xmlns;syntax error:iriref3987;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <foo xmlns:bar="http://ff/[]" xmlns="http://x/"/>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/foo/@bar;syntax error:iriref3987;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xml:lang="en">
+  <rdf:Description>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xml:lang="en-">
+  <rdf:Description>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/@lang;langtag:illegal;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description
+      xml:lang="en-">
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/@lang;langtag:illegal;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description
+      xml:base="en-">
+  </rdf:Description>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description
+      xml:base="en-[]">
+  </rdf:Description>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description
+      xml:heo="en-">
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/@heo;rdf:attr ignored;w
+/RDF/Description/@heo;attribute not defined;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description
+      xmlheo="en-">
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/@xmlheo;rdf:attr ignored;w
+/RDF/Description/@xmlheo;attribute not defined;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description
+      xmlh:eo="en-" xmlns:xmlh="http://foo/">
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/@eo;rdf:attr ignored;w
+/RDF/Description/@eo;attribute not defined;m

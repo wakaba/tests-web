@@ -1,0 +1,145 @@
+#data
+typedef any T;
+#processed
+{
+  "T": ["typedef", {"type": "any"}]
+}
+
+#data
+typedef void T;
+#errors
+1;8;webidl:parse error;unsigned, ;;m
+#processed
+{}
+
+#data
+typedef any? T;
+#errors
+1;11;webidl:parse error;[, ;;m
+#processed
+{}
+
+#data
+typedef (any or long) T;
+#errors
+1;13;webidl:parse error;[, ;;m
+#processed
+{}
+
+#data
+typedef (DOMString or any or long) T;
+#errors
+1;26;webidl:parse error;[, ;;m
+#processed
+{}
+
+#data
+typedef sequence<long>[] T;
+#errors
+1;22;webidl:parse error;?, ;;m
+#processed
+{}
+
+#data
+typedef D[] T;
+#errors
+1;0;webidl:not defined;;D;m
+#processed
+{
+  "T": ["typedef", {"type": ["array", ["ref", "D"]]}]
+}
+
+#data
+typedef D[] T;
+dictionary D {};
+#errors
+1;0;webidl:bad type;;ref_dictionary[D];m
+#processed
+{
+  "T": ["typedef", {"type": ["array", ["ref_dictionary", "D"]]}],
+  "D": ["dictionary", {"members": {}}]
+}
+
+#data
+typedef sequence<D> T;
+dictionary D {};
+#processed
+{
+  "T": ["typedef", {"type": ["sequence", ["ref_dictionary", "D"]]}],
+  "D": ["dictionary", {"members": {}}]
+}
+
+#data
+typedef (long or object) T;
+#processed
+{
+  "T": ["typedef", {"type": ["union", {"def":
+    ["long", "object"],
+    "flattened": {"long": "long",
+     "object": "object"}
+  }]}]
+}
+
+#data
+typedef (long or (object or Date)) T;
+#processed
+{
+  "T": ["typedef", {"type": ["union", {"def":
+    ["long", ["union", {"def":
+              ["object", "Date"],
+              "flattened": {"object": "object", "Date": "Date"}}]],
+    "flattened": {"long": "long",
+     "object": "object",
+     "Date": "Date"}}
+  ]}]
+}
+
+#data
+typedef (long or (object or Date or _Date)) T;
+#errors
+1;0;webidl:not defined;;_Date;m
+#processed
+{
+  "T": ["typedef", {"type": ["union", {
+    "def": ["long", ["union", {
+              "def": ["object", "Date", ["ref", "_Date"]],
+              "flattened": {"object": "object", "Date": "Date",
+               "ref[_Date]": ["ref", "_Date"]}}]],
+    "flattened": {"long": "long",
+     "object": "object",
+     "Date": "Date",
+     "ref[_Date]": ["ref", "_Date"]}
+  }]}]
+}
+
+#data
+typedef (long or sequence<long>) T;
+#processed
+{
+  "T": ["typedef", {"type": ["union", {
+    "def": ["long", ["sequence", "long"]],
+    "flattened": {"long": "long", "sequence[long]": ["sequence", "long"]}
+  }]}]
+}
+
+#data
+typedef (long or long) T;
+#errors
+1;0;webidl:not distinguishable;;long;m
+#processed
+{
+  "T": ["typedef", {"type": ["union", {"def": ["long", "long"], "flattened": {"long": "long"}}]}]
+}
+
+#data
+typedef (long or (object or long)) T;
+#errors
+1;0;webidl:not distinguishable;;long;m
+#processed
+{
+  "T": ["typedef", {"type": ["union", {
+    "def": ["long",
+     ["union", {"def": ["object", "long"], "flattened": {"object": "object", "long": "long"}}]],
+    "flattened": {"long": "long", "object": "object"}
+  }]}]
+}

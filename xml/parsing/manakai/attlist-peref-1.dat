@@ -4,6 +4,10 @@
 <!ENTITY % hoge "">
 <!ATTLIST%hoge; a>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 [1]2;1;empty attlist decl;;a;w
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -16,6 +20,10 @@
 <!ENTITY % hoge "">
 <!ATTLIST%hoge;a>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 [1]2;1;empty attlist decl;;a;w
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -29,6 +37,11 @@
 <!ENTITY % fuga "">
 <!ATTLIST%hoge; a>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
+[1]3;1;xml:dtd:ext decl;;;w
 [1]3;1;empty attlist decl;;a;w
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -41,6 +54,9 @@
 <!ENTITY % hoge ">">
 <!ATTLIST%hoge; a>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]1;18;mdc in pe in md;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -52,6 +68,9 @@
 <!ENTITY % hoge ">>xy">
 <!ATTLIST%hoge; a>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]1;18;mdc in pe in md;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -63,6 +82,9 @@
 <!ENTITY % hoge "><!ATTLIST b>">
 <!ATTLIST%hoge; a>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]1;18;mdc in pe in md;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -74,7 +96,11 @@
 <!ENTITY % hoge "  ">
 <!ATTLIST%hoge; a>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]2;1;empty attlist decl;;a;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT a >
@@ -87,7 +113,12 @@
 <!ENTITY % fuga "  ">
 <!ATTLIST%hoge; a>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 [1]3;1;empty attlist decl;;a;w
+[1]3;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT a >
@@ -99,6 +130,9 @@
 <!ENTITY % hoge "  >">
 <!ATTLIST%hoge; a>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]1;20;mdc in pe in md;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -110,7 +144,11 @@
 <!ENTITY % hoge "  ">
 <!ATTLIST  %hoge; a>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]2;1;empty attlist decl;;a;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT a >
@@ -121,8 +159,11 @@
 #resource http://a/
 <!ATTLIST%hoge; a>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;10;pe not declared;;hoge;;m
 [1]1;10;stop processing;;;i
+[1]1;1;xml:dtd:attlist ignored;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
@@ -132,6 +173,8 @@
 #resource http://a/
 <!ATTLIST %hoge;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;11;pe not declared;;hoge;;m
 [1]1;11;stop processing;;;i
 [1]1;17;no md name;;;m
@@ -145,7 +188,11 @@
 <!ENTITY % hoge "ab">
 <!ATTLIST %hoge;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]2;1;empty attlist decl;;ab;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab >
@@ -157,7 +204,11 @@
 <!ENTITY % hoge "ab   ">
 <!ATTLIST %hoge;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]2;1;empty attlist decl;;ab;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab >
@@ -169,6 +220,9 @@
 <!ENTITY % hoge "ab>">
 <!ATTLIST %hoge;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]1;20;mdc in pe in md;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -181,7 +235,11 @@
 <!ENTITY % hoge "ab&#x25;fuga;">
 <!ATTLIST %hoge;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]1;18;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
@@ -192,6 +250,10 @@
 <!ENTITY % hoge "ab ">
 <!ATTLIST %hoge;foo CDATA #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab >
@@ -205,6 +267,11 @@
 <!ENTITY % hoge "ab&#x25;fuga; CDATA #IMPLIED">
 <!ATTLIST %hoge;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
+[1]3;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab >
@@ -217,6 +284,10 @@
 <!ENTITY % hoge "ab foo">
 <!ATTLIST %hoge;CDATA #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab >
@@ -229,6 +300,10 @@
 <!ENTITY % hoge "ab foo ">
 <!ATTLIST %hoge;CDATA #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab >
@@ -241,6 +316,10 @@
 <!ENTITY % hoge "ab">
 <!ATTLIST foo %hoge; CDATA #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -253,6 +332,9 @@
 <!ENTITY % hoge "ab>">
 <!ATTLIST foo %hoge; CDATA #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]1;20;mdc in pe in md;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -264,6 +346,10 @@
 <!ENTITY % hoge "ab CDATA">
 <!ATTLIST foo %hoge;#IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -276,6 +362,10 @@
 <!ENTITY % hoge "ab CDATA">
 <!ATTLIST foo %hoge; #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -288,6 +378,9 @@
 <!ENTITY % hoge "ab CDATA>">
 <!ATTLIST foo %hoge; #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]1;26;mdc in pe in md;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -299,6 +392,10 @@
 <!ENTITY % hoge "ab NMTOKEN ">
 <!ATTLIST foo %hoge; #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -311,6 +408,10 @@
 <!ENTITY % hoge "ab NMTOKEN ">
 <!ATTLIST foo %hoge;#IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -323,7 +424,11 @@
 <!ENTITY % hoge "ab NMTOKE">
 <!ATTLIST foo %hoge;N#IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
 [1]1;1;unknown declared type;;NMTOKE;m
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 [1]2;21;unquoted attr value;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -337,6 +442,9 @@
 <!ENTITY % hoge "ab NMTOKEN >">
 <!ATTLIST foo %hoge;#IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]1;29;mdc in pe in md;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -348,6 +456,10 @@
 <!ENTITY % hoge "ID">
 <!ATTLIST foo x%hoge;#IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -360,6 +472,10 @@
 <!ENTITY % hoge "ID">
 <!ATTLIST foo x %hoge;#IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -372,6 +488,10 @@
 <!ENTITY % hoge "ID">
 <!ATTLIST foo xy %hoge; #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -384,6 +504,10 @@
 <!ENTITY % hoge "ID">
 <!ATTLIST foo x%hoge; #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -396,6 +520,10 @@
 <!ENTITY % hoge "ID">
 <!ATTLIST%hoge;x IDREF #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ID >
@@ -408,6 +536,10 @@
 <!ENTITY % hoge "ID">
 <!ATTLIST foo bar%hoge;xy>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 [1]2;24;unquoted attr value;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -421,6 +553,10 @@
 <!ENTITY % hoge "">
 <!ATTLIST foo bar ID%hoge;"xy">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -433,6 +569,10 @@
 <!ENTITY % hoge "">
 <!ATTLIST foo bar ID %hoge;"xy">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -445,6 +585,10 @@
 <!ENTITY % hoge "">
 <!ATTLIST foo bar  (%hoge;xy) #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -457,6 +601,10 @@
 <!ENTITY % hoge "">
 <!ATTLIST foo bar  (  %hoge;xy) #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -469,6 +617,10 @@
 <!ENTITY % hoge "">
 <!ATTLIST foo bar  (ab|%hoge;xy) #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -481,6 +633,10 @@
 <!ENTITY % hoge "">
 <!ATTLIST foo bar  (ab| %hoge;xy) #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -493,6 +649,9 @@
 <!ENTITY % hoge ">>">
 <!ATTLIST foo bar  (ab| %hoge;xy) #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]1;18;mdc in pe in md;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -504,6 +663,10 @@
 <!ENTITY % hoge "">
 <!ATTLIST foo bar  (ab %hoge;) #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -516,6 +679,10 @@
 <!ENTITY % hoge "">
 <!ATTLIST foo bar  (ab %hoge;|xy) #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -529,6 +696,11 @@
 <!ENTITY % hoge "&#x25;fuga;">
 <!ATTLIST foo bar  (ab %hoge;|xy) #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
+[1]3;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -541,6 +713,10 @@
 <!ENTITY % fuga "">
 <!ATTLIST foo bar  (ay)%fuga;#IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -553,6 +729,10 @@
 <!ENTITY % fuga "">
 <!ATTLIST foo bar  (ay)%fuga; #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -565,6 +745,10 @@
 <!ENTITY % fuga "(ay)">
 <!ATTLIST foo bar %fuga;#IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -577,6 +761,10 @@
 <!ENTITY % fuga "(ay)">
 <!ATTLIST foo bar %fuga; #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -589,6 +777,10 @@
 <!ENTITY % fuga "  ">
 <!ATTLIST foo bar (ay)%fuga; #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -601,6 +793,10 @@
 <!ENTITY % fuga "  ">
 <!ATTLIST foo bar (ay)  %fuga; #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -613,6 +809,10 @@
 <!ENTITY % fuga "(ay) ">
 <!ATTLIST foo bar %fuga; #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -625,6 +825,10 @@
 <!ENTITY % fuga "(">
 <!ATTLIST foo bar %fuga;ay) #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -637,6 +841,10 @@
 <!ENTITY % fuga "(ay">
 <!ATTLIST foo bar %fuga;) #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -649,6 +857,10 @@
 <!ENTITY % fuga "(ay|x">
 <!ATTLIST foo bar %fuga;ay) #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 [1]2;24;space in allowed token;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -662,6 +874,10 @@
 <!ENTITY % fuga "(ay|">
 <!ATTLIST foo bar %fuga;bay) #IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -674,6 +890,10 @@
 <!ENTITY % fuga "#IMPLIED">
 <!ATTLIST foo bar (ay|bay)%fuga;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -686,6 +906,10 @@
 <!ENTITY % fuga "#IMPLIED ">
 <!ATTLIST foo bar (ay|bay)%fuga;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -698,6 +922,10 @@
 <!ENTITY % fuga "#IMPLIED">
 <!ATTLIST foo bar (ay|bay) %fuga;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -710,6 +938,9 @@
 <!ENTITY % fuga "#">
 <!ATTLIST foo bar (ay|bay)%fuga;IMPLIED>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]1;19;no default type;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -721,6 +952,9 @@
 <!ENTITY % fuga "IMPLIED">
 <!ATTLIST foo bar (ay|bay) #%fuga;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]2;29;no default type;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -732,6 +966,9 @@
 <!ENTITY % fuga "IMPLIED">
 <!ATTLIST foo bar (ay|bay) # %fuga;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]2;29;no default type;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -743,6 +980,10 @@
 <!ENTITY % fuga "">
 <!ATTLIST foo bar (ay|bay) #IMPLIED%fuga;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -755,6 +996,10 @@
 <!ENTITY % fuga "">
 <!ATTLIST foo bar (ay|bay) #IMPLIED %fuga;>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -767,6 +1012,10 @@
 <!ENTITY % fuga "">
 <!ATTLIST foo bar (ay|bay) #FIXED%fuga;"ab">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -779,6 +1028,10 @@
 <!ENTITY % fuga "  ">
 <!ATTLIST foo bar (ay|bay) #FIXED%fuga;"ab">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -791,6 +1044,10 @@
 <!ENTITY % fuga "">
 <!ATTLIST foo bar (ay|bay) #FIXED%fuga;  "ab">
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -803,6 +1060,10 @@
 <!ENTITY % fuga "'ab'">
 <!ATTLIST foo bar (ay|bay) #FIXED%fuga;  >
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -815,6 +1076,10 @@
 <!ENTITY % fuga "'ab'">
 <!ATTLIST foo bar (ay|bay) #FIXED%fuga;  cc>
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 [1]2;44;no attr type;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -828,7 +1093,11 @@
 <!ENTITY % fuga "#FIXED'ab'">
 <!ATTLIST foo bar (ay|bay)%fuga;  >
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]1;24;no space before default value;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -842,6 +1111,11 @@
 <!ENTITY % fuga "#FIXED&#x25;s;'ab'">
 <!ATTLIST foo bar (ay|bay)%fuga;  >
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
+[1]3;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
@@ -854,8 +1128,12 @@
 <!ENTITY % fuga "#FIXED&#x25;s;'ab'">
 <!ATTLIST foo bar (ay|bay)%fuga;  >
 #errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
 [1]1;24;pe not declared;;s;;m
 [1]1;24;stop processing;;;i
+[1]2;1;xml:dtd:attlist ignored;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>

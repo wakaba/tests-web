@@ -52,6 +52,53 @@ gae+`P..@hoge.fUga  </email>
 /email;email:syntax error;m
 
 #data
+<email xmlns="http://www.w3.org/2005/Atom"><name>gaeM/</name>+`P..@hoge.fUga</email>
+#errors
+/email/name;element not allowed:text;m
+
+#data
 <email xmlns="http://www.w3.org/2005/Atom"><name>gae+`P..@hoge.fUga</name></email>
 #errors
-/email/name;element not allowed;m
+/email/name;element not allowed:text;m
+/email;email:syntax error;m
+
+#data
+<name xmlns="http://www.w3.org/2005/Atom"></name>
+#errors
+
+#data
+<name xmlns="http://www.w3.org/2005/Atom">  </name>
+#errors
+
+#data
+<name xmlns="http://www.w3.org/2005/Atom">hoge</name>
+#errors
+
+#data
+<author xmlns="http://www.w3.org/2005/Atom">hoge</author>
+#errors
+/author/"hoge";character not allowed;m
+/author;child element missing:atom;name;m
+
+#data
+<author xmlns="http://www.w3.org/2005/Atom"><rights>a</rights></author>
+#errors
+/author/rights;element not allowed;m
+/author;child element missing:atom;name;m
+
+#data
+<author xmlns="http://www.w3.org/2005/Atom">
+  <name>a</name>
+  <foo xmlns=""/>
+</author>
+#errors
+/author/foo;element not allowed;m
+/author/foo;unknown namespace element;w
+
+#data
+<author xmlns="http://www.w3.org/2005/Atom">
+  <name>a</name>
+  <foo xmlns="http://a/"/>
+</author>
+#errors
+/author/foo;unknown namespace element;w

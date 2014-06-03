@@ -1,0 +1,86 @@
+#data
+<hoge xmlns="http://purl.org/atom/ns#"/>
+#errors
+/hoge;element not defined;m
+
+#data
+<id xmlns="http://purl.org/atom/ns#"></id>
+#errors
+/id;element:obsolete;m
+
+#data
+<id xmlns="http://purl.org/atom/ns#">hoge</id>
+#errors
+/id;element:obsolete;m
+
+#data
+<id xmlns="http://purl.org/atom/ns#">http://fuga/</id>
+#errors
+/id;element:obsolete;m
+
+#data
+<id xmlns="http://purl.org/atom/ns#"> ab</id>
+#errors
+/id;element:obsolete;m
+/id;syntax error:iriref3987;m
+
+#data
+<id xmlns="http://purl.org/atom/ns#"><id>http://abc.w/</id></id>
+#errors
+/id;element:obsolete;m
+/id/id;element:obsolete;m
+/id/id;element not allowed:text;m
+
+#data
+<generator xmlns="http://purl.org/atom/ns#"></generator>
+#errors
+/generator;element:obsolete;m
+
+#data
+<generator xmlns="http://purl.org/atom/ns#">hoge fa</generator>
+#errors
+/generator;element:obsolete;m
+
+#data
+<generator xmlns="http://purl.org/atom/ns#">hoge <name>faM/.naM/M</name></generator>
+#errors
+/generator;element:obsolete;m
+/generator/name;element:obsolete;m
+/generator/name;element not allowed:text;m
+
+#data
+<generator xmlns="http://purl.org/atom/ns#" url="">hoge fa</generator>
+#errors
+/generator;element:obsolete;m
+/generator/@url;attr:obsolete;m
+
+#data
+<generator xmlns="http://purl.org/atom/ns#" url="hoge">hoge fa</generator>
+#errors
+/generator;element:obsolete;m
+/generator/@url;attr:obsolete;m
+
+#data
+<generator xmlns="http://purl.org/atom/ns#" url="http://x/">hoge fa</generator>
+#errors
+/generator;element:obsolete;m
+/generator/@url;attr:obsolete;m
+
+#data
+<generator xmlns="http://purl.org/atom/ns#" url=">&lt;">hoge fa</generator>
+#errors
+/generator;element:obsolete;m
+/generator/@url;attr:obsolete;m
+/generator/@url;syntax error:iriref3987;m
+
+#data
+<generator xmlns="http://purl.org/atom/ns#" version="">hoge fa</generator>
+#errors
+/generator;element:obsolete;m
+/generator/@version;attr:obsolete;m
+
+#data
+<generator xmlns="http://purl.org/atom/ns#" version=">&lt;">hoge fa</generator>
+#errors
+/generator;element:obsolete;m
+/generator/@version;attr:obsolete;m

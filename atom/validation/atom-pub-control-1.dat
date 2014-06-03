@@ -1,0 +1,73 @@
+#data
+<app:control xmlns:app="http://www.w3.org/2007/app"></app:control>
+#errors
+
+#data
+<app:control xmlns:app="http://www.w3.org/2007/app">
+  <app:draft>yes</app:draft>
+</app:control>
+#errors
+
+#data
+<app:control xmlns:app="http://www.w3.org/2007/app">
+  <app:draft>yes</app:draft>
+  <app:draft>no</app:draft>
+</app:control>
+#errors
+/control/draft;element not allowed:duplicate;m
+
+#data
+<app:control xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
+  <atom:title>aa</atom:title>
+</app:control>
+#errors
+/control/title;element not allowed;m
+
+#data
+<app:control xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
+  <title xmlns="http://a/"/>
+</app:control>
+#errors
+/control/title;unknown namespace element;w
+
+#data
+<app:control xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
+  <title xmlns=""/>
+</app:control>
+#errors
+/control/title;element not allowed;m
+/control/title;unknown namespace element;w
+
+#data
+<app:draft xmlns:app="http://www.w3.org/2007/app"></app:draft>
+#errors
+/draft;app:draft:bad value;m
+
+#data
+<app:draft xmlns:app="http://www.w3.org/2007/app">yes</app:draft>
+#errors
+
+#data
+<app:draft xmlns:app="http://www.w3.org/2007/app">no</app:draft>
+#errors
+
+#data
+<app:draft xmlns:app="http://www.w3.org/2007/app">true</app:draft>
+#errors
+/draft;app:draft:bad value;m
+
+#data
+<app:draft xmlns:app="http://www.w3.org/2007/app">yes  </app:draft>
+#errors
+/draft;app:draft:bad value;m
+
+#data
+<app:draft xmlns:app="http://www.w3.org/2007/app">NO</app:draft>
+#errors
+/draft;app:draft:bad value;m
+
+#data
+<app:draft xmlns:app="http://www.w3.org/2007/app">yes<span/></app:draft>
+#errors
+/draft/span;element not allowed:text;m
+/draft/span;unknown namespace element;w

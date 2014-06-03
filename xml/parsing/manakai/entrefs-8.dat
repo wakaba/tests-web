@@ -1,0 +1,45 @@
+#data
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE hoge SYSTEM "http://x/"><hoge>&x;</hoge>
+#resource http://x/
+<!ENTITY x "foo">
+#errors
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;1;VC:Standalone Document Declaration:entity;;;m
+#document
+| <!DOCTYPE hoge "" "http://x/">
+| <{} hoge>
+|   "foo"
+#xml-standalone true
+
+#data
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE hoge [
+  <!ENTITY % y '
+    <!ENTITY x "foo">
+  '>
+  %y;
+]><hoge>&x;</hoge>
+#errors
+4;5;xml:dtd:ext decl;;;w
+4;5;VC:Standalone Document Declaration:entity;;;m
+#document
+| <!DOCTYPE hoge>
+| <{} hoge>
+|   "foo"
+#xml-standalone true
+
+#data
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE hoge [
+  <!ENTITY % f PUBLIC "-//W3C//DTD XHTML 1.1//EN" "">
+  %f;
+]><hoge>&lang;</hoge>
+#errors
+5;9;VC:Standalone Document Declaration:entity;;;m
+#document escaped
+| <!DOCTYPE hoge>
+| <{} hoge>
+|   "\u27E8"
+#xml-standalone true

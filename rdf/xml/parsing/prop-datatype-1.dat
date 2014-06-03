@@ -1,0 +1,29 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/" rdf:datatype="http://foo/"></hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://a/hoge> ""^^<http://foo/>
+#errors
+#nonrdf
+#attrs
+/RDF/@rdf common
+/RDF/Description/hoge/@xmlns common
+/RDF/Description/hoge/@datatype url
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/" rdf:datatype="http://foo/">bc</hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://a/hoge> "bc"^^<http://foo/>
+#errors
+#nonrdf
+#attrs
+/RDF/@rdf common
+/RDF/Description/hoge/@xmlns common
+/RDF/Description/hoge/@datatype url

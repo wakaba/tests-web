@@ -1,18 +1,21 @@
 #data
 <a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 
 #data
 <a></a>
 #errors
+1;1;no XML decl;;;s
 #document
 | <{} a>
 
 #data
 <a><b></a>
 #errors
+1;1;no XML decl;;;s
 1;7;unmatched end tag;a;;m
 #document
 | <{} a>
@@ -21,6 +24,7 @@
 #data
 <a><b></a>a
 #errors
+1;1;no XML decl;;;s
 1;7;unmatched end tag;a;;m
 1;11;text outside of root element;;;m
 #document
@@ -30,6 +34,7 @@
 #data
 <a/><b/>
 #errors
+1;1;no XML decl;;;s
 1;5;second root element;;;m
 #document
 | <{} a>

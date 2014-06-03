@@ -1,0 +1,232 @@
+#data
+<!DOCTYPE hoge [
+  <!ATTLIST fuga a CDATA "b">
+]>
+<hoge><fuga/></hoge>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE hoge>
+|   <!ELEMENT fuga >
+|     a CDATA () EXPLICIT "b"
+| <{} hoge>
+|   <{} fuga>
+|     a="b"
+
+#data
+<!DOCTYPE hoge SYSTEM "http://c/">
+<hoge><fuga/></hoge>
+#resource http://c/
+<!ATTLIST fuga a CDATA "b">
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE hoge "" "http://c/">
+|   <!ELEMENT fuga >
+|     a CDATA () EXPLICIT "b"
+| <{} hoge>
+|   <{} fuga>
+|     a="b"
+
+#data
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE hoge SYSTEM "http://c/">
+<hoge><fuga/></hoge>
+#resource http://c/
+<!ATTLIST fuga a CDATA "b">
+#errors
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;16;VC:Standalone Document Declaration:attr;;;m
+#document
+| <!DOCTYPE hoge "" "http://c/">
+|   <!ELEMENT fuga >
+|     a CDATA () EXPLICIT "b"
+| <{} hoge>
+|   <{} fuga>
+|     a="b"
+#xml-standalone true
+
+#data
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE hoge SYSTEM "http://c/">
+<hoge><fuga/></hoge>
+#resource http://c/
+<!ATTLIST fuga a CDATA "b">
+#errors
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE hoge "" "http://c/">
+|   <!ELEMENT fuga >
+|     a CDATA () EXPLICIT "b"
+| <{} hoge>
+|   <{} fuga>
+|     a="b"
+
+#data
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE hoge SYSTEM "http://c/">
+<hoge><fuga a="  x  y "/></hoge>
+#resource http://c/
+<!ATTLIST fuga a NMTOKEN #IMPLIED>
+#errors
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;16;VC:Standalone Document Declaration:attr;;;m
+#document
+| <!DOCTYPE hoge "" "http://c/">
+|   <!ELEMENT fuga >
+|     a NMTOKEN () IMPLIED ""
+| <{} hoge>
+|   <{} fuga>
+|     a="x y"
+#xml-standalone true
+
+#data
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE hoge SYSTEM "http://c/">
+<hoge><fuga a="  x  y "/></hoge>
+#resource http://c/
+<!ATTLIST fuga a NMTOKEN #IMPLIED>
+#errors
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE hoge "" "http://c/">
+|   <!ELEMENT fuga >
+|     a NMTOKEN () IMPLIED ""
+| <{} hoge>
+|   <{} fuga>
+|     a="x y"
+
+#data
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE hoge SYSTEM "http://c/">
+<hoge><fuga a="x y"/></hoge>
+#resource http://c/
+<!ATTLIST fuga a NMTOKEN #IMPLIED>
+#errors
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE hoge "" "http://c/">
+|   <!ELEMENT fuga >
+|     a NMTOKEN () IMPLIED ""
+| <{} hoge>
+|   <{} fuga>
+|     a="x y"
+#xml-standalone true
+
+#data
+<!DOCTYPE hoge [
+  <!ATTLIST fuga a CDATA "b">
+]><fuga/>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE hoge>
+|   <!ELEMENT fuga >
+|     a CDATA () EXPLICIT "b"
+| <{} fuga>
+|   a="b"
+
+#data
+<!DOCTYPE hoge SYSTEM "http://c/"><fuga/>
+#resource http://c/
+<!ATTLIST fuga a CDATA "b">
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE hoge "" "http://c/">
+|   <!ELEMENT fuga >
+|     a CDATA () EXPLICIT "b"
+| <{} fuga>
+|   a="b"
+
+#data
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE hoge SYSTEM "http://c/"><fuga/>
+#resource http://c/
+<!ATTLIST fuga a CDATA "b">
+#errors
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;16;VC:Standalone Document Declaration:attr;;;m
+#document
+| <!DOCTYPE hoge "" "http://c/">
+|   <!ELEMENT fuga >
+|     a CDATA () EXPLICIT "b"
+| <{} fuga>
+|   a="b"
+#xml-standalone true
+
+#data
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE hoge SYSTEM "http://c/"><fuga/>
+#resource http://c/
+<!ATTLIST fuga a CDATA "b">
+#errors
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE hoge "" "http://c/">
+|   <!ELEMENT fuga >
+|     a CDATA () EXPLICIT "b"
+| <{} fuga>
+|   a="b"
+
+#data
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE hoge SYSTEM "http://c/">
+<fuga a="  x  y "/>
+#resource http://c/
+<!ATTLIST fuga a NMTOKEN #IMPLIED>
+#errors
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;16;VC:Standalone Document Declaration:attr;;;m
+#document
+| <!DOCTYPE hoge "" "http://c/">
+|   <!ELEMENT fuga >
+|     a NMTOKEN () IMPLIED ""
+| <{} fuga>
+|   a="x y"
+#xml-standalone true
+
+#data
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE hoge SYSTEM "http://c/">
+<fuga a="  x  y "/>
+#resource http://c/
+<!ATTLIST fuga a NMTOKEN #IMPLIED>
+#errors
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE hoge "" "http://c/">
+|   <!ELEMENT fuga >
+|     a NMTOKEN () IMPLIED ""
+| <{} fuga>
+|   a="x y"
+
+#data
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE hoge SYSTEM "http://c/">
+<fuga a="x y"/>
+#resource http://c/
+<!ATTLIST fuga a NMTOKEN #IMPLIED>
+#errors
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE hoge "" "http://c/">
+|   <!ELEMENT fuga >
+|     a NMTOKEN () IMPLIED ""
+| <{} fuga>
+|   a="x y"
+#xml-standalone true

@@ -2,6 +2,7 @@
 <!DOCTYPE a [
 <!ELEM
 #errors
+1;1;no XML decl;;;s
 2;1;bogus comment;;;m
 2;7;no root element;;;m
 2;7;unclosed internal subset;;;m
@@ -12,6 +13,7 @@
 <!DOCTYPE a [
 <!ELEMENT
 #errors
+1;1;no XML decl;;;s
 2;10;no root element;;;m
 2;10;unclosed internal subset;;;m
 2;10;unclosed md;;;m
@@ -22,6 +24,7 @@
 <!DOCTYPE a [
 <!ELEMENT\u0020
 #errors
+1;1;no XML decl;;;s
 2;10;no space before md name;;;m
 2;16;no root element;;;m
 2;16;unclosed internal subset;;;m
@@ -33,6 +36,7 @@
 <!DOCTYPE a [
 <!ELEMENT \u0020
 #errors
+1;1;no XML decl;;;s
 2;12;no root element;;;m
 2;12;unclosed internal subset;;;m
 2;12;unclosed md;;;m
@@ -43,6 +47,7 @@
 <!DOCTYPE a [
 <!ELEMENT abc
 #errors
+1;1;no XML decl;;;s
 2;14;no root element;;;m
 2;14;unclosed internal subset;;;m
 2;14;unclosed md;;;m
@@ -53,6 +58,7 @@
 <!DOCTYPE a [
 <!ELEMENT abc\u0020
 #errors
+1;1;no XML decl;;;s
 2;15;no root element;;;m
 2;15;unclosed internal subset;;;m
 2;15;unclosed md;;;m
@@ -64,6 +70,7 @@
 <!ELEMENT b ANY>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b ANY>
@@ -74,6 +81,7 @@
 <!ELEMENT b EMPTY>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b EMPTY>
@@ -84,6 +92,7 @@
 <!ELEMENT b amny>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b amny>
@@ -94,6 +103,7 @@
 <!ELEMENT b em>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b em>
@@ -104,6 +114,7 @@
 <!ELEMENT b ANY >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b ANY>
@@ -114,6 +125,7 @@
 <!ELEMENT b ANY*>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b ANY*>
@@ -123,6 +135,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (
 #errors
+1;1;no XML decl;;;s
 2;14;no root element;;;m
 2;14;unclosed internal subset;;;m
 2;14;unclosed md;;;m
@@ -133,6 +146,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (\u0009
 #errors
+1;1;no XML decl;;;s
 2;15;no root element;;;m
 2;15;unclosed internal subset;;;m
 2;15;unclosed md;;;m
@@ -144,6 +158,7 @@
 <!ELEMENT b ()>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;14;empty element name;;;m
 #document
 | <!DOCTYPE a>
@@ -155,6 +170,7 @@
 <!ELEMENT b ()+>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;14;empty element name;;;m
 #document
 | <!DOCTYPE a>
@@ -166,6 +182,7 @@
 <!ELEMENT b ()*>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;14;empty element name;;;m
 #document
 | <!DOCTYPE a>
@@ -177,6 +194,7 @@
 <!ELEMENT b ()?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;14;empty element name;;;m
 #document
 | <!DOCTYPE a>
@@ -188,6 +206,7 @@
 <!ELEMENT b (x)>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x)>
@@ -197,6 +216,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x
 #errors
+1;1;no XML decl;;;s
 2;15;no root element;;;m
 2;15;unclosed internal subset;;;m
 2;15;unclosed md;;;m
@@ -207,6 +227,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x\u0020
 #errors
+1;1;no XML decl;;;s
 2;16;no root element;;;m
 2;16;unclosed internal subset;;;m
 2;16;unclosed md;;;m
@@ -217,6 +238,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x,
 #errors
+1;1;no XML decl;;;s
 2;16;no root element;;;m
 2;16;unclosed internal subset;;;m
 2;16;unclosed md;;;m
@@ -227,6 +249,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x|
 #errors
+1;1;no XML decl;;;s
 2;16;no root element;;;m
 2;16;unclosed internal subset;;;m
 2;16;unclosed md;;;m
@@ -237,6 +260,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x&
 #errors
+1;1;no XML decl;;;s
 2;16;no root element;;;m
 2;16;unclosed internal subset;;;m
 2;16;unclosed md;;;m
@@ -247,6 +271,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x,\u0020
 #errors
+1;1;no XML decl;;;s
 2;17;no root element;;;m
 2;17;unclosed internal subset;;;m
 2;17;unclosed md;;;m
@@ -257,6 +282,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x|\u0020
 #errors
+1;1;no XML decl;;;s
 2;17;no root element;;;m
 2;17;unclosed internal subset;;;m
 2;17;unclosed md;;;m
@@ -267,6 +293,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x,y
 #errors
+1;1;no XML decl;;;s
 2;17;no root element;;;m
 2;17;unclosed internal subset;;;m
 2;17;unclosed md;;;m
@@ -277,6 +304,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x,y\u0020
 #errors
+1;1;no XML decl;;;s
 2;18;no root element;;;m
 2;18;unclosed internal subset;;;m
 2;18;unclosed md;;;m
@@ -288,6 +316,7 @@
 <!ELEMENT b (x,y ) >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x, y)>
@@ -298,6 +327,7 @@
 <!ELEMENT b ( zzz |  rrr )>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (zzz | rrr)>
@@ -308,6 +338,7 @@
 <!ELEMENT b (x)y>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;16;string after md def;;;m
 #document
 | <!DOCTYPE a>
@@ -318,6 +349,7 @@
 <!ELEMENT b (x))>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;16;string after md def;;;m
 #document
 | <!DOCTYPE a>
@@ -328,6 +360,7 @@
 <!ELEMENT b (x) )>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;17;string after md def;;;m
 #document
 | <!DOCTYPE a>
@@ -337,6 +370,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x)
 #errors
+1;1;no XML decl;;;s
 2;16;no root element;;;m
 2;16;unclosed internal subset;;;m
 2;16;unclosed md;;;m
@@ -347,6 +381,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x)\u0009
 #errors
+1;1;no XML decl;;;s
 2;17;no root element;;;m
 2;17;unclosed internal subset;;;m
 2;17;unclosed md;;;m
@@ -357,6 +392,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x)+
 #errors
+1;1;no XML decl;;;s
 2;17;no root element;;;m
 2;17;unclosed internal subset;;;m
 2;17;unclosed md;;;m
@@ -367,6 +403,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x)*
 #errors
+1;1;no XML decl;;;s
 2;17;no root element;;;m
 2;17;unclosed internal subset;;;m
 2;17;unclosed md;;;m
@@ -377,6 +414,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x)?
 #errors
+1;1;no XML decl;;;s
 2;17;no root element;;;m
 2;17;unclosed internal subset;;;m
 2;17;unclosed md;;;m
@@ -387,6 +425,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x)?\u0020
 #errors
+1;1;no XML decl;;;s
 2;18;no root element;;;m
 2;18;unclosed internal subset;;;m
 2;18;unclosed md;;;m
@@ -398,6 +437,7 @@
 <!ELEMENT b (x)+y>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;17;string after md def;;;m
 #document
 | <!DOCTYPE a>
@@ -407,6 +447,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x#
 #errors
+1;1;no XML decl;;;s
 2;16;no root element;;;m
 2;16;unclosed internal subset;;;m
 2;16;unclosed md;;;m
@@ -417,6 +458,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x #
 #errors
+1;1;no XML decl;;;s
 2;16;after element name;;;m
 2;17;no root element;;;m
 2;17;unclosed internal subset;;;m
@@ -427,6 +469,7 @@
 <!DOCTYPE a[
 <!ELEMENT b ((
 #errors
+1;1;no XML decl;;;s
 2;15;no root element;;;m
 2;15;unclosed internal subset;;;m
 2;15;unclosed md;;;m
@@ -437,6 +480,7 @@
 <!DOCTYPE a[
 <!ELEMENT b ((\u0020
 #errors
+1;1;no XML decl;;;s
 2;16;no root element;;;m
 2;16;unclosed internal subset;;;m
 2;16;unclosed md;;;m
@@ -447,6 +491,7 @@
 <!DOCTYPE a[
 <!ELEMENT b ((x
 #errors
+1;1;no XML decl;;;s
 2;16;no root element;;;m
 2;16;unclosed internal subset;;;m
 2;16;unclosed md;;;m
@@ -457,6 +502,7 @@
 <!DOCTYPE a[
 <!ELEMENT b ((x\u0020
 #errors
+1;1;no XML decl;;;s
 2;17;no root element;;;m
 2;17;unclosed internal subset;;;m
 2;17;unclosed md;;;m
@@ -467,6 +513,7 @@
 <!DOCTYPE a[
 <!ELEMENT b ((x?
 #errors
+1;1;no XML decl;;;s
 2;17;no root element;;;m
 2;17;unclosed internal subset;;;m
 2;17;unclosed md;;;m
@@ -477,6 +524,7 @@
 <!DOCTYPE a[
 <!ELEMENT b ((x)
 #errors
+1;1;no XML decl;;;s
 2;17;no root element;;;m
 2;17;unclosed internal subset;;;m
 2;17;unclosed md;;;m
@@ -487,6 +535,7 @@
 <!DOCTYPE a[
 <!ELEMENT b ((x)?
 #errors
+1;1;no XML decl;;;s
 2;18;no root element;;;m
 2;18;unclosed internal subset;;;m
 2;18;unclosed md;;;m
@@ -497,6 +546,7 @@
 <!DOCTYPE a[
 <!ELEMENT b ((x)?\u0020
 #errors
+1;1;no XML decl;;;s
 2;19;no root element;;;m
 2;19;unclosed internal subset;;;m
 2;19;unclosed md;;;m
@@ -507,6 +557,7 @@
 <!DOCTYPE a[
 <!ELEMENT b ((x)\u0020
 #errors
+1;1;no XML decl;;;s
 2;18;no root element;;;m
 2;18;unclosed internal subset;;;m
 2;18;unclosed md;;;m
@@ -518,6 +569,7 @@
 <!ELEMENT b ((x))>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b ((x))>
@@ -528,6 +580,7 @@
 <!ELEMENT b (   (x)  )>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b ((x))>
@@ -538,6 +591,7 @@
 <!ELEMENT b (x+)>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x+)>
@@ -548,6 +602,7 @@
 <!ELEMENT b (x)  >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x)>
@@ -558,6 +613,7 @@
 <!ELEMENT b (x+)  >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x+)>
@@ -568,6 +624,7 @@
 <!ELEMENT b (x)*  >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x)*>
@@ -578,6 +635,7 @@
 <!ELEMENT b (x)?   >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x)?>
@@ -588,6 +646,7 @@
 <!ELEMENT b (x+   )>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x+)>
@@ -598,6 +657,7 @@
 <!ELEMENT b (x  +)>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;17;after element name;;;m
 #document
 | <!DOCTYPE a>
@@ -608,6 +668,7 @@
 <!ELEMENT b (x)   +   >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;19;string after md def;;;m
 #document
 | <!DOCTYPE a>
@@ -618,6 +679,7 @@
 <!ELEMENT b (x)  *>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;18;string after md def;;;m
 #document
 | <!DOCTYPE a>
@@ -628,6 +690,7 @@
 <!ELEMENT b (x)  ?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;18;string after md def;;;m
 #document
 | <!DOCTYPE a>
@@ -638,6 +701,7 @@
 <!ELEMENT b (x?,x*)>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x?, x*)>
@@ -648,6 +712,7 @@
 <!ELEMENT b (x, (y)*)>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x, (y)*)>
@@ -657,6 +722,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (#
 #errors
+1;1;no XML decl;;;s
 2;15;no root element;;;m
 2;15;unclosed internal subset;;;m
 2;15;unclosed md;;;m
@@ -667,6 +733,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (#PCD
 #errors
+1;1;no XML decl;;;s
 2;18;no root element;;;m
 2;18;unclosed internal subset;;;m
 2;18;unclosed md;;;m
@@ -677,6 +744,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (#PCDATA
 #errors
+1;1;no XML decl;;;s
 2;21;no root element;;;m
 2;21;unclosed internal subset;;;m
 2;21;unclosed md;;;m
@@ -687,6 +755,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (#PCDATA\u0020
 #errors
+1;1;no XML decl;;;s
 2;22;no root element;;;m
 2;22;unclosed internal subset;;;m
 2;22;unclosed md;;;m
@@ -698,6 +767,7 @@
 <!ELEMENT b (#PCDATA | zz | aa)>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (#PCDATA | zz | aa)>
@@ -708,6 +778,7 @@
 <!ELEMENT b (#PCDATA | #PCDATA , a)>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (#PCDATA | #PCDATA, a)>
@@ -718,6 +789,7 @@
 <!ELEMENT b (#PCDATA)*>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (#PCDATA)*>
@@ -728,6 +800,7 @@
 <!ELEMENT b ((((a,b>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;20;unclosed cm group;;;m
 #document
 | <!DOCTYPE a>
@@ -738,6 +811,7 @@
 <!ELEMENT b ((((a  >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;20;unclosed cm group;;;m
 #document
 | <!DOCTYPE a>
@@ -748,6 +822,7 @@
 <!ELEMENT b ((((a ,>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;20;unclosed cm group;;;m
 #document
 | <!DOCTYPE a>
@@ -758,6 +833,7 @@
 <!ELEMENT b ((((ab+>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;20;unclosed cm group;;;m
 #document
 | <!DOCTYPE a>
@@ -768,6 +844,7 @@
 <!ELEMENT b ((((a,(>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;20;unclosed cm group;;;m
 #document
 | <!DOCTYPE a>
@@ -778,6 +855,7 @@
 <!ELEMENT b ((((a) >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;20;unclosed cm group;;;m
 #document
 | <!DOCTYPE a>
@@ -788,6 +866,7 @@
 <!ELEMENT b ((((a))>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;20;unclosed cm group;;;m
 #document
 | <!DOCTYPE a>
@@ -798,6 +877,7 @@
 <!ELEMENT b ((((a)+>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;20;unclosed cm group;;;m
 #document
 | <!DOCTYPE a>
@@ -808,6 +888,7 @@
 <!ELEMENT b (((a)+ >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;20;unclosed cm group;;;m
 #document
 | <!DOCTYPE a>
@@ -818,6 +899,7 @@
 <!ELEMENT b (x y)*>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;16;after element name;;;m
 #document
 | <!DOCTYPE a>
@@ -827,6 +909,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x#
 #errors
+1;1;no XML decl;;;s
 2;16;no root element;;;m
 2;16;unclosed internal subset;;;m
 2;16;unclosed md;;;m
@@ -837,6 +920,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x #
 #errors
+1;1;no XML decl;;;s
 2;16;after element name;;;m
 2;17;no root element;;;m
 2;17;unclosed internal subset;;;m
@@ -847,6 +931,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x,#
 #errors
+1;1;no XML decl;;;s
 2;17;no root element;;;m
 2;17;unclosed internal subset;;;m
 2;17;unclosed md;;;m
@@ -857,6 +942,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x, #
 #errors
+1;1;no XML decl;;;s
 2;18;no root element;;;m
 2;18;unclosed internal subset;;;m
 2;18;unclosed md;;;m
@@ -867,6 +953,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x)#
 #errors
+1;1;no XML decl;;;s
 2;16;string after md def;;;m
 2;17;no root element;;;m
 2;17;unclosed internal subset;;;m
@@ -877,6 +964,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x) #
 #errors
+1;1;no XML decl;;;s
 2;17;string after md def;;;m
 2;18;no root element;;;m
 2;18;unclosed internal subset;;;m
@@ -887,6 +975,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x)+#
 #errors
+1;1;no XML decl;;;s
 2;17;string after md def;;;m
 2;18;no root element;;;m
 2;18;unclosed internal subset;;;m
@@ -897,6 +986,7 @@
 <!DOCTYPE a[
 <!ELEMENT b (x)? #
 #errors
+1;1;no XML decl;;;s
 2;18;string after md def;;;m
 2;19;no root element;;;m
 2;19;unclosed internal subset;;;m
@@ -908,6 +998,7 @@
 <!ELEMENT b \u0000a>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;13;NULL;;;m
 #document escaped
 | <!DOCTYPE a>
@@ -919,6 +1010,7 @@
 <!ELEMENT b x\u0000a>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;14;NULL;;;m
 #document escaped
 | <!DOCTYPE a>
@@ -930,6 +1022,7 @@
 <!ELEMENT b (\u0000a)>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;14;NULL;;;m
 #document escaped
 | <!DOCTYPE a>
@@ -941,6 +1034,7 @@
 <!ELEMENT b (a\u0000a)>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;15;NULL;;;m
 #document escaped
 | <!DOCTYPE a>
@@ -953,6 +1047,7 @@
 <!ELEMENT b ANY>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;1;duplicate element decl;;b;m
 #document
 | <!DOCTYPE a>
@@ -966,6 +1061,7 @@
 <!ELEMENT c ANY>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;1;pe not declared;;x;;m
 3;1;stop processing;;;i
 #document

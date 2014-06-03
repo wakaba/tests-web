@@ -1,0 +1,54 @@
+#data
+<!DOCTYPE hoge >
+<hoge>&lt;</hoge>
+#errors
+1;1;no XML decl;;;s
+2;7;entity not declared;;lt;;s
+#document
+| <!DOCTYPE hoge>
+| <{} hoge>
+|   "<"
+
+#data
+<!DOCTYPE hoge >
+<hoge>&amp;</hoge>
+#errors
+1;1;no XML decl;;;s
+2;7;entity not declared;;amp;;s
+#document
+| <!DOCTYPE hoge>
+| <{} hoge>
+|   "&"
+
+#data
+<!DOCTYPE hoge >
+<hoge>&quot;</hoge>
+#errors
+1;1;no XML decl;;;s
+2;7;entity not declared;;quot;;s
+#document
+| <!DOCTYPE hoge>
+| <{} hoge>
+|   """
+
+#data
+<!DOCTYPE hoge >
+<hoge>&gt;</hoge>
+#errors
+1;1;no XML decl;;;s
+2;7;entity not declared;;gt;;s
+#document
+| <!DOCTYPE hoge>
+| <{} hoge>
+|   ">"
+
+#data
+<!DOCTYPE hoge >
+<hoge>&apos;</hoge>
+#errors
+1;1;no XML decl;;;s
+2;7;entity not declared;;apos;;s
+#document
+| <!DOCTYPE hoge>
+| <{} hoge>
+|   "'"

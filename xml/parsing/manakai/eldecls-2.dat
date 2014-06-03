@@ -1,0 +1,23 @@
+#data
+<!DOCTYPE a [
+  <!ELEMENT aa+ EMPTY>
+]><a/>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT aa+ EMPTY>
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT aa+ EMPTY>
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;3;xml:not name;;aa+;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT aa+ EMPTY>
+| <{} a>

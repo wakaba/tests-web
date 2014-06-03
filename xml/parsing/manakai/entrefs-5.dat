@@ -3,6 +3,7 @@
   <!ENTITY b PUBLIC "aa" "bb">
 ]><a>&b;</a>
 #errors
+1;1;no XML decl;;;s
 3;6;external entref;;b;;i
 #document
 | <!DOCTYPE a>
@@ -14,6 +15,7 @@
   <!ENTITY c "e&b;d">
 ]><a>&c;</a>
 #errors
+1;1;no XML decl;;;s
 3;16;external entref;;b;;i
 #document
 | <!DOCTYPE a>
@@ -25,6 +27,7 @@
   <!ENTITY b PUBLIC "aa" "bb" NDATA x>
 ]><a>&b;</a>
 #errors
+1;1;no XML decl;;;s
 3;6;unparsed entity;;b;;m
 #document
 | <!DOCTYPE a>

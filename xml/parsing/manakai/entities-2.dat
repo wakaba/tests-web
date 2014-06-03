@@ -3,6 +3,7 @@
 <!ENTITY%>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;9;no space before md name;;;m
 2;10;no md name;;;m
 #document
@@ -14,6 +15,7 @@
 <!DOCTYPE a[
 <!ENTITY%
 #errors
+1;1;no XML decl;;;s
 2;9;no space before md name;;;m
 2;10;unclosed md;;;m
 2;10;unclosed internal subset;;;m
@@ -27,6 +29,7 @@
 <!ENTITY %>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;11;no md name;;;m
 #document
 | <!DOCTYPE a>
@@ -37,6 +40,7 @@
 <!DOCTYPE a[
 <!ENTITY %
 #errors
+1;1;no XML decl;;;s
 2;11;unclosed md;;;m
 2;11;unclosed internal subset;;;m
 2;11;no root element;;;m
@@ -48,6 +52,7 @@
 <!DOCTYPE a[
 <!ENTITY % abc  \u0009
 #errors
+1;1;no XML decl;;;s
 2;18;unclosed md;;;m
 2;18;unclosed internal subset;;;m
 2;18;no root element;;;m
@@ -60,6 +65,7 @@
 <!DOCTYPE a[
 <!ENTITY % abc  #
 #errors
+1;1;no XML decl;;;s
 2;17;string after DOCTYPE name;;;m
 2;18;unclosed internal subset;;;m
 2;18;no root element;;;m
@@ -71,6 +77,7 @@
 <!DOCTYPE a[
 <!ENTITY % abc PUBLIC
 #errors
+1;1;no XML decl;;;s
 2;22;unclosed md;;;m
 2;22;unclosed internal subset;;;m
 2;22;no root element;;;m
@@ -83,6 +90,7 @@
 <!DOCTYPE a[
 <!ENTITY % abc PUBLIC\u0020
 #errors
+1;1;no XML decl;;;s
 2;23;unclosed md;;;m
 2;23;unclosed internal subset;;;m
 2;23;no root element;;;m
@@ -95,6 +103,7 @@
 <!DOCTYPE a[
 <!ENTITY % abc PUBLIC #
 #errors
+1;1;no XML decl;;;s
 2;23;string after PUBLIC;;;m
 2;24;unclosed internal subset;;;m
 2;24;no root element;;;m
@@ -106,6 +115,7 @@
 <!DOCTYPE a[
 <!ENTITY % abc SYSTEM
 #errors
+1;1;no XML decl;;;s
 2;22;unclosed md;;;m
 2;22;unclosed internal subset;;;m
 2;22;no root element;;;m
@@ -118,6 +128,7 @@
 <!DOCTYPE a[
 <!ENTITY % abc SYSTEM\u0020
 #errors
+1;1;no XML decl;;;s
 2;23;unclosed md;;;m
 2;23;unclosed internal subset;;;m
 2;23;no root element;;;m
@@ -130,6 +141,7 @@
 <!DOCTYPE a[
 <!ENTITY % abc PUBLIC #
 #errors
+1;1;no XML decl;;;s
 2;23;string after PUBLIC;;;m
 2;24;unclosed internal subset;;;m
 2;24;no root element;;;m
@@ -141,6 +153,7 @@
 <!DOCTYPE a[
 <!ENTITY % abc PUBLIC "a"x
 #errors
+1;1;no XML decl;;;s
 2;26;string after PUBLIC literal;;;m
 2;27;unclosed internal subset;;;m
 2;27;no root element;;;m
@@ -152,6 +165,7 @@
 <!DOCTYPE a[
 <!ENTITY % abc PUBLIC "a" x
 #errors
+1;1;no XML decl;;;s
 2;27;string after PUBLIC literal;;;m
 2;28;unclosed internal subset;;;m
 2;28;no root element;;;m
@@ -163,6 +177,7 @@
 <!DOCTYPE a[
 <!ENTITY % abc SYSTEM "a"x
 #errors
+1;1;no XML decl;;;s
 2;26;string after SYSTEM literal;;;m
 2;27;unclosed internal subset;;;m
 2;27;no root element;;;m
@@ -174,6 +189,7 @@
 <!DOCTYPE a[
 <!ENTITY % abc SYSTEM "a" x
 #errors
+1;1;no XML decl;;;s
 2;27;string after SYSTEM literal;;;m
 2;28;unclosed internal subset;;;m
 2;28;no root element;;;m
@@ -185,6 +201,7 @@
 <!DOCTYPE a[
 <!ENTITY % abc PUBLIC "a" "b"x
 #errors
+1;1;no XML decl;;;s
 2;30;string after SYSTEM literal;;;m
 2;31;unclosed internal subset;;;m
 2;31;no root element;;;m
@@ -196,6 +213,7 @@
 <!DOCTYPE a[
 <!ENTITY % abc PUBLIC "a" "b" x
 #errors
+1;1;no XML decl;;;s
 2;31;string after SYSTEM literal;;;m
 2;32;unclosed internal subset;;;m
 2;32;no root element;;;m
@@ -208,6 +226,7 @@
 <!ENTITY % bc PUBLIC>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;21;no PUBLIC literal;;;m
 #document
 | <!DOCTYPE a>
@@ -220,6 +239,7 @@
 <!ENTITY % bc PUBLIC >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;22;no PUBLIC literal;;;m
 #document
 | <!DOCTYPE a>
@@ -232,6 +252,7 @@
 <!ENTITY % bc SYSTEM>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;21;no SYSTEM literal;;;m
 #document
 | <!DOCTYPE a>
@@ -244,6 +265,7 @@
 <!ENTITY % bc SYSTEM >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;22;no SYSTEM literal;;;m
 #document
 | <!DOCTYPE a>
@@ -256,6 +278,7 @@
 <!ENTITY % bc PUBLIC "x" "y">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -267,6 +290,7 @@
 <!ENTITY % bc PUBLIC "x""y">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;25;no space before system literal;;;m
 #document
 | <!DOCTYPE a>
@@ -279,6 +303,7 @@
 <!ENTITY % bc PUBLIC "x"'y'>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;25;no space before system literal;;;m
 #document
 | <!DOCTYPE a>
@@ -291,6 +316,7 @@
 <!ENTITY % bc PUBLIC 'x'"y">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;25;no space before system literal;;;m
 #document
 | <!DOCTYPE a>
@@ -303,6 +329,7 @@
 <!ENTITY % bc PUBLIC 'x''y'>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;25;no space before system literal;;;m
 #document
 | <!DOCTYPE a>
@@ -314,6 +341,7 @@
 <!DOCTYPE a[
 <!ENTITY % bc PUBLIC "x" "y" NDATA#
 #errors
+1;1;no XML decl;;;s
 2;30;string after SYSTEM literal;;;m
 2;36;no root element;;;m
 2;36;unclosed internal subset;;;m
@@ -325,6 +353,7 @@
 <!DOCTYPE a[
 <!ENTITY % bc PUBLIC "x" "y" NDATA #
 #errors
+1;1;no XML decl;;;s
 2;30;string after SYSTEM literal;;;m
 2;37;no root element;;;m
 2;37;unclosed internal subset;;;m
@@ -336,6 +365,7 @@
 <!DOCTYPE a[
 <!ENTITY % bc PUBLIC "x" "y" NDATA z#
 #errors
+1;1;no XML decl;;;s
 2;30;string after SYSTEM literal;;;m
 2;38;no root element;;;m
 2;38;unclosed internal subset;;;m
@@ -347,6 +377,7 @@
 <!DOCTYPE a[
 <!ENTITY % bc PUBLIC "x" "y" NDATA z #
 #errors
+1;1;no XML decl;;;s
 2;30;string after SYSTEM literal;;;m
 2;39;no root element;;;m
 2;39;unclosed internal subset;;;m
@@ -359,6 +390,7 @@
 <!ENTITY % bc PUBLIC "x" "y" NDATA z>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;30;string after SYSTEM literal;;;m
 #document
 | <!DOCTYPE a>
@@ -369,6 +401,7 @@
 <!DOCTYPE a[
 <!ENTITY % b ""
 #errors
+1;1;no XML decl;;;s
 2;16;no root element;;;m
 2;16;unclosed internal subset;;;m
 2;16;unclosed md;;;m
@@ -380,6 +413,7 @@
 <!DOCTYPE a[
 <!ENTITY % b ''
 #errors
+1;1;no XML decl;;;s
 2;16;no root element;;;m
 2;16;unclosed internal subset;;;m
 2;16;unclosed md;;;m
@@ -391,6 +425,7 @@
 <!DOCTYPE a[
 <!ENTITY % b ""\u0020
 #errors
+1;1;no XML decl;;;s
 2;17;no root element;;;m
 2;17;unclosed internal subset;;;m
 2;17;unclosed md;;;m
@@ -402,6 +437,7 @@
 <!DOCTYPE a[
 <!ENTITY % b ''\u0020
 #errors
+1;1;no XML decl;;;s
 2;17;no root element;;;m
 2;17;unclosed internal subset;;;m
 2;17;unclosed md;;;m
@@ -414,6 +450,7 @@
 <!ENTITY % b "">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -425,6 +462,7 @@
 <!ENTITY % b ''>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -436,6 +474,7 @@
 <!ENTITY % b "xxxxx">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -447,6 +486,7 @@
 <!ENTITY % b 'xxxxx'>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -458,6 +498,7 @@
 <!ENTITY % b "yyy" >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -469,6 +510,7 @@
 <!ENTITY % b 'yyy' >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -480,6 +522,7 @@
 <!ENTITY % b "a&#x24;b">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -491,6 +534,7 @@
 <!ENTITY % b '&#32;'>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -502,6 +546,7 @@
 <!ENTITY % b "&amp;abc">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -514,6 +559,7 @@
 <!ENTITY % b "d">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;1;duplicate para entity decl;;b;w
 #document
 | <!DOCTYPE a>
@@ -527,6 +573,7 @@
 <!ENTITY b "d">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -541,8 +588,10 @@
 <!ENTITY % d SYSTEM "y" >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;1;pe not declared;;c;;m
 3;1;stop processing;;;i
+4;1;xml:dtd:entity ignored;;;w
 #document
 | <!DOCTYPE a>
 | <{} a>

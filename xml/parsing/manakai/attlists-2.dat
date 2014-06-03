@@ -1,0 +1,216 @@
+#data
+<!DOCTYPE a [
+  <!ATTLIST b c CDATA "  d  e  ">
+]><a/>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT b >
+|     c CDATA () EXPLICIT "  d  e  "
+| <{} a>
+
+#data escaped
+<!DOCTYPE a [
+  <!ATTLIST b c CDATA "  d \u0009e  ">
+]><a/>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT b >
+|     c CDATA () EXPLICIT "  d  e  "
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ATTLIST b c CDATA "  d  e &#x0A;">
+]><a/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+|   <!ELEMENT b >
+|     c CDATA () EXPLICIT "  d  e \u000A"
+| <{} a>
+
+#data
+<!DOCTYPE a [
+  <!ATTLIST b c NMTOKENS "  d  e &#x0A;f">
+]><a/>
+#errors
+1;1;no XML decl;;;s
+#document escaped
+| <!DOCTYPE a>
+|   <!ELEMENT b >
+|     c NMTOKENS () EXPLICIT "d e \u000Af"
+| <{} a>
+
+#data
+<!DOCTYPE hoge [
+  <!ATTLIST foo >
+  <!ATTLIST foo >
+]><hoge/>
+#errors
+1;1;no XML decl;;;s
+2;3;empty attlist decl;;foo;w
+3;3;duplicate attlist decl;;foo;w
+3;3;empty attlist decl;;foo;w
+#document
+| <!DOCTYPE hoge>
+|   <!ELEMENT foo >
+| <{} hoge>
+
+#data
+<!DOCTYPE hoge [
+  <!ATTLIST foo bar (baz) #IMPLIED>
+  <!ATTLIST foo bar (x@@) #IMPLIED>
+]><hoge/>
+#errors
+1;1;no XML decl;;;s
+3;3;duplicate attlist decl;;foo;w
+3;17;duplicate attrdef;;bar;w
+#document
+| <!DOCTYPE hoge>
+|   <!ELEMENT foo >
+|     bar ENUMERATION (baz) IMPLIED ""
+| <{} hoge>
+
+#data
+<!DOCTYPE hoge [
+  <!ATTLIST foo bar (baz) #IMPLIED>
+  <!ATTLIST foo bar (baz|x@@) #IMPLIED>
+]><hoge/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+3;3;duplicate attlist decl;;foo;w
+3;17;duplicate attrdef;;bar;w
+3;17;xml:not nmtoken;;x@@;m
+#document
+| <!DOCTYPE hoge>
+|   <!ELEMENT foo >
+|     bar ENUMERATION (baz) IMPLIED ""
+| <{} hoge>
+
+#data
+<!DOCTYPE hoge [
+  <!ATTLIST foo bar (baz) #IMPLIED>
+  <!ATTLIST foo bar (baz|x@@|120) #IMPLIED>
+]><hoge/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+3;3;duplicate attlist decl;;foo;w
+3;17;duplicate attrdef;;bar;w
+3;17;xml:not nmtoken;;x@@;m
+#document
+| <!DOCTYPE hoge>
+|   <!ELEMENT foo >
+|     bar ENUMERATION (baz) IMPLIED ""
+| <{} hoge>
+
+#data
+<!DOCTYPE hoge [
+  <!ATTLIST foo bar (baz) #IMPLIED>
+  <!ATTLIST foo bar NOTATION (baz|310|x@@) #IMPLIED>
+]><hoge/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+3;3;duplicate attlist decl;;foo;w
+3;17;duplicate attrdef;;bar;w
+3;17;xml:not name;;x@@;m
+3;17;xml:not name;;310;m
+#document
+| <!DOCTYPE hoge>
+|   <!ELEMENT foo >
+|     bar ENUMERATION (baz) IMPLIED ""
+| <{} hoge>
+
+#data
+<!DOCTYPE hoge [
+  <!ATTLIST foo bar (baz) #IMPLIED>
+  <!ATTLIST foo bar bar #IMPLIED>
+]><hoge/>
+#errors
+1;1;no XML decl;;;s
+3;3;duplicate attlist decl;;foo;w
+3;17;duplicate attrdef;;bar;w
+3;17;unknown declared type;;bar;m
+#document
+| <!DOCTYPE hoge>
+|   <!ELEMENT foo >
+|     bar ENUMERATION (baz) IMPLIED ""
+| <{} hoge>
+
+#data
+<!DOCTYPE hoge [
+  <!ATTLIST foo bar (baz) #IMPLIED>
+  <!ATTLIST foo bar CDATA #bar>
+]><hoge/>
+#errors
+1;1;no XML decl;;;s
+3;3;duplicate attlist decl;;foo;w
+3;17;duplicate attrdef;;bar;w
+3;17;unknown default type;;bar;m
+#document
+| <!DOCTYPE hoge>
+|   <!ELEMENT foo >
+|     bar ENUMERATION (baz) IMPLIED ""
+| <{} hoge>
+
+#data
+<!DOCTYPE hoge [
+  %hoge;
+  <!ATTLIST foo bar CDATA #bar>
+]><hoge/>
+#errors
+1;1;no XML decl;;;s
+2;3;pe not declared;;hoge;;m
+2;3;stop processing;;;i
+3;3;xml:dtd:attlist ignored;;;w
+3;17;unknown default type;;bar;m
+#document
+| <!DOCTYPE hoge>
+| <{} hoge>
+
+#data
+<!DOCTYPE hoge [
+  <!ATTLIST a+b >
+]><a/>
+#errors
+1;1;no XML decl;;;s
+2;3;empty attlist decl;;a+b;w
+#document
+| <!DOCTYPE hoge>
+|   <!ELEMENT a+b >
+| <{} a>
+
+#data
+<!DOCTYPE hoge [
+  <!ATTLIST a+b >
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;3;empty attlist decl;;a+b;w
+2;3;xml:not name;;a+b;m
+#document
+| <!DOCTYPE hoge>
+|   <!ELEMENT a+b >
+| <{} a>
+
+#data
+<!DOCTYPE hoge [
+  <!ATTLIST a+b >
+]><a/>
+#checker XML1
+#errors
+1;1;no XML decl;;;s
+2;3;empty attlist decl;;a+b;w
+2;3;xml:not name;;a+b;m
+#document
+| <!DOCTYPE hoge>
+|   <!ELEMENT a+b >
+| <{} a>

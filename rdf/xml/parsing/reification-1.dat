@@ -1,0 +1,17 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://f/" rdf:ID="abc">aa</hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://f/hoge> "aa"
+/RDF/Description/hoge <about:blank#abc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#subject> _:g0
+/RDF/Description/hoge <about:blank#abc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate> <http://f/hoge>
+/RDF/Description/hoge <about:blank#abc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#object> "aa"
+/RDF/Description/hoge <about:blank#abc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>
+#errors
+#attrs
+/RDF/@rdf common
+/RDF/Description/hoge/@xmlns common
+/RDF/Description/hoge/@ID rdf-id

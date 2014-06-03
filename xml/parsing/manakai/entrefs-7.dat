@@ -1,6 +1,7 @@
 #data
 &h
 #errors
+1;1;no XML decl;;;s
 1;1;bare ero;;;m
 1;1;text outside of root element;;;m
 1;3;no root element;;;m
@@ -9,6 +10,7 @@
 #data
 &h;
 #errors
+1;1;no XML decl;;;s
 1;1;ref outside of root element;;h;;m
 1;1;entity not declared;;h;;m
 1;4;no root element;;;m
@@ -17,6 +19,7 @@
 #data
 &hoo
 #errors
+1;1;no XML decl;;;s
 1;1;bare ero;;;m
 1;1;text outside of root element;;;m
 1;5;no root element;;;m
@@ -25,6 +28,7 @@
 #data
 &hoo;
 #errors
+1;1;no XML decl;;;s
 1;1;ref outside of root element;;hoo;;m
 1;1;entity not declared;;hoo;;m
 1;6;no root element;;;m
@@ -33,6 +37,7 @@
 #data
 abc&hoo;
 #errors
+1;1;no XML decl;;;s
 1;1;text outside of root element;;;m
 1;4;ref outside of root element;;hoo;;m
 1;4;entity not declared;;hoo;;m
@@ -42,6 +47,7 @@ abc&hoo;
 #data
 <p></p>&hoo;
 #errors
+1;1;no XML decl;;;s
 1;8;ref outside of root element;;hoo;;m
 1;8;entity not declared;;hoo;;m
 #document
@@ -50,6 +56,7 @@ abc&hoo;
 #data
 <p></p>hoge&hoo;
 #errors
+1;1;no XML decl;;;s
 1;8;text outside of root element;;;m
 1;12;ref outside of root element;;hoo;;m
 1;12;entity not declared;;hoo;;m
@@ -62,6 +69,7 @@ abc&hoo;
 ]>
 &foo;
 #errors
+1;1;no XML decl;;;s
 4;1;ref outside of root element;;foo;;m
 4;6;no root element;;;m
 #document
@@ -73,6 +81,7 @@ abc&hoo;
 ]>
 &foo;<p/>
 #errors
+1;1;no XML decl;;;s
 4;1;ref outside of root element;;foo;;m
 #document
 | <!DOCTYPE a>
@@ -85,6 +94,7 @@ abc&hoo;
 <p/>
 &foo;
 #errors
+1;1;no XML decl;;;s
 5;1;ref outside of root element;;foo;;m
 #document
 | <!DOCTYPE a>
@@ -98,6 +108,7 @@ abc&hoo;
 &foo;
 #resource http://x/
 #errors
+1;1;no XML decl;;;s
 5;1;ref outside of root element;;foo;;m
 #document
 | <!DOCTYPE a>
@@ -112,6 +123,7 @@ abc&hoo;
 #resource http://x/
 abc
 #errors
+1;1;no XML decl;;;s
 5;1;ref outside of root element;;foo;;m
 #document
 | <!DOCTYPE a>
@@ -124,6 +136,7 @@ abc
 <p/>
 &foo;
 #errors
+1;1;no XML decl;;;s
 5;1;ref outside of root element;;foo;;m
 #document
 | <!DOCTYPE a>
@@ -136,6 +149,7 @@ abc
 &foo;
 <p/>
 #errors
+1;1;no XML decl;;;s
 4;1;ref outside of root element;;foo;;m
 #document
 | <!DOCTYPE a>
@@ -146,6 +160,7 @@ abc
 &amp;
 <p/>
 #errors
+1;1;no XML decl;;;s
 1;1;ref outside of root element;;amp;;m
 #document
 | <{} p>
@@ -154,6 +169,7 @@ abc
 &nbsp;
 <p/>
 #errors
+1;1;no XML decl;;;s
 1;1;ref outside of root element;;nbsp;;m
 1;1;entity not declared;;nbsp;;m
 #document

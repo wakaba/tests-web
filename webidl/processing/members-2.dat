@@ -1,0 +1,514 @@
+#data
+interface A {
+  void foo ();
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "args": [],
+            "type": "void"
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  void foo ();
+  long foo (DOMString a);
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "args": [],
+            "type": "void"
+          },
+          "DOMString": {
+            "args": [{"name": "a", "type": "DOMString", "optionality": "required"}],
+            "type": "long"
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  void foo ();
+  long foo ();
+};
+#errors
+1;31;webidl:not distinguishable;;;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "args": [],
+            "type": "void"
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  void foo (long bar);
+  long foo (optional long baz);
+};
+#errors
+1;39;webidl:not distinguishable;;long;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "args": [],
+            "type": "long"
+          },
+          "long": {
+            "args": [{"name": "bar", "type": "long", "optionality": "required"}],
+            "type": "void"
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  void foo (long bar);
+};
+partial interface A {
+  long foo (optional A baz);
+};
+#errors
+1;64;webidl:duplicate;;foo;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "long": {
+            "args": [{"name": "bar", "type": "long", "optionality": "required"}],
+            "type": "void"
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  void foo (long bar, long baz, long abc);
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "long,long,long": {
+            "args": [
+              {"name": "bar", "type": "long", "optionality": "required"},
+              {"name": "baz", "type": "long", "optionality": "required"},
+              {"name": "abc", "type": "long", "optionality": "required"}
+            ],
+            "type": "void"
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  void foo (long bar, long baz, optional long abc);
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "long,long": {
+            "args": [
+              {"name": "bar", "type": "long", "optionality": "required"},
+              {"name": "baz", "type": "long", "optionality": "required"}
+            ],
+            "type": "void"
+          },
+          "long,long,long": {
+            "args": [
+              {"name": "bar", "type": "long", "optionality": "required"},
+              {"name": "baz", "type": "long", "optionality": "required"},
+              {"name": "abc", "type": "long", "optionality": "optional"}
+            ],
+            "type": "void"
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  void foo (long bar, optional long baz, long abc);
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "long,long,long": {
+            "args": [
+              {"name": "bar", "type": "long", "optionality": "required"},
+              {"name": "baz", "type": "long", "optionality": "optional"},
+              {"name": "abc", "type": "long", "optionality": "required"}
+            ],
+            "type": "void"
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  void foo (long bar, long baz, long... abc);
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "long,long": {
+            "args": [
+              {"name": "bar", "type": "long", "optionality": "required"},
+              {"name": "baz", "type": "long", "optionality": "required"}
+            ],
+            "type": "void"
+          },
+          "long,long,long": {
+            "args": [
+              {"name": "bar", "type": "long", "optionality": "required"},
+              {"name": "baz", "type": "long", "optionality": "required"},
+              {"name": "abc", "type": "long", "optionality": "variadic"}
+            ],
+            "type": "void"
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  void foo (long bar, optional long baz, long... abc);
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "long": {
+            "args": [
+              {"name": "bar", "type": "long", "optionality": "required"}
+            ],
+            "type": "void"
+          },
+          "long,long": {
+            "args": [
+              {"name": "bar", "type": "long", "optionality": "required"},
+              {"name": "baz", "type": "long", "optionality": "optional"}
+            ],
+            "type": "void"
+          },
+          "long,long,long": {
+            "args": [
+              {"name": "bar", "type": "long", "optionality": "required"},
+              {"name": "baz", "type": "long", "optionality": "optional"},
+              {"name": "abc", "type": "long", "optionality": "variadic"}
+            ],
+            "type": "void"
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  void foo (optional long bar, optional long baz, long... abc);
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "args": [],
+            "type": "void"
+          },
+          "long": {
+            "args": [
+              {"name": "bar", "type": "long", "optionality": "optional"}
+            ],
+            "type": "void"
+          },
+          "long,long": {
+            "args": [
+              {"name": "bar", "type": "long", "optionality": "optional"},
+              {"name": "baz", "type": "long", "optionality": "optional"}
+            ],
+            "type": "void"
+          },
+          "long,long,long": {
+            "args": [
+              {"name": "bar", "type": "long", "optionality": "optional"},
+              {"name": "baz", "type": "long", "optionality": "optional"},
+              {"name": "abc", "type": "long", "optionality": "variadic"}
+            ],
+            "type": "void"
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  void foo ( long... abc);
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "args": [],
+            "type": "void"
+          },
+          "long": {
+            "args": [
+              {"name": "abc", "type": "long", "optionality": "variadic"}
+            ],
+            "type": "void"
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  void foo ();
+  attribute DOMString foo;
+};
+#errors
+1;16;webidl:duplicate;;foo;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "getter": 1, "setter": 1,
+        "type": "DOMString"
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  attribute DOMString foo;
+  void foo ();
+};
+#errors
+1;43;webidl:duplicate;;foo;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "getter": 1, "setter": 1,
+        "type": "DOMString"
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  void foo (long... a, long b);
+};
+#errors
+1;26;webidl:bad optionality;;a;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "long,long": {
+            "type": "void",
+            "args": [{"type": "long", "name": "a", "optionality": "required"},
+                     {"type": "long", "name": "b", "optionality": "required"}]
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  void foo (optional long... a);
+};
+#errors
+1;39;webidl:parse error;long, ;;m
+#processed
+{}
+
+#data
+interface A {
+  void foo (long... a = 133);
+};
+#errors
+1;36;webidl:parse error;,, ;;m
+#processed
+{}
+
+#data
+interface A { 
+  legacycaller long (long foo);
+};
+#processed
+{
+  "A": ["interface", {
+    "legacycaller": ["operation", {
+      "overload_set": {
+        "long": {
+          "type": "long",
+          "args": [{"name": "foo", "type": "long", "optionality": "required"}]
+        }
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A { 
+  legacycaller long hoge (long foo);
+};
+#processed
+{
+  "A": ["interface", {
+    "legacycaller": ["operation", {
+      "overload_set": {
+        "long": {
+          "type": "long",
+          "args": [{"name": "foo", "type": "long", "optionality": "required"}]
+        }
+      }
+    }],
+    "members": {
+      "hoge": ["operation", {
+        "overload_set": {
+          "long": {
+            "type": "long",
+            "args": [{"name": "foo", "type": "long", "optionality": "required"}]
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A { 
+  legacycaller long (long foo);
+};
+partial interface A {
+  legacycaller DOMString (A foo);
+};
+#errors
+1;74;webidl:duplicate;;legacycaller;m
+#processed
+{
+  "A": ["interface", {
+    "legacycaller": ["operation", {
+      "overload_set": {
+        "long": {
+          "type": "long",
+          "args": [{"name": "foo", "type": "long", "optionality": "required"}]
+        }
+      }
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A { 
+  legacycaller long (long foo);
+  legacycaller DOMString (A foo);
+};
+#processed
+{
+  "A": ["interface", {
+    "legacycaller": ["operation", {
+      "overload_set": {
+        "long": {
+          "type": "long",
+          "args": [{"name": "foo", "type": "long", "optionality": "required"}]
+        },
+        "ref[A]": {
+          "type": "DOMString",
+          "args": [{"name": "foo", "type": ["ref_interface", "A"], "optionality": "required"}]
+        }
+      }
+    }],
+    "members": {}
+  }]
+}

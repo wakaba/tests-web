@@ -1,0 +1,50 @@
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+</head>
+#errors
+/head/meta/@property;ogp:missing prop;og:type;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <title>aa</title>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+</head>
+#errors
+
+#data
+<body xmlns="http://www.w3.org/1999/xhtml">
+  <meta property="og:title" content="aa"/>
+</body>
+#errors
+/body;no significant content;s
+/body/meta;attribute missing;itemprop;m
+/body/meta/@property;ogp:missing prop;og:type;m
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml">
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+</template>
+#errors
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml">
+  <meta itemprop="hoge" content="foo"/>
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+</template>
+#errors
+| #df/meta;microdata:unused itemprop;m
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml">
+  hoge
+  <meta property="og:title" content="aa"/>
+  <meta property="og:type" content="website"/>
+</template>
+#errors
+| #df/meta;attribute missing;itemprop;m
+| #df/meta;attribute missing;itemprop;m

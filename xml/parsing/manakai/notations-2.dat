@@ -1,0 +1,36 @@
+#data
+<!DOCTYPE a[
+  <!NOTATION c++ SYSTEM "">
+]><a/>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE a>
+|   <!NOTATION c++ "" "">
+| <{} a>
+
+#data
+<!DOCTYPE a[
+  <!NOTATION c++ SYSTEM "">
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;3;xml:not name;;c++;m
+#document
+| <!DOCTYPE a>
+|   <!NOTATION c++ "" "">
+| <{} a>
+
+#data
+<!DOCTYPE a[
+  <!NOTATION hoge PUBLIC "`ab" "">
+]><a/>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+2;3;xml:pubid:bad char;;`ab;m
+#document
+| <!DOCTYPE a>
+|   <!NOTATION hoge "`ab" "">
+| <{} a>

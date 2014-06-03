@@ -1,0 +1,48 @@
+#data
+<p>&a+b;</p>
+#errors
+1;1;no XML decl;;;s
+1;4;entity not declared;;a+b;;m
+#document
+| <{} p>
+|   "&a+b;"
+
+#data
+<p>&a+b;</p>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;4;xml:not name;;a+b;;m
+1;4;entity not declared;;a+b;;m
+#document
+| <{} p>
+|   "&a+b;"
+
+#data
+<!DOCTYPE a SYSTEM "http://a/">
+<p>&a+b;</p>
+#checker ForValidator
+#errors
+1;1;no XML decl;;;s
+1;1;external entref;;;i
+2;4;xml:not name;;a+b;;m
+2;4;entity not declared;;a+b;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} p>
+|   "&a+b;"
+
+#data
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE a SYSTEM "http://a/">
+<p>&a+b;</p>
+#checker ForValidator
+#errors
+2;1;external entref;;;i
+3;4;xml:not name;;a+b;;m
+3;4;entity not declared;;a+b;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} p>
+|   "&a+b;"
+#xml-standalone true

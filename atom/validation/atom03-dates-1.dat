@@ -1,0 +1,45 @@
+#data
+<modified xmlns="http://purl.org/atom/ns#"></modified>
+#errors
+/modified;element:obsolete;m
+/modified;datetime:syntax error;m
+
+#data
+<modified xmlns="http://purl.org/atom/ns#">2012-01-21T00:21:43.211Z</modified>
+#errors
+/modified;element:obsolete;m
+
+#data
+<issued xmlns="http://purl.org/atom/ns#"></issued>
+#errors
+/issued;element:obsolete;m
+/issued;datetime:syntax error;m
+
+#data
+<issued xmlns="http://purl.org/atom/ns#">2012-01-21T00:21:43.211Z</issued>
+#errors
+/issued;element:obsolete;m
+
+#data
+<created xmlns="http://purl.org/atom/ns#"></created>
+#errors
+/created;element:obsolete;m
+/created;datetime:syntax error;m
+
+#data
+<created xmlns="http://purl.org/atom/ns#">2012-01-21T00:21:43.211Z</created>
+#errors
+/created;element:obsolete;m
+
+#data
+<created xmlns="http://purl.org/atom/ns#">2012-01-21T00:21:43<span>.21</span>1Z</created>
+#errors
+/created;element:obsolete;m
+/created/span;element not defined;m
+/created;datetime:syntax error;m
+/created/span;element not allowed:text;m
+
+#data
+<created xmlns="http://purl.org/atom/ns#">2012-01-21</created>
+#errors
+/created;element:obsolete;m

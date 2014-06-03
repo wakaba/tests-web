@@ -1,0 +1,339 @@
+#data
+[ArrayClass] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "ArrayClass"
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  [LenientThis] attribute DOMString a;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "attribute",
+          "name": "a",
+          "type": "DOMString",
+          "extended_attributes": [
+            {
+              "index": 17,
+              "name": "LenientThis"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  void hoge ([Clamp] octet foo);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "name": "hoge",
+          "type": "void",
+          "arguments": [
+            {
+              "index": 27,
+              "name": "foo",
+              "type": "octet",
+              "extended_attributes": [
+                {
+                  "index": 28,
+                  "name": "Clamp"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[Constructor ()] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "Constructor",
+          "arguments": []
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[Constructor (long x)] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "Constructor",
+          "arguments": [
+            {
+              "index": 14,
+              "name": "x",
+              "type": "long"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[Constructor (long x),Constructor] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "Constructor",
+          "arguments": [
+            {
+              "index": 14,
+              "name": "x",
+              "type": "long"
+            }
+          ]
+        },
+        {
+          "index": 22,
+          "name": "Constructor"
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[Exposed=Worker] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "Exposed",
+          "value_names": ["Worker"]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[Exposed=Worker, Window] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "Exposed",
+          "value_names": ["Worker", "Window"]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[Exposed=Worker, Window, ImplicitThis] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "Exposed",
+          "value_names": ["Worker", "Window", "ImplicitThis"]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[Exposed=Worker, Window, Constructor ()] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "Exposed",
+          "value_names": ["Worker", "Window"]
+        },
+        {
+          "index": 25,
+          "name": "Constructor",
+          "arguments": []
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[NamedConstructor = ABC] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "NamedConstructor",
+          "value_names": ["ABC"]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[NamedConstructor = ABC, NamedConstructor = ABC (long x)] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "NamedConstructor",
+          "value_names": ["ABC"]
+        },
+        {
+          "index": 25,
+          "name": "NamedConstructor",
+          "value_names": ["ABC"],
+          "arguments": [
+            {
+              "index": 49,
+              "name": "x",
+              "type": "long"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  [PutForwards=href, Unforgeable] readonly attribute Hoge foo;
+};
+#parsed
+{
+  "definitions": [{
+    "index": 0,
+    "name": "A",
+    "definition_type": "interface",
+    "members": [
+      {
+        "index": 16,
+        "name": "foo",
+        "readonly": 1,
+        "member_type": "attribute",
+        "type_name": "Hoge",
+        "extended_attributes": [
+          {
+            "index": 17,
+            "name": "PutForwards",
+            "value_names": ["href"]
+          },
+          {
+            "index": 35,
+            "name": "Unforgeable"
+          }
+        ]
+      }
+    ]
+  }]
+}

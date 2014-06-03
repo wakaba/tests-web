@@ -1,0 +1,83 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/">hoge</hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://a/hoge> "hoge"
+#errors
+#attrs
+/RDF/@rdf common
+/RDF/Description/hoge/@xmlns common
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/">hoge<!--bb--></hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://a/hoge> "hoge"
+#errors
+#attrs
+/RDF/@rdf common
+/RDF/Description/hoge/@xmlns common
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/">hoge<!--bb-->cc</hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://a/hoge> "hogecc"
+#errors
+#attrs
+/RDF/@rdf common
+/RDF/Description/hoge/@xmlns common
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/">hoge<?aa?> </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://a/hoge> "hoge "
+#errors
+#nonrdf
+/RDF/Description/hoge/<?aa?>
+#attrs
+/RDF/@rdf common
+/RDF/Description/hoge/@xmlns common
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/"><?aa?>abc</hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://a/hoge> "abc"
+#errors
+#nonrdf
+/RDF/Description/hoge/<?aa?>
+#attrs
+/RDF/@rdf common
+/RDF/Description/hoge/@xmlns common
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://a/">  <?aa?>abc</hoge>
+  </rdf:Description>
+</rdf:RDF>
+#triples
+/RDF/Description/hoge _:g0 <http://a/hoge> "  abc"
+#errors
+#nonrdf
+/RDF/Description/hoge/<?aa?>
+#attrs
+/RDF/@rdf common
+/RDF/Description/hoge/@xmlns common

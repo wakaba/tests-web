@@ -3,6 +3,7 @@
 <!ATTLIST b>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 #document
 | <!DOCTYPE a>
@@ -15,6 +16,7 @@
 <!ATTLIST c>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 3;1;empty attlist decl;;c;w
 #document
@@ -28,6 +30,7 @@
 <!ATTLIST bcd>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;bcd;w
 #document
 | <!DOCTYPE a>
@@ -39,6 +42,7 @@
 <!ATTLIST \u0000bcd>
 ]><a/>
 #errors escaped
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;\uFFFDbcd;w
 2;11;NULL;;;m
 #document escaped
@@ -51,6 +55,7 @@
 <!ATTLIST a\u0000bcd>
 ]><a/>
 #errors escaped
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;a\uFFFDbcd;w
 2;12;NULL;;;m
 #document escaped
@@ -63,6 +68,7 @@
 <!ATTLIST b >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 #document
 | <!DOCTYPE a>
@@ -73,6 +79,7 @@
 <!DOCTYPE a[
 <!ATTLIST b\u0020
 #errors
+1;1;no XML decl;;;s
 2;13;unclosed md;;;m
 2;13;unclosed internal subset;;;m
 2;13;no root element;;;m
@@ -84,6 +91,7 @@
 <!ATTLIST bcd >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;bcd;w
 #document
 | <!DOCTYPE a>
@@ -95,6 +103,7 @@
 <!ATTLISTb>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 2;10;no space before md name;;;m
 #document
@@ -106,6 +115,7 @@
 <!DOCTYPE a[
 <!ATTLIST b
 #errors
+1;1;no XML decl;;;s
 2;12;unclosed md;;;m
 2;12;unclosed internal subset;;;m
 2;12;no root element;;;m
@@ -118,6 +128,7 @@
 <!ATTLIST b>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;11;no md name;;;m
 3;1;empty attlist decl;;b;w
 #document
@@ -131,6 +142,7 @@
 <!ATTLIST b>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;1;empty attlist decl;;b;w
 2;10;no md name;;;m
 #document
@@ -143,6 +155,7 @@
 <!ATTLIST b>
 <!ATTLIST\u0020
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 3;11;unclosed md;;;m
 3;11;unclosed internal subset;;;m
@@ -156,6 +169,7 @@
 <!ATTLIST b>
 <!ATTLIST
 #errors
+1;1;no XML decl;;;s
 3;10;unclosed md;;;m
 2;1;empty attlist decl;;b;w
 3;10;unclosed internal subset;;;m
@@ -170,6 +184,7 @@
 <!ATTLIST b>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;bogus comment;;;m
 3;1;empty attlist decl;;b;w
 #document
@@ -183,6 +198,7 @@
 <!ATTLIST b>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;bogus comment;;;m
 3;1;empty attlist decl;;b;w
 #document
@@ -196,6 +212,7 @@
 <!ATTLIST b>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;3;lowercase keyword;ATTLIST;;m
 2;1;empty attlist decl;;c;w
 3;1;empty attlist decl;;b;w
@@ -210,6 +227,7 @@
 <!ATTLIST b>
 <!ATTLIS
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 3;1;bogus comment;;;m
 3;9;unclosed internal subset;;;m
@@ -223,6 +241,7 @@
 <!ATTLIST b>
 <!ATTL
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 3;1;bogus comment;;;m
 3;7;unclosed internal subset;;;m
@@ -237,6 +256,7 @@
 <!ATTLIST b>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;11;no refc;;;m
 3;1;empty attlist decl;;b;w
 #document
@@ -250,6 +270,7 @@
 <!ATTLIST % c>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 3;12;no refc;;;m
 #document
@@ -262,6 +283,7 @@
 <!ATTLIST b c>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 2;14;no attr type;;;m
 #document
@@ -273,6 +295,7 @@
 <!DOCTYPE a[
 <!ATTLIST b c
 #errors
+1;1;no XML decl;;;s
 2;14;unclosed md;;;m
 2;14;unclosed internal subset;;;m
 2;14;no root element;;;m
@@ -284,6 +307,7 @@
 <!ATTLIST b cd>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 2;15;no attr type;;;m
 #document
@@ -295,6 +319,7 @@
 <!DOCTYPE a[
 <!ATTLIST b cd
 #errors
+1;1;no XML decl;;;s
 2;15;unclosed md;;;m
 2;15;unclosed internal subset;;;m
 2;15;no root element;;;m
@@ -306,6 +331,7 @@
 <!ATTLIST b c >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 2;15;no attr type;;;m
 #document
@@ -317,6 +343,7 @@
 <!DOCTYPE a[
 <!ATTLIST b c\u0020
 #errors
+1;1;no XML decl;;;s
 2;15;unclosed md;;;m
 2;15;unclosed internal subset;;;m
 2;15;no root element;;;m
@@ -328,6 +355,7 @@
 <!ATTLIST b cd >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 2;16;no attr type;;;m
 #document
@@ -339,6 +367,7 @@
 <!DOCTYPE a[
 <!ATTLIST b cd\u0020
 #errors
+1;1;no XML decl;;;s
 2;16;unclosed md;;;m
 2;16;unclosed internal subset;;;m
 2;16;no root element;;;m
@@ -350,6 +379,7 @@
 <!ATTLIST b c t>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 2;16;no attr default;;;m
 #document
@@ -361,6 +391,7 @@
 <!DOCTYPE a[
 <!ATTLIST b c t
 #errors
+1;1;no XML decl;;;s
 2;16;unclosed md;;;m
 2;16;unclosed internal subset;;;m
 2;16;no root element;;;m
@@ -372,6 +403,7 @@
 <!ATTLIST b c tu>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 2;17;no attr default;;;m
 #document
@@ -383,6 +415,7 @@
 <!DOCTYPE a[
 <!ATTLIST b c tu
 #errors
+1;1;no XML decl;;;s
 2;17;unclosed md;;;m
 2;17;unclosed internal subset;;;m
 2;17;no root element;;;m
@@ -394,6 +427,7 @@
 <!ATTLIST b c t >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 2;17;no attr default;;;m
 #document
@@ -405,6 +439,7 @@
 <!DOCTYPE a[
 <!ATTLIST b c t\u0020
 #errors
+1;1;no XML decl;;;s
 2;17;unclosed md;;;m
 2;17;unclosed internal subset;;;m
 2;17;no root element;;;m
@@ -416,6 +451,7 @@
 <!ATTLIST b c CDATA>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 2;20;no attr default;;;m
 #document
@@ -427,6 +463,7 @@
 <!DOCTYPE a[
 <!ATTLIST b c CDATA
 #errors
+1;1;no XML decl;;;s
 2;20;unclosed md;;;m
 2;20;unclosed internal subset;;;m
 2;20;no root element;;;m
@@ -438,6 +475,7 @@
 <!ATTLIST b c t d>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;13;unknown declared type;;t;m
 2;17;unquoted attr value;;;m
 #document
@@ -450,6 +488,7 @@
 <!DOCTYPE a[
 <!ATTLIST b c t d
 #errors
+1;1;no XML decl;;;s
 2;17;unquoted attr value;;;m
 2;18;unclosed md;;;m
 2;18;unclosed internal subset;;;m
@@ -462,6 +501,7 @@
 <!ATTLIST b c ID d>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;18;unquoted attr value;;;m
 #document
 | <!DOCTYPE a>
@@ -473,6 +513,7 @@
 <!DOCTYPE a[
 <!ATTLIST b c ID d
 #errors
+1;1;no XML decl;;;s
 2;18;unquoted attr value;;;m
 2;19;unclosed md;;;m
 2;19;unclosed internal subset;;;m
@@ -485,6 +526,7 @@
 <!ATTLIST b c ID "d>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;3;lt in attr value;;;m
 3;7;unclosed attribute value;;;m
 3;7;unclosed internal subset;;;m
@@ -496,6 +538,7 @@
 <!DOCTYPE a[
 <!ATTLIST b c ID "d
 #errors
+1;1;no XML decl;;;s
 2;20;unclosed attribute value;;;m
 2;20;unclosed internal subset;;;m
 2;20;no root element;;;m
@@ -507,6 +550,7 @@
 <!ATTLIST b c ID "d">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -517,6 +561,7 @@
 <!DOCTYPE a[
 <!ATTLIST b c ID "d"
 #errors
+1;1;no XML decl;;;s
 2;21;unclosed md;;;m
 2;21;unclosed internal subset;;;m
 2;21;no root element;;;m
@@ -528,7 +573,8 @@
 <!ATTLIST b c ID "d&amp;">
 ]><a/>
 #errors
-2;20;entity not declared;;amp;;w
+1;1;no XML decl;;;s
+2;20;entity not declared;;amp;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -540,6 +586,7 @@
 <!ATTLIST b c ID 'd>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;3;lt in attr value;;;m
 3;7;unclosed attribute value;;;m
 3;7;unclosed internal subset;;;m
@@ -551,6 +598,7 @@
 <!DOCTYPE a[
 <!ATTLIST b c ID 'd
 #errors
+1;1;no XML decl;;;s
 2;20;unclosed attribute value;;;m
 2;20;unclosed internal subset;;;m
 2;20;no root element;;;m
@@ -562,6 +610,7 @@
 <!ATTLIST b c ID 'd'>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -572,6 +621,7 @@
 <!DOCTYPE a[
 <!ATTLIST b c ID 'd'
 #errors
+1;1;no XML decl;;;s
 2;21;unclosed md;;;m
 2;21;unclosed internal subset;;;m
 2;21;no root element;;;m
@@ -583,7 +633,8 @@
 <!ATTLIST b c ID 'd&amp;'>
 ]><a/>
 #errors
-2;20;entity not declared;;amp;;w
+1;1;no XML decl;;;s
+2;20;entity not declared;;amp;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -595,8 +646,9 @@
 <!ATTLIST b c ID d&amp;>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;18;unquoted attr value;;;m
-2;19;entity not declared;;amp;;w
+2;19;entity not declared;;amp;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -610,6 +662,7 @@ c CDATA "d"
 e CDATA "f">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -623,6 +676,7 @@ e CDATA "f">
 c CDATA "d"e CDATA "f">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;12;no space before attr name;;;m
 #document
 | <!DOCTYPE a>
@@ -638,6 +692,7 @@ c CDATA 'd'
 e CDATA "f"
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -651,6 +706,7 @@ e CDATA "f"
 c CDATA 'd'e CDATA "f"
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 3;12;no space before attr name;;;m
 #document
 | <!DOCTYPE a>
@@ -666,6 +722,7 @@ c CDATA d
 e CDATA "f"
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 3;9;unquoted attr value;;;m
 #document
 | <!DOCTYPE a>
@@ -680,6 +737,7 @@ e CDATA "f"
 c CDATA"d"
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 3;8;no space before default value;;;m
 #document
 | <!DOCTYPE a>
@@ -693,6 +751,7 @@ c CDATA"d"
 c CDATA'd'
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 3;8;no space before default value;;;m
 #document
 | <!DOCTYPE a>
@@ -706,6 +765,7 @@ c CDATA'd'
 \u0000c CDATA "d">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;1;NULL;;;m
 #document escaped
 | <!DOCTYPE a>
@@ -719,6 +779,7 @@ c CDATA'd'
 x\u0000c CDATA "d">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;2;NULL;;;m
 #document escaped
 | <!DOCTYPE a>
@@ -731,6 +792,7 @@ x\u0000c CDATA "d">
 <!ATTLIST b
 c CDATA #
 #errors
+1;1;no XML decl;;;s
 3;10;no root element;;;m
 3;10;unclosed internal subset;;;m
 3;10;unclosed md;;;m
@@ -742,6 +804,7 @@ c CDATA #
 <!ATTLIST b
 c CDATA #\u0020
 #errors
+1;1;no XML decl;;;s
 3;10;no default type;;;m
 3;11;no root element;;;m
 3;11;unclosed internal subset;;;m
@@ -753,6 +816,7 @@ c CDATA #\u0020
 <!ATTLIST b
 c CDATA ##
 #errors
+1;1;no XML decl;;;s
 3;11;no root element;;;m
 3;11;unclosed internal subset;;;m
 3;11;unclosed md;;;m
@@ -765,6 +829,7 @@ c CDATA ##
 c CDATA ##
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 3;1;unknown default type;;#;m
 #document
 | <!DOCTYPE a>
@@ -778,6 +843,7 @@ c CDATA ##
 c CDATA#REQUIRED
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 3;8;no space before default value;;;m
 #document
 | <!DOCTYPE a>
@@ -791,6 +857,7 @@ c CDATA#REQUIRED
 c CDATA#IMPLIED
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 3;8;no space before default value;;;m
 #document
 | <!DOCTYPE a>
@@ -804,6 +871,7 @@ c CDATA#IMPLIED
 c CDATA#FIXED "d"
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 3;8;no space before default value;;;m
 #document
 | <!DOCTYPE a>
@@ -817,6 +885,7 @@ c CDATA#FIXED "d"
 c CDATA #FIXED"d"
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 3;15;no space before default value;;;m
 #document
 | <!DOCTYPE a>
@@ -831,6 +900,7 @@ c CDATA #IMPLIED
 d CDATA #IMPLIED
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -845,6 +915,7 @@ c CDATA #REQUIRED
 d CDATA #IMPLIED
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -859,6 +930,7 @@ c CDATA #FIXED "x"
 d CDATA #IMPLIED
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -873,6 +945,7 @@ c CDATA #UNKNOWN
 d CDATA #IMPLIED
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 3;1;unknown default type;;UNKNOWN;m
 #document
 | <!DOCTYPE a>
@@ -887,6 +960,7 @@ d CDATA #IMPLIED
 c IDREF #IMPLIED
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -899,6 +973,7 @@ c IDREF #IMPLIED
 c IDREFS #IMPLIED
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -911,6 +986,7 @@ c IDREFS #IMPLIED
 c NMTOKEN #IMPLIED
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -923,6 +999,7 @@ c NMTOKEN #IMPLIED
 c NMTOKENS #IMPLIED
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -935,6 +1012,7 @@ c NMTOKENS #IMPLIED
 c ENTITY #IMPLIED
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -947,6 +1025,7 @@ c ENTITY #IMPLIED
 c ENTITIES #IMPLIED
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -959,6 +1038,7 @@ c ENTITIES #IMPLIED
 c NOTATION #IMPLIED
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -971,6 +1051,7 @@ c NOTATION #IMPLIED
 c ENUMERATION #IMPLIED
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 3;1;unknown declared type;;ENUMERATION;m
 #document
 | <!DOCTYPE a>
@@ -984,6 +1065,7 @@ c ENUMERATION #IMPLIED
 c cdata #IMPLIED
 >]><a/>
 #errors
+1;1;no XML decl;;;s
 3;1;unknown declared type;;cdata;m
 #document
 | <!DOCTYPE a>
@@ -999,6 +1081,7 @@ e CDATA #IMPLIED
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1014,6 +1097,7 @@ e CDATA #IMPLIED
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;15;no space before default value;;;m
 #document
 | <!DOCTYPE a>
@@ -1029,6 +1113,7 @@ c CDATA #FIXED 'd'e CDATA #IMPLIED
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;19;no space before attr name;;;m
 #document
 | <!DOCTYPE a>
@@ -1045,6 +1130,7 @@ e CDATA #IMPLIED
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;1;unknown default type;;x;m
 #document
 | <!DOCTYPE a>
@@ -1061,6 +1147,7 @@ e CDATA #IMPLIED
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;10;no default type;;;m
 #document
 | <!DOCTYPE a>
@@ -1073,6 +1160,7 @@ c () #IMPLIED
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;4;empty allowed token;;;m
 #document
 | <!DOCTYPE a>
@@ -1087,6 +1175,7 @@ c NOTATION () #IMPLIED
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;13;empty allowed token;;;m
 #document
 | <!DOCTYPE a>
@@ -1101,6 +1190,7 @@ c ()#IMPLIED
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;4;empty allowed token;;;m
 3;5;no space before default value;;;m
 #document
@@ -1116,6 +1206,7 @@ c NOTATION ()#IMPLIED
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;13;empty allowed token;;;m
 3;14;no space before default value;;;m
 #document
@@ -1131,6 +1222,7 @@ c() #IMPLIED
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;2;no space before paren;;;m
 3;3;empty allowed token;;;m
 #document
@@ -1146,6 +1238,7 @@ c NOTATION() #IMPLIED
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;11;no space before paren;;;m
 3;12;empty allowed token;;;m
 #document
@@ -1161,6 +1254,7 @@ c () "x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;4;empty allowed token;;;m
 #document
 | <!DOCTYPE a>
@@ -1175,6 +1269,7 @@ c NOTATION () "x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;13;empty allowed token;;;m
 #document
 | <!DOCTYPE a>
@@ -1189,6 +1284,7 @@ c ()"x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;4;empty allowed token;;;m
 3;5;no space before default value;;;m
 #document
@@ -1204,6 +1300,7 @@ c NOTATION ()"x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;13;empty allowed token;;;m
 3;14;no space before default value;;;m
 #document
@@ -1219,6 +1316,7 @@ c (y) "x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1232,6 +1330,7 @@ c (yz) "x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1245,6 +1344,7 @@ c (y|z) "x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1258,6 +1358,7 @@ c (y | z | abc) "x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1271,6 +1372,7 @@ c (   ABC  |DEF|G  ) "x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1284,6 +1386,7 @@ c (|) "x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;4;empty allowed token;;;m
 3;5;empty allowed token;;;m
 #document
@@ -1299,6 +1402,7 @@ c (|y) "x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;4;empty allowed token;;;m
 #document
 | <!DOCTYPE a>
@@ -1313,6 +1417,7 @@ c (y|) "x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;6;empty allowed token;;;m
 #document
 | <!DOCTYPE a>
@@ -1327,6 +1432,7 @@ c (y||z) "x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;6;empty allowed token;;;m
 #document
 | <!DOCTYPE a>
@@ -1341,6 +1447,7 @@ c (||) "x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;4;empty allowed token;;;m
 3;5;empty allowed token;;;m
 3;6;empty allowed token;;;m
@@ -1355,6 +1462,7 @@ c (||) "x"
 <!ATTLIST b
 c (
 #errors
+1;1;no XML decl;;;s
 3;4;unclosed md;;;m
 3;4;unclosed internal subset;;;m
 3;4;no root element;;;m
@@ -1366,6 +1474,7 @@ c (
 <!ATTLIST b
 c (\u0020
 #errors
+1;1;no XML decl;;;s
 3;5;unclosed md;;;m
 3;5;unclosed internal subset;;;m
 3;5;no root element;;;m
@@ -1377,6 +1486,7 @@ c (\u0020
 <!ATTLIST b
 c (x
 #errors
+1;1;no XML decl;;;s
 3;5;unclosed md;;;m
 3;5;unclosed internal subset;;;m
 3;5;no root element;;;m
@@ -1388,6 +1498,7 @@ c (x
 <!ATTLIST b
 c (xy
 #errors
+1;1;no XML decl;;;s
 3;6;unclosed md;;;m
 3;6;unclosed internal subset;;;m
 3;6;no root element;;;m
@@ -1399,6 +1510,7 @@ c (xy
 <!ATTLIST b
 c (x\u0020
 #errors
+1;1;no XML decl;;;s
 3;6;unclosed md;;;m
 3;6;unclosed internal subset;;;m
 3;6;no root element;;;m
@@ -1410,6 +1522,7 @@ c (x\u0020
 <!ATTLIST b
 c (x|
 #errors
+1;1;no XML decl;;;s
 3;6;unclosed md;;;m
 3;6;unclosed internal subset;;;m
 3;6;no root element;;;m
@@ -1422,6 +1535,7 @@ c (x|
 c (>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 3;4;unclosed allowed tokens;;;m
 #document
@@ -1435,6 +1549,7 @@ c (>
 c ( >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 3;5;unclosed allowed tokens;;;m
 #document
@@ -1448,6 +1563,7 @@ c ( >
 c (a>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 3;5;unclosed allowed tokens;;;m
 #document
@@ -1461,6 +1577,7 @@ c (a>
 c (ab>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 3;6;unclosed allowed tokens;;;m
 #document
@@ -1474,6 +1591,7 @@ c (ab>
 c (x >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 3;6;unclosed allowed tokens;;;m
 #document
@@ -1486,6 +1604,7 @@ c (x >
 <!ATTLIST b
 c (x)
 #errors
+1;1;no XML decl;;;s
 3;6;no root element;;;m
 3;6;unclosed internal subset;;;m
 3;6;unclosed md;;;m
@@ -1497,6 +1616,7 @@ c (x)
 <!ATTLIST b
 c (x)\u0009
 #errors
+1;1;no XML decl;;;s
 3;7;no root element;;;m
 3;7;unclosed internal subset;;;m
 3;7;unclosed md;;;m
@@ -1509,6 +1629,7 @@ c (x)\u0009
 c (x|>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 3;6;unclosed allowed tokens;;;m
 #document
@@ -1522,6 +1643,7 @@ c (x|>
 c (x y) #IMPLIED>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;5;space in allowed token;;;m
 #document
 | <!DOCTYPE a>
@@ -1535,6 +1657,7 @@ c (x y) #IMPLIED>
 c (x y  |z) #IMPLIED>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;5;space in allowed token;;;m
 #document
 | <!DOCTYPE a>
@@ -1548,6 +1671,7 @@ c (x y  |z) #IMPLIED>
 c (x y   z) #IMPLIED>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;5;space in allowed token;;;m
 3;9;space in allowed token;;;m
 #document
@@ -1562,6 +1686,7 @@ c (x y   z) #IMPLIED>
 c (x     y) #IMPLIED>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;9;space in allowed token;;;m
 #document
 | <!DOCTYPE a>
@@ -1576,6 +1701,7 @@ c (\u0000yz) "x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;4;NULL;;;m
 #document escaped
 | <!DOCTYPE a>
@@ -1590,6 +1716,7 @@ c (x\u0000yz) "x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;5;NULL;;;m
 #document escaped
 | <!DOCTYPE a>
@@ -1604,6 +1731,7 @@ c (  \u0000yz) "x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;6;NULL;;;m
 #document escaped
 | <!DOCTYPE a>
@@ -1618,6 +1746,7 @@ c (a \u0000yz) "x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;5;space in allowed token;;;m
 3;6;NULL;;;m
 #document escaped
@@ -1633,6 +1762,7 @@ c (a|\u0000yz) "x"
 >
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;6;NULL;;;m
 #document escaped
 | <!DOCTYPE a>
@@ -1645,6 +1775,7 @@ c (a|\u0000yz) "x"
 <!attlist b>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 2;3;lowercase keyword;ATTLIST;;m
 #document
@@ -1657,6 +1788,7 @@ c (a|\u0000yz) "x"
 <!ATTLISt b>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 2;3;lowercase keyword;ATTLIST;;m
 #document
@@ -1669,6 +1801,7 @@ c (a|\u0000yz) "x"
 <!aTTLIST b>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 2;3;lowercase keyword;ATTLIST;;m
 #document
@@ -1682,6 +1815,7 @@ c (a|\u0000yz) "x"
 <!ATTLIST b>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 3;1;duplicate attlist decl;;b;w
 3;1;empty attlist decl;;b;w
@@ -1696,6 +1830,7 @@ c (a|\u0000yz) "x"
 <!ATTLIST b>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;1;empty attlist decl;;b;w
 #document
 | <!DOCTYPE a>
@@ -1708,6 +1843,7 @@ c (a|\u0000yz) "x"
 <!ELEMENT b ANY>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 #document
 | <!DOCTYPE a>
@@ -1719,6 +1855,7 @@ c (a|\u0000yz) "x"
 <!ATTLIST b
 c CDATA #
 #errors
+1;1;no XML decl;;;s
 3;10;no root element;;;m
 3;10;unclosed internal subset;;;m
 3;10;unclosed md;;;m
@@ -1730,6 +1867,7 @@ c CDATA #
 <!ATTLIST b
 c CDATA #IMPLIED
 #errors
+1;1;no XML decl;;;s
 3;17;no root element;;;m
 3;17;unclosed internal subset;;;m
 3;17;unclosed md;;;m
@@ -1741,6 +1879,7 @@ c CDATA #IMPLIED
 <!ATTLIST b
 c CDATA #IMPLIED\u0009\u0020
 #errors
+1;1;no XML decl;;;s
 3;19;no root element;;;m
 3;19;unclosed internal subset;;;m
 3;19;unclosed md;;;m
@@ -1754,6 +1893,7 @@ c CDATA #IMPLIED
 c CDATA #REQUIRED>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 4;1;duplicate attrdef;;c;w
 #document
 | <!DOCTYPE a>
@@ -1769,6 +1909,7 @@ c CDATA #IMPLIED>
 c CDATA #REQUIRED>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 4;1;duplicate attlist decl;;b;w
 5;1;duplicate attrdef;;c;w
 #document
@@ -1784,8 +1925,10 @@ c CDATA #REQUIRED>
 <!ATTLIST d e CDATA #IMPLIED>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 3;1;pe not declared;;x;;m
 3;1;stop processing;;;i
+4;1;xml:dtd:attlist ignored;;;w
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1816,6 +1959,7 @@ true
 <!ATTLIST b c CDATA "ab\u0020\u0009\u000C\u000D\u000Acd">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;26;control char;;U+000C;m
 #document
 | <!DOCTYPE a>
@@ -1829,6 +1973,7 @@ true
 ]>
 <a/>
 #errors
+1;1;no XML decl;;;s
 2;45;invalid character reference;U+000C;;m
 #document escaped
 | <!DOCTYPE a>
@@ -1841,6 +1986,7 @@ true
 <!ATTLIST b c CDATA "ab\u0000cd">
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;24;NULL;;;m
 #document escaped
 | <!DOCTYPE a>
@@ -1853,6 +1999,7 @@ true
 <!ATTLIST b c CDATA 'ab\u0000cd'>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;24;NULL;;;m
 #document escaped
 | <!DOCTYPE a>
@@ -1865,6 +2012,7 @@ true
 <!ATTLIST b c CDATA ab\u0000cd>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;21;unquoted attr value;;;m
 2;23;NULL;;;m
 #document escaped
@@ -1878,6 +2026,7 @@ true
 <!ATTLIST b c CDATA \u0000cd>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;21;unquoted attr value;;;m
 2;21;NULL;;;m
 #document escaped

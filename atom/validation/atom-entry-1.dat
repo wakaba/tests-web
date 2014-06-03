@@ -1,0 +1,124 @@
+#data
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://hoge/1</id>
+  <link rel="alternate" href=""/>
+  <author><name>a</name></author>
+  <updated>2014-01-02T00:00:00Z</updated>
+  <title>aa</title>
+</entry>
+#is-document
+#errors
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://hoge/1</id>
+  <link rel="alternate" href=""/>
+  <author><name>a</name></author>
+  <updated>2014-01-02T00:00:00Z</updated>
+  <title>aa</title>
+  <rights>aa</rights>
+  <rights>aa</rights>
+</entry>
+#errors
+/entry/rights;element not allowed:duplicate;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://hoge/1</id>
+  <link rel="alternate" href=""/>
+  <author><name>a</name></author>
+  <updated>2014-01-02T00:00:00Z</updated>
+  <title>aa</title>
+  <id>http://aa/</id>
+</entry>
+#errors
+/entry/id;element not allowed:duplicate;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://hoge/1</id>
+  <link rel="alternate" href=""/>
+  <author><name>a</name></author>
+  <updated>2014-01-02T00:00:00Z</updated>
+  <title>aa</title>
+  <!---->abc<!---->
+</entry>
+#errors
+/entry/"abc";character not allowed;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://hoge/1</id>
+  <link rel="alternate" href=""/>
+  <author><name>a</name></author>
+  <updated>2014-01-02T00:00:00Z</updated>
+  <title>aa</title>
+  <link rel="alternate" href=""/>
+</entry>
+#errors
+/entry/link;element not allowed:atom|link rel=alternate;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://hoge/1</id>
+  <link rel="alternate" href=""/>
+  <author><name>a</name></author>
+  <updated>2014-01-02T00:00:00Z</updated>
+  <title>aa</title>
+  <link rel="alternate" href="" hreflang="en"/>
+</entry>
+#errors
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://hoge/1</id>
+  <link rel="alternate" href=""/>
+  <author><name>a</name></author>
+  <updated>2014-01-02T00:00:00Z</updated>
+  <title>aa</title>
+  <link rel="alternate" href="" hreflang="en"/>
+  <hoge xmlns=""/>
+</entry>
+#errors
+/entry/hoge;element not allowed;m
+/entry/hoge;unknown namespace element;w
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://hoge/1</id>
+  <link rel="alternate" href=""/>
+  <author><name>a</name></author>
+  <updated>2014-01-02T00:00:00Z</updated>
+  <title>aa</title>
+  <link rel="alternate" href="" hreflang="en"/>
+  <hoge xmlns="http://hoge/"><fuga/></hoge>
+</entry>
+#errors
+/entry/hoge;unknown namespace element;w
+/entry/hoge/fuga;unknown namespace element;w
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://hoge/1</id>
+  <link rel="alternate" href=""/>
+  <author><name>a</name></author>
+  <updated>2014-01-02T00:00:00Z</updated>
+  <title>aa</title>
+  <link rel="alternate" href="" hreflang="en"/>
+  <app:edited xmlns:app="http://www.w3.org/2007/app">2013-01-12T01:12:44Z</app:edited>
+</entry>
+#errors
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom">
+  <id>http://hoge/1</id>
+  <link rel="alternate" href=""/>
+  <author><name>a</name></author>
+  <updated>2014-01-02T00:00:00Z</updated>
+  <title>aa</title>
+  <link rel="alternate" href="" hreflang="en"/>
+  <app:edited xmlns:app="http://www.w3.org/2007/app">2013-01-12T01:12:44Z</app:edited>
+  <app:edited xmlns:app="http://www.w3.org/2007/app">2013-01-12T01:12:44Z</app:edited>
+</entry>
+#errors
+/entry/edited;element not allowed:duplicate;m

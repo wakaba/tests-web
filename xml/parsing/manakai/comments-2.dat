@@ -4,6 +4,8 @@
 <?x?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
+3;1;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?x ?>
@@ -15,6 +17,8 @@
 <?x?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
+3;1;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?x ?>
@@ -27,6 +31,8 @@
 <!--]><b/>-->
 ]><a/>
 #errors
+1;1;no XML decl;;;s
+3;1;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?x ?>
@@ -38,7 +44,9 @@
 <?x?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;bare stago;;;m
+3;1;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?x ?>
@@ -50,7 +58,9 @@
 <?x?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;bogus comment;;;m
+3;1;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?x ?>
@@ -62,9 +72,11 @@
 <?x?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;bare stago;;;m
 2;4;string in internal subset;;;m
 2;7;bare stago;;;m
+3;1;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?x ?>
@@ -76,7 +88,9 @@
 <?x?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;1;bare stago;;;m
+3;1;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?x ?>
@@ -87,7 +101,9 @@
 <!--><?y?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;5;bogus comment;;;m
+2;6;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?y ?>
@@ -97,6 +113,8 @@
 <!DOCTYPE a[
 <?x?><!--
 #errors
+1;1;no XML decl;;;s
+2;1;xml:dtd:pi;;;w
 2;10;unclosed comment;;;m
 2;10;unclosed internal subset;;;m
 2;10;no root element;;;m
@@ -109,7 +127,9 @@
 <!---><?y?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
 2;6;bogus comment;;;m
+2;7;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?y ?>
@@ -119,6 +139,8 @@
 <!DOCTYPE a[
 <?x?><!---
 #errors
+1;1;no XML decl;;;s
+2;1;xml:dtd:pi;;;w
 2;11;unclosed comment;;;m
 2;11;unclosed internal subset;;;m
 2;11;no root element;;;m
@@ -130,6 +152,8 @@
 <!DOCTYPE a[
 <?x?><!--z
 #errors
+1;1;no XML decl;;;s
+2;1;xml:dtd:pi;;;w
 2;11;unclosed comment;;;m
 2;11;unclosed internal subset;;;m
 2;11;no root element;;;m
@@ -141,6 +165,8 @@
 <!DOCTYPE a[
 <?x?><!--z-
 #errors
+1;1;no XML decl;;;s
+2;1;xml:dtd:pi;;;w
 2;12;unclosed comment;;;m
 2;12;unclosed internal subset;;;m
 2;12;no root element;;;m
@@ -153,6 +179,8 @@
 <!--z--><?y?>
 ]><a/>
 #errors
+1;1;no XML decl;;;s
+2;9;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?y ?>
@@ -162,6 +190,8 @@
 <!DOCTYPE a[
 <?x?><!--z--
 #errors
+1;1;no XML decl;;;s
+2;1;xml:dtd:pi;;;w
 2;13;unclosed comment;;;m
 2;13;unclosed internal subset;;;m
 2;13;no root element;;;m

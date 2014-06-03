@@ -1,0 +1,678 @@
+#data
+<feed xmlns="http://purl.org/atom/ns#"></feed>
+#errors
+/feed;element:obsolete;m
+/feed;attribute missing;version;m
+/feed;attribute missing;xml:lang;s
+/feed;child element missing:atom:link:alternate;m
+/feed;child element missing:atom;link;m
+/feed;child element missing:atom;modified;m
+/feed;child element missing:atom;title;m
+
+#data
+<feed version="0.3" xmlns="http://purl.org/atom/ns#"></feed>
+#errors
+/feed;element:obsolete;m
+/feed;attribute missing;xml:lang;s
+/feed;child element missing:atom:link:alternate;m
+/feed;child element missing:atom;link;m
+/feed;child element missing:atom;modified;m
+/feed;child element missing:atom;title;m
+/feed/@version;attr:obsolete;m
+
+#data
+<feed version="0.0" xmlns="http://purl.org/atom/ns#"></feed>
+#errors
+/feed;element:obsolete;m
+/feed;attribute missing;xml:lang;s
+/feed;child element missing:atom:link:alternate;m
+/feed;child element missing:atom;link;m
+/feed;child element missing:atom;modified;m
+/feed;child element missing:atom;title;m
+/feed/@version;attr:obsolete;m
+/feed/@version;invalid attribute value;m
+
+#data
+<feed version="" xmlns="http://purl.org/atom/ns#"></feed>
+#errors
+/feed;element:obsolete;m
+/feed;attribute missing;xml:lang;s
+/feed;child element missing:atom:link:alternate;m
+/feed;child element missing:atom;link;m
+/feed;child element missing:atom;modified;m
+/feed;child element missing:atom;title;m
+/feed/@version;attr:obsolete;m
+/feed/@version;invalid attribute value;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#"></feed>
+#errors
+/feed;element:obsolete;m
+/feed;child element missing:atom:link:alternate;m
+/feed;child element missing:atom;link;m
+/feed;child element missing:atom;modified;m
+/feed;child element missing:atom;title;m
+/feed/@version;attr:obsolete;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#" hoge="">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/@hoge;attribute not defined;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="self" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed;child element missing:atom:link:alternate;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/link;element not allowed:atom|link rel=alternate;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <link rel="alternate" href="http://hoge/" type="text/plain"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/link/@type;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/" type="text/plain"/>
+  <link rel="alternate" href="http://hoge/" type="text/plain"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/link/@type;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/link/@type;attr:obsolete;m
+/feed/link;element not allowed:atom|link rel=alternate;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/" type="text/plain "/>
+  <link rel="alternate" href="http://hoge/" type="text/plain"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/link/@type;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/link/@type;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <author><name>aM.</name></author>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/author;element:obsolete;m
+/feed/author/name;element:obsolete;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <author><name>aM.</name></author>
+  <author><name>aM.</name></author>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/author;element:obsolete;m
+/feed/author/name;element:obsolete;m
+/feed/author;element:obsolete;m
+/feed/author/name;element:obsolete;m
+/feed/author;element not allowed:duplicate;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <contributor><name>aM.</name></contributor>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/contributor;element:obsolete;m
+/feed/contributor/name;element:obsolete;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <contributor><name>aM.</name></contributor>
+  <contributor><name>aM.</name></contributor>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/contributor;element:obsolete;m
+/feed/contributor/name;element:obsolete;m
+/feed/contributor;element:obsolete;m
+/feed/contributor/name;element:obsolete;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <tagline>aM.</tagline>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/tagline;element:obsolete;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <tagline>aM.</tagline>
+  <tagline>aM.</tagline>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/tagline;element:obsolete;m
+/feed/tagline;element:obsolete;m
+/feed/tagline;element not allowed:duplicate;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <id>http://hoge/aM.</id>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/id;element:obsolete;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <id>aM.</id>
+  <id>aM.</id>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/id;element:obsolete;m
+/feed/id;element:obsolete;m
+/feed/id;element not allowed:duplicate;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <generator>http://hoge/aM.</generator>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/generator;element:obsolete;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <generator>aM.</generator>
+  <generator>aM.</generator>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/generator;element:obsolete;m
+/feed/generator;element:obsolete;m
+/feed/generator;element not allowed:duplicate;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <copyright>http://hoge/aM.</copyright>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/copyright;element:obsolete;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <copyright>aM.</copyright>
+  <copyright>aM.</copyright>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/copyright;element:obsolete;m
+/feed/copyright;element:obsolete;m
+/feed/copyright;element not allowed:duplicate;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <info>http://hoge/aM.</info>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/info;element:obsolete;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <info>aM.</info>
+  <info>aM.</info>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/info;element:obsolete;m
+/feed/info;element:obsolete;m
+/feed/info;element not allowed:duplicate;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/modified;element not allowed:duplicate;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <entry>
+    <title>aa</title>
+    <modified>3020-01-03T00:12:33Z</modified>
+    <link rel="alternate" href="http://hoge/"/>
+  </entry>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/entry;element:obsolete;m
+/feed/entry/title;element:obsolete;m
+/feed/entry/modified;element:obsolete;m
+/feed/entry/link;element:obsolete;m
+/feed/entry/link/@href;attr:obsolete;m
+/feed/entry/link/@rel;attr:obsolete;m
+/feed/entry;child element missing:atom;issued;m
+/feed;child element missing:atom;author;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <entry>
+    <title>aa</title>
+    <modified>3020-01-03T00:12:33Z</modified>
+    <link rel="alternate" href="http://hoge/"/>
+  </entry>
+  <title>aa</title>
+  <entry>
+    <title>aa</title>
+    <modified>3020-01-03T00:12:33Z</modified>
+    <link rel="alternate" href="http://hoge/"/>
+  </entry>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/entry;element:obsolete;m
+/feed/entry/title;element:obsolete;m
+/feed/entry/modified;element:obsolete;m
+/feed/entry/link;element:obsolete;m
+/feed/entry/link/@href;attr:obsolete;m
+/feed/entry/link/@rel;attr:obsolete;m
+/feed/entry;child element missing:atom;issued;m
+/feed/title;element:obsolete;m
+/feed/entry;element:obsolete;m
+/feed/entry/title;element:obsolete;m
+/feed/entry/modified;element:obsolete;m
+/feed/entry/link;element:obsolete;m
+/feed/entry/link/@href;attr:obsolete;m
+/feed/entry/link/@rel;attr:obsolete;m
+/feed/entry;child element missing:atom;issued;m
+/feed;child element missing:atom;author;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <foo>aa</foo>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/foo;element not allowed;m
+/feed/foo;element not defined;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <foo xmlns="">aa</foo>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/foo;element not allowed;m
+/feed/foo;unknown namespace element;w
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <foo xmlns="http://xxx/a">aa</foo>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/foo;unknown namespace element;w
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <!---->aa<!---->
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/"aa";character not allowed;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <entry>
+    <title>aa</title>
+    <modified>3020-01-03T00:12:33Z</modified>
+    <link rel="alternate" href="http://hoge/"/>
+    <author><name>aaM</name></author>
+  </entry>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/entry;element:obsolete;m
+/feed/entry/title;element:obsolete;m
+/feed/entry/modified;element:obsolete;m
+/feed/entry/link;element:obsolete;m
+/feed/entry/link/@href;attr:obsolete;m
+/feed/entry/link/@rel;attr:obsolete;m
+/feed/entry;child element missing:atom;issued;m
+/feed/entry/author;element:obsolete;m
+/feed/entry/author/name;element:obsolete;m
+
+#data
+<feed version="0.3" xml:lang="en" xmlns="http://purl.org/atom/ns#">
+  <link rel="alternate" href="http://hoge/"/>
+  <modified>3020-01-03T00:12:33Z</modified>
+  <title>aa</title>
+  <entry>
+    <title>aa</title>
+    <modified>3020-01-03T00:12:33Z</modified>
+    <link rel="alternate" href="http://hoge/"/>
+    <author><name>aaM</name></author>
+  </entry>
+  <entry>
+    <title>aa</title>
+    <modified>3020-01-03T00:12:33Z</modified>
+    <link rel="alternate" href="http://hoge/"/>
+  </entry>
+</feed>
+#errors
+/feed;element:obsolete;m
+/feed/@version;attr:obsolete;m
+/feed/link;element:obsolete;m
+/feed/link/@href;attr:obsolete;m
+/feed/link/@rel;attr:obsolete;m
+/feed/modified;element:obsolete;m
+/feed/title;element:obsolete;m
+/feed/entry;element:obsolete;m
+/feed/entry/title;element:obsolete;m
+/feed/entry/modified;element:obsolete;m
+/feed/entry/link;element:obsolete;m
+/feed/entry/link/@href;attr:obsolete;m
+/feed/entry/link/@rel;attr:obsolete;m
+/feed/entry;child element missing:atom;issued;m
+/feed/entry/author;element:obsolete;m
+/feed/entry/author/name;element:obsolete;m
+/feed/entry;element:obsolete;m
+/feed/entry/title;element:obsolete;m
+/feed/entry/modified;element:obsolete;m
+/feed/entry/link;element:obsolete;m
+/feed/entry/link/@href;attr:obsolete;m
+/feed/entry/link/@rel;attr:obsolete;m
+/feed/entry;child element missing:atom;issued;m
+/feed;child element missing:atom;author;m

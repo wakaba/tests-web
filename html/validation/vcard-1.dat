@@ -1,0 +1,98 @@
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope itemtype="http://microformats.org/profile/hcard">
+  <time itemprop="bday">2012-04-12</time>
+</div>
+#errors
+/div;microdata:no required itemprop;n;m
+/div;microdata:no required itemprop;fn;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope itemtype="http://microformats.org/profile/hcard">
+  <span itemprop="fn">Foo bar</span>
+  <span itemprop="n" itemscope>Hoge Fuga</span>
+  <time itemprop="bday">2012-04</time>
+</div>
+#errors
+/div/time;date:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope itemtype="http://microformats.org/profile/hcard">
+  <time itemprop="tz">2012-04-12</time>
+</div>
+#errors
+/div;microdata:no required itemprop;n;m
+/div;microdata:no required itemprop;fn;m
+/div/time;tz:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope itemtype="http://microformats.org/profile/hcard">
+  <time itemprop="tz">+00:01</time>
+</div>
+#errors
+/div;microdata:no required itemprop;n;m
+/div;microdata:no required itemprop;fn;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope itemtype="http://microformats.org/profile/hcard">
+  <time itemprop="tz">Z</time>
+</div>
+#errors
+/div;microdata:no required itemprop;n;m
+/div;microdata:no required itemprop;fn;m
+/div/time;tz:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope itemtype="http://microformats.org/profile/hcard">
+  <time itemprop="tz">X</time>
+</div>
+#errors
+/div;microdata:no required itemprop;n;m
+/div;microdata:no required itemprop;fn;m
+/div/time;duration:syntax error;m
+/div/time;tz:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope itemtype="http://microformats.org/profile/hcard">
+  <time itemprop="tz" datetime="Z">X</time>
+</div>
+#errors
+/div;microdata:no required itemprop;n;m
+/div;microdata:no required itemprop;fn;m
+/div/time;tz:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope itemtype="http://microformats.org/profile/hcard">
+  <time itemprop="tz" datetime="Z?">X</time>
+</div>
+#errors
+/div;microdata:no required itemprop;n;m
+/div;microdata:no required itemprop;fn;m
+/div/time;tz:syntax error;m
+/div/time/@datetime;duration:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope itemtype="http://microformats.org/profile/hcard">
+  <time itemprop="rev" datetime="2012-04-01 00:12:11">X</time>
+</div>
+#errors
+/div;microdata:no required itemprop;n;m
+/div;microdata:no required itemprop;fn;m
+/div/time;datetime:syntax error;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml"
+    itemscope itemtype="http://microformats.org/profile/hcard">
+  <time itemprop="rev" datetime="2012-04-01 00:12:11+01:12">X</time>
+</div>
+#errors
+/div;microdata:no required itemprop;n;m
+/div;microdata:no required itemprop;fn;m

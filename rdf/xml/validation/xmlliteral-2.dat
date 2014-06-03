@@ -1,0 +1,12 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description>
+    <hoge xmlns="http://foo/" rdf:parseType="literal?">
+      <p xmlns="http://www.w3.org/1999/xhtml">a<r>a</r></p>
+    </hoge>
+  </rdf:Description>
+</rdf:RDF>
+#errors
+/RDF/Description/hoge/@parseType;parse type other;w
+/RDF/Description/hoge/p/r;element not defined;m
+/RDF/Description/hoge/p/r;element not allowed:phrasing;m

@@ -1,0 +1,30 @@
+#data
+exception Foo {
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "exception",
+      "name": "Foo",
+      "members": []
+    }
+  ]
+}
+
+#data
+exception Foo : Bar {
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "exception",
+      "name": "Foo",
+      "super_name": "Bar",
+      "members": []
+    }
+  ]
+}
