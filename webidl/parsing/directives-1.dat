@@ -239,3 +239,40 @@ interface A {
     }
   ]
 }
+
+#data
+typedef (Foo or [*id="Bar"*]Bar) Baz;
+#parsed
+{
+  "definitions": [{
+    "index": 0,
+    "definition_type": "typedef",
+    "name": "Baz",
+    "type_union": [
+      {"type_name": "Foo"},
+      {"type_name": "Bar", "id": "Bar"}
+    ]
+  }]
+}
+
+#data
+interface A {
+  [*id="a"*]setter [*id="b"*]creator DOMString ();
+};
+#parsed
+{
+  "definitions": [{
+    "name": "A",
+    "definition_type": "interface",
+    "index": 0,
+    "members": [{
+      "index": 16,
+      "member_type": "operation",
+      "type": "DOMString",
+      "creator": 1,
+      "setter": 1,
+      "id": "a",        
+      "arguments": []
+    }]
+  }]
+}
