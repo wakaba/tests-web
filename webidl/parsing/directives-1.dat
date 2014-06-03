@@ -228,7 +228,7 @@ interface A {
       "members": [
         {
           "index": 16,
-          "id": "ab",
+          "legacycaller_id": "ab",
           "member_type": "operation",
           "legacycaller": 1,
           "type": "any",
@@ -271,8 +271,60 @@ interface A {
       "type": "DOMString",
       "creator": 1,
       "setter": 1,
-      "id": "a",        
+      "creator_id": "b",
+      "setter_id": "a", 
       "arguments": []
+    }]
+  }]
+}
+
+#data
+interface A {
+  [*id="a"*]setter [*id="b"*]creator DOMString [*id="ff"*]abc ();
+};
+#parsed
+{
+  "definitions": [{
+    "name": "A",
+    "definition_type": "interface",
+    "index": 0,
+    "members": [{
+      "index": 16,
+      "member_type": "operation",
+      "type": "DOMString",
+      "creator": 1,
+      "setter": 1,
+      "creator_id": "b",
+      "setter_id": "a", 
+      "name": "abc",
+      "id":"ff",
+      "arguments": []
+    }]
+  }]
+}
+
+#data
+interface A {
+  void foo (optional DOMString hoge = [*id="aa"*]"abcx");
+};
+#parsed
+{
+  "definitions": [{
+    "definition_type": "interface",
+    "name": "A",
+    "index": 0,
+    "members": [{
+      "index": 16,
+      "member_type": "operation",
+      "name": "foo",
+      "type": "void",
+      "arguments": [{
+        "name": "hoge",
+        "type": "DOMString",
+        "value_string": "abcx",
+        "optional": 1,
+        "index": 26
+      }]
     }]
   }]
 }
