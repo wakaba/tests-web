@@ -283,3 +283,56 @@ interface A {
     }]
   }}]
 }
+
+#data
+interface A {
+  void hoge (any... a);
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoge": ["operation", {
+        "overload_set": {
+          "": {
+            "type": "void",
+            "args": []
+          },
+          "any": {
+            "type": "void",
+            "args": [
+              {"name":"a","type":"any","optionality":"variadic"}
+            ]
+          }
+        }               
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  legacycaller void (any... a);
+};
+#errors
+1;35;webidl:bad optionality:special;;a;m
+#processed
+{
+  "A": ["interface", {
+    "legacycaller": ["operation", {
+        "overload_set": {
+          "": {
+            "type": "void",
+            "args": []
+          },
+          "any": {
+            "type": "void",
+            "args": [
+              {"name":"a","type":"any","optionality":"variadic"}
+            ]
+          }
+        }               
+    }],
+    "members": {}
+  }]
+}

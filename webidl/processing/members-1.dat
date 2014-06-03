@@ -1181,7 +1181,7 @@ interface A {
   stringifier DOMString hoge (long... foo);
 };
 #errors
-1;44;webidl:bad optionality;;foo;m
+1;44;webidl:bad optionality:special;;foo;m
 1;16;webidl:bad args;;stringifier;m
 #processed
 {
@@ -1212,7 +1212,7 @@ interface A {
   getter DOMString hoge (unsigned long... foo);
 };
 #errors
-1;39;webidl:bad optionality;;foo;m
+1;39;webidl:bad optionality:special;;foo;m
 #processed
 {
   "A": ["interface", {
@@ -1242,7 +1242,7 @@ interface A {
   getter DOMString hoge (DOMString... foo);
 };
 #errors
-1;39;webidl:bad optionality;;foo;m
+1;39;webidl:bad optionality:special;;foo;m
 #processed
 {
   "A": ["interface", {

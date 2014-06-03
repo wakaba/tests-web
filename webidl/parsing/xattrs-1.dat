@@ -304,3 +304,36 @@ interface A {
     }
   ]
 }
+
+#data
+interface A {
+  [PutForwards=href, Unforgeable] readonly attribute Hoge foo;
+};
+#parsed
+{
+  "definitions": [{
+    "index": 0,
+    "name": "A",
+    "definition_type": "interface",
+    "members": [
+      {
+        "index": 16,
+        "name": "foo",
+        "readonly": 1,
+        "member_type": "attribute",
+        "type_name": "Hoge",
+        "extended_attributes": [
+          {
+            "index": 17,
+            "name": "PutForwards",
+            "value_names": ["href"]
+          },
+          {
+            "index": 35,
+            "name": "Unforgeable"
+          }
+        ]
+      }
+    ]
+  }]
+}
