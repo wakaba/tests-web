@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<title>HTML Import</title>
+
+<p class=FAIL id=result>FAIL (noscript)
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script error or rel=import not implemented)';
+
+  function imported (el) {
+    if (el.import) {
+      result.textContent = 'PASS';
+      result.className = 'PASS';
+    } else {
+      result.textContent = 'FAIL (' + el.import + ')';
+    }
+  }
+
+  var link = document.createElement ('link');
+  link.rel = 'import';
+  link.href = 'imported-1.html';
+  link.onload = function () { imported (this) };
+  document.head.appendChild (link);
+</script>
