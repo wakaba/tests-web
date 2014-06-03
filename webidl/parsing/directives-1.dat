@@ -250,8 +250,21 @@ typedef (Foo or [*id="Bar"*]Bar) Baz;
     "name": "Baz",
     "type_union": [
       {"type_name": "Foo"},
-      {"type_name": "Bar", "id": "Bar"}
+      {"type_name": "Bar"}
     ]
+  }]
+}
+
+#data
+typedef [*id="Bar"*]Bar [*id="Baz"*]Baz;
+#parsed
+{
+  "definitions": [{
+    "index": 0,
+    "definition_type": "typedef",
+    "name": "Baz",
+    "id": "Baz",
+    "type_name": "Bar"
   }]
 }
 
