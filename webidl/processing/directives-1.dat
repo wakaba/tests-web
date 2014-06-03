@@ -1,0 +1,129 @@
+#data
+enum A { [*id="foO"*] "" };
+#processed
+{
+  "A": ["enum", {
+    "value": ["stringset", {
+      "": {"id": "foO"}
+    }]
+  }]
+}
+
+#data
+[*spec=BBB*]
+enum A { [*id="foO"*] "" };
+#processed
+{
+  "A": ["enum", {
+    "spec": "BBB",
+    "value": ["stringset", {
+      "": {"id": "foO","spec":"BBB"}
+    }]
+  }]
+}
+
+#data
+[*spec=FOO*][*obsolete*]interface A {};
+#processed
+{
+  "A": ["interface", {
+    "spec":"FOO",
+    "obsolete": 1,
+    "members": {}
+  }]
+}
+
+#data
+[*spec=FOO*][*obsolete*]interface A {
+  attribute long hoge;
+};
+#processed
+{
+  "A": ["interface", {
+    "spec":"FOO",
+    "obsolete": 1,
+    "members": {
+      "hoge": ["attribute", {
+        "type": "long",
+        "getter": 1, "setter": 1,
+        "spec": "FOO",
+        "obsolete": 1
+      }]
+    }
+  }]
+}
+
+#data
+[*spec=FOO*][*obsolete*]interface A {
+  attribute long [*id="ho-ge"*]hoge;
+};
+#processed
+{
+  "A": ["interface", {
+    "spec":"FOO",
+    "obsolete": 1,
+    "members": {
+      "hoge": ["attribute", {
+        "type": "long",
+        "getter": 1, "setter": 1,
+        "spec": "FOO",
+        "id": "ho-ge",
+        "obsolete": 1
+      }]
+    }
+  }]
+}
+
+#data
+[*spec=FOO*][*obsolete*]interface A {
+  long [*id="ho-ge"*]hoge ();
+};
+#processed
+{
+  "A": ["interface", {
+    "spec":"FOO",
+    "obsolete": 1,
+    "members": {
+      "hoge": ["operation", {
+        "overload_set": {
+          "": {
+            "type": "long",
+            "args": []
+          }
+        },
+        "spec": "FOO",
+        "id": "ho-ge",
+        "obsolete": 1
+      }]
+    }
+  }]
+}
+
+#data
+[*spec=HOGE*]
+interface [*id="A"*]A {
+  attribute long foo ;
+};
+#data
+[*spec=BBB*]
+[*obsolete*]
+partial interface [*id="partial-A"*]A {
+  attribute long bbb;
+};
+#processed
+{
+  "A": ["interface", {
+    "spec": "HOGE", 
+    "id": "A",
+    "members": {
+      "foo": ["attribute", {
+        "type": "long", "getter": 1, "setter": 1,
+        "spec": "HOGE"
+      }],
+      "bbb": ["attribute", {
+        "type": "long", "getter": 1, "setter": 1,
+        "spec": "BBB", "obsolete": 1
+      }]
+    }
+  }]
+}

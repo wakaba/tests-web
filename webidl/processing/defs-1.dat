@@ -40,14 +40,14 @@ exception B {};
 enum A { "foo" };
 #processed
 {
-  "A": ["enum", {"value": ["stringset", {"foo": 1}]}]
+  "A": ["enum", {"value": ["stringset", {"foo": {}}]}]
 }
 
 #data
 enum A { "foo", "", "bar" };
 #processed
 {
-  "A": ["enum", {"value": ["stringset", {"foo": 1, "bar": 1, "": 1}]}]
+  "A": ["enum", {"value": ["stringset", {"foo": {}, "bar": {}, "": {}}]}]
 }
 
 #data
@@ -56,7 +56,7 @@ enum A { "foo", "bar", "foo" };
 1;0;webidl:duplicate;;foo;m
 #processed
 {
-  "A": ["enum", {"value": ["stringset", {"foo": 1, "bar": 1}]}]
+  "A": ["enum", {"value": ["stringset", {"foo": {}, "bar": {}}]}]
 }
 
 #data
@@ -162,7 +162,7 @@ enum  _iterator { "abc" };
 1;0;webidl:reserved;;iterator;m
 #processed
 {
-  "iterator": ["enum", {"value": ["stringset", {"abc":1}]}]
+  "iterator": ["enum", {"value": ["stringset", {"abc":{}}]}]
 }
 
 #data
