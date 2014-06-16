@@ -1,0 +1,59 @@
+#data
+interface A {
+  void foo (long _bar);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "name": "foo",
+          "type": "void",
+          "arguments": [
+            {
+              "index": 26,
+              "name": "bar",
+              "type": "long"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  void foo (long static);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "name": "foo",
+          "type": "void",
+          "arguments": [
+            {
+              "index": 26,
+              "name": "static",
+              "type": "long"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

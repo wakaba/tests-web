@@ -1,0 +1,42 @@
+#data
+interface A {
+  attribute DOMString? hoge;
+};
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "interface", "name": "A", "members": [ {
+    "index": 16, "member_type": "attribute", "name": "hoge",
+    "type": "DOMString",
+    "type_nullable": 1
+  } ]
+} ] }
+
+#data
+interface A {
+  attribute (DOMString or object)? hoge;
+};
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "interface", "name": "A", "members": [ {
+    "index": 16, "member_type": "attribute", "name": "hoge",
+    "type_union": [
+      {"type": "DOMString"},
+      {"type": "object"}
+    ],
+    "type_nullable": 1
+  } ]
+} ] }
+
+#data
+typedef long ? A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type": "long",
+  "type_nullable": 1
+} ] }
+
+#data
+typedef any ? A;
+#errors
+12;webidl:parse error;[, ;;m

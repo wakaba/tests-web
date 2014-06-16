@@ -1,0 +1,422 @@
+#data
+interface A {
+  const boolean foo = true;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "boolean",
+          "value": "true"
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const boolean foo = false;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "boolean",
+          "value": "false"
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const long foo = 00;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "long",
+          "value_integer": 0
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const long foo = -00;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "long",
+          "value_integer": 0
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const long foo = 4200;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "long",
+          "value_integer": 4200
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const long foo = 0x411;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "long",
+          "value_integer": 1041
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const long foo = 00444;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "long",
+          "value_integer": 1092
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const long foo = 0811;
+};
+#errors
+34;webidl:parse error;;, ;;m
+
+#data
+interface A {
+  const long foo = -0x411;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "long",
+          "value_integer": -1041
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const long foo = -00444;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "long",
+          "value_integer": -1092
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const double foo = 351.4444;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "double",
+          "value_float": 351.4444
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const double foo = -00351.4444;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "double",
+          "value_float": -351.4444
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const double foo = 351e4444;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "double",
+          "value_float": 351e4444
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const double foo = -351E+444;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "double",
+          "value_float": -351e+444
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const unrestricted double foo = Infinity;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "unrestricted double",
+          "value": "Infinity"
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const unrestricted double foo = -Infinity;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "unrestricted double",
+          "value": "-Infinity"
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const unrestricted double foo = NaN;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type": "unrestricted double",
+          "value": "NaN"
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const Hoge? foo = null;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "const",
+          "name": "foo",
+          "type_name": "Hoge",
+          "type_nullable": 1,
+          "value": "null"
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  const Hoge? foo = "ff" ;
+};
+#errors
+34;webidl:parse error;true, ;;m

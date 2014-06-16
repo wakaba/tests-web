@@ -1,0 +1,89 @@
+#data
+typedef (DOMString or Node) A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_union": [
+    {"type": "DOMString"},
+    {"type_name": "Node"}
+  ]
+} ] }
+
+#data
+typedef (DOMString or Node)? A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_union": [
+    {"type": "DOMString"},
+    {"type_name": "Node"}
+  ],
+  "type_nullable": 1
+} ] }
+
+#data
+typedef (DOMString or Node)[] A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_union": [
+    {"type": "DOMString"},
+    {"type_name": "Node"}
+  ],
+  "type_array": {}
+} ] }
+
+#data
+typedef sequence <(DOMString or Node)> A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_parameterized": {
+    "type_outer": "sequence",
+    "type_union": [
+      {"type": "DOMString"},
+      {"type_name": "Node"}
+    ]
+  }
+} ] }
+
+#data
+typedef ((DOMString or Node) or long) A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_union": [
+    {"type_union": [
+      {"type": "DOMString"},
+      {"type_name": "Node"}
+    ]},
+    {"type": "long"}
+  ]
+} ] }
+
+#data
+typedef (DOMString or any) A;
+#errors
+25;webidl:parse error;[, ;;m
+
+#data
+typedef (DOMString or any[]) A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_union": [
+    {"type": "DOMString"},
+    {"type": "any", "type_array": {}}
+  ]
+} ] }
+
+#data
+typedef (DOMString or any[]?) A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_union": [
+    {"type": "DOMString"},
+    {"type": "any", "type_array": {"type_nullable": 1}}
+  ]
+} ] }

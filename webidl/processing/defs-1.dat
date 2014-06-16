@@ -1,0 +1,338 @@
+#data
+#processed
+{}
+
+#data
+interface A { };
+interface B {};
+exception C {};
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {}}],
+  "C": ["exception", {"members": {}}]
+}
+
+#data
+interface A { };
+dictionary B {};
+exception C {};
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["dictionary", {"members": {}}],
+  "C": ["exception", {"members": {}}]
+}
+
+#data
+interface A { };
+dictionary B {};
+exception B {};
+#errors
+1;34;webidl:duplicate;;B;m
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["dictionary", {"members": {}}]
+}
+
+#data
+enum A { "foo" };
+#processed
+{
+  "A": ["enum", {"value": ["stringset", {"foo": {}}]}]
+}
+
+#data
+enum A { "foo", "", "bar" };
+#processed
+{
+  "A": ["enum", {"value": ["stringset", {"foo": {}, "bar": {}, "": {}}]}]
+}
+
+#data
+enum A { "foo", "bar", "foo" };
+#errors
+1;0;webidl:duplicate;;foo;m
+#processed
+{
+  "A": ["enum", {"value": ["stringset", {"foo": {}, "bar": {}}]}]
+}
+
+#data
+callback hoge = DOMString (optional long foo);
+#processed
+{
+  "hoge": ["callback", {
+    "overload_set": {
+      "": {
+        "type": "DOMString",
+        "args": []
+      },
+      "long": {
+        "type": "DOMString",
+        "args": [
+          {"name": "foo", "type": "long", "optionality": "optional"}
+        ]
+      }
+    }
+  }]
+}
+
+#data
+callback hoge = DOMString (long... foo);
+#processed
+{
+  "hoge": ["callback", {
+    "overload_set": {
+      "": {
+        "type": "DOMString",
+        "args": []
+      },
+      "long": {
+        "type": "DOMString",
+        "args": [
+          {"name": "foo", "type": "long", "optionality": "variadic"}
+        ]
+      }
+    }
+  }]
+}
+
+#data
+interface toString { };
+#errors
+1;0;webidl:reserved;;toString;m
+#processed
+{
+  "toString": ["interface", {"members": {}}]
+}
+
+#data
+interface toString { };
+partial interface toString  { };
+#errors
+1;0;webidl:reserved;;toString;m
+#processed
+{
+  "toString": ["interface", {"members": {}}]
+}
+
+#data
+exception toJSON { };
+#errors
+1;0;webidl:reserved;;toJSON;m
+#processed
+{
+  "toJSON": ["exception", {"members": {}}]
+}
+
+#data
+dictionary constructor { };
+#errors
+1;0;webidl:reserved;;constructor;m
+#processed
+{
+  "constructor": ["dictionary", {"members": {}}]
+}
+
+#data
+dictionary constructor { };
+partial dictionary constructor { };
+#errors
+1;0;webidl:reserved;;constructor;m
+#processed
+{
+  "constructor": ["dictionary", {"members": {}}]
+}
+
+#data
+dictionary _constructor { };
+partial dictionary constructor { };
+#errors
+1;0;webidl:reserved;;constructor;m
+#processed
+{
+  "constructor": ["dictionary", {"members": {}}]
+}
+
+#data
+enum  _iterator { "abc" };
+#errors
+1;0;webidl:reserved;;iterator;m
+#processed
+{
+  "iterator": ["enum", {"value": ["stringset", {"abc":{}}]}]
+}
+
+#data
+callback _toString = void ();
+#errors
+1;0;webidl:reserved;;toString;m
+#processed
+{
+  "toString": ["callback", {"overload_set": {"": {"type": "void", "args": []}}}]
+}
+
+#data
+typedef DOMString _constructor ;
+#errors
+1;0;webidl:reserved;;constructor;m
+#processed
+{
+  "constructor": ["typedef", {"type": "DOMString"}]
+}
+
+#data
+dictionary A {
+  DOMString foo;
+  DOMString bar;
+};
+#processed
+{
+  "A": ["dictionary", {
+    "members": {
+      "foo": ["dictionary_member", {"type": "DOMString"}],
+      "bar": ["dictionary_member", {"type": "DOMString"}]
+    }
+  }]
+}
+
+#data
+dictionary A {
+  DOMString foo;
+  DOMString? foo;
+};
+#errors
+1;34;webidl:duplicate;;foo;m
+#processed
+{
+  "A": ["dictionary", {
+    "members": {
+      "foo": ["dictionary_member", {"type": "DOMString"}]
+    }
+  }]
+}
+
+#data
+partial dictionary A {
+  DOMString foo;
+};
+#data
+dictionary A {
+  DOMString bar;
+};
+#processed
+{
+  "A": ["dictionary", {
+    "members": {
+      "foo": ["dictionary_member", {"type": "DOMString"}],
+      "bar": ["dictionary_member", {"type": "DOMString"}]
+    }
+  }]
+}
+
+#data
+exception Error {};
+#errors
+1;0;webidl:reserved;;Error;m
+#processed
+{
+  "Error": ["exception", {"members": {}}]
+}
+
+#data
+exception TypeError {};
+#errors
+1;0;webidl:reserved;;TypeError;m
+#processed
+{
+  "TypeError": ["exception", {"members": {}}]
+}
+
+#data
+partial interface A { };
+#errors
+1;0;webidl:not defined;;A;m
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+partial dictionary A { };
+#errors
+1;0;webidl:not defined;;A;m
+#processed
+{
+  "A": ["dictionary", {"members": {}}]
+}
+
+#data
+partial interface A { long foo (); };
+exception A {};
+#errors
+1;38;webidl:bad type;;exception;m
+#processed
+{
+  "A": ["exception", {"members": {}}]
+}
+
+#data
+partial dictionary A { long hoge;  };
+interface A {};
+#errors
+1;38;webidl:bad type;;interface;m
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+interface A {};
+partial dictionary A { long foo;};
+#errors
+1;16;webidl:bad type;;dictionary;m
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+dictionary A {};
+partial interface A { long foo ();};
+#errors
+1;17;webidl:bad type;;interface;m
+#processed
+{
+  "A": ["dictionary", {"members": {}}]
+}
+
+#data
+partial dictionary A { long bar ; };
+partial interface A { long foo ();};
+exception A {};
+#errors
+1;37;webidl:bad type;;interface;m
+1;74;webidl:bad type;;exception;m
+#processed
+{
+  "A": ["exception", {"members": {}}]
+}
+
+#data
+interface A {
+  readonly attribute DOMString foo;
+};
+interface B : A {
+  inherit attribute DOMString foo;
+};
+#processed
+{
+  "A": ["interface", {"members": {
+    "foo": ["attribute", {"type": "DOMString", "getter": 1}]
+  }}],
+  "B": ["interface", {"members": {
+    "foo": ["attribute", {"type": "DOMString", "getter": "inherit", "setter": 1}]
+  }, "implements": {"A": {"depth": 1}}}]
+}

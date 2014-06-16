@@ -1,0 +1,17 @@
+#data
+enum A {  "foo", "foo" };
+#errors
+1;0;webidl:duplicate;;foo;m
+#processed
+{
+  "A": ["enum", {
+    "value": ["stringset", {"foo": {}}]
+  }]
+}
+
+#data
+A implements B;
+#errors
+1;0;webidl:not defined;;A;m
+#processed
+{}

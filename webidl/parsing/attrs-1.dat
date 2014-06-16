@@ -1,0 +1,71 @@
+#data
+interface A {
+  readonly attribute boolean hoge ;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "attribute",
+          "readonly": 1,
+          "name": "hoge",
+          "type": "boolean"
+        }
+      ]    
+    }
+  ]
+}
+
+#data
+interface A {
+  inherit attribute boolean hoge ;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "attribute",
+          "inherit": 1,
+          "name": "hoge",
+          "type": "boolean"
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  stringifier attribute  DOMString hoge ;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "attribute",
+          "stringifier": 1,
+          "name": "hoge",
+          "type": "DOMString"
+        }
+      ]    
+    }
+  ]
+}

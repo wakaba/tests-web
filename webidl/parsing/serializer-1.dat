@@ -1,0 +1,337 @@
+#data
+interface A {
+  serializer;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "serializer"
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  serializer = {  } ;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "serializer",
+          "value_map": {
+            "value_names": []
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  serializer = { abc };
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "serializer",
+          "value_map": {
+            "value_names": ["abc"]
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  serializer = { abc , def };
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "serializer",
+          "value_map": {
+            "value_names": ["abc", "def"]
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  serializer = { inherit, abc , def };
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "serializer",
+          "value_map": {
+            "inherit": 1,
+            "value_names": ["abc", "def"]
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  serializer = { inherit};
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "serializer",
+          "value_map": {
+            "inherit": 1,
+            "value_names": []
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  serializer = { inherit, attribute };
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "serializer",
+          "value_map": {
+            "inherit": 1,
+            "attribute": 1,
+            "value_names": []
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  serializer = {attribute};
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "serializer",
+          "value_map": {
+            "attribute": 1,
+            "value_names": []
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  serializer = {  getter };
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "serializer",
+          "value_map": {
+            "getter": 1,
+            "value_names": []
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  serializer = [  ];
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "serializer",
+          "value_list": {
+            "value_names": []
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  serializer = [ abc ];
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "serializer",
+          "value_list": {
+            "value_names": ["abc"]
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  serializer = [ abc , def ];
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "serializer",
+          "value_list": {
+            "value_names": ["abc", "def"]
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  serializer = [  getter ];
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "serializer",
+          "value_list": {
+            "getter": 1,
+            "value_names": []
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  serializer = hoge ;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "serializer",
+          "value_name": "hoge"
+        }
+      ]
+    }
+  ]
+}

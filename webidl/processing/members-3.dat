@@ -1,0 +1,131 @@
+#data
+interface A {
+  stringifier attribute DOMString foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {"type": "DOMString", "getter":1, "setter": 1}]
+    },
+    "stringifier": ["ref_attribute", "foo"]
+  }]
+}
+
+#data
+interface A {
+  stringifier readonly attribute DOMString foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {"type": "DOMString", "getter":1}]
+    },
+    "stringifier": ["ref_attribute", "foo"]
+  }]
+}
+
+#data
+interface A {
+  static stringifier DOMString ();
+};
+#errors
+1;23;webidl:parse error;readonly, ;;m
+#processed
+{}
+
+#data
+interface A {
+  stringifier static DOMString ();
+};
+#errors
+1;28;webidl:parse error;readonly, ;;m
+#processed
+{}
+
+#data
+interface A {
+  stringifier attribute DOMString foo;
+  stringifier attribute DOMString bar;
+};
+#errors
+1;55;webidl:duplicate;;stringifier;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {"type": "DOMString", "getter":1, "setter": 1}],
+      "bar": ["attribute", {"type": "DOMString", "getter":1, "setter": 1}]
+    },
+    "stringifier": ["ref_attribute", "foo"]
+  }]
+}
+
+#data
+interface A {
+  stringifier attribute DOMString foo;
+  stringifier ;
+};
+#errors
+1;55;webidl:duplicate;;stringifier;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {"type": "DOMString", "getter":1, "setter": 1}]
+    },
+    "stringifier": ["ref_attribute", "foo"]
+  }]
+}
+
+#data
+interface A {
+  stringifier ;
+  stringifier attribute DOMString foo;
+};
+#errors
+1;16;webidl:duplicate;;stringifier;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {"type": "DOMString", "getter":1, "setter": 1}]
+    },
+    "stringifier": ["ref_attribute", "foo"]
+  }]
+}
+
+#data
+interface A {
+  stringifier static attribute DOMString foo;
+};
+#errors
+1;28;webidl:parse error;readonly, ;;m
+#processed
+{}
+
+#data
+interface A {
+  static stringifier attribute DOMString foo;
+};
+#errors
+1;23;webidl:parse error;readonly, ;;m
+#processed
+{}
+
+#data
+interface A {
+  stringifier attribute DOMString? foo;
+};
+#errors
+1;16;webidl:bad type;;stringifier;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {"type": ["nullable", "DOMString"], "getter":1, "setter": 1}]
+    },
+    "stringifier": ["ref_attribute", "foo"]
+  }]
+}

@@ -1,0 +1,55 @@
+#data
+enum Foo {};
+#errors
+10;webidl:parse error;[, ;;m
+
+#data
+enum Foo {
+  "abc"
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "enum",
+      "name": "Foo",
+      "value_items": [{"value_string":"abc"}]
+    }
+  ]
+}
+
+#data
+enum Foo {
+  "abc", "ABC"
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "enum",
+      "name": "Foo",
+      "value_items": [{"value_string":"abc"}, {"value_string":"ABC"}]
+    }
+  ]
+}
+
+#data
+enum Foo {
+  "abc", "ABC", "123", ""
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "enum",
+      "name": "Foo",
+      "value_items": [{"value_string":"abc"},
+                      {"value_string":"ABC"},
+                      {"value_string": "123"},
+                      {"value_string": ""}]
+    }
+  ]
+}
