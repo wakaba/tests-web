@@ -234,3 +234,38 @@ interface A {
 };
 #errors
 38;webidl:parse error;,, ;;m
+
+#data
+interface A {
+  void hoo (optional sequence<long> abc = []);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "index": 0,
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "name": "hoo",
+          "type": "void",
+          "arguments": [
+            {
+              "index": 26,
+              "name": "abc",
+              "optional": 1,
+              "type_parameterized": {
+                "type": "long",
+                "type_outer": "sequence"
+              },
+              "value_empty_sequence": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
