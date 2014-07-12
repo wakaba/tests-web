@@ -1,7 +1,7 @@
 #data
 interface __foo {};
 #errors
-10;webidl:parse error;identifier, ;;m
+10;webidl:parse error;[, ;;m
 
 #data
 interface _foo {};
@@ -85,7 +85,7 @@ _foo {"abd"};
       "index": 0,
       "definition_type": "enum",
       "name": "foo",
-      "value_strings": ["abd"]
+      "value_items": [{"value_string": "abd"}]
     }
   ]
 }

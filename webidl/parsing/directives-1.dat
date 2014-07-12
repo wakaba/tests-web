@@ -1,0 +1,343 @@
+#data
+[*obsolete*]
+interface A {};
+#parsed
+{
+  "obsolete":1,
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "index": 13
+    }
+  ]
+}
+
+#data
+[*spec=HOGE*]
+interface A {};
+#parsed
+{
+  "spec": "HOGE",
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "index": 14
+    }
+  ]
+}
+
+#data
+[*spec=HOGE*][*obsolete*]interface A {};
+#parsed
+{
+  "spec": "HOGE",
+  "obsolete": 1,
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "index": 25
+    }
+  ]
+}
+
+#data
+interface [*id="foo-bar-baz"*]A {};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "id": "foo-bar-baz",
+      "members": [],
+      "index": 0
+    }
+  ]
+}
+
+#data
+[[*id="foo-bar-baz"*]Constructor]
+interface A {};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "index": 0,
+      "extended_attributes": [{
+        "name": "Constructor",
+        "id": "foo-bar-baz",
+        "index": 1
+      }]
+    }
+  ]
+}
+
+#data
+[NamedConstructor=[*id="foo-bar-baz"*]Hoge]
+interface A {};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "index": 0,
+      "extended_attributes": [{
+        "name": "NamedConstructor",
+        "value_names": ["Hoge"],
+        "id": "foo-bar-baz",
+        "index": 1
+      }]
+    }
+  ]
+}
+
+#data
+[NamedConstructor=[*id="foo-bar-baz"*]Hoge()]
+interface A {};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "index": 0,
+      "extended_attributes": [{
+        "name": "NamedConstructor",
+        "value_names": ["Hoge"],
+        "arguments": [],
+        "id": "foo-bar-baz",
+        "index": 1
+      }]
+    }
+  ]
+}
+
+#data
+enum A { [*id="aa-bb"*]"", [*id=""*]"Ab" };
+#parsed
+{
+  "definitions": [{
+    "index": 0,
+    "name": "A",
+    "definition_type": "enum",
+    "value_items": [
+      {
+        "value_string": "",
+        "id": "aa-bb"
+      },
+      {
+        "value_string": "Ab",
+        "id": ""
+      }
+    ]
+  }]
+}
+
+#data
+interface A {
+  [*id="ab"*] stringifier;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "id": "ab",
+          "member_type": "operation",
+          "stringifier": 1,
+          "type": "DOMString",
+          "arguments": []
+        }
+      ],
+      "index": 0
+    }
+  ]
+}
+
+#data
+interface A {
+  [*id="ab"*] serializer;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "id": "ab",
+          "member_type": "serializer"
+        }
+      ],
+      "index": 0
+    }
+  ]
+}
+
+#data
+interface A {
+  [*id="ab"*] serializer = [ab];
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "id": "ab",
+          "member_type": "serializer",
+          "value_list": {"value_names": ["ab"]}
+        }
+      ],
+      "index": 0
+    }
+  ]
+}
+
+#data
+interface A {
+  [*id="ab"*] legacycaller any ();
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "legacycaller_id": "ab",
+          "member_type": "operation",
+          "legacycaller": 1,
+          "type": "any",
+          "arguments": []
+        }
+      ],
+      "index": 0
+    }
+  ]
+}
+
+#data
+typedef (Foo or [*id="Bar"*]Bar) Baz;
+#parsed
+{
+  "definitions": [{
+    "index": 0,
+    "definition_type": "typedef",
+    "name": "Baz",
+    "type_union": [
+      {"type_name": "Foo"},
+      {"type_name": "Bar"}
+    ]
+  }]
+}
+
+#data
+typedef [*id="Bar"*]Bar [*id="Baz"*]Baz;
+#parsed
+{
+  "definitions": [{
+    "index": 0,
+    "definition_type": "typedef",
+    "name": "Baz",
+    "id": "Baz",
+    "type_name": "Bar"
+  }]
+}
+
+#data
+interface A {
+  [*id="a"*]setter [*id="b"*]creator DOMString ();
+};
+#parsed
+{
+  "definitions": [{
+    "name": "A",
+    "definition_type": "interface",
+    "index": 0,
+    "members": [{
+      "index": 16,
+      "member_type": "operation",
+      "type": "DOMString",
+      "creator": 1,
+      "setter": 1,
+      "creator_id": "b",
+      "setter_id": "a", 
+      "arguments": []
+    }]
+  }]
+}
+
+#data
+interface A {
+  [*id="a"*]setter [*id="b"*]creator DOMString [*id="ff"*]abc ();
+};
+#parsed
+{
+  "definitions": [{
+    "name": "A",
+    "definition_type": "interface",
+    "index": 0,
+    "members": [{
+      "index": 16,
+      "member_type": "operation",
+      "type": "DOMString",
+      "creator": 1,
+      "setter": 1,
+      "creator_id": "b",
+      "setter_id": "a", 
+      "name": "abc",
+      "id":"ff",
+      "arguments": []
+    }]
+  }]
+}
+
+#data
+interface A {
+  void foo (optional DOMString hoge = [*id="aa"*]"abcx");
+};
+#parsed
+{
+  "definitions": [{
+    "definition_type": "interface",
+    "name": "A",
+    "index": 0,
+    "members": [{
+      "index": 16,
+      "member_type": "operation",
+      "name": "foo",
+      "type": "void",
+      "arguments": [{
+        "name": "hoge",
+        "type": "DOMString",
+        "value_string": "abcx",
+        "optional": 1,
+        "index": 26
+      }]
+    }]
+  }]
+}

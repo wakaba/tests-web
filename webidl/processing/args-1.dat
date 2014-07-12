@@ -336,3 +336,34 @@ interface A {
     "members": {}
   }]
 }
+
+#data
+interface A {
+  void hoo (optional sequence<long> abc = []);
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoo": ["operation", {
+        "overload_set": {
+          "": {
+            "type": "void",
+            "args": []
+          },
+          "sequence[long]": {
+            "type": "void",
+            "args": [
+              {
+                "name": "abc",
+                "type": ["sequence", "long"],
+                "optionality": "optional",
+                "value": ["sequence_value", []]
+              }
+            ]
+          }
+        }
+      }]
+    }
+  }]
+}

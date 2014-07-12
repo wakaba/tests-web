@@ -1,7 +1,7 @@
 #data
 enum Foo {};
 #errors
-10;webidl:parse error;string, ;;m
+10;webidl:parse error;[, ;;m
 
 #data
 enum Foo {
@@ -14,7 +14,7 @@ enum Foo {
       "index": 0,
       "definition_type": "enum",
       "name": "Foo",
-      "value_strings": ["abc"]
+      "value_items": [{"value_string":"abc"}]
     }
   ]
 }
@@ -30,7 +30,7 @@ enum Foo {
       "index": 0,
       "definition_type": "enum",
       "name": "Foo",
-      "value_strings": ["abc", "ABC"]
+      "value_items": [{"value_string":"abc"}, {"value_string":"ABC"}]
     }
   ]
 }
@@ -46,7 +46,10 @@ enum Foo {
       "index": 0,
       "definition_type": "enum",
       "name": "Foo",
-      "value_strings": ["abc", "ABC", "123", ""]
+      "value_items": [{"value_string":"abc"},
+                      {"value_string":"ABC"},
+                      {"value_string": "123"},
+                      {"value_string": ""}]
     }
   ]
 }

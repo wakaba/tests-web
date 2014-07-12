@@ -5,6 +5,13 @@ enum A {  "foo", "foo" };
 #processed
 {
   "A": ["enum", {
-    "value": ["stringset", {"foo": 1}]
+    "value": ["stringset", {"foo": {}}]
   }]
 }
+
+#data
+A implements B;
+#errors
+1;0;webidl:not defined;;A;m
+#processed
+{}
