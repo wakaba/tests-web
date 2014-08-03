@@ -226,6 +226,157 @@ interface A {
 }
 
 #data
+[Exposed=Worker] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "Exposed",
+          "value_names": ["Worker"]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[Exposed=(Worker)] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "Exposed",
+          "value_names": ["Worker"]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[Global=(Worker)] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "Global",
+          "value_names": ["Worker"]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[PrimaryGlobal=(Worker)] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "PrimaryGlobal",
+          "value_names": ["Worker"]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[Global=Worker] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "Global",
+          "value_names": ["Worker"]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[PrimaryGlobal=Worker] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "PrimaryGlobal",
+          "value_names": ["Worker"]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[Exposed=(Worker, Window), ImplicitThis] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "Exposed",
+          "value_names": ["Worker", "Window"]
+        },
+        {
+          "index": 27,
+          "name": "ImplicitThis"
+        }
+      ]
+    }
+  ]
+}
+
+#data
 [Exposed=Worker, Window, Constructor ()] interface A { };
 #parsed
 {
