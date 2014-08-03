@@ -3,7 +3,32 @@ typedef Promise A;
 #parsed
 { "definitions": [ {
   "index": 0, "definition_type": "typedef", "name": "A",
-  "type": "Promise"
+  "type_parameterized": {
+    "type_outer": "Promise",
+    "type": "any"
+  }
+} ] }
+
+#data
+typedef Promise<any> A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_parameterized": {
+    "type_outer": "Promise",
+    "type": "any"
+  }
+} ] }
+
+#data
+typedef Promise <void> A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_parameterized": {
+    "type_outer": "Promise",
+    "type": "void"
+  }
 } ] }
 
 #data
