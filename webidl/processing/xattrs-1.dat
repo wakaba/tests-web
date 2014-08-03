@@ -528,7 +528,7 @@ interface A {
   [Clamp,EnforceRange] attribute long hoge;
 };
 #errors
-1;16;webidl:not allowed;;EnforceRange;m
+1;16;webidl:not allowed;;Clamp;m
 #processed
 {
   "A": ["interface", {
@@ -749,7 +749,7 @@ interface B {};
 interface A  {};
 interface B {};
 #errors
-1;0;webidl:not allowed;;MapClass;m
+1;0;webidl:not allowed;;ArrayClass;m
 #processed
 {
   "A": ["interface", {
