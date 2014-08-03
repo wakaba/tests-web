@@ -62,6 +62,69 @@ interface [*id="foo-bar-baz"*]A {};
 }
 
 #data
+interface [*id="foo-bar-baz"*]A: [*id="super"*]B {};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "id": "foo-bar-baz",
+      "super_name": "B",
+      "members": [],
+      "index": 0
+    }
+  ]
+}
+
+#data
+exception [*id="foo-bar-baz"*]A: [*id="super"*]B {};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "exception",
+      "name": "A",
+      "id": "foo-bar-baz",
+      "super_name": "B",
+      "members": [],
+      "index": 0
+    }
+  ]
+}
+
+#data
+dictionary [*id="foo-bar-baz"*]A: [*id="super"*]B {};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "dictionary",
+      "name": "A",
+      "id": "foo-bar-baz",
+      "super_name": "B",
+      "members": [],
+      "index": 0
+    }
+  ]
+}
+
+#data
+interface B:[*id="foo-bar-baz"*]A {};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "B",
+      "super_name": "A",
+      "members": [],
+      "index": 0
+    }
+  ]
+}
+
+#data
 [[*id="foo-bar-baz"*]Constructor]
 interface A {};
 #parsed
