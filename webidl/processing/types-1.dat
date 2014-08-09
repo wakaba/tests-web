@@ -160,6 +160,15 @@ typedef sequence<sequence<long>> Hoge;
 }
 
 #data
+typedef sequence<sequence<Promise<void>>> Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["sequence", ["sequence", ["Promise", "void"]]]
+  }]
+}
+
+#data
 typedef sequence<sequence<long>?> Hoge;
 #processed
 {
@@ -187,12 +196,12 @@ interface A {
   legacycaller Promise ();
 };
 #errors
-1;17;webidl:bad type;;Promise;m
+1;17;webidl:bad type;;Promise[any];m
 #processed
 {
   "A": ["interface", {
     "legacycaller": ["operation", {
-      "overload_set": {"": {"type": "Promise", "args": []}}
+      "overload_set": {"": {"type": ["Promise", "any"], "args": []}}
     }],
     "members": {}
   }]
@@ -625,7 +634,7 @@ typedef ((D or E) or long?) T;
 dictionary D {};
 dictionary E {};
 #errors
-1;0;webidl:bad type;;ref_dictionary[E];m
+1;0;webidl:bad type;;ref_dictionary[D];m
 #processed
 {
   "D": ["dictionary", {"members": {}}],
