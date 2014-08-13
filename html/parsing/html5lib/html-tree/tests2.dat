@@ -162,9 +162,6 @@
 (1,7): expected-doctype-but-got-start-tag
 (1,18): unexpected-start-tag-implies-table-voodoo
 (1,22): foster-parenting-character-in-table
-(1,22): foster-parenting-character-in-table
-(1,22): foster-parenting-character-in-table
-(1,22): foster-parenting-character-in-table
 (1,22): eof-in-table
 #document
 | <html>
@@ -189,9 +186,6 @@
 #data
 <!DOCTYPE html><table><tr>TEST
 #errors
-(1,30): foster-parenting-character-in-table
-(1,30): foster-parenting-character-in-table
-(1,30): foster-parenting-character-in-table
 (1,30): foster-parenting-character-in-table
 (1,30): eof-in-table
 #document
@@ -471,7 +465,6 @@
 <!DOCTYPE html><select><optgroup><option></optgroup><option><select><option>
 #errors
 (1,68): unexpected-select-in-select
-(1,76): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -562,14 +555,9 @@
 | <html>
 |   <head>
 |   <body>
-|     <form>
-|       <hr>
-|       <label>
-|         "This is a searchable index. Enter search keywords: "
-|         <input>
-|           name="isindex"
-|           test="x"
-|       <hr>
+|     <isindex>
+|       name="x"
+|       test="x"
 
 #data
 test

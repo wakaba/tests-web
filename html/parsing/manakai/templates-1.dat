@@ -13,7 +13,6 @@
 <!DOCTYPE html><table><tr><td><select><template><caption></table>
 #errors
 </table> in <template>
-EOF in body in template
 EOF in template
 EOF in body
 #document
@@ -74,7 +73,6 @@ div
 <table><tr><td><template><select></tbody>a
 #errors
 unexpected </tbody>
-EOF in body
 EOF in template
 EOF in body
 #document
@@ -90,7 +88,6 @@ EOF in body
 #data
 <!DOCTYPE html><template><template><p></template><tr></template><!---->
 #errors
-No </tr> before </template>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -202,7 +199,6 @@ EOF
 #data
 <!DOCTYPE html><p><template><h1>
 #errors
-EOF in body
 EOF in template
 #document
 | <!DOCTYPE html>
@@ -236,7 +232,6 @@ EOF in body
 <!DOCTYPE html><table><template><tbody>abc<!---->
 #errors
 "abc" in table
-EOF in body
 EOF in template
 EOF in body
 #document
@@ -255,7 +250,6 @@ EOF in body
 <!DOCTYPE html><table><template><tbody><br><!---->
 #errors
 <br> in table
-EOF in body
 EOF in template
 EOF in body
 #document
@@ -279,9 +273,8 @@ EOF in body
 </i> in table
 AAA at </i>
 "b" in table
-EOF in body
 EOF in template
-EOF in table
+EOF in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -341,7 +334,6 @@ EOF in template
 #errors
 "hoge" in table
 EOF in template
-EOF in body
 #document
 | <!DOCTYPE html>
 | <html>
@@ -355,7 +347,6 @@ EOF in body
 #data
 <!DOCTYPE html><table><template><tbody><tfoot>
 #errors
-EOF in table
 EOF in template
 EOF in body
 #document
@@ -373,7 +364,6 @@ EOF in body
 <!DOCTYPE html><table><colgroup><template><col></colgroup><!---->
 #errors
 unmatched </colgroup>
-EOF in body in template
 EOF in template
 EOF in body
 #document
@@ -473,20 +463,13 @@ no DOCTYPE
 #errors
 no DOCTYPE
 <isindex> in table
-isindex
 #document
 | <html>
 |   <head>
 |   <body>
 |     <template>
 |       content
-|         <form>
-|           <hr>
-|           <label>
-|             "This is a searchable index. Enter search keywords: "
-|             <input>
-|               name="isindex"
-|           <hr>
+|         <isindex>
 |         <table>
 
 #data
@@ -494,7 +477,6 @@ isindex
 #errors
 no DOCTYPE
 <isindex> in table
-isindex
 #document
 | <html>
 |   <head>
@@ -502,13 +484,7 @@ isindex
 |     <form>
 |       <template>
 |         content
-|           <form>
-|             <hr>
-|             <label>
-|               "This is a searchable index. Enter search keywords: "
-|               <input>
-|                 name="isindex"
-|             <hr>
+|           <isindex>
 |           <table>
 
 #data
@@ -519,20 +495,13 @@ no DOCTYPE
 <isindex> in table
 </form> in table
 stray </form>
-isindex
 #document
 | <html>
 |   <head>
 |   <body>
 |     <template>
 |       content
-|         <form>
-|           <hr>
-|           <label>
-|             "This is a searchable index. Enter search keywords: "
-|             <input>
-|               name="isindex"
-|           <hr>
+|         <isindex>
 |         <table>
 
 #data
@@ -547,10 +516,4 @@ isindex
 |     <template>
 |       content
 |         <form>
-|           <form>
-|             <hr>
-|             <label>
-|               "This is a searchable index. Enter search keywords: "
-|               <input>
-|                 name="isindex"
-|             <hr>
+|           <isindex>

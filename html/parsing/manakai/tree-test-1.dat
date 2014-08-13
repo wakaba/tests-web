@@ -2861,129 +2861,100 @@ table not closed
 #data
 <!DOCTYPE HTML><isindex>
 #errors
-isindex
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
 |   <head>
 |   <body>
-|     <form>
-|       <hr>
-|       <label>
-|         "This is a searchable index. Enter search keywords: "
-|         <input>
-|           name="isindex"
-|       <hr>
+|     <isindex>
 
 #data
 <!DOCTYPE HTML><isindex/>
 #errors
-isindex
+nestc
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
 |   <head>
 |   <body>
-|     <form>
-|       <hr>
-|       <label>
-|         "This is a searchable index. Enter search keywords: "
-|         <input>
-|           name="isindex"
-|       <hr>
+|     <isindex>
 
 #data
 <!DOCTYPE HTML><form><isindex/></form>
 #errors
-<isindex> in form
 nestc
+</form>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
 |   <head>
 |   <body>
 |     <form>
+|       <isindex>
 
 #data
 <!DOCTYPE HTML><isindex action="http://test/">
 #errors
-isindex
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
 |   <head>
 |   <body>
-|     <form>
+|     <isindex>
 |       action="http://test/"
-|       <hr>
-|       <label>
-|         "This is a searchable index. Enter search keywords: "
-|         <input>
-|           name="isindex"
-|       <hr>
 
 #data
 <!DOCTYPE HTML><isindex prompt="Input:">
 #errors
-isindex
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
 |   <head>
 |   <body>
-|     <form>
-|       <hr>
-|       <label>
-|         "Input:"
-|         <input>
-|           name="isindex"
-|       <hr>
+|     <isindex>
+|       prompt="Input:"
 
 #data
 <!DOCTYPE HTML><isindex name="textarea">
 #errors
-isindex
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
 |   <head>
 |   <body>
-|     <form>
-|       <hr>
-|       <label>
-|         "This is a searchable index. Enter search keywords: "
-|         <input>
-|           name="isindex"
-|       <hr>
+|     <isindex>
+|       name="textarea"
 
 #data
 <!DOCTYPE HTML><isindex type="checkbox">
 #errors
-isindex
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
 |   <head>
 |   <body>
-|     <form>
-|       <hr>
-|       <label>
-|         "This is a searchable index. Enter search keywords: "
-|         <input>
-|           name="isindex"
-|           type="checkbox"
-|       <hr>
+|     <isindex>
+|       type="checkbox"
 
 #data
 <!DOCTYPE HTML><form><isindex></form>
 #errors
-isindex
+</form>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
 |   <head>
 |   <body>
 |     <form>
+|       <isindex>
 
 #data
 <!DOCTYPE HTML><h1><a><h2>
@@ -3881,7 +3852,6 @@ unexpected end of file
 </body></html><html a>
 #errors
 no <!DOCTYPE>
-tag after </html>
 second <html>
 #document
 | <html>
@@ -3914,7 +3884,6 @@ no <!DOCTYPE>
 <body></body></html><html a>
 #errors
 no <!DOCTYPE>
-<html> after </html>
 <html> is not the first start tag
 #document
 | <html>
@@ -3937,7 +3906,6 @@ no <!DOCTYPE>
 <frameset></frameset></html><html a>
 #errors
 no <!DOCTYPE>
-<html> after </html>
 <html> is not the first start tag
 #document
 | <html>
@@ -3948,7 +3916,6 @@ no <!DOCTYPE>
 #data
 <!DOCTYPE HTML><html><head></head><frameset></frameset></html><html a>
 #errors
-<html> after </html>
 <html> is not the first start tag
 #document
 | <!DOCTYPE html>
@@ -4505,7 +4472,6 @@ no </table> at EOF
 #data
 <!DOCTYPE HTML>a<option>b
 #errors
-no </option>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -4518,7 +4484,6 @@ no </option>
 #data
 <!DOCTYPE HTML>a<optgroup>b
 #errors
-no </optgroup>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -7871,6 +7836,9 @@ U+000B
 #errors
 char in frameset
 U+000B
+a
+b
+c
 #document escaped
 | <!DOCTYPE html>
 | <html>
@@ -7894,6 +7862,9 @@ U+000B
 #errors
 char after frameset
 U+000B
+a
+b
+c
 #document escaped
 | <!DOCTYPE html>
 | <html>
@@ -7942,6 +7913,9 @@ U+000B
 #errors
 char after frameset html
 U+000B
+a
+b
+c
 #document escaped
 | <!DOCTYPE html>
 | <html>
@@ -12114,6 +12088,8 @@ metadata element after </head>
 <base/>
 #errors
 no DOCTYPE
+#warnings
+nestc
 #document
 | <html>
 |   <head>
@@ -12235,6 +12211,7 @@ metadata element after </head>
 #errors
 text "a"
 element "html" in table
+second <html>
 text "b"
 #document
 | <!DOCTYPE html>
@@ -12250,6 +12227,7 @@ text "b"
 #errors
 text "a"
 element "html" in table
+second <html>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -12264,6 +12242,7 @@ element "html" in table
 <!DOCTYPE HTML><table> <html a>b</table>
 #errors
 element "html" in table
+secnd <html>
 text "b"
 #document
 | <!DOCTYPE html>
@@ -12279,6 +12258,7 @@ text "b"
 <!DOCTYPE HTML><table> <html a> </table>
 #errors
 element "html" in table
+second <html>
 #document
 | <!DOCTYPE html>
 | <html>

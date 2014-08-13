@@ -525,7 +525,6 @@ no </marquee>
 #data
 <!DOCTYPE html><rt><figcaption></figcaption>a
 #errors
-no </rt>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -623,7 +622,6 @@ unmatched </figcaption>
 #data
 <!DOCTYPE html><rt><summary></summary>a
 #errors
-no </rt>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -735,7 +733,6 @@ unmatched </summary>
 #data
 <!DOCTYPE HTML><p><rt><datagrid></datagrid>
 #errors
-EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1085,7 +1082,7 @@ unexpected EOF
 #data
 <!DOCTYPE HTML><p><rt><isindex>
 #errors
-isindex
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1093,13 +1090,7 @@ isindex
 |   <body>
 |     <p>
 |       <rt>
-|     <form>
-|       <hr>
-|       <label>
-|         "This is a searchable index. Enter search keywords: "
-|         <input>
-|           name="isindex"
-|       <hr>
+|         <isindex>
 
 #data
 <!DOCTYPE html><p><xmp>b</xmp>a
