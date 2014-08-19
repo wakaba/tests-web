@@ -1,7 +1,7 @@
 #data
 <body><template>Hello</template>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -13,7 +13,7 @@ no DOCTYPE
 #data
 <template>Hello</template>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -25,7 +25,7 @@ no DOCTYPE
 #data
 <template></template><div></div>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -37,7 +37,7 @@ no DOCTYPE
 #data
 <html><template>Hello</template>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -49,7 +49,7 @@ no DOCTYPE
 #data
 <head><template><div></div></template></head>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -61,9 +61,9 @@ no DOCTYPE
 #data
 <div><template><div><span></template><b>
 #errors
-no DOCTYPE
-no </span>
-no </b>
+ * (1,6) missing DOCTYPE
+ * (1,38) mismatched template end tag
+ * (1,41) unexpected end of file
 #document
 | <html>
 |   <head>
@@ -78,10 +78,10 @@ no </b>
 #data
 <div><template></div>Hello
 #errors
-no DOCTYPE
-stray </div>
-no </template>
-no </div>
+ * (1,6) missing DOCTYPE
+ * (1,22) unexpected token in template
+ * (1,27) unexpected end of file in template
+ * (1,27) unexpected end of file
 #document
 | <html>
 |   <head>
@@ -94,8 +94,8 @@ no </div>
 #data
 <div></template></div>
 #errors
-no DOCTYPE
-stray </template>
+ * (1,6) missing DOCTYPE
+ * (1,17) unexpected template end tag
 #document
 | <html>
 |   <head>
@@ -105,7 +105,7 @@ stray </template>
 #data
 <table><template></template></table>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -117,10 +117,10 @@ no DOCTYPE
 #data
 <table><template></template></div>
 #errors
-no DOCTYPE
-</div> in table
-stray </div>
-no </table>
+ * (1,8) missing DOCTYPE
+ * (1,35) unexpected token in table - foster parenting
+ * (1,35) unexpected end tag
+ * (1,35) unexpected end of file
 #document
 | <html>
 |   <head>
@@ -132,10 +132,10 @@ no </table>
 #data
 <table><div><template></template></div>
 #errors
-no DOCTYPE
-<div> in table
-</div> in table
-no </table>
+ * (1,8) missing DOCTYPE
+ * (1,13) unexpected token in table - foster parenting
+ * (1,40) unexpected token in table - foster parenting
+ * (1,40) unexpected end of file
 #document
 | <html>
 |   <head>
@@ -148,10 +148,10 @@ no </table>
 #data
 <table><template></template><div></div>
 #errors
-no DOCTYPE
-<div> in table
-</div> in table
-no </table>
+no doctype
+bad div in table
+bad /div in table
+eof in table
 #document
 | <html>
 |   <head>
@@ -164,7 +164,7 @@ no </table>
 #data
 <table>   <template></template></table>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -177,8 +177,8 @@ no DOCTYPE
 #data
 <table><tbody><template></template></tbody>
 #errors
-no DOCTYPE
-no </table>
+no doctype
+eof in table
 #document
 | <html>
 |   <head>
@@ -191,9 +191,9 @@ no </table>
 #data
 <table><tbody><template></tbody></template>
 #errors
-no DOCTYPE
-stray </tbody>
-no </table>
+no doctype
+bad /tbody
+eof in table
 #document
 | <html>
 |   <head>
@@ -206,7 +206,7 @@ no </table>
 #data
 <table><tbody><template></template></tbody></table>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -219,8 +219,8 @@ no DOCTYPE
 #data
 <table><thead><template></template></thead>
 #errors
-no DOCTYPE
-no </table>
+no doctype
+eof in table
 #document
 | <html>
 |   <head>
@@ -233,8 +233,8 @@ no </table>
 #data
 <table><tfoot><template></template></tfoot>
 #errors
-no DOCTYPE
-no </table>
+no doctype
+eof in table
 #document
 | <html>
 |   <head>
@@ -247,7 +247,7 @@ no </table>
 #data
 <select><template></template></select>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -259,7 +259,7 @@ no DOCTYPE
 #data
 <select><template><option></option></template></select>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -272,8 +272,8 @@ no DOCTYPE
 #data
 <template><option></option></select><option></option></template>
 #errors
-no DOCTYPE
-stray </select>
+no doctype
+bad /select
 #document
 | <html>
 |   <head>
@@ -286,7 +286,7 @@ stray </select>
 #data
 <select><template></template><option></select>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -299,7 +299,7 @@ no DOCTYPE
 #data
 <select><option><template></template></select>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -312,9 +312,9 @@ no DOCTYPE
 #data
 <select><template>
 #errors
-no DOCTYPE
-no </template>
-no </select>
+no doctype
+eof in template
+eof in select
 #document
 | <html>
 |   <head>
@@ -326,9 +326,9 @@ no </select>
 #data
 <select><option></option><template>
 #errors
-no DOCTYPE
-no </template>
-no </select>
+no doctype
+eof in template
+eof in select
 #document
 | <html>
 |   <head>
@@ -341,10 +341,9 @@ no </select>
 #data
 <select><option></option><template><option>
 #errors
-no DOCTYPE
-no </option>
-no </template>
-no </select>
+no doctype
+eof in template
+eof in select
 #document
 | <html>
 |   <head>
@@ -358,8 +357,7 @@ no </select>
 #data
 <table><thead><template><td></template></table>
 #errors
-no DOCTYPE
-no </td> at </template>
+ * (1,8) missing DOCTYPE
 #document
 | <html>
 |   <head>
@@ -373,8 +371,7 @@ no </td> at </template>
 #data
 <table><template><thead></template></table>
 #errors
-no DOCTYPE
-no </thead> at </template>
+no doctype
 #document
 | <html>
 |   <head>
@@ -387,9 +384,9 @@ no </thead> at </template>
 #data
 <body><table><template><td></tr><div></template></table>
 #errors
-no DOCTYPE
-stray </tr>
-no </div>
+no doctype
+bad </tr>
+missing </div>
 #document
 | <html>
 |   <head>
@@ -403,9 +400,8 @@ no </div>
 #data
 <table><template><thead></template></thead></table>
 #errors
-no DOCTYPE
-no </thead> at </template>
-stray </thead>
+no doctype
+bad /thead after /template
 #document
 | <html>
 |   <head>
@@ -418,8 +414,7 @@ stray </thead>
 #data
 <table><thead><template><tr></template></table>
 #errors
-no DOCTYPE
-no </tr> at </template>
+no doctype
 #document
 | <html>
 |   <head>
@@ -433,8 +428,7 @@ no </tr> at </template>
 #data
 <table><template><tr></template></table>
 #errors
-no DOCTYPE
-no </tr>
+no doctype
 #document
 | <html>
 |   <head>
@@ -447,10 +441,9 @@ no </tr>
 #data
 <table><tr><template><td>
 #errors
-no DOCTYPE
-no </template> (in body)
-no </template>
-no </table>
+no doctype
+eof in template
+eof in table
 #document
 | <html>
 |   <head>
@@ -465,8 +458,7 @@ no </table>
 #data
 <table><template><tr><template><td></template></tr></template></table>
 #errors
-no DOCTYPE
-no </td>
+no doctype
 #document
 | <html>
 |   <head>
@@ -482,7 +474,7 @@ no </td>
 #data
 <table><template><tr><template><td></td></template></tr></template></table>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -498,9 +490,8 @@ no DOCTYPE
 #data
 <table><template><td></template>
 #errors
-no DOCTYPE
-no </td>
-no </table>
+no doctype
+eof in table
 #document
 | <html>
 |   <head>
@@ -513,7 +504,7 @@ no </table>
 #data
 <body><template><td></td></template>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -525,7 +516,7 @@ no DOCTYPE
 #data
 <body><template><template><tr></tr></template><td></td></template>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -540,10 +531,9 @@ no DOCTYPE
 #data
 <table><colgroup><template><col>
 #errors
-no DOCTYPE
-no </template> (in body)
-no </template>
-no </colgroup>
+no doctype
+eof in template
+eof in table
 #document
 | <html>
 |   <head>
@@ -557,10 +547,10 @@ no </colgroup>
 #data
 <frameset><template><frame></frame></template></frameset>
 #errors
-no DOCTYPE
-<template> in frameset
-stray </frame>
-</template> in frameset
+ * (1,11) missing DOCTYPE
+ * (1,21) unexpected start tag token
+ * (1,36) unexpected end tag token
+ * (1,47) unexpected end tag token
 #document
 | <html>
 |   <head>
@@ -570,12 +560,12 @@ stray </frame>
 #data
 <template><frame></frame></frameset><frame></frame></template>
 #errors
-no DOCTYPE
-<frame> in body
-stray </frame>
-stray </frameset>
-<frame> in body
-stray </frame>
+ * (1,11) missing DOCTYPE
+ * (1,18) unexpected start tag
+ * (1,26) unexpected end tag
+ * (1,37) unexpected end tag
+ * (1,44) unexpected start tag
+ * (1,52) unexpected end tag
 #document
 | <html>
 |   <head>
@@ -586,8 +576,8 @@ stray </frame>
 #data
 <template><div><frameset><span></span></div><span></span></template>
 #errors
-no DOCTYPE
-<frameset> in body
+no doctype
+bad frameset
 #document
 | <html>
 |   <head>
@@ -601,8 +591,8 @@ no DOCTYPE
 #data
 <body><template><div><frameset><span></span></div><span></span></template></body>
 #errors
-no DOCTYPE
-<frameset> in body
+no doctype
+bad frameset
 #document
 | <html>
 |   <head>
@@ -616,7 +606,7 @@ no DOCTYPE
 #data
 <body><template><script>var i = 1;</script><td></td></template>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -630,9 +620,9 @@ no DOCTYPE
 #data
 <body><template><tr><div></div></tr></template>
 #errors
-no DOCTYPE
-<div> in table
-</div> in table
+no doctype
+foster-parented div
+foster-parented /div
 #document
 | <html>
 |   <head>
@@ -645,9 +635,8 @@ no DOCTYPE
 #data
 <body><template><tr></tr><td></td></template>
 #errors
-no DOCTYPE
-no <tr>
-no </tr>
+no doctype
+unexpected <td>
 #document
 | <html>
 |   <head>
@@ -661,8 +650,8 @@ no </tr>
 #data
 <body><template><td></td></tr><td></td></template>
 #errors
-no DOCTYPE
-stray </tr>
+no doctype
+bad </tr>
 #document
 | <html>
 |   <head>
@@ -675,8 +664,8 @@ stray </tr>
 #data
 <body><template><td></td><tbody><td></td></template>
 #errors
-no DOCTYPE
-<tbody> in tr
+no doctype
+bad <tbody>
 #document
 | <html>
 |   <head>
@@ -689,9 +678,9 @@ no DOCTYPE
 #data
 <body><template><td></td><caption></caption><td></td></template>
 #errors
-no DOCTYPE
-<caption> in table body
-stray </caption>
+ * (1,7) missing DOCTYPE
+ * (1,35) unexpected start tag in table row
+ * (1,45) unexpected end tag in table row
 #document
 | <html>
 |   <head>
@@ -704,9 +693,9 @@ stray </caption>
 #data
 <body><template><td></td><colgroup></caption><td></td></template>
 #errors
-no DOCTYPE
-<colgroup> in table body
-stray </caption>
+ * (1,7) missing DOCTYPE
+ * (1,36) unexpected start tag in table row
+ * (1,46) unexpected end tag in table row
 #document
 | <html>
 |   <head>
@@ -719,8 +708,8 @@ stray </caption>
 #data
 <body><template><td></td></table><td></td></template>
 #errors
-no DOCTYPE
-stray </table>
+no doctype
+bad </table>
 #document
 | <html>
 |   <head>
@@ -733,8 +722,8 @@ stray </table>
 #data
 <body><template><tr></tr><tbody><tr></tr></template>
 #errors
-no DOCTYPE
-<tbody> in table body
+no doctype
+bad <tbody>
 #document
 | <html>
 |   <head>
@@ -747,8 +736,8 @@ no DOCTYPE
 #data
 <body><template><tr></tr><caption><tr></tr></template>
 #errors
-no DOCTYPE
-<caption> in table body
+no doctype
+bad <caption>
 #document
 | <html>
 |   <head>
@@ -761,8 +750,8 @@ no DOCTYPE
 #data
 <body><template><tr></tr></table><tr></tr></template>
 #errors
-no DOCTYPE
-stray </table>
+no doctype
+bad </table>
 #document
 | <html>
 |   <head>
@@ -775,7 +764,7 @@ stray </table>
 #data
 <body><template><thead></thead><caption></caption><tbody></tbody></template>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -789,8 +778,8 @@ no DOCTYPE
 #data
 <body><template><thead></thead></table><tbody></tbody></template></body>
 #errors
-no DOCTYPE
-stray </table>
+no doctype
+bad </table>
 #document
 | <html>
 |   <head>
@@ -803,9 +792,9 @@ stray </table>
 #data
 <body><template><div><tr></tr></div></template>
 #errors
-no DOCTYPE
-<tr> in body
-stray </tr>
+no doctype
+bad tr
+bad /tr
 #document
 | <html>
 |   <head>
@@ -817,7 +806,7 @@ stray </tr>
 #data
 <body><template><em>Hello</em></template>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -830,7 +819,7 @@ no DOCTYPE
 #data
 <body><template><!--comment--></template>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -842,7 +831,7 @@ no DOCTYPE
 #data
 <body><template><style></style><td></td></template>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -855,7 +844,7 @@ no DOCTYPE
 #data
 <body><template><meta><td></td></template>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -868,7 +857,7 @@ no DOCTYPE
 #data
 <body><template><link><td></td></template>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -881,7 +870,7 @@ no DOCTYPE
 #data
 <body><template><template><tr></tr></template><td></td></template>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -896,8 +885,8 @@ no DOCTYPE
 #data
 <body><table><colgroup><template><col></col></template></colgroup></table></body>
 #errors
-no DOCTYPE
-stray </col>
+no doctype
+bad /col
 #document
 | <html>
 |   <head>
@@ -911,9 +900,9 @@ stray </col>
 #data
 <body a=b><template><div></div><body c=d><div></div></body></template></body>
 #errors
-no DOCTYPE
-<body>
-</body>
+no doctype
+bad <body>
+bad </body>
 #document
 | <html>
 |   <head>
@@ -927,9 +916,9 @@ no DOCTYPE
 #data
 <html a=b><template><div><html b=c><span></template>
 #errors
-no DOCTYPE
-<html>
-no </span>
+no doctype
+bad <html>
+missing end tags in template
 #document
 | <html>
 |   a="b"
@@ -943,10 +932,10 @@ no </span>
 #data
 <html a=b><template><col></col><html b=c><col></col></template>
 #errors
-no DOCTYPE
-stray </col>
-<html>
-</col>
+no doctype
+bad /col
+bad html
+bad /col
 #document
 | <html>
 |   a="b"
@@ -960,12 +949,12 @@ stray </col>
 #data
 <html a=b><template><frame></frame><html b=c><frame></frame></template>
 #errors
-no DOCTYPE
-<frame> in body
-stray </frame>
-<html> ignored
-<frame> in body
-stray </frame>
+no doctype
+bad frame
+bad /frame
+bad html
+bad frame
+bad /frame
 #document
 | <html>
 |   a="b"
@@ -977,9 +966,8 @@ stray </frame>
 #data
 <body><template><tr></tr><template></template><td></td></template>
 #errors
-no DOCTYPE
-no <tr>
-no </tr> before </template>
+no doctype
+unexpected <td>
 #document
 | <html>
 |   <head>
@@ -995,7 +983,7 @@ no </tr> before </template>
 #data
 <body><template><thead></thead><template><tr></tr></template><tr></tr><tfoot></tfoot></template>
 #errors
-no DOCTYPE
+no doctype
 #document
 | <html>
 |   <head>
@@ -1013,8 +1001,8 @@ no DOCTYPE
 #data
 <body><template><template><b><template></template></template>text</template>
 #errors
-no DOCTYPE
-no </b> at </template>
+no doctype
+missing </b>
 #document
 | <html>
 |   <head>
@@ -1031,10 +1019,9 @@ no </b> at </template>
 #data
 <body><template><col><colgroup>
 #errors
-no DOCTYPE
-<colgroup>
-no </template> (in body)
-no </template>
+no doctype
+bad colgroup
+eof in template
 #document
 | <html>
 |   <head>
@@ -1046,10 +1033,9 @@ no </template>
 #data
 <body><template><col></colgroup>
 #errors
-no DOCTYPE
-</colgroup>
-no </template> (in body)
-no </template>
+no doctype
+bogus /colgroup
+eof in template
 #document
 | <html>
 |   <head>
@@ -1061,8 +1047,8 @@ no </template>
 #data
 <body><template><col><colgroup></template></body>
 #errors
-no DOCTYPE
-<colgroup>
+no doctype
+bad colgroup
 #document
 | <html>
 |   <head>
@@ -1074,10 +1060,9 @@ no DOCTYPE
 #data
 <body><template><col><div>
 #errors
-no DOCTYPE
-<div> in colgroup
-no </div>
-no </template>
+ * (1,7) missing DOCTYPE
+ * (1,27) unexpected token
+ * (1,27) unexpected end of file in template
 #document
 | <html>
 |   <head>
@@ -1089,10 +1074,9 @@ no </template>
 #data
 <body><template><col></div>
 #errors
-no DOCTYPE
-stray </div>
-no </template> (in body)
-no </template>
+no doctype
+bad /div
+eof in template
 #document
 | <html>
 |   <head>
@@ -1104,10 +1088,13 @@ no </template>
 #data
 <body><template><col>Hello
 #errors
-no DOCTYPE
-"Hello" in colgroup
-no </template> (in body)
-no </template>
+no doctype
+unexpected text
+e
+l
+l
+o
+eof in template
 #document
 | <html>
 |   <head>
@@ -1119,10 +1106,9 @@ no </template>
 #data
 <body><template><i><menu>Foo</i>
 #errors
-no DOCTYPE
-AAA at </i>
-no </menu>
-no </template>
+no doctype
+mising /menu
+eof in template
 #document
 | <html>
 |   <head>
@@ -1137,12 +1123,11 @@ no </template>
 #data
 <body><template></div><div>Foo</div><template></template><tr></tr>
 #errors
-no DOCTYPE
-stray </div>
-<tr>
-stray </tr>
-no </template> (in body)
-no </template>
+no doctype
+bogus /div
+bogus tr
+bogus /tr
+eof in template
 #document
 | <html>
 |   <head>
@@ -1157,9 +1142,9 @@ no </template>
 #data
 <body><div><template></div><tr><td>Foo</td></tr></template>
 #errors
-no DOCTYPE
-stray </div>
-no </div>
+ * (1,7) missing DOCTYPE
+ * (1,28) unexpected token in template
+ * (1,60) unexpected end of file
 #document
 | <html>
 |   <head>
@@ -1174,10 +1159,9 @@ no </div>
 #data
 <template></figcaption><sub><table></table>
 #errors
-no DOCTYPE
-stray </figcaption>
-no </sub>
-no </template>
+no doctype
+bad /figcaption
+eof in template
 #document
 | <html>
 |   <head>
@@ -1190,9 +1174,9 @@ no </template>
 #data
 <template><template>
 #errors
-no DOCTYPE
-no </template>
-no </template>
+no doctype
+eof in template
+eof in template
 #document
 | <html>
 |   <head>
@@ -1205,9 +1189,8 @@ no </template>
 #data
 <template><div>
 #errors
-no DOCTYPE
-no </div>
-no </template>
+no doctype
+eof in template
 #document
 | <html>
 |   <head>
@@ -1219,10 +1202,9 @@ no </template>
 #data
 <template><template><div>
 #errors
-no DOCTYPE
-no </div>
-no </template>
-no </template>
+no doctype
+eof in template
+eof in template
 #document
 | <html>
 |   <head>
@@ -1236,10 +1218,9 @@ no </template>
 #data
 <template><template><table>
 #errors
-no DOCTYPE
-no </table>
-no </template>
-no </template>
+no doctype
+eof in template
+eof in template
 #document
 | <html>
 |   <head>
@@ -1253,10 +1234,9 @@ no </template>
 #data
 <template><template><tbody>
 #errors
-no DOCTYPE
-no </template> (in body)
-no </template>
-no </template>
+no doctype
+eof in template
+eof in template
 #document
 | <html>
 |   <head>
@@ -1270,10 +1250,9 @@ no </template>
 #data
 <template><template><tr>
 #errors
-no DOCTYPE
-no </template> (in body)
-no </template>
-no </template>
+no doctype
+eof in template
+eof in template
 #document
 | <html>
 |   <head>
@@ -1287,10 +1266,9 @@ no </template>
 #data
 <template><template><td>
 #errors
-no DOCTYPE
-no </template> (in body)
-no </template>
-no </template>
+no doctype
+eof in template
+eof in template
 #document
 | <html>
 |   <head>
@@ -1304,10 +1282,9 @@ no </template>
 #data
 <template><template><caption>
 #errors
-no DOCTYPE
-no </caption>
-no </template>
-no </template>
+no doctype
+eof in template
+eof in template
 #document
 | <html>
 |   <head>
@@ -1321,10 +1298,9 @@ no </template>
 #data
 <template><template><colgroup>
 #errors
-no DOCTYPE
-no </colgroup>
-no </template>
-no </template>
+no doctype
+eof in template
+eof in template
 #document
 | <html>
 |   <head>
@@ -1338,10 +1314,9 @@ no </template>
 #data
 <template><template><col>
 #errors
-no DOCTYPE
-no </template> (in body)
-no </template>
-no </template>
+no doctype
+eof in template
+eof in template
 #document
 | <html>
 |   <head>
@@ -1355,11 +1330,10 @@ no </template>
 #data
 <template><template><tbody><select>
 #errors
-no DOCTYPE
-<select> in table
-no </select> at EOF
-no </template>
-no </template>
+ * (1,11) missing DOCTYPE
+ * (1,36) unexpected token in table - foster parenting
+ * (1,36) unexpected end of file in template
+ * (1,36) unexpected end of file in template
 #document
 | <html>
 |   <head>
@@ -1374,11 +1348,10 @@ no </template>
 #data
 <template><template><table>Foo
 #errors
-no DOCTYPE
-"Foo" in table
-no </table>
-no </template>
-no </template>
+no doctype
+foster-parenting text F
+eof
+eof
 #document
 | <html>
 |   <head>
@@ -1393,11 +1366,10 @@ no </template>
 #data
 <template><template><frame>
 #errors
-no DOCTYPE
-<frame> in body
-no </template> (in body)
-no </template>
-no </template>
+no doctype
+bad tag
+eof
+eof
 #document
 | <html>
 |   <head>
@@ -1410,10 +1382,10 @@ no </template>
 #data
 <template><template><script>var i
 #errors
-no DOCTYPE
-no </script> at EOF
-no </template> at EOF
-no </template> at EOF
+no doctype
+eof in script
+eof in template
+eof in template
 #document
 | <html>
 |   <head>
@@ -1428,10 +1400,10 @@ no </template> at EOF
 #data
 <template><template><style>var i
 #errors
-no DOCTYPE
-no </style> at EOF
-no </template> at EOF
-no </template> at EOF
+no doctype
+eof in style
+eof in template
+eof in template
 #document
 | <html>
 |   <head>
@@ -1446,9 +1418,9 @@ no </template> at EOF
 #data
 <template><table></template><body><span>Foo
 #errors
-no DOCTYPE
-no </table> at </template>
-no </span> at EOF
+no doctype
+missing /table
+bad eof
 #document
 | <html>
 |   <head>
@@ -1462,9 +1434,8 @@ no </span> at EOF
 #data
 <template><td></template><body><span>Foo
 #errors
-no DOCTYPE
-no </td> at </template>
-no </span> at EOF
+no doctype
+bad eof
 #document
 | <html>
 |   <head>
@@ -1478,9 +1449,9 @@ no </span> at EOF
 #data
 <template><object></template><body><span>Foo
 #errors
-no DOCTYPE
-not closed before ancestor end tag:object at </template>
-no </span> at EOF
+no doctype
+missing /object
+bad eof
 #document
 | <html>
 |   <head>
@@ -1494,9 +1465,8 @@ no </span> at EOF
 #data
 <template><svg><template>
 #errors
-no DOCTYPE
-no end tag at EOF <svg template>
-no end tag at EOF <template>
+no doctype
+eof in template
 #document
 | <html>
 |   <head>
@@ -1509,9 +1479,9 @@ no end tag at EOF <template>
 #data
 <template><svg><foo><template><foreignObject><div></template><div>
 #errors
-no DOCTYPE
-not closed before ancestor end tag:div at </template>
-no end tag before EOF:div
+no doctype
+ugly template closure
+bad eof
 #document
 | <html>
 |   <head>
@@ -1528,11 +1498,10 @@ no end tag before EOF:div
 #data
 <dummy><template><span></dummy>
 #errors
-no DOCTYPE
-stray end tag </dummy>
-no </span> at EOF
-no </template> at EOF
-no </dummy> at EOF
+no doctype
+bad end tag </dummy>
+eof in template
+eof in dummy
 #document
 | <html>
 |   <head>
@@ -1545,7 +1514,7 @@ no </dummy> at EOF
 #data
 <body><table><tr><td><select><template>Foo</template><caption>A</table>
 #errors
-no DOCTYPE
+no doctype
 (1,62): unexpected-caption-in-select-in-table
 #document
 | <html>
@@ -1565,7 +1534,7 @@ no DOCTYPE
 #data
 <body></body><template>
 #errors
-no DOCTYPE
+no doctype
 (1,23): template-after-body
 (1,24): eof-in-template
 #document
@@ -1578,7 +1547,7 @@ no DOCTYPE
 #data
 <head></head><template>
 #errors
-no DOCTYPE
+no doctype
 (1,23): template-after-head
 (1,24): eof-in-template
 #document
@@ -1591,7 +1560,7 @@ no DOCTYPE
 #data
 <head></head><template>Foo</template>
 #errors
-no DOCTYPE
+no doctype
 (1,23): template-after-head
 #document
 | <html>
@@ -1600,3 +1569,25 @@ no DOCTYPE
 |       content
 |         "Foo"
 |   <body>
+
+#data
+<!DOCTYPE HTML><dummy><table><template><table><template><table><script>
+#errors
+eof script
+eof template
+eof template
+eof table
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <dummy>
+|       <table>
+|         <template>
+|           content
+|             <table>
+|               <template>
+|                 content
+|                   <table>
+|                     <script>

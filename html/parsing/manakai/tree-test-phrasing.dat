@@ -991,6 +991,13 @@ unexpected EOF
 <!DOCTYPE HTML><a><div><div><div><div><div><div><div><div><div>b</a>c
 #errors
 AAA error
+AAA
+AAA
+AAA
+AAA
+AAA
+AAA
+AAA
 unexpected EOF
 #document
 | <!DOCTYPE html>
@@ -998,24 +1005,37 @@ unexpected EOF
 |   <head>
 |   <body>
 |     <a>
-|       <div>
-|         <div>
-|           <div>
-|             <div>
-|               <div>
-|                 <div>
-|                   <div>
-|                     <div>
 |     <div>
 |       <a>
-|         "b"
-|       "c"
+|       <div>
+|         <a>
+|         <div>
+|           <a>
+|           <div>
+|             <a>
+|             <div>
+|               <a>
+|               <div>
+|                 <a>
+|                 <div>
+|                   <a>
+|                   <div>
+|                     <a>
+|                       <div>
+|                         "bc"
 
 #data
 <!DOCTYPE HTML><a><div><div><div><div><div><div><div><div><div>b<a>c
 #errors
 unexpected <a>
 AAA error
+AAA
+AAA
+AAA
+AAA
+AAA
+AAA
+AAA
 unexpected EOF
 #document
 | <!DOCTYPE html>
@@ -1023,19 +1043,26 @@ unexpected EOF
 |   <head>
 |   <body>
 |     <a>
-|       <div>
-|         <div>
-|           <div>
-|             <div>
-|               <div>
-|                 <div>
-|                   <div>
-|                     <div>
 |     <div>
 |       <a>
-|         "b"
-|       <a>
-|         "c"
+|       <div>
+|         <a>
+|         <div>
+|           <a>
+|           <div>
+|             <a>
+|             <div>
+|               <a>
+|               <div>
+|                 <a>
+|                 <div>
+|                   <a>
+|                   <div>
+|                     <a>
+|                       <div>
+|                         "b"
+|                         <a>
+|                           "c"
 
 #data
 <a><b><div>A</a>B
@@ -1060,6 +1087,7 @@ EOF
 #errors
 no DOCTYPE
 AAA
+AAA
 EOF
 #document
 | <html>
@@ -1067,12 +1095,13 @@ EOF
 |   <body>
 |     <a>
 |       <b>
-|         <div>
 |     <b>
 |       <div>
 |         <a>
-|           "A"
-|         "B"
+|         <div>
+|           <a>
+|             "A"
+|           "B"
 
 #data
 <!DOCTYPE html><div><b><i><s><u><tt><p></b>123</p></tt></u></s>456

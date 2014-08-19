@@ -2,7 +2,6 @@
 <option>x
 #errors
 no DOCTYPE
-no </option> before EOF
 #document
 | <html>
 |   <head>
@@ -25,7 +24,6 @@ no DOCTYPE
 <optgroup>x
 #errors
 no DOCTYPE
-no </optgroup> before EOF
 #document
 | <html>
 |   <head>
@@ -48,7 +46,6 @@ no DOCTYPE
 <optgroup><option>x
 #errors
 no DOCTYPE
-no </option></optgroup> before EOF
 #document
 | <html>
 |   <head>
@@ -61,7 +58,6 @@ no </option></optgroup> before EOF
 <optgroup><optgroup>
 #errors
 no DOCTYPE
-no </optgroup> before EOF
 #document
 | <html>
 |   <head>
@@ -73,7 +69,6 @@ no </optgroup> before EOF
 <option><option>
 #errors
 no DOCTYPE
-no </option> before EOF
 #document
 | <html>
 |   <head>
@@ -85,7 +80,6 @@ no </option> before EOF
 <option><optgroup>
 #errors
 no DOCTYPE
-no </optgroup> before EOF
 #document
 | <html>
 |   <head>
@@ -439,59 +433,41 @@ NULL
 <isindex/>
 #errors
 no DOCTYPE
-isindex
+nestc
+EOF
 #document
 | <html>
 |   <head>
 |   <body>
-|     <form>
-|       <hr>
-|       <label>
-|         "This is a searchable index. Enter search keywords: "
-|         <input>
-|           name="isindex"
-|       <hr>
+|     <isindex>
 
 #data
 <p><isindex>
 #errors
 no DOCTYPE
-isindex
+EOF
 #document
 | <html>
 |   <head>
 |   <body>
 |     <p>
-|     <form>
-|       <hr>
-|       <label>
-|         "This is a searchable index. Enter search keywords: "
-|         <input>
-|           name="isindex"
-|       <hr>
+|       <isindex>
 
 #data
 <isindex><frameset>
 #errors
 no DOCTYPE
-isindex
 <frameset> in body
+EOF
 #document
 | <html>
 |   <head>
-|   <body>
-|     <form>
-|       <hr>
-|       <label>
-|         "This is a searchable index. Enter search keywords: "
-|         <input>
-|           name="isindex"
-|       <hr>
+|   <frameset>
 
 #data
 <!DOCTYPE html><p><template><isindex></template>
 #errors
-isindex
+no </isindex>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -500,18 +476,12 @@ isindex
 |     <p>
 |       <template>
 |         content
-|           <form>
-|             <hr>
-|             <label>
-|               "This is a searchable index. Enter search keywords: "
-|               <input>
-|                 name="isindex"
-|             <hr>
+|           <isindex>
 
 #data
 <!DOCTYPE html><form><template><isindex></template></form>
 #errors
-isindex
+no </isindex>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -520,63 +490,53 @@ isindex
 |     <form>
 |       <template>
 |         content
-|           <form>
-|             <hr>
-|             <label>
-|               "This is a searchable index. Enter search keywords: "
-|               <input>
-|                 name="isindex"
-|             <hr>
+|           <isindex>
 
 #data
 <!DOCTYPE html><form><isindex></form>
 #errors
-isindex
+</form>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
 |   <head>
 |   <body>
 |     <form>
+|       <isindex>
 
 #data
 <!DOCTYPE html><form><isindex/></form>
 #errors
-isindex
 nestc
+</form>
+EOF
 #document
 | <!DOCTYPE html>
 | <html>
 |   <head>
 |   <body>
 |     <form>
+|       <isindex>
 
 #data
 <i><isindex>x
 #errors
 no DOCTYPE
-isindex
 EOF
 #document
 | <html>
 |   <head>
 |   <body>
 |     <i>
-|       <form>
-|         <hr>
-|         <label>
-|           "This is a searchable index. Enter search keywords: "
-|           <input>
-|             name="isindex"
-|         <hr>
-|       "x"
+|       <isindex>
+|         "x"
 
 #data
 <b><i></b><isindex>x
 #errors
 no DOCTYPE
 </b>
-isindex
 EOF
 #document
 | <html>
@@ -584,40 +544,30 @@ EOF
 |   <body>
 |     <b>
 |       <i>
-|     <form>
-|       <hr>
-|       <i>
-|         <label>
-|           "This is a searchable index. Enter search keywords: "
-|           <input>
-|             name="isindex"
-|         <hr>
-|       <i>
+|     <i>
+|       <isindex>
 |         "x"
 
 #data
 <isindex class=foo name=y>
 #errors
 no DOCTYPE
-isindex
+EOF
 #document
 | <html>
 |   <head>
 |   <body>
-|     <form>
-|       <hr>
-|       <label>
-|         "This is a searchable index. Enter search keywords: "
-|         <input>
-|           class="foo"
-|           name="isindex"
-|       <hr>
+|     <isindex>
+|       class="foo"
+|       name="y"
 
 #data
 <!DOCTYPE html><table><input/>
 #errors
 <input> in table
 EOF
+#warnings
+nestc
 #document
 | <!DOCTYPE html>
 | <html>
@@ -631,6 +581,8 @@ EOF
 #errors
 <input> in table
 EOF
+#warnings
+nestc
 #document
 | <!DOCTYPE html>
 | <html>

@@ -84,7 +84,6 @@
 #data
 <!doctype html><form><isindex>
 #errors
-(1,30): deprecated-tag
 (1,30): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
@@ -92,6 +91,7 @@
 |   <head>
 |   <body>
 |     <form>
+|       <isindex>
 
 #data
 <!doctype html><isindex action="POST">
@@ -102,14 +102,8 @@
 | <html>
 |   <head>
 |   <body>
-|     <form>
+|     <isindex>
 |       action="POST"
-|       <hr>
-|       <label>
-|         "This is a searchable index. Enter search keywords: "
-|         <input>
-|           name="isindex"
-|       <hr>
 
 #data
 <!doctype html><isindex prompt="this is isindex">
@@ -120,13 +114,8 @@
 | <html>
 |   <head>
 |   <body>
-|     <form>
-|       <hr>
-|       <label>
-|         "this is isindex"
-|         <input>
-|           name="isindex"
-|       <hr>
+|     <isindex>
+|       prompt="this is isindex"
 
 #data
 <!doctype html><isindex type="hidden">
@@ -137,14 +126,8 @@
 | <html>
 |   <head>
 |   <body>
-|     <form>
-|       <hr>
-|       <label>
-|         "This is a searchable index. Enter search keywords: "
-|         <input>
-|           name="isindex"
-|           type="hidden"
-|       <hr>
+|     <isindex>
+|       type="hidden"
 
 #data
 <!doctype html><isindex name="foo">
@@ -155,13 +138,8 @@
 | <html>
 |   <head>
 |   <body>
-|     <form>
-|       <hr>
-|       <label>
-|         "This is a searchable index. Enter search keywords: "
-|         <input>
-|           name="isindex"
-|       <hr>
+|     <isindex>
+|       name="foo"
 
 #data
 <!doctype html><ruby><p><rp>
@@ -508,7 +486,6 @@
 #data
 <!doctype html><html c=d><body></html><html a=b>
 #errors
-<html> after </html>
 (1,48): non-html-root
 #document
 | <!DOCTYPE html>
@@ -521,7 +498,6 @@
 #data
 <!doctype html><html c=d><frameset></frameset></html><html a=b>
 #errors
-</html> after html
 (1,63): non-html-root
 #document
 | <!DOCTYPE html>
@@ -555,6 +531,8 @@
 <!doctype html><html><frameset></frameset></html>abc
 #errors
 (1,50): expected-eof-but-got-char
+(1,51): expected-eof-but-got-char
+(1,52): expected-eof-but-got-char
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1053,7 +1031,6 @@
 <!doctype html><math></html>
 #errors
 (1,28): unexpected-end-tag
-(1,28): expected-one-end-tag-but-got-another
 (1,28): unexpected-end-tag
 #document
 | <!DOCTYPE html>
@@ -1113,6 +1090,8 @@
 <!doctype html><image/>
 #errors
 (1,23): image-start-tag
+#warnings
+nestc
 #document
 | <!DOCTYPE html>
 | <html>
@@ -1261,7 +1240,7 @@
 (1,49): foster-parenting-end-tag
 (1,44): adoption-agency-1.3
 (1,44): adoption-agency-1.3
-"f" in table
+(1,50): foster-parenting-character
 (1,50): eof-in-table
 #document
 | <!DOCTYPE html>

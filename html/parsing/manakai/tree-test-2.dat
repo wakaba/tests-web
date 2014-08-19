@@ -284,7 +284,6 @@ char in <tr>
 </select><option>
 #errors
 </select> in <select>.innerHTML
-no </option>
 #document-fragment select
 | <option>
 
@@ -298,7 +297,6 @@ no </option>
 <select><option>
 #errors
 <select> in <select> - treated as if </select>
-no </option>
 #document-fragment select
 | <option>
 
@@ -312,7 +310,6 @@ unmatched </optgroup>
 </optgroup><option>
 #errors
 unmatched </optgroup>
-no </option>
 #document-fragment optgroup
 | <option>
 
@@ -326,7 +323,6 @@ unmatched </optgroup>
 </optgroup><option>
 #errors
 unmatched </optgroup>
-no </option>
 #document-fragment option
 | <option>
 
@@ -388,14 +384,12 @@ unmatched </option>
 #data
 <option>
 #errors
-no </option>
 #document-fragment select
 | <option>
 
 #data
 <optgroup>
 #errors
-no </optgroup>
 #document-fragment select
 | <optgroup>
 
@@ -403,7 +397,6 @@ no </optgroup>
 </tr><option>a
 #errors
 </tr> in <select>
-no </option>
 #document-fragment select
 | <option>
 |   "a"
@@ -918,7 +911,8 @@ no </span>
 #errors
 <td> in body
 #document
-| <tr>
+| <{} tr>
+|   <{} td>
 
 #document-fragment
 svg hoge
@@ -1116,7 +1110,6 @@ svg svg
 #data
 </html>a
 #errors
-bad </html>
 #document
 | "a"
 
