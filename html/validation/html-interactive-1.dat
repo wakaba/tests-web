@@ -387,12 +387,12 @@
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><p>ab<hoge</noscript>
 #errors
-1;67;/html/body/noscript;unclosed tag;m
+1;67;/html/body/noscript;parsr:EOF;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><p>ab<hoge></noscript>
 #errors
-1;68;/html/body/noscript;no end tag at EOF;hoge;m
+1;68;/html/body/noscript;in body:#eof;hoge;m
 1;62;/html/body/noscript;element not defined;m
 1;62;/html/body/noscript;element not allowed:phrasing;m
 
@@ -410,15 +410,15 @@
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><p>ab<noscript>vv</noscript>
 #errors
 1;62;/html/body/noscript;element not allowed:minus;m
-1;74;/html/body/noscript;no end tag at EOF;noscript;m
+1;74;/html/body/noscript;in body:#eof;noscript;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>a<noscript><p>ab<noscript>vv<noscript>a</noscript>
 #errors
 1;62;/html/body/noscript;element not allowed:minus;m
 1;74;/html/body/noscript;element not allowed:minus;m
-1;85;/html/body/noscript;no end tag at EOF;noscript;m
-1;85;/html/body/noscript;no end tag at EOF;noscript;m
+1;85;/html/body/noscript;in body:#eof;noscript;m
+1;85;/html/body/noscript;in body:#eof;noscript;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>a<video src="x"><noscript><audio src="x">a</audio>b</noscript>a</video>

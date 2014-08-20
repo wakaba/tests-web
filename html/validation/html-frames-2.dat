@@ -1305,14 +1305,14 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 <!DOCTYPE html><html lang=en><title>a</title><iframe src="x"><hoge</iframe>
 #errors
 /html/body/iframe;no significant content;s
-1;67;/html/body/iframe;unclosed tag;m
+1;67;/html/body/iframe;parser:EOF;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><iframe src="x"><hoge></iframe>
 #errors
 1;62;/html/body/iframe;element not defined;m
 1;62;/html/body/iframe;element not allowed:phrasing;m
-1;68;/html/body/iframe;no end tag at EOF;hoge;m
+1;68;/html/body/iframe;in body:#eof;hoge;m
 /html/body/iframe;no significant content;s
 
 #data html
@@ -1368,4 +1368,4 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 2;9;/html/body/iframe;no significant content;s
 2;19;/html/body/iframe;element not allowed:phrasing;m
 2;19;/html/body/iframe;element not defined;m
-2;24;/html/body/iframe;no end tag at EOF;foo;m
+2;24;/html/body/iframe;in body:#eof;foo;m
