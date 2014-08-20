@@ -517,3 +517,51 @@ isindex
 |       content
 |         <form>
 |           <isindex>
+
+#data
+<link></template>x
+#document-fragment
+template
+#errors
+template:stray end tag
+#document
+| content
+|   <link>
+|   "x"
+
+#data
+<td></td></template>x
+#document-fragment
+template
+#errors
+template:stray end tag
+x in table
+#document
+| content
+|   <td>
+|   "x"
+
+#data
+<td></td><tbody>x
+#document-fragment
+template
+#errors
+tbody
+x
+#document
+| content
+|   <td>
+|   "x"
+
+#data
+<td></td><span>x
+#document-fragment
+template
+#errors
+span
+tbody
+#document
+| content
+|   <td>
+|   <span>
+|     "x"
