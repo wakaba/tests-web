@@ -1,0 +1,14 @@
+#data
+dictionary A {
+  DOMString foo;
+  required DOMString bar;
+};
+#processed
+{
+  "A": ["dictionary", {
+    "members": {
+      "foo": ["dictionary_member", {"type": "DOMString"}],
+      "bar": ["dictionary_member", {"type": "DOMString", "required": 1}]
+    }
+  }]
+}

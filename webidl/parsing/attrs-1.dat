@@ -24,6 +24,54 @@ interface A {
 
 #data
 interface A {
+  readonly attribute boolean required;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "attribute",
+          "readonly": 1,
+          "name": "required",
+          "type": "boolean"
+        }
+      ]    
+    }
+  ]
+}
+
+#data
+interface A {
+  readonly attribute boolean _required;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "attribute",
+          "readonly": 1,
+          "name": "required",
+          "type": "boolean"
+        }
+      ]    
+    }
+  ]
+}
+
+#data
+interface A {
   inherit attribute boolean hoge ;
 };
 #parsed

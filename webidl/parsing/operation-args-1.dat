@@ -269,3 +269,33 @@ interface A {
     }
   ]
 }
+
+#data
+interface A {
+  void hoo (DOMString required);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "index": 0,
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "name": "hoo",
+          "type": "void",
+          "arguments": [
+            {
+              "index": 26,
+              "name": "required",
+              "type": "DOMString"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -92,3 +92,27 @@ dictionary  D1 {
     }
   ]
 }
+
+#data
+dictionary  D1 {
+  required DOMString hoge;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "dictionary",
+      "name": "D1",
+      "members": [
+        {
+          "index": 19,
+          "member_type": "dictionary_member",
+          "name": "hoge",
+          "type": "DOMString",
+          "required": 1
+        }
+      ]
+    }
+  ]
+}
