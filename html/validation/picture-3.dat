@@ -1,0 +1,60 @@
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <source srcset="foo" media="screen"/>
+  <img src="a" alt="b"/>
+</picture>
+#errors
+/picture/source/@srcset;unknown attribute;u
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <source srcset="foo" media="screen and (hoge)"/>
+  <img src="a" alt="b"/>
+</picture>
+#errors
+/picture/source/@srcset;unknown attribute;u
+/picture/source/@media;mq:feature:unknown;m
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <source srcset="foo" sizes=""/>
+  <img src="a" alt="b"/>
+</picture>
+#errors
+/picture/source/@srcset;unknown attribute;u
+/picture/source/@sizes;unknown attribute;u
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <source srcset="foo" type="image/png"/>
+  <img src="a" alt="b"/>
+</picture>
+#errors
+/picture/source/@srcset;unknown attribute;u
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <source srcset="foo" type="image/png?"/>
+  <img src="a" alt="b"/>
+</picture>
+#errors
+/picture/source/@srcset;unknown attribute;u
+/picture/source/@type;params:garbage;m
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <source srcset="foo" src="image/png?"/>
+  <img src="a" alt="b"/>
+</picture>
+#errors
+/picture/source/@srcset;unknown attribute;u
+/picture/source/@src;attribute not allowed:media source;m
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <source src="image/png?"/>
+  <img src="a" alt="b"/>
+</picture>
+#errors
+/picture/source;attribute missing;srcset;m
+/picture/source/@src;attribute not allowed:media source;m

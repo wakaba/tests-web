@@ -1,0 +1,27 @@
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <picture/>
+</div>
+#errors
+/div;no significant content;s
+/div/picture;child element missing;img;m
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <picture><img src="a" alt="b"/></picture>
+</div>
+#errors
+/div;no significant content;s
+
+#data
+<span xmlns="http://www.w3.org/1999/xhtml">
+  <picture><img src="a" alt="b"/></picture>
+</span>
+#errors
+/span;no significant content;s
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml">
+  <picture><img src="a" alt="b"/></picture>
+</template>
+#errors

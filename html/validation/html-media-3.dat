@@ -1,0 +1,19 @@
+#data
+<video xmlns="http://www.w3.org/1999/xhtml">
+  <source srcset="foo"/>
+</video>
+#errors
+/video;no significant content;s
+/video/source;attribute missing;src;m
+/video/source/@srcset;unknown attribute;u
+/video/source/@srcset;attribute not allowed:picture source;m
+
+#data
+<audio xmlns="http://www.w3.org/1999/xhtml">
+  <source srcset="foo"/>
+</audio>
+#errors
+/audio;no significant content;s
+/audio/source;attribute missing;src;m
+/audio/source/@srcset;unknown attribute;u
+/audio/source/@srcset;attribute not allowed:picture source;m

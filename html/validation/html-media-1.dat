@@ -1607,13 +1607,28 @@
 <source src="http://test/" media="screen"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/source/@media;attr:obsolete;m
+/source/@media;attribute not allowed:picture source;m
 
 #data
 <source src="http://test/" media="screen and (foo)"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/source/@media;attr:obsolete;m
+/source/@media;attribute not allowed:picture source;m
+/source/@media;mq:feature:unknown;m
+
+#data
+<source src="http://test/" srcset="foo"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/source/@srcset;attribute not allowed:picture source;m
+/source/@srcset;unknown attribute;u
+
+#data
+<source src="http://test/" sizes=""
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/source/@sizes;attribute not allowed:picture source;m
+/source/@sizes;unknown attribute;u
 
 #data
 <source src="http://test/" xmlns="http://www.w3.org/1999/xhtml"

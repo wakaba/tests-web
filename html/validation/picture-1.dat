@@ -1,0 +1,143 @@
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml"></picture>
+#errors
+/picture;child element missing;img;m
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">  </picture>
+#errors
+/picture;child element missing;img;m
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">abc</picture>
+#errors
+/picture;child element missing;img;m
+/picture/"abc";character not allowed;m
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml"><img src="a" alt="b"/></picture>
+#errors
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <img src="a" alt="b"/>
+</picture>
+#errors
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <img src="a" alt="b"/>
+  <img src="a" alt="b"/>
+</picture>
+#errors
+/picture/img;element not allowed:picture;m
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <source srcset="a" type="image/png"/>
+  <img src="a" alt="b"/>
+</picture>
+#errors
+/picture/source/@srcset;unknown attribute;u
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml"><source srcset="a" type="image/png"/><img src="a" alt="b"/></picture>
+#errors
+/picture/source/@srcset;unknown attribute;u
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <source srcset="a" type="image/png"/>abc<img src="a" alt="b"/>
+</picture>
+#errors
+/picture/"abc";character not allowed;m
+/picture/source/@srcset;unknown attribute;u
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <source srcset="a" type="image/png"/>
+  <source srcset="a" type="image/jpeg"/>
+  <img src="a" alt="b"/>
+</picture>
+#errors
+/picture/source/@srcset;unknown attribute;u
+/picture/source/@srcset;unknown attribute;u
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <source srcset="a" type="image/png"/>
+  <img src="a" alt="b"/>
+  <source srcset="a" type="image/jpeg"/>
+</picture>
+#errors
+/picture/source;element not allowed:picture;m
+/picture/source/@srcset;unknown attribute;u
+/picture/source/@srcset;unknown attribute;u
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <source srcset="a" type="image/png"/>
+  <source srcset="a" type="image/jpeg"/>
+</picture>
+#errors
+/picture;child element missing;img;m
+/picture/source/@srcset;unknown attribute;u
+/picture/source/@srcset;unknown attribute;u
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <source srcset="a" type="image/png"/>
+  <br/>
+  <img src="a" alt="image/jpeg"/>
+</picture>
+#errors
+/picture/source/@srcset;unknown attribute;u
+/picture/br;element not allowed:picture;m
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <script></script>
+  <img src="a" alt="b"/>
+</picture>
+#errors
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <img src="a" alt="b"/>
+  <script></script>
+</picture>
+#errors
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <template>a</template>
+  <img src="a" alt="b"/>
+  <script></script>
+</picture>
+#errors
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <script/>
+  <source srcset="b" type="image/png"/>
+  <template>a</template>
+  <img src="a" alt="b"/>
+  <script></script>
+</picture>
+#errors
+/picture/source/@srcset;unknown attribute;u
+
+#data
+<picture xmlns="http://www.w3.org/1999/xhtml">
+  <script/>
+  <source srcset="b" type="image/png"/>
+  <script/>
+  <source srcset="b" type="image/png"/>
+  <template>a</template>
+  <img src="a" alt="b"/>
+  <script></script>
+  <template/>
+</picture>
+#errors
+/picture/source/@srcset;unknown attribute;u
+/picture/source/@srcset;unknown attribute;u
