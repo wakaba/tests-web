@@ -1,0 +1,237 @@
+#data
+interface A {
+  [Unscopeable] attribute DOMString foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "type": "DOMString", "getter": 1, "setter": 1,
+        "Unscopeable": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Unscopeable] readonly attribute DOMString foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "type": "DOMString", "getter": 1,
+        "Unscopeable": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Unscopeable] stringifier  attribute DOMString foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "type": "DOMString", "getter": 1, "setter": 1,
+        "Unscopeable": 1
+      }]
+    },
+    "stringifier": ["ref_attribute", "foo"]
+  }]
+}
+
+#data
+interface A {
+  [Unscopeable] static attribute DOMString foo;
+};
+#errors
+1;17;webidl:not allowed;;Unscopeable;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static_attribute", {
+        "type": "DOMString", "getter": 1, "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Unscopeable] DOMString foo ();
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "args": [],
+            "type": "DOMString"
+          }
+        },
+        "Unscopeable": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Unscopeable] stringifier DOMString foo ();
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "args": [],
+            "type": "DOMString"
+          }
+        },
+        "Unscopeable": 1
+      }]
+    },
+    "stringifier": ["operation", {
+      "overload_set": {
+        "": {
+          "args": [],
+          "type": "DOMString"
+        }
+      }
+    }]
+  }]
+}
+
+#data
+interface A {
+  [Unscopeable] DOMString foo ();
+  DOMString foo (DOMString x);
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "args": [],
+            "type": "DOMString"
+          },
+          "DOMString": {
+            "args": [{"type": "DOMString", "name": "x", "optionality": "required"}],
+            "type": "DOMString"
+          }
+        },
+        "Unscopeable": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Unscopeable] static DOMString foo ();
+};
+#errors
+1;17;webidl:not allowed;;Unscopeable;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static_operation", {
+        "overload_set": {
+          "": {
+            "args": [],
+            "type": "DOMString"
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Unscopeable] stringifier DOMString ();
+};
+#errors
+1;16;webidl:not allowed;;[Unscopeable];m
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "stringifier": ["operation", {
+      "overload_set": {
+        "": {
+          "args": [],
+          "type": "DOMString"
+        }
+      }
+    }]
+  }]
+}
+
+#data
+interface A {
+  [Unscopeable=foo] attribute DOMString foo;
+};
+#errors
+1;17;webidl:bad args;;Unscopeable;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "type": "DOMString", "getter": 1, "setter": 1,
+        "Unscopeable": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Unscopeable()] attribute DOMString foo;
+};
+#errors
+1;17;webidl:bad args;;Unscopeable;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "type": "DOMString", "getter": 1, "setter": 1,
+        "Unscopeable": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [Unscopable] attribute DOMString foo;
+};
+#errors
+1;17;webidl:not allowed;;Unscopable;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "type": "DOMString", "getter": 1, "setter": 1
+      }]
+    }
+  }]
+}
