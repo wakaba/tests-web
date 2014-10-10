@@ -22,27 +22,11 @@ interface A {
 }
 
 #data
-exception Foo {
+interface Foo {
   Hoge _foo;
 };
-#parsed
-{
-  "definitions": [
-    {
-      "index": 0,
-      "definition_type": "exception",
-      "name": "Foo",
-      "members": [
-        {
-          "index": 18,
-          "member_type": "field",
-          "name": "foo",
-          "type_name": "Hoge"
-        }
-      ]
-    }
-  ]
-}
+#errors
+27;webidl:parse error;(, ;;m
 
 #data
 dictionary Foo {
@@ -92,7 +76,7 @@ interface A {
 }
 
 #data
-exception A {
+interface A {
   const long _foo = 12.1;
 };
 #parsed
@@ -100,7 +84,7 @@ exception A {
   "definitions": [
     {
       "index": 0,
-      "definition_type": "exception",
+      "definition_type": "interface",
       "name": "A",
       "members": [
         {

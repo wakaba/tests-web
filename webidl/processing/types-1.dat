@@ -80,6 +80,24 @@ typedef unsigned long?[ ][] Hoge;
 }
 
 #data
+typedef USVString Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": "USVString"
+  }]
+}
+
+#data
+typedef USVString ? Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", "USVString"]
+  }]
+}
+
+#data
 typedef Fuga Hoge;
 #errors
 1;0;webidl:not defined;;Fuga;m
@@ -672,4 +690,67 @@ dictionary E {};
     "ref_dictionary[E]": ["ref_dictionary", "E"],
     "long": "long"
   }, "has_dictionary": 1}]}]
+}
+
+#data
+typedef Error ? Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", "Error"]
+  }]
+}
+
+#data
+typedef DOMException ? Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", "DOMException"]
+  }]
+}
+
+#data
+typedef ArrayBuffer? Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", "ArrayBuffer"]
+  }]
+}
+
+#data
+typedef DataView? Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", "DataView"]
+  }]
+}
+
+#data
+typedef Int8Array? Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", "Int8Array"]
+  }]
+}
+
+#data
+typedef Uint8ClampedArray? Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", "Uint8ClampedArray"]
+  }]
+}
+
+#data
+typedef Float32Array? Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["nullable", "Float32Array"]
+  }]
 }

@@ -32,13 +32,13 @@ interface A : B {};
 
 #data
 interface A : B {};
-exception B { };
+dictionary B { };
 #errors
 1;0;webidl:bad type;;B;m
 #processed
 {
   "A": ["interface", {"members": {}}],
-  "B": ["exception", {"members": {}}]
+  "B": ["dictionary", {"members": {}}]
 }
 
 #data
@@ -54,23 +54,23 @@ class B { };
 
 #data
 class A extends B {};
-exception B { };
-#errors
-1;0;webidl:bad type;;B;m
-#processed
-{
-  "A": ["class", {"members": {}}],
-  "B": ["exception", {"members": {}}]
-}
-
-#data
-exception A : B {};
 interface B { };
 #errors
 1;0;webidl:bad type;;B;m
 #processed
 {
-  "A": ["exception", {"members": {}}],
+  "A": ["class", {"members": {}}],
+  "B": ["interface", {"members": {}}]
+}
+
+#data
+class A extends B {};
+interface B { };
+#errors
+1;0;webidl:bad type;;B;m
+#processed
+{
+  "A": ["class", {"members": {}}],
   "B": ["interface", {"members": {}}]
 }
 
@@ -85,13 +85,13 @@ class B { };
 }
 
 #data
-exception A : B {};
-exception B { };
+interface A : B {};
+interface B { };
 #errors
 #processed
 {
-  "A": ["exception", {"members": {}, "implements": {"B": {"depth": 1}}}],
-  "B": ["exception", {"members": {}}]
+  "A": ["interface", {"members": {}, "implements": {"B": {"depth": 1}}}],
+  "B": ["interface", {"members": {}}]
 }
 
 #data

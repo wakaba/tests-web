@@ -1,30 +1,11 @@
 #data
 exception Foo {
 };
-#parsed
-{
-  "definitions": [
-    {
-      "index": 0,
-      "definition_type": "exception",
-      "name": "Foo",
-      "members": []
-    }
-  ]
-}
+#errors
+10;webidl:parse error;implements, ;;m
 
 #data
 exception Foo : Bar {
 };
-#parsed
-{
-  "definitions": [
-    {
-      "index": 0,
-      "definition_type": "exception",
-      "name": "Foo",
-      "super_name": "Bar",
-      "members": []
-    }
-  ]
-}
+#errors
+10;webidl:parse error;implements, ;;m

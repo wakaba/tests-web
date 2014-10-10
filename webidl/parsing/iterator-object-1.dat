@@ -2,27 +2,12 @@
 interface A {
   boolean iterator  object;
 };
-#parsed
-{
-  "definitions": [
-    {
-      "index": 0,
-      "definition_type": "interface",
-      "name": "A",
-      "members": [
-        {
-          "index": 16,
-          "member_type": "iterator_object",
-          "type": "boolean"
-        }
-      ]
-    }
-  ]
-}
+#errors
+34;webidl:parse error;(, ;;m
 
 #data
 interface A {
   boolean iterator  object = foo; 
 };
 #errors
-41;webidl:parse error;;, ;;m
+34;webidl:parse error;(, ;;m

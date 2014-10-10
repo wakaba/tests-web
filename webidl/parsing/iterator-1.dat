@@ -2,43 +2,12 @@
 interface A {
   boolean iterator;
 };
-#parsed
-{
-  "definitions": [
-    {
-      "index": 0,
-      "definition_type": "interface",
-      "name": "A",
-      "members": [
-        {
-          "index": 16,
-          "member_type": "iterator",
-          "type": "boolean"
-        }
-      ]
-    }
-  ]
-}
+#errors
+32;webidl:parse error;(, ;;m
 
 #data
 interface A {
   boolean iterator  = Hoge;
 };
-#parsed
-{
-  "definitions": [
-    {
-      "index": 0,
-      "definition_type": "interface",
-      "name": "A",
-      "members": [
-        {
-          "index": 16,
-          "member_type": "iterator",
-          "type": "boolean",
-          "value_name": "Hoge"
-        }
-      ]
-    }
-  ]
-}
+#errors
+34;webidl:parse error;(, ;;m

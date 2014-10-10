@@ -87,16 +87,16 @@ interface A {
 }
 
 #data
-exception B {};
+interface B {};
 interface A {
   B foo ();
 };
 #processed
 {
-  "B": ["exception", {"members":{}}],
+  "B": ["interface", {"members":{}}],
   "A": ["interface", {"members": {
     "foo": ["operation", {
-      "overload_set": {"": {"type": ["ref_exception", "B"], "args": []}}
+      "overload_set": {"": {"type": ["ref_interface", "B"], "args": []}}
     }]
   }}]
 }

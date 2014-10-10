@@ -112,12 +112,12 @@ interface A {};
 }
 
 #data
-[ArrayClass] exception A {};
+[ArrayClass] dictionary A {};
 #errors
 1;1;webidl:not allowed;;ArrayClass;m
 #processed
 {
-  "A": ["exception", {"members": {}}]
+  "A": ["dictionary", {"members": {}}]
 }
 
 #data
@@ -172,17 +172,16 @@ interface A {
 }
 
 #data
-exception A {
+dictionary A {
   [Clamp]  long  lhoo;
 };
 #errors
-1;17;webidl:not allowed;;Clamp;m
 #processed
 {
-  "A": ["exception", {
+  "A": ["dictionary", {
     "members": {
-      "lhoo": ["field", {
-        "type": "long"
+      "lhoo": ["dictionary_member", {
+        "type": "long", "Clamp": 1
       }]
     }
   }]
@@ -430,25 +429,6 @@ dictionary A {};
 
 #data
 [Constructor]
-exception A {};
-#errors
-1;1;webidl:not allowed;;Constructor;m
-1;;webidl:not defined;;[PrimaryGlobal];w
-#processed
-{
-  "idl_defs": {
-    "A": ["exception", {
-      "members": {}
-    }]
-  },
-  "global_members": {
-    "A": ["object", {
-    }]
-  }
-}
-
-#data
-[Constructor]
 callback interface A {};
 #errors
 1;1;webidl:not allowed;;Constructor;m
@@ -611,6 +591,8 @@ interface A {};
 interface A {
   void foo ([EnsureUTF16] DOMString hoge);
 };
+#errors
+1;27;webidl:not allowed;;EnsureUTF16;m
 #processed
 {
   "A": ["interface", {
@@ -620,7 +602,7 @@ interface A {
           "DOMString": {
             "type": "void",
             "args": [{"name": "hoge", "type": "DOMString",
-                      "EnsureUTF16": 1, "optionality": "required"}]
+                      "optionality": "required"}]
           }
         }
       }]
@@ -689,7 +671,7 @@ interface A {
 [MapClass]
 interface A {};
 #errors
-1;1;webidl:bad args;;MapClass;m
+1;1;webidl:not allowed;;MapClass;m
 #processed
 {
   "A": ["interface", {
@@ -701,14 +683,12 @@ interface A {};
 [MapClass(long, B)]
 interface A {};
 interface B {};
+#errors
+1;1;webidl:not allowed;;MapClass;m
 #processed
 {
   "A": ["interface", {
-    "members": {},
-    "MapClass": {
-      "key_type": "long",
-      "value_type": ["ref_interface", "B"]
-    }
+    "members": {}
   }],
   "B": ["interface", {"members": {}}]
 }
@@ -717,15 +697,11 @@ interface B {};
 [MapClass(long, B)]
 interface A {};
 #errors
-1;1;webidl:not defined;;B;m
+1;1;webidl:not allowed;;MapClass;m
 #processed
 {
   "A": ["interface", {
-    "members": {},
-    "MapClass": {
-      "key_type": "long",
-      "value_type": ["ref", "B"]
-    }
+    "members": {}
   }]
 }
 
@@ -749,16 +725,12 @@ interface B {};
 interface A  {};
 interface B {};
 #errors
-1;0;webidl:not allowed;;ArrayClass;m
+1;13;webidl:not allowed;;MapClass;m
 #processed
 {
   "A": ["interface", {
     "members": {},
-    "ArrayClass": 1,
-    "MapClass": {
-      "key_type": "long",
-      "value_type": ["ref_interface", "B"]
-    }
+    "ArrayClass": 1
   }],
   "B": ["interface", {"members": {}}]
 }
@@ -897,10 +869,10 @@ interface A { };
 
 #data
 [NoInterfaceObject]
-exception A { };
+interface A { };
 #processed
 {
-  "A": ["exception", {
+  "A": ["interface", {
     "members": {},
     "NoInterfaceObject": 1
   }]

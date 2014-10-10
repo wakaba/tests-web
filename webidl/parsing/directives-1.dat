@@ -78,12 +78,12 @@ interface [*id="foo-bar-baz"*]A: [*id="super"*]B {};
 }
 
 #data
-exception [*id="foo-bar-baz"*]A: [*id="super"*]B {};
+interface [*id="foo-bar-baz"*]A: [*id="super"*]B {};
 #parsed
 {
   "definitions": [
     {
-      "definition_type": "exception",
+      "definition_type": "interface",
       "name": "A",
       "id": "foo-bar-baz",
       "super_name": "B",

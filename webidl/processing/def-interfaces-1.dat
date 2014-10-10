@@ -79,14 +79,14 @@ A implements B;
 }
 
 #data
-exception A {};
+class A {};
 interface B {};
 A implements B;
 #errors
-1;32;webidl:bad type;;B;m
+1;28;webidl:bad type;;B;m
 #processed
 {
-  "A": ["exception", {"members": {}}],
+  "A": ["class", {"members": {}}],
   "B": ["interface", {"members": {}}]
 }
 

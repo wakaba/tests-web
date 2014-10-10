@@ -132,7 +132,7 @@ interface A { };
 #data
 [PrimaryGlobal] interface G1 {};
 [Global] interface G2 {};
-exception X {};
+interface X {};
 #processed
 {
   "global_names": {
@@ -143,12 +143,12 @@ exception X {};
   "idl_defs": {
     "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
     "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
-    "X": ["exception", {"members": {}, "Exposed": {"G1":1, "G2": 1}}]
+    "X": ["interface", {"members": {}, "Exposed": {"G1":1}}]
   },
   "global_members": {
     "G1": ["object", { "Exposed": {"G1":1}}],
     "G2": ["object", { "Exposed": {"G1":1}}],
-    "X": ["object", {"Exposed": {"G1":1,"G2":1}}]
+    "X": ["object", {"Exposed": {"G1":1}}]
   }
 }
 
@@ -852,12 +852,12 @@ callback interface C {
 
 #data
 [PrimaryGlobal] interface G {};
-exception X {};
+interface X {};
 #processed
 {
   "idl_defs": {
     "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
-    "X": ["exception", {"members":{},"Exposed":{"G":1}}]
+    "X": ["interface", {"members":{},"Exposed":{"G":1}}]
   },
   "global_names": {"G":{"G":1}},
   "primary_global": "G",
@@ -869,12 +869,12 @@ exception X {};
 
 #data
 [PrimaryGlobal] interface G {};
-[NoInterfaceObject ]exception X {};
+[NoInterfaceObject ]interface X {};
 #processed
 {
   "idl_defs": {
     "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
-    "X": ["exception", {"members":{},"Exposed":{"G":1},"NoInterfaceObject":1}]
+    "X": ["interface", {"members":{},"Exposed":{"G":1},"NoInterfaceObject":1}]
   },
   "global_names": {"G":{"G":1}},
   "primary_global": "G",

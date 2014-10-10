@@ -178,21 +178,6 @@ interface A {
 }
 
 #data
-exception A {
-  DOMString _toJSON;
-};
-#errors
-1;16;webidl:reserved;;toJSON;m
-#processed
-{
-  "A": ["exception", {
-    "members": {
-      "toJSON": ["field", {"type": "DOMString"}]
-    }
-  }]
-}
-
-#data
 dictionary A {
   DOMString _toJSON;
 };
@@ -1519,66 +1504,5 @@ callback interface A {
     "members": {"foo": ["static_operation", {
       "overload_set": {"": {"type": "DOMString", "args": []}}
     }]}
-  }]
-}
-
-#data
-interface A {
-  boolean iterator;
-};
-#processed
-{
-  "A": ["interface", {
-    "iterator": ["iterator", {"type": "boolean"}],
-    "members": {}
-  }]
-}
-
-#data
-interface B {
-  DOMString iterator object;
-};
-interface A {
-  boolean iterator = B;
-};
-#processed
-{
-  "A": ["interface", {
-    "iterator": ["iterator", {"type": "boolean", "value": ["ref_interface", "B"]}],
-    "members": {}
-  }],
-  "B": ["interface", {
-    "iterator_object": ["iterator_object", {"type": "DOMString"}],
-    "members": {}
-  }]
-}
-
-#data
-interface A {
-  boolean iterator;
-  long iterator;
-};
-#errors
-1;36;webidl:duplicate;;iterator;m
-#processed
-{
-  "A": ["interface", {
-    "iterator": ["iterator", {"type": "boolean"}],
-    "members": {}
-  }]
-}
-
-#data
-interface A {
-  boolean iterator object;
-  long iterator object;
-};
-#errors
-1;43;webidl:duplicate;;iterator object;m
-#processed
-{
-  "A": ["interface", {
-    "iterator_object": ["iterator_object", {"type": "boolean"}],
-    "members": {}
   }]
 }

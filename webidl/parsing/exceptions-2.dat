@@ -2,52 +2,13 @@
 exception Foo {
   DOMString na;
 };
-#parsed
-{
-  "definitions": [
-    {
-      "index": 0,
-      "definition_type": "exception",
-      "name": "Foo",
-      "members": [
-        {
-          "index": 18,
-          "member_type": "field",
-          "name": "na",
-          "type": "DOMString"
-        }
-      ]
-    }
-  ]
-}
+#errors
+10;webidl:parse error;implements, ;;m
 
 #data
 exception Foo {
   DOMString na;
   const unsigned long HOGE = 12;
 };
-#parsed
-{
-  "definitions": [
-    {
-      "index": 0,
-      "definition_type": "exception",
-      "name": "Foo",
-      "members": [
-        {
-          "index": 18,
-          "member_type": "field",
-          "name": "na",
-          "type": "DOMString"
-        },
-        {
-          "index": 34,
-          "member_type": "const",
-          "name": "HOGE",
-          "type": "unsigned long",
-          "value_integer": 12
-        }
-      ]
-    }
-  ]
-}
+#errors
+10;webidl:parse error;implements, ;;m

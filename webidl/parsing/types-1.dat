@@ -180,6 +180,31 @@ interface A {
 
 #data
 interface A {
+  attribute USVString hoge;
+};
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "interface", "name": "A", "members": [ {
+    "index": 16, "member_type": "attribute", "name": "hoge",
+    "type": "USVString"
+  } ]
+} ] }
+
+
+#data
+interface A {
+  attribute USVString ? hoge;
+};
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "interface", "name": "A", "members": [ {
+    "index": 16, "member_type": "attribute", "name": "hoge",
+    "type": "USVString", "type_nullable": 1
+  } ]
+} ] }
+
+#data
+interface A {
   attribute ByteString hoge;
 };
 #parsed
