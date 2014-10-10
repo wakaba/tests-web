@@ -92,7 +92,7 @@ interface A { };
 }
 
 #data
-[Global=Foo,Bar] interface A { };
+[Global=(Foo,Bar)] interface A { };
 #errors
 1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
@@ -224,7 +224,7 @@ interface I {};
 #data
 [PrimaryGlobal] interface G1 {};
 [Global] interface G2 {};
-[Exposed=G1, G2] interface I {};
+[Exposed=(G1, G2)] interface I {};
 #processed
 {
   "global_names": {
@@ -419,7 +419,7 @@ interface A { };
 #data
 [PrimaryGlobal] interface G1 {};
 [Global] interface G2 {};
-[Exposed=G1, G2]
+[Exposed=(G1, G2)]
 interface I {
   [Exposed=G1] attribute long hoge;
   attribute long fuga;
@@ -497,7 +497,7 @@ interface I {
 #data
 [PrimaryGlobal] interface G1 {};
 [Global] interface G2 {};
-[Exposed=G1, G2]
+[Exposed=(G1, G2)]
 interface I {};
 partial interface I {
   attribute long hoge;
@@ -531,7 +531,7 @@ partial interface I {
 #data
 [PrimaryGlobal] interface G1 {};
 [Global] interface G2 {};
-[Exposed=G1, G2]
+[Exposed=(G1, G2)]
 interface I {};
 [Exposed=G2]
 partial interface I {
@@ -567,14 +567,14 @@ partial interface I {
 #data
 [PrimaryGlobal] interface G1 {};
 [Global] interface G2 {};
-[Exposed=G1, G2]
+[Exposed=(G1, G2)]
 interface I {};
 [Exposed=G2]
 partial interface I {
   [Exposed=G1] attribute long hoge;
 };
 #errors
-1;130;webidl:not allowed;;Exposed;m
+1;132;webidl:not allowed;;Exposed;m
 #processed
 {
   "global_names": {
@@ -605,7 +605,7 @@ partial interface I {
 #data
 [PrimaryGlobal] interface G1 {};
 [Global] interface G2 {};
-[Exposed=G1, G2]
+[Exposed=(G1, G2)]
 interface I {};
 partial interface I {
   [Exposed=G1] attribute long hoge;
@@ -640,7 +640,7 @@ partial interface I {
 #data
 [PrimaryGlobal] interface G1 {};
 [Global] interface G2 {};
-[Exposed=G1, G2]
+[Exposed=(G1, G2)]
 interface I {
   [Exposed=G1] long hoge ();
 };
@@ -679,13 +679,13 @@ interface I {
 #data
 [PrimaryGlobal] interface G1 {};
 [Global] interface G2 {};
-[Exposed=G1, G2]
+[Exposed=(G1, G2)]
 interface I {
   [Exposed=G1] long hoge ();
   [Exposed=G2] double hoge (long a);
 };
 #errors
-1;92;webidl:inconsistent;;[Exposed];m
+1;94;webidl:inconsistent;;[Exposed];m
 #processed
 {
   "global_names": {
@@ -725,13 +725,13 @@ interface I {
 #data
 [PrimaryGlobal] interface G1 {};
 [Global] interface G2 {};
-[Exposed=G1, G2]
+[Exposed=(G1, G2)]
 interface I {
   [Exposed=G1] long hoge ();
   double hoge (long a);
 };
 #errors
-1;92;webidl:inconsistent;;[Exposed];m
+1;94;webidl:inconsistent;;[Exposed];m
 #processed
 {
   "global_names": {
@@ -808,7 +808,7 @@ callback interface C {
 #data
 [PrimaryGlobal] interface G {};
 [Global,Exposed=G2] interface G2 {};
-[Exposed=G,G2]
+[Exposed=(G,G2)]
 callback interface C {
   [Exposed=G2] const long foo = 124;
 };

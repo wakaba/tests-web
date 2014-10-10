@@ -184,7 +184,7 @@ interface A {
 }
 
 #data
-[Exposed=Worker, Window] interface A { };
+[Exposed=(Worker, Window)] interface A { };
 #parsed
 {
   "definitions": [
@@ -218,7 +218,15 @@ interface A {
         {
           "index": 1,
           "name": "Exposed",
-          "value_names": ["Worker", "Window", "ImplicitThis"]
+          "value_names": ["Worker"]
+        },
+        {
+          "index": 17,
+          "name": "Window"
+        },
+        {
+          "index": 25,
+          "name": "ImplicitThis"
         }
       ]
     }
@@ -377,7 +385,7 @@ interface A {
 }
 
 #data
-[Exposed=Worker, Window, Constructor ()] interface A { };
+[Exposed=(Worker, Window), Constructor ()] interface A { };
 #parsed
 {
   "definitions": [
@@ -393,7 +401,7 @@ interface A {
           "value_names": ["Worker", "Window"]
         },
         {
-          "index": 25,
+          "index": 27,
           "name": "Constructor",
           "arguments": []
         }
