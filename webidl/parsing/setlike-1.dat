@@ -1,0 +1,52 @@
+#data
+interface A {
+  setlike <C?>;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "index": 0,
+      "members": [
+        {
+          "index": 16,
+          "member_type": "setlike",
+          "type1": {
+            "type_name": "C",
+            "type_nullable": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  readonly setlike <Promise<C>>;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "index": 0,
+      "members": [
+        {
+          "index": 16,
+          "member_type": "setlike",
+          "readonly": 1,
+          "type1": {
+            "type_parameterized": {
+              "type_name": "C",
+              "type_outer": "Promise"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

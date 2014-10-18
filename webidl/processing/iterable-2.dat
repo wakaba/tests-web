@@ -1,0 +1,70 @@
+#data
+interface A {
+  iterable < DOMString >;
+  iterable < long>;
+};
+#errors
+1;42;webidl:duplicate;;iterable;m
+#processed
+{
+  "A": ["interface", {
+    "iterable": ["iterable", {
+      "values_type": "DOMString"
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  iterable < DOMString >;
+  legacyiterable <DOMString>;
+};
+#errors
+1;42;webidl:duplicate;;iterable;m
+#processed
+{
+  "A": ["interface", {
+    "iterable": ["iterable", {
+      "values_type": "DOMString"
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  maplike < DOMString, DOMString >;
+  legacyiterable <DOMString>;
+};
+#errors
+1;52;webidl:duplicate;;iterable;m
+#processed
+{
+  "A": ["interface", {
+    "iterable": ["maplike", {
+      "keys_type": "DOMString",
+      "values_type": "DOMString",
+      "read": 1, "write": 1
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  setlike < DOMString>;
+  iterable <DOMString>;
+};
+#errors
+1;40;webidl:duplicate;;iterable;m
+#processed
+{
+  "A": ["interface", {
+    "iterable": ["setlike", {
+      "values_type": "DOMString",
+      "read": 1, "write": 1
+    }],
+    "members": {}
+  }]
+}

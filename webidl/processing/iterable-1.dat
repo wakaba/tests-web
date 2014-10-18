@@ -1,0 +1,104 @@
+#data
+interface A {
+  iterable < DOMString >;
+};
+#processed
+{
+  "A": ["interface", {
+    "iterable": ["iterable", {
+      "values_type": "DOMString"
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  iterable < DOMString , long >;
+};
+#processed
+{
+  "A": ["interface", {
+    "iterable": ["iterable", {
+      "keys_type": "DOMString",
+      "values_type": "long"
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  legacyiterable < DOMString >;
+};
+#processed
+{
+  "A": ["interface", {
+    "iterable": ["legacyiterable", {
+      "values_type": "DOMString"
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  maplike< DOMString , long >;
+};
+#processed
+{
+  "A": ["interface", {
+    "iterable": ["maplike", {
+      "keys_type": "DOMString",
+      "values_type": "long",
+      "read": 1, "write": 1
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  readonly maplike< DOMString , long >;
+};
+#processed
+{
+  "A": ["interface", {
+    "iterable": ["maplike", {
+      "keys_type": "DOMString",
+      "values_type": "long",
+      "read": 1
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  setlike<  long >;
+};
+#processed
+{
+  "A": ["interface", {
+    "iterable": ["setlike", {
+      "values_type": "long",
+      "read": 1, "write": 1
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  readonly setlike<  long >;
+};
+#processed
+{
+  "A": ["interface", {
+    "iterable": ["setlike", {
+      "values_type": "long",
+      "read": 1
+    }],
+    "members": {}
+  }]
+}

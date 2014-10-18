@@ -1,0 +1,58 @@
+#data
+interface A {
+  maplike <B ,C?>;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "index": 0,
+      "members": [
+        {
+          "index": 16,
+          "member_type": "maplike",
+          "type1": {
+            "type_name": "B"
+          },
+          "type2": {
+            "type_name": "C",
+            "type_nullable": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  readonly maplike <B ,Promise<C>>;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "index": 0,
+      "members": [
+        {
+          "index": 16,
+          "member_type": "maplike",
+          "readonly": 1,
+          "type1": {
+            "type_name": "B"
+          },
+          "type2": {
+            "type_parameterized": {
+              "type_name": "C",
+              "type_outer": "Promise"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

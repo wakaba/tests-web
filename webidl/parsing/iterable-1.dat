@@ -1,0 +1,50 @@
+#data
+interface A {
+  iterable<B>;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "index": 0,
+      "members": [
+        {
+          "index": 16,
+          "member_type": "iterable",
+          "type1": {
+            "type_name": "B"
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  iterable <B, long>;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "index": 0,
+      "members": [
+        {
+          "index": 16,
+          "member_type": "iterable",
+          "type1": {
+            "type_name": "B"
+          },
+          "type2": {
+            "type": "long"
+          }
+        }
+      ]
+    }
+  ]
+}
