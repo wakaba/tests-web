@@ -78,14 +78,7 @@
 #data
 [ArrayClass(long,long)] interface A {};
 #errors
-1;1;webidl:bad args;;ArrayClass;m
-#processed
-{
-  "A": ["interface", {
-    "ArrayClass": 1,
-    "members": {}
-  }]
-}
+1;16;webidl:parse error;long, ;;m
 
 #data
 interface B {};
@@ -684,56 +677,27 @@ interface A {};
 interface A {};
 interface B {};
 #errors
-1;1;webidl:not allowed;;MapClass;m
-#processed
-{
-  "A": ["interface", {
-    "members": {}
-  }],
-  "B": ["interface", {"members": {}}]
-}
+1;14;webidl:parse error;long, ;;m
 
 #data
 [MapClass(long, B)]
 interface A {};
 #errors
-1;1;webidl:not allowed;;MapClass;m
-#processed
-{
-  "A": ["interface", {
-    "members": {}
-  }]
-}
+1;14;webidl:parse error;long, ;;m
 
 #data
 [MapClass(long, B)]
 interface A : B {};
 interface B {};
 #errors
-1;1;webidl:not allowed;;MapClass;m
-#processed
-{
-  "A": ["interface", {
-    "members": {},
-    "implements": {"B": {"depth": 1}}
-  }],
-  "B": ["interface", {"members": {}}]
-}
+1;14;webidl:parse error;long, ;;m
 
 #data
 [ArrayClass, MapClass(long, B)]
 interface A  {};
 interface B {};
 #errors
-1;13;webidl:not allowed;;MapClass;m
-#processed
-{
-  "A": ["interface", {
-    "members": {},
-    "ArrayClass": 1
-  }],
-  "B": ["interface", {"members": {}}]
-}
+1;26;webidl:parse error;long, ;;m
 
 #data
 interface A {
