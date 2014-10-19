@@ -11,3 +11,39 @@ typedef long LONG;
     }
   ]
 }
+
+#data
+typedef (Int8Array or Uint8Array or Uint8ClampedArray or
+         Int16Array or Uint16Array or
+         Int32Array or Uint32Array or
+         Float32Array or Float64Array or
+         DataView) ArrayBufferView;
+typedef (ArrayBufferView or ArrayBuffer) BufferSource;
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "typedef",
+      "index": 0,
+      "name": "ArrayBufferView",
+      "type_union": [
+        {"type": "Int8Array"},
+        {"type": "Uint8Array"},
+        {"type": "Uint8ClampedArray"},
+        {"type": "Int16Array"}, {"type": "Uint16Array"},
+        {"type": "Int32Array"}, {"type": "Uint32Array"},
+        {"type": "Float32Array"}, {"type": "Float64Array"},
+        {"type": "DataView"}
+      ]
+    },
+    {
+      "definition_type": "typedef",
+      "index": 210,
+      "name": "BufferSource",
+      "type_union": [
+        {"type_name": "ArrayBufferView"},
+        {"type": "ArrayBuffer"}
+      ]
+    }
+  ]
+}
