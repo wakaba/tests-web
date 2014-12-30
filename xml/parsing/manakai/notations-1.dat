@@ -15,7 +15,7 @@
 #errors
 1;1;no XML decl;;;s
 2;1;bogus comment;;;m
-2;4;unclosed internal subset;;;m
+2;4;parser:EOF;;;m
 2;4;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -37,7 +37,7 @@
 #errors
 1;1;no XML decl;;;s
 2;1;bogus comment;;;m
-2;5;unclosed internal subset;;;m
+2;5;parser:EOF;;;m
 2;5;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -59,7 +59,7 @@
 #errors
 1;1;no XML decl;;;s
 2;1;bogus comment;;;m
-2;6;unclosed internal subset;;;m
+2;6;parser:EOF;;;m
 2;6;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -81,7 +81,7 @@
 #errors
 1;1;no XML decl;;;s
 2;1;bogus comment;;;m
-2;10;unclosed internal subset;;;m
+2;10;parser:EOF;;;m
 2;10;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -102,8 +102,8 @@
 <!NOTATION
 #errors
 1;1;no XML decl;;;s
-2;11;unclosed md;;;m
-2;11;unclosed internal subset;;;m
+2;11;parser:EOF;;;m
+2;11;parser:EOF;;;m
 2;11;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -127,8 +127,8 @@
 #errors
 1;1;no XML decl;;;s
 2;11;no space before md name;;;m
-2;12;unclosed md;;;m
-2;12;unclosed internal subset;;;m
+2;12;parser:EOF;;;m
+2;12;parser:EOF;;;m
 2;12;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -150,8 +150,8 @@
 <!NOTATION b
 #errors
 1;1;no XML decl;;;s
-2;13;unclosed md;;;m
-2;13;unclosed internal subset;;;m
+2;13;parser:EOF;;;m
+2;13;parser:EOF;;;m
 2;13;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -173,12 +173,11 @@
 <!NOTATION b\u0020
 #errors
 1;1;no XML decl;;;s
-2;14;unclosed md;;;m
-2;14;unclosed internal subset;;;m
+2;14;parser:EOF;;;m
+2;14;parser:EOF;;;m
 2;14;no root element;;;m
 #document
 | <!DOCTYPE a>
-|   <!NOTATION b "" "">
 
 #data
 <!DOCTYPE a[
@@ -197,8 +196,8 @@
 <!NOTATION bcd
 #errors
 1;1;no XML decl;;;s
-2;15;unclosed md;;;m
-2;15;unclosed internal subset;;;m
+2;15;parser:EOF;;;m
+2;15;parser:EOF;;;m
 2;15;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -209,7 +208,8 @@
 #errors
 1;1;no XML decl;;;s
 2;17;string after DOCTYPE name;;;m
-2;18;unclosed internal subset;;;m
+2;18;parser:EOF;;;m
+2;18;parser:EOF;;;m
 2;18;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -219,24 +219,22 @@
 <!NOTATION abc PUBLIC
 #errors
 1;1;no XML decl;;;s
-2;22;unclosed md;;;m
-2;22;unclosed internal subset;;;m
+2;22;parser:EOF;;;m
+2;22;parser:EOF;;;m
 2;22;no root element;;;m
 #document
 | <!DOCTYPE a>
-|   <!NOTATION abc "" "">
 
 #data escaped
 <!DOCTYPE a[
 <!NOTATION abc PUBLIC\u0020
 #errors
 1;1;no XML decl;;;s
-2;23;unclosed md;;;m
-2;23;unclosed internal subset;;;m
+2;23;parser:EOF;;;m
+2;23;parser:EOF;;;m
 2;23;no root element;;;m
 #document
 | <!DOCTYPE a>
-|   <!NOTATION abc "" "">
 
 #data
 <!DOCTYPE a[
@@ -244,7 +242,8 @@
 #errors
 1;1;no XML decl;;;s
 2;23;string after PUBLIC;;;m
-2;24;unclosed internal subset;;;m
+2;24;parser:EOF;;;m
+2;24;parser:EOF;;;m
 2;24;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -254,24 +253,22 @@
 <!NOTATION abc SYSTEM
 #errors
 1;1;no XML decl;;;s
-2;22;unclosed md;;;m
-2;22;unclosed internal subset;;;m
+2;22;parser:EOF;;;m
+2;22;parser:EOF;;;m
 2;22;no root element;;;m
 #document
 | <!DOCTYPE a>
-|   <!NOTATION abc "" "">
 
 #data escaped
 <!DOCTYPE a[
 <!NOTATION abc SYSTEM\u0020
 #errors
 1;1;no XML decl;;;s
-2;23;unclosed md;;;m
-2;23;unclosed internal subset;;;m
+2;23;parser:EOF;;;m
+2;23;parser:EOF;;;m
 2;23;no root element;;;m
 #document
 | <!DOCTYPE a>
-|   <!NOTATION abc "" "">
 
 #data
 <!DOCTYPE a[
@@ -279,7 +276,8 @@
 #errors
 1;1;no XML decl;;;s
 2;23;string after PUBLIC;;;m
-2;24;unclosed internal subset;;;m
+2;24;parser:EOF;;;m
+2;24;parser:EOF;;;m
 2;24;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -290,7 +288,8 @@
 #errors
 1;1;no XML decl;;;s
 2;26;string after PUBLIC literal;;;m
-2;27;unclosed internal subset;;;m
+2;27;parser:EOF;;;m
+2;27;parser:EOF;;;m
 2;27;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -301,7 +300,8 @@
 #errors
 1;1;no XML decl;;;s
 2;27;string after PUBLIC literal;;;m
-2;28;unclosed internal subset;;;m
+2;28;parser:EOF;;;m
+2;28;parser:EOF;;;m
 2;28;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -312,7 +312,8 @@
 #errors
 1;1;no XML decl;;;s
 2;26;string after SYSTEM literal;;;m
-2;27;unclosed internal subset;;;m
+2;27;parser:EOF;;;m
+2;27;parser:EOF;;;m
 2;27;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -323,7 +324,8 @@
 #errors
 1;1;no XML decl;;;s
 2;27;string after SYSTEM literal;;;m
-2;28;unclosed internal subset;;;m
+2;28;parser:EOF;;;m
+2;28;parser:EOF;;;m
 2;28;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -334,7 +336,8 @@
 #errors
 1;1;no XML decl;;;s
 2;30;string after SYSTEM literal;;;m
-2;31;unclosed internal subset;;;m
+2;31;parser:EOF;;;m
+2;31;parser:EOF;;;m
 2;31;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -345,7 +348,8 @@
 #errors
 1;1;no XML decl;;;s
 2;31;string after SYSTEM literal;;;m
-2;32;unclosed internal subset;;;m
+2;32;parser:EOF;;;m
+2;32;parser:EOF;;;m
 2;32;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -379,12 +383,11 @@
 <!NOTATION bcd PUBLIC
 #errors
 1;1;no XML decl;;;s
-2;22;unclosed md;;;m
-2;22;unclosed internal subset;;;m
+2;22;parser:EOF;;;m
+2;22;parser:EOF;;;m
 2;22;no root element;;;m
 #document
 | <!DOCTYPE a>
-|   <!NOTATION bcd "" "">
 
 #data
 <!DOCTYPE a[
@@ -402,12 +405,11 @@
 <!NOTATION bcd PUBLIC "efg"
 #errors
 1;1;no XML decl;;;s
-2;28;unclosed md;;;m
-2;28;unclosed internal subset;;;m
+2;28;parser:EOF;;;m
+2;28;parser:EOF;;;m
 2;28;no root element;;;m
 #document
 | <!DOCTYPE a>
-|   <!NOTATION bcd "efg" "">
 
 #data
 <!DOCTYPE a[
@@ -473,12 +475,11 @@
 <!NOTATION bcd PUBLIC "efg" "hij"
 #errors
 1;1;no XML decl;;;s
-2;34;unclosed md;;;m
-2;34;unclosed internal subset;;;m
+2;34;parser:EOF;;;m
+2;34;parser:EOF;;;m
 2;34;no root element;;;m
 #document
 | <!DOCTYPE a>
-|   <!NOTATION bcd "efg" "hij">
 
 #data
 <!DOCTYPE a[
@@ -509,12 +510,11 @@
 <!NOTATION bcd SYSTEM
 #errors
 1;1;no XML decl;;;s
-2;22;unclosed md;;;m
-2;22;unclosed internal subset;;;m
+2;22;parser:EOF;;;m
+2;22;parser:EOF;;;m
 2;22;no root element;;;m
 #document
 | <!DOCTYPE a>
-|   <!NOTATION bcd "" "">
 
 #data
 <!DOCTYPE a[
@@ -532,12 +532,11 @@
 <!NOTATION bcd SYSTEM "efg"
 #errors
 1;1;no XML decl;;;s
-2;28;unclosed md;;;m
-2;28;unclosed internal subset;;;m
+2;28;parser:EOF;;;m
+2;28;parser:EOF;;;m
 2;28;no root element;;;m
 #document
 | <!DOCTYPE a>
-|   <!NOTATION bcd "" "efg">
 
 #data
 <!DOCTYPE a[
@@ -548,6 +547,7 @@
 2;28;string after PUBLIC literal;;;m
 #document
 | <!DOCTYPE a>
+|   <!NOTATION bcd "efg" "">
 | <{} a>
 
 #data
@@ -556,7 +556,8 @@
 #errors
 1;1;no XML decl;;;s
 2;28;string after PUBLIC literal;;;m
-2;29;unclosed internal subset;;;m
+2;29;parser:EOF;;;m
+2;29;parser:EOF;;;m
 2;29;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -567,7 +568,8 @@
 #errors
 1;1;no XML decl;;;s
 2;28;string after PUBLIC literal;;;m
-2;29;unclosed internal subset;;;m
+2;29;parser:EOF;;;m
+2;29;parser:EOF;;;m
 2;29;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -581,6 +583,7 @@
 2;28;string after SYSTEM literal;;;m
 #document
 | <!DOCTYPE a>
+|   <!NOTATION bcd "" "efg">
 | <{} a>
 
 #data
@@ -589,7 +592,8 @@
 #errors
 1;1;no XML decl;;;s
 2;28;string after SYSTEM literal;;;m
-2;29;unclosed internal subset;;;m
+2;29;parser:EOF;;;m
+2;29;parser:EOF;;;m
 2;29;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -600,7 +604,8 @@
 #errors
 1;1;no XML decl;;;s
 2;28;string after SYSTEM literal;;;m
-2;29;unclosed internal subset;;;m
+2;29;parser:EOF;;;m
+2;29;parser:EOF;;;m
 2;29;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -611,7 +616,8 @@
 #errors
 1;1;no XML decl;;;s
 2;28;string after SYSTEM literal;;;m
-2;33;unclosed internal subset;;;m
+2;33;parser:EOF;;;m
+2;33;parser:EOF;;;m
 2;33;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -687,7 +693,8 @@
 #errors
 1;1;no XML decl;;;s
 2;33;string after SYSTEM literal;;;m
-2;35;unclosed internal subset;;;m
+2;35;parser:EOF;;;m
+2;35;parser:EOF;;;m
 2;35;no root element;;;m
 #document
 | <!DOCTYPE a>

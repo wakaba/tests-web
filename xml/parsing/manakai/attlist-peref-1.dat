@@ -72,6 +72,7 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;18;mdc in pe in md;;;m
+[1]1;19;mdc in pe in md;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
@@ -86,6 +87,7 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;18;mdc in pe in md;;;m
+[1]1;30;mdc in pe in md;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
@@ -163,7 +165,6 @@
 [1]1;1;no XML decl;;;s
 [1]1;10;pe not declared;;hoge;;m
 [1]1;10;stop processing;;;i
-[1]1;1;xml:dtd:attlist ignored;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
@@ -177,7 +178,6 @@
 [1]1;1;no XML decl;;;s
 [1]1;11;pe not declared;;hoge;;m
 [1]1;11;stop processing;;;i
-[1]1;17;no md name;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
@@ -224,8 +224,11 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;20;mdc in pe in md;;;m
+[1]2;1;empty attlist decl;;ab;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab >
 | <{} a>
 
 #data
@@ -240,8 +243,11 @@
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;18;mdc in pe in md;;;m
 [1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;empty attlist decl;;ab;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab >
 | <{} a>
 
 #data
@@ -336,8 +342,11 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;20;mdc in pe in md;;;m
+[1]2;1;empty attlist decl;;ab;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
 | <{} a>
 
 #data
@@ -382,8 +391,11 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;26;mdc in pe in md;;;m
+[1]2;1;empty attlist decl;;foo;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
 | <{} a>
 
 #data
@@ -433,7 +445,6 @@
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
-|     ab 0 () EXPLICIT "N#IMPLIED"
 | <{} a>
 
 #data
@@ -446,8 +457,11 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;29;mdc in pe in md;;;m
+[1]2;1;empty attlist decl;;foo;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
 | <{} a>
 
 #data
@@ -541,10 +555,10 @@
 [1]1;1;xml:dtd:ext decl;;;w
 [1]2;1;xml:dtd:ext decl;;;w
 [1]2;24;unquoted attr value;;;m
+[1]2;1;empty attlist decl;;foo;w
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
-|     bar ID () EXPLICIT "xy"
 | <{} a>
 
 #data
@@ -653,8 +667,12 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;18;mdc in pe in md;;;m
+[1]1;19;mdc in pe in md;;;m
+[1]2;1;empty attlist decl;;foo;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
 | <{} a>
 
 #data
@@ -861,11 +879,11 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;empty attlist decl;;foo;w
 [1]2;24;space in allowed token;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT foo >
-|     bar ENUMERATION (ay|x ay) IMPLIED ""
 | <{} a>
 
 #data
@@ -942,8 +960,11 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;19;no default type;;;m
+[1]2;1;empty attlist decl;;foo;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
 | <{} a>
 
 #data
@@ -956,8 +977,11 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]2;29;no default type;;;m
+[1]2;1;empty attlist decl;;foo;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
 | <{} a>
 
 #data
@@ -970,8 +994,11 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]2;29;no default type;;;m
+[1]2;1;empty attlist decl;;foo;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
 | <{} a>
 
 #data
@@ -1131,9 +1158,9 @@
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
-[1]1;24;pe not declared;;s;;m
+[1]1;24;entity not declared;;%s;;m
 [1]1;24;stop processing;;;i
-[1]2;1;xml:dtd:attlist ignored;;;w
+[1]2;1;empty attlist decl;;foo;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>

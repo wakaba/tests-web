@@ -167,6 +167,7 @@
 1;38;entity not declared;;bar;;m
 1;49;entity not declared;;aa;;m
 [1]1;17;no refc;;;m
+[1]1;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
@@ -301,10 +302,12 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;38;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 #entities
+<!ENTITY hoge "" "" "x" >
 <!ENTITY % abc "hoge SYSTEM 'x' NDATA>" "" "" >
 
 #data
@@ -409,6 +412,9 @@
 | <!DOCTYPE a "" "http://a/">
 |   <!ENTITY hoge "" "" "x" foo>
 | <{} a>
+#entities
+<!ENTITY hoge "" "" "x" foo>
+<!ENTITY % abc "" "" "" >
 
 #data
 <!DOCTYPE a SYSTEM "http://a/"><a/>
@@ -420,9 +426,13 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;17;string after SYSTEM;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
+#entities
+<!ENTITY hoge "" "" "" >
+<!ENTITY % abc "fuga" "" "" >
 
 #data
 <!DOCTYPE a SYSTEM "http://a/"><a/>
@@ -434,9 +444,13 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;17;string after SYSTEM literal;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
+#entities
+<!ENTITY hoge "" "" "b" >
+<!ENTITY % abc "fuga" "" "" >
 
 #data
 <!DOCTYPE a SYSTEM "http://a/"><a/>
@@ -448,9 +462,13 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;17;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
+#entities
+<!ENTITY hoge "" "" "" >
+<!ENTITY % abc ">a" "" "" >
 
 #data
 <!DOCTYPE a SYSTEM "http://a/"><a/>
@@ -462,8 +480,10 @@
 [1]1;1;no XML decl;;;s
 [1]1;17;string after md def;;;m
 [1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ENTITY hoge "" "" "" ab>
 | <{} a>
 
 #data
@@ -477,8 +497,10 @@
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;17;string after md def;;;m
 [1]1;21;mdc in pe in md;;;m
+[1]2;1;no XML decl;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ENTITY hoge "" "" "" ab>
 | <{} a>
 
 #data
@@ -559,10 +581,12 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;17;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 #entities
+<!ENTITY fuga "" "" "" >
 <!ENTITY % abc ">" "" "" >
 
 #data
@@ -575,10 +599,12 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;17;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 #entities
+<!ENTITY fuga "" "" "" >
 <!ENTITY % abc ">" "" "" >
 
 #data
@@ -659,10 +685,12 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;17;string after DOCTYPE name;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 #entities
+<!ENTITY hoge "" "" "" >
 <!ENTITY % abc "PUBLI" "" "" >
 
 #data
@@ -675,10 +703,12 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;24;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 #entities
+<!ENTITY hoge "" "" "" >
 <!ENTITY % abc "PUBLIC >" "" "" >
 
 #data
@@ -691,10 +721,12 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;17;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 #entities
+<!ENTITY hoge "" "" "" >
 <!ENTITY % abc ">" "" "" >
 
 #data
@@ -707,10 +739,12 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;17;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 #entities
+<!ENTITY hoge "" "" "" >
 <!ENTITY % abc ">" "" "" >
 
 #data
@@ -722,11 +756,13 @@
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
-[1]1;21;unclosed PUBLIC literal;;;m
+[1]1;21;unclosed literal;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 #entities
+<!ENTITY hoge "" "abc" "" >
 <!ENTITY % abc ""abc" "" "" >
 
 #data
@@ -738,11 +774,13 @@
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
-[1]1;21;unclosed PUBLIC literal;;;m
+[1]1;21;unclosed literal;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 #entities
+<!ENTITY hoge "" "abc" "" >
 <!ENTITY % abc "'abc" "" "" >
 
 #data
@@ -755,10 +793,12 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;19;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 #entities
+<!ENTITY hoge "" "a" "" >
 <!ENTITY % abc ""a>b"" "" "" >
 
 #data
@@ -771,10 +811,12 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;19;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 #entities
+<!ENTITY hoge "" "a" "" >
 <!ENTITY % abc "'a>b'" "" "" >
 
 #data
@@ -855,10 +897,12 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;17;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 #entities
+<!ENTITY hoge "" "b" "" >
 <!ENTITY % abc ">" "" "" >
 
 #data
@@ -871,10 +915,12 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;17;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 #entities
+<!ENTITY hoge "" "b" "" >
 <!ENTITY % abc ">" "" "" >
 
 #data
@@ -954,11 +1000,13 @@
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
-[1]1;20;unclosed SYSTEM literal;;;m
+[1]1;20;unclosed literal;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 #entities
+<!ENTITY hoge "" "b" "ab" >
 <!ENTITY % abc ""ab" "" "" >
 
 #data
@@ -970,11 +1018,13 @@
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
-[1]1;20;unclosed SYSTEM literal;;;m
+[1]1;20;unclosed literal;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 #entities
+<!ENTITY hoge "" "b" "ab" >
 <!ENTITY % abc "'ab" "" "" >
 
 #data
@@ -1177,10 +1227,12 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;21;unclosed entity value;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 #entities
+<!ENTITY hoge "foo" "" "" >
 <!ENTITY % abc ""foo" "" "" >
 
 #data
@@ -1193,8 +1245,10 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;21;unclosed entity value;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 #entities
+<!ENTITY hoge "foo" "" "" >
 <!ENTITY % abc "'foo" "" "" >

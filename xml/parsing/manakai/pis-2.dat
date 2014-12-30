@@ -82,8 +82,7 @@
 #errors
 1;1;no XML decl;;;s
 2;4;no pic;;;m
-2;4;unclosed internal subset;;;m
-2;4;no root element;;;m
+2;4;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -93,8 +92,7 @@
 #errors
 1;1;no XML decl;;;s
 2;5;no pic;;;m
-2;5;unclosed internal subset;;;m
-2;5;no root element;;;m
+2;5;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -104,8 +102,7 @@
 #errors
 1;1;no XML decl;;;s
 2;6;no pic;;;m
-2;6;unclosed internal subset;;;m
-2;6;no root element;;;m
+2;6;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -115,8 +112,7 @@
 #errors
 1;1;no XML decl;;;s
 2;6;no pic;;;m
-2;6;unclosed internal subset;;;m
-2;6;no root element;;;m
+2;6;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -126,8 +122,7 @@
 #errors
 1;1;no XML decl;;;s
 2;1;bare pio;;;m
-2;3;unclosed internal subset;;;m
-2;3;no root element;;;m
+2;3;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -137,8 +132,7 @@
 #errors
 1;1;no XML decl;;;s
 2;4;no pic;;;m
-2;4;unclosed internal subset;;;m
-2;4;no root element;;;m
+2;4;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -149,8 +143,7 @@
 #errors
 1;1;no XML decl;;;s
 3;7;no pic;;;m
-3;7;unclosed internal subset;;;m
-3;7;no root element;;;m
+3;7;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -162,7 +155,7 @@
 #errors
 1;1;no XML decl;;;s
 2;1;bare pio;;;m
-3;1;xml:dtd:pi;;;w
+2;3;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?x ?>
@@ -176,10 +169,10 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;1;xml:dtd:pi;;;w
 3;1;pe not declared;;b;;m
 3;1;stop processing;;;i
-4;1;xml:dtd:pi;;;w
+3;3;xml:dtd:pi;;;w
+5;3;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?x ?>
@@ -194,9 +187,9 @@
 <?y?>
 ]><a/>
 #errors
-3;1;xml:dtd:pi;;;w
 4;1;pe not declared;;b;;m
-5;1;xml:dtd:pi;;;w
+3;3;xml:dtd:pi;;;w
+5;3;xml:dtd:pi;;;w
 #xml-standalone
 true
 #document
@@ -224,8 +217,8 @@ true
 #checker ForValidator
 #errors
 1;1;no XML decl;;;s
-2;3;xml:dtd:pi;;;w
 2;3;xml:not name;;a+b;m
+2;3;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?a+b ?>
@@ -250,8 +243,8 @@ true
 #checker ForValidator
 #errors
 1;1;no XML decl;;;s
-2;3;xml:dtd:pi;;;w
 2;3;xml:pi:target:xml;;xml;m
+2;3;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?xml ?>
@@ -264,8 +257,8 @@ true
 #checker ForValidator
 #errors
 1;1;no XML decl;;;s
-2;3;xml:dtd:pi;;;w
 2;3;xml:pi:target:xml;;xMl;m
+2;3;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?xMl ?>
@@ -278,8 +271,8 @@ true
 #checker ForValidator
 #errors
 1;1;no XML decl;;;s
-2;3;xml:dtd:pi;;;w
 2;3;xml:pi:target:xml;;XML;m
+3;3;xml:dtd:pi;;;w
 #document
 | <!DOCTYPE a>
 |   <?XML ?>

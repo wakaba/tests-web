@@ -22,7 +22,7 @@
 3;12;WFC:PEs in Internal Subset;;%foo;;m
 3;12;stop processing;;;i
 3;3;xml:dtd:entity ignored;;;w
-4;9;entity not declared;;bar;;m
+4;9;entity not declared;;&bar;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -43,7 +43,7 @@
 4;14;WFC:PEs in Internal Subset;;%foo;;m
 4;14;stop processing;;;i
 4;5;xml:dtd:entity ignored;;;w
-7;9;entity not declared;;bar;;m
+7;9;entity not declared;;&bar;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -69,7 +69,7 @@
 1;1;no XML decl;;;s
 4;5;xml:dtd:ext decl;;;w
 [1]1;1;no XML decl;;;s
-[1]1;1;xml:dtd:ext decl;;;w
+[1]1;1;xml:dtd:ext decl;;;wXXX
 #document
 | <!DOCTYPE a>
 | <{} a>

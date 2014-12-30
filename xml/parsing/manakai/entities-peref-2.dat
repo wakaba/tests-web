@@ -212,7 +212,6 @@
 [1]1;7;no s after target;;;m
 [1]2;1;xml:dtd:ext decl;;;w
 [2]1;1;no XML decl;;;s
-[2]1;7;no s after target;;;m
 #document
 | <!DOCTYPE a "" "http://b/">
 | <{} a>
@@ -273,14 +272,11 @@
 [1]1;1;xml:dtd:ext decl;;;w
 [1]2;1;xml:dtd:ext decl;;;w
 [2]1;1;no XML decl;;;s
-[2]1;8;no pic;;;m
 [1]2;23;no pic;;;m
 #document
 | <!DOCTYPE a "" "http://b/">
 | <{} a>
-|   "a"
-|   <!-- ?hoge'b -->
-|   "x"
+|   "ax"
 
 #data
 <!DOCTYPE a SYSTEM "http://b/"><a>&hoge;x</a>
@@ -295,14 +291,11 @@
 [1]1;1;xml:dtd:ext decl;;;w
 [1]2;1;xml:dtd:ext decl;;;w
 [2]1;1;no XML decl;;;s
-[2]1;9;no pic;;;m
 [1]2;23;no pic;;;m
 #document
 | <!DOCTYPE a "" "http://b/">
 | <{} a>
-|   "a"
-|   <!-- ?hoge  b -->
-|   "x"
+|   "ax"
 
 #data
 <!DOCTYPE a SYSTEM "http://b/"><a>&hoge;x</a>
@@ -318,13 +311,10 @@
 [1]2;1;xml:dtd:ext decl;;;w
 [2]1;1;no XML decl;;;s
 [2]1;10;no pic;;;m
-[1]2;23;no pic;;;m
 #document
 | <!DOCTYPE a "" "http://b/">
 | <{} a>
-|   "a"
-|   <!-- ?hoge  ?b -->
-|   "x"
+|   "ax"
 
 #data
 <!DOCTYPE a SYSTEM "http://b/"><a>&hoge;x</a>
@@ -362,9 +352,7 @@
 #document
 | <!DOCTYPE a "" "http://b/">
 | <{} a>
-|   "a"
-|   <!-- ?b -->
-|   "x"
+|   "ax"
 
 #data
 <!DOCTYPE a SYSTEM "http://b/"><a>&hoge;x</a>

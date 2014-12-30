@@ -5,8 +5,7 @@
 #errors
 1;1;no XML decl;;;s
 2;1;second doctype;;;m
-2;16;xml:dtd:entity ignored;;;w
-3;7;entity not declared;;y;;m
+3;7;entity not declared;;&y;;m
 #document
 | <!DOCTYPE foo>
 | <{} p>
@@ -19,9 +18,8 @@
 #errors
 1;1;no XML decl;;;s
 2;1;second doctype;;;m
-2;16;xml:dtd:entity ignored;;;w
-3;4;entity not declared;;x;;m
-3;7;entity not declared;;y;;m
+3;4;entity not declared;;&x;;m
+3;7;entity not declared;;&y;;m
 #document
 | <!DOCTYPE foo>
 | <{} p>
@@ -36,9 +34,8 @@
 #errors
 1;1;no XML decl;;;s
 2;1;second doctype;;;m
-2;35;xml:dtd:entity ignored;;;w
-3;4;entity not declared;;x;;m
-3;7;entity not declared;;y;;m
+3;4;entity not declared;;&x;;m
+3;7;entity not declared;;&y;;m
 #document
 | <!DOCTYPE foo>
 | <{} p>
@@ -53,9 +50,8 @@ hoge
 #errors
 1;1;no XML decl;;;s
 2;1;second doctype;;;m
-2;35;xml:dtd:entity ignored;;;w
-3;4;entity not declared;;x;;m
-3;7;entity not declared;;y;;m
+3;4;entity not declared;;&x;;m
+3;7;entity not declared;;&y;;m
 #document
 | <!DOCTYPE foo>
 | <{} p>
@@ -70,10 +66,8 @@ hoge
 #errors
 1;1;no XML decl;;;s
 2;1;second doctype;;;m
-2;16;xml:dtd:entity ignored;;;w
-2;50;xml:dtd:entity ignored;;;w
-3;4;entity not declared;;x;;m
-3;7;entity not declared;;y;;m
+3;4;entity not declared;;&x;;m
+3;7;entity not declared;;&y;;m
 #document
 | <!DOCTYPE foo>
 | <{} p>
@@ -86,10 +80,8 @@ hoge
 #errors
 1;1;no XML decl;;;s
 1;4;in html:#doctype;;;m
-1;75;entity not declared;;x;;m
-1;78;entity not declared;;y;;m
-1;19;xml:dtd:entity ignored;;;w
-1;53;xml:dtd:entity ignored;;;w
+1;75;entity not declared;;&x;;m
+1;78;entity not declared;;&y;;m
 #document
 | <{} p>
 |   "&x;&y;"
@@ -101,11 +93,9 @@ hoge
 hoge
 #errors
 1;1;no XML decl;;;s
-1;4;entity not declared;;x;;m
-1;7;entity not declared;;y;;m
+1;4;entity not declared;;&x;;m
+1;7;entity not declared;;&y;;m
 1;14;in html:#doctype;;;m
-1;29;xml:dtd:entity ignored;;;w
-1;63;xml:dtd:entity ignored;;;w
 #document
 | <{} p>
 |   "&x;&y;"
@@ -126,6 +116,7 @@ hoge
 2;65;stop processing;;;i
 3;1;bogus comment;;;m
 4;1;text outside of root element;;;m
+4;2;text outside of root element;;;m
 5;4;entity not declared;;x;;m
 #document
 | <!DOCTYPE foo>
@@ -185,7 +176,6 @@ hoge
 #errors
 1;1;no XML decl;;;s
 2;1;second doctype;;;m
-2;16;xml:dtd:attlist ignored;;;w
 #document
 | <!DOCTYPE foo>
 | <{} p>

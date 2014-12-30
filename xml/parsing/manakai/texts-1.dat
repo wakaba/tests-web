@@ -52,6 +52,8 @@
 1;1;no XML decl;;;s
 1;1;unmatched mse;;;m
 1;1;text outside of root element;;;m
+1;2;text outside of root element;;;m
+1;3;text outside of root element;;;m
 1;4;no root element;;;m
 #document
 
@@ -61,6 +63,9 @@
 1;1;no XML decl;;;s
 1;2;unmatched mse;;;m
 1;1;text outside of root element;;;m
+1;2;text outside of root element;;;m
+1;3;text outside of root element;;;m
+1;4;text outside of root element;;;m
 1;5;no root element;;;m
 #document
 
@@ -70,6 +75,9 @@
 1;1;no XML decl;;;s
 1;3;unmatched mse;;;m
 1;1;text outside of root element;;;m
+1;2;text outside of root element;;;m
+1;3;text outside of root element;;;m
+1;4;text outside of root element;;;m
 1;6;no root element;;;m
 #document
 
@@ -79,6 +87,9 @@
 1;1;no XML decl;;;s
 1;4;unmatched mse;;;m
 1;1;text outside of root element;;;m
+1;2;text outside of root element;;;m
+1;3;text outside of root element;;;m
+1;4;text outside of root element;;;m
 1;7;no root element;;;m
 #document
 
@@ -88,6 +99,10 @@ aa]]>bb
 1;1;no XML decl;;;s
 1;3;unmatched mse;;;m
 1;1;text outside of root element;;;m
+1;3;text outside of root element;;;m
+1;4;text outside of root element;;;m
+1;5;text outside of root element;;;m
+1;6;text outside of root element;;;m
 1;8;no root element;;;m
 #document
 
@@ -106,6 +121,9 @@ aa]]>bb
 1;1;no XML decl;;;s
 1;13;unmatched mse;;;m
 1;1;cdata outside of root element;;;m
+1;13;text outside of root element;;;m
+1;14;text outside of root element;;;m
+1;15;text outside of root element;;;m
 1;16;no root element;;;m
 #document
 
@@ -124,6 +142,8 @@ aa]]>bb
 1;1;no XML decl;;;s
 1;5;unmatched mse;;;m
 1;5;text outside of root element;;;m
+1;6;text outside of root element;;;m
+1;7;text outside of root element;;;m
 #document
 | <{} a>
 
@@ -143,6 +163,8 @@ aa]]>bb
 1;1;no XML decl;;;s
 1;8;unmatched mse;;;m
 1;8;text outside of root element;;;m
+1;9;text outside of root element;;;m
+1;10;text outside of root element;;;m
 1;11;no root element;;;m
 #document
 | <!--  -->
@@ -163,6 +185,7 @@ aa]]>bb
 1;1;no XML decl;;;s
 1;1;bare stago;;;m
 1;1;text outside of root element;;;m
+1;2;text outside of root element;;;m
 1;3;no root element;;;m
 #document
 
@@ -189,7 +212,9 @@ a\u0000b<p></p>
 #errors
 1;1;no XML decl;;;s
 1;1;text outside of root element;;;m
+1;2;text outside of root element;;;m
 1;2;NULL;;;m
+1;3;text outside of root element;;;m
 #document escaped
 | <{} p>
 
@@ -208,7 +233,9 @@ a\u0000b<p></p>
 #errors
 1;1;no XML decl;;;s
 1;13;text outside of root element;;;m
+1;14;text outside of root element;;;m
 1;14;NULL;;;m
+1;15;text outside of root element;;;m
 #document escaped
 | <!DOCTYPE p>
 | <{} p>
@@ -221,7 +248,6 @@ a\u0000b<p></p>
 1;4;NULL;;;m
 #document escaped
 | <{} p>
-|   "\uFFFD"
 
 #data escaped
 <p>a\u0000b</p>
@@ -231,7 +257,7 @@ a\u0000b<p></p>
 1;5;NULL;;;m
 #document escaped
 | <{} p>
-|   "a\uFFFDb"
+|   "ab"
 
 #data escaped
 <p></p>\u0000
@@ -248,6 +274,8 @@ a\u0000b<p></p>
 1;1;no XML decl;;;s
 1;8;text outside of root element;;;m
 1;9;NULL;;;m
+1;9;text outside of root element;;;m
+1;10;text outside of root element;;;m
 #document escaped
 | <{} p>
 
@@ -925,6 +953,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0001b</p>
 #errors
+1;10;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0001;m
 #xml-version
 1.1
@@ -936,6 +965,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0002b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0002;m
 #xml-version
 1.1
@@ -947,6 +977,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0003b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0003;m
 #xml-version
 1.1
@@ -958,6 +989,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0004b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0004;m
 #xml-version
 1.1
@@ -969,6 +1001,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0005b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0005;m
 #xml-version
 1.1
@@ -980,6 +1013,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0006b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0006;m
 #xml-version
 1.1
@@ -991,6 +1025,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0007b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0007;m
 #xml-version
 1.1
@@ -1002,6 +1037,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0008b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0008;m
 #xml-version
 1.1
@@ -1013,6 +1049,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0009b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 #xml-version
 1.1
 #document escaped
@@ -1023,6 +1060,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u000Ab</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 #xml-version
 1.1
 #document escaped
@@ -1033,6 +1071,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u000Bb</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+000B;m
 #xml-version
 1.1
@@ -1044,6 +1083,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u000Cb</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+000C;m
 #xml-version
 1.1
@@ -1055,6 +1095,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u000Db</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 #xml-version
 1.1
 #document escaped
@@ -1065,6 +1106,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u000Eb</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+000E;m
 #xml-version
 1.1
@@ -1076,6 +1118,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u000Fb</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+000F;m
 #xml-version
 1.1
@@ -1087,6 +1130,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0010b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0010;m
 #xml-version
 1.1
@@ -1098,6 +1142,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0011b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0011;m
 #xml-version
 1.1
@@ -1109,6 +1154,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0012b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0012;m
 #xml-version
 1.1
@@ -1120,6 +1166,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0013b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0013;m
 #xml-version
 1.1
@@ -1131,6 +1178,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0014b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0014;m
 #xml-version
 1.1
@@ -1142,6 +1190,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0015b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0015;m
 #xml-version
 1.1
@@ -1153,6 +1202,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0016b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0016;m
 #xml-version
 1.1
@@ -1164,6 +1214,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0017b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0017;m
 #xml-version
 1.1
@@ -1175,6 +1226,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0018b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0018;m
 #xml-version
 1.1
@@ -1186,6 +1238,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0019b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+0019;m
 #xml-version
 1.1
@@ -1197,6 +1250,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u001Ab</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+001A;m
 #xml-version
 1.1
@@ -1208,6 +1262,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u001Bb</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+001B;m
 #xml-version
 1.1
@@ -1219,6 +1274,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u001Cb</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+001C;m
 #xml-version
 1.1
@@ -1230,6 +1286,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u001Db</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+001D;m
 #xml-version
 1.1
@@ -1241,6 +1298,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u001Eb</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+001E;m
 #xml-version
 1.1
@@ -1252,6 +1310,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u001Fb</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;control char;;U+001F;m
 #xml-version
 1.1
@@ -1263,7 +1322,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u007Fb</p>
 #errors
-2;5;control char;;U+007F;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+007F;w
 #xml-version
 1.1
 #document escaped
@@ -1274,7 +1334,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0080b</p>
 #errors
-2;5;control char;;U+0080;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0080;w
 #xml-version
 1.1
 #document escaped
@@ -1285,7 +1346,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0081b</p>
 #errors
-2;5;control char;;U+0081;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0081;w
 #xml-version
 1.1
 #document escaped
@@ -1296,7 +1358,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0082b</p>
 #errors
-2;5;control char;;U+0082;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0082;w
 #xml-version
 1.1
 #document escaped
@@ -1307,7 +1370,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0083b</p>
 #errors
-2;5;control char;;U+0083;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0083;w
 #xml-version
 1.1
 #document escaped
@@ -1318,7 +1382,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0084b</p>
 #errors
-2;5;control char;;U+0084;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0084;w
 #xml-version
 1.1
 #document escaped
@@ -1329,47 +1394,56 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0085b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0085;w
 #xml-version
 1.1
 #document escaped
 | <{} p>
-|   "a\u000Ab"
+|   "a\u0085b"
 
 #data escaped
 <?xml version="1.1"?>
 <p>a\u000D\u0085b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
+3;1;control char;;U+0085;w
 #xml-version
 1.1
 #document escaped
 | <{} p>
-|   "a\u000Ab"
+|   "a\u000A\u0085b"
 
 #data escaped
 <?xml version="1.1"?>
 <p>a\u0085\u000Db</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0085;w
 #xml-version
 1.1
 #document escaped
 | <{} p>
-|   "a\u000A\u000Ab"
+|   "a\u0085\u000Ab"
 
 #data escaped
 <?xml version="1.1"?>
 <p>a\u000A\u0085b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
+3;1;control char;;U+0085;w
 #xml-version
 1.1
 #document escaped
 | <{} p>
-|   "a\u000A\u000Ab"
+|   "a\u000A\u0085b"
 
 #data escaped
 <?xml version="1.1"?>
 <p>a\u0086b</p>
 #errors
-2;5;control char;;U+0086;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0086;w
 #xml-version
 1.1
 #document escaped
@@ -1380,7 +1454,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0087b</p>
 #errors
-2;5;control char;;U+0087;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0087;w
 #xml-version
 1.1
 #document escaped
@@ -1391,7 +1466,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0088b</p>
 #errors
-2;5;control char;;U+0088;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0088;w
 #xml-version
 1.1
 #document escaped
@@ -1402,7 +1478,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0089b</p>
 #errors
-2;5;control char;;U+0089;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0089;w
 #xml-version
 1.1
 #document escaped
@@ -1413,7 +1490,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u008Ab</p>
 #errors
-2;5;control char;;U+008A;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+008A;w
 #xml-version
 1.1
 #document escaped
@@ -1424,7 +1502,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u008Bb</p>
 #errors
-2;5;control char;;U+008B;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+008B;w
 #xml-version
 1.1
 #document escaped
@@ -1435,7 +1514,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u008Cb</p>
 #errors
-2;5;control char;;U+008C;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+008C;w
 #xml-version
 1.1
 #document escaped
@@ -1446,7 +1526,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u008Db</p>
 #errors
-2;5;control char;;U+008D;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+008D;w
 #xml-version
 1.1
 #document escaped
@@ -1457,7 +1538,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u008Eb</p>
 #errors
-2;5;control char;;U+008E;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+008E;w
 #xml-version
 1.1
 #document escaped
@@ -1468,7 +1550,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u008Fb</p>
 #errors
-2;5;control char;;U+008F;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+008F;w
 #xml-version
 1.1
 #document escaped
@@ -1479,7 +1562,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0090b</p>
 #errors
-2;5;control char;;U+0090;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0090;w
 #xml-version
 1.1
 #document escaped
@@ -1490,7 +1574,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0091b</p>
 #errors
-2;5;control char;;U+0091;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0091;w
 #xml-version
 1.1
 #document escaped
@@ -1501,7 +1586,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0092b</p>
 #errors
-2;5;control char;;U+0092;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0092;w
 #xml-version
 1.1
 #document escaped
@@ -1512,7 +1598,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0093b</p>
 #errors
-2;5;control char;;U+0093;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0093;w
 #xml-version
 1.1
 #document escaped
@@ -1523,7 +1610,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0094b</p>
 #errors
-2;5;control char;;U+0094;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0094;w
 #xml-version
 1.1
 #document escaped
@@ -1534,7 +1622,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0095b</p>
 #errors
-2;5;control char;;U+0095;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0095;w
 #xml-version
 1.1
 #document escaped
@@ -1545,7 +1634,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0096b</p>
 #errors
-2;5;control char;;U+0096;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0096;w
 #xml-version
 1.1
 #document escaped
@@ -1556,7 +1646,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0097b</p>
 #errors
-2;5;control char;;U+0097;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0097;w
 #xml-version
 1.1
 #document escaped
@@ -1567,7 +1658,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0098b</p>
 #errors
-2;5;control char;;U+0098;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0098;w
 #xml-version
 1.1
 #document escaped
@@ -1578,7 +1670,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u0099b</p>
 #errors
-2;5;control char;;U+0099;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+0099;w
 #xml-version
 1.1
 #document escaped
@@ -1589,7 +1682,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u009Ab</p>
 #errors
-2;5;control char;;U+009A;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+009A;w
 #xml-version
 1.1
 #document escaped
@@ -1600,7 +1694,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u009Bb</p>
 #errors
-2;5;control char;;U+009B;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+009B;w
 #xml-version
 1.1
 #document escaped
@@ -1611,7 +1706,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u009Cb</p>
 #errors
-2;5;control char;;U+009C;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+009C;w
 #xml-version
 1.1
 #document escaped
@@ -1622,7 +1718,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u009Db</p>
 #errors
-2;5;control char;;U+009D;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+009D;w
 #xml-version
 1.1
 #document escaped
@@ -1633,7 +1730,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u009Eb</p>
 #errors
-2;5;control char;;U+009E;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+009E;w
 #xml-version
 1.1
 #document escaped
@@ -1644,7 +1742,8 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u009Fb</p>
 #errors
-2;5;control char;;U+009F;m
+1;16;xml:version:not 1.0;;1.1;s
+2;5;control char;;U+009F;w
 #xml-version
 1.1
 #document escaped
@@ -1655,6 +1754,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u00A0b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 #xml-version
 1.1
 #document escaped
@@ -1665,16 +1765,18 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\u2028b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 #xml-version
 1.1
 #document escaped
 | <{} p>
-|   "a\u000Ab"
+|   "a\u2028b"
 
 #data escaped
 <?xml version="1.1"?>
 <p>a\uD9ACb</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;nonchar;;U+D9AC;m
 #xml-version
 1.1
@@ -1686,6 +1788,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\uDF9Fb</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;nonchar;;U+DF9F;m
 #xml-version
 1.1
@@ -1697,6 +1800,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\uFDD0b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;nonchar;;U+FDD0;w
 #xml-version
 1.1
@@ -1708,6 +1812,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\uFDE0b</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;nonchar;;U+FDE0;w
 #xml-version
 1.1
@@ -1719,6 +1824,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\uFDEFb</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;nonchar;;U+FDEF;w
 #xml-version
 1.1
@@ -1730,6 +1836,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\uFFFEb</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;nonchar;;U+FFFE;m
 #xml-version
 1.1
@@ -1741,6 +1848,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\uFFFFb</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;nonchar;;U+FFFF;m
 #xml-version
 1.1
@@ -1752,6 +1860,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\U0002FFFEb</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;nonchar;;U+2FFFE;w
 #xml-version
 1.1
@@ -1763,6 +1872,7 @@ a\u0000b<p></p>
 <?xml version="1.1"?>
 <p>a\U0010FFFFb</p>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;5;nonchar;;U+10FFFF;w
 #xml-version
 1.1

@@ -426,7 +426,7 @@
 <!DOCTYPE a [
 #errors
 1;1;no XML decl;;;s
-1;14;unclosed internal subset;;;m
+1;14;parser:EOF;;;m
 1;14;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -464,6 +464,7 @@
 1;1;no XML decl;;;s
 1;15;string after internal subset;;;m
 1;17;text outside of root element;;;m
+1;18;text outside of root element;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -550,7 +551,7 @@
 1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
 3;1;bogus comment;;;m
-3;4;unclosed internal subset;;;m
+3;4;parser:EOF;;;m
 3;4;no root element;;;m
 #document
 | <!DOCTYPE a>

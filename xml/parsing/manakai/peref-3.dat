@@ -86,6 +86,8 @@ fuga
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 |   x="&fuga;d"
+#entities
+| <!ENTITY % foo "" "" "http://b/" >
 
 #data
 <!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
@@ -118,7 +120,6 @@ fuga
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [2]1;1;no XML decl;;;s
-[2]1;8;no s after target;;;m
 [2]1;9;no pic;;;m
 1;38;entity not declared;;fuga;;m
 #document
@@ -176,7 +177,6 @@ fuga
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [2]1;1;no XML decl;;;s
-[2]1;8;no s after target;;;m
 [2]1;11;no pic;;;m
 1;38;entity not declared;;fuga;;m
 #document
@@ -216,11 +216,13 @@ fuga
 [1]1;1;xml:dtd:ext decl;;;w
 [2]1;1;no XML decl;;;s
 [2]1;1;bare stago;;;m
-1;38;entity not declared;;fuga;;m
+1;38;entity not declared;;&fuga;;m
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 |   x="&fuga;d"
+#entities
+| <!ENTITY % foo "" "" "http://b/" >
 
 #data
 <!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>
@@ -234,6 +236,7 @@ fuga
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
 [2]1;1;no XML decl;;;s
 [2]1;9;string after DOCTYPE name;;;m
 [2]1;26;mdc in pe in md;;;m
@@ -256,11 +259,15 @@ fuga
 [1]1;1;xml:dtd:ext decl;;;w
 [2]1;1;no XML decl;;;s
 [2]1;9;mdc in pe in md;;;m
-1;38;entity not declared;;fuga;;m
+[1]2;1;xml:dtd:ext decl;;;w
+1;38;entity not declared;;&fuga;;m
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 |   x="&fuga;d"
+#entities
+| <!ENTITY <?xml? "" "" "" >
+| <!ENTITY % foo "" "" "http://b/" >
 
 #data
 <!DOCTYPE a SYSTEM "http://a/"><a x="&fuga;d"/>

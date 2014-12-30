@@ -170,7 +170,7 @@ INCLUDE
 [1]1;1;xml:dtd:ext decl;;;w
 [1]2;1;xml:dtd:ext decl;;;w
 [1]6;3;xml:dtd:ext decl;;;w
-2;6;entity not declared;;x;;m
+2;6;entity not declared;;&x;;m
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
@@ -238,6 +238,9 @@ INCLUDE
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 |   "&x;Y"
+#entities
+| <!ENTITY y "Y" "" "" >
+| <!ENTITY % a "INCLUDE[" "" "" >
 
 #data
 <!DOCTYPE a SYSTEM "http://a/"[

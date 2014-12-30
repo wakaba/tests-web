@@ -39,6 +39,7 @@
 #errors
 1;1;no XML decl;;;s
 1;5;second root element;;;m
+1;5;nestc;b;;m
 #document
 | <{} a>
 
@@ -426,6 +427,7 @@
 <?xml version="1.1"?>
 <a b="ab&#xd;&#xa;&#x9;&#x20;&#xc;"/>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;30;invalid character reference;U+000C;;w
 #xml-version
 1.1
@@ -437,6 +439,7 @@
 <?xml version="1.1"?>
 <a b="ab&#xd;&#xa;&#x9;&#x20;&#xb;"/>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;30;invalid character reference;U+000B;;w
 #xml-version
 1.1
@@ -448,6 +451,7 @@
 <?xml version="1.1"?>
 <a b="ab&#xd;&#xa;&#x9;&#x20;&#xf;"/>
 #errors
+1;16;xml:version:not 1.0;;1.1;s
 2;30;invalid character reference;U+000F;;w
 #xml-version
 1.1

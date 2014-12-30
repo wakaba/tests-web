@@ -4,8 +4,7 @@
 #errors
 1;1;no XML decl;;;s
 2;1;bogus comment;;;m
-2;7;no root element;;;m
-2;7;unclosed internal subset;;;m
+2;7;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -14,9 +13,7 @@
 <!ELEMENT
 #errors
 1;1;no XML decl;;;s
-2;10;no root element;;;m
-2;10;unclosed internal subset;;;m
-2;10;unclosed md;;;m
+2;10;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -26,9 +23,7 @@
 #errors
 1;1;no XML decl;;;s
 2;10;no space before md name;;;m
-2;16;no root element;;;m
-2;16;unclosed internal subset;;;m
-2;16;unclosed md;;;m
+2;16;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -37,9 +32,7 @@
 <!ELEMENT \u0020
 #errors
 1;1;no XML decl;;;s
-2;12;no root element;;;m
-2;12;unclosed internal subset;;;m
-2;12;unclosed md;;;m
+2;12;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -48,9 +41,7 @@
 <!ELEMENT abc
 #errors
 1;1;no XML decl;;;s
-2;14;no root element;;;m
-2;14;unclosed internal subset;;;m
-2;14;unclosed md;;;m
+2;14;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -59,9 +50,7 @@
 <!ELEMENT abc\u0020
 #errors
 1;1;no XML decl;;;s
-2;15;no root element;;;m
-2;15;unclosed internal subset;;;m
-2;15;unclosed md;;;m
+2;15;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -93,9 +82,10 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
+3;2;xml:dtd:unknown content keyword;;amny;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b amny>
+|   <!ELEMENT b >
 | <{} a>
 
 #data
@@ -104,9 +94,10 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
+3;2;xml:dtd:unknown content keyword;;em;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b em>
+|   <!ELEMENT b >
 | <{} a>
 
 #data
@@ -126,9 +117,10 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
+3;2;xml:dtd:unknown content keyword;;ANY*;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b ANY*>
+|   <!ELEMENT b >
 | <{} a>
 
 #data
@@ -136,9 +128,7 @@
 <!ELEMENT b (
 #errors
 1;1;no XML decl;;;s
-2;14;no root element;;;m
-2;14;unclosed internal subset;;;m
-2;14;unclosed md;;;m
+2;14;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -147,9 +137,7 @@
 <!ELEMENT b (\u0009
 #errors
 1;1;no XML decl;;;s
-2;15;no root element;;;m
-2;15;unclosed internal subset;;;m
-2;15;unclosed md;;;m
+2;15;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -174,7 +162,7 @@
 2;14;empty element name;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b ()+>
+|   <!ELEMENT b ()>
 | <{} a>
 
 #data
@@ -186,7 +174,7 @@
 2;14;empty element name;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b ()*>
+|   <!ELEMENT b ()>
 | <{} a>
 
 #data
@@ -198,7 +186,7 @@
 2;14;empty element name;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b ()?>
+|   <!ELEMENT b ()>
 | <{} a>
 
 #data
@@ -217,9 +205,7 @@
 <!ELEMENT b (x
 #errors
 1;1;no XML decl;;;s
-2;15;no root element;;;m
-2;15;unclosed internal subset;;;m
-2;15;unclosed md;;;m
+2;15;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -228,9 +214,7 @@
 <!ELEMENT b (x\u0020
 #errors
 1;1;no XML decl;;;s
-2;16;no root element;;;m
-2;16;unclosed internal subset;;;m
-2;16;unclosed md;;;m
+2;16;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -239,9 +223,7 @@
 <!ELEMENT b (x,
 #errors
 1;1;no XML decl;;;s
-2;16;no root element;;;m
-2;16;unclosed internal subset;;;m
-2;16;unclosed md;;;m
+2;16;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -250,9 +232,7 @@
 <!ELEMENT b (x|
 #errors
 1;1;no XML decl;;;s
-2;16;no root element;;;m
-2;16;unclosed internal subset;;;m
-2;16;unclosed md;;;m
+2;16;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -261,9 +241,7 @@
 <!ELEMENT b (x&
 #errors
 1;1;no XML decl;;;s
-2;16;no root element;;;m
-2;16;unclosed internal subset;;;m
-2;16;unclosed md;;;m
+2;16;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -272,9 +250,7 @@
 <!ELEMENT b (x,\u0020
 #errors
 1;1;no XML decl;;;s
-2;17;no root element;;;m
-2;17;unclosed internal subset;;;m
-2;17;unclosed md;;;m
+2;17;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -283,9 +259,7 @@
 <!ELEMENT b (x|\u0020
 #errors
 1;1;no XML decl;;;s
-2;17;no root element;;;m
-2;17;unclosed internal subset;;;m
-2;17;unclosed md;;;m
+2;17;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -294,9 +268,7 @@
 <!ELEMENT b (x,y
 #errors
 1;1;no XML decl;;;s
-2;17;no root element;;;m
-2;17;unclosed internal subset;;;m
-2;17;unclosed md;;;m
+2;17;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -305,9 +277,7 @@
 <!ELEMENT b (x,y\u0020
 #errors
 1;1;no XML decl;;;s
-2;18;no root element;;;m
-2;18;unclosed internal subset;;;m
-2;18;unclosed md;;;m
+2;18;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -342,6 +312,7 @@
 2;16;string after md def;;;m
 #document
 | <!DOCTYPE a>
+|   <!ELEMENT b (x)>
 | <{} a>
 
 #data
@@ -353,6 +324,7 @@
 2;16;string after md def;;;m
 #document
 | <!DOCTYPE a>
+|   <!ELEMENT b (x)>
 | <{} a>
 
 #data
@@ -364,6 +336,7 @@
 2;17;string after md def;;;m
 #document
 | <!DOCTYPE a>
+|   <!ELEMENT b (x)>
 | <{} a>
 
 #data
@@ -371,9 +344,7 @@
 <!ELEMENT b (x)
 #errors
 1;1;no XML decl;;;s
-2;16;no root element;;;m
-2;16;unclosed internal subset;;;m
-2;16;unclosed md;;;m
+2;16;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -382,9 +353,7 @@
 <!ELEMENT b (x)\u0009
 #errors
 1;1;no XML decl;;;s
-2;17;no root element;;;m
-2;17;unclosed internal subset;;;m
-2;17;unclosed md;;;m
+2;17;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -393,9 +362,7 @@
 <!ELEMENT b (x)+
 #errors
 1;1;no XML decl;;;s
-2;17;no root element;;;m
-2;17;unclosed internal subset;;;m
-2;17;unclosed md;;;m
+2;17;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -404,9 +371,7 @@
 <!ELEMENT b (x)*
 #errors
 1;1;no XML decl;;;s
-2;17;no root element;;;m
-2;17;unclosed internal subset;;;m
-2;17;unclosed md;;;m
+2;17;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -415,9 +380,7 @@
 <!ELEMENT b (x)?
 #errors
 1;1;no XML decl;;;s
-2;17;no root element;;;m
-2;17;unclosed internal subset;;;m
-2;17;unclosed md;;;m
+2;17;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -426,9 +389,7 @@
 <!ELEMENT b (x)?\u0020
 #errors
 1;1;no XML decl;;;s
-2;18;no root element;;;m
-2;18;unclosed internal subset;;;m
-2;18;unclosed md;;;m
+2;18;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -441,6 +402,7 @@
 2;17;string after md def;;;m
 #document
 | <!DOCTYPE a>
+|   <!ELEMENT b (x)+>
 | <{} a>
 
 #data
@@ -448,9 +410,7 @@
 <!ELEMENT b (x#
 #errors
 1;1;no XML decl;;;s
-2;16;no root element;;;m
-2;16;unclosed internal subset;;;m
-2;16;unclosed md;;;m
+2;16;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -460,8 +420,7 @@
 #errors
 1;1;no XML decl;;;s
 2;16;after element name;;;m
-2;17;no root element;;;m
-2;17;unclosed internal subset;;;m
+2;17;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -470,9 +429,7 @@
 <!ELEMENT b ((
 #errors
 1;1;no XML decl;;;s
-2;15;no root element;;;m
-2;15;unclosed internal subset;;;m
-2;15;unclosed md;;;m
+2;15;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -481,9 +438,7 @@
 <!ELEMENT b ((\u0020
 #errors
 1;1;no XML decl;;;s
-2;16;no root element;;;m
-2;16;unclosed internal subset;;;m
-2;16;unclosed md;;;m
+2;16;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -492,9 +447,7 @@
 <!ELEMENT b ((x
 #errors
 1;1;no XML decl;;;s
-2;16;no root element;;;m
-2;16;unclosed internal subset;;;m
-2;16;unclosed md;;;m
+2;16;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -503,9 +456,7 @@
 <!ELEMENT b ((x\u0020
 #errors
 1;1;no XML decl;;;s
-2;17;no root element;;;m
-2;17;unclosed internal subset;;;m
-2;17;unclosed md;;;m
+2;17;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -514,9 +465,7 @@
 <!ELEMENT b ((x?
 #errors
 1;1;no XML decl;;;s
-2;17;no root element;;;m
-2;17;unclosed internal subset;;;m
-2;17;unclosed md;;;m
+2;17;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -525,9 +474,7 @@
 <!ELEMENT b ((x)
 #errors
 1;1;no XML decl;;;s
-2;17;no root element;;;m
-2;17;unclosed internal subset;;;m
-2;17;unclosed md;;;m
+2;17;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -536,9 +483,7 @@
 <!ELEMENT b ((x)?
 #errors
 1;1;no XML decl;;;s
-2;18;no root element;;;m
-2;18;unclosed internal subset;;;m
-2;18;unclosed md;;;m
+2;18;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -547,9 +492,7 @@
 <!ELEMENT b ((x)?\u0020
 #errors
 1;1;no XML decl;;;s
-2;19;no root element;;;m
-2;19;unclosed internal subset;;;m
-2;19;unclosed md;;;m
+2;19;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -558,9 +501,7 @@
 <!ELEMENT b ((x)\u0020
 #errors
 1;1;no XML decl;;;s
-2;18;no root element;;;m
-2;18;unclosed internal subset;;;m
-2;18;unclosed md;;;m
+2;18;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -661,6 +602,7 @@
 2;17;after element name;;;m
 #document
 | <!DOCTYPE a>
+|   <!ELEMENT b (x)>
 | <{} a>
 
 #data
@@ -672,6 +614,7 @@
 2;19;string after md def;;;m
 #document
 | <!DOCTYPE a>
+|   <!ELEMENT b (x)>
 | <{} a>
 
 #data
@@ -683,6 +626,7 @@
 2;18;string after md def;;;m
 #document
 | <!DOCTYPE a>
+|   <!ELEMENT b (x)>
 | <{} a>
 
 #data
@@ -694,6 +638,7 @@
 2;18;string after md def;;;m
 #document
 | <!DOCTYPE a>
+|   <!ELEMENT b (x)>
 | <{} a>
 
 #data
@@ -723,9 +668,7 @@
 <!ELEMENT b (#
 #errors
 1;1;no XML decl;;;s
-2;15;no root element;;;m
-2;15;unclosed internal subset;;;m
-2;15;unclosed md;;;m
+2;15;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -734,9 +677,7 @@
 <!ELEMENT b (#PCD
 #errors
 1;1;no XML decl;;;s
-2;18;no root element;;;m
-2;18;unclosed internal subset;;;m
-2;18;unclosed md;;;m
+2;18;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -745,9 +686,7 @@
 <!ELEMENT b (#PCDATA
 #errors
 1;1;no XML decl;;;s
-2;21;no root element;;;m
-2;21;unclosed internal subset;;;m
-2;21;unclosed md;;;m
+2;21;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -756,9 +695,7 @@
 <!ELEMENT b (#PCDATA\u0020
 #errors
 1;1;no XML decl;;;s
-2;22;no root element;;;m
-2;22;unclosed internal subset;;;m
-2;22;unclosed md;;;m
+2;22;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -779,9 +716,10 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
+#XXX
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b (#PCDATA | #PCDATA, a)>
+|   <!ELEMENT b (#PCDATA | #PCDATA | a)>
 | <{} a>
 
 #data
@@ -903,6 +841,7 @@
 2;16;after element name;;;m
 #document
 | <!DOCTYPE a>
+|   <!ELEMENT b (x)>
 | <{} a>
 
 #data
@@ -910,9 +849,7 @@
 <!ELEMENT b (x#
 #errors
 1;1;no XML decl;;;s
-2;16;no root element;;;m
-2;16;unclosed internal subset;;;m
-2;16;unclosed md;;;m
+2;16;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -921,9 +858,8 @@
 <!ELEMENT b (x #
 #errors
 1;1;no XML decl;;;s
-2;16;after element name;;;m
-2;17;no root element;;;m
-2;17;unclosed internal subset;;;m
+2;15;after element name;;;m
+2;16;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -932,9 +868,7 @@
 <!ELEMENT b (x,#
 #errors
 1;1;no XML decl;;;s
-2;17;no root element;;;m
-2;17;unclosed internal subset;;;m
-2;17;unclosed md;;;m
+2;17;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -943,9 +877,7 @@
 <!ELEMENT b (x, #
 #errors
 1;1;no XML decl;;;s
-2;18;no root element;;;m
-2;18;unclosed internal subset;;;m
-2;18;unclosed md;;;m
+2;18;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -955,8 +887,7 @@
 #errors
 1;1;no XML decl;;;s
 2;16;string after md def;;;m
-2;17;no root element;;;m
-2;17;unclosed internal subset;;;m
+2;17;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -966,8 +897,7 @@
 #errors
 1;1;no XML decl;;;s
 2;17;string after md def;;;m
-2;18;no root element;;;m
-2;18;unclosed internal subset;;;m
+2;18;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -977,8 +907,7 @@
 #errors
 1;1;no XML decl;;;s
 2;17;string after md def;;;m
-2;18;no root element;;;m
-2;18;unclosed internal subset;;;m
+2;18;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -988,8 +917,7 @@
 #errors
 1;1;no XML decl;;;s
 2;18;string after md def;;;m
-2;19;no root element;;;m
-2;19;unclosed internal subset;;;m
+2;19;parser:EOF;;;m
 #document
 | <!DOCTYPE a>
 
@@ -1002,7 +930,7 @@
 2;13;NULL;;;m
 #document escaped
 | <!DOCTYPE a>
-|   <!ELEMENT b \uFFFDa>
+|   <!ELEMENT b >
 | <{} a>
 
 #data escaped
@@ -1014,7 +942,7 @@
 2;14;NULL;;;m
 #document escaped
 | <!DOCTYPE a>
-|   <!ELEMENT b x\uFFFDa>
+|   <!ELEMENT b >
 | <{} a>
 
 #data escaped
