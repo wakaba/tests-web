@@ -1,0 +1,27 @@
+#data
+<!DOCTYPE a[
+  <!ATTLIST a b CDATA #FIXED>
+]><a/>
+#errors
+1;1;no XML decl;;;s
+2;15;default value not provided;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT a >
+|     b CDATA () FIXED ""
+| <{} a>
+|   b=""
+
+#data
+<!DOCTYPE a[
+  <!ATTLIST a b CDATA #FIXED >
+]><a/>
+#errors
+1;1;no XML decl;;;s
+2;15;default value not provided;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT a >
+|     b CDATA () FIXED ""
+| <{} a>
+|   b=""
