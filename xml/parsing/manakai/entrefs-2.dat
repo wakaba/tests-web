@@ -70,7 +70,6 @@
 <p q="&copy="/>
 #errors
 1;1;no XML decl;;;s
-1;7;bare ero;;;m
 1;12;charref=;;;m
 #document
 | <{} p>
@@ -82,6 +81,7 @@
 1;1;no XML decl;;;s
 1;12;no refc;;;m
 1;12;bare ero;;;m
+1;7;entity not declared;;&copy;m
 #document escaped
 | <{} p>
 |   q="\u00A9&"
@@ -90,7 +90,6 @@
 <p q='&copy='/>
 #errors
 1;1;no XML decl;;;s
-1;7;bare ero;;;m
 1;12;charref=;;;m
 #document
 | <{} p>
@@ -101,7 +100,6 @@
 #errors
 1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
-1;6;bare ero;;;m
 1;11;bad attribute value;;;m
 1;11;charref=;;;m
 #document
@@ -198,8 +196,6 @@
 1;1;no XML decl;;;s
 2;13;bare ero;;;m
 2;14;bare ero;;;m
-2;14;no refc;;;m
-2;15;no refc;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -214,8 +210,6 @@
 1;1;no XML decl;;;s
 2;13;bare ero;;;m
 2;14;bare ero;;;m
-2;14;no refc;;;m
-2;15;no refc;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -229,7 +223,6 @@
 #errors
 1;1;no XML decl;;;s
 2;13;bare ero;;;m
-2;14;no refc;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -242,10 +235,9 @@
 #errors
 1;1;no XML decl;;;s
 2;13;bare ero;;;m
-2;14;unclosed entity value;;;m
-2;14;unclosed internal subset;;;m
+2;14;parser:EOF;;;m
+2;14;parser:EOF;;;m
 2;14;no root element;;;m
-2;14;no refc;;;m
 #document
 | <!DOCTYPE a>
 #entities
@@ -257,7 +249,6 @@
 #errors
 1;1;no XML decl;;;s
 2;13;bare ero;;;m
-2;14;no refc;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -271,7 +262,6 @@
 #errors
 1;1;no XML decl;;;s
 2;13;bare ero;;;m
-2;14;no refc;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -285,7 +275,6 @@
 #errors
 1;1;no XML decl;;;s
 2;13;bare ero;;;m
-3;0;no refc;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -299,7 +288,6 @@
 #errors
 1;1;no XML decl;;;s
 2;13;bare ero;;;m
-3;0;no refc;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>

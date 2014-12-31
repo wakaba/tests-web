@@ -143,8 +143,10 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;18;after element name;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab (foo)>
 | <{} a>
 
 #data
@@ -157,8 +159,11 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;18;string after md def;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;14;xml:dtd:unknown content keyword;;foo;m
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab >
 | <{} a>
 
 #data
@@ -216,8 +221,10 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;18;after element name;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab (#)>
 | <{} a>
 
 #data
@@ -245,8 +252,10 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]2;21;after element name;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab (ab)>
 | <{} a>
 
 #data
@@ -259,8 +268,10 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;18;after element name;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab (cd)>
 | <{} a>
 
 #data
@@ -273,8 +284,10 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;18;after element name;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab (#PC)>
 | <{} a>
 
 #data
@@ -287,8 +300,11 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;18;string after md def;;;m
+[1]2;23;xml:dtd:unknown content keyword;;EMP;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab >
 | <{} a>
 
 #data
@@ -301,8 +317,11 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]2;20;string after md def;;;m
+[1]2;23;xml:dtd:unknown content keyword;;EMP;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab >
 | <{} a>
 
 #data
@@ -315,8 +334,10 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;23;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab EMPTY>
 | <{} a>
 
 #data
@@ -329,6 +350,8 @@
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;23;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT ab (EMPTY)>
 | <{} a>

@@ -96,6 +96,7 @@
 #errors
 1;1;no XML decl;;;s
 1;7;no refc;;;m
+1;4;entity not declared;;&lt;m
 #document
 | <{} p>
 |   "<"
@@ -106,6 +107,7 @@
 #errors
 1;1;no XML decl;;;s
 2;7;no refc;;;m
+2;4;entity not declared;;&lt;m
 #document
 | <!DOCTYPE p>
 | <{} p>
@@ -125,6 +127,7 @@
 #errors
 1;1;no XML decl;;;s
 1;9;no refc;;;m
+1;4;entity not declared;;&copy;m
 #document escaped
 | <{} p>
 |   "\u00a9"
@@ -134,6 +137,7 @@
 #errors
 1;1;no XML decl;;;s
 1;9;no refc;;;m
+1;4;entity not declared;;&copy;m
 #document escaped
 | <{} p>
 |   "\u00a9="
@@ -144,6 +148,7 @@
 1;1;no XML decl;;;s
 1;9;no refc;;;m
 1;9;bare ero;;;m
+1;4;entity not declared;;&copy;m
 #document escaped
 | <{} p>
 |   "\u00a9&"
@@ -191,6 +196,7 @@
 #errors
 1;1;no XML decl;;;s
 4;9;no refc;;;m
+4;4;entity not declared;;&copy;m
 #document escaped
 | <!DOCTYPE p>
 | <{} p>
