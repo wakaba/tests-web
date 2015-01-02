@@ -5,10 +5,10 @@
 --><a/>
 #errors
 1;1;no XML decl;;;s
-2;5;dash in comment;;;m
-2;8;dash in comment;;;m
-3;5;dash in comment;;;m
-3;8;dash in comment;;;m
+2;6;parser:comment not closed;;;m
+2;9;parser:comment not closed;;;m
+3;6;parser:comment not closed;;;m
+3;9;parser:comment not closed;;;m
 #document escaped
 | <!--\u0020
 | < !--x-- >
@@ -20,10 +20,10 @@
 <!--< !--x-- >< !--y-- >--><a/>
 #errors
 1;1;no XML decl;;;s
-1;12;dash in comment;;;m
-1;19;dash in comment;;;m
-1;22;dash in comment;;;m
-1;9;dash in comment;;;m
+1;10;parser:comment not closed;;;m
+1;13;parser:comment not closed;;;m
+1;20;parser:comment not closed;;;m
+1;23;parser:comment not closed;;;m
 #document escaped
 | <!--\u0020< !--x-- >< !--y-- > -->
 | <{} a>
@@ -32,7 +32,7 @@
 <!-- xxx -- > yyy --><a/>
 #errors
 1;1;no XML decl;;;s
-1;11;dash in comment;;;m
+1;12;parser:comment not closed;;;m
 #document
 | <!--  xxx -- > yyy  -->
 | <{} a>

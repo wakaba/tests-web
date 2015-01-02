@@ -125,7 +125,7 @@
 1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;6;bare ero;;;m
-1;7;bad attribute value;;;m
+1;7;tag not closed;;;m
 #document
 | <{} a>
 |   b="&<"
@@ -168,7 +168,7 @@
 #errors
 1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
-1;6;bare ero;;;m
+1;8;no refc;;;m
 1;8;bad attribute value;;;m
 #document
 | <{} a>
@@ -179,7 +179,7 @@
 #errors
 1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
-1;6;bare ero;;;m
+1;10;no refc;;;m
 1;10;bad attribute value;;;m
 #document
 | <{} a>
@@ -212,8 +212,8 @@
 #errors
 1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
-1;7;bad attribute value;;;m
-1;9;bad attribute value;;;m
+1;7;tag not closed;;;m
+1;9;tag not closed;;;m
 #document
 | <{} a>
 |   b="Q<A<"
@@ -223,7 +223,7 @@
 #errors
 1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
-1;7;bad attribute value;;;m
+1;7;tag not closed;;;m
 1;9;bad attribute value;;;m
 #document
 | <{} a>
@@ -307,7 +307,7 @@
 <a b=< />
 #errors
 1;1;no XML decl;;;s
-1;6;bad attribute value;;;m
+1;6;tag not closed;;;m
 #document
 | <{} a>
 |   b="<"
@@ -317,7 +317,7 @@
 #errors
 1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
-1;10;bad attribute value;;;m
+1;10;tag not closed;;;m
 #document
 | <{} a>
 |   b="xxxx<"
@@ -400,7 +400,7 @@
 <a b="ab\u0020\u0009\u000C\u000D\u000Acd"/>
 #errors
 1;1;no XML decl;;;s
-1;11;control char;;U+000C;m
+1;11;control char;U+000C;;m
 #document
 | <{} a>
 |   b="ab    cd"
@@ -428,7 +428,7 @@
 <a b="ab&#xd;&#xa;&#x9;&#x20;&#xc;"/>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;30;invalid character reference;U+000C;;w
+2;30;invalid character reference;U+000C;;m
 #xml-version
 1.1
 #document escaped
@@ -440,7 +440,7 @@
 <a b="ab&#xd;&#xa;&#x9;&#x20;&#xb;"/>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;30;invalid character reference;U+000B;;w
+2;30;invalid character reference;U+000B;;m
 #xml-version
 1.1
 #document escaped
@@ -452,7 +452,7 @@
 <a b="ab&#xd;&#xa;&#x9;&#x20;&#xf;"/>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;30;invalid character reference;U+000F;;w
+2;30;invalid character reference;U+000F;;m
 #xml-version
 1.1
 #document escaped

@@ -2,7 +2,7 @@
 &#x20;<a/>
 #errors
 1;1;no XML decl;;;s
-1;1;ref outside of root element;;#x20;;m
+1;1;ref outside of root element;;&#x20;;m
 #document
 | <{} a>
 
@@ -10,7 +10,7 @@
 &#32;<a/>
 #errors
 1;1;no XML decl;;;s
-1;1;ref outside of root element;;#32;;m
+1;1;ref outside of root element;;&#32;;m
 #document
 | <{} a>
 
@@ -18,7 +18,7 @@
  &#x20;<a/>
 #errors
 1;1;no XML decl;;;s
-1;2;ref outside of root element;;#x20;;m
+1;2;ref outside of root element;;&#x20;;m
 #document
 | <{} a>
 
@@ -26,7 +26,7 @@
 &#x20; <a/>
 #errors
 1;1;no XML decl;;;s
-1;1;ref outside of root element;;#x20;;m
+1;1;ref outside of root element;;&#x20;;m
 #document
 | <{} a>
 
@@ -35,7 +35,7 @@
 &#x20;
 #errors
 1;1;no XML decl;;;s
-2;1;ref outside of root element;;#x20;;m
+2;1;ref outside of root element;;&#x20;;m
 #document
 | <{} a>
 
@@ -43,7 +43,7 @@
 <a/>&#32;
 #errors
 1;1;no XML decl;;;s
-1;5;ref outside of root element;;#32;;m
+1;5;ref outside of root element;;&#32;;m
 #document
 | <{} a>
 
@@ -51,7 +51,7 @@
 <!DOCTYPE a>&#x20;<a/>
 #errors
 1;1;no XML decl;;;s
-1;13;ref outside of root element;;#x20;;m
+1;13;ref outside of root element;;&#x20;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -60,7 +60,7 @@
 <!DOCTYPE a> &#x20;<a/>
 #errors
 1;1;no XML decl;;;s
-1;14;ref outside of root element;;#x20;;m
+1;14;ref outside of root element;;&#x20;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -69,7 +69,7 @@
 <!DOCTYPE a>&#x20; <a/>
 #errors
 1;1;no XML decl;;;s
-1;13;ref outside of root element;;#x20;;m
+1;13;ref outside of root element;;&#x20;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -95,7 +95,7 @@
 <a>&abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz;</a>
 #errors
 1;1;no XML decl;;;s
-1;4;entity not declared;;abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz;;m
+1;4;entity not declared;;&abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz;;m
 #document
 | <{} a>
 |   "&abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz;"
@@ -165,7 +165,7 @@
 <a>&#x1;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0001;;w
+2;4;invalid character reference;U+0001;;m
 #xml-version
 1.1
 #document escaped
@@ -177,7 +177,7 @@
 <a>&#01;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0001;;w
+2;4;invalid character reference;U+0001;;m
 #xml-version
 1.1
 #document escaped
@@ -207,7 +207,7 @@
 <a>&#x2;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0002;;w
+2;4;invalid character reference;U+0002;;m
 #xml-version
 1.1
 #document escaped
@@ -219,7 +219,7 @@
 <a>&#2;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0002;;w
+2;4;invalid character reference;U+0002;;m
 #xml-version
 1.1
 #document escaped
@@ -249,7 +249,7 @@
 <a>&#x3;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0003;;w
+2;4;invalid character reference;U+0003;;m
 #xml-version
 1.1
 #document escaped
@@ -261,7 +261,7 @@
 <a>&#3;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0003;;w
+2;4;invalid character reference;U+0003;;m
 #xml-version
 1.1
 #document escaped
@@ -291,7 +291,7 @@
 <a>&#x4;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0004;;w
+2;4;invalid character reference;U+0004;;m
 #xml-version
 1.1
 #document escaped
@@ -303,7 +303,7 @@
 <a>&#4;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0004;;w
+2;4;invalid character reference;U+0004;;m
 #xml-version
 1.1
 #document escaped
@@ -333,7 +333,7 @@
 <a>&#x5;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0005;;w
+2;4;invalid character reference;U+0005;;m
 #xml-version
 1.1
 #document escaped
@@ -345,7 +345,7 @@
 <a>&#5;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0005;;w
+2;4;invalid character reference;U+0005;;m
 #xml-version
 1.1
 #document escaped
@@ -375,7 +375,7 @@
 <a>&#x6;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0006;;w
+2;4;invalid character reference;U+0006;;m
 #xml-version
 1.1
 #document escaped
@@ -387,7 +387,7 @@
 <a>&#6;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0006;;w
+2;4;invalid character reference;U+0006;;m
 #xml-version
 1.1
 #document escaped
@@ -417,7 +417,7 @@
 <a>&#x7;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0007;;w
+2;4;invalid character reference;U+0007;;m
 #xml-version
 1.1
 #document escaped
@@ -429,7 +429,7 @@
 <a>&#7;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0007;;w
+2;4;invalid character reference;U+0007;;m
 #xml-version
 1.1
 #document escaped
@@ -459,7 +459,7 @@
 <a>&#x8;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0008;;w
+2;4;invalid character reference;U+0008;;m
 #xml-version
 1.1
 #document escaped
@@ -471,7 +471,7 @@
 <a>&#8;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0008;;w
+2;4;invalid character reference;U+0008;;m
 #xml-version
 1.1
 #document escaped
@@ -577,7 +577,7 @@
 <a>&#xB;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+000B;;w
+2;4;invalid character reference;U+000B;;m
 #xml-version
 1.1
 #document escaped
@@ -589,7 +589,7 @@
 <a>&#11;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+000B;;w
+2;4;invalid character reference;U+000B;;m
 #xml-version
 1.1
 #document escaped
@@ -619,7 +619,7 @@
 <a>&#xC;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+000C;;w
+2;4;invalid character reference;U+000C;;m
 #xml-version
 1.1
 #document escaped
@@ -631,7 +631,7 @@
 <a>&#12;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+000C;;w
+2;4;invalid character reference;U+000C;;m
 #xml-version
 1.1
 #document escaped
@@ -715,7 +715,7 @@
 <a>&#xE;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+000E;;w
+2;4;invalid character reference;U+000E;;m
 #xml-version
 1.1
 #document escaped
@@ -727,7 +727,7 @@
 <a>&#14;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+000E;;w
+2;4;invalid character reference;U+000E;;m
 #xml-version
 1.1
 #document escaped
@@ -757,7 +757,7 @@
 <a>&#xF;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+000F;;w
+2;4;invalid character reference;U+000F;;m
 #xml-version
 1.1
 #document escaped
@@ -769,7 +769,7 @@
 <a>&#15;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+000F;;w
+2;4;invalid character reference;U+000F;;m
 #xml-version
 1.1
 #document escaped
@@ -799,7 +799,7 @@
 <a>&#x10;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0010;;w
+2;4;invalid character reference;U+0010;;m
 #xml-version
 1.1
 #document escaped
@@ -811,7 +811,7 @@
 <a>&#16;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0010;;w
+2;4;invalid character reference;U+0010;;m
 #xml-version
 1.1
 #document escaped
@@ -841,7 +841,7 @@
 <a>&#x11;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0011;;w
+2;4;invalid character reference;U+0011;;m
 #xml-version
 1.1
 #document escaped
@@ -853,7 +853,7 @@
 <a>&#17;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0011;;w
+2;4;invalid character reference;U+0011;;m
 #xml-version
 1.1
 #document escaped
@@ -883,7 +883,7 @@
 <a>&#x12;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0012;;w
+2;4;invalid character reference;U+0012;;m
 #xml-version
 1.1
 #document escaped
@@ -895,7 +895,7 @@
 <a>&#18;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0012;;w
+2;4;invalid character reference;U+0012;;m
 #xml-version
 1.1
 #document escaped
@@ -925,7 +925,7 @@
 <a>&#x13;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0013;;w
+2;4;invalid character reference;U+0013;;m
 #xml-version
 1.1
 #document escaped
@@ -937,7 +937,7 @@
 <a>&#19;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0013;;w
+2;4;invalid character reference;U+0013;;m
 #xml-version
 1.1
 #document escaped
@@ -967,7 +967,7 @@
 <a>&#x14;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0014;;w
+2;4;invalid character reference;U+0014;;m
 #xml-version
 1.1
 #document escaped
@@ -979,7 +979,7 @@
 <a>&#20;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0014;;w
+2;4;invalid character reference;U+0014;;m
 #xml-version
 1.1
 #document escaped
@@ -1009,7 +1009,7 @@
 <a>&#x15;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0015;;w
+2;4;invalid character reference;U+0015;;m
 #xml-version
 1.1
 #document escaped
@@ -1021,7 +1021,7 @@
 <a>&#21;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0015;;w
+2;4;invalid character reference;U+0015;;m
 #xml-version
 1.1
 #document escaped
@@ -1051,7 +1051,7 @@
 <a>&#x16;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0016;;w
+2;4;invalid character reference;U+0016;;m
 #xml-version
 1.1
 #document escaped
@@ -1063,7 +1063,7 @@
 <a>&#22;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0016;;w
+2;4;invalid character reference;U+0016;;m
 #xml-version
 1.1
 #document escaped
@@ -1093,7 +1093,7 @@
 <a>&#x17;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0017;;w
+2;4;invalid character reference;U+0017;;m
 #xml-version
 1.1
 #document escaped
@@ -1105,7 +1105,7 @@
 <a>&#23;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0017;;w
+2;4;invalid character reference;U+0017;;m
 #xml-version
 1.1
 #document escaped
@@ -1135,7 +1135,7 @@
 <a>&#x18;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0018;;w
+2;4;invalid character reference;U+0018;;m
 #xml-version
 1.1
 #document escaped
@@ -1147,7 +1147,7 @@
 <a>&#24;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0018;;w
+2;4;invalid character reference;U+0018;;m
 #xml-version
 1.1
 #document escaped
@@ -1177,7 +1177,7 @@
 <a>&#x19;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0019;;w
+2;4;invalid character reference;U+0019;;m
 #xml-version
 1.1
 #document escaped
@@ -1189,7 +1189,7 @@
 <a>&#25;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+0019;;w
+2;4;invalid character reference;U+0019;;m
 #xml-version
 1.1
 #document escaped
@@ -1219,7 +1219,7 @@
 <a>&#x1A;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+001A;;w
+2;4;invalid character reference;U+001A;;m
 #xml-version
 1.1
 #document escaped
@@ -1231,7 +1231,7 @@
 <a>&#26;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+001A;;w
+2;4;invalid character reference;U+001A;;m
 #xml-version
 1.1
 #document escaped
@@ -1261,7 +1261,7 @@
 <a>&#x1B;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+001B;;w
+2;4;invalid character reference;U+001B;;m
 #xml-version
 1.1
 #document escaped
@@ -1273,7 +1273,7 @@
 <a>&#27;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+001B;;w
+2;4;invalid character reference;U+001B;;m
 #xml-version
 1.1
 #document escaped
@@ -1303,7 +1303,7 @@
 <a>&#x1C;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+001C;;w
+2;4;invalid character reference;U+001C;;m
 #xml-version
 1.1
 #document escaped
@@ -1315,7 +1315,7 @@
 <a>&#28;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+001C;;w
+2;4;invalid character reference;U+001C;;m
 #xml-version
 1.1
 #document escaped
@@ -1345,7 +1345,7 @@
 <a>&#x1D;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+001D;;w
+2;4;invalid character reference;U+001D;;m
 #xml-version
 1.1
 #document escaped
@@ -1357,7 +1357,7 @@
 <a>&#29;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+001D;;w
+2;4;invalid character reference;U+001D;;m
 #xml-version
 1.1
 #document escaped
@@ -1387,7 +1387,7 @@
 <a>&#x1E;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+001E;;w
+2;4;invalid character reference;U+001E;;m
 #xml-version
 1.1
 #document escaped
@@ -1399,7 +1399,7 @@
 <a>&#30;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+001E;;w
+2;4;invalid character reference;U+001E;;m
 #xml-version
 1.1
 #document escaped
@@ -1429,7 +1429,7 @@
 <a>&#x1F;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+001F;;w
+2;4;invalid character reference;U+001F;;m
 #xml-version
 1.1
 #document escaped
@@ -1441,7 +1441,7 @@
 <a>&#31;</a>
 #errors
 1;16;xml:version:not 1.0;;1.1;s
-2;4;invalid character reference;U+001F;;w
+2;4;invalid character reference;U+001F;;m
 #xml-version
 1.1
 #document escaped

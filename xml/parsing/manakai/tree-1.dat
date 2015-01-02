@@ -16,7 +16,7 @@
 <a><b></a>
 #errors
 1;1;no XML decl;;;s
-1;7;unmatched end tag;a;;m
+1;7;not closed before ancestor end tag;b;a;m
 #document
 | <{} a>
 |   <{} b>
@@ -25,7 +25,7 @@
 <a><b></a>a
 #errors
 1;1;no XML decl;;;s
-1;7;unmatched end tag;a;;m
+1;7;not closed before ancestor end tag;b;a;m
 1;11;text outside of root element;;;m
 #document
 | <{} a>

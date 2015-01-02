@@ -65,8 +65,8 @@
 <abc></ABC>x
 #errors
 1;1;no XML decl;;;s
-1;6;unmatched end tag;ABC;;m
-1;13;in body:#eof;;;m
+1;6;stray end tag;;ABC;m
+1;13;in body:#eof;abc;;m
 #document
 | <{} abc>
 |   "x"
@@ -75,8 +75,8 @@
 <ABC></abc>x
 #errors
 1;1;no XML decl;;;s
-1;6;unmatched end tag;abc;;m
-1;13;in body:#eof;;;m
+1;6;stray end tag;;abc;m
+1;13;in body:#eof;ABC;;m
 #document
 | <{} ABC>
 |   "x"
@@ -156,8 +156,8 @@
 <a></ >
 #errors
 1;1;no XML decl;;;s
-1;4;bogus end tag;;;m
-1;8;in body:#eof;;;m
+1;4;bare etago;;;m
+1;8;in body:#eof;a;;m
 #document
 | <{} a>
 |   <!--   -->
@@ -166,7 +166,7 @@
 <\u4e00\u4e01>a</\u3000\u3001>b</\u4e00\u4e01>
 #errors escaped
 1;1;no XML decl;;;s
-1;6;unmatched end tag;\u3000\u3001;;m
+1;6;stray end tag;;\u3000\u3001;m
 #document escaped
 | <{} \u4e00\u4e01>
 |   "ab"
