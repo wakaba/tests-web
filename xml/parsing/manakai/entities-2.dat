@@ -4,7 +4,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;9;no space before md name;;;m
+2;10;no space between params;;;m
 2;10;no md name;;;m
 #document
 | <!DOCTYPE a>
@@ -16,7 +16,7 @@
 <!ENTITY%
 #errors
 1;1;no XML decl;;;s
-2;9;no space before md name;;;m
+2;10;parser:EOF;;;m
 2;10;parser:EOF;;;m
 2;10;parser:EOF;;;m
 2;10;no root element;;;m
@@ -65,7 +65,7 @@
 <!ENTITY % abc  #
 #errors
 1;1;no XML decl;;;s
-2;17;string after DOCTYPE name;;;m
+2;17;xml:dtd:string after name;;;m
 2;18;parser:EOF;;;m
 2;18;parser:EOF;;;m
 2;18;no root element;;;m
@@ -102,7 +102,7 @@
 <!ENTITY % abc PUBLIC #
 #errors
 1;1;no XML decl;;;s
-2;23;string after PUBLIC;;;m
+2;23;no DOCTYPE literal;;;m
 2;24;parser:EOF;;;m
 2;24;parser:EOF;;;m
 2;24;no root element;;;m
@@ -139,7 +139,7 @@
 <!ENTITY % abc PUBLIC #
 #errors
 1;1;no XML decl;;;s
-2;23;string after PUBLIC;;;m
+2;23;no DOCTYPE literal;;;m
 2;24;parser:EOF;;;m
 2;24;parser:EOF;;;m
 2;24;no root element;;;m
@@ -152,7 +152,7 @@
 <!ENTITY % abc PUBLIC "a"x
 #errors
 1;1;no XML decl;;;s
-2;26;string after PUBLIC literal;;;m
+2;26;no DOCTYPE literal;;;m
 2;27;parser:EOF;;;m
 2;27;parser:EOF;;;m
 2;27;no root element;;;m
@@ -165,7 +165,7 @@
 <!ENTITY % abc PUBLIC "a" x
 #errors
 1;1;no XML decl;;;s
-2;27;string after PUBLIC literal;;;m
+2;27;no DOCTYPE literal;;;m
 2;28;parser:EOF;;;m
 2;28;parser:EOF;;;m
 2;28;no root element;;;m
@@ -178,7 +178,7 @@
 <!ENTITY % abc SYSTEM "a"x
 #errors
 1;1;no XML decl;;;s
-2;26;no space after SYSTEM literal;;;m
+2;26;no space between params;;;m
 2;26;string after SYSTEM literal;;;m
 2;27;parser:EOF;;;m
 2;27;parser:EOF;;;m
@@ -205,7 +205,7 @@
 <!ENTITY % abc PUBLIC "a" "b"x
 #errors
 1;1;no XML decl;;;s
-2;30;no space after SYSTEM literal;;;m
+2;30;no space between params;;;m
 2;30;string after SYSTEM literal;;;m
 2;31;parser:EOF;;;m
 2;31;parser:EOF;;;m
@@ -233,7 +233,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;21;no PUBLIC literal;;;m
+2;21;no DOCTYPE literal;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -246,7 +246,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;22;no PUBLIC literal;;;m
+2;22;no DOCTYPE literal;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -259,7 +259,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;21;no SYSTEM literal;;;m
+2;21;no DOCTYPE literal;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -272,7 +272,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;22;no SYSTEM literal;;;m
+2;22;no DOCTYPE literal;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -297,7 +297,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;25;no space before system literal;;;m
+2;25;no space between params;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -310,7 +310,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;25;no space before system literal;;;m
+2;25;no space between params;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -323,7 +323,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;25;no space before system literal;;;m
+2;25;no space between params;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -336,7 +336,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;25;no space before system literal;;;m
+2;25;no space between params;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -348,7 +348,7 @@
 <!ENTITY % bc PUBLIC "x" "y" NDATA#
 #errors
 1;1;no XML decl;;;s
-2;30;string after SYSTEM literal;;;m
+2;35;no space between params;;;m
 2;36;no root element;;;m
 2;36;parser:EOF;;;m
 2;36;parser:EOF;;;m
@@ -385,7 +385,7 @@
 <!ENTITY % bc PUBLIC "x" "y" NDATA z #
 #errors
 1;1;no XML decl;;;s
-2;30;string after SYSTEM literal;;;m
+2;38;string after md def;;;m
 2;39;no root element;;;m
 2;39;parser:EOF;;;m
 2;39;parser:EOF;;;m
@@ -399,7 +399,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;30;string after SYSTEM literal;;;m
+2;1;xml:dtd:param entity with ndata;;%bc;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -569,7 +569,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;1;duplicate para entity decl;;b;w
+3;1;duplicate entity decl;;%b;;w
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -598,7 +598,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;1;pe not declared;;c;;m
+3;1;entity not declared;;%c;;m
 3;1;stop processing;;;i
 4;1;xml:dtd:entity ignored;;;w
 #document
@@ -615,7 +615,7 @@
 <!ENTITY % d SYSTEM "y" >
 ]><a/>
 #errors
-4;1;pe not declared;;c;;m
+4;1;entity not declared;;%c;;m
 #xml-standalone
 true
 #document

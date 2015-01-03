@@ -105,7 +105,7 @@
 #errors
 1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
-2;10;no space before md name;;;m
+2;10;no space between params;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -185,7 +185,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;1;bogus comment;;;m
+2;9;bogus comment;;;m
 3;1;empty attlist decl;;b;w
 #document
 | <!DOCTYPE a>
@@ -199,7 +199,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;1;bogus comment;;;m
+2;6;bogus comment;;;m
 3;1;empty attlist decl;;b;w
 #document
 | <!DOCTYPE a>
@@ -213,7 +213,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;3;lowercase keyword;ATTLIST;;m
+2;3;keyword-wrong-case;;attlist;m
 2;1;empty attlist decl;;c;w
 3;1;empty attlist decl;;b;w
 #document
@@ -229,7 +229,7 @@
 #errors
 1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
-3;1;bogus comment;;;m
+3;9;bogus comment;;;m
 3;9;parser:EOF;;;m
 3;9;no root element;;;m
 #document
@@ -243,7 +243,7 @@
 #errors
 1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
-3;1;bogus comment;;;m
+3;7;bogus comment;;;m
 3;7;parser:EOF;;;m
 3;7;no root element;;;m
 #document
@@ -573,7 +573,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;20;entity not declared;;amp;;s
+2;20;entity not declared;;&amp;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -633,7 +633,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;20;entity not declared;;amp;;s
+2;20;entity not declared;;&amp;;s
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -675,7 +675,7 @@ c CDATA "d"e CDATA "f">
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;12;no space before attr name;;;m
+3;12;no space between params;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -705,7 +705,7 @@ c CDATA 'd'e CDATA "f"
 >]><a/>
 #errors
 1;1;no XML decl;;;s
-3;12;no space before attr name;;;m
+3;12;no space between params;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -735,7 +735,7 @@ c CDATA"d"
 >]><a/>
 #errors
 1;1;no XML decl;;;s
-3;8;no space before default value;;;m
+3;8;no space between params;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -749,7 +749,7 @@ c CDATA'd'
 >]><a/>
 #errors
 1;1;no XML decl;;;s
-3;8;no space before default value;;;m
+3;8;no space between params;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -802,7 +802,7 @@ c CDATA #
 c CDATA #\u0020
 #errors
 1;1;no XML decl;;;s
-3;10;no default type;;;m
+3;10;no attr default;;;m
 3;11;parser:EOF;;;m
 3;11;parser:EOF;;;m
 3;11;no root element;;;m
@@ -842,7 +842,7 @@ c CDATA#REQUIRED
 >]><a/>
 #errors
 1;1;no XML decl;;;s
-3;8;no space before default value;;;m
+3;8;no space between params;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -856,7 +856,7 @@ c CDATA#IMPLIED
 >]><a/>
 #errors
 1;1;no XML decl;;;s
-3;8;no space before default value;;;m
+3;8;no space between params;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -870,7 +870,7 @@ c CDATA#FIXED "d"
 >]><a/>
 #errors
 1;1;no XML decl;;;s
-3;8;no space before default value;;;m
+3;8;no space between params;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -884,7 +884,7 @@ c CDATA #FIXED"d"
 >]><a/>
 #errors
 1;1;no XML decl;;;s
-3;15;no space before default value;;;m
+3;15;no space between params;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1096,7 +1096,7 @@ e CDATA #IMPLIED
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;15;no space before default value;;;m
+3;15;no space between params;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1112,7 +1112,7 @@ c CDATA #FIXED 'd'e CDATA #IMPLIED
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;19;no space before attr name;;;m
+3;19;no space between params;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1147,7 +1147,7 @@ e CDATA #IMPLIED
 #errors
 1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
-3;10;no default type;;;m
+3;10;no attr default;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1161,7 +1161,7 @@ c () #IMPLIED
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;4;empty allowed token;;;m
+3;4;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1176,7 +1176,7 @@ c NOTATION () #IMPLIED
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;13;empty allowed token;;;m
+3;13;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1191,8 +1191,8 @@ c ()#IMPLIED
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;4;empty allowed token;;;m
-3;5;no space before default value;;;m
+3;4;xml:dtd:no group item;;;m
+3;5;no space between params;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1207,8 +1207,8 @@ c NOTATION ()#IMPLIED
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;13;empty allowed token;;;m
-3;14;no space before default value;;;m
+3;13;xml:dtd:no group item;;;m
+3;14;no space between params;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1223,8 +1223,8 @@ c() #IMPLIED
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;2;no space before paren;;;m
-3;3;empty allowed token;;;m
+3;2;no space between params;;;m
+3;3;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1239,8 +1239,8 @@ c NOTATION() #IMPLIED
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;11;no space before paren;;;m
-3;12;empty allowed token;;;m
+3;11;no space between params;;;m
+3;12;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1255,7 +1255,7 @@ c () "x"
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;4;empty allowed token;;;m
+3;4;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1270,7 +1270,7 @@ c NOTATION () "x"
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;13;empty allowed token;;;m
+3;13;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1285,8 +1285,8 @@ c ()"x"
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;4;empty allowed token;;;m
-3;5;no space before default value;;;m
+3;4;xml:dtd:no group item;;;m
+3;5;no space between params;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1301,8 +1301,8 @@ c NOTATION ()"x"
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;13;empty allowed token;;;m
-3;14;no space before default value;;;m
+3;13;xml:dtd:no group item;;;m
+3;14;no space between params;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1387,8 +1387,8 @@ c (|) "x"
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;4;empty allowed token;;;m
-3;5;empty allowed token;;;m
+3;4;xml:dtd:no group item;;;m
+3;5;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1403,7 +1403,7 @@ c (|y) "x"
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;4;empty allowed token;;;m
+3;4;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1418,7 +1418,7 @@ c (y|) "x"
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;6;empty allowed token;;;m
+3;6;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1433,7 +1433,7 @@ c (y||z) "x"
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;6;empty allowed token;;;m
+3;6;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1448,9 +1448,9 @@ c (||) "x"
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;4;empty allowed token;;;m
-3;5;empty allowed token;;;m
-3;6;empty allowed token;;;m
+3;4;xml:dtd:no group item;;;m
+3;5;xml:dtd:no group item;;;m
+3;6;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1537,7 +1537,7 @@ c (>
 #errors
 1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
-3;4;unclosed allowed tokens;;;m
+3;4;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1551,7 +1551,7 @@ c ( >
 #errors
 1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
-3;5;unclosed allowed tokens;;;m
+3;5;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1565,7 +1565,7 @@ c (a>
 #errors
 1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
-3;5;unclosed allowed tokens;;;m
+3;5;xml:dtd:no group delimiter;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1579,7 +1579,7 @@ c (ab>
 #errors
 1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
-3;6;unclosed allowed tokens;;;m
+3;6;xml:dtd:no group delimiter;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1593,7 +1593,7 @@ c (x >
 #errors
 1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
-3;6;unclosed allowed tokens;;;m
+3;6;xml:dtd:no group delimiter;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1631,7 +1631,7 @@ c (x|>
 #errors
 1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
-3;6;unclosed allowed tokens;;;m
+3;6;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1644,7 +1644,7 @@ c (x y) #IMPLIED>
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;5;space in allowed token;;;m
+3;6;xml:dtd:no group delimiter;;;m
 2;1;empty attlist decl;;b;w
 #document
 | <!DOCTYPE a>
@@ -1658,7 +1658,7 @@ c (x y  |z) #IMPLIED>
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;5;space in allowed token;;;m
+3;6;xml:dtd:no group delimiter;;;m
 2;1;empty attlist decl;;b;w
 #document
 | <!DOCTYPE a>
@@ -1672,7 +1672,7 @@ c (x y   z) #IMPLIED>
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;5;space in allowed token;;;m
+3;6;xml:dtd:no group delimiter;;;m
 2;1;empty attlist decl;;b;w
 #document
 | <!DOCTYPE a>
@@ -1686,7 +1686,7 @@ c (x     y) #IMPLIED>
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;9;space in allowed token;;;m
+3;10;xml:dtd:no group delimiter;;;m
 2;1;empty attlist decl;;b;w
 #document
 | <!DOCTYPE a>
@@ -1746,8 +1746,8 @@ c (a \u0000yz) "x"
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;5;space in allowed token;;;m
-3;6;NULL;;;m
+3;6;xml:dtd:no group delimiter;;;m
+2;1;empty attlist decl;;b;w
 #document escaped
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1775,7 +1775,7 @@ c (a|\u0000yz) "x"
 #errors
 1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
-2;3;lowercase keyword;ATTLIST;;m
+2;3;keyword-wrong-case;;attlist;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1788,7 +1788,7 @@ c (a|\u0000yz) "x"
 #errors
 1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
-2;3;lowercase keyword;ATTLIST;;m
+2;3;keyword-wrong-case;;ATTLISt;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1801,7 +1801,7 @@ c (a|\u0000yz) "x"
 #errors
 1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
-2;3;lowercase keyword;ATTLIST;;m
+2;3;keyword-wrong-case;;aTTLIST;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1924,7 +1924,7 @@ c CDATA #REQUIRED>
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;1;pe not declared;;x;;m
+3;1;entity not declared;;%x;;m
 3;1;stop processing;;;i
 4;1;xml:dtd:attlist ignored;;;w
 #document
@@ -1941,7 +1941,7 @@ c CDATA #REQUIRED>
 <!ATTLIST d e CDATA #IMPLIED>
 ]><a/>
 #errors
-4;1;pe not declared;;x;;m
+4;1;entity not declared;;%x;;m
 #xml-standalone
 true
 #document
@@ -1958,7 +1958,7 @@ true
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;26;control char;;U+000C;m
+2;26;control char;U+000C;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -2012,7 +2012,7 @@ true
 #errors
 1;1;no XML decl;;;s
 2;21;unquoted attr value;;;m
-2;23;NULL;;;m
+2;1;empty attlist decl;;b;w
 #document escaped
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -2025,7 +2025,7 @@ true
 #errors
 1;1;no XML decl;;;s
 2;21;unquoted attr value;;;m
-2;21;NULL;;;m
+2;1;empty attlist decl;;b;w
 #document escaped
 | <!DOCTYPE a>
 |   <!ELEMENT b >

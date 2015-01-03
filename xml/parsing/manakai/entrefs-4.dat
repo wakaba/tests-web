@@ -18,7 +18,7 @@
 <p a="&hoa;"/>
 #errors
 1;1;no XML decl;;;s
-2;19;entity not declared;;fuga;;m
+2;19;entity not declared;;&fuga;;m
 #document
 | <!DOCTYPE a>
 | <{} p>
@@ -45,7 +45,7 @@
 <p a="&hoa;"/>
 #errors
 1;1;no XML decl;;;s
-4;7;entref in attr has element;;;m
+4;7;entref in attr has element;;&hoa;;m
 #document
 | <!DOCTYPE a>
 | <{} p>
@@ -59,7 +59,7 @@
 <p a="&fua;"/>
 #errors
 1;1;no XML decl;;;s
-3;18;entref in attr has element;;;m
+3;18;entref in attr has element;;&hoa;;m
 #document
 | <!DOCTYPE a>
 | <{} p>
@@ -86,8 +86,8 @@
 <p a="&fua;"/>
 #errors
 1;1;no XML decl;;;s
-2;18;entity not declared;;a;;m
-2;19;entity not declared;;&quot;;s
+2;18;entity not declared;;&a;;m
+2;23;entity not declared;;&quot;;s
 #document
 | <!DOCTYPE a>
 | <{} p>
@@ -100,7 +100,7 @@
 <p a="&fua;"/>
 #errors
 1;1;no XML decl;;;s
-2;18;entity not declared;;a;;m
+2;18;entity not declared;;&a;;m
 #document
 | <!DOCTYPE a>
 | <{} p>
@@ -113,7 +113,7 @@
 <p a='&fua;'/>
 #errors
 1;1;no XML decl;;;s
-2;18;entity not declared;;a;;m
+2;18;entity not declared;;&a;;m
 #document
 | <!DOCTYPE a>
 | <{} p>
@@ -127,7 +127,7 @@
 #errors
 1;1;no XML decl;;;s
 4;6;unquoted attr value;;;m
-2;18;entity not declared;;a;;m
+2;18;entity not declared;;&a;;m
 #document
 | <!DOCTYPE a>
 | <{} p>
@@ -172,7 +172,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;17;entref in attr has element;;;m
+3;17;entref in attr has element;;&ba;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT a >
@@ -186,7 +186,7 @@
 ]><a hoge="a&b;c"/>
 #errors
 1;1;no XML decl;;;s
-3;13;WFC:No External Entity References;;b;;m
+3;13;WFC:No External Entity References;;&b;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -199,7 +199,7 @@
 ]><a hoge="a&b;c"/>
 #errors
 1;1;no XML decl;;;s
-2;16;WFC:No External Entity References;;c;;m
+2;16;WFC:No External Entity References;;&c;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -211,7 +211,7 @@
 ]><a hoge="a&b;c"/>
 #errors
 1;1;no XML decl;;;s
-3;13;unparsed entity;;b;;m
+3;13;unparsed entity;;&b;;m
 #document
 | <!DOCTYPE a>
 |   <!ENTITY b "" "foo" "s" x>

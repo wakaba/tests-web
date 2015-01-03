@@ -4,7 +4,7 @@
 ]><a>&x;</a>
 #errors
 1;1;no XML decl;;;s
-3;6;external entref;;x;;i
+3;6;external entref;;&x;;i
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -57,7 +57,7 @@ hoge
 <?xml?>hoge
 #errors
 1;1;no XML decl;;;s
-[1]1;1;attribute missing:encoding;;;m
+[1]1;3;attribute missing:encoding;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -232,7 +232,7 @@ encoding="UTF-8" ?>hoge
 <?xml?>aa
 #errors
 1;1;no XML decl;;;s
-[2]1;1;attribute missing:encoding;;;m
+[2]1;3;attribute missing:encoding;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -265,7 +265,7 @@ encoding="UTF-8" ?>hoge
 #errors
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
-[1]1;2;in html:#doctype;;;m
+[1]1;2;doctype:bad context;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -281,8 +281,8 @@ x&y;b</p>b
 #errors
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
-1;62;in body:#eof;;;m
-[1]1;6;unmatched end tag;p;;m
+1;62;in body:#eof;p;;m
+[1]1;6;stray end tag;;p;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -335,7 +335,7 @@ x&y;b</p>b
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
-[1]1;17;in body:#eof;;;m
+[1]1;17;in body:#eof;p;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -357,7 +357,7 @@ x&y;b</p>b
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
-4;19;in body:#eof;;;m
+4;19;in body:#eof;p;;m
 #document
 | <!DOCTYPE a>
 | <{} a>

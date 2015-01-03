@@ -6,7 +6,7 @@
 #errors
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
-[1]1;1;VC:Standalone Document Declaration:entity;;;m
+2;41;VC:Standalone Document Declaration:entity;;&x;;m
 #document
 | <!DOCTYPE hoge "" "http://x/">
 | <{} hoge>
@@ -23,7 +23,7 @@
 ]><hoge>&x;</hoge>
 #errors
 4;5;xml:dtd:ext decl;;;w
-4;5;VC:Standalone Document Declaration:entity;;;m
+7;9;VC:Standalone Document Declaration:entity;;&x;;m
 #document
 | <!DOCTYPE hoge>
 | <{} hoge>
@@ -37,7 +37,7 @@
   %f;
 ]><hoge>&lang;</hoge>
 #errors
-5;9;VC:Standalone Document Declaration:entity;;;m
+5;9;VC:Standalone Document Declaration:entity;;&lang;;m
 #document escaped
 | <!DOCTYPE hoge>
 | <{} hoge>

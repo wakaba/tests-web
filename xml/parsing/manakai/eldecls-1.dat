@@ -3,7 +3,7 @@
 <!ELEM
 #errors
 1;1;no XML decl;;;s
-2;1;bogus comment;;;m
+2;7;bogus comment;;;m
 2;7;parser:EOF;;;m
 2;7;no root element;;;m
 #document
@@ -25,7 +25,7 @@
 <!ELEMENT\u0020
 #errors
 1;1;no XML decl;;;s
-2;10;no space before md name;;;m
+2;10;no space between params;;;m
 2;16;parser:EOF;;;m
 2;16;parser:EOF;;;m
 2;16;no root element;;;m
@@ -93,7 +93,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;2;xml:dtd:unknown content keyword;;amny;m
+2;1;xml:dtd:unknown content keyword;;amny;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -105,7 +105,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;2;xml:dtd:unknown content keyword;;em;m
+2;1;xml:dtd:unknown content keyword;;em;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -128,7 +128,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;2;xml:dtd:unknown content keyword;;ANY*;m
+2;1;xml:dtd:unknown content keyword;;ANY*;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -162,7 +162,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;14;empty element name;;;m
+2;14;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b ()>
@@ -174,7 +174,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;14;empty element name;;;m
+2;14;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b ()>
@@ -186,7 +186,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;14;empty element name;;;m
+2;14;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b ()>
@@ -198,7 +198,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;14;empty element name;;;m
+2;14;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b ()>
@@ -220,7 +220,7 @@
 <!ELEMENT b (x
 #errors
 1;1;no XML decl;;;s
-2;16;parser:EOF;;;m
+2;15;parser:EOF;;;m
 2;15;parser:EOF;;;m
 2;15;no root element;;;m
 #document
@@ -342,7 +342,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;16;string after md def;;;m
+2;16;xml:dtd:no group delimiter;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x)>
@@ -354,7 +354,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;16;string after md def;;;m
+2;16;xml:dtd:no group delimiter;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x)>
@@ -366,7 +366,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;17;string after md def;;;m
+2;17;xml:dtd:no group delimiter;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x)>
@@ -444,7 +444,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;17;string after md def;;;m
+2;17;xml:dtd:no group delimiter;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x)+>
@@ -466,7 +466,7 @@
 <!ELEMENT b (x #
 #errors
 1;1;no XML decl;;;s
-2;16;after element name;;;m
+2;16;xml:dtd:no group delimiter;;;m
 2;17;parser:EOF;;;m
 2;17;parser:EOF;;;m
 2;17;no root element;;;m
@@ -666,7 +666,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;17;after element name;;;m
+2;17;xml:dtd:no group delimiter;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x)>
@@ -678,7 +678,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;19;string after md def;;;m
+2;19;xml:dtd:no group delimiter;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x)>
@@ -690,7 +690,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;18;string after md def;;;m
+2;18;xml:dtd:no group delimiter;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x)>
@@ -702,7 +702,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;18;string after md def;;;m
+2;18;xml:dtd:no group delimiter;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x)>
@@ -758,7 +758,7 @@
 #errors
 1;1;no XML decl;;;s
 2;21;parser:EOF;;;m
-2;22;parser:EOF;;;m
+2;21;parser:EOF;;;m
 2;21;no root element;;;m
 #document
 | <!DOCTYPE a>
@@ -814,7 +814,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;20;unclosed cm group;;;m
+2;20;unclosed cmgroup;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -825,7 +825,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;20;unclosed cm group;;;m
+2;20;unclosed cmgroup;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -836,7 +836,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;20;unclosed cm group;;;m
+2;20;unclosed cmgroup;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -847,7 +847,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;20;unclosed cm group;;;m
+2;20;unclosed cmgroup;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -858,7 +858,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;20;unclosed cm group;;;m
+2;20;unclosed cmgroup;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -869,7 +869,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;20;unclosed cm group;;;m
+2;20;unclosed cmgroup;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -880,7 +880,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;20;unclosed cm group;;;m
+2;20;unclosed cmgroup;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -891,7 +891,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;20;unclosed cm group;;;m
+2;20;unclosed cmgroup;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -902,7 +902,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;20;unclosed cm group;;;m
+2;20;unclosed cmgroup;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -913,7 +913,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;16;after element name;;;m
+2;16;xml:dtd:no group delimiter;;;m
 #document
 | <!DOCTYPE a>
 |   <!ELEMENT b (x)>
@@ -935,10 +935,10 @@
 <!ELEMENT b (x #
 #errors
 1;1;no XML decl;;;s
-2;15;after element name;;;m
-2;16;parser:EOF;;;m
-2;16;parser:EOF;;;m
-2;16;no root element;;;m
+2;16;xml:dtd:no group delimiter;;;m
+2;17;parser:EOF;;;m
+2;17;parser:EOF;;;m
+2;17;no root element;;;m
 #document
 | <!DOCTYPE a>
 
@@ -969,7 +969,7 @@
 <!ELEMENT b (x)#
 #errors
 1;1;no XML decl;;;s
-2;16;string after md def;;;m
+2;16;xml:dtd:no group delimiter;;;m
 2;17;parser:EOF;;;m
 2;17;parser:EOF;;;m
 2;17;no root element;;;m
@@ -981,7 +981,7 @@
 <!ELEMENT b (x) #
 #errors
 1;1;no XML decl;;;s
-2;17;string after md def;;;m
+2;17;xml:dtd:no group delimiter;;;m
 2;18;parser:EOF;;;m
 2;18;parser:EOF;;;m
 2;18;no root element;;;m
@@ -993,7 +993,7 @@
 <!ELEMENT b (x)+#
 #errors
 1;1;no XML decl;;;s
-2;17;string after md def;;;m
+2;17;xml:dtd:no group delimiter;;;m
 2;18;parser:EOF;;;m
 2;18;parser:EOF;;;m
 2;18;no root element;;;m
@@ -1005,7 +1005,7 @@
 <!ELEMENT b (x)? #
 #errors
 1;1;no XML decl;;;s
-2;18;string after md def;;;m
+2;18;xml:dtd:no group delimiter;;;m
 2;19;parser:EOF;;;m
 2;19;parser:EOF;;;m
 2;19;no root element;;;m
@@ -1016,9 +1016,9 @@
 <!DOCTYPE a[
 <!ELEMENT b \u0000a>
 ]><a/>
-#errors
+#errors escaped
 1;1;no XML decl;;;s
-2;13;NULL;;;m
+2;1;xml:dtd:unknown content keyword;;\u0000a;m
 #document escaped
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1028,9 +1028,9 @@
 <!DOCTYPE a[
 <!ELEMENT b x\u0000a>
 ]><a/>
-#errors
+#errors escaped
 1;1;no XML decl;;;s
-2;14;NULL;;;m
+2;1;xml:dtd:unknown content keyword;;x\u0000a;m
 #document escaped
 | <!DOCTYPE a>
 |   <!ELEMENT b >
@@ -1081,7 +1081,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-3;1;pe not declared;;x;;m
+3;1;entity not declared;;%x;;m
 3;1;stop processing;;;i
 #document
 | <!DOCTYPE a>

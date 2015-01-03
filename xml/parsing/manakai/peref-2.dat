@@ -6,7 +6,7 @@
 ]><a>b&foo;c</a>
 #errors
 1;1;no XML decl;;;s
-5;7;entity not declared;;foo;;m
+5;7;entity not declared;;&foo;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -55,7 +55,7 @@
 #errors
 1;1;no XML decl;;;s
 3;5;xml:dtd:ext decl;;;w
-3;30;in body:#eof;;;m
+3;30;in body:#eof;p;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -73,8 +73,8 @@
 ]><a>b&foo;c</a>
 #errors
 1;1;no XML decl;;;s
-4;3;unclosed entity value;;;m
-6;7;entity not declared;;foo;;m
+4;3;parser:EOF;;;m
+6;7;entity not declared;;&foo;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -93,7 +93,7 @@
 3;5;WFC:No Recursion;;%hoge;;m
 3;5;stop processing;;;i
 4;5;xml:dtd:entity ignored;;;w
-7;7;entity not declared;;foo;;m
+7;7;entity not declared;;&foo;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -113,7 +113,7 @@
 4;5;xml:dtd:entity ignored;;;w
 6;20;WFC:No Recursion;;%hoge;;m
 6;20;stop processing;;;i
-8;7;entity not declared;;foo;;m
+8;7;entity not declared;;&foo;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -134,7 +134,7 @@
 [1]2;5;xml:dtd:entity ignored;;;w
 3;20;WFC:No Recursion;;%hoge;;m
 3;20;stop processing;;;i
-5;7;entity not declared;;foo;;m
+5;7;entity not declared;;&foo;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -160,7 +160,7 @@
 [2]2;5;xml:dtd:entity ignored;;;w
 3;20;WFC:No Recursion;;%hoge;;m
 3;20;stop processing;;;i
-5;7;entity not declared;;foo;;m
+5;7;entity not declared;;&foo;;m
 #document
 | <!DOCTYPE a>
 | <{} a>

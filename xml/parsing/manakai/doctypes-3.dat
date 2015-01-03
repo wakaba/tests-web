@@ -4,7 +4,7 @@
 <p>&x;&y;</p>
 #errors
 1;1;no XML decl;;;s
-2;1;second doctype;;;m
+2;1;doctype:bad context;;;m
 3;7;entity not declared;;&y;;m
 #document
 | <!DOCTYPE foo>
@@ -17,7 +17,7 @@
 <p>&x;&y;</p>
 #errors
 1;1;no XML decl;;;s
-2;1;second doctype;;;m
+2;1;doctype:bad context;;;m
 3;4;entity not declared;;&x;;m
 3;7;entity not declared;;&y;;m
 #document
@@ -33,7 +33,7 @@
 <!ENTITY x "X">
 #errors
 1;1;no XML decl;;;s
-2;1;second doctype;;;m
+2;1;doctype:bad context;;;m
 3;4;entity not declared;;&x;;m
 3;7;entity not declared;;&y;;m
 #document
@@ -49,7 +49,7 @@
 hoge
 #errors
 1;1;no XML decl;;;s
-2;1;second doctype;;;m
+2;1;doctype:bad context;;;m
 3;4;entity not declared;;&x;;m
 3;7;entity not declared;;&y;;m
 #document
@@ -65,7 +65,7 @@ hoge
 hoge
 #errors
 1;1;no XML decl;;;s
-2;1;second doctype;;;m
+2;1;doctype:bad context;;;m
 3;4;entity not declared;;&x;;m
 3;7;entity not declared;;&y;;m
 #document
@@ -79,7 +79,7 @@ hoge
 hoge
 #errors
 1;1;no XML decl;;;s
-1;4;in html:#doctype;;;m
+1;4;doctype:bad context;;;m
 1;75;entity not declared;;&x;;m
 1;78;entity not declared;;&y;;m
 #document
@@ -95,7 +95,7 @@ hoge
 1;1;no XML decl;;;s
 1;4;entity not declared;;&x;;m
 1;7;entity not declared;;&y;;m
-1;14;in html:#doctype;;;m
+1;14;doctype:bad context;;;m
 #document
 | <{} p>
 |   "&x;&y;"
@@ -111,13 +111,13 @@ hoge
 hoge
 #errors
 1;1;no XML decl;;;s
-2;1;bogus comment;;;m
-2;65;pe not declared;;foo;;m
+2;3;bogus comment;;;m
+2;65;entity not declared;;%foo;;m
 2;65;stop processing;;;i
-3;1;bogus comment;;;m
+3;3;bogus comment;;;m
 4;1;text outside of root element;;;m
 4;2;text outside of root element;;;m
-5;4;entity not declared;;x;;m
+5;4;entity not declared;;&x;;m
 #document
 | <!DOCTYPE foo>
 | <!-- ENTITY X "x" -->
@@ -136,12 +136,12 @@ hoge
 #errors
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
-[1]1;1;bogus comment;;;m
+[1]1;3;bogus comment;;;m
 [1]1;50;xml:dtd:ext decl;;;w
-[1]1;65;pe not declared;;foo;;m
+[1]1;65;entity not declared;;%foo;;m
 [1]1;65;stop processing;;;i
 [1]1;70;string in internal subset;;;m
-2;4;entity not declared;;x;;m
+2;4;entity not declared;;&x;;m
 #document
 | <!DOCTYPE foo "" "http://y/">
 | <{} p>
@@ -153,7 +153,7 @@ hoge
 <p/>
 #errors
 1;1;no XML decl;;;s
-2;1;second doctype;;;m
+2;1;doctype:bad context;;;m
 #document
 | <!DOCTYPE foo>
 | <{} p>
@@ -164,7 +164,7 @@ hoge
 <p/>
 #errors
 1;1;no XML decl;;;s
-2;1;second doctype;;;m
+2;1;doctype:bad context;;;m
 #document
 | <!DOCTYPE foo>
 | <{} p>
@@ -175,7 +175,7 @@ hoge
 <p/>
 #errors
 1;1;no XML decl;;;s
-2;1;second doctype;;;m
+2;1;doctype:bad context;;;m
 #document
 | <!DOCTYPE foo>
 | <{} p>

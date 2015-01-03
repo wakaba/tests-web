@@ -70,7 +70,7 @@
 <p q="&copy="/>
 #errors
 1;1;no XML decl;;;s
-1;12;charref=;;;m
+1;12;no refc;;;m
 #document
 | <{} p>
 |   q="&copy="
@@ -90,7 +90,7 @@
 <p q='&copy='/>
 #errors
 1;1;no XML decl;;;s
-1;12;charref=;;;m
+1;12;no refc;;;m
 #document
 | <{} p>
 |   q="&copy="
@@ -101,7 +101,7 @@
 1;1;no XML decl;;;s
 1;6;unquoted attr value;;;m
 1;11;bad attribute value;;;m
-1;11;charref=;;;m
+1;11;no refc;;;m
 #document
 | <{} p>
 |   q="&copy="
@@ -128,8 +128,8 @@
 <p>&
 #errors
 1;1;no XML decl;;;s
-1;4;bare ero;;;m
-1;5;in body:#eof;;;m
+1;5;parser:EOF;;;m
+1;5;in body:#eof;p;;m
 #document
 | <{} p>
 |   "&"
@@ -138,8 +138,8 @@
 <p q="&
 #errors
 1;1;no XML decl;;;s
-1;7;bare ero;;;m
-1;8;unclosed attribute value;;;m
+1;8;parser:EOF;;;m
+1;8;parser:EOF;;;m
 1;8;no root element;;;m
 #document
 
@@ -234,7 +234,7 @@
 <!ENTITY b "&
 #errors
 1;1;no XML decl;;;s
-2;13;bare ero;;;m
+2;14;parser:EOF;;;m
 2;14;parser:EOF;;;m
 2;14;parser:EOF;;;m
 2;14;no root element;;;m
@@ -313,7 +313,7 @@
 <a>&\u4e00\u4e01yy;</a>
 #errors escaped
 1;1;no XML decl;;;s
-4;4;entity not declared;;\u4e00\u4e01yy;;m
+4;4;entity not declared;;&\u4e00\u4e01yy;;m
 #document escaped
 | <!DOCTYPE a>
 | <{} a>
@@ -335,7 +335,7 @@
 <p>&a&amp;</p>
 #errors
 1;1;no XML decl;;;s
-1;4;bare ero;;;m
+1;6;no refc;;;m
 #document
 | <{} p>
 |   "&a&"
@@ -344,7 +344,7 @@
 <p>&a </p>
 #errors
 1;1;no XML decl;;;s
-1;4;bare ero;;;m
+1;6;no refc;;;m
 #document
 | <{} p>
 |   "&a "
@@ -356,10 +356,10 @@
 <p>&a<b;</p>
 #errors
 1;1;no XML decl;;;s
-4;4;bare ero;;;m
-4;11;nestc;;;m
+4;6;no refc;;;m
+4;11;nestc has no net;;;m
 4;12;no attr value;;;m
-4;13;in body:#eof;;;m
+4;13;in body:#eof;b;<;;m
 #document
 | <!DOCTYPE a>
 | <{} p>

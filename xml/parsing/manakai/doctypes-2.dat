@@ -2,7 +2,7 @@
 <!DOCTYPE a PUBLIC><a/>
 #errors
 1;1;no XML decl;;;s
-1;19;no PUBLIC literal;;;m
+1;19;no DOCTYPE literal;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -11,7 +11,7 @@
 <!DOCTYPE a PUBLIC ><a/>
 #errors
 1;1;no XML decl;;;s
-1;20;no PUBLIC literal;;;m
+1;20;no DOCTYPE literal;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -29,7 +29,7 @@
 <!DOCTYPE a PUBLIC "b"><a/>
 #errors
 1;1;no XML decl;;;s
-1;23;no SYSTEM literal;;;m
+1;23;no DOCTYPE literal;;;m
 #document
 | <!DOCTYPE a "b" "">
 | <{} a>
@@ -38,7 +38,7 @@
 <!DOCTYPE a PUBLIC "b" ><a/>
 #errors
 1;1;no XML decl;;;s
-1;24;no SYSTEM literal;;;m
+1;24;no DOCTYPE literal;;;m
 #document
 | <!DOCTYPE a "b" "">
 | <{} a>
@@ -47,7 +47,7 @@
 <!DOCTYPE a PUBLIC "b>c"><a/>
 #errors
 1;1;no XML decl;;;s
-1;22;unclosed PUBLIC literal;;;m
+1;22;parser:literal not closed;;;m
 1;23;text outside of root element;;;m
 #document
 | <!DOCTYPE a "b" "">
@@ -67,7 +67,7 @@
 #errors
 1;1;no XML decl;;;s
 1;1;external entref;;;i
-1;23;no space before system literal;;;m
+1;23;no space before literal;;;m
 #document
 | <!DOCTYPE a "b" "c">
 | <{} a>
@@ -77,7 +77,7 @@
 #errors
 1;1;no XML decl;;;s
 1;1;external entref;;;i
-1;23;no space before system literal;;;m
+1;23;no space before literal;;;m
 #document
 | <!DOCTYPE a "b" "c">
 | <{} a>
@@ -87,7 +87,7 @@
 #errors
 1;1;no XML decl;;;s
 1;1;external entref;;;i
-1;23;no space before system literal;;;m
+1;23;no space before literal;;;m
 #document
 | <!DOCTYPE a "b" "c">
 | <{} a>
@@ -97,7 +97,7 @@
 #errors
 1;1;no XML decl;;;s
 1;1;external entref;;;i
-1;23;no space before system literal;;;m
+1;23;no space before literal;;;m
 #document
 | <!DOCTYPE a "b" "c">
 | <{} a>
@@ -106,7 +106,7 @@
 <!DOCTYPE a SYSTEM><a/>
 #errors
 1;1;no XML decl;;;s
-1;19;no SYSTEM literal;;;m
+1;19;no DOCTYPE literal;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -115,7 +115,7 @@
 <!DOCTYPE a SYSTEM ><a/>
 #errors
 1;1;no XML decl;;;s
-1;20;no SYSTEM literal;;;m
+1;20;no DOCTYPE literal;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -143,7 +143,7 @@
 #errors
 1;1;no XML decl;;;s
 1;1;external entref;;;i
-1;13;lowercase keyword;PUBLIC;;m
+1;13;keyword-wrong-case;;public;m
 #document
 | <!DOCTYPE a "b" "c">
 | <{} a>
@@ -153,7 +153,7 @@
 #errors
 1;1;no XML decl;;;s
 1;1;external entref;;;i
-1;13;lowercase keyword;PUBLIC;;m
+1;13;keyword-wrong-case;;PUBLIc;m
 #document
 | <!DOCTYPE a "b" "c">
 | <{} a>
@@ -163,7 +163,7 @@
 #errors
 1;1;no XML decl;;;s
 1;1;external entref;;;i
-1;13;lowercase keyword;SYSTEM;;m
+1;13;keyword-wrong-case;;system;m
 #document
 | <!DOCTYPE a "" "b">
 | <{} a>
@@ -173,7 +173,7 @@
 #errors
 1;1;no XML decl;;;s
 1;1;external entref;;;i
-1;13;lowercase keyword;SYSTEM;;m
+1;13;keyword-wrong-case;;SYSTEm;m
 #document
 | <!DOCTYPE a "" "b">
 | <{} a>
@@ -182,7 +182,7 @@
 <!DOCTYPEabc><abc/>
 #errors
 1;1;no XML decl;;;s
-1;10;no space before DOCTYPE name;;;m
+1;10;bogus DOCTYPE;;;m
 #document
 | <!DOCTYPE abc>
 | <{} abc>
@@ -191,7 +191,7 @@
 <!DOCTYPE[]><a/>
 #errors
 1;1;no XML decl;;;s
-1;10;no space before DOCTYPE name;;;m
+1;10;bogus DOCTYPE;;;m
 1;10;no DOCTYPE name;;;m
 #document
 | <!DOCTYPE >
@@ -226,7 +226,7 @@
 <!DOCTYPE a PUBLIC[]><a/>
 #errors
 1;1;no XML decl;;;s
-1;19;no PUBLIC literal;;;m
+1;19;no DOCTYPE literal;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -235,7 +235,7 @@
 <!DOCTYPE a PUBLIC []><a/>
 #errors
 1;1;no XML decl;;;s
-1;20;no PUBLIC literal;;;m
+1;20;no DOCTYPE literal;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -244,7 +244,7 @@
 <!DOCTYPE a PUBLIC "[]"><a/>
 #errors
 1;1;no XML decl;;;s
-1;24;no SYSTEM literal;;;m
+1;24;no DOCTYPE literal;;;m
 #document
 | <!DOCTYPE a "[]" "">
 | <{} a>
@@ -253,7 +253,7 @@
 <!DOCTYPE a PUBLIC "b"[]><a/>
 #errors
 1;1;no XML decl;;;s
-1;23;no SYSTEM literal;;;m
+1;23;no DOCTYPE literal;;;m
 #document
 | <!DOCTYPE a "b" "">
 | <{} a>
@@ -262,7 +262,7 @@
 <!DOCTYPE a PUBLIC "b" []><a/>
 #errors
 1;1;no XML decl;;;s
-1;24;no SYSTEM literal;;;m
+1;24;no DOCTYPE literal;;;m
 #document
 | <!DOCTYPE a "b" "">
 | <{} a>
@@ -299,7 +299,7 @@
 #errors
 1;1;no XML decl;;;s
 1;1;external entref;;;i
-1;28;string after SYSTEM literal;;;m
+1;28;bogus DOCTYPE;;;m
 #document
 | <!DOCTYPE a "b" "c">
 | <{} a>
@@ -309,7 +309,7 @@
 #errors
 1;1;no XML decl;;;s
 1;1;external entref;;;i
-1;28;string after SYSTEM literal;;;m
+1;28;bogus DOCTYPE;;;m
 #document
 | <!DOCTYPE a "b" "c">
 | <{} a>
@@ -318,7 +318,7 @@
 <!DOCTYPE a PUBLIC "b" c[]><a/>
 #errors
 1;1;no XML decl;;;s
-1;24;string after PUBLIC literal;;;m
+1;24;bogus DOCTYPE;;;m
 #document
 | <!DOCTYPE a "b" "">
 | <{} a>
@@ -328,7 +328,7 @@
 #errors
 1;1;no XML decl;;;s
 1;1;external entref;;;i
-1;28;string after SYSTEM literal;;;m
+1;28;bogus DOCTYPE;;;m
 1;31;string after internal subset;;;m
 #document
 | <!DOCTYPE a "b" "c">
@@ -339,7 +339,7 @@
 #errors
 1;1;no XML decl;;;s
 1;1;external entref;;;i
-1;28;string after SYSTEM literal;;;m
+1;28;bogus DOCTYPE;;;m
 1;31;string after internal subset;;;m
 #document
 | <!DOCTYPE a "b" "c">
@@ -349,7 +349,7 @@
 <!DOCTYPE a PUBLIC "b"[]"c"><a/>
 #errors
 1;1;no XML decl;;;s
-1;23;no SYSTEM literal;;;m
+1;23;no DOCTYPE literal;;;m
 1;25;string after internal subset;;;m
 #document
 | <!DOCTYPE a "b" "">
@@ -359,7 +359,7 @@
 <!DOCTYPE a SYSTEM[]><a/>
 #errors
 1;1;no XML decl;;;s
-1;19;no SYSTEM literal;;;m
+1;19;no DOCTYPE literal;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -368,7 +368,7 @@
 <!DOCTYPE a SYSTEM []><a/>
 #errors
 1;1;no XML decl;;;s
-1;20;no SYSTEM literal;;;m
+1;20;no DOCTYPE literal;;;m
 #document
 | <!DOCTYPE a>
 | <{} a>
@@ -396,7 +396,7 @@
 #errors
 1;1;no XML decl;;;s
 1;1;external entref;;;i
-1;24;string after SYSTEM literal;;;m
+1;24;bogus DOCTYPE;;;m
 #document
 | <!DOCTYPE a "" "b">
 | <{} a>
@@ -406,7 +406,7 @@
 #errors
 1;1;no XML decl;;;s
 1;1;external entref;;;i
-1;24;string after SYSTEM literal;;;m
+1;24;bogus DOCTYPE;;;m
 #document
 | <!DOCTYPE a "" "b">
 | <{} a>
@@ -416,7 +416,7 @@
 #errors
 1;1;no XML decl;;;s
 1;1;external entref;;;i
-1;24;string after SYSTEM literal;;;m
+1;24;bogus DOCTYPE;;;m
 1;27;string after internal subset;;;m
 #document
 | <!DOCTYPE a "" "b">
@@ -495,7 +495,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;1;bogus comment;;;m
+2;3;bogus comment;;;m
 3;1;empty attlist decl;;b;w
 #document
 | <!DOCTYPE a>
@@ -509,7 +509,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;1;bogus comment;;;m
+2;3;bogus comment;;;m
 3;1;empty attlist decl;;b;w
 #document
 | <!DOCTYPE a>
@@ -523,7 +523,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;1;bogus comment;;;m
+2;4;bogus comment;;;m
 3;1;empty attlist decl;;b;w
 #document
 | <!DOCTYPE a>
@@ -537,7 +537,7 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-2;1;bogus comment;;;m
+2;4;bogus comment;;;m
 3;1;empty attlist decl;;b;w
 #document
 | <!DOCTYPE a>
@@ -551,7 +551,7 @@
 #errors
 1;1;no XML decl;;;s
 2;1;empty attlist decl;;b;w
-3;1;bogus comment;;;m
+3;4;bogus comment;;;m
 3;4;parser:EOF;;;m
 3;4;no root element;;;m
 #document
