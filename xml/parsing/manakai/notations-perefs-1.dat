@@ -73,3 +73,239 @@
 | <!DOCTYPE a "" "http://a/">
 |   <!NOTATION a "" "aa">
 | <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % bar 'PUBLIC "ab'>
+<!NOTATION a %bar;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;unclosed literal;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION a "ab" "">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % bar 'PUBLIC "ab>'>
+<!NOTATION a %bar;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;27;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION a "ab" "">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % bar "PUBLIC 'ab>">
+<!NOTATION a %bar;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;27;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION a "ab" "">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % bar "PUBLIC>">
+<!NOTATION %bar;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;23;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION PUBLIC "" "">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % bar "a PUBLIC ''>">
+<!NOTATION %bar;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;28;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION a "" "">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % bar "a PUBLIC '' >">
+<!NOTATION %bar;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;29;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION a "" "">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % bar "a SYSTEM>">
+<!NOTATION %bar;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;25;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION a "" "">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % bar "a PUBLIC>">
+<!NOTATION %bar;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;25;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION a "" "">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % bar "a PUBLIC >">
+<!NOTATION %bar;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;26;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION a "" "">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % bar "a SYSTEM >">
+<!NOTATION %bar;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;26;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION a "" "">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % bar ">">
+<!NOTATION %bar;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;17;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % bar "a >">
+<!NOTATION %bar;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;19;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION a "" "">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % bar "a PUBLIC>">
+<!NOTATION %bar;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;25;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION a "" "">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % bar "a SYSTEM 'aa'>">
+<!NOTATION %bar;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;30;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION a "" "aa">
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a />
+#resource http://a/
+<!ENTITY % bar " >">
+<!NOTATION %bar;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;18;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>

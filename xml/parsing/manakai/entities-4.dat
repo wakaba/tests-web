@@ -1,0 +1,152 @@
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ENTITY a PUBLIC "">
+]><x/>
+#errors
+2;23;no DOCTYPE literal;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ENTITY a PUBLIC "" >
+]><x/>
+#errors
+2;24;no DOCTYPE literal;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ENTITY a PUBLIC"d" "e">
+]><x/>
+#errors
+2;20;no space between params;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+#entities
+| <!ENTITY a "" "d" "e" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ENTITY a PUBLIC'd' "e">
+]><x/>
+#errors
+2;20;no space between params;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+#entities
+| <!ENTITY a "" "d" "e" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ENTITY a PUBLICaa>
+]><x/>
+#errors
+2;20;no DOCTYPE literal;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+#entities
+| <!ENTITY a "" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ENTITY a SYSTEMaa>
+]><x/>
+#errors
+2;20;no DOCTYPE literal;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+#entities
+| <!ENTITY a "" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ENTITY a SYSTEM"aa">
+]><x/>
+#errors
+2;20;no space between params;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+#entities
+| <!ENTITY a "" "" "aa" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ENTITY a SYSTEM'aa'>
+]><x/>
+#errors
+2;20;no space between params;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+#entities
+| <!ENTITY a "" "" "aa" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ENTITY"foo>
+]><x/>
+#errors
+2;11;no space between params;;;m
+2;15;no md def;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+#entities
+| <!ENTITY "foo "" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ENTITY foo"">
+]><x/>
+#errors
+2;15;no space between params;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+#entities
+| <!ENTITY foo "" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ENTITY foo''>
+]><x/>
+#errors
+2;15;no space between params;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+#entities
+| <!ENTITY foo "" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ENTITY foo PUBLIC "fo>
+]><x/>
+#errors
+2;26;parser:literal not closed;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+#entities
+| <!ENTITY foo "" "fo" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ENTITY foo PUBLIC 'fo>
+]><x/>
+#errors
+2;26;parser:literal not closed;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+#entities
+| <!ENTITY foo "" "fo" "" >

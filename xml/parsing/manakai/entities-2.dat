@@ -48,6 +48,103 @@
 | <!DOCTYPE a>
 #entities
 
+#data
+<!DOCTYPE x [<!ENTITY%=>]><x/>
+#errors
+1;1;no XML decl;;;s
+1;23;no space between params;;;m
+1;24;no md def;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+
+#data
+<!DOCTYPE x [<!ENTITY%<>]><x/>
+#errors
+1;1;no XML decl;;;s
+1;23;no space between params;;;m
+1;24;no md def;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+
+#data
+<!DOCTYPE x [<!ENTITY%">]><x/>
+#errors
+1;1;no XML decl;;;s
+1;23;no space between params;;;m
+1;24;no md def;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+
+#data
+<!DOCTYPE x [<!ENTITY%'>]><x/>
+#errors
+1;1;no XML decl;;;s
+1;23;no space between params;;;m
+1;24;no md def;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+
+#data
+<!DOCTYPE x [<!ENTITY% >]><x/>
+#errors
+1;1;no XML decl;;;s
+1;23;no space between params;;;m
+1;24;no md name;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+
+#data
+<!DOCTYPE x [<!ENTITY%%>]><x/>
+#errors
+1;1;no XML decl;;;s
+1;23;no space between params;;;m
+1;24;no md def;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+
+#data
+<!DOCTYPE x [<!ENTITY%`>]><x/>
+#errors
+1;1;no XML decl;;;s
+1;23;no space between params;;;m
+1;24;no md def;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+
+#data
+<!DOCTYPE x [<!ENTITY %=>]><x/>
+#errors
+1;1;no XML decl;;;s
+1;25;no md def;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+
+#data
+<!DOCTYPE x [<!ENTITY %<>]><x/>
+#errors
+1;1;no XML decl;;;s
+1;25;no md def;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+
+#data
+<!DOCTYPE x [<!ENTITY %#>]><x/>
+#errors
+1;1;no XML decl;;;s
+1;24;no space between params;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+
 #data escaped
 <!DOCTYPE a[
 <!ENTITY % abc  \u0009

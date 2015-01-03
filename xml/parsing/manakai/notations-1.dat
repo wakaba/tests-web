@@ -698,3 +698,90 @@
 2;35;no root element;;;m
 #document
 | <!DOCTYPE a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+<!NOTATION >
+]><x/>
+#errors
+2;12;no md name;;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+<!NOTATION a SYSTEM abc>
+]><x/>
+#errors
+2;21;string after md def;;;m
+#document
+| <!DOCTYPE x>
+|   <!NOTATION a "" "">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+<!NOTATION a PUBLIC"x">
+]><x/>
+#errors
+2;20;no space between params;;;m
+#document
+| <!DOCTYPE x>
+|   <!NOTATION a "x" "">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+<!NOTATION a PUBLIC'x'>
+]><x/>
+#errors
+2;20;no space between params;;;m
+#document
+| <!DOCTYPE x>
+|   <!NOTATION a "x" "">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+<!NOTATION a SYSTEM"x">
+]><x/>
+#errors
+2;20;no space between params;;;m
+#document
+| <!DOCTYPE x>
+|   <!NOTATION a "" "x">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+<!NOTATION a SYSTEM'x'>
+]><x/>
+#errors
+2;20;no space between params;;;m
+#document
+| <!DOCTYPE x>
+|   <!NOTATION a "" "x">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+<!NOTATION a PUBLIChoe>
+]><x/>
+#errors
+2;20;no space between params;;;m
+#document
+| <!DOCTYPE x>
+|   <!NOTATION a "" "">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+<!NOTATION a SYSTEMhoe>
+]><x/>
+#errors
+2;20;no space between params;;;m
+#document
+| <!DOCTYPE x>
+|   <!NOTATION a "" "">
+| <{} x>

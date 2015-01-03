@@ -1,0 +1,25 @@
+#data
+<!DOCTYPE x [
+  <!ENTITY foo "a<a">
+]><x b="&foo;"/>
+#errors
+1;1;no XML decl;;;s
+3;9;entref in attr has element;;&foo;;m
+#document
+| <!DOCTYPE x>
+| <{} x>
+|   b="&foo;"
+
+#data
+<!DOCTYPE x [
+  <!ENTITY foo "a<a">
+  <!ATTLIST foo bar CDATA "&foo;">
+]><x/>
+#errors
+1;1;no XML decl;;;s
+3;28;entref in attr has element;;&foo;;m
+#document
+| <!DOCTYPE x>
+|   <!ELEMENT foo >
+|     bar CDATA () EXPLICIT "&foo;"
+| <{} x>

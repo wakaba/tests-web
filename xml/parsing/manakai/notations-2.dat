@@ -34,3 +34,27 @@
 | <!DOCTYPE a>
 |   <!NOTATION hoge "`ab" "">
 | <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!NOTATION foo PUBLIC "fo>
+]><x/>
+#errors
+2;28;parser:literal not closed;;;m
+#document
+| <!DOCTYPE x>
+|   <!NOTATION foo "fo" "">
+| <{} x>
+#entities
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!NOTATION foo PUBLIC 'fo>
+]><x/>
+#errors
+2;28;parser:literal not closed;;;m
+#document
+| <!DOCTYPE x>
+|   <!NOTATION foo "fo" "">
+| <{} x>
+#entities

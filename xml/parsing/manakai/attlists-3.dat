@@ -25,3 +25,48 @@
 |     b CDATA () FIXED ""
 | <{} a>
 |   b=""
+
+#data
+<!DOCTYPE x [<!ATTLIST hoge b (a|b)>]><x/>
+#errors
+1;1;no XML decl;;;s
+1;14;empty attlist decl;;hoge;w
+1;36;no attr default;;;m
+#document
+| <!DOCTYPE x>
+|   <!ELEMENT hoge >
+| <{} x>
+
+#data
+<!DOCTYPE x [<!ATTLIST hoge b (a|b) >]><x/>
+#errors
+1;1;no XML decl;;;s
+1;14;empty attlist decl;;hoge;w
+1;37;no attr default;;;m
+#document
+| <!DOCTYPE x>
+|   <!ELEMENT hoge >
+| <{} x>
+
+#data
+<!DOCTYPE x [<!ATTLIST hoge b (a|b)x>]><x/>
+#errors
+1;1;no XML decl;;;s
+1;14;empty attlist decl;;hoge;w
+1;36;no space between params;;;m
+1;36;unquoted attr value;;;m
+#document
+| <!DOCTYPE x>
+|   <!ELEMENT hoge >
+| <{} x>
+
+#data
+<!DOCTYPE x [<!ATTLIST hoge b (a|b) x>]><x/>
+#errors
+1;1;no XML decl;;;s
+1;14;empty attlist decl;;hoge;w
+1;37;unquoted attr value;;;m
+#document
+| <!DOCTYPE x>
+|   <!ELEMENT hoge >
+| <{} x>

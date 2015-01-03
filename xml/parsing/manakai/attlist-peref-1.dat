@@ -1164,3 +1164,275 @@
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab (a)>">
+<!ATTLIST foo %hoge;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;24;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;empty attlist decl;;foo;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab (a) >">
+<!ATTLIST foo %hoge;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;25;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;empty attlist decl;;foo;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab (a >)">
+<!ATTLIST foo %hoge;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;24;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;empty attlist decl;;foo;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab CDATA #IMPLIED>">
+<!ATTLIST foo %hoge;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;35;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;empty attlist decl;;foo;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab> CDATA #IMPLIED">
+<!ATTLIST foo %hoge;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;20;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;empty attlist decl;;foo;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab > CDATA #IMPLIED">
+<!ATTLIST foo %hoge;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;21;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;empty attlist decl;;foo;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab CDATA #IMPLIED >">
+<!ATTLIST foo %hoge;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;36;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;empty attlist decl;;foo;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab CDATA 'aa'>">
+<!ATTLIST foo %hoge;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;31;mdc in pe in md;;;m
+[1]2;1;empty attlist decl;;foo;w
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab CDATA 'aa' >">
+<!ATTLIST foo %hoge;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;32;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+|     ab CDATA () EXPLICIT "aa"
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab ( >">
+<!ATTLIST foo %hoge;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;23;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;empty attlist decl;;foo;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab (>">
+<!ATTLIST foo %hoge;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;22;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;empty attlist decl;;foo;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab (a>">
+<!ATTLIST foo %hoge;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;23;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;empty attlist decl;;foo;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab CDATA >">
+<!ATTLIST foo %hoge;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;27;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;empty attlist decl;;foo;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab CDATA #FIXED>">
+<!ATTLIST foo %hoge;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;33;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;empty attlist decl;;foo;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab CDATA #FIXED >">
+<!ATTLIST foo %hoge;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;34;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;empty attlist decl;;foo;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<!ENTITY % hoge "ab CDATA #>">
+<!ATTLIST foo %hoge;>
+#errors
+1;1;no XML decl;;;s
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]1;28;mdc in pe in md;;;m
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;empty attlist decl;;foo;w
+#document
+| <!DOCTYPE a "" "http://a/">
+|   <!ELEMENT foo >
+| <{} a>

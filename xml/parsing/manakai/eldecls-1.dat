@@ -22,6 +22,41 @@
 
 #data escpaed
 <!DOCTYPE a [
+<!ELEMENT>
+]><a/>
+#errors
+1;1;no XML decl;;;s
+2;10;no md name;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data escpaed
+<!DOCTYPE a [
+<!ELEMENT foo(a)>
+]><a/>
+#errors
+1;1;no XML decl;;;s
+2;14;no space between params;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (a)>
+| <{} a>
+
+#data escpaed
+<!DOCTYPE a [
+<!ELEMENT foo>
+]><a/>
+#errors
+1;1;no XML decl;;;s
+2;14;no md def;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo >
+| <{} a>
+
+#data escpaed
+<!DOCTYPE a [
 <!ELEMENT\u0020
 #errors
 1;1;no XML decl;;;s
@@ -1087,4 +1122,156 @@
 | <!DOCTYPE a>
 |   <!ELEMENT b ANY>
 |   <!ELEMENT c ANY>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo (a)(>]><a/>
+#errors
+1;51;xml:dtd:no group delimiter;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (a)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo (a()>]><a/>
+#errors
+1;50;xml:dtd:no group delimiter;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (a)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo (a ()>]><a/>
+#errors
+1;51;xml:dtd:no group delimiter;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (a)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo (a)|>]><a/>
+#errors
+1;51;string after md def;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (a)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo (*)>]><a/>
+#errors
+1;49;xml:dtd:no group item;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo ()>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo (+)>]><a/>
+#errors
+1;49;xml:dtd:no group item;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo ()>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo (,)>]><a/>
+#errors
+1;49;xml:dtd:no group item;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo ()>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo (?)>]><a/>
+#errors
+1;49;xml:dtd:no group item;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo ()>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo (|)>]><a/>
+#errors
+1;49;xml:dtd:no group item;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo ()>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo )>]><a/>
+#errors
+1;48;no md def;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo *>]><a/>
+#errors
+1;48;no md def;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo +>]><a/>
+#errors
+1;48;no md def;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo ?>]><a/>
+#errors
+1;48;no md def;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo ,>]><a/>
+#errors
+1;48;no md def;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo |>]><a/>
+#errors
+1;48;no md def;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo >]><a/>
+#errors
+1;48;no md def;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT >]><a/>
+#errors
+1;44;no md name;;;m
+#document
+| <!DOCTYPE a>
 | <{} a>

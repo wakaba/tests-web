@@ -46,3 +46,554 @@
 | <{} p>
 |   "&a+b;"
 #xml-standalone true
+
+#data
+<p>&ab%</p>
+#errors
+1;1;no XML decl;;;s
+1;7;no refc;;;m
+#document
+| <{} p>
+|   "&ab%"
+
+#data
+<p>&ab</p>
+#errors
+1;1;no XML decl;;;s
+1;7;no refc;;;m
+#document
+| <{} p>
+|   "&ab"
+
+#data
+<p>&ab< </p>
+#errors
+1;1;no XML decl;;;s
+1;7;no refc;;;m
+1;7;bare stago;;;m
+#document
+| <{} p>
+|   "&ab< "
+
+#data
+<?xml version="1.0"?><p>&aa"</p>
+#errors
+1;28;no refc;;;m
+#document
+| <{} p>
+|   "&aa""
+
+#data
+<?xml version="1.0"?><p>&aa#</p>
+#errors
+1;28;no refc;;;m
+#document
+| <{} p>
+|   "&aa#"
+
+#data
+<?xml version="1.0"?><p>&aa%</p>
+#errors
+1;28;no refc;;;m
+#document
+| <{} p>
+|   "&aa%"
+
+#data
+<?xml version="1.0"?><p>&aa'</p>
+#errors
+1;28;no refc;;;m
+#document
+| <{} p>
+|   "&aa'"
+
+#data
+<?xml version="1.0"?><p>&aa></p>
+#errors
+1;28;no refc;;;m
+#document
+| <{} p>
+|   "&aa>"
+
+#data
+<?xml version="1.0"?><p>&aa`</p>
+#errors
+1;28;no refc;;;m
+#document
+| <{} p>
+|   "&aa`"
+
+#data
+<?xml version="1.0"?><p>&aa=</p>
+#errors
+1;28;no refc;;;m
+#document
+| <{} p>
+|   "&aa="
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a "&aa=">
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa=" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a "&aa%">
+]><a/>
+#errors
+2;18;no refc;;;m
+2;19;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa%" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a "&aa&amp;">
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa&amp;" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a "&aa<">
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa<" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a "&aa">
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a "&aa'">
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa'" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a "&aa>">
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa>" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a "&aa#">
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa#" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a "&aa!">
+]><a/>
+#errors
+2;19;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa!" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a "&aa`">
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa`" "" "" >
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a "&aa ">
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa " "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a '&aa='>
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa=" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a '&aa%'>
+]><a/>
+#errors
+2;18;no refc;;;m
+2;19;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa%" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a '&aa&amp;'>
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa&amp;" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a '&aa<'>
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa<" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a '&aa'>
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a '&aa"'>
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa"" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a '&aa#'>
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa#" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a '&aa>'>
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa>" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a '&aa!'>
+]><a/>
+#errors
+2;19;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa!" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a '&aa`'>
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa`" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a "&aa ">
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa " "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY a '&aa '>
+]><a/>
+#errors
+2;18;no refc;;;m
+#document
+| <!DOCTYPE a>
+| <{} a>
+#entities
+| <!ENTITY a "&aa " "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml version="1.0" encoding="utf-8"?><!ENTITY % y "&aa&#x21;"><!ENTITY x "%y;">
+#errors
+[1]1;39;xml:dtd:ext decl;;;w
+[1]1;56;no refc;;;m
+[1]1;62;parser:EOF;;;m
+[1]1;64;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml version="1.0" encoding="utf-8"?><!ENTITY % y "&aa&#x22;"><!ENTITY x "%y;">
+#errors
+[1]1;39;xml:dtd:ext decl;;;w
+[1]1;56;no refc;;;m
+[1]1;56;no refc;;;m
+[1]1;64;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+| <{} a>
+#entities
+| <!ENTITY x "&aa"" "" "" >
+| <!ENTITY % y "&aa"" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml version="1.0" encoding="utf-8"?><!ENTITY % y "&aa&#x27;"><!ENTITY x "%y;">
+#errors
+[1]1;39;xml:dtd:ext decl;;;w
+[1]1;56;no refc;;;m
+[1]1;56;no refc;;;m
+[1]1;64;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+| <{} a>
+#entities
+| <!ENTITY x "&aa'" "" "" >
+| <!ENTITY % y "&aa'" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml version="1.0" encoding="utf-8"?><!ENTITY % y "&aa&#x26;x;"><!ENTITY x "%y;">
+#errors
+[1]1;39;xml:dtd:ext decl;;;w
+[1]1;56;no refc;;;m
+[1]1;56;no refc;;;m
+[1]1;66;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+| <{} a>
+#entities
+| <!ENTITY x "&aa&x;" "" "" >
+| <!ENTITY % y "&aa&x;" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml version="1.0" encoding="utf-8"?><!ENTITY % y "&aa&#x23;"><!ENTITY x "%y;">
+#errors
+[1]1;39;xml:dtd:ext decl;;;w
+[1]1;56;no refc;;;m
+[1]1;56;no refc;;;m
+[1]1;64;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+| <{} a>
+#entities
+| <!ENTITY x "&aa#" "" "" >
+| <!ENTITY % y "&aa#" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml version="1.0" encoding="utf-8"?><!ENTITY % y "&aa&#x60;"><!ENTITY x "%y;">
+#errors
+[1]1;39;xml:dtd:ext decl;;;w
+[1]1;56;no refc;;;m
+[1]1;56;no refc;;;m
+[1]1;64;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+| <{} a>
+#entities
+| <!ENTITY x "&aa`" "" "" >
+| <!ENTITY % y "&aa`" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml version="1.0" encoding="utf-8"?><!ENTITY % y "&aa&#x3c;"><!ENTITY x "%y;">
+#errors
+[1]1;39;xml:dtd:ext decl;;;w
+[1]1;56;no refc;;;m
+[1]1;56;no refc;;;m
+[1]1;64;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+| <{} a>
+#entities
+| <!ENTITY x "&aa<" "" "" >
+| <!ENTITY % y "&aa<" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml version="1.0" encoding="utf-8"?><!ENTITY % y "&aa&#x3e;"><!ENTITY x "%y;">
+#errors
+[1]1;39;xml:dtd:ext decl;;;w
+[1]1;56;no refc;;;m
+[1]1;56;no refc;;;m
+[1]1;64;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+| <{} a>
+#entities
+| <!ENTITY x "&aa>" "" "" >
+| <!ENTITY % y "&aa>" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml version="1.0" encoding="utf-8"?><!ENTITY % y "&aa&#x25;"><!ENTITY x "%y;">
+#errors
+[1]1;39;xml:dtd:ext decl;;;w
+[1]1;56;no refc;;;m
+[1]1;56;no refc;;;m
+[1]1;62;parser:EOF;;;m
+[1]1;64;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+| <{} a>
+#entities
+| <!ENTITY x "&aa%" "" "" >
+| <!ENTITY % y "&aa%" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml version="1.0" encoding="utf-8"?><!ENTITY % y "&aa&#x3e;"><!ENTITY x "%y;">
+#errors
+[1]1;39;xml:dtd:ext decl;;;w
+[1]1;56;no refc;;;m
+[1]1;56;no refc;;;m
+[1]1;64;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+| <{} a>
+#entities
+| <!ENTITY x "&aa>" "" "" >
+| <!ENTITY % y "&aa>" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml version="1.0" encoding="utf-8"?><!ENTITY % y "&aa&#x09;"><!ENTITY x "%y;">
+#errors
+[1]1;39;xml:dtd:ext decl;;;w
+[1]1;56;no refc;;;m
+[1]1;56;no refc;;;m
+[1]1;64;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+| <{} a>
+#entities escaped
+| <!ENTITY x "&aa\u0009" "" "" >
+| <!ENTITY % y "&aa\u0009" "" "" >
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml version="1.0" encoding="utf-8"?><!ENTITY % y "&aa&#x3d;"><!ENTITY x "%y;">
+#errors
+[1]1;39;xml:dtd:ext decl;;;w
+[1]1;56;no refc;;;m
+[1]1;56;no refc;;;m
+[1]1;64;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+| <{} a>
+#entities escaped
+| <!ENTITY x "&aa\u003D" "" "" >
+| <!ENTITY % y "&aa\u003D" "" "" >

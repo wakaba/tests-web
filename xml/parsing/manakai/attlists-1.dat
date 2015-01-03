@@ -2030,3 +2030,42 @@ true
 | <!DOCTYPE a>
 |   <!ELEMENT b >
 | <{} a>
+
+#data escaped
+<!DOCTYPE a[
+<!ATTLIST b c CDATA #">
+]><a/>
+#errors
+1;1;no XML decl;;;s
+2;22;no attr default;;;m
+2;1;empty attlist decl;;b;w
+#document escaped
+| <!DOCTYPE a>
+|   <!ELEMENT b >
+| <{} a>
+
+#data escaped
+<!DOCTYPE a[
+<!ATTLIST b c CDATA #'>
+]><a/>
+#errors
+1;1;no XML decl;;;s
+2;22;no attr default;;;m
+2;1;empty attlist decl;;b;w
+#document escaped
+| <!DOCTYPE a>
+|   <!ELEMENT b >
+| <{} a>
+
+#data escaped
+<!DOCTYPE a[
+<!ATTLIST b c CDATA #>
+]><a/>
+#errors
+1;1;no XML decl;;;s
+2;22;no attr default;;;m
+2;1;empty attlist decl;;b;w
+#document escaped
+| <!DOCTYPE a>
+|   <!ELEMENT b >
+| <{} a>

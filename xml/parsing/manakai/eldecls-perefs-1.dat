@@ -355,3 +355,144 @@
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab (EMPTY)>
 | <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml encoding="utf-8"?><!ENTITY % a ">"><!ELEMENT foo (b)%a;>
+#errors
+[1]1;25;xml:dtd:ext decl;;;w
+[1]1;39;mdc in pe in md;;;m
+[1]1;42;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+|   <!ELEMENT foo (b)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml encoding="utf-8"?><!ENTITY % a ">"><!ELEMENT foo ((b)%a;)>
+#errors
+[1]1;25;xml:dtd:ext decl;;;w
+[1]1;39;mdc in pe in md;;;m
+[1]1;42;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+|   <!ELEMENT foo ((b))>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml encoding="utf-8"?><!ENTITY % a ">"><!ELEMENT foo (b)+%a;>
+#errors
+[1]1;25;xml:dtd:ext decl;;;w
+[1]1;39;mdc in pe in md;;;m
+[1]1;42;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+|   <!ELEMENT foo (b)+>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml encoding="utf-8"?><!ENTITY % a ">"><!ELEMENT foo ((b) %a;)>
+#errors
+[1]1;25;xml:dtd:ext decl;;;w
+[1]1;39;mdc in pe in md;;;m
+[1]1;42;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+|   <!ELEMENT foo ((b))>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml encoding="utf-8"?><!ENTITY % a ">"><!ELEMENT foo ((b)+%a;)>
+#errors
+[1]1;25;xml:dtd:ext decl;;;w
+[1]1;39;mdc in pe in md;;;m
+[1]1;42;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+|   <!ELEMENT foo ((b)+)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml encoding="utf-8"?><!ENTITY % a ">"><!ELEMENT foo ANY%a;>
+#errors
+[1]1;25;xml:dtd:ext decl;;;w
+[1]1;39;mdc in pe in md;;;m
+[1]1;42;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+|   <!ELEMENT foo ANY>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml encoding="utf-8"?><!ENTITY % a ">"><!ELEMENT foo (%a;)>
+#errors
+[1]1;25;xml:dtd:ext decl;;;w
+[1]1;39;mdc in pe in md;;;m
+[1]1;42;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+|   <!ELEMENT foo ()>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml encoding="utf-8"?><!ENTITY % a ">"><!ELEMENT foo %a;>
+#errors
+[1]1;25;xml:dtd:ext decl;;;w
+[1]1;39;mdc in pe in md;;;m
+[1]1;42;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml encoding="utf-8"?><!ENTITY % a ">"><!ELEMENT %a;>
+#errors
+[1]1;25;xml:dtd:ext decl;;;w
+[1]1;39;mdc in pe in md;;;m
+#document
+| <!DOCTYPE a "" "http://x/">
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml encoding="utf-8"?><!ENTITY % a "abc>"><!ELEMENT %a;>
+#errors
+[1]1;25;xml:dtd:ext decl;;;w
+[1]1;42;mdc in pe in md;;;m
+[1]1;45;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+|   <!ELEMENT abc >
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://x/"><a/>
+#resource http://x/
+<?xml encoding="utf-8"?><!ENTITY % a "(abc)>"><!ELEMENT foo %a;>
+#errors
+[1]1;25;xml:dtd:ext decl;;;w
+[1]1;44;mdc in pe in md;;;m
+[1]1;47;xml:dtd:ext decl;;;w
+#document
+| <!DOCTYPE a "" "http://x/">
+|   <!ELEMENT foo (abc)>
+| <{} a>
