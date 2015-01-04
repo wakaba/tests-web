@@ -97,7 +97,7 @@
 [1]2;3;xml:dtd:ext decl;;;w
 [1]3;1;string in internal subset;;;m
 [1]4;3;xml:dtd:ext decl;;;w
-[1]4;3;ms:unclosed;;;m
+[1]4;18;parser:EOF;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
@@ -117,7 +117,7 @@
 [1]3;1;string in internal subset;;;m
 [1]3;4;string in internal subset;;;m
 [1]4;3;xml:dtd:ext decl;;;w
-[1]4;3;ms:unclosed;;;m
+[1]4;18;parser:EOF;;;m
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
@@ -136,7 +136,7 @@
 [1]2;3;xml:dtd:ext decl;;;w
 [1]3;2;string after internal subset;;;m
 [1]3;3;string in internal subset;;;m
-[1]4;3;ms:unclosed;;;m
+[1]4;18;parser:EOF;;;m
 [1]4;3;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
@@ -387,6 +387,7 @@
 [1]1;1;no XML decl;;;s
 [1]2;3;ms:no status keyword;;;m
 [1]4;18;parser:EOF;;;m
+[1]4;18;parser:EOF;;;m
 1;35;entity not declared;;&x;;m
 1;38;entity not declared;;&y;;m
 #document
@@ -404,6 +405,7 @@
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
 [1]2;3;ms:no status keyword;;;m
+[1]3;17;parser:EOF;;;m
 [1]3;17;parser:EOF;;;m
 1;35;entity not declared;;&x;;m
 1;38;entity not declared;;&y;;m
