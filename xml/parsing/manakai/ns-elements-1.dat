@@ -197,3 +197,29 @@
 | <{} z>
 |   <{} ::a>
 |     xmlns :="x"
+
+#data
+<a:b xmlns:a="http://www.w3.org/1999/xhtml"><a:template><p>hoge</p></a:template></a:b>
+#errors
+1;1;no XML decl;;;s
+#document
+| <b>
+|   xmlns a="http://www.w3.org/1999/xhtml"
+|   <template>
+|     content
+|       <{} p>
+|         "hoge"
+
+#data
+<a:b xmlns:a="http://www.w3.org/1999/xhtml"><a:template><p>hoge</p></a:template></b>
+#errors
+1;1;no XML decl;;;s
+1;81;stray end tag;;b;m
+1;85;in body:#eof;b;;m
+#document
+| <b>
+|   xmlns a="http://www.w3.org/1999/xhtml"
+|   <template>
+|     content
+|       <{} p>
+|         "hoge"
