@@ -8,3 +8,102 @@
 1;17;no root element;;;m
 #document
 | <!DOCTYPE x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<![IGNORE<[<!ENTITY foo "x">]]>
+#errors
+[1]2;10;ms:no dso;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<![IGNORE>[<!ENTITY foo "x">]]>
+#errors
+[1]2;10;ms:no dso;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<![IGNORE][<!ENTITY foo "x">]]>
+#errors
+[1]2;10;ms:no dso;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<![INCLUDE<[<!ENTITY foo "x">]]>
+#errors
+[1]2;11;ms:no dso;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<![INCLUDE>[<!ENTITY foo "x">]]>
+#errors
+[1]2;11;ms:no dso;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<![INCLUDE][<!ENTITY foo "x">]]>
+#errors
+[1]2;11;ms:no dso;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<![<[<!ENTITY foo "x">]]>
+#errors
+[1]2;4;ms:no status keyword;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<![>[<!ENTITY foo "x">]]>
+#errors
+[1]2;4;ms:no status keyword;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<![]<!ENTITY foo "x">]]>
+#errors
+[1]2;4;ms:no status keyword;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>

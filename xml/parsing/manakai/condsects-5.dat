@@ -1,0 +1,305 @@
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo ">">
+<![IGNORE%foo;[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;17;mdc in pe in md;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "<">
+<![IGNORE%foo;[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;17;string after md def;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "[">
+<![IGNORE%foo;[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;17;string after md def;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "]">
+<![IGNORE%foo;[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;17;string after md def;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo ">">
+<![INCLUDE%foo;[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;17;mdc in pe in md;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "<">
+<![INCLUDE%foo;[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;17;string after md def;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "[">
+<![INCLUDE%foo;[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;17;string after md def;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "]">
+<![INCLUDE%foo;[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;17;string after md def;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo ">">
+<![%foo;INCLUDE[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;17;mdc in pe in md;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo ">">
+<![hoe%foo;INCLUDE[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]3;4;ms:no dso;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "INCLUDE>">
+<![%foo;INCLUDE[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;24;mdc in pe in md;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "INCLUDO>">
+<![%foo;INCLUDE[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;23;ms:no dso;;;m
+[1]2;24;mdc in pe in md;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "INCLUDO[">
+<![%foo;INCLUDE[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;23;ms:no dso;;;m
+[1]2;24;string after md def;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "INCLUDO]">
+<![%foo;INCLUDE[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;23;ms:no dso;;;m
+[1]2;24;string after md def;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "INCLUDO<">
+<![%foo;INCLUDE[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;23;ms:no dso;;;m
+[1]2;24;string after md def;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "INCLUDO>">
+<![%foo;INCLUDE[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;23;ms:no dso;;;m
+[1]2;24;mdc in pe in md;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "INCLUDE]">
+<![%foo;INCLUDE[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;24;string after md def;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "INCLUDE[">
+<![%foo;INCLUDE[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;24;string after md def;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "INCLUDE<">
+<![%foo;INCLUDE[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;24;string after md def;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "<">
+<![%foo;INCLUDE[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;17;string after md def;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "[">
+<![%foo;INCLUDE[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;17;string after md def;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "]">
+<![%foo;INCLUDE[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;17;string after md def;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x SYSTEM "http://x/"><x/>
+#resource http://x/
+<?xml encoding="utf-8"?>
+<!ENTITY % foo "foo%">
+<![%foo;INCLUDE[<!ENTITY foo "x">]]>
+#errors
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;17;ms:no dso;;;m
+[1]2;20;string after md def;;;m
+[1]2;21;no refc;;;m
+#document
+| <!DOCTYPE x "" "http://x/">
+| <{} x>
