@@ -1,0 +1,65 @@
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoge CDATA "foo">
+]><a hoge="fuga"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoge CDATA #FIXED "foo">
+]><a hoge="fuga"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@hoge;VC:Fixed Attribute Default;foo;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoge CDATA #REQUIRED>
+]><a hoge="fuga"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoge CDATA #REQUIRED>
+]><a hoge=""></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoge CDATA #REQUIRED>
+]><a ></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a;VC:Required Attribute;hoge;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoge:fuga CDATA #REQUIRED>
+]><a hoge:fuga=""></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoge:fuga CDATA #REQUIRED>
+]><a ></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a;VC:Required Attribute;hoge:fuga;m

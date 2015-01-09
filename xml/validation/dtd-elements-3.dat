@@ -1,0 +1,91 @@
+#data
+<!DOCTYPE x [
+  <!ELEMENT x (bb | bb)>
+  <!ELEMENT bb ANY>
+]><x><bb></bb></x>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT x;Deterministic Content Models;m
+/x;unknown namespace element;w
+/x/bb;unknown namespace element;w
+
+#data
+<!DOCTYPE x [
+  <!ELEMENT x (bb* , bb)>
+  <!ELEMENT bb ANY>
+]><x><bb></bb></x>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT x;Deterministic Content Models;m
+/x;unknown namespace element;w
+/x/bb;unknown namespace element;w
+/x;VC:Element Valid:element child:required element;bb;m
+
+#data
+<!DOCTYPE x [
+  <!ELEMENT x ((bb+)*)>
+  <!ELEMENT bb ANY>
+]><x><bb></bb></x>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT x;Deterministic Content Models;m
+/x;unknown namespace element;w
+/x/bb;unknown namespace element;w
+
+#data
+<!DOCTYPE x [
+  <!ELEMENT x ((bb, cc) | (bb, dd))>
+  <!ELEMENT bb ANY>
+  <!ELEMENT cc ANY>
+  <!ELEMENT dd ANY>
+]><x><bb></bb></x>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT x;Deterministic Content Models;m
+/x;VC:Element Valid:element child:required element;cc;m
+/x;unknown namespace element;w
+/x/bb;unknown namespace element;w
+
+#data
+<!DOCTYPE x [
+  <!ELEMENT x (bb | bd)>
+  <!ELEMENT bb ANY>
+]><x><bb></bb></x>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT x;xml:dtd:element not declared;w
+/x;unknown namespace element;w
+/x/bb;unknown namespace element;w
+
+#data
+<!DOCTYPE x [
+  <!ELEMENT x (bb | b:d)>
+  <!ELEMENT bb ANY>
+]><x><bb></bb></x>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT x;xml:dtd:element not declared;w
+/x;unknown namespace element;w
+/x/bb;unknown namespace element;w
+
+#data
+<!DOCTYPE x [
+  <!ELEMENT x (bb | b::d)>
+  <!ELEMENT bb ANY>
+]><x><bb></bb></x>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT x;xml:qname syntax;m
+/x;unknown namespace element;w
+/x/bb;unknown namespace element;w
+
+#data
+<!DOCTYPE x [
+  <!ELEMENT x (bb | 12d)>
+  <!ELEMENT bb ANY>
+]><x><bb></bb></x>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT x;xml:name syntax;m
+/x;unknown namespace element;w
+/x/bb;unknown namespace element;w

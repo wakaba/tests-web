@@ -1,0 +1,277 @@
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA)>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA)>
+]><a> </a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA)>
+]><a> <!----></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA)>
+]><a> <?aa?></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/?aa;xml:pi:target not declared;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA)>
+]><a><![CDATA[ ]]></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA)>
+]><a>&#x20;&#32;</a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA)>
+  <!ELEMENT b ANY>
+]><a><b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;VC:Element Valid:mixed child;m
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA)*>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA)*>
+]><a> </a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA)*>
+]><a><![CDATA[ ]]></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA)*>
+]><a>&#x20;&#32;</a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA)*>
+]><a> <!----></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA)*>
+]><a> <?aa?></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/?aa;xml:pi:target not declared;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA)*>
+  <!ELEMENT b ANY>
+]><a><b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;VC:Element Valid:mixed child;m
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA  |b)*>
+  <!ELEMENT b ANY>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA|b)*>
+  <!ELEMENT b ANY>
+]><a> </a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA|b)*>
+  <!ELEMENT b ANY>
+]><a><![CDATA[ ]]></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA|b)*>
+  <!ELEMENT b ANY>
+]><a>&#x20;&#32;</a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA|b)*>
+  <!ELEMENT b ANY>
+]><a> <!----></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA|b)*>
+  <!ELEMENT b ANY>
+]><a> <?aa?></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/?aa;xml:pi:target not declared;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA|b)*>
+  <!ELEMENT b ANY>
+]><a><b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA|b)*>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+]><a><c></c></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a/c;VC:Element Valid:mixed child;m
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA|b)*>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+]><a><c></c><b></b><b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a/c;VC:Element Valid:mixed child;m
+/a/b;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA|b)*>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+]><a><c></c>abc<b></b><b></b> <!---->&#x41;</a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a/c;VC:Element Valid:mixed child;m
+/a/b;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA|b)*>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+]><a>
+<b></b><b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA|b)*>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+]><a>
+abc<b></b>dd<b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA|b)*>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+]><a>aa
+<b></b>c<b></b>b</a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a (#PCDATA|c|b)*>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+]><a>
+<b></b><b></b>x<c></c></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/c;unknown namespace element;w

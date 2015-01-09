@@ -1,0 +1,87 @@
+#data
+<!DOCTYPE x [<!ELEMENT x ANY>]><x></x>
+#is-document
+#errors
+/x;unknown namespace element;w
+
+#data
+<!DOCTYPE x [<!ELEMENT x EMPTY>]><x></x>
+#is-document
+#errors
+/x;unknown namespace element;w
+
+#data
+<!DOCTYPE x [<!ELEMENT x (#PCDATA)>]><x></x>
+#is-document
+#errors
+/x;unknown namespace element;w
+
+#data
+<!DOCTYPE x [<!ELEMENT x (#PCDATA)*>]><x></x>
+#is-document
+#errors
+/x;unknown namespace element;w
+
+#data
+<!DOCTYPE x [<!ELEMENT x (#PCDATA | abc)*>]><x></x>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT x;xml:dtd:cm:element not declared;w
+/x;unknown namespace element;w
+
+#data
+<!DOCTYPE x [<!ELEMENT x (#PCDATA | abc)*><!ELEMENT abc ANY>]><x></x>
+#is-document
+#errors
+/x;unknown namespace element;w
+
+#data
+<!DOCTYPE x [<!ELEMENT x (#PCDATA | abc | def)*>]><x></x>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT x;xml:dtd:cm:element not declared;w
+/!DOCTYPE/!ELEMENT x;xml:dtd:cm:element not declared;w
+/x;unknown namespace element;w
+
+#data
+<!DOCTYPE x [<!ELEMENT x (#PCDATA | abc | def | abc)*>]><x></x>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT x;xml:dtd:cm:element not declared;w
+/!DOCTYPE/!ELEMENT x;xml:dtd:cm:element not declared;w
+/!DOCTYPE/!ELEMENT x;VC:No Duplicate Types;m
+/x;unknown namespace element;w
+
+#data
+<!DOCTYPE x [<!ELEMENT x (#PCDATA | abc | d:ef)*><!ELEMENT abc ANY><!ELEMENT d:ef ANY>]><x></x>
+#is-document
+#errors
+/x;unknown namespace element;w
+
+#data
+<!DOCTYPE x [<!ELEMENT x (#PCDATA | abc | d:ef)*><!ELEMENT abc ANY>]><x></x>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT x;xml:dtd:cm:element not declared;w
+/x;unknown namespace element;w
+
+#data
+<!DOCTYPE x [<!ELEMENT x (#PCDATA | abc | d::ef)*><!ELEMENT abc ANY>]><x></x>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT x;xml:qname syntax;m
+/x;unknown namespace element;w
+
+#data
+<!DOCTYPE x [<!ELEMENT x (#PCDATA | abc | 12:def)*><!ELEMENT abc ANY>]><x></x>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT x;xml:name syntax;m
+/x;unknown namespace element;w
+
+#data
+<!DOCTYPE x [<!ELEMENT x (#PCDATA | abc | a:4def)*><!ELEMENT abc ANY>]><x></x>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT x;xml:qname syntax;m
+/x;unknown namespace element;w

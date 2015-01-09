@@ -1,0 +1,37 @@
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+]><a hoge="fuga"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@hoge;VC:Attribute Value Type:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+]><a hoge:ab="fuga"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@hoge:ab;VC:Attribute Value Type:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+]><a xmlns:hoge="fuga"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@hoge;VC:Attribute Value Type:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT b ANY>
+]><a><b xmlns:hoge="fuga"></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a;VC:Element Valid:declared;m
+/a/b;unknown namespace element;w
+/a/b/@hoge;VC:Attribute Value Type:declared;m

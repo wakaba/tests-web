@@ -1,0 +1,51 @@
+#data
+<!DOCTYPE a [
+  <!NOTATION aa SYSTEM "http://y/">
+  <!ENTITY hoge SYSTEM "http://x/" NDATA aa>
+]><a></a>
+#is-document
+#errors
+/a;VC:Element Valid:declared;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ENTITY hoge SYSTEM "http://x/" NDATA aa>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ENTITY hoge;VC:Notation Declared;m
+/a;VC:Element Valid:declared;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ENTITY hoge SYSTEM "http://x/" NDATA aa:bb>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ENTITY hoge;VC:Notation Declared;m
+/a;VC:Element Valid:declared;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!NOTATION aa SYSTEM "http://y/">
+  <!ENTITY ho:ge SYSTEM "http://x/" NDATA aa>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ENTITY ho:ge;xml:ncname syntax;m
+/a;VC:Element Valid:declared;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!NOTATION aa SYSTEM "http://y/">
+  <!ENTITY 12ge SYSTEM "http://x/" NDATA aa>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ENTITY 12ge;xml:name syntax;m
+/a;VC:Element Valid:declared;m
+/a;unknown namespace element;w

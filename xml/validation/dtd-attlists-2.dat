@@ -1,0 +1,947 @@
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a ho:ge CDATA #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a ho::ge CDATA #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@ho::ge;xml:qname syntax;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a !?ge CDATA #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@!?ge;xml:name syntax;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoe (foo | bar | a:b) #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoe (foo | bar | foo) #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@hoe;VC:No Duplicate Tokens;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoe (foo | bar | 124 | ::abc) #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoe (foo | bar!) #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@hoe;xml:nmtoken syntax;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoe (foo | bar) #IMPLIED fuga (baz) #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoe (foo | bar) #IMPLIED fuga (bar | baz) #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@hoe;xml:dtd:duplicate nmtoken in element;s
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoe (foo | bar) #IMPLIED fuga NOTATION (bar | baz) #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@fuga;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT a/@fuga;VC:Notation Attributes:declared;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoe NOTATION (foo  | baz | foo) #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@hoe;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT a/@hoe;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT a/@hoe;VC:No Duplicate Tokens;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoe NOTATION (foo  | baz | 4211) #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@hoe;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT a/@hoe;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT a/@hoe;xml:name syntax;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoe NOTATION (foo  | baz | a:b) #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@hoe;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT a/@hoe;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT a/@hoe;xml:ncname syntax;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a hoe ID #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@hoe;xml:dtd:non-id ID;w
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a id IDREF #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@id;xml:dtd:id non-ID;w
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a id CDATA #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@id;xml:dtd:id non-ID;w
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID "">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@id;VC:ID Attribute Default;m
+/a;unknown namespace element;w
+/a/@id;xml:name syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID "hoe">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@id;VC:ID Attribute Default;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID "h:oe">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@id;VC:ID Attribute Default;m
+/a;unknown namespace element;w
+/a/@id;xml:ncname syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #FIXED "">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@id;VC:ID Attribute Default;m
+/a;unknown namespace element;w
+/a/@id;xml:name syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #FIXED "hoe">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@id;VC:ID Attribute Default;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #FIXED "h:oe">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@id;VC:ID Attribute Default;m
+/a;unknown namespace element;w
+/a/@id;xml:ncname syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED id2 ID #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@id2;VC:One ID per Element Type;m
+/!DOCTYPE/!ELEMENT a/@id2;xml:dtd:non-id ID;w
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a idx IDREF #IMPLIED >
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a idx IDREF "ab">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@idx;VC:IDREF:referenced element;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a idx IDREF "a:b">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@idx;xml:ncname syntax;m
+/a;unknown namespace element;w
+/a/@idx;VC:IDREF:referenced element;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a idx IDREF "">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@idx;xml:name syntax;m
+/a;unknown namespace element;w
+/a/@idx;VC:IDREF:referenced element;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a idx ENTITY #IMPLIED >
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a idx ENTITY "ab">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@idx;VC:Entity Name:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a idx ENTITY "a:b">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@idx;xml:ncname syntax;m
+/a;unknown namespace element;w
+/a/@idx;VC:Entity Name:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a idx ENTITY "">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@idx;xml:name syntax;m
+/a;unknown namespace element;w
+/a/@idx;VC:Entity Name:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx ENTITY "entitynotfound">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a idx ENTITY #FIXED "ab">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@idx;VC:Entity Name:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a idx ENTITY #FIXED "a:b">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@idx;xml:ncname syntax;m
+/a;unknown namespace element;w
+/a/@idx;VC:Entity Name:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a idx ENTITY #FIXED "">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@idx;xml:name syntax;m
+/a;unknown namespace element;w
+/a/@idx;VC:Entity Name:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx ENTITY #FIXED "entitynotfound">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx IDREFS #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx IDREFS "">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/!DOCTYPE/!ELEMENT b/@idx;xml:names syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx IDREFS "
+ ">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/!DOCTYPE/!ELEMENT b/@idx;xml:names syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx IDREFS "hoe abc">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx IDREFS "
+hoe abc ">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx IDREFS "hoe 212 ab:foo">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/!DOCTYPE/!ELEMENT b/@idx;xml:names syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx IDREFS "hoe ab:foo">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/!DOCTYPE/!ELEMENT b/@idx;xml:ncname syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx IDREFS #FIXED "hoe ab:foo">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/!DOCTYPE/!ELEMENT b/@idx;xml:ncname syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx ENTITIES #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx ENTITIES "">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/!DOCTYPE/!ELEMENT b/@idx;xml:names syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx ENTITIES "
+ ">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/!DOCTYPE/!ELEMENT b/@idx;xml:names syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx ENTITIES "hoe abc">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx ENTITIES "
+hoe abc ">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx ENTITIES "hoe 212 ab:foo">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/!DOCTYPE/!ELEMENT b/@idx;xml:names syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx ENTITIES "hoe ab:foo">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/!DOCTYPE/!ELEMENT b/@idx;xml:ncname syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx ENTITIES #FIXED "hoe ab:foo">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/!DOCTYPE/!ELEMENT b/@idx;xml:ncname syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKEN #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKEN "ab">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKEN "13111">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKEN "abc:yy">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKEN ":::">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKEN #FIXED ":::">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKEN "">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;xml:nmtoken syntax;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKEN "!??!">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;xml:nmtoken syntax;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKEN #FIXED "!??!">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;xml:nmtoken syntax;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKENS #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKENS "ab">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKENS "13111">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKENS "abc:yy">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKENS ":::">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKENS "">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;xml:nmtokens syntax;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKENS "!??!">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;xml:nmtokens syntax;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKENS "">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;xml:nmtokens syntax;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKENS "
+  ">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;xml:nmtokens syntax;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKENS " ab
+ade">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKENS " 3521 3333 ">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKENS #FIXED " 3521 3333 ">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKENS  #FIXED "
+  ">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;xml:nmtokens syntax;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NMTOKENS #FIXED " 3521 3333 a nbe">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx (abc | def) "abc">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx (abc | def) "abc ">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx (abc | def) #FIXED "abc ">
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx (abc | def) "abc&#x9;">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;VC:Attribute Default Value Syntactically Correct:enumeration;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx (abc | def) "abz">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;VC:Attribute Default Value Syntactically Correct:enumeration;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx (abc | def) #FIXED "abz">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;VC:Attribute Default Value Syntactically Correct:enumeration;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NOTATION (abc | def) #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT b/@idx;VC:Notation Attributes:declared;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NOTATION (abc | def) "abc">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT b/@idx;VC:Notation Attributes:declared;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NOTATION (abc | def) #FIXED "abc">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT b/@idx;VC:Notation Attributes:declared;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NOTATION (abc | def) "abcd">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;VC:Attribute Default Value Syntactically Correct:enumeration;m
+/!DOCTYPE/!ELEMENT b/@idx;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT b/@idx;VC:Notation Attributes:declared;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NOTATION (abc | def) #FIXED "ab:c">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;VC:Attribute Default Value Syntactically Correct:enumeration;m
+/!DOCTYPE/!ELEMENT b/@idx;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT b/@idx;VC:Notation Attributes:declared;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST b idx NOTATION (abc | def) #IMPLIED aa NOTATION (xa) #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT b/@idx;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT b/@aa;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT b/@idx;VC:One Notation per Element Type;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b EMPTY>
+  <!ATTLIST b idx NOTATION (abc | def) #IMPLIED >
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@idx;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT b/@idx;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT b/@idx;VC:No Notation on Empty Element;m
+/a;unknown namespace element;w

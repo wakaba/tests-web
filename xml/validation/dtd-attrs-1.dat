@@ -1,0 +1,659 @@
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED>
+]><a id=""></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@id;xml:name syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED>
+]><a id="abc"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED>
+]><a id="ab:aa"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@id;xml:ncname syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED>
+]><a id="ho ge"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@id;xml:name syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST a id ID #IMPLIED>
+  <!ATTLIST b id ID #IMPLIED>
+]><a id="ho "><b id="ho"></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b/@id;VC:ID:unique;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST a id ID #IMPLIED>
+  <!ATTLIST b id ID #IMPLIED>
+]><a id="HO"><b id="ho"></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ELEMENT b ANY>
+  <!ATTLIST a id ID #IMPLIED>
+  <!ATTLIST b id CDATA #IMPLIED>
+]><a id="ho"><b id="ho"></b></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT b/@id;xml:dtd:id non-ID;w
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv (ab | cd) #IMPLIED>
+]><a abv="ab"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv (ab | cd) #IMPLIED>
+]><a abv="abd"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;VC:Enumeration;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv (ab | cd) #IMPLIED>
+]><a abv="ab&#xa;"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;VC:Enumeration;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv NOTATION (ab | cd) #IMPLIED>
+]><a abv="ab"></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@abv;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT a/@abv;VC:Notation Attributes:declared;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv NOTATION (ab | cd) #IMPLIED>
+]><a abv="ab&#xa;"></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT a/@abv;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT a/@abv;VC:Notation Attributes:declared;m
+/a;unknown namespace element;w
+/a/@abv;VC:Notation Attributes:enumeration;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv NMTOKEN #IMPLIED>
+]><a abv="ab"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv NMTOKEN #IMPLIED>
+]><a abv=""></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;xml:nmtoken syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv NMTOKEN #IMPLIED>
+]><a abv="ab::aa"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv NMTOKEN #IMPLIED>
+]><a abv="521521"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv NMTOKEN #IMPLIED>
+]><a abv="aa!"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;xml:nmtoken syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv NMTOKENS #IMPLIED>
+]><a abv="ab"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv NMTOKENS #IMPLIED>
+]><a abv=""></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;xml:nmtokens syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv NMTOKENS #IMPLIED>
+]><a abv="521521"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv NMTOKENS #IMPLIED>
+]><a abv="aa!"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;xml:nmtokens syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv NMTOKENS #IMPLIED>
+]><a abv="aa:bb"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv NMTOKENS #IMPLIED>
+]><a abv="aa   bb
+"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv NMTOKENS #IMPLIED>
+]><a abv="aa!
+ va"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;xml:nmtokens syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv ENTITY #IMPLIED>
+]><a abv="aa"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;VC:Entity Name:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv ENTITY #IMPLIED>
+  <!NOTATION aab SYSTEM "http://a/">
+  <!ENTITY foo SYSTEM "http://a/bar" NDATA aab>
+]><a abv="foo"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv ENTITY #IMPLIED>
+  <!NOTATION aab SYSTEM "http://a/">
+  <!ENTITY foo SYSTEM "http://a/bar" NDATA aab>
+]><a abv="aab"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;VC:Entity Name:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv ENTITY #IMPLIED>
+  <!ENTITY foo SYSTEM "http://a/bar" >
+]><a abv="foo"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;VC:Entity Name:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv ENTITY #IMPLIED>
+  <!ENTITY % foo SYSTEM "http://a/bar" >
+]><a abv="foo"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;VC:Entity Name:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv ENTITY #IMPLIED>
+  <!NOTATION aab SYSTEM "http://a/">
+  <!ENTITY foo SYSTEM "http://a/bar" NDATA aab>
+]><a abv="foo bar"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;VC:Entity Name:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv ENTITIES #IMPLIED>
+]><a abv="aa"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;VC:Entity Name:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv ENTITIES #IMPLIED>
+]><a abv=""></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;xml:names syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv ENTITIES #IMPLIED>
+]><a abv="
+"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;xml:names syntax;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv ENTITIES #IMPLIED>
+  <!NOTATION aab SYSTEM "http://a/">
+  <!ENTITY foo SYSTEM "http://a/bar" NDATA aab>
+]><a abv="foo"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv ENTITIES #IMPLIED>
+  <!NOTATION aab SYSTEM "http://a/">
+  <!ENTITY foo SYSTEM "http://a/bar" NDATA aab>
+]><a abv="aab"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;VC:Entity Name:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv ENTITIES #IMPLIED>
+  <!ENTITY foo SYSTEM "http://a/bar" >
+]><a abv="foo"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;VC:Entity Name:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv ENTITIES #IMPLIED>
+  <!ENTITY % foo SYSTEM "http://a/bar" >
+]><a abv="foo"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;VC:Entity Name:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv ENTITIES #IMPLIED>
+  <!NOTATION aab SYSTEM "http://a/">
+  <!ENTITY foo SYSTEM "http://a/bar" NDATA aab>
+]><a abv="foo bar"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;VC:Entity Name:declared;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv ENTITIES #IMPLIED>
+  <!NOTATION aab SYSTEM "http://a/">
+  <!ENTITY foo SYSTEM "http://a/bar" NDATA aab>
+  <!ENTITY bar SYSTEM "http://a/bar" NDATA aab>
+]><a abv="foo bar"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+  <!ATTLIST a abv ENTITIES #IMPLIED>
+  <!NOTATION aab SYSTEM "http://a/">
+  <!ENTITY foo SYSTEM "http://a/bar" NDATA aab>
+  <!ENTITY bar SYSTEM "http://a/bar" NDATA aab>
+]><a abv="foo:bar"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@abv;VC:Entity Name:declared;m
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREF #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREF #IMPLIED>
+]><a b="abc"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@b;VC:IDREF:referenced element;m
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREF #IMPLIED>
+]><a b="abc" id="abc"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREF #IMPLIED>
+  <!ELEMENT b ANY>
+  <!ATTLIST b id ID #IMPLIED b IDREF #IMPLIED>
+]><a b="abc"><b id="abc"></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREF #IMPLIED>
+  <!ELEMENT b ANY>
+  <!ATTLIST b id ID #IMPLIED b IDREF #IMPLIED>
+]><a id="abc"><b b="abc"></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREF #IMPLIED>
+  <!ELEMENT b ANY>
+  <!ATTLIST b id ID #IMPLIED b IDREF #IMPLIED>
+]><a b="ab c"><b id="ab c"></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b/@id;xml:name syntax;m
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREF #IMPLIED>
+  <!ELEMENT b ANY>
+  <!ATTLIST b id ID #IMPLIED b IDREF #IMPLIED>
+]><a b="abcD"><b id="abcd"></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/@b;VC:IDREF:referenced element;m
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREF #IMPLIED>
+  <!ELEMENT b ANY>
+  <!ATTLIST b id ID #IMPLIED b IDREF #IMPLIED>
+]><a b=""><b id="abcd"></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/@b;VC:IDREF:referenced element;m
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREFS #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREFS #IMPLIED>
+]><a b="abc"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@b;VC:IDREF:referenced element;m
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREFS #IMPLIED>
+]><a b="abc" id="abc"></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREFS #IMPLIED>
+  <!ELEMENT b ANY>
+  <!ATTLIST b id ID #IMPLIED b IDREFS #IMPLIED>
+]><a b="abc"><b id="abc"></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREFS #IMPLIED>
+  <!ELEMENT b ANY>
+  <!ATTLIST b id ID #IMPLIED b IDREFS #IMPLIED>
+]><a id="abc"><b b="abc"></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREFS #IMPLIED>
+  <!ELEMENT b ANY>
+  <!ATTLIST b id ID #IMPLIED b IDREFS #IMPLIED>
+]><a b="ab c"><b id="ab c"></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@b;VC:IDREF:referenced element;m
+/a/@b;VC:IDREF:referenced element;m
+/a/b;unknown namespace element;w
+/a/b/@id;xml:name syntax;m
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREFS #IMPLIED>
+  <!ELEMENT b ANY>
+  <!ATTLIST b id ID #IMPLIED b IDREFS #IMPLIED>
+]><a b="abcD"><b id="abcd"></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/@b;VC:IDREF:referenced element;m
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREFS #IMPLIED>
+  <!ELEMENT b ANY>
+  <!ATTLIST b id ID #IMPLIED b IDREFS #IMPLIED>
+]><a b=""><b id="abcd"></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@b;xml:names syntax;m
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREFS #IMPLIED>
+  <!ELEMENT b ANY>
+  <!ATTLIST b id ID #IMPLIED b IDREFS #IMPLIED>
+]><a b="  "><b id="abcd"></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/@b;xml:names syntax;m
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREFS #IMPLIED>
+  <!ELEMENT b ANY>
+  <!ATTLIST b id ID #IMPLIED b IDREFS #IMPLIED>
+]><a b="abcd ef"><b id="abcd"></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/@b;VC:IDREF:referenced element;m
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREFS #IMPLIED>
+  <!ELEMENT b ANY>
+  <!ATTLIST b id ID #IMPLIED b IDREFS #IMPLIED>
+]><a b="abcd e"><b id="abcd"></b><b id="e"></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a id ID #IMPLIED b IDREFS #IMPLIED>
+  <!ELEMENT b ANY>
+  <!ATTLIST b id ID #IMPLIED b IDREFS #IMPLIED>
+]><a b="abcd e abcd"><b id="abcd"></b><b id="e"></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;unknown namespace element;w

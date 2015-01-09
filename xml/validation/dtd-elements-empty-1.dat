@@ -1,0 +1,62 @@
+#data
+<!DOCTYPE a [
+  <!ELEMENT a EMPTY>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a EMPTY>
+]><a>  </a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/"  ";VC:Element Valid:EMPTY;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a EMPTY>
+]><a>abc</a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/"abc";VC:Element Valid:EMPTY;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a EMPTY>
+]><a><!--aa--></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/#8;VC:Element Valid:EMPTY;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a EMPTY>
+]><a><?aa?></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/?aa;xml:pi:target not declared;w
+/a/?aa;VC:Element Valid:EMPTY;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a EMPTY>
+]><a><![CDATA[ ]]></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/" ";VC:Element Valid:EMPTY;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a EMPTY>
+]><a>&#x20;</a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/" ";VC:Element Valid:EMPTY;m

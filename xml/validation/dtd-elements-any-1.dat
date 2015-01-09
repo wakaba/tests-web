@@ -1,0 +1,46 @@
+#data
+<!DOCTYPE x[<!ELEMENT x ANY>]><x></x>
+#is-document
+#errors
+/x;unknown namespace element;w
+
+#data
+<!DOCTYPE x[<!ELEMENT x ANY>]><x>  </x>
+#is-document
+#errors
+/x;unknown namespace element;w
+
+#data
+<!DOCTYPE x[<!ELEMENT x ANY>]><x>bac</x>
+#is-document
+#errors
+/x;unknown namespace element;w
+
+#data
+<!DOCTYPE x[<!ELEMENT x ANY>]><x><!---->aaa<!--a--></x>
+#is-document
+#errors
+/x;unknown namespace element;w
+
+#data
+<!DOCTYPE x[<!ELEMENT x ANY>]><x><?aa?></x>
+#is-document
+#errors
+/x;unknown namespace element;w
+/x/?aa;xml:pi:target not declared;w
+
+#data
+<!DOCTYPE x[<!ELEMENT x ANY>]><x><y></y></x>
+#is-document
+#errors
+/x;unknown namespace element;w
+/x/y;unknown namespace element;w
+/x/y;VC:Element Valid:declared;m
+
+#data
+<!DOCTYPE x[<!ELEMENT x ANY>]><x><y></y><![CDATA[ ]>&#x20;&32;</x>
+#is-document
+#errors
+/x;unknown namespace element;w
+/x/y;unknown namespace element;w
+/x/y;VC:Element Valid:declared;m

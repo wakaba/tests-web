@@ -1,0 +1,28 @@
+#data
+<!DOCTYPE a [
+  <!NOTATION hoge SYSTEM "http://a/">
+]><a></a>
+#is-document
+#errors
+/a;VC:Element Valid:declared;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!NOTATION h:oge SYSTEM "http://a/">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!NOTATION h:oge;xml:ncname syntax;m
+/a;VC:Element Valid:declared;m
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!NOTATION h!oge SYSTEM "http://a/">
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!NOTATION h!oge;xml:name syntax;m
+/a;VC:Element Valid:declared;m
+/a;unknown namespace element;w

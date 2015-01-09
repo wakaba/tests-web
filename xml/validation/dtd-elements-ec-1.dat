@@ -1,0 +1,571 @@
+#data
+<!DOCTYPE a [
+  <!ELEMENT a (a?)>
+]><a><a></a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a (b)>
+  <!ELEMENT b ANY>
+]><a><b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a (b)>
+  <!ELEMENT b ANY>
+]><a><b></b><!----></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a (b)>
+  <!ELEMENT b ANY>
+]><a>  <b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a (b)>
+  <!ELEMENT b ANY>
+]><a><b></b><?xx?></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/?xx;xml:pi:target not declared;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a (b)>
+  <!ELEMENT b ANY>
+]><a><b></b><b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;VC:Element Valid:element child:element;;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a (b)>
+  <!ELEMENT b ANY>
+]><a><b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a (b, b)>
+  <!ELEMENT b ANY>
+]><a><b></b><b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a (b, b)>
+  <!ELEMENT b ANY>
+]><a><b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a;VC:Element Valid:element child:required element;b;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b)>
+  <!ELEMENT b ANY>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a;VC:Element Valid:element child:required element;b;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b | c)>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a;VC:Element Valid:element child:required element;b|c;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b | c)>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+]><a><b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b | c)>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+]><a><c></c></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/c;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b | c)>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><d></d></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/d;unknown namespace element;w
+/a/d;VC:Element Valid:element child:element;b|c;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a (( b | c))>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><d></d></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/d;unknown namespace element;w
+/a/d;VC:Element Valid:element child:element;b|c;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b | (c, d))>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b | (c, d))>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><c></c><d></d></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a/d;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b | (c, d))>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><c></c><b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;VC:Element Valid:element child:element;d;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b | (c, d))>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><c></c><d></d></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a/d;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b | (c, d))>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><c></c><d></d><b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a/d;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;VC:Element Valid:element child:element;;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b?, c )>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><c></c></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/c;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b?, c )>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a;VC:Element Valid:element child:required element;c;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b?, c )>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><d></d></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/d;unknown namespace element;w
+/a/d;VC:Element Valid:element child:element;b|c;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b?, c )>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><b></b><c></c></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/c;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b*, c )>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><b></b><c></c></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/c;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b*, c )>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><c></c></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/c;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b*, c )>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><b></b><b></b><b></b><c></c></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/c;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, c )>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><b></b><b></b><b></b><c></c></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/c;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, c )>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><b></b><c></c></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/c;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, c )>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><c></c></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a/c;VC:Element Valid:element child:element;b;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, (c, d)+)>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><c></c></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a/c;VC:Element Valid:element child:element;b;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, (c, d)+)>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><b></b><c></c></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a;VC:Element Valid:element child:required element;d;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, (c, d)+)>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><b></b><c></c><d></d></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a/d;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, (c, d)+)>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><b></b><c></c><d></d><c></c></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a/d;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a;VC:Element Valid:element child:required element;d;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, (c, d)+)>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><b></b><c></c><d></d><c></c><d></d></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a/d;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a/d;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, c?, d+)>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><b></b><c></c><d></d></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a/d;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, c?, d+)>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><b></b><b></b></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a;VC:Element Valid:element child:required element;b|c|d;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, c?, d+)?>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><b></b><d></d></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/d;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, c?, d+)?>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, c?, d+)?>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><b></b><d></d><b></b><d></d></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/d;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/d;unknown namespace element;w
+/a/b;VC:Element Valid:element child:element;d;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, c?, d+)*>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><b></b><d></d><b></b><d></d></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/d;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/d;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, c?, d+)*>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a><b></b><d></d><b></b><d></d><b></b><c></c><d></d><d></d></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/d;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/d;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a/d;unknown namespace element;w
+/a/d;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, c?, d+)*>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a> </a>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, c?, d+)+>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a> </a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a;VC:Element Valid:element child:required element;b;m
+
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ( b+, c?, d+)*>
+  <!ELEMENT b ANY>
+  <!ELEMENT c ANY>
+  <!ELEMENT d ANY>
+]><a> ab</a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/" ab";VC:Element Valid:element children:text;m

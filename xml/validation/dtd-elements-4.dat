@@ -1,0 +1,20 @@
+#data
+<!DOCTYPE a [
+  <!ELEMENT a ANY>
+]><a><b></b></a>
+#is-document
+#errors
+/a/b;VC:Element Valid:declared;m
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+
+#data
+<!DOCTYPE a:b [
+  <!ELEMENT a:b ANY>
+]><a:b xmlns:a="http://a/"><b></b></a:b>
+#is-document
+#errors
+/b/b;VC:Element Valid:declared;m
+/b;unknown namespace element;w
+/b/b;unknown namespace element;w
+/b/@a;VC:Attribute Value Type:declared;m
