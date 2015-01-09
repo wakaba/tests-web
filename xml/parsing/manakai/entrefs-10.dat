@@ -1,0 +1,46 @@
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ELEMENT x ANY>
+  <!ENTITY empty "">
+]><x>&empty;</x>
+#errors
+#document
+| <!DOCTYPE x>
+|   <!ELEMENT x ANY>
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ELEMENT x (y?)>
+  <!ENTITY empty "">
+]><x>&empty;</x>
+#errors
+#document
+| <!DOCTYPE x>
+|   <!ELEMENT x (y?)>
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ELEMENT x EMPTY>
+  <!ENTITY empty "">
+]><x>&empty;</x>
+#errors
+4;3;xml:start tag:EMPTY;x;;s
+4;6;entity:in EMPTY;;&empty;;m
+#document
+| <!DOCTYPE x>
+|   <!ELEMENT x EMPTY>
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE ab[<!ELEMENT b EMPTY><!ENTITY e "">]><ab>&e;<b>&e;</b><b2>&e;</b2></ab>
+#errors
+1;76;xml:start tag:EMPTY;b;;s
+1;79;entity:in EMPTY;;&e;;m
+#document
+| <!DOCTYPE ab>
+|   <!ELEMENT b EMPTY>
+| <{} ab>
+|   <{} b>
+|   <{} b2>
