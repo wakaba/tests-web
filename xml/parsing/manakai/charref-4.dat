@@ -1,0 +1,146 @@
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ELEMENT x ANY>
+]><x>&#32;</x>
+#errors
+#document
+| <!DOCTYPE x>
+|   <!ELEMENT x ANY>
+| <{} x>
+|   " "
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ELEMENT x (y?)>
+]><x>&#32;</x>
+#errors
+3;6;VC:Element Valid:charref in element content;;&#32;;m
+#document
+| <!DOCTYPE x>
+|   <!ELEMENT x (y?)>
+| <{} x>
+|   " "
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ELEMENT x (y?)>
+]><x> </x>
+#errors
+#document
+| <!DOCTYPE x>
+|   <!ELEMENT x (y?)>
+| <{} x>
+|   " "
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ENTITY sp "&#x20;">
+  <!ELEMENT x (y?)>
+]><x>&sp;</x>
+#errors
+#document
+| <!DOCTYPE x>
+|   <!ELEMENT x (y?)>
+| <{} x>
+|   " "
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ENTITY sp "&#x26;#x20;">
+  <!ELEMENT x (y?)>
+]><x>&sp;</x>
+#errors
+2;16;VC:Element Valid:charref in element content;;&#x20;;m
+#document
+| <!DOCTYPE x>
+|   <!ELEMENT x (y?)>
+| <{} x>
+|   " "
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ENTITY sp "&#x26;#x20;">
+  <!ENTITY sp2 "&sp;">
+  <!ELEMENT x (y?)>
+]><x>&sp2;</x>
+#errors
+2;16;VC:Element Valid:charref in element content;;&#x20;;m
+#document
+| <!DOCTYPE x>
+|   <!ELEMENT x (y?)>
+| <{} x>
+|   " "
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ELEMENT x ( #PCDATA | y)*>
+]><x>&#32;</x>
+#errors
+#document
+| <!DOCTYPE x>
+|   <!ELEMENT x (#PCDATA | y)*>
+| <{} x>
+|   " "
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ELEMENT x ANY>
+]><x>&#x20;</x>
+#errors
+#document
+| <!DOCTYPE x>
+|   <!ELEMENT x ANY>
+| <{} x>
+|   " "
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ELEMENT x (y?)>
+]><x>&#x20;</x>
+#errors
+3;6;VC:Element Valid:charref in element content;;&#x20;;m
+#document
+| <!DOCTYPE x>
+|   <!ELEMENT x (y?)>
+| <{} x>
+|   " "
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ELEMENT x ( #PCDATA)>
+]><x>&#x09;</x>
+#errors
+#document escaped
+| <!DOCTYPE x>
+|   <!ELEMENT x (#PCDATA)>
+| <{} x>
+|   "\u0009"
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ELEMENT x ( #PCDATA | y)*>
+]><x>&#x09;</x>
+#errors
+#document escaped
+| <!DOCTYPE x>
+|   <!ELEMENT x (#PCDATA | y)*>
+| <{} x>
+|   "\u0009"
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ELEMENT x ( #PCDATA | y)*>
+  <!ELEMENT y (z)>
+]><x>&#x09;<y>&#xA;</y><x>&#x20;</x></x>
+#errors
+4;15;VC:Element Valid:charref in element content;;&#xA;;m
+#document escaped
+| <!DOCTYPE x>
+|   <!ELEMENT x (#PCDATA | y)*>
+|   <!ELEMENT y (z)>
+| <{} x>
+|   "\u0009"
+|   <{} y>
+|     "\u000A"
+|   <{} x>
+|     " "

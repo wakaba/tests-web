@@ -1,0 +1,55 @@
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ELEMENT x EMPTY>
+]><x><![CDATA[]]></x>
+#errors
+3;3;xml:start tag:EMPTY;x;;s
+3;6;xml:CDATA section not allowed by cm;;;m
+#document escaped
+| <!DOCTYPE x>
+|   <!ELEMENT x EMPTY>
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ELEMENT x EMPTY>
+]><x>&#32;</x>
+#errors
+3;3;xml:start tag:EMPTY;x;;s
+#document escaped
+| <!DOCTYPE x>
+|   <!ELEMENT x EMPTY>
+| <{} x>
+|   " "
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ELEMENT x EMPTY>
+]><x/>
+#errors
+#document escaped
+| <!DOCTYPE x>
+|   <!ELEMENT x EMPTY>
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ELEMENT x ANY>
+]><x/>
+#errors
+3;3;xml:empty element tag:non-EMPTY;x;;s
+#document escaped
+| <!DOCTYPE x>
+|   <!ELEMENT x ANY>
+| <{} x>
+
+#data
+<?xml version="1.0"?><!DOCTYPE x[
+  <!ELEMENT x (y?)>
+]><x/>
+#errors
+3;3;xml:empty element tag:non-EMPTY;x;;s
+#document escaped
+| <!DOCTYPE x>
+|   <!ELEMENT x (y?)>
+| <{} x>
