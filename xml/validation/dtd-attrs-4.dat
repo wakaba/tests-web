@@ -1,0 +1,87 @@
+#data
+<!DOCTYPE a[
+  <!ELEMENT a EMPTY>
+  <!ATTLIST a xml:space (default|preserve) #IMPLIED>
+]><a/>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a EMPTY>
+  <!ATTLIST a xml:space (preserve | default) #IMPLIED>
+]><a/>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a EMPTY>
+  <!ATTLIST a xml:space (default) #IMPLIED>
+]><a/>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a EMPTY>
+  <!ATTLIST a xml:space (preserve) #IMPLIED>
+]><a/>
+#is-document
+#errors
+/a;unknown namespace element;w
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a EMPTY>
+  <!ATTLIST a xml:space (DEFAULT) #IMPLIED>
+]><a/>
+#is-document
+#errors
+/a;unknown namespace element;w
+/!DOCTYPE/!ELEMENT a/@xml:space;xml:space:bad type;m
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a EMPTY>
+  <!ATTLIST a xml:space (default|preserved) #IMPLIED>
+]><a/>
+#is-document
+#errors
+/a;unknown namespace element;w
+/!DOCTYPE/!ELEMENT a/@xml:space;xml:space:bad type;m
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a EMPTY>
+  <!ATTLIST a xml:space (inherit|default|preserve) #IMPLIED>
+]><a/>
+#is-document
+#errors
+/a;unknown namespace element;w
+/!DOCTYPE/!ELEMENT a/@xml:space;xml:space:bad type;m
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a EMPTY>
+  <!ATTLIST a xml:space CDATA #IMPLIED>
+]><a/>
+#is-document
+#errors
+/a;unknown namespace element;w
+/!DOCTYPE/!ELEMENT a/@xml:space;xml:space:bad type;m
+
+#data
+<!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ATTLIST a xml:space NOTATION (default|preserve) #IMPLIED>
+]><a></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/!DOCTYPE/!ELEMENT a/@xml:space;xml:space:bad type;m
+/!DOCTYPE/!ELEMENT a/@xml:space;VC:Notation Attributes:declared;m
+/!DOCTYPE/!ELEMENT a/@xml:space;VC:Notation Attributes:declared;m

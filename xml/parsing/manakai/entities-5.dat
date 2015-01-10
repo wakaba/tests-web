@@ -1,0 +1,339 @@
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY foo PUBLIC "abc" "aa">
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY foo PUBLIC "abc]" "aa">
+]><a/>
+#checker XML1
+#errors
+2;3;xml:pubid:bad char;;abc];m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY foo "aa">
+  <!ENTITY foo PUBLIC "abc]" "aa">
+]><a/>
+#checker XML1
+#errors
+3;3;duplicate entity decl;;&foo;;w
+3;3;xml:pubid:bad char;;abc];m
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY foo PUBLIC "abc " "aa">
+]><a/>
+#checker XML1
+#errors
+2;3;xml:pubid:not normalized;;abc ;w
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY foo PUBLIC "abc " "aa">
+]><a/>
+#checker ForValidator
+#errors
+2;3;xml:pubid:not normalized;;abc ;w
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY foo PUBLIC "ab  c" "aa">
+]><a/>
+#checker ForValidator
+#errors
+2;3;xml:pubid:not normalized;;ab  c;w
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY foo PUBLIC " abc" "aa">
+]><a/>
+#checker ForValidator
+#errors
+2;3;xml:pubid:not normalized;; abc;w
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data escaped
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY foo PUBLIC "ab\u000Dc" "aa">
+]><a/>
+#checker ForValidator
+#errors escaped
+2;3;xml:pubid:not normalized;;ab\u000Ac;w
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data escaped
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://a/"[
+]><a/>
+#resource http://a/
+<!ENTITY % foo 'PUBLIC "ab&#xD;c"'>
+<!ENTITY foo %foo; "aa">
+#checker ForValidator
+#errors escaped
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:pubid:not normalized;;ab\u000Ac;w
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
+#entities escaped
+| <!ENTITY foo "" "ab\u000Ac" "aa" >
+| <!ENTITY % foo "PUBLIC "ab\u000Dc"" "" "" >
+
+#data escaped
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ENTITY foo PUBLIC "ab\u000Ac" "aa">
+]><a/>
+#checker ForValidator
+#errors escaped
+2;3;xml:pubid:not normalized;;ab\u000Ac;w
+#document
+| <!DOCTYPE a>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ENTITY cr "&#xD;">]><a>&cr;</a>
+#errors
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   "\u000A"
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ENTITY crlf "&#xD;&#xA;">]><a>&crlf;</a>
+#errors
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   "\u000A"
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ENTITY null "&#x0;">]><a>&null;</a>
+#errors
+1;49;invalid character reference;U+0000;;m
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   "\uFFFD"
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ENTITY cr "&#xD;">]><a b="&cr;"></a>
+#errors
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" "
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ENTITY cr "&#xD;&#xA;">]><a b="&cr;"></a>
+#errors
+#document escaped
+| <!DOCTYPE a>
+| <{} a>
+|   b=" "
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!NOTATION foo PUBLIC "abc" "aa">
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!NOTATION foo "abc" "aa">
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!NOTATION foo PUBLIC "abc " "aa">
+]><a/>
+#checker XML1
+#errors
+2;3;xml:pubid:not normalized;;abc ;w
+#document
+| <!DOCTYPE a>
+|   <!NOTATION foo "abc " "aa">
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!NOTATION foo PUBLIC "abc " "aa">
+]><a/>
+#checker ForValidator
+#errors
+2;3;xml:pubid:not normalized;;abc ;w
+#document
+| <!DOCTYPE a>
+|   <!NOTATION foo "abc " "aa">
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!NOTATION foo PUBLIC "abc<" "aa">
+]><a/>
+#checker ForValidator
+#errors
+2;3;xml:pubid:bad char;;abc<;m
+#document
+| <!DOCTYPE a>
+|   <!NOTATION foo "abc<" "aa">
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!NOTATION foo PUBLIC "ab  c" "aa">
+]><a/>
+#checker ForValidator
+#errors
+2;3;xml:pubid:not normalized;;ab  c;w
+#document
+| <!DOCTYPE a>
+|   <!NOTATION foo "ab  c" "aa">
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!NOTATION foo PUBLIC " abc" "aa">
+]><a/>
+#checker ForValidator
+#errors
+2;3;xml:pubid:not normalized;; abc;w
+#document
+| <!DOCTYPE a>
+|   <!NOTATION foo " abc" "aa">
+| <{} a>
+
+#data escaped
+<?xml version="1.0"?><!DOCTYPE a[
+  <!NOTATION foo PUBLIC "ab\u000Dc" "aa">
+]><a/>
+#checker ForValidator
+#errors escaped
+2;3;xml:pubid:not normalized;;ab\u000Ac;w
+#document escaped
+| <!DOCTYPE a>
+|   <!NOTATION foo "ab\u000Ac" "aa">
+| <{} a>
+
+#data escaped
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://a/"[
+]><a/>
+#resource http://a/
+<!ENTITY % foo 'PUBLIC "ab&#xD;c"'>
+<!NOTATION foo %foo; "aa">
+#checker ForValidator
+#errors escaped
+[1]1;1;no XML decl;;;s
+[1]1;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
+[1]2;1;xml:pubid:not normalized;;ab\u000Ac;w
+#document escaped
+| <!DOCTYPE a "" "http://a/">
+|   <!NOTATION foo "ab\u000Ac" "aa">
+| <{} a>
+
+#data escaped
+<?xml version="1.0"?><!DOCTYPE a[
+  <!NOTATION foo PUBLIC "ab\u000Ac" "aa">
+]><a/>
+#checker ForValidator
+#errors escaped
+2;3;xml:pubid:not normalized;;ab\u000Ac;w
+#document escaped
+| <!DOCTYPE a>
+|   <!NOTATION foo "ab\u000Ac" "aa">
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a PUBLIC "hoge" "a"><a/>
+#checker ForValidator
+#errors
+1;22;external entref not expanded;;;w
+#document
+| <!DOCTYPE a "hoge" "a">
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a PUBLIC "hoge " "a"><a/>
+#checker ForValidator
+#errors
+1;22;xml:pubid:not normalized;;hoge ;w
+1;22;external entref not expanded;;;w
+#document
+| <!DOCTYPE a "hoge " "a">
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a PUBLIC " hoge" "a"><a/>
+#checker ForValidator
+#errors
+1;22;xml:pubid:not normalized;; hoge;w
+1;22;external entref not expanded;;;w
+#document
+| <!DOCTYPE a " hoge" "a">
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a PUBLIC "ho  ge" "a"><a/>
+#checker ForValidator
+#errors
+1;22;xml:pubid:not normalized;;ho  ge;w
+1;22;external entref not expanded;;;w
+#document
+| <!DOCTYPE a "ho  ge" "a">
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a PUBLIC "ho
+ge" "a"><a/>
+#checker ForValidator
+#errors escaped
+1;22;xml:pubid:not normalized;;ho\u000Age;w
+1;22;external entref not expanded;;;w
+#document escaped
+| <!DOCTYPE a "ho\u000Age" "a">
+| <{} a>
+
+#data escaped
+<?xml version="1.0"?><!DOCTYPE a PUBLIC "ho\u000Dge" "a"><a/>
+#checker ForValidator
+#errors escaped
+1;22;xml:pubid:not normalized;;ho\u000Age;w
+1;22;external entref not expanded;;;w
+#document escaped
+| <!DOCTYPE a "ho\u000Age" "a">
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a PUBLIC "ho~ge" "a"><a/>
+#checker ForValidator
+#errors
+1;22;xml:pubid:bad char;;ho~ge;m
+1;22;external entref not expanded;;;w
+#document
+| <!DOCTYPE a "ho~ge" "a">
+| <{} a>

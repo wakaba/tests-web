@@ -569,3 +569,38 @@
 #errors
 /a;unknown namespace element;w
 /a/" ab";VC:Element Valid:element children:text;m
+
+#data
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE a[
+  <!ELEMENT a (b?)>
+  <!ELEMENT b ANY>
+]><a>  </a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/"  ";VC:Standalone Document Declaration:ws;m
+
+#data
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE a[
+  <!ELEMENT a (b?)>
+  <!ELEMENT b ANY>
+]><a>  ab </a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/"  ab ";VC:Standalone Document Declaration:ws;m
+/a/"  ab ";VC:Element Valid:element children:text;m
+
+#data
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE a[
+  <!ELEMENT a (b?)>
+  <!ELEMENT b ANY>
+]><a>  <!---->&#x9;</a>
+#is-document
+#errors escaped
+/a;unknown namespace element;w
+/a/"  ";VC:Standalone Document Declaration:ws;m
+/a/"\u0009";VC:Standalone Document Declaration:ws;m
