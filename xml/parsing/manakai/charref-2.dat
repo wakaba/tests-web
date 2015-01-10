@@ -154,7 +154,7 @@ abc
 <foo>&copy;</foo>
 #errors
 1;1;no XML decl;;;s
-3;1;external entref;;%hoge;;i
+3;1;external entref not expanded;;%hoge;;w
 3;1;stop processing;;;i
 4;1;xml:dtd:entity ignored;;;w
 7;6;entity not declared;;&copy;;m
@@ -212,7 +212,9 @@ abc
 1;35;entity not declared;;&copy;;m
 [1]1;1;no XML decl;;;s
 [1]1;3;xml:dtd:ext decl;;;w
-[1]2;3;xml:dtd:ext decl;;;w
+[1]2;3;xml:dtd:entity ignored;;;w
+[1]2;19;external entref not expanded;;%foo;;w
+[1]2;19;stop processing;;;i
 #document escaped
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
@@ -229,7 +231,9 @@ abc
 1;35;entity not declared;;&copy;;m
 [1]1;1;no XML decl;;;s
 [1]1;3;xml:dtd:ext decl;;;w
-[1]2;3;xml:dtd:ext decl;;;w
+[1]2;3;xml:dtd:entity ignored;;;w
+[1]2;18;external entref not expanded;;%foo;;w
+[1]2;18;stop processing;;;i
 [1]2;23;no md def;;;m
 #document escaped
 | <!DOCTYPE a "" "http://a/">

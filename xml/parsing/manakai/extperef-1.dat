@@ -183,11 +183,10 @@
 <!ENTITY abc "xyz">
 #errors
 1;1;no XML decl;;;s
-[1]1;1;no XML decl;;;s
-[1]1;1;xml:dtd:ext decl;;;w
-[2]1;1;no XML decl;;;s
-[2]1;1;xml:dtd:ext decl;;;w
+3;3;external entref not expanded;;%foo;;w
+3;3;stop processing;;;i
+4;9;entity not declared;;&abc;;m
 #document
 | <!DOCTYPE a "" "http://fpoo/">
 | <{} a>
-|   b="xyz"
+|   b="&abc;"

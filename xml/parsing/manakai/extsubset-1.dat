@@ -3,7 +3,7 @@
 <a/>
 #errors
 1;1;no XML decl;;;s
-1;1;external entref;;;i
+1;1;external entref not expanded;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
@@ -103,7 +103,7 @@
   <!DOCTYPE foo PUBLIC "abc" "xya"><a/>
 #errors
 1;1;no XML decl;;;s
-1;3;external entref;;;i
+1;3;external entref not expanded;;;w
 #document
 | <!DOCTYPE foo "abc" "xya">
 | <{} a>
