@@ -1,0 +1,271 @@
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA)>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA)*>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA)*>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA) *>
+]><a/>
+#errors
+2;27;xml:dtd:no group delimiter;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA)+>
+]><a/>
+#errors
+2;17;xml:dtd:cm:bad mixed repetition;;+;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA)*>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA)?>
+]><a/>
+#errors
+2;17;xml:dtd:cm:bad mixed repetition;;?;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA)*>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA|ab)>
+]><a/>
+#errors
+2;17;xml:dtd:cm:bad mixed repetition;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA | ab)*>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA|ab)*>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA | ab)*>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA|ab)+>
+]><a/>
+#errors
+2;17;xml:dtd:cm:bad mixed repetition;;+;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA | ab)*>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA|ab)?>
+]><a/>
+#errors
+2;17;xml:dtd:cm:bad mixed repetition;;?;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA | ab)*>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA|ab|x)>
+]><a/>
+#errors
+2;17;xml:dtd:cm:bad mixed repetition;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA | ab | x)*>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA|ab|x)*>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA | ab | x)*>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA|ab|x)+>
+]><a/>
+#errors
+2;17;xml:dtd:cm:bad mixed repetition;;+;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA | ab | x)*>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA|ab|x)?>
+]><a/>
+#errors
+2;17;xml:dtd:cm:bad mixed repetition;;?;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA | ab | x)*>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA,ab|x)*>
+]><a/>
+#errors
+2;25;xml:dtd:cm:bad mixed separator;;,;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA,ab,x)*>
+]><a/>
+#errors
+2;25;xml:dtd:cm:bad mixed separator;;,;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA|ab,x)*>
+]><a/>
+#errors
+2;28;xml:dtd:cm:bad mixed separator;;,;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA|ab|(x))*>
+]><a/>
+#errors
+2;29;xml:dtd:cm:nested mixed group;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA|ab+)*>
+]><a/>
+#errors
+2;27;xml:dtd:cm:mixed element with repetition;;+;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA?|ab)*>
+]><a/>
+#errors
+2;19;xml:dtd:cm:mixed element with repetition;;?;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo >
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA|#PCDATA)*>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA | #PCDATA)*>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA|foo|#PCDATA)*>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA | foo | #PCDATA)*>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA|foo|#PCDATA)*>
+]><a/>
+#checker ForValidator
+#errors
+2;31;xml:not name;;#PCDATA;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA | foo | #PCDATA)*>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA|211)*>
+]><a/>
+#checker ForValidator
+#errors
+2;27;xml:not name;;211;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA | 211)*>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA|abc:de)*>
+]><a/>
+#checker ForValidator
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA | abc:de)*>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (#PCDATA|abc:21de)*>
+]><a/>
+#checker ForValidator
+#errors
+2;27;xml:not qname;;abc:21de;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (#PCDATA | abc:21de)*>
+| <{} a>

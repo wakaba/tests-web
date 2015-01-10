@@ -1,0 +1,293 @@
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc)>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc|def)>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc | def)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc, def)>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc, def)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc , xyz)>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc, xyz)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc)*>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc)*>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc)+>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc)+>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc)?>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc)?>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc?)>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc?)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc+)>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc+)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc*)>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc*)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo ((abc))>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo ((abc))>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc, (def, a))>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc, (def, a))>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc | abc)>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc | abc)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc*)+>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc*)+>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc, #PCDATA)>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc, #PCDATA)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc | #PCDATA)>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc | #PCDATA)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc, #PCDATA*)>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc, #PCDATA*)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc)>
+]><a/>
+#checker ForValidator
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (ab:c)>
+]><a/>
+#checker ForValidator
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (ab:c)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (12abc)>
+]><a/>
+#checker ForValidator
+#errors
+2;19;xml:not name;;12abc;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (12abc)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc::d)>
+]><a/>
+#checker ForValidator
+#errors
+2;19;xml:not qname;;abc::d;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc::d)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc, #PCDATA)>
+]><a/>
+#checker ForValidator
+#errors
+2;24;xml:not name;;#PCDATA;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc, #PCDATA)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc, (#PCDATA))>
+]><a/>
+#checker ForValidator
+#errors
+2;25;xml:not name;;#PCDATA;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc, (#PCDATA))>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc|def,xy)>
+]><a/>
+#errors
+2;25;xml:dtd:cm:bad element separator;|;,;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc | def | xy)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc,def|xy)>
+]><a/>
+#errors
+2;25;xml:dtd:cm:bad element separator;,;|;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc, def, xy)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc|def|z,xy)>
+]><a/>
+#errors
+2;27;xml:dtd:cm:bad element separator;|;,;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc | def | z | xy)>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc|(def,xy))>
+]><a/>
+#errors
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc | (def, xy))>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT foo (abc|(def,xy|z))>
+]><a/>
+#errors
+2;29;xml:dtd:cm:bad element separator;,;|;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT foo (abc | (def, xy, z))>
+| <{} a>
