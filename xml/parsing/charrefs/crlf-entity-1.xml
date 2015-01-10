@@ -1,0 +1,23 @@
+<!DOCTYPE html [
+  <!ENTITY crlf "&#xD;&#xA;">
+]>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>U+000D test</title>
+</head>
+<body>
+  <p id="result" class="FAIL">FAIL (noscript)</p>
+  <p id="test">a&crlf;b</p>
+  <script>
+    var result = document.getElementById ('result');
+    var test = document.getElementById ('test');
+    result.textContent = 'FAIL (script)';
+    if (test.textContent === "a\u000Ab") {
+      result.textContent = 'PASS';
+      result.className = 'PASS';
+    } else {
+      result.textContent = 'FAIL ('+encodeURIComponent (test.textContent)+')';
+    }
+  </script>
+</body>
+</html>
