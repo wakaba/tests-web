@@ -815,9 +815,10 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
+2;13;xml:dtd:cm:bad mixed repetition;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b (#PCDATA | zz | aa)>
+|   <!ELEMENT b (#PCDATA | zz | aa)*>
 | <{} a>
 
 #data
@@ -826,10 +827,11 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
-#XXX
+2;13;xml:dtd:cm:bad mixed repetition;;;m
+2;32;xml:dtd:cm:bad mixed separator;;,;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b (#PCDATA | #PCDATA | a)>
+|   <!ELEMENT b >
 | <{} a>
 
 #data

@@ -127,7 +127,9 @@
 1;1;no XML decl;;;s
 [1]1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
+[1]1;18;xml:dtd:cm:entity begins with connector;;;s
 [1]2;1;xml:dtd:ext decl;;;w
+[1]2;17;xml:dtd:cm:entity ends with connector;;;s
 #document
 | <!DOCTYPE a "" "http://a/">
 |   <!ELEMENT ab (bb | w)>
@@ -236,10 +238,11 @@
 1;1;no XML decl;;;s
 [1]1;1;xml:dtd:ext decl;;;w
 [1]1;1;no XML decl;;;s
+[1]2;14;xml:dtd:cm:bad mixed repetition;;;m
 [1]2;1;xml:dtd:ext decl;;;w
 #document
 | <!DOCTYPE a "" "http://a/">
-|   <!ELEMENT ab (#PCDATA | abc)>
+|   <!ELEMENT ab (#PCDATA | abc)*>
 | <{} a>
 
 #data
