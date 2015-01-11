@@ -387,3 +387,17 @@ fuga
 | <!DOCTYPE a "" "http://a/">
 | <{} a>
 |   x="&fuga;d"
+
+#data
+<?xml version="1.0"?><!DOCTYPE a SYSTEM "http://a/"><a/>
+#resource http://a/
+<?xml encoding="utf-8"?><!ENTITY % empty SYSTEM "http://empty/">
+<!ENTITY hoge "" %empty;>
+#resource http://empty/
+#errors
+[1]1;25;xml:dtd:ext decl;;;w
+[1]2;1;xml:dtd:ext decl;;;w
+[2]1;1;no XML decl;;;s
+#document
+| <!DOCTYPE a "" "http://a/">
+| <{} a>
