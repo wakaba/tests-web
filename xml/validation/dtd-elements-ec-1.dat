@@ -604,3 +604,18 @@
 /a;unknown namespace element;w
 /a/"  ";VC:Standalone Document Declaration:ws;m
 /a/"\u0009";VC:Standalone Document Declaration:ws;m
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT a ((b,c))>
+  <!ELEMENT b EMPTY>
+  <!ELEMENT c EMPTY>
+]><a><b/><c/><d/></a>
+#is-document
+#errors
+/a;unknown namespace element;w
+/a/b;unknown namespace element;w
+/a/c;unknown namespace element;w
+/a/d;VC:Element Valid:declared;m
+/a/d;VC:Element Valid:element child:element;;m
+/a/d;unknown namespace element;w
