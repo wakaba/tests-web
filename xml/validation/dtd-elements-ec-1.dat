@@ -619,3 +619,156 @@
 /a/d;VC:Element Valid:declared;m
 /a/d;VC:Element Valid:element child:element;;m
 /a/d;unknown namespace element;w
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ELEMENT table ((col|colgroup), thead)>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/a;unknown namespace element;w
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ELEMENT table (caption, (col|colgroup), thead)>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/a;unknown namespace element;w
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ELEMENT table (caption?, (col|colgroup), thead)>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/a;unknown namespace element;w
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ELEMENT table (caption?, col, thead)>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/a;unknown namespace element;w
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ELEMENT table (caption?, col)>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/a;unknown namespace element;w
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ELEMENT table (caption?, (col|colgroup), thead?)>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/a;unknown namespace element;w
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ELEMENT table (caption?, col*, thead?)>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/a;unknown namespace element;w
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ELEMENT table (caption?, (col*), thead?)>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/a;unknown namespace element;w
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ELEMENT table (caption?, (col*|colgroup*), thead?)>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/a;unknown namespace element;w
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ELEMENT table (caption?, (col*|colgroup*), thead)>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/a;unknown namespace element;w
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ELEMENT table (caption, (col*|colgroup*), thead)>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/a;unknown namespace element;w
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[
+  <!ELEMENT a ANY>
+  <!ELEMENT table (caption?, (col*|colgroup*), thead?, tfoot?, (tbody+|tr+))>
+]><a></a>
+#is-document
+#errors
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/!DOCTYPE/!ELEMENT table;xml:dtd:element not declared;w
+/a;unknown namespace element;w
