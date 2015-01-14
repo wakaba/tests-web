@@ -197,10 +197,11 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
+2;13;xml:dtd:no group item;;;m
 2;14;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b ()>
+|   <!ELEMENT b >
 | <{} a>
 
 #data
@@ -209,10 +210,11 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
+2;13;xml:dtd:no group item;;;m
 2;14;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b ()>
+|   <!ELEMENT b >
 | <{} a>
 
 #data
@@ -221,10 +223,11 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
+2;13;xml:dtd:no group item;;;m
 2;14;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b ()>
+|   <!ELEMENT b >
 | <{} a>
 
 #data
@@ -233,10 +236,11 @@
 ]><a/>
 #errors
 1;1;no XML decl;;;s
+2;13;xml:dtd:no group item;;;m
 2;14;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT b ()>
+|   <!ELEMENT b >
 | <{} a>
 
 #data
@@ -1165,46 +1169,51 @@
 #data
 <?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo (*)>]><a/>
 #errors
+1;48;xml:dtd:no group item;;;m
 1;49;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT foo ()>
+|   <!ELEMENT foo >
 | <{} a>
 
 #data
 <?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo (+)>]><a/>
 #errors
+1;48;xml:dtd:no group item;;;m
 1;49;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT foo ()>
+|   <!ELEMENT foo >
 | <{} a>
 
 #data
 <?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo (,)>]><a/>
 #errors
+1;48;xml:dtd:no group item;;;m
 1;49;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT foo ()>
+|   <!ELEMENT foo >
 | <{} a>
 
 #data
 <?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo (?)>]><a/>
 #errors
+1;48;xml:dtd:no group item;;;m
 1;49;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT foo ()>
+|   <!ELEMENT foo >
 | <{} a>
 
 #data
 <?xml version="1.0"?><!DOCTYPE a[<!ELEMENT foo (|)>]><a/>
 #errors
+1;48;xml:dtd:no group item;;;m
 1;49;xml:dtd:no group item;;;m
 #document
 | <!DOCTYPE a>
-|   <!ELEMENT foo ()>
+|   <!ELEMENT foo >
 | <{} a>
 
 #data
@@ -1276,4 +1285,25 @@
 1;44;no md name;;;m
 #document
 | <!DOCTYPE a>
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT a (ab, (), cd)>]><a/>
+#errors
+1;51;xml:dtd:no group item;;;m
+1;52;xml:dtd:no group item;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT a >
+| <{} a>
+
+#data
+<?xml version="1.0"?><!DOCTYPE a[<!ELEMENT a (#PCDATA | () | cd)*>]><a/>
+#errors
+1;46;xml:dtd:cm:bad mixed repetition;;;m
+1;57;xml:dtd:cm:nested mixed group;;;m
+1;58;xml:dtd:no group item;;;m
+#document
+| <!DOCTYPE a>
+|   <!ELEMENT a >
 | <{} a>
