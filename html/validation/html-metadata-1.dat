@@ -2678,7 +2678,7 @@ p {color: green
 #data
 <meta http-equiv="Default-Style" content="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta/@content;empty style sheet title;w
+/meta/@content;empty attribute value;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -2877,14 +2877,40 @@ p {color: green
 /meta/@http-equiv;enumerated:non-conforming;m
 
 #data
+<meta http-equiv="Content-Security-Policy" content=""
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@http-equiv;unknown http-equiv;u
+
+#data
 <meta http-equiv="PICS-Label" content=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/meta/@http-equiv;unknown http-equiv;u
 
 #data
 <meta http-equiv="pics-label" content=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/meta/@http-equiv;unknown http-equiv;u
+
+#data
+<meta http-equiv="x-dns-prefetch-control" content="on"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@http-equiv;unknown http-equiv;u
+
+#data
+<meta http-equiv="Cache-Control" content="on"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@http-equiv;enumerated:invalid;m
+
+#data
+<meta http-equiv="robots" content="noindex"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@http-equiv;enumerated:invalid;m
 
 #data
 <style type="" xmlns="http://www.w3.org/1999/xhtml"/>
