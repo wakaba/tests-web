@@ -123,19 +123,39 @@
 <meta name="keywords" content="public"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta/@name;metadata:proposed;keywords;w
 
 #data
 <meta name="Keywords" content="public"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta/@name;metadata:proposed;keywords;w
+
+#data
+<meta name="Keywords" content="public,,abc,"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<meta name="Keywords" content="  public , desa,
+"    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
 
 #data
 <meta name="cache" content="public"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/meta/@name;metadata:discontinued;cache;s
+/meta/@name;metadata:discontinued;cache;m
+
+#data
+<meta name="no-email-collection" content="public"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@name;metadata:discontinued;no-email-collection;m
+
+#data
+<meta name="google-site-verification" content="notranslate"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@name;unknown metadata name;u
 
 #data
 <meta name="unknown" content="public"
