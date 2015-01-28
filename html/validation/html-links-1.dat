@@ -601,7 +601,21 @@ x</div>
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /a;no significant content;s
-/a/@rel;link type:proposed;s
+/a/@rel;link type:non-conforming;m
+
+#data
+<a href="http://test/" rel="create-form"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/a;no significant content;s
+/a/@rel;link type:non-conforming;m
+
+#data
+<a href="http://test/" rel="type"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/a;no significant content;s
+/a/@rel;link type:bad context;m
 
 #data
 <a href="http://test/" rel="author author" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -629,8 +643,8 @@ x</div>
 #data
 <a href="http://test/" rel="edit" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/a/@rel;link type:proposed;s
 /a;no significant content;s
+/a/@rel;link type:bad context;m
 
 #data
 <a href="http://test/" rel="script" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -653,14 +667,14 @@ x</div>
 #data
 <a href="http://test/" rel="test-type" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/a/@rel;unknown link type;u
+/a/@rel;link type:non-conforming;m
 /a;no significant content;s
 
 #data
 <?xml version="1.1"?>
 <a href="http://test/" rel="author&#x0b;" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/a/@rel;unknown link type;u
+/a/@rel;link type:non-conforming;m
 /a;no significant content;s
 /a/@rel;text:bad char;m
 
@@ -668,7 +682,7 @@ x</div>
 <?xml version="1.1"?>
 <a href="http://test/" rel="&#x0b;author" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/a/@rel;unknown link type;u
+/a/@rel;link type:non-conforming;m
 /a;no significant content;s
 /a/@rel;text:bad char;m
 
@@ -676,7 +690,7 @@ x</div>
 <?xml version="1.1"?>
 <a href="http://test/" rel="author&#x0b;license" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/a/@rel;unknown link type;u
+/a/@rel;link type:non-conforming;m
 /a;no significant content;s
 /a/@rel;text:bad char;m
 
@@ -1139,7 +1153,7 @@ x</div>
 #data
 <a xmlns="http://www.w3.org/1999/xhtml" href="A" rel="noreferer">.</a>
 #errors
-/a/@rel;unknown link type;u
+/a/@rel;link type:non-conforming;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml" href="A" rel="noreferrer">.</a>
@@ -1149,7 +1163,7 @@ x</div>
 <area xmlns="http://www.w3.org/1999/xhtml" href="A" rel="noreferer" alt="X"
     coords="1,2,3,4"/>
 #errors
-/area/@rel;unknown link type;u
+/area/@rel;link type:non-conforming;m
 
 #data
 <area xmlns="http://www.w3.org/1999/xhtml" href="A" rel="noreferrer" alt="X"
@@ -1159,7 +1173,7 @@ x</div>
 #data
 <link xmlns="http://www.w3.org/1999/xhtml" href="A" rel="noreferer"/>
 #errors
-/link/@rel;unknown link type;u
+/link/@rel;link type:non-conforming;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml" href="A" rel="noreferrer"/>
@@ -1169,54 +1183,45 @@ x</div>
 #data
 <link xmlns="http://www.w3.org/1999/xhtml" href="A" rel="openid.server"/>
 #errors
-/link/@rel;link type:proposed;s
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml" href="A" rel="openid.server">a</a>
 #errors
-/a/@rel;link type:proposed;s
 /a/@rel;link type:bad context;m
 
 #data
 <area xmlns="http://www.w3.org/1999/xhtml" href="A" shape="default"
     alt="" rel="openid.server"/>
 #errors
-/area/@rel;link type:proposed;s
 /area/@rel;link type:bad context;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml" href="A" rel="service"/>
 #errors
-/link/@rel;link type:proposed;s
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml" href="A" rel="service">a</a>
 #errors
-/a/@rel;link type:proposed;s
 /a/@rel;link type:bad context;m
 
 #data
 <area xmlns="http://www.w3.org/1999/xhtml" href="A" shape="default"
     alt="" rel="service"/>
 #errors
-/area/@rel;link type:proposed;s
 /area/@rel;link type:bad context;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
     href="A" rel="http://foo.test/ http://FOO.test/">aa</a>
 #errors
-/a/@rel;URL:uppercase host;w
-/a/@rel;unknown link type;u
-/a/@rel;unknown link type;u
+/a/@rel;link type:non-conforming;m
+/a/@rel;duplicate token;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml"
     href="A" rel="[http://FOO.test/]">aa</a>
 #errors
-/a/@rel;URL:uppercase host;w
-/a/@rel;syntax error:iriref3987;m
-/a/@rel;unknown link type;u
+/a/@rel;link type:non-conforming;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml" href="A" rev=""/>

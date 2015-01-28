@@ -2359,7 +2359,7 @@ aa<map name="x">b<map name="y">bb</map></map>
     href="http://test/" rel="author&#x0b;" alt=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/area/@rel;unknown link type;u
+/area/@rel;link type:non-conforming;m
 /area/@rel;text:bad char;m
 
 #data
@@ -2368,7 +2368,7 @@ aa<map name="x">b<map name="y">bb</map></map>
     href="http://test/" rel="&#x0b;author" alt=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/area/@rel;unknown link type;u
+/area/@rel;link type:non-conforming;m
 /area/@rel;text:bad char;m
 
 #data
@@ -2377,7 +2377,7 @@ aa<map name="x">b<map name="y">bb</map></map>
     href="http://test/" rel="author&#x0b;license" alt=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/area/@rel;unknown link type;u
+/area/@rel;link type:non-conforming;m
 /area/@rel;text:bad char;m
 
 #data
@@ -2405,14 +2405,14 @@ aa<map name="x">b<map name="y">bb</map></map>
     href="http://test/" rel="edit" alt=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/area/@rel;link type:proposed;s
+/area/@rel;link type:bad context;m
 
 #data
 <area shape="rect" coords="1,2,3,4"
     href="http://test/" rel="contributor" alt=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/area/@rel;link type:proposed;s
+/area/@rel;link type:non-conforming;m
 
 #data
 <area shape="rect" coords="1,2,3,4"
@@ -2433,7 +2433,7 @@ aa<map name="x">b<map name="y">bb</map></map>
     href="http://test/" rel="example-link-type" alt=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/area/@rel;unknown link type;u
+/area/@rel;link type:non-conforming;m
 
 #data
 <area shape="rect" coords="1,2,3,4"

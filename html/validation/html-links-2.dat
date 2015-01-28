@@ -1,12 +1,12 @@
 #data
 <link rel="feed" href="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;unknown link type;u
+/link/@rel;link type:non-conforming;m
 
 #data
 <a href="a" rel="feed" xmlns="http://www.w3.org/1999/xhtml">b</a>
 #errors
-/a/@rel;unknown link type;u
+/a/@rel;link type:non-conforming;m
 
 #data
 <link rel="nofollow" href="a" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -49,12 +49,12 @@
 #data
 <link rel="accessibility" href="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;link type:proposed;s
+/link/@rel;link type:non-conforming;m
 
 #data
 <a href="a" rel="accessibility" xmlns="http://www.w3.org/1999/xhtml">b</a>
 #errors
-/a/@rel;link type:proposed;s
+/a/@rel;link type:non-conforming;m
 
 #data
 <a href="a" rel="tag" xmlns="http://www.w3.org/1999/xhtml">b</a>
@@ -97,57 +97,57 @@
 #data
 <link rel="shortcut  icon" href="?" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;unknown link type;u
+/link/@rel;link type:bad context;m
 
 #data
 <link rel="icon shortcut" href="?" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;unknown link type;u
+/link/@rel;link type:bad context;m
 
 #data
 <link rel="shortcut&#x9;icon" href="?" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;unknown link type;u
+/link/@rel;link type:bad context;m
 
 #data
 <link rel="shortcut&#xa;icon" href="?" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;unknown link type;u
+/link/@rel;link type:bad context;m
 
 #data
 <link rel="shortcut&#xc;icon" href="?" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;unknown link type;u
+/link/@rel;link type:bad context;m
 /link/@rel;U+000C not serializable;w
 
 #data
 <link rel="shortcut&#xd;icon" href="?" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;unknown link type;u
+/link/@rel;link type:bad context;m
 /link/@rel;U+000D not serializable;w
 
 #data
 <link rel="shortcut alternate icon" href="?" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;unknown link type;u
+/link/@rel;link type:bad context;m
 
 #data
 <link rel="shortcut shortcut icon" href="?" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;unknown link type;u
+/link/@rel;link type:bad context;m
 
 #data
 <link rel="shortcut" href="?" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;unknown link type;u
+/link/@rel;link type:bad context;m
 
 #data
 <link rel="nonshortcut icon" href="?" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;unknown link type;u
+/link/@rel;link type:non-conforming;m
 
 #data
 <link rel="shortcut icons" href="?" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;unknown link type;u
-/link/@rel;unknown link type;u
+/link/@rel;link type:bad context;m
+/link/@rel;link type:non-conforming;m

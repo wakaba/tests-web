@@ -853,17 +853,38 @@
 #data
 <link crossorigin="" rel="author" href="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/link/@crossorigin;non external resource crossorigin;w
 
 #data
 <link crossorigin="use-credentials" rel="author" href="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/link/@crossorigin;non external resource crossorigin;w
 
 #data
 <link crossorigin="anonymoUs" rel="author" href="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/link/@crossorigin;non external resource crossorigin;w
 
 #data
 <link crossorigin="true" rel="author" href="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/link/@crossorigin;enumerated:invalid;m
+/link/@crossorigin;non external resource crossorigin;w
+
+#data
+<link crossorigin="" rel="stylesheet" href="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<link crossorigin="use-credentials" rel="stylesheet author" href="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<link crossorigin="anonymoUs" rel="icon" href="a" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<link crossorigin="true" rel="alternate stylesheet" href="a" xmlns="http://www.w3.org/1999/xhtml" title="a"/>
 #errors
 /link/@crossorigin;enumerated:invalid;m
 
@@ -1867,13 +1888,12 @@ p {color: green
 <link rel="edit" href="http://test/"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;link type:proposed;s
 
 #data
 <link rel="contributor" href="http://test/"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;link type:proposed;s
+/link/@rel;link type:non-conforming;m
 
 #data
 <link rel="script" href="http://test/"
@@ -1885,14 +1905,14 @@ p {color: green
 <link rel="example-link-type" href="http://test/"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;unknown link type;u
+/link/@rel;link type:non-conforming;m
 
 #data
 <?xml version="1.1"?>
 <link rel="stylesheet&#x000b;" href="http://test/"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;unknown link type;u
+/link/@rel;link type:non-conforming;m
 /link/@rel;text:bad char;m
 
 #data
@@ -1900,7 +1920,7 @@ p {color: green
 <link rel="&#x000b;stylesheet" href="http://test/"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;unknown link type;u
+/link/@rel;link type:non-conforming;m
 /link/@rel;text:bad char;m
 
 #data
@@ -1908,7 +1928,7 @@ p {color: green
 <link rel="alternate&#x000b;stylesheet" href="http://test/"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@rel;unknown link type;u
+/link/@rel;link type:non-conforming;m
 /link/@rel;text:bad char;m
 
 #data
@@ -2042,12 +2062,11 @@ p {color: green
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
   <link rel="pingback" href="a"/>
-  <link rel="pingback feed" href="b"/>
+  <link rel="pingback self" href="b"/>
   <title>x</title>
 </head>
 #errors
 /head/link/@rel;link type:duplicate;m
-/head/link/@rel;unknown link type;u
 
 #data
 <link rel="alternate" href="A" target="" xmlns="http://www.w3.org/1999/xhtml"/>
