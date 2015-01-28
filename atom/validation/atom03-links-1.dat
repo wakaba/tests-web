@@ -11,6 +11,7 @@
 /link;element:obsolete;m
 /link;attribute missing;href;m
 /link/@rel;attr:obsolete;m
+/link/@rel;link type:bad context;m
 
 #data
 <link href="http://hoge/" xmlns="http://purl.org/atom/ns#"/>
@@ -116,3 +117,35 @@
 /link/@href;attr:obsolete;m
 /link/name;element not allowed:empty;m
 /link/name;element:obsolete;m
+
+#data
+<link rel="ohe" xmlns="http://purl.org/atom/ns#"/>
+#errors
+/link;element:obsolete;m
+/link;attribute missing;href;m
+/link/@rel;attr:obsolete;m
+/link/@rel;link type:non-conforming;m
+
+#data
+<link rel="Alternate" xmlns="http://purl.org/atom/ns#"/>
+#errors
+/link;element:obsolete;m
+/link;attribute missing;href;m
+/link/@rel;attr:obsolete;m
+/link/@rel;link type:non-conforming;m
+
+#data
+<link rel="alternate stylesheet" xmlns="http://purl.org/atom/ns#"/>
+#errors
+/link;element:obsolete;m
+/link;attribute missing;href;m
+/link/@rel;attr:obsolete;m
+/link/@rel;link type:non-conforming;m
+
+#data
+<link rel="license" xmlns="http://purl.org/atom/ns#"/>
+#errors
+/link;element:obsolete;m
+/link;attribute missing;href;m
+/link/@rel;attr:obsolete;m
+/link/@rel;link type:bad context;m

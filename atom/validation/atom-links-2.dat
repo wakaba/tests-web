@@ -1,0 +1,29 @@
+#data
+<link rel="self" href="http://foo/" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+
+#data
+<link rel="hoe" href="http://foo/" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+/link/@rel;link type:non-conforming;m
+
+#data
+<link rel="stylesheet" href="http://foo/" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+/link/@rel;link type:bad context;m
+
+#data
+<link rel="self alternate" href="http://foo/" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+/link/@rel;link type:non-conforming;m
+
+#data
+<link rel="shortcut" href="http://foo/" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+/link/@rel;link type:bad context;m
+/link/@rel;link type:bad context;m
+
+#data
+<link rel="sELF" href="http://foo/" xmlns="http://www.w3.org/2005/Atom"/>
+#errors
+/link/@rel;link type:non-conforming;m
