@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<title>Origin:</title>
+<meta name=referrer content=never>
+
+<p class=FAIL id=result>FAIL (noscript)</p>
+
+<form method=post target=iframe></form>
+<iframe name=iframe></iframe>
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script)';
+  document.getElementsByTagName ('iframe')[0].onload = function () {
+    result.firstChild.data = 'The following iframe should say "' + location.protocol + '//' + location.host + '"';
+  };
+  document.forms[0].action = location.protocol + '//' +
+      (location.hostname.match (/\.$/)
+           ? location.hostname.replace (/\.$/, '')
+           : location.hostname + '.') + ':' + location.port + location.pathname.replace (/[^\/]+$/, 'return-origin.cgi');
+  document.forms[0].submit ();
+</script>

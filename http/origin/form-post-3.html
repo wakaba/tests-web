@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<title>Origin:</title>
+<meta name=referrer content=origin-when-crossorigin>
+
+<p class=FAIL id=result>FAIL (noscript)</p>
+
+<form method=post action=return-origin.cgi target=iframe></form>
+<iframe name=iframe></iframe>
+
+<script>
+  var result = document.getElementById ('result');
+  result.firstChild.data = 'FAIL (script)';
+  document.getElementsByTagName ('iframe')[0].onload = function () {
+    var origin = window.iframe.document.body.textContent || window.iframe.document.body.innerText;
+    if (origin == location.protocol + '//' + location.host) {
+      result.firstChild.data = 'PASS';
+      result.className = 'PASS';
+    } else {
+      result.firstChild.data = 'FAIL (' + origin + ')';
+    }
+  };
+  document.forms[0].submit ();
+</script>
