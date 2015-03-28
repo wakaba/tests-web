@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<title>stream</title>
+
+<pre id=progress>Not started</pre>
+
+
+<script>
+  var p = document.getElementById ('progress');
+  function print (s) {
+    p.textContent += '\n[' + (new Date).toUTCString () + '] ' + s;
+  }
+
+  print ('Started');
+  var xhr = new XDomainRequest;
+  xhr.open ('GET', 'stream-script-1.cgi?', true);
+  xhr.onreadystatechange = function () {
+    print (xhr.readyState + "\t" + xhr.responseText);
+  };
+  xhr.send (null);
+</script>
