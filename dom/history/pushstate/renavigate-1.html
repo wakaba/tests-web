@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>pushState</title>
+
+<script>
+  window.onunload = function () {
+    console.log ('renavigate-1 onunload');
+  };
+  console.log ('renavigate-1 script');
+</script>
+
+<p><code>renavigate-1</code>
+
+<script>
+  history.pushState (null, null, 'renavigate-1-1.html');
+</script>
+
+<p><a href=.>Link</a>
+
+<form action=renavigate-1.html method=post>
+<p><button type=submit>POST (renavigate-1)</button>
+</form>
