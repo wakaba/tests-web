@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<title>document.open</title>
+
+<iframe src=text-8-inner.html></iframe>
+
+<button onclick="
+  var d = document.getElementsByTagName ('iframe')[0].contentDocument;
+  d.open ('text/plain');
+  d.write ('<a><b>cdefgh<i>j');
+  d.write (Math.random ());
+  for (var i = 0; i < 10; i++) d.write ('\n');
+  d.close ();
+">open</a>
+
+<button onclick="
+  var w = document.getElementsByTagName ('iframe')[0].contentWindow;
+  w.location.reload ();
+">reload</button>
