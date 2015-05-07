@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<title>document.open</title>
+
+<p>...
+
+<script>
+  window.onload = function () {
+    var h = document.defaultView;
+    document.open ();
+    document.write (window === h ? 'PASS' : 'FAIL');
+    document.close ();
+  };
+</script>

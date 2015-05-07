@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<title>document.open</title>
+
+<p>...
+
+<script>
+  window.onload = function () {
+    var h = history;
+    document.open ();
+    document.write (history !== h ? 'PASS' : 'FAIL');
+    document.close ();
+  };
+</script>

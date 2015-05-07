@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<title>document.open</title>
+
+<p>...
+<form></form>
+
+<script>
+  window.onload = function () {
+    var h = document.forms;
+    document.open ();
+    document.write (document.forms.length);
+    try {
+      document.write (h.length);
+    } catch (e) {
+      document.write (e);
+    }
+    document.close ();
+  };
+</script>
