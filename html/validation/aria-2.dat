@@ -1289,3 +1289,48 @@ removals text all " xmlns="http://www.w3.org/1999/xhtml">aa</div>
 <input type="checkbox" role="checkbox" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@role;aria:role:default role;m
+
+#data
+<pre role="text" xmlns="http://www.w3.org/1999/xhtml">a</pre>
+#errors
+/pre/@role;aria:redundant role;w
+
+#data
+<div role="searchbox" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div/@role;aria:not preferred markup:input;search;w
+
+#data
+<div role="switch" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div/@role;attribute missing;aria-checked;m
+/div/@role;aria:not preferred markup:input;checkbox;w
+
+#data
+<div aria-current="true" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+
+#data
+<div aria-current="false" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+
+#data
+<div aria-current="time" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+
+#data
+<div role="dialog" aria-modal="true" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div/@role;aria:not preferred markup:html-element;dialog;w
+/div;attribute missing:aria-label*;s
+
+#data
+<div role="dialog" aria-modal="false" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div/@role;aria:not preferred markup:html-element;dialog;w
+/div;attribute missing:aria-label*;s
+
+#data
+<div aria-modal="false" xmlns="http://www.w3.org/1999/xhtml">a</div>
+#errors
+/div/@aria-modal;aria:attr not allowed for role;;m
