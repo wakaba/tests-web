@@ -851,6 +851,9 @@ interface  A  {
   deleter A (unsigned long d);
   deleter A (DOMString e);
 };
+#errors
+1;74;webidl:bad args;;;m
+1;74;webidl:no name operation;;;m
 #processed
 {
   "A": ["interface", {
@@ -867,14 +870,6 @@ interface  A  {
         "DOMString": {
           "type": ["ref_interface", "A"],
           "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
-        }
-      }
-    }],
-    "indexed_deleter": ["operation", {
-      "overload_set": {
-        "unsigned long": {
-          "type": ["ref_interface", "A"],
-          "args": [{"name": "d", "type": "unsigned long", "optionality": "required"}]
         }
       }
     }],
