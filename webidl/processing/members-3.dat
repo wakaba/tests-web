@@ -14,6 +14,20 @@ interface A {
 
 #data
 interface A {
+  stringifier attribute USVString foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {"type": "USVString", "getter":1, "setter": 1}]
+    },
+    "stringifier": ["ref_attribute", "foo"]
+  }]
+}
+
+#data
+interface A {
   stringifier readonly attribute DOMString foo;
 };
 #processed
@@ -43,6 +57,68 @@ interface A {
 1;28;webidl:parse error;readonly, ;;m
 #processed
 {}
+
+#data
+interface A {
+  stringifier DOMString ();
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "stringifier": ["operation", {
+      "overload_set": {
+        "": {
+          "args": [],
+          "type": "DOMString"
+        }
+      }
+    }]
+  }]
+}
+
+#data
+interface A {
+  stringifier USVString ();
+};
+#errors
+1;16;webidl:bad type;;USVString;m
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "stringifier": ["operation", {
+      "overload_set": {
+        "": {
+          "args": [],
+          "type": "USVString"
+        }
+      }
+    }]
+  }]
+}
+
+#data
+interface A {
+  stringifier long ();
+};
+#errors
+1;16;webidl:bad type;;long;m
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "stringifier": ["operation", {
+      "overload_set": {
+        "": {
+          "args": [],
+          "type": "long"
+        }
+      }
+    }]
+  }]
+}
 
 #data
 interface A {
