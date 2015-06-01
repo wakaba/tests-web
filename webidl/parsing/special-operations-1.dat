@@ -30,28 +30,7 @@ interface A {
   getter creator getter  boolean hoge ();
 };
 #errors
-23;webidl:duplicate keyword;;getter;m
-#parsed
-{
-  "definitions": [
-    {
-      "index": 0,
-      "definition_type": "interface",
-      "name": "A",
-      "members": [
-        {
-          "index": 16,
-          "member_type": "operation",
-          "creator": 1,
-          "getter": 1,
-          "name": "hoge",
-          "type": "boolean",
-          "arguments": []
-        }
-      ]    
-    }
-  ]
-}
+31;webidl:parse error;[, ;;m
 
 #data
 interface A {

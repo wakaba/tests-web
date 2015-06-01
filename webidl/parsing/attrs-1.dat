@@ -117,3 +117,57 @@ interface A {
     }
   ]
 }
+
+#data
+interface A {
+  getter setter creator deleter void (double foo);
+};
+#errors
+38;webidl:parse error;[, ;;m
+
+#data
+interface A {
+  creator hoge ();
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "name": "hoge",
+          "member_type": "operation",
+          "type_name": "creator",
+          "arguments": []
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  creator  ();
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "type_name": "creator",
+          "arguments": []
+        }
+      ]
+    }
+  ]
+}

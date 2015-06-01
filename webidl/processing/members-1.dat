@@ -949,54 +949,6 @@ interface  A  {
 interface  A  {
   getter A (unsigned long c);
   getter A (DOMString b);
-  creator A (unsigned long d, long foo);
-  creator A (DOMString e, long foo);
-};
-#processed
-{
-  "A": ["interface", {
-    "indexed_getter": ["operation", {
-      "overload_set": {
-        "unsigned long": {
-          "type": ["ref_interface", "A"],
-          "args": [{"name": "c", "type": "unsigned long", "optionality": "required"}]
-        }
-      }
-    }],
-    "named_getter": ["operation", {
-      "overload_set": {
-        "DOMString": {
-          "type": ["ref_interface", "A"],
-          "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
-        }
-      }
-    }],
-    "indexed_creator": ["operation", {
-      "overload_set": {
-        "unsigned long,long": {
-          "type": ["ref_interface", "A"],
-          "args": [{"name": "d", "type": "unsigned long", "optionality": "required"},
-                   {"name": "foo", "type": "long", "optionality": "required"}]
-        }
-      }
-    }],
-    "named_creator": ["operation", {
-      "overload_set": {
-        "DOMString,long": {
-          "type": ["ref_interface", "A"],
-          "args": [{"name": "e", "type": "DOMString", "optionality": "required"},
-                   {"name": "foo", "type": "long", "optionality": "required"}]
-        }
-      }
-    }],
-    "members": {}
-  }]
-}
-
-#data
-interface  A  {
-  getter A (unsigned long c);
-  getter A (DOMString b);
   setter A (unsigned long d, long foo,DOMString a);
   setter A (DOMString e, long foo, DOMString a);
 };
@@ -1041,68 +993,6 @@ interface  A  {
     }],
     "members": {}
   }]
-}
-
-#data
-interface  A  {
-  getter A (unsigned long c);
-  getter A (DOMString b);
-  creator A (unsigned long d, long foo,DOMString a);
-  creator A (DOMString e, long foo,DOMString a);
-};
-#processed
-{
-  "A": ["interface", {
-    "indexed_getter": ["operation", {
-      "overload_set": {
-        "unsigned long": {
-          "type": ["ref_interface", "A"],
-          "args": [{"name": "c", "type": "unsigned long", "optionality": "required"}]
-        }
-      }
-    }],
-    "named_getter": ["operation", {
-      "overload_set": {
-        "DOMString": {
-          "type": ["ref_interface", "A"],
-          "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
-        }
-      }
-    }],
-    "indexed_creator": ["operation", {
-      "overload_set": {
-        "unsigned long,long,DOMString": {
-          "type": ["ref_interface", "A"],
-          "args": [{"name": "d", "type": "unsigned long", "optionality": "required"},
-                   {"name": "foo", "type": "long", "optionality": "required"},
-                   {"name": "a", "type": "DOMString", "optionality": "required"}]
-        }
-      }
-    }],
-    "named_creator": ["operation", {
-      "overload_set": {
-        "DOMString,long,DOMString": {
-          "type": ["ref_interface", "A"],
-          "args": [{"name": "e", "type": "DOMString", "optionality": "required"},
-                   {"name": "foo", "type": "long", "optionality": "required"},
-                   {"name": "a", "type": "DOMString", "optionality": "required"}]
-        }
-      }
-    }],
-    "members": {}
-  }]
-}
-
-#data
-interface A {
-  getter setter creator deleter void (double foo);
-};
-#errors
-1;16;webidl:bad args;;;m
-1;16;webidl:no name operation;;;m
-#processed
-{
-  "A": ["interface", {"members": {}}]
 }
 
 #data
