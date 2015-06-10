@@ -116,3 +116,126 @@
 |             "a"b"cdEf"
 |           <td>
 |             "c\\d"
+
+#data
+,*,a,*
+,*"","*"
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+|         <tr>
+|           <th>
+|           <td>
+|             "a"
+|           <th>
+|         <tr>
+|           <th>
+|           <td>
+|             "*"
+
+#data
+,*b,* a,**a
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+|         <tr>
+|           <th>
+|             "b"
+|           <th>
+|             " a"
+|           <th>
+|             "*a"
+
+#data
+,*a*,*==
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+|         <tr>
+|           <th>
+|             "a*"
+|           <th>
+|             "=="
+
+#data
+,*ab,foo
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+|         <tr>
+|           <th>
+|             "ab"
+|           <td>
+|             "foo"
+
+#data
+,*a[SPAN[b,foo
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+|         <tr>
+|           <th>
+|             "a"
+|             <span>
+|               "b"
+|           <td>
+|             "foo"
+
+#data
+,*ab,==,foo
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+|         <tr>
+|           <th>
+|             colspan="2"
+|             "ab"
+|           <td>
+|             "foo"
+
+#data
+,*ab,==,==,foo
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+|         <tr>
+|           <th>
+|             colspan="3"
+|             "ab"
+|           <td>
+|             "foo"
