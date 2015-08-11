@@ -348,3 +348,22 @@ aa[CODE@en[[[bbb]]]ccc
 |           "bbb"
 |         "]ccc"
 
+#data
+aa[FRAC@en[bbb]@fr[de]]ccc
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <math mfrac>
+|         xml lang="en"
+|         <math mi>
+|           "bbb"
+|         <math mi>
+|           xml lang="fr"
+|           "de"
+|       "ccc"
+
