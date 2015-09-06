@@ -17,3 +17,38 @@ abc fuga" xmlns="http://www.w3.org/1999/xhtml">a</p>
   *++*">a</p>
 #errors
 5;1;/html/body/p/@onclick;js:parse error;Expected statement or function declaration but found '*++*';m
+
+#data
+<p onwheel="hoge fuga" xmlns="http://www.w3.org/1999/xhtml">a</p>
+#errors
+1;13;/p/@onwheel;js:parse error;Expected semicolon, '}' or end of line but found ' fuga';m
+
+#data
+<body onwheel="hoge fuga" xmlns="http://www.w3.org/1999/xhtml">a</body>
+#errors
+1;16;/body/@onwheel;js:parse error;Expected semicolon, '}' or end of line but found ' fuga';m
+
+#data
+<frameset onwheel="hoge fuga" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/frameset;element:obsolete;m
+1;20;/frameset/@onwheel;js:parse error;Expected semicolon, '}' or end of line but found ' fuga';m
+/frameset;child element missing:frame|frameset;m
+
+#data
+<p onmousewheel="hoge fuga" xmlns="http://www.w3.org/1999/xhtml">a</p>
+#errors
+/p/@onmousewheel;attr:obsolete;m
+
+#data
+<body onmousewheel="hoge fuga" xmlns="http://www.w3.org/1999/xhtml">a</body>
+#errors
+/body/@onmousewheel;attr:obsolete;m
+
+#data
+<frameset onmousewheel="hoge fuga" xmlns="http://www.w3.org/1999/xhtml"><frame src="a"/></frameset>
+#errors
+/frameset;element:obsolete;m
+/frameset/@onmousewheel;attr:obsolete;m
+/frameset/frame;element:obsolete;m
+/frameset/frame/@src;attr:obsolete;m
