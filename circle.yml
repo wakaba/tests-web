@@ -1,0 +1,29 @@
+dependencies:
+  override:
+    - git config --global user.email "temp@circleci.test"
+    - git config --global user.name "CircleCI"
+    - make deps
+test:
+  override:
+    - make test
+    - ./plackup -p 5114 -t Twiggy::Prefork bin/server.psgi :
+        background: true
+    - sleep 10
+    - curl http://localhost:5114
+deployment:
+  staging:
+    branch: staging
+    commands:
+      - git rev-parse HEAD > head.txt
+      - curl -f -s -S --request POST --header "Authorization:token $GITHUB_ACCESS_TOKEN" --header "Content-Type:application/json" --data-binary "{\"base\":\"master\",\"head\":\"`cat head.txt`\",\"commit_message\":\"auto-merge staging into master\"}" "https://api.github.com/repos/wakaba/tests-web/merges"
+  nightly:
+    branch: nightly
+    commands:
+      - git rev-parse HEAD > head.txt
+      - curl -f -s -S --request POST --header "Authorization:token $GITHUB_ACCESS_TOKEN" --header "Content-Type:application/json" --data-binary "{\"base\":\"master\",\"head\":\"`cat head.txt`\",\"commit_message\":\"auto-merge nightly into master\"}" "https://api.github.com/repos/wakaba/tests-web/merges"
+  heroku:
+    branch: master
+    commands:
+      - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
+      - make create-commit-for-heroku
+      - git push git@heroku.com:web-tests.git +`git rev-parse HEAD`:refs/heads/master
