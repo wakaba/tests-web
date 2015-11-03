@@ -26,4 +26,4 @@ deployment:
     commands:
       - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
       - make create-commit-for-heroku
-      - git push git@heroku.com:web-tests.git +`git rev-parse HEAD`:refs/heads/master
+      - git push git@heroku.com:webtests.git +`git rev-parse HEAD`:refs/heads/master
