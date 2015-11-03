@@ -85,6 +85,55 @@ sub load_defs ($) {
   return $defs;
 } # load_defs
 
+sub run_cgi ($$) {
+  my ($app, $file_path) = @_;
+  my $cmd = Promised::Command->new ([$RootPath->child ('perl'), $file_path]);
+  $cmd->envs->{REQUEST_METHOD} = $app->http->request_method;
+  $cmd->envs->{QUERY_STRING} = $app->http->original_url->{query};
+  $cmd->envs->{CONTENT_LENGTH} = $app->http->request_body_length;
+  $cmd->envs->{CONTENT_TYPE} = $app->http->get_request_header ('Content-Type');
+  $cmd->envs->{HTTP_ACCEPT_LANGUAGE} = $app->http->get_request_header ('Accept-Language');
+  $cmd->envs->{HTTP_ACCEPT_ENCODING} = $app->http->get_request_header ('Accept-Encoding');
+  $cmd->envs->{HTTP_TE} = $app->http->get_request_header ('TE');
+  $cmd->envs->{HTTP_ORIGIN} = $app->http->get_request_header ('Origin');
+  $cmd->envs->{SERVER_NAME} = $app->http->url->{host};
+  $cmd->envs->{SERVER_PORT} = $app->http->url->{port};
+  #SCRIPT_NAME
+  #$cmd->envs->{PATH_INFO} = join '/', '', @$path[1..$#$path];
+  $cmd->wd ($file_path->parent);
+  $cmd->stdin ($app->http->request_body_as_ref);
+  my $stdout = '';
+  my $out_mode = '';
+  $cmd->stdout (sub {
+    if ($out_mode eq 'body') {
+      $app->http->send_response_body_as_ref (\($_[0]));
+      return;
+    }
+    $stdout .= $_[0];
+    while ($stdout =~ s/^([^\x0A]*[^\x0D\x0A])\x0D?\x0A//) {
+      my ($name, $value) = split /:/, $1, 2;
+      $name =~ tr/A-Z/a-z/;
+      if ($name eq 'status') {
+        $value =~ s/^\s+//;
+        my ($code, $reason) = split /\s+/, $value, 2;
+        $app->http->set_status ($code, reason_phrase => $reason);
+      } else {
+        $app->http->set_response_header ($name => $value);
+      }
+    }
+    if ($stdout =~ s/^\x0D?\x0A//) {
+      $out_mode = 'body';
+      $app->http->send_response_body_as_ref (\$stdout);
+    }
+  });
+  return $cmd->run->then (sub {
+    return $cmd->wait;
+  })->then (sub {
+    $app->http->close_response_body;
+    die $_[0] unless $_[0]->exit_code == 0;
+  });
+} # run_cgi
+
 return sub {
   delete $SIG{CHLD} if defined $SIG{CHLD} and not ref $SIG{CHLD}; # XXX
 
@@ -146,54 +195,13 @@ return sub {
 
       my $name = pop @$path;
       if ($name =~ /\.cgi\z/) {
-        #XXX
+        return run_cgi ($app, $file_path);
       } else {
         my $defs = load_defs $path;
         my $mime = get_mime_type $defs, $name;
         return send_file ($app, $file_path, $mime);
       }
     }
-
-    if (0) {
-      my $cmd = Promised::Command->new ([$RootPath->child ('perl'), $RootPath->child ("$path->[0].cgi")]);
-      $cmd->envs->{REQUEST_METHOD} = $app->http->request_method;
-      $cmd->envs->{QUERY_STRING} = $app->http->original_url->{query};
-      $cmd->envs->{CONTENT_LENGTH} = $app->http->request_body_length;
-      $cmd->envs->{CONTENT_TYPE} = $app->http->get_request_header ('Content-Type');
-      $cmd->envs->{HTTP_ACCEPT_LANGUAGE} = $app->http->get_request_header ('Accept-Language');
-      $cmd->envs->{PATH_INFO} = join '/', '', @$path[1..$#$path];
-      $cmd->stdin ($app->http->request_body_as_ref);
-      my $stdout = '';
-      my $out_mode = '';
-      $cmd->stdout (sub {
-        if ($out_mode eq 'body') {
-          $app->http->send_response_body_as_ref (\($_[0]));
-          return;
-        }
-        $stdout .= $_[0];
-        while ($stdout =~ s/^([^\x0A]+)\x0A//) {
-          my ($name, $value) = split /:/, $1, 2;
-          $name =~ tr/A-Z/a-z/;
-          if ($name eq 'status') {
-            my ($code, $reason) = split /\s+/, $value, 2;
-            $app->http->set_status ($code, reason_phrase => $reason);
-          } else {
-            $app->http->set_response_header ($name => $value);
-          }
-        }
-        if ($stdout =~ s/^\x0A//) {
-          $out_mode = 'body';
-          $app->http->send_response_body_as_ref (\$stdout);
-        }
-      });
-      return $cmd->run->then (sub {
-        return $cmd->wait;
-      })->then (sub {
-        die $_[0] unless $_[0]->exit_code == 0;
-        $app->http->close_response_body;
-      });
-    }
-
   });
 };
 
