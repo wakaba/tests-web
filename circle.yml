@@ -6,7 +6,7 @@ dependencies:
 test:
   override:
     - make test
-    - ./plackup -p 5114 -t Twiggy::Prefork bin/server.psgi :
+    - ./plackup -p 5114 -t Twiggy::Prefork support/server.psgi :
         background: true
     - sleep 10
     - curl http://localhost:5114

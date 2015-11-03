@@ -15,13 +15,75 @@ my $RootPath = path (__FILE__)->parent->parent->absolute;
 sub send_file ($$$) {
   my ($app, $file, $mime) = @_;
   return $app->throw_error (404) unless $file->is_file;
-  $app->http->set_response_header ('Content-Type' => $mime);
-  $app->http->set_response_header
-      ('X-Content-Type-Options' => 'nosniff');
+  $app->http->set_response_header ('Content-Type' => $mime) if defined $mime;
   $app->http->set_response_last_modified ($file->stat->mtime);
   $app->http->send_response_body_as_ref (\($file->slurp));
   return $app->http->close_response_body;
 } # send_file
+
+sub get_mime_type ($$) {
+  my ($defs, $name) = @_;
+  my $mime = undef;
+  my $charset = undef;
+  if ($name =~ s/\.([^.]+)\z//) {
+    if (defined $defs->{charset}->{$1}) {
+      $charset = $defs->{charset}->{$1};
+      if (defined $defs->{mime}->{$1}) {
+        $mime = $defs->{mime}->{$1};
+      } elsif ($name =~ s/\.([^.]+)\z//) {
+        if (defined $defs->{mime}->{$1}) {
+          $mime = $defs->{mime}->{$1};
+        }
+      }
+      if (defined $charset) {
+        $charset =~ s/(["\\])/\\$1/g;
+        $mime = qq{$mime; charset="$charset"};
+      }
+    } elsif (defined $defs->{mime}->{$1}) {
+      $mime = $defs->{mime}->{$1};
+    }
+  }
+  return $mime;
+} # get_mime_type
+
+sub load_htaccess ($$) {
+  my ($defs, $dir_path) = @_;
+  my $path = $dir_path->child ('.htaccess');
+  return unless $path->is_file;
+  for (split /\x0D?\x0A/, $path->slurp) {
+    if (m{^\s*#}) {
+      #
+    } elsif (s{^\s*AddType\s+(\S+)\s+}{}) {
+      my $mime = $1;
+      $defs->{mime}->{$_} = $mime for map { my $x = $_; $x =~ s/^\.//; $x } split /\s+/, $_;
+    } elsif (s{^\s*AddCharset\s+(\S+)\s+}{}) {
+      my $charset = $1;
+      $defs->{charset}->{$_} = $charset for map { my $x = $_; $x =~ s/^\.//; $x } split /\s+/, $_;
+    } elsif (s{^\s*AddDefaultCharset\s+(\S+)\s*$}{}) {
+      my $charset = $1;
+      $defs->{charset}->{$_} = $charset for qw(txt html xml css js);
+    } elsif (m{\A\s*(?:Options|AddHandler|RemoveHandler|DirectoryIndex|AddIcon|IndexOptions)\s}) {
+      #
+    } elsif (m{\S}) {
+      warn "$path: Unknown directive |$_|\n";
+    }
+  }
+} # load_htaccess
+
+sub load_defs ($) {
+  my $path = $_[0];
+  my $defs = {};
+
+  my $dir_path = $RootPath;
+  load_htaccess $defs, $dir_path;
+
+  for (@$path) {
+    $dir_path = $dir_path->child ($_);
+    load_htaccess $defs, $dir_path;
+  }
+
+  return $defs;
+} # load_defs
 
 return sub {
   delete $SIG{CHLD} if defined $SIG{CHLD} and not ref $SIG{CHLD}; # XXX
@@ -31,9 +93,6 @@ return sub {
 
   return $app->execute_by_promise (sub {
     my $path = [@{$app->path_segments}];
-
-    $http->set_response_header
-        ('Strict-Transport-Security' => 'max-age=2592000; includeSubDomains; preload');
 
     my $is_dir = $path->[-1] eq '';
     pop @$path if $is_dir;
@@ -47,22 +106,52 @@ return sub {
       return $app->throw_error (404, reason_phrase => 'Directory not found')
           unless $file_path->is_dir;
 
-      my $html = sprintf q{<!DOCTYPE HTML><title>%s</title><h1>%s</h1><ul><li><a href=..>..</a>},
+      my $defs = load_defs $path;
+      my $html = sprintf q{
+        <!DOCTYPE HTML>
+        <link rel=stylesheet href=/support/directory.css>
+        <title>tests-web/%s</title><h1>tests-web/%s</h1>
+        <table>
+          <thead>
+            <tr><th>File<th>MIME type
+          <tbody>
+            <tr><th><a href=..>..</a><td>
+          <tbody>
+      },
           (join '/', @$path),
           (join '/', @$path);
       $html .= join '', map {
         my $v = $_->basename;
-        sprintf q{<li><a href="%s"><code>%s</code></a>}, $v, $v;
+        my $mime = get_mime_type $defs, $v;
+        my $x = sprintf q{<tr><th><a href="%s"><code>%s</code></a><td>}, $v, $v;
+        if (defined $mime) {
+          $mime =~ s/&/&amp;/g;
+          $mime =~ s/</&lt;/g;
+          $x .= qq{<code>$mime</code>};
+        }
+        $x;
       } sort { $a cmp $b } $file_path->children (qr/\A[0-9A-Za-z][0-9A-Za-z_.-]*\z/);
-      $html .= q{</ul>};
+      $html .= sprintf q{
+        </table>
+        <footer>
+          <a href="https://github.com/wakaba/tests-web/tree/master/%s">GitHub</a>
+        </footer>
+      }, join '/', @$path;
       return $app->send_html ($html);
     } else { # file
       return $app->send_redirect ($path->[-1] . '/')
           if $file_path->is_dir;
       return $app->throw_error (404, reason_phrase => 'File not found')
           unless $file_path->is_file;
-      my $mime = 'application/octet-stream';
-      return send_file ($app, $RootPath->child ($path->[0]), $mime);
+
+      my $name = pop @$path;
+      if ($name =~ /\.cgi\z/) {
+        #XXX
+      } else {
+        my $defs = load_defs $path;
+        my $mime = get_mime_type $defs, $name;
+        return send_file ($app, $file_path, $mime);
+      }
     }
 
     if (0) {
