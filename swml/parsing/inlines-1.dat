@@ -367,3 +367,18 @@ aa[FRAC@en[bbb]@fr[de]]ccc
 |           "de"
 |       "ccc"
 
+#data
+aa[F@en[[[bbb]]]ccc
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw f>
+|         xml lang="en"
+|         <sw anchor>
+|           "bbb"
+|         "]ccc"
