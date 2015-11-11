@@ -14,6 +14,7 @@
 <p id="status"><noscript><strong>A</strong></noscript><span>B</span></p>
 #errors
 (1,15): expected-doctype-but-got-start-tag
+#script-on
 #document
 | <html>
 |   <head>
@@ -22,6 +23,23 @@
 |       id="status"
 |       <noscript>
 |         "<strong>A</strong>"
+|       <span>
+|         "B"
+
+#data
+<p id="status"><noscript><strong>A</strong></noscript><span>B</span></p>
+#errors
+(1,15): expected-doctype-but-got-start-tag
+#script-off
+#document
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       id="status"
+|       <noscript>
+|         <strong>
+|           "A"
 |       <span>
 |         "B"
 
@@ -114,3 +132,214 @@
 |         <tr>
 |           <td>
 |             "A"
+
+#data
+<legend>test</legend>
+#errors
+no DOCTYPE
+#document
+| <html>
+|   <head>
+|   <body>
+|     <legend>
+|       "test"
+
+#data
+<table><input>
+#errors
+no DOCTYPE
+<input> in table
+EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <input>
+|     <table>
+
+#data
+<b><em><foo><foo><aside></b>
+#errors
+no DOCTYPE
+AAA
+EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <em>
+|         <foo>
+|           <foo>
+|     <em>
+|       <aside>
+|         <b>
+
+#data
+<b><em><foo><foo><aside></b></em>
+#errors
+no DOCTYPE
+AAA
+AAA
+EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <em>
+|         <foo>
+|           <foo>
+|     <em>
+|     <aside>
+|       <em>
+|         <b>
+
+#data
+<b><em><foo><foo><foo><aside></b>
+#errors
+no DOCTYPE
+AAA
+EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <em>
+|         <foo>
+|           <foo>
+|             <foo>
+|     <aside>
+|       <b>
+
+#data
+<b><em><foo><foo><foo><aside></b></em>
+#errors
+no DOCTYPE
+AAA
+bad </em>
+EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <em>
+|         <foo>
+|           <foo>
+|             <foo>
+|     <aside>
+|       <b>
+
+#data
+<b><em><foo><foo><foo><foo><foo><foo><foo><foo><foo><foo><aside></b></em>
+#errors
+AAA
+no </em>
+EOF
+#document-fragment
+div
+#document
+| <b>
+|   <em>
+|     <foo>
+|       <foo>
+|         <foo>
+|           <foo>
+|             <foo>
+|               <foo>
+|                 <foo>
+|                   <foo>
+|                     <foo>
+|                       <foo>
+| <aside>
+|   <b>
+
+#data
+<b><em><foo><foob><foob><foob><foob><fooc><fooc><fooc><fooc><food><aside></b></em>
+#errors
+AAA
+bad </em>
+EOF
+#document-fragment
+div
+#document
+| <b>
+|   <em>
+|     <foo>
+|       <foob>
+|         <foob>
+|           <foob>
+|             <foob>
+|               <fooc>
+|                 <fooc>
+|                   <fooc>
+|                     <fooc>
+|                       <food>
+| <aside>
+|   <b>
+
+#data
+<isindex action="x">
+#errors
+<isindex> in table
+no </isindex>
+#document-fragment
+table
+#document
+| <isindex>
+|   action="x"
+
+#data
+<option><XH<optgroup></optgroup>
+#errors
+<xH<optgroup> in select
+bad </optgroup>
+#document-fragment
+select
+#document
+| <option>
+
+#data
+<svg><foreignObject><div>foo</div><plaintext></foreignObject></svg><div>bar</div>
+#errors
+no DOCTYPE
+no </plaintext>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <svg svg>
+|       <svg foreignObject>
+|         <div>
+|           "foo"
+|         <plaintext>
+|           "</foreignObject></svg><div>bar</div>"
+
+#data
+<svg><foreignObject></foreignObject><title></svg>foo
+#errors
+no DOCTYPE
+no </title>
+#document
+| <html>
+|   <head>
+|   <body>
+|     <svg svg>
+|       <svg foreignObject>
+|       <svg title>
+|     "foo"
+
+#data
+</foreignObject><plaintext><div>foo</div>
+#errors
+no DOCTYPE
+bad </foreignObject>
+no EOF
+#document
+| <html>
+|   <head>
+|   <body>
+|     <plaintext>
+|       "<div>foo</div>"

@@ -1,0 +1,107 @@
+#data
+<math><tr><td><mo><tr>
+#errors
+bad <tr>
+EOF
+#document-fragment
+td
+#document
+| <math math>
+|   <math tr>
+|     <math td>
+|       <math mo>
+
+#data
+<math><tr><td><mo><tr>
+#errors
+<math> in table
+bad <tr>
+EOF
+#document-fragment
+tr
+#document
+| <math math>
+|   <math tr>
+|     <math td>
+|       <math mo>
+
+#data
+<math><thead><mo><tbody>
+#errors
+<math> in table
+bad <tbody>
+EOF
+#document-fragment
+thead
+#document
+| <math math>
+|   <math thead>
+|     <math mo>
+
+#data
+<math><tfoot><mo><tbody>
+#errors
+<math> in table
+bad <tfoot>
+EOF
+#document-fragment
+tfoot
+#document
+| <math math>
+|   <math tfoot>
+|     <math mo>
+
+#data
+<math><tbody><mo><tfoot>
+#errors
+<math> in table
+bad <tfoot>
+EOF
+#document-fragment
+tbody
+#document
+| <math math>
+|   <math tbody>
+|     <math mo>
+
+#data
+<math><tbody><mo></table>
+#errors
+<math> in table
+no </math>
+bad </table>
+no </mo>
+#document-fragment
+tbody
+#document
+| <math math>
+|   <math tbody>
+|     <math mo>
+
+#data
+<math><thead><mo></table>
+#errors
+<math> in table
+no </math>
+bad </table>
+no </mo>
+#document-fragment
+tbody
+#document
+| <math math>
+|   <math thead>
+|     <math mo>
+
+#data
+<math><tfoot><mo></table>
+#errors
+<math> in table
+no </math>
+bad </table>
+no </mo>
+#document-fragment
+tbody
+#document
+| <math math>
+|   <math tfoot>
+|     <math mo>

@@ -7283,8 +7283,6 @@ no </ruby>
 #data
 <!DOCTYPE HTML><ruby><rb>a<rt>b</ruby>
 #errors
-no </rb>
-EOF
 #document
 | <!DOCTYPE html>
 | <html>
@@ -7293,8 +7291,8 @@ EOF
 |     <ruby>
 |       <rb>
 |         "a"
-|         <rt>
-|           "b"
+|       <rt>
+|         "b"
 
 #data
 <!DOCTYPE HTML><ruby>a<rp>b<rt>c<rp>d</ruby>
@@ -7364,9 +7362,7 @@ EOF
 #data
 <!DOCTYPE HTML><ruby><rbc><rb>a</rb><rb>b</rb></rbc><rtc><rt>c</rt><rt>d</rt></rtc><rtc><rt>e</rt><rt>f</rt></rtc></ruby>
 #errors
-no </rtc>
 unexpected </rtc>
-no </rtc>
 unexpected </rtc>
 #document
 | <!DOCTYPE html>
