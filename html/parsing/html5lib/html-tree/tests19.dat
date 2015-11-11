@@ -84,6 +84,7 @@
 #data
 <!doctype html><form><isindex>
 #errors
+(1,30): deprecated-tag
 (1,30): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
@@ -91,7 +92,6 @@
 |   <head>
 |   <body>
 |     <form>
-|       <isindex>
 
 #data
 <!doctype html><isindex action="POST">
@@ -102,8 +102,14 @@
 | <html>
 |   <head>
 |   <body>
-|     <isindex>
+|     <form>
 |       action="POST"
+|       <hr>
+|       <label>
+|         "This is a searchable index. Enter search keywords: "
+|         <input>
+|           name="isindex"
+|       <hr>
 
 #data
 <!doctype html><isindex prompt="this is isindex">
@@ -114,8 +120,13 @@
 | <html>
 |   <head>
 |   <body>
-|     <isindex>
-|       prompt="this is isindex"
+|     <form>
+|       <hr>
+|       <label>
+|         "this is isindex"
+|         <input>
+|           name="isindex"
+|       <hr>
 
 #data
 <!doctype html><isindex type="hidden">
@@ -126,8 +137,14 @@
 | <html>
 |   <head>
 |   <body>
-|     <isindex>
-|       type="hidden"
+|     <form>
+|       <hr>
+|       <label>
+|         "This is a searchable index. Enter search keywords: "
+|         <input>
+|           name="isindex"
+|           type="hidden"
+|       <hr>
 
 #data
 <!doctype html><isindex name="foo">
@@ -138,8 +155,13 @@
 | <html>
 |   <head>
 |   <body>
-|     <isindex>
-|       name="foo"
+|     <form>
+|       <hr>
+|       <label>
+|         "This is a searchable index. Enter search keywords: "
+|         <input>
+|           name="isindex"
+|       <hr>
 
 #data
 <!doctype html><ruby><p><rp>
@@ -368,6 +390,8 @@
 <!doctype html><table>abc<!--foo-->
 #errors
 (1,23): foster-parenting-character
+(1,24): foster-parenting-character
+(1,25): foster-parenting-character
 (1,35): eof-in-table
 #document
 | <!DOCTYPE html>
@@ -395,6 +419,8 @@
 <!doctype html><table> b <!--foo-->
 #errors
 (1,23): foster-parenting-character
+(1,24): foster-parenting-character
+(1,25): foster-parenting-character
 (1,35): eof-in-table
 #document
 | <!DOCTYPE html>
@@ -1090,6 +1116,7 @@
 <!doctype html><math></html>
 #errors
 (1,28): unexpected-end-tag
+(1,28): expected-one-end-tag-but-got-another
 (1,28): unexpected-end-tag
 #document
 | <!DOCTYPE html>
@@ -1149,8 +1176,6 @@
 <!doctype html><image/>
 #errors
 (1,23): image-start-tag
-#warnings
-nestc
 #document
 | <!DOCTYPE html>
 | <html>

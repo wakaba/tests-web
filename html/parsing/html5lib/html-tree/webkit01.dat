@@ -385,6 +385,7 @@ console.log("FOO<span>BAR</span>BAZ");
 (1,59): unexpected-select-in-select
 (1,93): unexpected-select-in-select
 (1,127): unexpected-select-in-select
+(1,127): expected-closing-tag-but-got-eof
 #document
 | <html>
 |   <head>
@@ -652,10 +653,6 @@ console.log("FOO<span>BAR</span>BAZ");
 #data
 <table><tr><td><svg><desc><td></desc><circle>
 #errors
-no DOCTYPE
-<td> bad context
-bad </desc>
-EOF
 #document
 | <html>
 |   <head>
