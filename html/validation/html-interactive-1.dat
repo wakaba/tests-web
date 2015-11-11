@@ -2203,17 +2203,43 @@ b
   <menu label="a"/>
 </menu>
 #errors
+/menu/@type;enumerated:invalid;m
+/menu/menu/@label;attribute not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
   <menu type="popup" label="a"/>
 </menu>
 #errors
+/menu/menu/@label;attribute not allowed;m
+/menu/menu/@type;enumerated:invalid;m
+
+#data
+<menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
+  <menu>
+    <menu label="a"/>
+  </menu>
+</menu>
+#errors
+/menu/@type;enumerated:invalid;m
+/menu/menu/menu/@label;attribute not allowed;m
+
+#data
+<menu type="context" xmlns="http://www.w3.org/1999/xhtml">
+  <menu label="a"/>
+</menu>
+#errors
+
+#data
+<menu xmlns="http://www.w3.org/1999/xhtml">
+  <menu type="context" label="a"/>
+</menu>
+#errors
 /menu;no significant content;s
 /menu/menu/@label;attribute not allowed;m
 
 #data
-<menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
+<menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <menu>
     <menu label="a"/>
   </menu>
@@ -2255,10 +2281,13 @@ b
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menu/@type;enumerated:invalid;m
 
 #data
 <menu type="conteXt" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<menu type="popUp" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /menu/@type;enumerated:invalid;m
 
@@ -2336,7 +2365,7 @@ abc
 <menu type="popup"></menu>
 </menu>
 #errors
-/menu;no significant content;s
+/menu/menu/@type;enumerated:invalid;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
@@ -2454,6 +2483,13 @@ abc
 <menu type="popUp"></menu>
 </menu>
 #errors
+/menu/menu/@type;enumerated:invalid;m
+
+#data
+<menu xmlns="http://www.w3.org/1999/xhtml">
+<menu type="conText"></menu>
+</menu>
+#errors
 /menu;no significant content;s
 
 #data
@@ -2477,31 +2513,31 @@ abc
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
-<menu><menu type="popup"></menu></menu>
+<menu><menu type="context"></menu></menu>
 </menu>
 #errors
 /menu/menu;no significant content;s
 
 #data
-<menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
+<menu type="context" xmlns="http://www.w3.org/1999/xhtml">
 </menu>
 #errors
 
 #data
-<menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
+<menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <menu></menu>
 </menu>
 #errors
 
 #data
-<menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
+<menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <menu type="toolbar"></menu>
 </menu>
 #errors
 /menu/menu;element not allowed:menu type=popup;m
 
 #data
-<menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
+<menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <menu>
     <menu type="toolbar"></menu>
   </menu>
@@ -2510,7 +2546,7 @@ abc
 /menu/menu/menu;element not allowed:menu type=popup;m
 
 #data
-<menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
+<menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <menu type="abc">
     <menu type="toolbar"></menu>
   </menu>
@@ -2521,7 +2557,7 @@ abc
 
 #data
 <menu type="toolbar" xmlns="http://www.w3.org/1999/xhtml">
-  <menu type="popup">
+  <menu type="context">
     <menu type="toolbar"></menu>
   </menu>
 </menu>
@@ -2530,58 +2566,58 @@ abc
 /menu/menu/menu;element not allowed:menu type=popup;m
 
 #data
-<menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
+<menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <hr/>
-  <menu type="popup"/>
+  <menu type="context"/>
   <hr/>
 </menu>
 #errors
 
 #data
-<menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
+<menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <hr/>
-  <menu type="popup"/>
+  <menu type="context"/>
   <menuitem label="x"/>
   <menuitem label="x"/>
 </menu>
 #errors
 
 #data
-<menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
+<menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <hr/>abc<hr/>
 </menu>
 #errors
 /menu/"abc";character not allowed;m
 
 #data
-<menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
+<menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <hr/><li>a</li><hr/>
 </menu>
 #errors
 /menu/li;element not allowed:menu type=popup;m
 
 #data
-<menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
+<menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <br/>
 </menu>
 #errors
 /menu/br;element not allowed:menu type=popup;m
 
 #data
-<menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
+<menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <hr/><script/><hr/>
 </menu>
 #errors
 
 #data
-<menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
+<menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <hr/><p>a</p>
 </menu>
 #errors
 /menu/p;element not allowed:menu type=popup;m
 
 #data
-<menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
+<menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <hr/><span>a</span>
 </menu>
 #errors
@@ -2623,112 +2659,124 @@ abc
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <a href="x" id="foo">a</a>
-  <menu type="popup">
+  <menu type="context">
     <menuitem command="foo"/>
   </menu>
 </div>
 #errors
+/div/menu/menuitem;attribute missing;label;m
+/div/menu/menuitem/@command;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <a href="x" id="foo">a</a>
-  <menu type="popup">
+  <menu type="context">
     <menuitem command="foo" type="command"/>
   </menu>
 </div>
 #errors
-/div/menu/menuitem/@type;attribute not allowed;m
+/div/menu/menuitem;attribute missing;label;m
+/div/menu/menuitem/@command;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <a href="x" id="foo">a</a>
-  <menu type="popup">
+  <menu type="context">
     <menuitem command="foo" type="radio"/>
   </menu>
 </div>
 #errors
-/div/menu/menuitem/@type;attribute not allowed;m
+/div/menu/menuitem;attribute missing;label;m
+/div/menu/menuitem/@command;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <a href="x" id="foo">a</a>
-  <menu type="popup">
+  <menu type="context">
     <menuitem command="foo" label="a"/>
   </menu>
 </div>
 #errors
-/div/menu/menuitem/@label;attribute not allowed;m
+/div/menu/menuitem/@command;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <a href="x" id="foo">a</a>
-  <menu type="popup">
+  <menu type="context">
     <menuitem command="foo" icon="hoge"/>
   </menu>
 </div>
 #errors
-/div/menu/menuitem/@icon;attribute not allowed;m
+/div/menu/menuitem;attribute missing;label;m
+/div/menu/menuitem/@command;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <a href="x" id="foo">a</a>
-  <menu type="popup">
+  <menu type="context">
     <menuitem command="foo" disabled=""/>
   </menu>
 </div>
 #errors
-/div/menu/menuitem/@disabled;attribute not allowed;m
+/div/menu/menuitem;attribute missing;label;m
+/div/menu/menuitem/@command;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <a href="x" id="foo">a</a>
-  <menu type="popup">
+  <menu type="context">
     <menuitem command="foo" type="checkbox" checked=""/>
   </menu>
 </div>
 #errors
-/div/menu/menuitem/@type;attribute not allowed;m
-/div/menu/menuitem/@checked;attribute not allowed;m
+/div/menu/menuitem;attribute missing;label;m
+/div/menu/menuitem/@command;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <a href="x" id="foo">a</a>
-  <menu type="popup">
+  <menu type="context">
     <menuitem command="foo" type="radio" radiogroup="command"/>
   </menu>
 </div>
 #errors
-/div/menu/menuitem/@type;attribute not allowed;m
-/div/menu/menuitem/@radiogroup;attribute not allowed;m
+/div/menu/menuitem;attribute missing;label;m
+/div/menu/menuitem/@command;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <a href="x" id="foo">a</a>
-  <menu type="popup">
+  <menu type="context">
     <menuitem command="foo" title="a"/>
   </menu>
 </div>
 #errors
+/div/menu/menuitem;attribute missing;label;m
+/div/menu/menuitem/@command;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <a href="x" id="foo">a</a>
-  <menu type="popup">
+  <menu type="context">
     <menuitem command="foo" default=""/>
   </menu>
 </div>
 #errors
+/div/menu/menuitem;attribute missing;label;m
+/div/menu/menuitem/@command;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <a href="x" id="foo">a</a>
-  <menu type="popup">
+  <menu type="context">
     <menuitem type="command" label="a" default=""/>
     <menuitem type="command" label="b" default=""/>
     <menuitem command="foo" default=""/>
   </menu>
 </div>
 #errors
+/div/menu/menuitem;attribute missing;label;m
+/div/menu/menuitem/@command;attr:obsolete;m
 
 #data
 <menuitem type="command" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -2887,7 +2935,7 @@ abc
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p contextmenu="a"/><menu id="a" type="popup"/>
+<p contextmenu="a"/><menu id="a" type="context"/>
 </div>
 #errors
 /div/p;no significant content;s
@@ -2902,7 +2950,7 @@ abc
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p contextmenu="a"/><menu id="A" type="popup"/>
+<p contextmenu="a"/><menu id="A" type="context"/>
 </div>
 #errors
 /div/p/@contextmenu;no referenced menu;m
@@ -2910,20 +2958,20 @@ abc
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<menu id="a" type="popup"/><p contextmenu="a"/>
+<menu id="a" type="context"/><p contextmenu="a"/>
 </div>
 #errors
 /div/p;no significant content;s
 
 #data
 <div contextmenu="a" xmlns="http://www.w3.org/1999/xhtml">
-<menu id="a" type="PopUP"/>
+<menu id="a" type="ConText"/>
 </div>
 #errors
 /div;no significant content;s
 
 #data
-<menu id="a" type="PopUP" xmlns="http://www.w3.org/1999/xhtml">
+<menu id="a" type="ConText" xmlns="http://www.w3.org/1999/xhtml">
 <span contextmenu="a"/>
 </menu>
 #errors
@@ -2932,7 +2980,7 @@ abc
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p contextmenu="a a"/><menu id="a a" type="popUP"/>
+<p contextmenu="a a"/><menu id="a a" type="conText"/>
 </div>
 #errors
 /div/menu/@id;space in ID;m
@@ -2940,7 +2988,7 @@ abc
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p contextmenu="a a"/><menu id="a" type="popup"/>
+<p contextmenu="a a"/><menu id="a" type="context"/>
 </div>
 #errors
 /div/p/@contextmenu;no referenced menu;m
@@ -2948,7 +2996,7 @@ abc
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-<p contextmenu="a  a"/><menu id="a a" type="popup"/>
+<p contextmenu="a  a"/><menu id="a a" type="context"/>
 </div>
 #errors
 /div/p/@contextmenu;no referenced menu;m
@@ -2965,7 +3013,7 @@ abc
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <menu type="popup">
+  <menu type="context">
     <menu id="a"/>
   </menu>
   <p contextmenu="a">aa</p>
@@ -2984,8 +3032,8 @@ abc
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <menu type="popup" id="a"/>
-  <menu type="popup" id="a"/>
+  <menu type="context" id="a"/>
+  <menu type="context" id="a"/>
   <p contextmenu="a">aa</p>
 </div>
 #errors
@@ -2994,7 +3042,7 @@ abc
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <menu type="toolbar" id="a"/>
-  <menu type="popup" id="a"/>
+  <menu type="context" id="a"/>
   <p contextmenu="a">aa</p>
 </div>
 #errors
@@ -3003,7 +3051,7 @@ abc
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <menu type="popup" id="a"/>
+  <menu type="context" id="a"/>
   <menu type="toolbar" id="a"/>
   <p contextmenu="a">aa</p>
 </div>
@@ -3012,7 +3060,7 @@ abc
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <menu type="popup" id="a"/>
+  <menu type="context" id="a"/>
   <ul id="a"><li>a</li></ul>
   <p contextmenu="a">aa</p>
 </div>
@@ -3022,7 +3070,7 @@ abc
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <ul id="a"><li>a</li></ul>
-  <menu type="popup" id="a"/>
+  <menu type="context" id="a"/>
   <p contextmenu="a">aa</p>
 </div>
 #errors
@@ -3037,7 +3085,7 @@ abc
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <menu type="popup">aa</menu>
+  <menu type="context">aa</menu>
 </div>
 #errors
 /div;no significant content;s
@@ -3045,7 +3093,7 @@ abc
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <menu type="PopUP">aa</menu>
+  <menu type="ConText">aa</menu>
 </div>
 #errors
 /div;no significant content;s
@@ -3053,14 +3101,21 @@ abc
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <menu type="popup"><menu></menu></menu>
+  <menu type="context"><menu></menu></menu>
 </div>
 #errors
 /div;no significant content;s
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <menu><menu type="popup"></menu></menu>
+  <menu><menu type="context"></menu></menu>
+</div>
+#errors
+/div/menu;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <menu><menu type="context"></menu></menu>
 </div>
 #errors
 /div/menu;no significant content;s

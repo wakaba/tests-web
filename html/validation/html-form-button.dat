@@ -1503,18 +1503,18 @@
 /button/menu;element not allowed:phrasing;m
 
 #data
-<button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><menu id="foo" type="popup"></menu>x</button>
+<button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><menu id="foo" type="context"></menu>x</button>
 #errors
 /button/menu;element not allowed:phrasing;m
 
 #data
-<button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><menu type="popup"><menu id="foo"></menu></menu>x</button>
+<button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><menu type="context"><menu id="foo"></menu></menu>x</button>
 #errors
 /button/menu;element not allowed:phrasing;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <menu type="popup" id="ab cd"></menu>
+  <menu type="context" id="ab cd"></menu>
   <button type="menu" menu="ab cd">a</button>
 </div>
 #errors
@@ -1522,8 +1522,8 @@
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <menu type="popup" id="abcd"></menu>
-  <menu type="popup" id="abcd"></menu>
+  <menu type="context" id="abcd"></menu>
+  <menu type="context" id="abcd"></menu>
   <button type="menu" menu="abcd">a</button>
 </div>
 #errors
@@ -1532,7 +1532,7 @@
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <menu id="abcd"></menu>
-  <menu type="popup" id="abcd"></menu>
+  <menu type="context" id="abcd"></menu>
   <button type="menu" menu="abcd">a</button>
 </div>
 #errors
@@ -1541,7 +1541,7 @@
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <menu type="popup" id="abcd"></menu>
+  <menu type="context" id="abcd"></menu>
   <button type="button" menu="abcd">a</button>
 </div>
 #errors
@@ -1549,7 +1549,7 @@
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <menu type="popup" id="abcd"></menu>
+  <menu type="context" id="abcd"></menu>
   <button type="submit" menu="abcd">a</button>
 </div>
 #errors
@@ -1557,7 +1557,7 @@
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
-  <menu type="popup" id="abcd"></menu>
+  <menu type="context" id="abcd"></menu>
   <button type="Reset" menu="abcd">a</button>
 </div>
 #errors
