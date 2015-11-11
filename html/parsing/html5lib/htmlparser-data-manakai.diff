@@ -1,84 +1,3 @@
-diff --git a/html/parsing/html5lib/html-tokenizer/numericEntities.test b/html/parsing/html5lib/html-tokenizer/numericEntities.test
-index 36c8228..43de84b 100644
---- a/html/parsing/html5lib/html-tokenizer/numericEntities.test
-+++ b/html/parsing/html5lib/html-tokenizer/numericEntities.test
-@@ -1,5 +1,41 @@
- {"tests": [
- 
-+{"description": "Invalid unterminated numeric entity character overflow before EOF",
-+"input": "&#11111111111",
-+"output": ["ParseError", "ParseError", ["Character", "\uFFFD"]]},
-+
-+{"description": "Invalid unterminated numeric entity character overflow before EOF",
-+"input": "&#1111111111",
-+"output": ["ParseError", "ParseError", ["Character", "\uFFFD"]]},
-+
-+{"description": "Invalid unterminated numeric entity character overflow before EOF",
-+"input": "&#111111111111",
-+"output": ["ParseError", "ParseError", ["Character", "\uFFFD"]]},
-+
-+{"description": "Invalid unterminated numeric entity character overflow",
-+"input": "&#11111111111x",
-+"output": ["ParseError", "ParseError", ["Character", "\uFFFDx"]]},
-+
-+{"description": "Invalid unterminated numeric entity character overflow",
-+"input": "&#1111111111x",
-+"output": ["ParseError", "ParseError", ["Character", "\uFFFDx"]]},
-+
-+{"description": "Invalid unterminated numeric entity character overflow",
-+"input": "&#111111111111x",
-+"output": ["ParseError", "ParseError", ["Character", "\uFFFDx"]]},
-+
-+{"description": "Invalid numeric entity character overflow",
-+"input": "&#11111111111;",
-+"output": ["ParseError", ["Character", "\uFFFD"]]},
-+
-+{"description": "Invalid numeric entity character overflow",
-+"input": "&#1111111111;",
-+"output": ["ParseError", ["Character", "\uFFFD"]]},
-+
-+{"description": "Invalid numeric entity character overflow",
-+"input": "&#111111111111;",
-+"output": ["ParseError", ["Character", "\uFFFD"]]},
-+
- {"description": "Invalid numeric entity character U+0000",
- "input": "&#x0000;",
- "output": ["ParseError", ["Character", "\uFFFD"]]},
-diff --git a/html/parsing/html5lib/html-tokenizer/unicodeCharsProblematic.test b/html/parsing/html5lib/html-tokenizer/unicodeCharsProblematic.test
-index 5987845..2980ce2 100644
---- a/html/parsing/html5lib/html-tokenizer/unicodeCharsProblematic.test
-+++ b/html/parsing/html5lib/html-tokenizer/unicodeCharsProblematic.test
-@@ -2,22 +2,26 @@
- {"description": "Invalid Unicode character U+DFFF",
- "doubleEscaped":true,
- "input": "\\uDFFF",
--"output":["ParseError", ["Character", "\\uFFFD"]]},
-+"output":["ParseError", ["Character", "\\uDFFF"]],
-+"ignoreErrorOrder":true},
- 
- {"description": "Invalid Unicode character U+D800",
- "doubleEscaped":true,
- "input": "\\uD800",
--"output":["ParseError", ["Character", "\\uFFFD"]]},
-+"output":["ParseError", ["Character", "\\uD800"]],
-+"ignoreErrorOrder":true},
- 
- {"description": "Invalid Unicode character U+DFFF with valid preceding character",
- "doubleEscaped":true,
- "input": "a\\uDFFF",
--"output":[["Character", "a"], "ParseError", ["Character", "\\uFFFD"]]},
-+"output":[["Character", "a"], "ParseError", ["Character", "\\uDFFF"]],
-+"ignoreErrorOrder":true},
- 
- {"description": "Invalid Unicode character U+D800 with valid following character",
- "doubleEscaped":true,
- "input": "\\uD800a",
--"output":["ParseError", ["Character", "\\uFFFDa"]]},
-+"output":["ParseError", ["Character", "\\uD800a"]],
-+"ignoreErrorOrder":true},
- 
- {"description":"CR followed by U+0000",
- "input":"\r\u0000",
 diff --git a/html/parsing/html5lib/html-tokenizer/xmlViolation.test b/html/parsing/html5lib/html-tokenizer/xmlViolation.test
 index 137d964..d108c4c 100644
 --- a/html/parsing/html5lib/html-tokenizer/xmlViolation.test
@@ -166,654 +85,106 @@ index 34b4e62..0b1b737 100644
  #document
  | <html>
 diff --git a/html/parsing/html5lib/html-tree/entities01.dat b/html/parsing/html5lib/html-tree/entities01.dat
-index 20d53a0..cd5b1db 100644
+index b271f82..cd5b1db 100644
 --- a/html/parsing/html5lib/html-tree/entities01.dat
 +++ b/html/parsing/html5lib/html-tree/entities01.dat
-@@ -721,3 +721,75 @@ FOO&#xFFFFFF;ZOO
+@@ -763,6 +763,7 @@ FOO&#11111111111ZOO
+ #errors
+ (1,3): expected-doctype-but-got-chars
+ (1,13): illegal-codepoint-for-numeric-entity
++no refc
+ #document
+ | <html>
  |   <head>
- |   <body>
- |     "FOO�ZOO"
-+
-+#data
-+FOO&#11111111111
-+#errors
-+(1,3): expected-doctype-but-got-chars
-+(1,13): illegal-codepoint-for-numeric-entity
-+(1,13): eof-in-numeric-entity
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     "FOO�"
-+
-+#data
-+FOO&#1111111111
-+#errors
-+(1,3): expected-doctype-but-got-chars
-+(1,13): illegal-codepoint-for-numeric-entity
-+(1,13): eof-in-numeric-entity
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     "FOO�"
-+
-+#data
-+FOO&#111111111111
-+#errors
-+(1,3): expected-doctype-but-got-chars
-+(1,13): illegal-codepoint-for-numeric-entity
-+(1,13): eof-in-numeric-entity
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     "FOO�"
-+
-+#data
-+FOO&#11111111111ZOO
-+#errors
-+(1,3): expected-doctype-but-got-chars
-+(1,13): illegal-codepoint-for-numeric-entity
+@@ -774,6 +775,7 @@ FOO&#1111111111ZOO
+ #errors
+ (1,3): expected-doctype-but-got-chars
+ (1,13): illegal-codepoint-for-numeric-entity
 +no refc
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     "FOO�ZOO"
-+
-+#data
-+FOO&#1111111111ZOO
-+#errors
-+(1,3): expected-doctype-but-got-chars
-+(1,13): illegal-codepoint-for-numeric-entity
+ #document
+ | <html>
+ |   <head>
+@@ -785,6 +787,7 @@ FOO&#111111111111ZOO
+ #errors
+ (1,3): expected-doctype-but-got-chars
+ (1,13): illegal-codepoint-for-numeric-entity
 +no refc
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     "FOO�ZOO"
-+
-+#data
-+FOO&#111111111111ZOO
-+#errors
-+(1,3): expected-doctype-but-got-chars
-+(1,13): illegal-codepoint-for-numeric-entity
-+no refc
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     "FOO�ZOO"
+ #document
+ | <html>
+ |   <head>
 diff --git a/html/parsing/html5lib/html-tree/entities02.dat b/html/parsing/html5lib/html-tree/entities02.dat
-index f117f06..b82647e 100644
+index 22365c9..b82647e 100644
 --- a/html/parsing/html5lib/html-tree/entities02.dat
 +++ b/html/parsing/html5lib/html-tree/entities02.dat
-@@ -281,3 +281,15 @@
- |   <body>
- |     <div>
- |       "ZZ&prod=23"
-+
-+#data
-+<div>ZZ&AElig=</div>
-+#errors
+@@ -285,6 +285,8 @@
+ #data
+ <div>ZZ&AElig=</div>
+ #errors
 +no DOCTYPE
 +no refc
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <div>
-+|       "ZZÆ="
+ #document
+ | <html>
+ |   <head>
 diff --git a/html/parsing/html5lib/html-tree/foreign-fragment.dat b/html/parsing/html5lib/html-tree/foreign-fragment.dat
-new file mode 100644
-index 0000000..07584cc
---- /dev/null
+index 2e3cb6c..07584cc 100644
+--- a/html/parsing/html5lib/html-tree/foreign-fragment.dat
 +++ b/html/parsing/html5lib/html-tree/foreign-fragment.dat
-@@ -0,0 +1,543 @@
-+#data
-+<nobr>X
-+#errors
-+6: HTML start tag “nobr” in a foreign namespace context.
-+7: End of file seen and there were open elements.
-+#document-fragment
-+svg path
-+#document
-+| <svg nobr>
-+|   "X"
-+
-+#data
-+<font color></font>X
-+#errors
-+12: HTML start tag “font” in a foreign namespace context.
-+#document-fragment
-+svg path
-+#document
-+| <svg font>
-+|   color=""
-+| "X"
-+
-+#data
-+<font></font>X
-+#errors
-+#document-fragment
-+svg path
-+#document
-+| <svg font>
-+| "X"
-+
-+#data
-+<g></path>X
-+#errors
-+10: End tag “path” did not match the name of the current open element (“g”).
-+11: End of file seen and there were open elements.
-+3: Unclosed element “g”.
-+#document-fragment
-+svg path
-+#document
-+| <svg g>
-+|   "X"
-+
-+#data
-+</path>X
-+#errors
-+5: Stray end tag “path”.
-+#document-fragment
-+svg path
-+#document
-+| "X"
-+
-+#data
-+</foreignObject>X
-+#errors
-+5: Stray end tag “foreignobject”.
-+#document-fragment
-+svg foreignObject
-+#document
-+| "X"
-+
-+#data
-+</desc>X
-+#errors
-+5: Stray end tag “desc”.
-+#document-fragment
-+svg desc
-+#document
-+| "X"
-+
-+#data
-+</title>X
-+#errors
-+5: Stray end tag “title”.
-+#document-fragment
-+svg title
-+#document
-+| "X"
-+
-+#data
-+</svg>X
-+#errors
-+5: Stray end tag “svg”.
-+#document-fragment
-+svg svg
-+#document
-+| "X"
-+
-+#data
-+</mfenced>X
-+#errors
-+5: Stray end tag “mfenced”.
-+#document-fragment
-+math mfenced
-+#document
-+| "X"
-+
-+#data
-+</malignmark>X
-+#errors
-+5: Stray end tag “malignmark”.
-+#document-fragment
-+math malignmark
-+#document
-+| "X"
-+
-+#data
-+</math>X
-+#errors
-+5: Stray end tag “math”.
-+#document-fragment
-+math math
-+#document
-+| "X"
-+
-+#data
-+</annotation-xml>X
-+#errors
-+5: Stray end tag “annotation-xml”.
-+#document-fragment
-+math annotation-xml
-+#document
-+| "X"
-+
-+#data
-+</mtext>X
-+#errors
-+5: Stray end tag “mtext”.
-+#document-fragment
-+math mtext
-+#document
-+| "X"
-+
-+#data
-+</mi>X
-+#errors
-+5: Stray end tag “mi”.
-+#document-fragment
-+math mi
-+#document
-+| "X"
-+
-+#data
-+</mo>X
-+#errors
-+5: Stray end tag “mo”.
-+#document-fragment
-+math mo
-+#document
-+| "X"
-+
-+#data
-+</mn>X
-+#errors
-+5: Stray end tag “mn”.
-+#document-fragment
-+math mn
-+#document
-+| "X"
-+
-+#data
-+</ms>X
-+#errors
-+5: Stray end tag “ms”.
-+#document-fragment
-+math ms
-+#document
-+| "X"
-+
-+#data
-+<b></b><mglyph/><i></i><malignmark/><u></u><ms/>X
-+#errors
-+51: Self-closing syntax (“/>”) used on a non-void HTML element. Ignoring the slash and treating as a start tag.
-+52: End of file seen and there were open elements.
-+#document-fragment
-+math ms
-+#document
-+| <b>
-+| <math mglyph>
-+| <i>
-+| <math malignmark>
-+| <u>
-+| <ms>
-+|   "X"
-+
-+#data
-+<malignmark></malignmark>
-+#errors
-+#document-fragment
-+math ms
-+#document
-+| <math malignmark>
-+
-+#data
-+<div></div>
-+#errors
-+#document-fragment
-+math ms
-+#document
-+| <div>
-+
-+#data
-+<figure></figure>
-+#errors
-+#document-fragment
-+math ms
-+#document
-+| <figure>
-+
-+#data
-+<b></b><mglyph/><i></i><malignmark/><u></u><mn/>X
-+#errors
-+51: Self-closing syntax (“/>”) used on a non-void HTML element. Ignoring the slash and treating as a start tag.
-+52: End of file seen and there were open elements.
-+#document-fragment
-+math mn
-+#document
-+| <b>
-+| <math mglyph>
-+| <i>
-+| <math malignmark>
-+| <u>
-+| <mn>
-+|   "X"
-+
-+#data
-+<malignmark></malignmark>
-+#errors
-+#document-fragment
-+math mn
-+#document
-+| <math malignmark>
-+
-+#data
-+<div></div>
-+#errors
-+#document-fragment
-+math mn
-+#document
-+| <div>
-+
-+#data
-+<figure></figure>
-+#errors
-+#document-fragment
-+math mn
-+#document
-+| <figure>
-+
-+#data
-+<b></b><mglyph/><i></i><malignmark/><u></u><mo/>X
-+#errors
-+51: Self-closing syntax (“/>”) used on a non-void HTML element. Ignoring the slash and treating as a start tag.
-+52: End of file seen and there were open elements.
-+#document-fragment
-+math mo
-+#document
-+| <b>
-+| <math mglyph>
-+| <i>
-+| <math malignmark>
-+| <u>
-+| <mo>
-+|   "X"
-+
-+#data
-+<malignmark></malignmark>
-+#errors
-+#document-fragment
-+math mo
-+#document
-+| <math malignmark>
-+
-+#data
-+<div></div>
-+#errors
-+#document-fragment
-+math mo
-+#document
-+| <div>
-+
-+#data
-+<figure></figure>
-+#errors
-+#document-fragment
-+math mo
-+#document
-+| <figure>
-+
-+#data
-+<b></b><mglyph/><i></i><malignmark/><u></u><mi/>X
-+#errors
-+51: Self-closing syntax (“/>”) used on a non-void HTML element. Ignoring the slash and treating as a start tag.
-+52: End of file seen and there were open elements.
-+#document-fragment
-+math mi
-+#document
-+| <b>
-+| <math mglyph>
-+| <i>
-+| <math malignmark>
-+| <u>
-+| <mi>
-+|   "X"
-+
-+#data
-+<malignmark></malignmark>
-+#errors
-+#document-fragment
-+math mi
-+#document
-+| <math malignmark>
-+
-+#data
-+<div></div>
-+#errors
-+#document-fragment
-+math mi
-+#document
-+| <div>
-+
-+#data
-+<figure></figure>
-+#errors
-+#document-fragment
-+math mi
-+#document
-+| <figure>
-+
-+#data
-+<b></b><mglyph/><i></i><malignmark/><u></u><mtext/>X
-+#errors
-+51: Self-closing syntax (“/>”) used on a non-void HTML element. Ignoring the slash and treating as a start tag.
-+52: End of file seen and there were open elements.
-+#document-fragment
-+math mtext
-+#document
-+| <b>
-+| <math mglyph>
-+| <i>
-+| <math malignmark>
-+| <u>
-+| <mtext>
-+|   "X"
-+
-+#data
-+<malignmark></malignmark>
-+#errors
-+#document-fragment
-+math mtext
-+#document
-+| <math malignmark>
-+
-+#data
-+<div></div>
-+#errors
-+#document-fragment
-+math mtext
-+#document
-+| <div>
-+
-+#data
-+<figure></figure>
-+#errors
-+#document-fragment
-+math mtext
-+#document
-+| <figure>
-+
-+#data
-+<div></div>
-+#errors
-+5: HTML start tag “div” in a foreign namespace context.
-+#document-fragment
-+math annotation-xml
-+#document
-+| <math div>
-+
-+#data
-+<figure></figure>
-+#errors
-+#document-fragment
-+math annotation-xml
-+#document
-+| <math figure>
-+
-+#data
-+<div></div>
-+#errors
-+5: HTML start tag “div” in a foreign namespace context.
-+#document-fragment
-+math math
-+#document
-+| <math div>
-+
-+#data
-+<figure></figure>
-+#errors
-+#document-fragment
-+math math
-+#document
-+| <math figure>
-+
-+#data
-+<div></div>
-+#errors
-+#document-fragment
-+svg foreignObject
-+#document
-+| <div>
-+
-+#data
-+<figure></figure>
-+#errors
-+#document-fragment
-+svg foreignObject
-+#document
-+| <figure>
-+
-+#data
-+<div></div>
-+#errors
-+#document-fragment
-+svg title
-+#document
-+| <div>
-+
-+#data
-+<figure></figure>
-+#errors
-+#document-fragment
-+svg title
-+#document
-+| <figure>
-+
-+#data
-+<figure></figure>
-+#errors
-+#document-fragment
-+svg desc
-+#document
-+| <figure>
-+
-+#data
-+<div><h1>X</h1></div>
-+#errors
-+5: HTML start tag “div” in a foreign namespace context.
-+9: HTML start tag “h1” in a foreign namespace context.
-+#document-fragment
-+svg svg
-+#document
-+| <svg div>
-+|   <svg h1>
-+|     "X"
-+
-+#data
-+<div></div>
-+#errors
-+5: HTML start tag “div” in a foreign namespace context.
-+#document-fragment
-+svg svg
-+#document
-+| <svg div>
-+
-+#data
-+<div></div>
-+#errors
-+#document-fragment
-+svg desc
-+#document
-+| <div>
-+
-+#data
-+<figure></figure>
-+#errors
-+#document-fragment
-+svg desc
-+#document
-+| <figure>
-+
-+#data
-+<plaintext><foo>
-+#errors
-+16: End of file seen and there were open elements.
-+#document-fragment
-+svg desc
-+#document
-+| <plaintext>
-+|   "<foo>"
-+
-+#data
-+<frameset>X
-+#errors
-+6: Stray start tag “frameset”.
-+#document-fragment
-+svg desc
-+#document
-+| "X"
-+
-+#data
-+<head>X
-+#errors
-+6: Stray start tag “head”.
-+#document-fragment
-+svg desc
-+#document
-+| "X"
-+
-+#data
-+<body>X
-+#errors
-+6: Stray start tag “body”.
-+#document-fragment
-+svg desc
-+#document
-+| "X"
-+
-+#data
-+<html>X
-+#errors
-+6: Stray start tag “html”.
-+#document-fragment
-+svg desc
-+#document
-+| "X"
-+
-+#data
-+<html class="foo">X
-+#errors
-+6: Stray start tag “html”.
-+#document-fragment
-+svg desc
-+#document
-+| "X"
-+
-+#data
-+<body class="foo">X
-+#errors
-+6: Stray start tag “body”.
-+#document-fragment
-+svg desc
-+#document
-+| "X"
+@@ -3,7 +3,6 @@
+ #errors
+ 6: HTML start tag “nobr” in a foreign namespace context.
+ 7: End of file seen and there were open elements.
+-6: Unclosed element “nobr”.
+ #document-fragment
+ svg path
+ #document
+@@ -173,7 +172,6 @@ math ms
+ #errors
+ 51: Self-closing syntax (“/>”) used on a non-void HTML element. Ignoring the slash and treating as a start tag.
+ 52: End of file seen and there were open elements.
+-51: Unclosed element “ms”.
+ #document-fragment
+ math ms
+ #document
+@@ -214,7 +212,6 @@ math ms
+ #errors
+ 51: Self-closing syntax (“/>”) used on a non-void HTML element. Ignoring the slash and treating as a start tag.
+ 52: End of file seen and there were open elements.
+-51: Unclosed element “mn”.
+ #document-fragment
+ math mn
+ #document
+@@ -255,7 +252,6 @@ math mn
+ #errors
+ 51: Self-closing syntax (“/>”) used on a non-void HTML element. Ignoring the slash and treating as a start tag.
+ 52: End of file seen and there were open elements.
+-51: Unclosed element “mo”.
+ #document-fragment
+ math mo
+ #document
+@@ -296,7 +292,6 @@ math mo
+ #errors
+ 51: Self-closing syntax (“/>”) used on a non-void HTML element. Ignoring the slash and treating as a start tag.
+ 52: End of file seen and there were open elements.
+-51: Unclosed element “mi”.
+ #document-fragment
+ math mi
+ #document
+@@ -337,7 +332,6 @@ math mi
+ #errors
+ 51: Self-closing syntax (“/>”) used on a non-void HTML element. Ignoring the slash and treating as a start tag.
+ 52: End of file seen and there were open elements.
+-51: Unclosed element “mtext”.
+ #document-fragment
+ math mtext
+ #document
+@@ -488,7 +482,6 @@ svg desc
+ <plaintext><foo>
+ #errors
+ 16: End of file seen and there were open elements.
+-11: Unclosed element “plaintext”.
+ #document-fragment
+ svg desc
+ #document
 diff --git a/html/parsing/html5lib/html-tree/isindex.dat b/html/parsing/html5lib/html-tree/isindex.dat
 index 42ef997..3281944 100644
 --- a/html/parsing/html5lib/html-tree/isindex.dat
@@ -874,144 +245,106 @@ index 42ef997..3281944 100644
  |     <form>
 +|       <isindex>
 diff --git a/html/parsing/html5lib/html-tree/math.dat b/html/parsing/html5lib/html-tree/math.dat
-new file mode 100644
-index 0000000..666148f
---- /dev/null
+index ae9cd7c..666148f 100644
+--- a/html/parsing/html5lib/html-tree/math.dat
 +++ b/html/parsing/html5lib/html-tree/math.dat
-@@ -0,0 +1,107 @@
-+#data
-+<math><tr><td><mo><tr>
-+#errors
+@@ -1,6 +1,8 @@
+ #data
+ <math><tr><td><mo><tr>
+ #errors
 +bad <tr>
 +EOF
-+#document-fragment
-+td
-+#document
-+| <math math>
-+|   <math tr>
-+|     <math td>
-+|       <math mo>
-+
-+#data
-+<math><tr><td><mo><tr>
-+#errors
+ #document-fragment
+ td
+ #document
+@@ -12,6 +14,9 @@ td
+ #data
+ <math><tr><td><mo><tr>
+ #errors
 +<math> in table
 +bad <tr>
 +EOF
-+#document-fragment
-+tr
-+#document
-+| <math math>
-+|   <math tr>
-+|     <math td>
-+|       <math mo>
-+
-+#data
-+<math><thead><mo><tbody>
-+#errors
+ #document-fragment
+ tr
+ #document
+@@ -23,6 +28,9 @@ tr
+ #data
+ <math><thead><mo><tbody>
+ #errors
 +<math> in table
 +bad <tbody>
 +EOF
-+#document-fragment
-+thead
-+#document
-+| <math math>
-+|   <math thead>
-+|     <math mo>
-+
-+#data
-+<math><tfoot><mo><tbody>
-+#errors
+ #document-fragment
+ thead
+ #document
+@@ -33,6 +41,9 @@ thead
+ #data
+ <math><tfoot><mo><tbody>
+ #errors
 +<math> in table
 +bad <tfoot>
 +EOF
-+#document-fragment
-+tfoot
-+#document
-+| <math math>
-+|   <math tfoot>
-+|     <math mo>
-+
-+#data
-+<math><tbody><mo><tfoot>
-+#errors
+ #document-fragment
+ tfoot
+ #document
+@@ -43,6 +54,9 @@ tfoot
+ #data
+ <math><tbody><mo><tfoot>
+ #errors
 +<math> in table
 +bad <tfoot>
 +EOF
-+#document-fragment
-+tbody
-+#document
-+| <math math>
-+|   <math tbody>
-+|     <math mo>
-+
-+#data
-+<math><tbody><mo></table>
-+#errors
+ #document-fragment
+ tbody
+ #document
+@@ -53,6 +67,10 @@ tbody
+ #data
+ <math><tbody><mo></table>
+ #errors
 +<math> in table
 +no </math>
 +bad </table>
 +no </mo>
-+#document-fragment
-+tbody
-+#document
-+| <math math>
-+|   <math tbody>
-+|     <math mo>
-+
-+#data
-+<math><thead><mo></table>
-+#errors
+ #document-fragment
+ tbody
+ #document
+@@ -63,6 +81,10 @@ tbody
+ #data
+ <math><thead><mo></table>
+ #errors
 +<math> in table
 +no </math>
 +bad </table>
 +no </mo>
-+#document-fragment
-+tbody
-+#document
-+| <math math>
-+|   <math thead>
-+|     <math mo>
-+
-+#data
-+<math><tfoot><mo></table>
-+#errors
+ #document-fragment
+ tbody
+ #document
+@@ -73,6 +95,10 @@ tbody
+ #data
+ <math><tfoot><mo></table>
+ #errors
 +<math> in table
 +no </math>
 +bad </table>
 +no </mo>
-+#document-fragment
-+tbody
-+#document
-+| <math math>
-+|   <math tfoot>
-+|     <math mo>
+ #document-fragment
+ tbody
+ #document
 diff --git a/html/parsing/html5lib/html-tree/namespace-sensitivity.dat b/html/parsing/html5lib/html-tree/namespace-sensitivity.dat
-new file mode 100644
-index 0000000..ff0eade
---- /dev/null
+index ca35c0e..ff0eade 100644
+--- a/html/parsing/html5lib/html-tree/namespace-sensitivity.dat
 +++ b/html/parsing/html5lib/html-tree/namespace-sensitivity.dat
-@@ -0,0 +1,20 @@
-+#data
-+<body><table><tr><td><svg><td><foreignObject><span></td>Foo
-+#errors
+@@ -1,6 +1,10 @@
+ #data
+ <body><table><tr><td><svg><td><foreignObject><span></td>Foo
+ #errors
 +no DOCTYPE
 +no </span>
 +text in table
 +EOF
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     "Foo"
-+|     <table>
-+|       <tbody>
-+|         <tr>
-+|           <td>
-+|             <svg svg>
-+|               <svg td>
-+|                 <svg foreignObject>
-+|                   <span>
+ #document
+ | <html>
+ |   <head>
 diff --git a/html/parsing/html5lib/html-tree/pending-spec-changes-plain-text-unsafe.dat b/html/parsing/html5lib/html-tree/pending-spec-changes-plain-text-unsafe.dat
 index 3ee8cec..f287b31 100644
 --- a/html/parsing/html5lib/html-tree/pending-spec-changes-plain-text-unsafe.dat
@@ -1051,334 +384,41 @@ index f40dd57..cf72889 100644
  #data
  <html> <frameset></frameset>
 diff --git a/html/parsing/html5lib/html-tree/ruby.dat b/html/parsing/html5lib/html-tree/ruby.dat
-new file mode 100644
-index 0000000..d9b1fc8
---- /dev/null
+index 1ca8016..d9b1fc8 100644
+--- a/html/parsing/html5lib/html-tree/ruby.dat
 +++ b/html/parsing/html5lib/html-tree/ruby.dat
-@@ -0,0 +1,302 @@
-+#data
-+<html><ruby>a<rb>b<rb></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rb>
-+|         "b"
-+|       <rb>
-+
-+#data
-+<html><ruby>a<rb>b<rt></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rb>
-+|         "b"
-+|       <rt>
-+
-+#data
-+<html><ruby>a<rb>b<rtc></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rb>
-+|         "b"
-+|       <rtc>
-+
-+#data
-+<html><ruby>a<rb>b<rp></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rb>
-+|         "b"
-+|       <rp>
-+
-+#data
-+<html><ruby>a<rb>b<span></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
+@@ -58,6 +58,7 @@
+ <html><ruby>a<rb>b<span></ruby></html>
+ #errors
+ (1,6): expected-doctype-but-got-start-tag
 +no </span>
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rb>
-+|         "b"
-+|         <span>
-+
-+#data
-+<html><ruby>a<rt>b<rb></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rt>
-+|         "b"
-+|       <rb>
-+
-+#data
-+<html><ruby>a<rt>b<rt></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rt>
-+|         "b"
-+|       <rt>
-+
-+#data
-+<html><ruby>a<rt>b<rtc></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rt>
-+|         "b"
-+|       <rtc>
-+
-+#data
-+<html><ruby>a<rt>b<rp></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rt>
-+|         "b"
-+|       <rp>
-+
-+#data
-+<html><ruby>a<rt>b<span></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
+ #document
+ | <html>
+ |   <head>
+@@ -128,6 +129,7 @@
+ <html><ruby>a<rt>b<span></ruby></html>
+ #errors
+ (1,6): expected-doctype-but-got-start-tag
 +no </span>
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rt>
-+|         "b"
-+|         <span>
-+
-+#data
-+<html><ruby>a<rtc>b<rb></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rtc>
-+|         "b"
-+|       <rb>
-+
-+#data
-+<html><ruby>a<rtc>b<rt>c<rt>d</ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rtc>
-+|         "b"
-+|         <rt>
-+|           "c"
-+|         <rt>
-+|           "d"
-+
-+#data
-+<html><ruby>a<rtc>b<rtc></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rtc>
-+|         "b"
-+|       <rtc>
-+
-+#data
-+<html><ruby>a<rtc>b<rp></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rtc>
-+|         "b"
-+|         <rp>
-+
-+#data
-+<html><ruby>a<rtc>b<span></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
+ #document
+ | <html>
+ |   <head>
+@@ -201,6 +203,7 @@
+ <html><ruby>a<rtc>b<span></ruby></html>
+ #errors
+ (1,6): expected-doctype-but-got-start-tag
 +no </span>
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rtc>
-+|         "b"
-+|         <span>
-+
-+#data
-+<html><ruby>a<rp>b<rb></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rp>
-+|         "b"
-+|       <rb>
-+
-+#data
-+<html><ruby>a<rp>b<rt></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rp>
-+|         "b"
-+|       <rt>
-+
-+#data
-+<html><ruby>a<rp>b<rtc></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rp>
-+|         "b"
-+|       <rtc>
-+
-+#data
-+<html><ruby>a<rp>b<rp></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rp>
-+|         "b"
-+|       <rp>
-+
-+#data
-+<html><ruby>a<rp>b<span></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
+ #document
+ | <html>
+ |   <head>
+@@ -271,6 +274,7 @@
+ <html><ruby>a<rp>b<span></ruby></html>
+ #errors
+ (1,6): expected-doctype-but-got-start-tag
 +no </span>
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rp>
-+|         "b"
-+|         <span>
-+
-+#data
-+<html><ruby><rtc><ruby>a<rb>b<rt></ruby></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       <rtc>
-+|         <ruby>
-+|           "a"
-+|           <rb>
-+|             "b"
-+|           <rt>
-diff --git a/html/parsing/html5lib/html-tree/scriptdata01.dat b/html/parsing/html5lib/html-tree/scriptdata01.dat
-index 710f541..ac698d2 100644
---- a/html/parsing/html5lib/html-tree/scriptdata01.dat
-+++ b/html/parsing/html5lib/html-tree/scriptdata01.dat
-@@ -350,3 +350,16 @@ FOO<script type="text/plain">'<!-- <sCrIpt/'</script>BAR</script>QUX
- |       type="text/plain"
- |       "'<!-- <sCrIpt/'</script>BAR"
- |     "QUX"
-+
-+#data
-+FOO<script><!--<script>-></script>--></script>QUX
-+#errors
-+(1,3): expected-doctype-but-got-chars
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     "FOO"
-+|     <script>
-+|       "<!--<script>-></script>-->"
-+|     "QUX"
+ #document
+ | <html>
+ |   <head>
 diff --git a/html/parsing/html5lib/html-tree/tables01.dat b/html/parsing/html5lib/html-tree/tables01.dat
 index f0caaa3..39303dd 100644
 --- a/html/parsing/html5lib/html-tree/tables01.dat
@@ -1393,7 +433,7 @@ index f0caaa3..39303dd 100644
  #document
  | <html>
 diff --git a/html/parsing/html5lib/html-tree/template.dat b/html/parsing/html5lib/html-tree/template.dat
-index f370cc1..61a62c4 100644
+index 690f605..61a62c4 100644
 --- a/html/parsing/html5lib/html-tree/template.dat
 +++ b/html/parsing/html5lib/html-tree/template.dat
 @@ -1090,6 +1090,10 @@ eof in template
@@ -1416,29 +456,18 @@ index f370cc1..61a62c4 100644
  eof
  eof
  #document
-@@ -1589,3 +1591,21 @@ eof table
- |                 content
- |                   <table>
- |                     <script>
-+
-+#data
-+<template><a><table><a>
-+#errors
+@@ -1593,6 +1595,11 @@ eof table
+ #data
+ <template><a><table><a>
+ #errors
 +no DOCTYPE
 +<a> in table
 +<a> in <a>
 +AAA by <a>
 +EOF
-+#document
-+| <html>
-+|   <head>
-+|     <template>
-+|       content
-+|         <a>
-+|           <a>
-+|           <table>
-+|   <body>
-\ No newline at end of file
+ #document
+ | <html>
+ |   <head>
 diff --git a/html/parsing/html5lib/html-tree/tests1.dat b/html/parsing/html5lib/html-tree/tests1.dat
 index d6726e3..4e17fcb 100644
 --- a/html/parsing/html5lib/html-tree/tests1.dat
@@ -1519,97 +548,6 @@ index 3e9a9f1..f782161 100644
  #document
  | <!DOCTYPE html>
  | <html>
-diff --git a/html/parsing/html5lib/html-tree/tests11.dat b/html/parsing/html5lib/html-tree/tests11.dat
-index ad62cdf..d325ef9 100644
---- a/html/parsing/html5lib/html-tree/tests11.dat
-+++ b/html/parsing/html5lib/html-tree/tests11.dat
-@@ -1,5 +1,5 @@
- #data
--<!DOCTYPE html><body><svg attributeName='' attributeType='' baseFrequency='' baseProfile='' calcMode='' clipPathUnits='' contentScriptType='' contentStyleType='' diffuseConstant='' edgeMode='' externalResourcesRequired='' filterRes='' filterUnits='' glyphRef='' gradientTransform='' gradientUnits='' kernelMatrix='' kernelUnitLength='' keyPoints='' keySplines='' keyTimes='' lengthAdjust='' limitingConeAngle='' markerHeight='' markerUnits='' markerWidth='' maskContentUnits='' maskUnits='' numOctaves='' pathLength='' patternContentUnits='' patternTransform='' patternUnits='' pointsAtX='' pointsAtY='' pointsAtZ='' preserveAlpha='' preserveAspectRatio='' primitiveUnits='' refX='' refY='' repeatCount='' repeatDur='' requiredExtensions='' requiredFeatures='' specularConstant='' specularExponent='' spreadMethod='' startOffset='' stdDeviation='' stitchTiles='' surfaceScale='' systemLanguage='' tableValues='' targetX='' targetY='' textLength='' viewBox='' viewTarget='' xChannelSelector='' yChannelSelector='' zoomAndPan=''></svg>
-+<!DOCTYPE html><body><svg attributeName='' attributeType='' baseFrequency='' baseProfile='' calcMode='' clipPathUnits='' diffuseConstant='' edgeMode='' filterUnits='' glyphRef='' gradientTransform='' gradientUnits='' kernelMatrix='' kernelUnitLength='' keyPoints='' keySplines='' keyTimes='' lengthAdjust='' limitingConeAngle='' markerHeight='' markerUnits='' markerWidth='' maskContentUnits='' maskUnits='' numOctaves='' pathLength='' patternContentUnits='' patternTransform='' patternUnits='' pointsAtX='' pointsAtY='' pointsAtZ='' preserveAlpha='' preserveAspectRatio='' primitiveUnits='' refX='' refY='' repeatCount='' repeatDur='' requiredExtensions='' requiredFeatures='' specularConstant='' specularExponent='' spreadMethod='' startOffset='' stdDeviation='' stitchTiles='' surfaceScale='' systemLanguage='' tableValues='' targetX='' targetY='' textLength='' viewBox='' viewTarget='' xChannelSelector='' yChannelSelector='' zoomAndPan=''></svg>
- #errors
- #document
- | <!DOCTYPE html>
-@@ -13,13 +13,9 @@
- |       baseProfile=""
- |       calcMode=""
- |       clipPathUnits=""
--|       contentscripttype=""
--|       contentstyletype=""
- |       diffuseConstant=""
- |       edgeMode=""
--|       externalresourcesrequired=""
- |       filterUnits=""
--|       filterres=""
- |       glyphRef=""
- |       gradientTransform=""
- |       gradientUnits=""
-@@ -71,7 +67,7 @@
- |       zoomAndPan=""
- 
- #data
--<!DOCTYPE html><BODY><SVG ATTRIBUTENAME='' ATTRIBUTETYPE='' BASEFREQUENCY='' BASEPROFILE='' CALCMODE='' CLIPPATHUNITS='' CONTENTSCRIPTTYPE='' CONTENTSTYLETYPE='' DIFFUSECONSTANT='' EDGEMODE='' EXTERNALRESOURCESREQUIRED='' FILTERRES='' FILTERUNITS='' GLYPHREF='' GRADIENTTRANSFORM='' GRADIENTUNITS='' KERNELMATRIX='' KERNELUNITLENGTH='' KEYPOINTS='' KEYSPLINES='' KEYTIMES='' LENGTHADJUST='' LIMITINGCONEANGLE='' MARKERHEIGHT='' MARKERUNITS='' MARKERWIDTH='' MASKCONTENTUNITS='' MASKUNITS='' NUMOCTAVES='' PATHLENGTH='' PATTERNCONTENTUNITS='' PATTERNTRANSFORM='' PATTERNUNITS='' POINTSATX='' POINTSATY='' POINTSATZ='' PRESERVEALPHA='' PRESERVEASPECTRATIO='' PRIMITIVEUNITS='' REFX='' REFY='' REPEATCOUNT='' REPEATDUR='' REQUIREDEXTENSIONS='' REQUIREDFEATURES='' SPECULARCONSTANT='' SPECULAREXPONENT='' SPREADMETHOD='' STARTOFFSET='' STDDEVIATION='' STITCHTILES='' SURFACESCALE='' SYSTEMLANGUAGE='' TABLEVALUES='' TARGETX='' TARGETY='' TEXTLENGTH='' VIEWBOX='' VIEWTARGET='' XCHANNELSELECTOR='' YCHANNELSELECTOR='' ZOOMANDPAN=''></SVG>
-+<!DOCTYPE html><BODY><SVG ATTRIBUTENAME='' ATTRIBUTETYPE='' BASEFREQUENCY='' BASEPROFILE='' CALCMODE='' CLIPPATHUNITS='' DIFFUSECONSTANT='' EDGEMODE='' FILTERUNITS='' GLYPHREF='' GRADIENTTRANSFORM='' GRADIENTUNITS='' KERNELMATRIX='' KERNELUNITLENGTH='' KEYPOINTS='' KEYSPLINES='' KEYTIMES='' LENGTHADJUST='' LIMITINGCONEANGLE='' MARKERHEIGHT='' MARKERUNITS='' MARKERWIDTH='' MASKCONTENTUNITS='' MASKUNITS='' NUMOCTAVES='' PATHLENGTH='' PATTERNCONTENTUNITS='' PATTERNTRANSFORM='' PATTERNUNITS='' POINTSATX='' POINTSATY='' POINTSATZ='' PRESERVEALPHA='' PRESERVEASPECTRATIO='' PRIMITIVEUNITS='' REFX='' REFY='' REPEATCOUNT='' REPEATDUR='' REQUIREDEXTENSIONS='' REQUIREDFEATURES='' SPECULARCONSTANT='' SPECULAREXPONENT='' SPREADMETHOD='' STARTOFFSET='' STDDEVIATION='' STITCHTILES='' SURFACESCALE='' SYSTEMLANGUAGE='' TABLEVALUES='' TARGETX='' TARGETY='' TEXTLENGTH='' VIEWBOX='' VIEWTARGET='' XCHANNELSELECTOR='' YCHANNELSELECTOR='' ZOOMANDPAN=''></SVG>
- #errors
- #document
- | <!DOCTYPE html>
-@@ -85,13 +81,9 @@
- |       baseProfile=""
- |       calcMode=""
- |       clipPathUnits=""
--|       contentscripttype=""
--|       contentstyletype=""
- |       diffuseConstant=""
- |       edgeMode=""
--|       externalresourcesrequired=""
- |       filterUnits=""
--|       filterres=""
- |       glyphRef=""
- |       gradientTransform=""
- |       gradientUnits=""
-@@ -143,7 +135,7 @@
- |       zoomAndPan=""
- 
- #data
--<!DOCTYPE html><body><svg attributename='' attributetype='' basefrequency='' baseprofile='' calcmode='' clippathunits='' contentscripttype='' contentstyletype='' diffuseconstant='' edgemode='' externalresourcesrequired='' filterres='' filterunits='' glyphref='' gradienttransform='' gradientunits='' kernelmatrix='' kernelunitlength='' keypoints='' keysplines='' keytimes='' lengthadjust='' limitingconeangle='' markerheight='' markerunits='' markerwidth='' maskcontentunits='' maskunits='' numoctaves='' pathlength='' patterncontentunits='' patterntransform='' patternunits='' pointsatx='' pointsaty='' pointsatz='' preservealpha='' preserveaspectratio='' primitiveunits='' refx='' refy='' repeatcount='' repeatdur='' requiredextensions='' requiredfeatures='' specularconstant='' specularexponent='' spreadmethod='' startoffset='' stddeviation='' stitchtiles='' surfacescale='' systemlanguage='' tablevalues='' targetx='' targety='' textlength='' viewbox='' viewtarget='' xchannelselector='' ychannelselector='' zoomandpan=''></svg>
-+<!DOCTYPE html><body><svg attributename='' attributetype='' basefrequency='' baseprofile='' calcmode='' clippathunits='' diffuseconstant='' edgemode='' filterunits='' filterres='' glyphref='' gradienttransform='' gradientunits='' kernelmatrix='' kernelunitlength='' keypoints='' keysplines='' keytimes='' lengthadjust='' limitingconeangle='' markerheight='' markerunits='' markerwidth='' maskcontentunits='' maskunits='' numoctaves='' pathlength='' patterncontentunits='' patterntransform='' patternunits='' pointsatx='' pointsaty='' pointsatz='' preservealpha='' preserveaspectratio='' primitiveunits='' refx='' refy='' repeatcount='' repeatdur='' requiredextensions='' requiredfeatures='' specularconstant='' specularexponent='' spreadmethod='' startoffset='' stddeviation='' stitchtiles='' surfacescale='' systemlanguage='' tablevalues='' targetx='' targety='' textlength='' viewbox='' viewtarget='' xchannelselector='' ychannelselector='' zoomandpan=''></svg>
- #errors
- #document
- | <!DOCTYPE html>
-@@ -157,11 +149,8 @@
- |       baseProfile=""
- |       calcMode=""
- |       clipPathUnits=""
--|       contentscripttype=""
--|       contentstyletype=""
- |       diffuseConstant=""
- |       edgeMode=""
--|       externalresourcesrequired=""
- |       filterUnits=""
- |       filterres=""
- |       glyphRef=""
-@@ -215,7 +204,7 @@
- |       zoomAndPan=""
- 
- #data
--<!DOCTYPE html><body><math attributeName='' attributeType='' baseFrequency='' baseProfile='' calcMode='' clipPathUnits='' contentScriptType='' contentStyleType='' diffuseConstant='' edgeMode='' externalResourcesRequired='' filterRes='' filterUnits='' glyphRef='' gradientTransform='' gradientUnits='' kernelMatrix='' kernelUnitLength='' keyPoints='' keySplines='' keyTimes='' lengthAdjust='' limitingConeAngle='' markerHeight='' markerUnits='' markerWidth='' maskContentUnits='' maskUnits='' numOctaves='' pathLength='' patternContentUnits='' patternTransform='' patternUnits='' pointsAtX='' pointsAtY='' pointsAtZ='' preserveAlpha='' preserveAspectRatio='' primitiveUnits='' refX='' refY='' repeatCount='' repeatDur='' requiredExtensions='' requiredFeatures='' specularConstant='' specularExponent='' spreadMethod='' startOffset='' stdDeviation='' stitchTiles='' surfaceScale='' systemLanguage='' tableValues='' targetX='' targetY='' textLength='' viewBox='' viewTarget='' xChannelSelector='' yChannelSelector='' zoomAndPan=''></math>
-+<!DOCTYPE html><body><math attributeName='' attributeType='' baseFrequency='' baseProfile='' calcMode='' clipPathUnits='' diffuseConstant='' edgeMode='' filterUnits='' glyphRef='' gradientTransform='' gradientUnits='' kernelMatrix='' kernelUnitLength='' keyPoints='' keySplines='' keyTimes='' lengthAdjust='' limitingConeAngle='' markerHeight='' markerUnits='' markerWidth='' maskContentUnits='' maskUnits='' numOctaves='' pathLength='' patternContentUnits='' patternTransform='' patternUnits='' pointsAtX='' pointsAtY='' pointsAtZ='' preserveAlpha='' preserveAspectRatio='' primitiveUnits='' refX='' refY='' repeatCount='' repeatDur='' requiredExtensions='' requiredFeatures='' specularConstant='' specularExponent='' spreadMethod='' startOffset='' stdDeviation='' stitchTiles='' surfaceScale='' systemLanguage='' tableValues='' targetX='' targetY='' textLength='' viewBox='' viewTarget='' xChannelSelector='' yChannelSelector='' zoomAndPan=''></math>
- #errors
- #document
- | <!DOCTYPE html>
-@@ -229,12 +218,8 @@
- |       baseprofile=""
- |       calcmode=""
- |       clippathunits=""
--|       contentscripttype=""
--|       contentstyletype=""
- |       diffuseconstant=""
- |       edgemode=""
--|       externalresourcesrequired=""
--|       filterres=""
- |       filterunits=""
- |       glyphref=""
- |       gradienttransform=""
 diff --git a/html/parsing/html5lib/html-tree/tests15.dat b/html/parsing/html5lib/html-tree/tests15.dat
 index 93d06a8..f9f68c4 100644
 --- a/html/parsing/html5lib/html-tree/tests15.dat
@@ -1657,160 +595,10 @@ index 93d06a8..f9f68c4 100644
  #document
  | <!DOCTYPE html>
 diff --git a/html/parsing/html5lib/html-tree/tests16.dat b/html/parsing/html5lib/html-tree/tests16.dat
-index c8f6d43..897f86f 100644
+index 1219157..897f86f 100644
 --- a/html/parsing/html5lib/html-tree/tests16.dat
 +++ b/html/parsing/html5lib/html-tree/tests16.dat
-@@ -1029,6 +1029,7 @@
- <!doctype html><noscript><!--<noscript></noscript>--></noscript>
- #errors
- (1,64): unexpected-end-tag
-+#script-on
- #document
- | <!DOCTYPE html>
- | <html>
-@@ -1039,8 +1040,21 @@
- |     "-->"
- 
- #data
-+<!doctype html><noscript><!--<noscript></noscript>--></noscript>
-+#errors
-+#script-off
-+#document
-+| <!DOCTYPE html>
-+| <html>
-+|   <head>
-+|     <noscript>
-+|       <!-- <noscript></noscript> -->
-+|   <body>
-+
-+#data
- <!doctype html><noscript><!--</noscript>X<noscript>--></noscript>
- #errors
-+#script-on
- #document
- | <!DOCTYPE html>
- | <html>
-@@ -1053,8 +1067,21 @@
- |       "-->"
- 
- #data
-+<!doctype html><noscript><!--</noscript>X<noscript>--></noscript>
-+#errors
-+#script-off
-+#document
-+| <!DOCTYPE html>
-+| <html>
-+|   <head>
-+|     <noscript>
-+|       <!-- </noscript>X<noscript> -->
-+|   <body>
-+
-+#data
- <!doctype html><noscript><iframe></noscript>X
- #errors
-+#script-on
- #document
- | <!DOCTYPE html>
- | <html>
-@@ -1065,6 +1092,21 @@
- |     "X"
- 
- #data
-+<!doctype html><noscript><iframe></noscript>X
-+#errors
-+ * (1,34) unexpected token in head noscript
-+ * (1,46) unexpected EOF
-+#script-off
-+#document
-+| <!DOCTYPE html>
-+| <html>
-+|   <head>
-+|     <noscript>
-+|   <body>
-+|     <iframe>
-+|       "</noscript>X"
-+
-+#data
- <!doctype html><noframes><!--<noframes></noframes>--></noframes>
- #errors
- (1,64): unexpected-end-tag
-@@ -2190,6 +2232,7 @@
- #errors
- (1,10): expected-doctype-but-got-start-tag
- (1,49): unexpected-end-tag
-+#script-on
- #document
- | <html>
- |   <head>
-@@ -2199,9 +2242,22 @@
- |     "-->"
- 
- #data
-+<noscript><!--<noscript></noscript>--></noscript>
-+#errors
-+ * (1,11) missing DOCTYPE
-+#script-off
-+#document
-+| <html>
-+|   <head>
-+|     <noscript>
-+|       <!-- <noscript></noscript> -->
-+|   <body>
-+
-+#data
- <noscript><!--</noscript>X<noscript>--></noscript>
- #errors
- (1,10): expected-doctype-but-got-start-tag
-+#script-on
- #document
- | <html>
- |   <head>
-@@ -2213,9 +2269,22 @@
- |       "-->"
- 
- #data
-+<noscript><!--</noscript>X<noscript>--></noscript>
-+#errors
-+(1,10): expected-doctype-but-got-start-tag
-+#script-off
-+#document
-+| <html>
-+|   <head>
-+|     <noscript>
-+|       <!-- </noscript>X<noscript> -->
-+|   <body>
-+
-+#data
- <noscript><iframe></noscript>X
- #errors
- (1,10): expected-doctype-but-got-start-tag
-+#script-on
- #document
- | <html>
- |   <head>
-@@ -2225,6 +2294,21 @@
- |     "X"
- 
- #data
-+<noscript><iframe></noscript>X
-+#errors
-+ * (1,11) missing DOCTYPE
-+ * (1,19) unexpected token in head noscript
-+ * (1,31) unexpected EOF
-+#script-off
-+#document
-+| <html>
-+|   <head>
-+|     <noscript>
-+|   <body>
-+|     <iframe>
-+|       "</noscript>X"
-+
-+#data
- <noframes><!--<noframes></noframes>--></noframes>
- #errors
- (1,10): expected-doctype-but-got-start-tag
-@@ -2323,8 +2407,8 @@
+@@ -2407,8 +2407,8 @@
  |     "-->"
  
  #data
@@ -1821,7 +609,7 @@ index c8f6d43..897f86f 100644
  #errors
  (2,0): eof-in-table
  #document
-@@ -2362,7 +2446,6 @@
+@@ -2446,7 +2446,6 @@
  (1,35): unexpected-end-tag-implies-table-voodoo
  (1,35): unexpected-end-tag
  (1,41): unexpected-form-in-table
@@ -1906,7 +694,7 @@ index 926bccb..9561bf6 100644
  #document
  | <!DOCTYPE html>
 diff --git a/html/parsing/html5lib/html-tree/tests19.dat b/html/parsing/html5lib/html-tree/tests19.dat
-index 87c33dc..50eb305 100644
+index 02158c8..50eb305 100644
 --- a/html/parsing/html5lib/html-tree/tests19.dat
 +++ b/html/parsing/html5lib/html-tree/tests19.dat
 @@ -84,7 +84,6 @@
@@ -1990,73 +778,7 @@ index 87c33dc..50eb305 100644
  
  #data
  <!doctype html><ruby><p><rp>
-@@ -250,6 +228,65 @@
- |         <rt>
- 
- #data
-+<html><ruby>a<rb>b<rt></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rb>
-+|         "b"
-+|       <rt>
-+
-+#data
-+<html><ruby>a<rp>b<rt></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rp>
-+|         "b"
-+|       <rt>
-+
-+#data
-+<html><ruby>a<rt>b<rt></ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rt>
-+|         "b"
-+|       <rt>
-+
-+#data
-+<html><ruby>a<rtc>b<rt>c<rb>d</ruby></html>
-+#errors
-+(1,6): expected-doctype-but-got-start-tag
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <ruby>
-+|       "a"
-+|       <rtc>
-+|         "b"
-+|         <rt>
-+|           "c"
-+|       <rb>
-+|         "d"
-+
-+#data
- <!doctype html><math/><foo>
- #errors
- (1,27): expected-closing-tag-but-got-eof
-@@ -331,8 +368,6 @@
+@@ -390,8 +368,6 @@
  <!doctype html><table>abc<!--foo-->
  #errors
  (1,23): foster-parenting-character
@@ -2065,7 +787,7 @@ index 87c33dc..50eb305 100644
  (1,35): eof-in-table
  #document
  | <!DOCTYPE html>
-@@ -360,8 +395,6 @@
+@@ -419,8 +395,6 @@
  <!doctype html><table> b <!--foo-->
  #errors
  (1,23): foster-parenting-character
@@ -2074,7 +796,7 @@ index 87c33dc..50eb305 100644
  (1,35): eof-in-table
  #document
  | <!DOCTYPE html>
-@@ -1057,7 +1090,6 @@
+@@ -1116,7 +1090,6 @@
  <!doctype html><math></html>
  #errors
  (1,28): unexpected-end-tag
@@ -2082,7 +804,7 @@ index 87c33dc..50eb305 100644
  (1,28): unexpected-end-tag
  #document
  | <!DOCTYPE html>
-@@ -1117,6 +1149,8 @@
+@@ -1176,6 +1149,8 @@
  <!doctype html><image/>
  #errors
  (1,23): image-start-tag
@@ -2168,34 +890,6 @@ index 8964624..b9e82d1 100644
  #errors
  (1,3): expected-doctype-but-got-start-tag
  (1,11): invalid-character-in-attribute-name
-diff --git a/html/parsing/html5lib/html-tree/tests5.dat b/html/parsing/html5lib/html-tree/tests5.dat
-index 4d5fcd7..1ef8cae 100644
---- a/html/parsing/html5lib/html-tree/tests5.dat
-+++ b/html/parsing/html5lib/html-tree/tests5.dat
-@@ -188,6 +188,7 @@
- #errors
- (1,10): expected-doctype-but-got-start-tag
- (1,39): unexpected-end-tag
-+#script-on
- #document
- | <html>
- |   <head>
-@@ -195,3 +196,15 @@
- |       "<!--"
- |   <body>
- |     "-->"
-+
-+#data
-+<noscript><!--</noscript>--></noscript>
-+#errors
-+(1,10): expected-doctype-but-got-start-tag
-+#script-off
-+#document
-+| <html>
-+|   <head>
-+|     <noscript>
-+|       <!-- </noscript> -->
-+|   <body>
 diff --git a/html/parsing/html5lib/html-tree/tests6.dat b/html/parsing/html5lib/html-tree/tests6.dat
 index d774fc2..5027dc4 100644
 --- a/html/parsing/html5lib/html-tree/tests6.dat
@@ -2219,31 +913,10 @@ index d774fc2..5027dc4 100644
  | <!DOCTYPE html "-//W3C//DTD HTML 4.01//EN" "">
  | <html>
 diff --git a/html/parsing/html5lib/html-tree/tests7.dat b/html/parsing/html5lib/html-tree/tests7.dat
-index d941d3d..20209e1 100644
+index 78fb6fa..20209e1 100644
 --- a/html/parsing/html5lib/html-tree/tests7.dat
 +++ b/html/parsing/html5lib/html-tree/tests7.dat
-@@ -136,6 +136,20 @@ unexpected text in table
- |           "X"
- 
- #data
-+<!doctype html><p><object type="application/x-non-existant-plugin"><p>X</p></object>
-+#errors
-+#document
-+| <!DOCTYPE html>
-+| <html>
-+|   <head>
-+|   <body>
-+|     <p>
-+|       <object>
-+|         type="application/x-non-existant-plugin"
-+|         <p>
-+|           "X"
-+
-+#data
- <!doctype html><listing>
- X</listing>
- #errors
-@@ -336,8 +350,6 @@ html
+@@ -350,8 +350,6 @@ html
  (1,7): expected-doctype-but-got-start-tag
  (1,10): foster-parenting-start-tag
  (1,32): foster-parenting-character
@@ -2252,7 +925,7 @@ index d941d3d..20209e1 100644
  (1,45): expected-closing-tag-but-got-eof
  #document
  | <html>
-@@ -359,9 +371,7 @@ A<table><tr> B</tr> B</table>
+@@ -373,9 +371,7 @@ A<table><tr> B</tr> B</table>
  #errors
  (1,1): expected-doctype-but-got-chars
  (1,13): foster-parenting-character
@@ -2262,7 +935,7 @@ index d941d3d..20209e1 100644
  #document
  | <html>
  |   <head>
-@@ -376,7 +386,6 @@ A<table><tr> B</tr> </em>C</table>
+@@ -390,7 +386,6 @@ A<table><tr> B</tr> </em>C</table>
  #errors
  (1,1): expected-doctype-but-got-chars
  (1,13): foster-parenting-character
@@ -2410,7 +1083,7 @@ index 753502a..98f4645 100644
  #document
  | <html>
 diff --git a/html/parsing/html5lib/html-tree/webkit01.dat b/html/parsing/html5lib/html-tree/webkit01.dat
-index c480acc..e32f28a 100644
+index f1cd858..e32f28a 100644
 --- a/html/parsing/html5lib/html-tree/webkit01.dat
 +++ b/html/parsing/html5lib/html-tree/webkit01.dat
 @@ -385,7 +385,6 @@ console.log("FOO<span>BAR</span>BAZ");
@@ -2421,281 +1094,153 @@ index c480acc..e32f28a 100644
  #document
  | <html>
  |   <head>
-@@ -651,6 +650,26 @@ console.log("FOO<span>BAR</span>BAZ");
- |       <desc>
- 
+@@ -653,6 +652,10 @@ console.log("FOO<span>BAR</span>BAZ");
  #data
-+<table><tr><td><svg><desc><td></desc><circle>
-+#errors
+ <table><tr><td><svg><desc><td></desc><circle>
+ #errors
 +no DOCTYPE
 +<td> bad context
 +bad </desc>
 +EOF
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <table>
-+|       <tbody>
-+|         <tr>
-+|           <td>
-+|             <svg svg>
-+|               <svg desc>
-+|           <td>
-+|             <circle>
-+
-+#data
- <svg><tfoot></mi><td>
- #errors
- (1,5): expected-doctype-but-got-start-tag
-diff --git a/html/parsing/html5lib/html-tree/webkit02.dat b/html/parsing/html5lib/html-tree/webkit02.dat
-index 647fcfd..4b48da7 100644
---- a/html/parsing/html5lib/html-tree/webkit02.dat
-+++ b/html/parsing/html5lib/html-tree/webkit02.dat
-@@ -14,6 +14,7 @@
- <p id="status"><noscript><strong>A</strong></noscript><span>B</span></p>
- #errors
- (1,15): expected-doctype-but-got-start-tag
-+#script-on
  #document
  | <html>
  |   <head>
-@@ -26,6 +27,23 @@
- |         "B"
- 
+diff --git a/html/parsing/html5lib/html-tree/webkit02.dat b/html/parsing/html5lib/html-tree/webkit02.dat
+index d9ef820..4b48da7 100644
+--- a/html/parsing/html5lib/html-tree/webkit02.dat
++++ b/html/parsing/html5lib/html-tree/webkit02.dat
+@@ -136,6 +136,7 @@
  #data
-+<p id="status"><noscript><strong>A</strong></noscript><span>B</span></p>
-+#errors
-+(1,15): expected-doctype-but-got-start-tag
-+#script-off
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <p>
-+|       id="status"
-+|       <noscript>
-+|         <strong>
-+|           "A"
-+|       <span>
-+|         "B"
-+
-+#data
- <div><sarcasm><div></div></sarcasm></div>
+ <legend>test</legend>
  #errors
- (1,5): expected-doctype-but-got-start-tag
-@@ -114,3 +132,214 @@
- |         <tr>
- |           <td>
- |             "A"
-+
-+#data
-+<legend>test</legend>
-+#errors
 +no DOCTYPE
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <legend>
-+|       "test"
-+
-+#data
-+<table><input>
-+#errors
+ #document
+ | <html>
+ |   <head>
+@@ -146,6 +147,9 @@
+ #data
+ <table><input>
+ #errors
 +no DOCTYPE
 +<input> in table
 +EOF
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <input>
-+|     <table>
-+
-+#data
-+<b><em><foo><foo><aside></b>
-+#errors
+ #document
+ | <html>
+ |   <head>
+@@ -156,6 +160,9 @@
+ #data
+ <b><em><foo><foo><aside></b>
+ #errors
 +no DOCTYPE
 +AAA
 +EOF
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <b>
-+|       <em>
-+|         <foo>
-+|           <foo>
-+|     <em>
-+|       <aside>
-+|         <b>
-+
-+#data
-+<b><em><foo><foo><aside></b></em>
-+#errors
+ #document
+ | <html>
+ |   <head>
+@@ -171,6 +178,10 @@
+ #data
+ <b><em><foo><foo><aside></b></em>
+ #errors
 +no DOCTYPE
 +AAA
 +AAA
 +EOF
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <b>
-+|       <em>
-+|         <foo>
-+|           <foo>
-+|     <em>
-+|     <aside>
-+|       <em>
-+|         <b>
-+
-+#data
-+<b><em><foo><foo><foo><aside></b>
-+#errors
+ #document
+ | <html>
+ |   <head>
+@@ -187,6 +198,9 @@
+ #data
+ <b><em><foo><foo><foo><aside></b>
+ #errors
 +no DOCTYPE
 +AAA
 +EOF
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <b>
-+|       <em>
-+|         <foo>
-+|           <foo>
-+|             <foo>
-+|     <aside>
-+|       <b>
-+
-+#data
-+<b><em><foo><foo><foo><aside></b></em>
-+#errors
+ #document
+ | <html>
+ |   <head>
+@@ -202,6 +216,10 @@
+ #data
+ <b><em><foo><foo><foo><aside></b></em>
+ #errors
 +no DOCTYPE
 +AAA
 +bad </em>
 +EOF
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <b>
-+|       <em>
-+|         <foo>
-+|           <foo>
-+|             <foo>
-+|     <aside>
-+|       <b>
-+
-+#data
-+<b><em><foo><foo><foo><foo><foo><foo><foo><foo><foo><foo><aside></b></em>
-+#errors
+ #document
+ | <html>
+ |   <head>
+@@ -217,6 +235,9 @@
+ #data
+ <b><em><foo><foo><foo><foo><foo><foo><foo><foo><foo><foo><aside></b></em>
+ #errors
 +AAA
 +no </em>
 +EOF
-+#document-fragment
-+div
-+#document
-+| <b>
-+|   <em>
-+|     <foo>
-+|       <foo>
-+|         <foo>
-+|           <foo>
-+|             <foo>
-+|               <foo>
-+|                 <foo>
-+|                   <foo>
-+|                     <foo>
-+|                       <foo>
-+| <aside>
-+|   <b>
-+
-+#data
-+<b><em><foo><foob><foob><foob><foob><fooc><fooc><fooc><fooc><food><aside></b></em>
-+#errors
+ #document-fragment
+ div
+ #document
+@@ -238,6 +259,9 @@ div
+ #data
+ <b><em><foo><foob><foob><foob><foob><fooc><fooc><fooc><fooc><food><aside></b></em>
+ #errors
 +AAA
 +bad </em>
 +EOF
-+#document-fragment
-+div
-+#document
-+| <b>
-+|   <em>
-+|     <foo>
-+|       <foob>
-+|         <foob>
-+|           <foob>
-+|             <foob>
-+|               <fooc>
-+|                 <fooc>
-+|                   <fooc>
-+|                     <fooc>
-+|                       <food>
-+| <aside>
-+|   <b>
-+
-+#data
-+<isindex action="x">
-+#errors
+ #document-fragment
+ div
+ #document
+@@ -259,21 +283,19 @@ div
+ #data
+ <isindex action="x">
+ #errors
 +<isindex> in table
 +no </isindex>
-+#document-fragment
-+table
-+#document
+ #document-fragment
+ table
+ #document
+-| <form>
 +| <isindex>
-+|   action="x"
-+
-+#data
-+<option><XH<optgroup></optgroup>
-+#errors
+ |   action="x"
+-|   <hr>
+-|   <label>
+-|     "This is a searchable index. Enter search keywords: "
+-|     <input>
+-|       name="isindex"
+-|   <hr>
+ 
+ #data
+ <option><XH<optgroup></optgroup>
+ #errors
 +<xH<optgroup> in select
 +bad </optgroup>
-+#document-fragment
-+select
-+#document
-+| <option>
-+
-+#data
-+<svg><foreignObject><div>foo</div><plaintext></foreignObject></svg><div>bar</div>
-+#errors
+ #document-fragment
+ select
+ #document
+@@ -282,6 +304,8 @@ select
+ #data
+ <svg><foreignObject><div>foo</div><plaintext></foreignObject></svg><div>bar</div>
+ #errors
 +no DOCTYPE
 +no </plaintext>
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <svg svg>
-+|       <svg foreignObject>
-+|         <div>
-+|           "foo"
-+|         <plaintext>
-+|           "</foreignObject></svg><div>bar</div>"
-+
-+#data
-+<svg><foreignObject></foreignObject><title></svg>foo
-+#errors
+ #document
+ | <html>
+ |   <head>
+@@ -296,6 +320,8 @@ select
+ #data
+ <svg><foreignObject></foreignObject><title></svg>foo
+ #errors
 +no DOCTYPE
 +no </title>
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <svg svg>
-+|       <svg foreignObject>
-+|       <svg title>
-+|     "foo"
-+
-+#data
-+</foreignObject><plaintext><div>foo</div>
-+#errors
+ #document
+ | <html>
+ |   <head>
+@@ -308,6 +334,9 @@ select
+ #data
+ </foreignObject><plaintext><div>foo</div>
+ #errors
 +no DOCTYPE
 +bad </foreignObject>
 +no EOF
-+#document
-+| <html>
-+|   <head>
-+|   <body>
-+|     <plaintext>
-+|       "<div>foo</div>"
+ #document
+ | <html>
+ |   <head>
