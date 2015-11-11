@@ -1944,20 +1944,20 @@ aa<map name="x">b<map name="y">bb</map></map>
     hreflang=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/area/@hreflang;langtag:language:invalid;m
-/area/@hreflang;langtag:language:syntax;m
+/area/@hreflang;attr:obsolete;m
 
 #data
 <area href="http://test/" alt="" coords="1,2,3,4"
     hreflang="en"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/area/@hreflang;attr:obsolete;m
 
 #data
 <area coords="1,2,3,4" hreflang="en"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/area/@hreflang;attribute not allowed;m
+/area/@hreflang;attr:obsolete;m
 
 #data
 <area href="http://test/" alt="" coords="1,2,3,4"
@@ -2318,34 +2318,35 @@ aa<map name="x">b<map name="y">bb</map></map>
     type="text/css"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/area/@type;attribute not allowed;m
+/area/@type;attr:obsolete;m
 
 #data
 <area shape="rect" coords="1,2,3,4"
     href="http://test/" type="" alt=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/area/@type;IMT:no type;m
+/area/@type;attr:obsolete;m
 
 #data
 <area shape="rect" coords="1,2,3,4"
     href="http://test/" type="text" alt=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/area/@type;IMT:no /;m
+/area/@type;attr:obsolete;m
 
 #data
 <area shape="rect" coords="1,2,3,4"
     href="http://test/" type="text/css" alt=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/area/@type;attr:obsolete;m
 
 #data
 <area shape="rect" coords="1,2,3,4"
     href="http://test/" type="text/css; a=b" alt=""
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/area/@type;IMT:parameter not allowed;m
+/area/@type;attr:obsolete;m
 
 #data
 <area shape="rect" coords="1,2,3,4"
