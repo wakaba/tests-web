@@ -36,48 +36,28 @@ typedef unrestricted double ? Hoge;
 
 #data
 typedef unsigned long[ ] Hoge;
-#processed
-{
-  "Hoge": ["typedef", {
-    "type": ["array", "unsigned long"]
-  }]
-}
+#errors
+1;23;webidl:parse error;other, *;;m
 
 #data
 typedef unsigned long[ ][] Hoge;
-#processed
-{
-  "Hoge": ["typedef", {
-    "type": ["array", ["array", "unsigned long"]]
-  }]
-}
+#errors
+1;23;webidl:parse error;other, *;;m
 
 #data
 typedef unsigned long[ ][]? Hoge;
-#processed
-{
-  "Hoge": ["typedef", {
-    "type": ["nullable", ["array", ["array", "unsigned long"]]]
-  }]
-}
+#errors
+1;23;webidl:parse error;other, *;;m
 
 #data
 typedef unsigned long[ ]?[] Hoge;
-#processed
-{
-  "Hoge": ["typedef", {
-    "type": ["array", ["nullable", ["array", "unsigned long"]]]
-  }]
-}
+#errors
+1;23;webidl:parse error;other, *;;m
 
 #data
 typedef unsigned long?[ ][] Hoge;
-#processed
-{
-  "Hoge": ["typedef", {
-    "type": ["array", ["array", ["nullable", "unsigned long"]]]
-  }]
-}
+#errors
+1;24;webidl:parse error;other, *;;m
 
 #data
 typedef USVString Hoge;
@@ -122,24 +102,12 @@ typedef Fuga? Hoge;
 #data
 typedef Fuga?[] Hoge;
 #errors
-1;0;webidl:not defined;;Fuga;m
-#processed
-{
-  "Hoge": ["typedef", {
-    "type": ["array", ["nullable", ["ref", "Fuga"]]]
-  }]
-}
+1;14;webidl:parse error;other, *;;m
 
 #data
 typedef Fuga?[]? Hoge;
 #errors
-1;0;webidl:not defined;;Fuga;m
-#processed
-{
-  "Hoge": ["typedef", {
-    "type": ["nullable", ["array", ["nullable", ["ref", "Fuga"]]]]
-  }]
-}
+1;14;webidl:parse error;other, *;;m
 
 #data
 typedef sequence<long> Hoge;
@@ -161,12 +129,8 @@ typedef sequence<long?> Hoge;
 
 #data
 typedef sequence<long[]> Hoge;
-#processed
-{
-  "Hoge": ["typedef", {
-    "type": ["sequence", ["array", "long"]]
-  }]
-}
+#errors
+1;21;webidl:parse error;long, ;;m
 
 #data
 typedef sequence<sequence<long>> Hoge;
@@ -431,15 +395,8 @@ typedef sequence <(long or unsigned long)> Hoge;
 
 #data
 typedef (long or unsigned long)[]? Hoge;
-#processed
-{
-  "Hoge": ["typedef", {
-    "type": ["nullable", ["array", ["union", {
-      "def": ["long", "unsigned long"],
-      "flattened": {"long": "long", "unsigned long": "unsigned long"}
-    }]]]
-  }]
-}
+#errors
+1;32;webidl:parse error;other, *;;m
 
 #data
 typedef (long or (double or unsigned long)) Hoge;
@@ -458,20 +415,13 @@ typedef (long or (double or unsigned long)) Hoge;
 
 #data
 typedef (long[] or unsigned long[]) Hoge;
-#processed
-{
-  "Hoge": ["typedef", {
-    "type": ["union", {
-      "def": [["array", "long"], ["array", "unsigned long"]],
-      "flattened": {"array[long]": ["array", "long"], "array[unsigned long]": ["array", "unsigned long"]}
-    }]
-  }]
-}
+#errors
+1;13;webidl:parse error;long, ;;m
 
 #data
 typedef (any or long or unsigned long) Hoge;
 #errors
-1;13;webidl:parse error;[, ;;m
+1;9;webidl:parse error;unsigned, ;;m
 #processed
 {}
 

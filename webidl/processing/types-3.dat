@@ -65,27 +65,6 @@ dictionary A {
 
 #data
 dictionary A {
-  A[] foo ;
-};
-#errors
-1;17;webidl:bad type;;ref_dictionary[A];m
-1;;webidl:cyclic inheritance;;A;m
-#processed
-{
-  "A": ["dictionary", {
-    "members": {
-      "foo": ["dictionary_member", {"type": 
-        ["array", ["ref_dictionary", "A"]]
-      }]
-    },
-    "dictionaries_included_by_members": {
-      "A": 1
-    }
-  }]
-}
-
-#data
-dictionary A {
   sequence<A> foo ;
 };
 #errors

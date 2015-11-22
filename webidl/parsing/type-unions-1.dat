@@ -23,15 +23,8 @@ typedef (DOMString or Node)? A;
 
 #data
 typedef (DOMString or Node)[] A;
-#parsed
-{ "definitions": [ {
-  "index": 0, "definition_type": "typedef", "name": "A",
-  "type_union": [
-    {"type": "DOMString"},
-    {"type_name": "Node"}
-  ],
-  "type_array": {}
-} ] }
+#errors
+28;webidl:parse error;other, *;;m
 
 #data
 typedef sequence <(DOMString or Node)> A;
@@ -64,26 +57,14 @@ typedef ((DOMString or Node) or long) A;
 #data
 typedef (DOMString or any) A;
 #errors
-25;webidl:parse error;[, ;;m
+22;webidl:parse error;unsigned, ;;m
 
 #data
 typedef (DOMString or any[]) A;
-#parsed
-{ "definitions": [ {
-  "index": 0, "definition_type": "typedef", "name": "A",
-  "type_union": [
-    {"type": "DOMString"},
-    {"type": "any", "type_array": {}}
-  ]
-} ] }
+#errors
+22;webidl:parse error;unsigned, ;;m
 
 #data
 typedef (DOMString or any[]?) A;
-#parsed
-{ "definitions": [ {
-  "index": 0, "definition_type": "typedef", "name": "A",
-  "type_union": [
-    {"type": "DOMString"},
-    {"type": "any", "type_array": {"type_nullable": 1}}
-  ]
-} ] }
+#errors
+22;webidl:parse error;unsigned, ;;m

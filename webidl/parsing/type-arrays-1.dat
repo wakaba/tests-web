@@ -1,121 +1,54 @@
 #data
 typedef DOMString [] A;
-#parsed
-{ "definitions": [ {
-  "index": 0, "definition_type": "typedef", "name": "A",
-  "type": "DOMString",
-  "type_array": {
-  }
-} ] }
+#errors
+19;webidl:parse error;other, *;;m
 
 #data
 typedef DOMString? [] A;
-#parsed
-{ "definitions": [ {
-  "index": 0, "definition_type": "typedef", "name": "A",
-  "type": "DOMString",
-  "type_nullable": 1,
-  "type_array": {
-  }
-} ] }
+#errors
+20;webidl:parse error;other, *;;m
 
 #data
 typedef DOMString [] ? A;
-#parsed
-{ "definitions": [ {
-  "index": 0, "definition_type": "typedef", "name": "A",
-  "type": "DOMString",
-  "type_array": {
-    "type_nullable": 1
-  }
-} ] }
+#errors
+19;webidl:parse error;other, *;;m
 
 #data
 typedef DOMString [] [] A;
-#parsed
-{ "definitions": [ {
-  "index": 0, "definition_type": "typedef", "name": "A",
-  "type": "DOMString",
-  "type_array": {
-    "type_array": {
-    }
-  }
-} ] }
+#errors
+19;webidl:parse error;other, *;;m
 
 #data
 typedef DOMString [] ? [] A;
-#parsed
-{ "definitions": [ {
-  "index": 0, "definition_type": "typedef", "name": "A",
-  "type": "DOMString",
-  "type_array": {
-    "type_nullable": 1,
-    "type_array": {
-    }
-  }
-} ] }
+#errors
+19;webidl:parse error;other, *;;m
 
 #data
 typedef DOMString [] ? [] ? A;
-#parsed
-{ "definitions": [ {
-  "index": 0, "definition_type": "typedef", "name": "A",
-  "type": "DOMString",
-  "type_array": {
-    "type_nullable": 1,
-    "type_array": {
-      "type_nullable": 1
-    }
-  }
-} ] }
+#errors
+19;webidl:parse error;other, *;;m
 
 #data
 typedef DOMString [] ? ? A;
 #errors
-23;webidl:parse error;[, ;;m
+19;webidl:parse error;other, *;;m
 
 #data
 typedef DOMString [] ? [] ? [] A;
-#parsed
-{ "definitions": [ {
-  "index": 0, "definition_type": "typedef", "name": "A",
-  "type": "DOMString",
-  "type_array": {
-    "type_nullable": 1,
-    "type_array": {
-      "type_nullable": 1,
-      "type_array": {}
-    }
-  }
-} ] }
+#errors
+19;webidl:parse error;other, *;;m
 
 #data
 typedef long [] A;
-#parsed
-{ "definitions": [ {
-  "index": 0, "definition_type": "typedef", "name": "A",
-  "type": "long",
-  "type_array": {
-  }
-} ] }
+#errors
+14;webidl:parse error;other, *;;m
 
 #data
 typedef any [] A;
-#parsed
-{ "definitions": [ {
-  "index": 0, "definition_type": "typedef", "name": "A",
-  "type": "any",
-  "type_array": {
-  }
-} ] }
+#errors
+13;webidl:parse error;other, *;;m
 
 #data
 typedef any [] ? A;
-#parsed
-{ "definitions": [ {
-  "index": 0, "definition_type": "typedef", "name": "A",
-  "type": "any",
-  "type_array": {
-    "type_nullable": 1
-  }
-} ] }
+#errors
+13;webidl:parse error;other, *;;m

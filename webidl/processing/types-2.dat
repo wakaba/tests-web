@@ -22,43 +22,16 @@ typedef any? T;
 #data
 typedef (any or long) T;
 #errors
-1;13;webidl:parse error;[, ;;m
+1;9;webidl:parse error;unsigned, ;;m
 #processed
 {}
 
 #data
 typedef (DOMString or any or long) T;
 #errors
-1;26;webidl:parse error;[, ;;m
+1;22;webidl:parse error;unsigned, ;;m
 #processed
 {}
-
-#data
-typedef sequence<long>[] T;
-#errors
-1;23;webidl:parse error;other, *;;m
-#processed
-{}
-
-#data
-typedef D[] T;
-#errors
-1;0;webidl:not defined;;D;m
-#processed
-{
-  "T": ["typedef", {"type": ["array", ["ref", "D"]]}]
-}
-
-#data
-typedef D[] T;
-dictionary D {};
-#errors
-1;0;webidl:bad type;;ref_dictionary[D];m
-#processed
-{
-  "T": ["typedef", {"type": ["array", ["ref_dictionary", "D"]]}],
-  "D": ["dictionary", {"members": {}}]
-}
 
 #data
 typedef sequence<D> T;

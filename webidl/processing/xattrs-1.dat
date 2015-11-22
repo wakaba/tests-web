@@ -1051,56 +1051,17 @@ interface Foo {
 
 #data
 interface A {
-  [SameObject] readonly attribute long[] Foo;
-};
-#processed
-{
-  "A": ["interface", {
-    "members": {
-      "Foo": ["attribute", {
-        "type": ["array", "long"],
-        "getter": 1,
-        "SameObject": 1
-      }]
-    }
-  }]
-}
-
-#data
-interface A {
   [SameObject] static readonly attribute long[] Foo;
 };
-#processed
-{
-  "A": ["interface", {
-    "members": {
-      "Foo": ["static_attribute", {
-        "type": ["array", "long"],
-        "getter": 1,
-        "SameObject": 1
-      }]
-    }
-  }]
-}
+#errors
+1;60;webidl:parse error;other, *;;m
 
 #data
 interface A {
   [SameObject]  attribute long[] Foo;
 };
 #errors
-1;17;webidl:not allowed;;SameObject;m
-#processed
-{
-  "A": ["interface", {
-    "members": {
-      "Foo": ["attribute", {
-        "type": ["array", "long"],
-        "getter": 1,
-        "setter": 1
-      }]
-    }
-  }]
-}
+1;45;webidl:parse error;other, *;;m
 
 #data
 [TreatNonObjectAsNull]
