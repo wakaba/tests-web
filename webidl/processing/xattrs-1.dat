@@ -114,6 +114,112 @@ interface A {};
 }
 
 #data
+[LegacyArrayClass] interface A {};
+#processed
+{
+  "A": ["interface", {
+    "ArrayClass": 1,
+    "members": {}
+  }]
+}
+
+#data
+[LegacyArrayClass] callback interface A {};
+#processed
+{
+  "A": ["callback_interface", {
+    "ArrayClass": 1,
+    "members": {}
+  }]
+}
+
+#data
+[LegacyArrayClass()] interface A {};
+#errors
+1;1;webidl:bad args;;LegacyArrayClass;m
+#processed
+{
+  "A": ["interface", {
+    "ArrayClass": 1,
+    "members": {}
+  }]
+}
+
+#data
+[LegacyArrayClass=foo()] interface A {};
+#errors
+1;1;webidl:bad args;;LegacyArrayClass;m
+#processed
+{
+  "A": ["interface", {
+    "ArrayClass": 1,
+    "members": {}
+  }]
+}
+
+#data
+[LegacyArrayClass=foo] interface A {};
+#errors
+1;1;webidl:bad args;;LegacyArrayClass;m
+#processed
+{
+  "A": ["interface", {
+    "ArrayClass": 1,
+    "members": {}
+  }]
+}
+
+#data
+[LegacyArrayClass=(foo,bar)] interface A {};
+#errors
+1;1;webidl:bad args;;LegacyArrayClass;m
+#processed
+{
+  "A": ["interface", {
+    "ArrayClass": 1,
+    "members": {}
+  }]
+}
+
+#data
+[LegacyArrayClass(long,long)] interface A {};
+#errors
+1;22;webidl:parse error;long, ;;m
+
+#data
+interface B {};
+[LegacyArrayClass] interface A : B {};
+#errors
+1;17;webidl:not allowed;;LegacyArrayClass;m
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "implements": {"B": {"depth": 1}}
+  }],
+  "B": ["interface", {"members": {}}]
+}
+
+#data
+interface A {};
+[LegacyArrayClass] partial interface  A {};
+#errors
+1;17;webidl:not allowed;;LegacyArrayClass;m
+#processed
+{
+  "A": ["interface", {"members": {}}]
+}
+
+#data
+[LegacyArrayClass] dictionary A {};
+#errors
+1;1;webidl:not allowed;;LegacyArrayClass;m
+#processed
+{
+  "A": ["dictionary", {"members": {}}]
+}
+
+#data
 dictionary A {
   [Clamp] long  lhoo;
 };
@@ -693,11 +799,11 @@ interface B {};
 1;14;webidl:parse error;long, ;;m
 
 #data
-[ArrayClass, MapClass(long, B)]
+[LegacyArrayClass, MapClass(long, B)]
 interface A  {};
 interface B {};
 #errors
-1;26;webidl:parse error;long, ;;m
+1;32;webidl:parse error;long, ;;m
 
 #data
 interface A {
