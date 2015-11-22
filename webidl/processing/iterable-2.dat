@@ -17,39 +17,11 @@ interface A {
 
 #data
 interface A {
-  iterable < DOMString >;
-  legacyiterable <DOMString>;
-};
-#errors
-1;42;webidl:duplicate;;iterable;m
-#processed
-{
-  "A": ["interface", {
-    "iterable": ["iterable", {
-      "values_type": "DOMString"
-    }],
-    "members": {}
-  }]
-}
-
-#data
-interface A {
   maplike < DOMString, DOMString >;
   legacyiterable <DOMString>;
 };
 #errors
-1;52;webidl:duplicate;;iterable;m
-#processed
-{
-  "A": ["interface", {
-    "iterable": ["maplike", {
-      "keys_type": "DOMString",
-      "values_type": "DOMString",
-      "read": 1, "write": 1
-    }],
-    "members": {}
-  }]
-}
+1;52;webidl:parse error;[, ;;m
 
 #data
 interface A {

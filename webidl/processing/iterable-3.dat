@@ -43,24 +43,3 @@ interface A {
     }
   }]
 }
-
-#data
-interface A {
-  attribute DOMString ent;
-  legacyiterable<A>;
-};
-#errors
-#processed
-{
-  "A": ["interface", {
-    "iterable": ["legacyiterable", {
-      "values_type": ["ref_interface", "A"]
-    }],
-    "members": {
-      "ent": ["attribute", {
-        "type": "DOMString",
-        "getter": 1, "setter": 1
-      }]
-    }
-  }]
-}
