@@ -1,0 +1,77 @@
+#data
+typedef FrozenArray A;
+#errors
+20;webidl:parse error;<, ;;m
+
+#data
+typedef FrozenArray<any> A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_parameterized": {
+    "type_outer": "FrozenArray",
+    "type": "any"
+  }
+} ] }
+
+#data
+typedef FrozenArray<any>? A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_parameterized": {
+    "type_outer": "FrozenArray",
+    "type": "any"
+  },
+  "type_nullable": 1
+} ] }
+
+#data
+typedef FrozenArray <void> A;
+#errors
+21;webidl:parse error;unsigned, ;;m
+
+#data
+typedef FrozenArray<unsigned long> A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_parameterized": {
+    "type_outer": "FrozenArray",
+    "type": "unsigned long"
+  }
+} ] }
+
+#data
+typedef FrozenArray<sequence<unsigned long>> A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_parameterized": {
+    "type_outer": "FrozenArray",
+    "type_parameterized": {
+      "type_outer": "sequence",
+      "type": "unsigned long"
+    }
+  }
+} ] }
+
+#data
+typedef FrozenArray<sequence < DOMString >?> A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_parameterized": {
+    "type_outer": "FrozenArray",
+    "type_parameterized": {
+      "type_outer": "sequence",
+      "type": "DOMString"
+    },
+    "type_nullable": 1
+  }
+} ] }
+
+#data
+typedef FrozenArray<sequence < DOMString >[]> A;
+#errors
+42;webidl:parse error;?, ;;m

@@ -151,6 +151,15 @@ typedef sequence<sequence<Promise<void>>> Hoge;
 }
 
 #data
+typedef sequence<sequence<FrozenArray<Promise<void>>>> Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["sequence", ["sequence", ["FrozenArray", ["Promise", "void"]]]]
+  }]
+}
+
+#data
 typedef sequence<sequence<long>?> Hoge;
 #processed
 {
