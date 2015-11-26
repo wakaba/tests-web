@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<title>Notification</title>
+
+<p id=result>
+
+<p><button type=button onclick="
+  Notification.requestPermission (function (v) {
+    document.querySelector ('#result').textContent = v;
+  });
+">Request</button>
