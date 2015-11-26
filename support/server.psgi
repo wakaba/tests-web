@@ -162,6 +162,7 @@ return sub {
       my $html = sprintf q{
         <!DOCTYPE HTML>
         <link rel=stylesheet href=/support/directory.css>
+        <meta name=viewport content="width=device-width">
         <title>tests-web/%s</title><h1>tests-web/%s</h1>
         <table>
           <thead>

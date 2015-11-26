@@ -2,17 +2,23 @@
 <title>Push API</title>
 <link rel=manifest href=manifest.json>
 
+<p id=result1>
+
 <p><button type=button onclick="
   navigator.serviceWorker.register ('worker.js?7', {scope: '/dom/push/push1/'}).then (function (r) {
     return navigator.serviceWorker.ready.then (function (reg) {
       return reg.pushManager.getSubscription ();
     }).then (function (sub) {
       console.log (sub);
+      document.querySelector ('#result1').textContent = sub;
     });
   }, function (e) {
     console.log ('Error', e);
+    document.querySelector ('#result1').textContent = e;
   });
 ">Register</button>
+
+<input id=endpoint>
 
 <p><button type=button onclick="
   return navigator.serviceWorker.ready.then (function (reg) {
@@ -20,6 +26,7 @@
   }).then (function (sub) {
     //console.log (sub);
     console.log ('Endpoint = ', sub.endpoint);
+    document.querySelector ('#endpoint').value = sub.endpoint;
   }, function (e) {
     console.log ('Error', e);
   });
