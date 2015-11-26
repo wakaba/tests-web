@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<title>ServiceWorker</title>
+
+<p><button type=button onclick="
+  navigator.serviceWorker.register ('worker.js?3', {scope: '/dom/serviceworkers/sw1/'}).then (function (r) {
+    console.log (r);
+  }, function (e) {
+    console.log ('Error', e);
+  });
+">Register</button>

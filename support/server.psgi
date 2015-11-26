@@ -140,6 +140,9 @@ return sub {
   my $http = Wanage::HTTP->new_from_psgi_env ($_[0]);
   my $app = Warabe::App->new_from_http ($http);
 
+  warn sprintf "[%s] %s %s\n",
+      scalar gmtime, $http->request_method, $app->http->url->stringify;
+
   return $app->execute_by_promise (sub {
     my $path = [@{$app->path_segments}];
 

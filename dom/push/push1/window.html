@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<title>Push API</title>
+<link rel=manifest href=manifest.json>
+
+<p><button type=button onclick="
+  navigator.serviceWorker.register ('worker.js?7', {scope: '/dom/push/push1/'}).then (function (r) {
+    return navigator.serviceWorker.ready.then (function (reg) {
+      return reg.pushManager.getSubscription ();
+    }).then (function (sub) {
+      console.log (sub);
+    });
+  }, function (e) {
+    console.log ('Error', e);
+  });
+">Register</button>
+
+<p><button type=button onclick="
+  return navigator.serviceWorker.ready.then (function (reg) {
+    return reg.pushManager.subscribe ({userVisibleOnly: true});
+  }).then (function (sub) {
+    //console.log (sub);
+    console.log ('Endpoint = ', sub.endpoint);
+  }, function (e) {
+    console.log ('Error', e);
+  });
+">Subscribe</button>
+
+<p><button type=button onclick="
+  return navigator.serviceWorker.ready.then (function (reg) {
+    return reg.unregister ();
+  }).then (function (sub) {
+    console.log (sub);
+  }, function (e) {
+    console.log ('Error', e);
+  });
+">Unregister</button>
+
+<p><button type=button onclick="
+  return navigator.serviceWorker.ready.then (function (reg) {
+    return reg.update ();
+  }).then (function (sub) {
+    console.log (sub);
+  }, function (e) {
+    console.log ('Error', e);
+  });
+">Update</button>
