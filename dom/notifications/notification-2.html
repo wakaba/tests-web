@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<title>Notification</title>
+
+<p id=result>
+
+<p><button type=button onclick="
+  Notification.requestPermission (function (v) {
+    document.querySelector ('#result').textContent = v;
+  });
+">Request</button>
+
+<p><button type=button onclick="
+  window.lastNotification = new Notification ('Hello! ' + new Date, {
+    body: 'Hi! Hi!'
+  });
+">Notification</button>
+
+<p><button type=button onclick="
+  if (window.lastNotification)
+    window.lastNotification.close ();
+">Close</button>
