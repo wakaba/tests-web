@@ -76,7 +76,7 @@
 #data
 <input minlength="12" type="dateTime" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/input/@minlength;input attr not applicable;datetime;m
+/input/@type;enumerated:invalid;m
 
 #data
 <input minlength="12" type="datetime-locaL" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -174,11 +174,16 @@
 #data
 <input min="2010-01-04T00:12:55.1Z" max="2012-01-04T00:12:55Z" type="datetime" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/input/@type;enumerated:invalid;m
+/input/@min;input attr not applicable;text;m
+/input/@max;input attr not applicable;text;m
 
 #data
 <input min="2012-01-04T00:12:55.1Z" max="2012-01-04T00:12:55Z" type="datetime" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/input/@max;max lt min;m
+/input/@type;enumerated:invalid;m
+/input/@min;input attr not applicable;text;m
+/input/@max;input attr not applicable;text;m
 
 #data
 <input min="2012-01-04T00:12:50" max="2012-01-04T00:12:55" type="datetime-local" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -232,8 +237,13 @@
 #data
 <input type="datetime" min="0091-02-12T00:00:00Z" max="1990-12-02T12:31:11Z" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/input/@type;enumerated:invalid;m
+/input/@min;input attr not applicable;text;m
+/input/@max;input attr not applicable;text;m
 
 #data
 <input type="datetime" max="0091-02-12T00:00:00Z" min="1990-12-02T12:31:11Z" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/input/@max;max lt min;m
+/input/@type;enumerated:invalid;m
+/input/@min;input attr not applicable;text;m
+/input/@max;input attr not applicable;text;m
