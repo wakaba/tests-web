@@ -164,7 +164,7 @@ return sub {
         <link rel=stylesheet href=/support/directory.css>
         <meta name=viewport content="width=device-width">
         <title>tests-web/%s</title><h1>tests-web/%s</h1>
-        <nav>
+        <nav class=protocol>
           <a href="javascript:location.href=location.href.replace(/^https:/, 'http:')">HTTP</a>
           <a href="javascript:location.href=location.href.replace(/^http:/, 'https:')">HTTPS</a>
         </nav>

@@ -713,3 +713,47 @@
 /frameset;element:obsolete;m
 /frameset/frame;element:obsolete;m
 /frameset/frame/@src;attr:obsolete;m
+
+#data
+<body onrejectionhandled="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</p>
+#errors
+
+#data
+<body onrejectionhandled="a b" xmlns="http://www.w3.org/1999/xhtml">aa</body>
+#errors
+/body/@onrejectionhandled;js:parse error;Expected semicolon, '}' or end of line but found ' b';m
+
+#data
+<frameset onrejectionhandled="alert(1)" xmlns="http://www.w3.org/1999/xhtml"><frame src="ax"/></frameset>
+#errors
+/frameset;element:obsolete;m
+/frameset/frame;element:obsolete;m
+/frameset/frame/@src;attr:obsolete;m
+/frameset/@onrejectionhandled;attribute not defined;m
+
+#data
+<p onrejectionhandled="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</p>
+#errors
+/p/@onrejectionhandled;attribute not defined;m
+
+#data
+<body onunhandledrejection="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</p>
+#errors
+
+#data
+<body onunhandledrejection="a b" xmlns="http://www.w3.org/1999/xhtml">aa</body>
+#errors
+/body/@onunhandledrejection;js:parse error;Expected semicolon, '}' or end of line but found ' b';m
+
+#data
+<frameset onunhandledrejection="alert(1)" xmlns="http://www.w3.org/1999/xhtml"><frame src="ax"/></frameset>
+#errors
+/frameset;element:obsolete;m
+/frameset/frame;element:obsolete;m
+/frameset/frame/@src;attr:obsolete;m
+/frameset/@onunhandledrejection;attribute not defined;m
+
+#data
+<p onunhandledrejection="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</p>
+#errors
+/p/@onunhandledrejection;attribute not defined;m
