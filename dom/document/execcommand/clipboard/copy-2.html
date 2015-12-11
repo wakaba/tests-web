@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<title>execCommand ('copy')</title>
+
+<form>
+  <p><output>abcdefghijklmn</output>
+  <p><button type=button onclick="
+    var range = document.createRange ();
+    range.selectNode (document.querySelector ('output'));
+    getSelection ().empty ();
+    getSelection ().addRange (range);
+    document.execCommand ('copy')
+  ">Copy</button>
+</form>
