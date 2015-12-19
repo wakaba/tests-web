@@ -1,0 +1,114 @@
+#data
+<table xmlns="http://www.w3.org/1999/xhtml">
+<thead><tr><td>a</td></tr></thead>
+<tbody><tr><td>a</td></tr></tbody>
+<tfoot><tr><td>a</td></tr></tfoot>
+</table>
+#errors
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml">
+<thead><tr><td>a</td></tr></thead>
+<tbody><tr><td>a</td></tr></tbody>
+<tfoot><tr><td>a</td></tr></tfoot>
+<tfoot><tr><td>a</td></tr></tfoot>
+</table>
+#errors
+/table/tfoot;element not allowed;m
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml">
+<tbody><tr><td>a</td></tr></tbody>
+<tfoot><tr><td>a</td></tr></tfoot>
+<tfoot><tr><td>a</td></tr></tfoot>
+</table>
+#errors
+/table/tfoot;element not allowed;m
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml">
+<tfoot><tr><td>a</td></tr></tfoot>
+<tfoot><tr><td>a</td></tr></tfoot>
+</table>
+#errors
+/table/tfoot;element not allowed;m
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml">
+<tfoot><tr><td>a</td></tr></tfoot>
+<thead><tr><td>a</td></tr></thead>
+<tbody><tr><td>a</td></tr></tbody>
+</table>
+#errors
+/table/thead;element not allowed;m
+/table/tbody;element not allowed;m
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml">
+<caption>aa</caption>
+<tfoot><tr><td>a</td></tr></tfoot>
+<thead><tr><td>a</td></tr></thead>
+<tbody><tr><td>a</td></tr></tbody>
+</table>
+#errors
+/table/thead;element not allowed;m
+/table/tbody;element not allowed;m
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml">
+<colgroup><col/></colgroup>
+<tfoot><tr><td>a</td></tr></tfoot>
+<thead><tr><td>a</td></tr></thead>
+<tbody><tr><td>a</td></tr></tbody>
+</table>
+#errors
+/table/thead;element not allowed;m
+/table/tbody;element not allowed;m
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml">
+<tfoot><tr><td>a</td></tr></tfoot>
+</table>
+#errors
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml">
+<thead><tr><td>a</td></tr></thead>
+<tfoot><tr><td>a</td></tr></tfoot>
+</table>
+#errors
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml">
+<thead><tr><td>a</td></tr></thead>
+<thead><tr><td>a</td></tr></thead>
+<tfoot><tr><td>a</td></tr></tfoot>
+</table>
+#errors
+/table/thead;element not allowed;m
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml">
+<tbody><tr><td>a</td></tr></tbody>
+<thead><tr><td>a</td></tr></thead>
+<tfoot><tr><td>a</td></tr></tfoot>
+</table>
+#errors
+/table/thead;element not allowed;m
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml">
+<tfoot><tr><td>a</td></tr></tfoot>
+<caption>aa</caption>
+</table>
+#errors
+/table/caption;element not allowed;m
+
+#data
+<table xmlns="http://www.w3.org/1999/xhtml">
+<tbody><tr><td>a</td></tr></tbody>
+<caption>aa</caption>
+<tfoot><tr><td>a</td></tr></tfoot>
+</table>
+#errors
+/table/caption;element not allowed;m
