@@ -1,1 +1,1 @@
-web: ./plackup -p $PORT -s Twiggy::Prefork support/server.psgi
+web: USE_XFF=1 ./plackup -p $PORT -s Twiggy::Prefork support/server.psgi

@@ -9,6 +9,7 @@ use Promised::Command;
 
 $ENV{LANG} = 'C';
 $ENV{TZ} = 'UTC';
+$Wanage::HTTP::UseXForwardedScheme = 1 if $ENV{USE_XFF};
 
 my $RootPath = path (__FILE__)->parent->parent->absolute;
 
