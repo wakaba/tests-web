@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>ping</title>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var result = document.getElementById ('result');
+  var a = document.createElement ('a');
+  if (a.ping === undefined) {
+    result.textContent = 'FAIL (no HTMLAnchorElement.prototype.ping)';
+  } else if (a.ping instanceof DOMTokenList) {
+    result.textContent = 'PASS';
+    result.className = 'PASS';
+  } else {
+    result.textContent = 'FAIL (a.ping is ' + a.ping + ', type ' + (typeof a.ping) + ')';
+  }
+</script>
