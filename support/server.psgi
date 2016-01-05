@@ -1,7 +1,11 @@
 # -*- perl -*-
 use strict;
 use warnings;
+use Encode;
+use Time::HiRes qw(time);
+use Digest::SHA qw(sha1_hex);
 use Path::Tiny;
+use JSON::PS;
 use Wanage::URL;
 use Wanage::HTTP;
 use Warabe::App;
@@ -13,12 +17,21 @@ $Wanage::HTTP::UseXForwardedScheme = 1 if $ENV{USE_XFF};
 
 my $RootPath = path (__FILE__)->parent->parent->absolute;
 
-sub send_file ($$$) {
-  my ($app, $file, $mime) = @_;
+sub send_file ($$$$) {
+  my ($app, $file, $mime, $filter) = @_;
   return $app->throw_error (404) unless $file->is_file;
+  return $app->throw_error (500, reason_phrase => "Unknown filter |$filter|")
+      if defined $filter and not {expand => 1}->{$filter};
   $app->http->set_response_header ('Content-Type' => $mime) if defined $mime;
   $app->http->set_response_last_modified ($file->stat->mtime);
-  $app->http->send_response_body_as_ref (\($file->slurp));
+  if (defined $filter and $filter eq 'expand') {
+    my $body = $file->slurp;
+    my $rand = {};
+    $body =~ s/\@\@RAND\(([A-Za-z0-9_-]+)\)\@\@/$rand->{$1} ||= int rand 10000000/ge;
+    $app->http->send_response_body_as_ref (\$body);
+  } else {
+    $app->http->send_response_body_as_ref (\($file->slurp));
+  }
   return $app->http->close_response_body;
 } # send_file
 
@@ -26,6 +39,11 @@ sub get_mime_type ($$) {
   my ($defs, $name) = @_;
   my $mime = undef;
   my $charset = undef;
+  my $filter = undef;
+  if ($name =~ /\.([^.]+)\z/ and $defs->{filter}->{$1}) {
+    $filter = $defs->{filter}->{$1};
+    $name =~ s/\.[^.]+\z//;
+  }
   if ($name =~ s/\.([^.]+)\z//) {
     if (defined $defs->{charset}->{$1}) {
       $charset = $defs->{charset}->{$1};
@@ -44,7 +62,7 @@ sub get_mime_type ($$) {
       $mime = $defs->{mime}->{$1};
     }
   }
-  return $mime;
+  return ($mime, $filter);
 } # get_mime_type
 
 sub load_htaccess ($$) {
@@ -60,6 +78,9 @@ sub load_htaccess ($$) {
     } elsif (s{^\s*AddCharset\s+(\S+)\s+}{}) {
       my $charset = $1;
       $defs->{charset}->{$_} = $charset for map { my $x = $_; $x =~ s/^\.//; $x } split /\s+/, $_;
+    } elsif (s{^\s*AddFilter\s+(\S+)\s+}{}) {
+      my $filter = $1;
+      $defs->{filter}->{$_} = $filter for map { my $x = $_; $x =~ s/^\.//; $x } split /\s+/, $_;
     } elsif (s{^\s*AddDefaultCharset\s+(\S+)\s*$}{}) {
       my $charset = $1;
       $defs->{charset}->{$_} = $charset for qw(txt html xml css js);
@@ -135,6 +156,8 @@ sub run_cgi ($$) {
   });
 } # run_cgi
 
+my $HTTPLogRootPath = path (__FILE__)->parent->parent->child ('local/httplog');
+
 return sub {
   delete $SIG{CHLD} if defined $SIG{CHLD} and not ref $SIG{CHLD}; # XXX
 
@@ -152,6 +175,38 @@ return sub {
 
     if (grep { not m{\A[0-9A-Za-z][0-9A-Za-z_.-]*\z} } @$path) {
       return $app->throw_error (404, reason_phrase => 'Bad path');
+    }
+
+    if (@$path == 3 and $path->[0] eq 'httplog') {
+      my $key = sha1_hex encode 'utf-8', $path->[1];
+      my $log_path = $HTTPLogRootPath->child ($key . '.log');
+      if ($path->[2] eq 'ndjson' or $path->[2] eq 'ndjson.txt') {
+        # /httplog/{id}/ndjson
+        # /httplog/{id}/ndjson.txt
+        if ($path->[2] eq 'ndjson.txt') {
+          $app->http->set_response_header
+              ('Content-Type' => 'text/plain; charset=utf-8');
+        } else {
+          $app->http->set_response_header
+              ('Content-Type' => 'application/x-ndjson');
+        }
+        if ($log_path->is_file) {
+          $app->http->send_response_body_as_ref (\($log_path->slurp));
+        }
+        return $app->http->close_response_body;
+      } elsif ($path->[2] eq 'logging') {
+        # /httplog/{id}/logging
+        my $http = $app->http;
+        my $data = {time => time,
+                    client_ip_addr => $http->client_ip_addr->as_text,
+                    method => $http->request_method,
+                    url => $http->original_url->stringify,
+                    #headers => [], # XXX
+                    body => ${$http->request_body_as_ref // \undef}};
+        $log_path->parent->mkpath;
+        $log_path->append (perl2json_bytes $data);
+        return $app->throw_error (204, reason_phrase => 'OK');
+      }
     }
 
     my $file_path = @$path ? $RootPath->child (join '/', @$path) : $RootPath;
@@ -180,7 +235,7 @@ return sub {
           (join '/', @$path);
       $html .= join '', map {
         my $v = $_->basename;
-        my $mime = get_mime_type $defs, $v;
+        my ($mime, $filter) = get_mime_type $defs, $v;
         my $x = sprintf q{<tr><th><a href="%s"><code>%s</code></a><td>}, $v, $v;
         if (defined $mime) {
           $mime =~ s/&/&amp;/g;
@@ -207,8 +262,8 @@ return sub {
         return run_cgi ($app, $file_path);
       } else {
         my $defs = load_defs $path;
-        my $mime = get_mime_type $defs, $name;
-        return send_file ($app, $file_path, $mime);
+        my ($mime, $filter) = get_mime_type $defs, $name;
+        return send_file ($app, $file_path, $mime, $filter);
       }
     }
   });
@@ -216,7 +271,7 @@ return sub {
 
 =head1 LICENSE
 
-Copyright 2015 Wakaba <wakaba@suikawiki.org>.
+Copyright 2015-2016 Wakaba <wakaba@suikawiki.org>.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
