@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<title>toLocaleString</title>
+
+<p><code>toLocaleString (<var>locale</var>)</code>
+
+<table>
+  <thead>
+    <tr>
+      <th rowspan=2>Input
+      <th id=locale-header><var>locale</var>
+    <tr id=locale-list>
+  <tbody>
+</table>
+
+<script>
+  var locales = ['en', 'en-GB', 'ja', 'ja-JP-u-ca-japanese'];
+  document.querySelector ('#locale-header').colSpan = locales.length;
+  var localeList = document.querySelector ('#locale-list');
+  locales.forEach (function (locale) {
+    var th = document.createElement ('th');
+    th.innerHTML = '<code></code>';
+    th.firstChild.textContent = locale;
+    localeList.appendChild (th);
+  });
+
+  var input = [
+    '0001-01-01',
+    '0100-01-01',
+    '0645-01-01T00:00:00Z',
+    '0645-01-02',
+    '0645-01-03',
+    '0645-01-04',
+    '0654-12-31',
+    '0655-01-01',
+    '0655-01-02',
+    '0655-01-03',
+    '0655-01-04',
+    '0656-01-04',
+    '0686-12-31',
+    '0687-01-01',
+    '0687-01-02',
+    '0687-01-03',
+    '0687-01-04',
+    '0688-01-04',
+    '0923-04-11',
+    '0923-04-12',
+    '0923-04-13',
+    '0923-04-14',
+    '0923-04-15',
+    '0923-04-16',
+    '0923-04-17',
+    '0923-05-28',
+    '0923-05-29',
+    '0923-06-02',
+    '0923-06-03',
+    '1145-07-21',
+    '1145-07-22',
+    '1145-07-23',
+    '1145-07-28',
+    '1145-07-29',
+    '1145-07-30',
+    '1145-08-10',
+    '1145-08-11',
+    '1145-08-12',
+    '1145-08-18',
+    '1145-08-19',
+    '1330-01-01',
+    '1331-01-01',
+    '1332-01-01',
+    '1333-01-01',
+    '1334-01-01',
+    '1335-01-01',
+    '1336-01-01',
+    '1337-01-01',
+    '1338-01-01',
+    '1339-01-01',
+    '1501-02-28',
+    '1501-03-01',
+    '1501-03-10',
+    '1501-03-11',
+    '1501-03-12',
+    '1582-10-14',
+    '1582-10-15',
+    '1752-09-13',
+    '1752-09-14',
+    '1867-12-31',
+    '1868-01-01',
+    '1868-01-24',
+    '1868-01-25',
+    '1868-01-26',
+    '1868-09-07',
+    '1868-09-08',
+    '1868-09-09',
+    '1868-10-22',
+    '1868-10-23',
+    '1868-10-24',
+    '1868-10-25',
+    '1872-12-31',
+    '1873-01-01',
+    '1912-07-29',
+    '1912-07-30',
+    '1912-07-31',
+    '1926-12-24',
+    '1926-12-25',
+    '1926-12-26',
+    '1989-01-07',
+    '1989-01-08',
+    '2015-01-04T01:33:33Z',
+  ];
+  var tbody = document.querySelector ('tbody');
+  input.forEach (function (date) {
+    var tr = document.createElement ('tr');
+    var th = document.createElement ('th');
+    var code = document.createElement ('code');
+    code.textContent = date;
+    th.appendChild (code);
+    tr.appendChild (th);
+
+    var d = new Date (date);
+    locales.forEach (function (locale) {
+      var out = d.toLocaleString (locale, {timeZone: 'UTC'});
+      var td = document.createElement ('td');
+      td.innerHTML = '<code></code>';
+      td.firstChild.textContent = out;
+      tr.appendChild (td);
+    });
+    tbody.appendChild (tr);
+  });
+</script>
