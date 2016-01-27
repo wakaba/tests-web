@@ -30,13 +30,13 @@
     var date = row.cells[0].firstChild.textContent;
     var m = date.match (/^(-?[0-9]+)-([0-9]+)-([0-9]+)$/);
     var d = new Date (ymd2n (parseInt (m[1]), parseInt (m[2]), parseInt (m[3])));
-    var exception = null;
+    var n;
     try {
       var result = d.toLocaleString ("ja-JP-u-ca-japanese", {timeZone: 'UTC'});
+      n = result.match (/^([^\d-]*)(-?[0-9]+)/);
     } catch (e) {
-      exception = e;
+      n = [null, e, e];
     }
-    var n = result.match (/^([^\d-]*)(-?[0-9]+)/);
     var eraCell = row.cells[1];
     var expectedEra = eraCell.getAttribute ('data-value');
     if (exception === null && n[1] === expectedEra) {
