@@ -23,10 +23,22 @@
     localeList.appendChild (th);
   });
 
+  function ymd2n (y, m, d) {
+    var month = (m - 1 + 10) % 12;
+    var year = y - Math.floor (month / 10);
+    return 1000*60*60*24*
+           ((365 * year)
+            + Math.floor (year/4)
+            - Math.floor (year/100)
+            + Math.floor (year/400)
+            + Math.floor (((month * 306) + 5) / 10)
+            + d) - 62162121600000;
+  } // ymd2n
+
   var input = [
     '0001-01-01',
     '0100-01-01',
-    '0645-01-01T00:00:00Z',
+    '0645-01-01',
     '0645-01-02',
     '0645-01-03',
     '0645-01-04',
@@ -111,7 +123,7 @@
     '1926-12-26',
     '1989-01-07',
     '1989-01-08',
-    '2015-01-04T01:33:33Z',
+    '2015-01-04',
   ];
   var tbody = document.querySelector ('tbody');
   input.forEach (function (date) {
@@ -122,7 +134,8 @@
     th.appendChild (code);
     tr.appendChild (th);
 
-    var d = new Date (date);
+    var m = date.match (/^(-?[0-9]+)-([0-9]+)-([0-9]+)$/);
+    var d = new Date (ymd2n (parseInt (m[1]), parseInt (m[2]), parseInt (m[3])));
     locales.forEach (function (locale) {
       var out = d.toLocaleString (locale, {timeZone: 'UTC'});
       var td = document.createElement ('td');
