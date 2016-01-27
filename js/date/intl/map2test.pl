@@ -58,7 +58,7 @@ print q{</table>
     }
     var eraCell = row.cells[1];
     var expectedEra = eraCell.getAttribute ('data-value');
-    if (exception === null && n[1] === expectedEra) {
+    if (n[0] && n[1] === expectedEra) {
       eraCell.textContent = 'PASS';
       eraCell.className = 'PASS';
     } else {
@@ -67,7 +67,7 @@ print q{</table>
     }
     var yearCell = row.cells[2];
     var expectedYear = parseInt (yearCell.getAttribute ('data-value'));
-    if (parseInt (n[2]) === expectedYear) {
+    if (n[0] && parseInt (n[2]) === expectedYear) {
       yearCell.textContent = 'PASS';
       yearCell.className = 'PASS';
     } else {
