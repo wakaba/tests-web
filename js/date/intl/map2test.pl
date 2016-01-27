@@ -62,7 +62,7 @@ print q{</table>
       eraCell.textContent = 'PASS';
       eraCell.className = 'PASS';
     } else {
-      eraCell.textContent = 'FAIL ('+(exception !== null ? 'exception ' + exception : n[1])+', expected: '+expectedEra+')';
+      eraCell.textContent = 'FAIL ('+n[1]+', expected: '+expectedEra+')';
       eraCell.className = 'FAIL';
     }
     var yearCell = row.cells[2];
