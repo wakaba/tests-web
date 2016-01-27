@@ -30,15 +30,20 @@
     var date = row.cells[0].firstChild.textContent;
     var m = date.match (/^(-?[0-9]+)-([0-9]+)-([0-9]+)$/);
     var d = new Date (ymd2n (parseInt (m[1]), parseInt (m[2]), parseInt (m[3])));
-    var result = d.toLocaleString ("ja-JP-u-ca-japanese", {timeZone: 'UTC'});
+    var exception = null;
+    try {
+      var result = d.toLocaleString ("ja-JP-u-ca-japanese", {timeZone: 'UTC'});
+    } catch (e) {
+      exception = e;
+    }
     var n = result.match (/^([^\d-]*)(-?[0-9]+)/);
     var eraCell = row.cells[1];
     var expectedEra = eraCell.getAttribute ('data-value');
-    if (n[1] === expectedEra) {
+    if (exception === null && n[1] === expectedEra) {
       eraCell.textContent = 'PASS';
       eraCell.className = 'PASS';
     } else {
-      eraCell.textContent = 'FAIL ('+n[1]+', expected: '+expectedEra+')';
+      eraCell.textContent = 'FAIL ('+(exception !== null ? 'exception ' + exception : n[1])+', expected: '+expectedEra+')';
       eraCell.className = 'FAIL';
     }
     var yearCell = row.cells[2];
