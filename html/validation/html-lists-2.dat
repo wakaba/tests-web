@@ -1,0 +1,42 @@
+#data
+<menu xmlns="http://www.w3.org/1999/xhtml">
+  <li value="3">a</li>
+</menu>
+#errors
+/menu/li/@value;non-ol li value;m
+
+#data
+<dir xmlns="http://www.w3.org/1999/xhtml">
+  <li value="3">a</li>
+</dir>
+#errors
+/dir;element:obsolete;m
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml">
+  <li value="3">a</li>
+</template>
+#errors
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml">
+  <li value="a">a</li>
+</template>
+#errors
+| #df/li/@value;integer:syntax error;m
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml">
+  <ul>
+    <li value="32">a</li>
+  </ul>
+</template>
+#errors
+| #df/ul/li/@value;non-ol li value;m
+
+#data
+<foreignObject xmlns="http://www.w3.org/2000/svg">
+  <li value="32" xmlns="http://www.w3.org/1999/xhtml">a</li>
+</foreignObject>
+#errors
+/foreignObject;unknown element;u
