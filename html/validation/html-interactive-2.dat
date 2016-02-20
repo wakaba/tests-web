@@ -1,0 +1,87 @@
+#data
+<a xmlns="http://www.w3.org/1999/xhtml">
+  <a href="">b</a>
+</a>
+#errors
+/a/a;element not allowed:minus;m
+
+#data
+<a xmlns="http://www.w3.org/1999/xhtml">
+  <a>b</a>
+  <a href="">b</a>
+</a>
+#errors
+/a/a;element not allowed:minus;m
+/a/a;element not allowed:minus;m
+
+#data
+<a xmlns="http://www.w3.org/1999/xhtml">
+  <em><a href="">b</a></em>
+</a>
+#errors
+/a/em/a;element not allowed:minus;m
+
+#data
+<a xmlns="http://www.w3.org/1999/xhtml">
+  <a>b</a>
+</a>
+#errors
+/a/a;element not allowed:minus;m
+
+#data
+<a href="" xmlns="http://www.w3.org/1999/xhtml">
+  <a>b</a>
+</a>
+#errors
+/a/a;element not allowed:minus;m
+
+#data
+<a xmlns="http://www.w3.org/1999/xhtml">
+  <em><a>b</a></em>
+</a>
+#errors
+/a/em/a;element not allowed:minus;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml">
+  <a>b</a>
+</button>
+#errors
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml">
+  <a href="">b</a>
+</button>
+#errors
+/button/a;element not allowed:minus;m
+
+#data
+<button xmlns="http://www.w3.org/1999/xhtml">
+  <a tabindex="0">b</a>
+</button>
+#errors
+/button/a;element not allowed:minus;m
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <a>b</a>
+</canvas>
+#errors
+
+#data
+<canvas xmlns="http://www.w3.org/1999/xhtml">
+  <a href="">b</a>
+</canvas>
+#errors
+
+#data
+<video src="x" xmlns="http://www.w3.org/1999/xhtml">
+  <a>b</a>
+</video>
+#errors
+
+#data
+<video src="x" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="">b</a>
+</video>
+#errors
