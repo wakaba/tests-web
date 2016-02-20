@@ -2157,6 +2157,34 @@ aa<map name="x">b<map name="y">bb</map></map>
 #errors
 
 #data
+<area shape="circle" coords="-1,-2,4e+0"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<area shape="circle" coords="-1,-2,.4"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<area shape="circle" coords="-1,-2,-.4"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/area/@coords;coords:out of range;m
+
+#data
+<area shape="circle" coords="-1,-2,+4"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/area/@coords;coords:syntax error;m
+
+#data
+<area shape="circle" coords="-1,-2,e"
+    xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/area/@coords;coords:syntax error;m
+
+#data
 <area shape="circle" coords="0,0,0"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
