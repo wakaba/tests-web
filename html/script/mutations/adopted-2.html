@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<title>script</title>
+
+<p id=result class=FAIL>FAIL</p>
+
+<p id=test>not run</p>
+
+<script defer src=adopted-1-script.js></script>
+
+<script>
+  var s = document.querySelector ('script');
+  var doc = document.implementation.createDocument (null, null, null);
+  doc.adoptNode (s);
+  document.adoptNode (s);
+</script>
+
+<script>
+  window.onload = function () {
+    var test = document.querySelector ('#test');
+    var result = document.querySelector ('#result');
+    if (test.textContent === 'run') {
+      result.className = 'PASS';
+      result.textContent = 'PASS';
+    } else {
+      result.textContent = 'FAIL (' + test.textContent + ')'
+    }
+  };
+</script>
