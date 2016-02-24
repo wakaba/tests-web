@@ -757,3 +757,20 @@
 <p onunhandledrejection="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</p>
 #errors
 /p/@onunhandledrejection;attribute not defined;m
+
+#data
+<p oncut="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</p>
+#errors
+
+#data
+<p oncopy="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</p>
+#errors
+
+#data
+<p onpaste="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</p>
+#errors
+
+#data
+<p oncopy="a b" xmlns="http://www.w3.org/1999/xhtml">aa</p>
+#errors
+/p/@oncopy;js:parse error;Expected semicolon, '}' or end of line but found ' b';m
