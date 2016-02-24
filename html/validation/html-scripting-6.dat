@@ -1,0 +1,56 @@
+#data
+<script type="text/plain" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script;unknown script lang;u
+
+#data
+<script type="text/plain; format=flowed" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script;unknown script lang;u
+
+#data
+<script type="application/xml" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script;unknown script lang;u
+
+#data
+<script type="text/plain; charset=utf-8" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script;unknown script lang;u
+
+#data
+<script type="text/plain" src="x" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script/@src;script type:ignored src;m
+/script;script:inline doc:invalid;m
+
+#data
+<script type="text/plain" async="" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script/@async;script type:ignored async;m
+/script;unknown script lang;u
+
+#data
+<script type="text/plain" defer="" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script/@defer;script type:ignored defer;m
+/script;unknown script lang;u
+
+#data
+<script type="text/plain" crossorigin="anonyMous" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script/@crossorigin;script type:ignored crossorigin;m
+/script;unknown script lang;u
+
+#data
+<script type="text/plain" nonce="abc" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script/@nonce;script type:ignored nonce;m
+/script;unknown script lang;u
+
+#data
+<script language="plain" nonce="abc" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script/@language;script language:not js;m
+/script/@nonce;script type:ignored nonce;m
+/script;unknown script lang;u

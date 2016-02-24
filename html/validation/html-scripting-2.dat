@@ -1,7 +1,7 @@
 #data
 <script defer="" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script/@defer;attribute not allowed;m
+/script/@defer;script:ignored defer;w
 
 #data
 <script src="a" defer="" xmlns="http://www.w3.org/1999/xhtml"></script>
@@ -174,21 +174,23 @@
 | </script>
 #errors
 /script/@type;IMT:unregistered subtype;m
+/script/@src;script type:ignored src;m
+/script/@type;script type:scripting lang;w
 
 #data
 | <script type="text/plain" src="xyz" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script;script:external data block;m
+/script/@src;script type:ignored src;m
 
 #data
 | <script type="text/xml" src="xyz" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script;script:external data block;m
+/script/@src;script type:ignored src;m
 
 #data
 | <script type="text/CSS" src="xyz" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script;script:external data block;m
+/script/@src;script type:ignored src;m
 
 #data
 <script xmlns="http://www.w3.org/1999/xhtml">
@@ -211,6 +213,7 @@
 </script>
 #errors
 /script;unknown script lang;u
+/script/br;element not allowed;m
 
 #data
 <script src="xyz" xmlns="http://www.w3.org/1999/xhtml">
@@ -231,7 +234,97 @@
 #data
 <script type="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/script/@type;script type:empty;m
+
+#data
+<script type="" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script/@type;script type:empty;m
+/script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
+
+#data
+<script type=" " xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
 /script/@type;IMT:no type;m
+
+#data
+<script type=" " xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script/@type;IMT:no type;m
+
+#data
+<script language="" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script/@language;script type:empty;m
+/script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
+
+#data
+<script type=" text/javascript " xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
+/script/@type;script type:classic;s
+
+#data
+<script type=" text/jscript
+" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
+/script/@type;script type:classic;s
+/script/@type;IMT:unregistered subtype;m
+
+#data
+<script language=" javascript " xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script/@language;script language:not js;m
+/script/@language;IMT:no subtype;m
+
+#data
+<script language="javascript " xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script/@language;script language:not js;m
+/script/@language;script type:bad params;w
+/script;unknown script lang;u
+
+#data
+<script type="text/javascript " xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
+/script/@type;script type:classic;s
+
+#data
+<script type="text/javascript;" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script/@type;params:no attr;m
+/script/@type;script type:bad params;w
+/script;unknown script lang;u
+
+#data
+<script type="text/javascript" language="JavaScript" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
+/script/@type;script type:classic;s
+/script/@language;script language;s
+
+#data
+<script type="text/jAVAscript" language="JavaScript" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
+/script/@type;script type:classic;s
+/script/@language;script language;s
+
+#data
+<script type="text/javascript " language="javascript" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
+/script/@type;script type:classic;s
+/script/@language;script language:ne type;m
+
+#data
+<script type="text/javascript " language="javascript " xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
+/script/@type;script type:classic;s
+/script/@language;script language:not js;m
 
 #data
 <script type="text" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -247,30 +340,41 @@
 #data
 <script type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/script/@type;script type:classic;s
 
 #data
 <script type="text/javascript;e4x=1" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/script;unknown script lang;u
+/script/@type;script type:bad params;w
 
 #data
 <script type="text/JavaScript;E4X=1" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/script;unknown script lang;u
+/script/@type;script type:bad params;w
 
 #data
 <script type="text/javascript;e4x=&quot;1&quot;"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/script;unknown script lang;u
+/script/@type;script type:bad params;w
 
 #data
 <script type="text/javascript;e4x=&quot;\1&quot;"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/script;unknown script lang;u
+/script/@type;script type:bad params;w
 
 #data
 <script type="text/javascript; ~=a"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@type;IMT:attribute syntax error;m
+/script;unknown script lang;u
+/script/@type;script type:bad params;w
 
 #data
 <script type="text~/javascript"
@@ -290,23 +394,27 @@
 <script src="http://test/" type="text/javascript"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/script/@type;script type:classic;s
 
 #data
 <script src="http://test/" type="text/javascript; charset=us-ascii"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@type;IMT:parameter not allowed;m
+/script/@type;script type:bad params;w
+/script/@src;script type:ignored src;m
 
 #data
 <script src="http://test/" type="text/javascript; charSet=us-ascii"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@type;IMT:parameter not allowed;m
+/script/@src;script type:ignored src;m
+/script/@type;script type:bad params;w
 
 #data
 <script src="" type="text/javascript"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/script/@type;script type:classic;s
 /script/@src;url:empty;m
 
 #data
@@ -314,11 +422,7 @@
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@src;syntax error:iriref3987;m
-
-#data
-<script defer="" xmlns="http://www.w3.org/1999/xhtml"/>
-#errors
-/script/@defer;attribute not allowed;m
+/script/@type;script type:classic;s
 
 #data
 <script src="http://test/" defer=""
@@ -328,7 +432,7 @@
 #data
 <script defer="defer" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@defer;attribute not allowed;m
+/script/@defer;script:ignored defer;w
 
 #data
 <script src="http://test/" defer="defer"
@@ -338,13 +442,13 @@
 #data
 <script defer="DEFER" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@defer;attribute not allowed;m
+/script/@defer;script:ignored defer;w
 
 #data
 <script defer="true" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@defer;boolean:invalid;m
-/script/@defer;attribute not allowed;m
+/script/@defer;script:ignored defer;w
 
 #data
 <script src="http://test/" defer="true"
@@ -355,7 +459,7 @@
 #data
 <script async="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@async;attribute not allowed;m
+/script/@async;script:ignored async;w
 
 #data
 <script src="http://test/" async=""
@@ -365,7 +469,7 @@
 #data
 <script async="async" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@async;attribute not allowed;m
+/script/@async;script:ignored async;w
 
 #data
 <script src="http://test/" async="async"
@@ -376,7 +480,7 @@
 <script async="true" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@async;boolean:invalid;m
-/script/@async;attribute not allowed;m
+/script/@async;script:ignored async;w
 
 #data
 <script src="http://test/" async="true"
@@ -392,18 +496,19 @@
 #data
 <script defer="" async="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@async;attribute not allowed;m
-/script/@defer;attribute not allowed;m
+/script/@async;script:ignored async;w
+/script/@defer;script:ignored defer;w
 
 #data
 <script defer="defer" async="async" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@async;attribute not allowed;m
-/script/@defer;attribute not allowed;m
+/script/@async;script:ignored async;w
+/script/@defer;script:ignored defer;w
 
 #data
 <script src="a" defer="" async="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/script/@defer;script:ignored defer;w
 
 #data
 <script language="javascript" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -434,17 +539,21 @@
 <script language="jscript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@language;script language:not js;m
+/script/@language;IMT:unregistered subtype;m
 
 #data
 <script language="javascript1.2" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@language;script language:not js;m
+/script/@language;IMT:unregistered subtype;m
 
 #data
 <script language="vbscript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@language;script language:not js;m
 /script;unknown script lang;u
+/script/@language;IMT:unregistered subtype;m
+/script/@language;script type:scripting lang;w
 
 #data
 <script language="XML" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -456,31 +565,37 @@
 <script langage="javascript" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@langage;attribute not defined;m
+/script/@type;script type:classic;s
 
 #data
 <script langage="JavaScript" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@langage;attribute not defined;m
+/script/@type;script type:classic;s
 
 #data
 <script language="javascript" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@language;script language;s
+/script/@type;script type:classic;s
 
 #data
 <script language="JavaScript" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@language;script language;s
+/script/@type;script type:classic;s
 
 #data
 <script language="javascript" type="TEXt/javaScript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@language;script language;s
+/script/@type;script type:classic;s
 
 #data
 <script language="java script" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@language;script language:not js;m
+/script/@type;script type:classic;s
 
 #data
 <script language="javascript" type="text/vbscript" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -488,6 +603,7 @@
 /script/@language;script language:ne type;m
 /script;unknown script lang;u
 /script/@type;IMT:unregistered subtype;m
+/script/@type;script type:scripting lang;w
 
 #data
 <script language="jscript" type="text/vbscript" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -495,16 +611,18 @@
 /script/@language;script language:not js;m
 /script;unknown script lang;u
 /script/@type;IMT:unregistered subtype;m
+/script/@type;script type:scripting lang;w
 
 #data
 <script language="jscript" type="text/javascript" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@language;script language:not js;m
+/script/@type;script type:classic;s
 
 #data
 <script charset="us-ascii" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@charset;attribute not allowed;m
+/script/@charset;script:ignored charset;m
 /script/@charset;non-utf-8 character encoding;m
 
 #data
@@ -739,23 +857,23 @@
 #data
 <script crossorigin="" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script/@crossorigin;attribute not allowed;w
+/script/@crossorigin;script:ignored crossorigin;w
 
 #data
 <script crossorigin="ANONYMOUS" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script/@crossorigin;attribute not allowed;w
+/script/@crossorigin;script:ignored crossorigin;w
 
 #data
 <script crossorigin="use-credentials" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script/@crossorigin;attribute not allowed;w
+/script/@crossorigin;script:ignored crossorigin;w
 
 #data
 <script crossorigin="use-credential" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
 /script/@crossorigin;enumerated:invalid;m
-/script/@crossorigin;attribute not allowed;w
+/script/@crossorigin;script:ignored crossorigin;w
 
 #data
 <script crossorigin="ANONYMOUS" src="a" xmlns="http://www.w3.org/1999/xhtml"></script>

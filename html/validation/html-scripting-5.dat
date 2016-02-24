@@ -1,0 +1,73 @@
+#data
+<script type="module" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+
+#data
+<script type="module" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
+
+#data
+<script type="ModulE" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
+
+#data
+<script type="MODULE" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
+
+#data
+<script type="
+module" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
+/script/@type;script type:bad spaces;m
+
+#data
+<script language="module" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+/script/@language;IMT:unknown subtype;u
+/script/@language;script language:not js;m
+/script;unknown script lang;u
+
+#data
+<script type="module" src="x" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+
+#data
+<script type="module" async="" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+
+#data
+<script type="module" nonce="abc" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+
+#data
+<script type="module" crossorigin="anonymous" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+
+#data
+<script type="module" charset="utf-8" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+/script/@charset;script:ignored charset;m
+
+#data
+<script type="module" defer="defer" xmlns="http://www.w3.org/1999/xhtml"></script>
+#errors
+/script/@defer;script:ignored defer;m
+
+#data
+<script type="module" src="x" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
+#errors
+/script;script:inline doc:invalid;m
+
+#data
+<script type="module" src="x" xmlns="http://www.w3.org/1999/xhtml">  </script>
+#errors
+/script;script:inline doc:invalid;m
+
+#data
+<script type="module" src="x" xmlns="http://www.w3.org/1999/xhtml">
+</script>
+#errors
