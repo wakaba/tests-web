@@ -174,23 +174,23 @@
 | </script>
 #errors
 /script/@type;IMT:unregistered subtype;m
-/script/@src;script type:ignored src;m
+/script/@src;script:ignored src;m
 /script/@type;script type:scripting lang;w
 
 #data
 | <script type="text/plain" src="xyz" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@src;script type:ignored src;m
+/script/@src;script:ignored src;m
 
 #data
 | <script type="text/xml" src="xyz" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@src;script type:ignored src;m
+/script/@src;script:ignored src;m
 
 #data
 | <script type="text/CSS" src="xyz" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@src;script type:ignored src;m
+/script/@src;script:ignored src;m
 
 #data
 <script xmlns="http://www.w3.org/1999/xhtml">
@@ -401,13 +401,13 @@
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@type;script type:bad params;w
-/script/@src;script type:ignored src;m
+/script/@src;script:ignored src;m
 
 #data
 <script src="http://test/" type="text/javascript; charSet=us-ascii"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@src;script type:ignored src;m
+/script/@src;script:ignored src;m
 /script/@type;script type:bad params;w
 
 #data
