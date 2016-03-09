@@ -1,0 +1,89 @@
+#data
+[LegacyUnenumerableNamedProperties]
+interface A {
+  getter A (DOMString b);
+};
+#processed
+{
+  "A": ["interface", {
+    "named_getter": ["operation", {
+      "overload_set": {
+        "DOMString": {
+          "type": ["ref_interface", "A"],
+          "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }],
+    "members": {},
+    "LegacyUnenumerableNamedProperties": 1
+  }]
+}
+
+#data
+[LegacyUnenumerableNamedProperties(DOMString x)]
+interface A {
+  getter A (DOMString b);
+};
+#errors
+1;1;webidl:bad args;;LegacyUnenumerableNamedProperties;m
+#processed
+{
+  "A": ["interface", {
+    "named_getter": ["operation", {
+      "overload_set": {
+        "DOMString": {
+          "type": ["ref_interface", "A"],
+          "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }],
+    "members": {},
+    "LegacyUnenumerableNamedProperties": 1
+  }]
+}
+
+#data
+[LegacyUnenumerableNamedProperties,
+LegacyUnenumerableNamedProperties]
+interface A {
+  getter A (DOMString b);
+};
+#errors
+1;36;webidl:not allowed;;LegacyUnenumerableNamedProperties;m
+#processed
+{
+  "A": ["interface", {
+    "named_getter": ["operation", {
+      "overload_set": {
+        "DOMString": {
+          "type": ["ref_interface", "A"],
+          "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }],
+    "members": {},
+    "LegacyUnenumerableNamedProperties": 1
+  }]
+}
+
+#data
+interface A {
+[LegacyUnenumerableNamedProperties]
+  getter A (DOMString b);
+};
+#errors
+1;15;webidl:not allowed;;LegacyUnenumerableNamedProperties;m
+#processed
+{
+  "A": ["interface", {
+    "named_getter": ["operation", {
+      "overload_set": {
+        "DOMString": {
+          "type": ["ref_interface", "A"],
+          "args": [{"name": "b", "type": "DOMString", "optionality": "required"}]
+        }
+      }
+    }],
+    "members": {}
+  }]
+}
