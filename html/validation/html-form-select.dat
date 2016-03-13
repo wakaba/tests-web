@@ -667,6 +667,24 @@
 /option/option;element not allowed:text;m
 
 #data
+<option xmlns="http://www.w3.org/1999/xhtml" label="">xxyx</option>
+#errors
+/option/@label;empty attribute value;m
+
+#data
+<option xmlns="http://www.w3.org/1999/xhtml" label="abc">xxyx</option>
+#errors
+
+#data
+<option xmlns="http://www.w3.org/1999/xhtml" label=""></option>
+#errors
+/option/@label;empty attribute value;m
+
+#data
+<option xmlns="http://www.w3.org/1999/xhtml" label="abc"></option>
+#errors
+
+#data
 <em xmlns="http://www.w3.org/1999/xhtml"><option/></em>
 #errors
 /em/option;element not allowed:phrasing;m
