@@ -31,3 +31,63 @@
 | <!DOCTYPE a>
 | <{} a>
 |   "&x"
+
+#data
+<!DOCTYPE a[
+  <!ENTITY lt "&#x26;#x3c;">
+]><a>&lt;x</a>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   "<x"
+
+#data
+<a x="&amp;x"></a>
+#errors
+1;1;no XML decl;;;s
+#document
+| <{} a>
+|   x="&x"
+
+#data
+<a x="&lt;x"></a>
+#errors
+1;1;no XML decl;;;s
+#document
+| <{} a>
+|   x="<x"
+
+#data
+<!DOCTYPE a[
+  <!ENTITY amp "&#x26;#x26;">
+]><a x="&amp;x"></a>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   x="&x"
+
+#data
+<!DOCTYPE a[
+  <!ENTITY lt "&#x26;#x3c;">
+]><a x="&lt;x"></a>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   x="<x"
+
+#data
+<!DOCTYPE a[
+  <!ENTITY gt "&#x26;#x3e;">
+]><a x="&gt;x"></a>
+#errors
+1;1;no XML decl;;;s
+#document
+| <!DOCTYPE a>
+| <{} a>
+|   x=">x"
