@@ -1,0 +1,103 @@
+#data
+<feed xmlns="http://purl.org/atom/ns#"/>
+#parsed
+{}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#">
+  <title></title>
+</feed>
+#parsed
+{}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#">
+  <title>  </title>
+</feed>
+#parsed
+{}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#">
+  <title>abc</title>
+</feed>
+#parsed
+{"title":"abc"}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#">
+  <title type="text/html" mode="escaped">abc</title>
+</feed>
+#parsed
+{"title":"abc"}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#">
+  <title type="text/html" mode="escaped">ab&amp;copy;c</title>
+</feed>
+#parsed
+{"title":"ab\u00A9c"}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#">
+  <title type="text/html" mode="escaped">abc&lt;p>aa</title>
+</feed>
+#parsed
+{"title":"abc<p xmlns=\"http://www.w3.org/1999/xhtml\">aa</p>"}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#">
+  <title type="text/html" mode="escaped">abc&lt;img src width=1 height=1>aa</title>
+</feed>
+#parsed
+{"title":"abcaa"}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#">
+  <title type="text/html" mode="escaped">a&lt;p>bc&lt;img src width=1 height=1>aa</title>
+</feed>
+#parsed
+{"title":"a<p xmlns=\"http://www.w3.org/1999/xhtml\">bcaa</p>"}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#">
+  <title type="text/html" mode="escaped">&lt;p hidden>abc</title>
+</feed>
+#parsed
+{}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#">
+  <title type="text/html" mode="escaped">&lt;p hidden>abc</title>
+  <title type="text/html" mode="escaped">def</title>
+</feed>
+#parsed
+{"title":"def"}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#">
+  <title type="text/html" mode="escaped">&lt;script>abc&lt;/script></title>
+</feed>
+#parsed
+{}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#">
+  <title type="text/html" mode="escaped">&lt;br></title>
+</feed>
+#parsed
+{}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#">
+  <tagline>ac</tagline>
+</feed>
+#parsed
+{"subtitle":"ac"}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#">
+  <tagline type="text/html" mode="escaped">a&amp;copy;c</tagline>
+</feed>
+#parsed
+{"subtitle":"a\u00A9c"}
