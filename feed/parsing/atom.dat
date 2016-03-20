@@ -185,3 +185,276 @@
 </feed>
 #parsed
 {"subtitle":"aa\u00A9a"}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <updated>2052-01-04T00:20:31+06:01</updated>
+</feed>
+#parsed
+{"updated":"2052-01-03T18:19:31Z"}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <updated>2052-01-04T<x/>00:20:31+06:01</updated>
+</feed>
+#parsed
+{"updated":"2052-01-03T18:19:31Z"}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <updated>2052-01-04<x>T</x>00:20:31+06:01</updated>
+</feed>
+#parsed
+{}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <updated>4244</updated>
+</feed>
+#parsed
+{}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <modified>2052-01-04T00:20:31+06:01</modified>
+</feed>
+#parsed
+{"updated":"2052-01-03T18:19:31Z"}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <modified>2052-01-04T<x/>00:20:31+06:01</modified>
+</feed>
+#parsed
+{"updated":"2052-01-03T18:19:31Z"}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <modified>2052-01-04<x>T</x>00:20:31+06:01</modified>
+</feed>
+#parsed
+{}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <modified>4244</modified>
+</feed>
+#parsed
+{"updated":"4244-01-01T00:00:00Z"}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <modified>4a4</modified>
+</feed>
+#parsed
+{}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <link href="httpS://hoge" />
+</feed>
+#parsed
+{"page_url":"https://hoge/"}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <link rel="alternate" href="httpS://hoge" />
+</feed>
+#parsed
+{"page_url":"https://hoge/"}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <link rel="http://www.iana.org/assignments/relation/alternate" href="httpS://hoge" />
+</feed>
+#parsed
+{"page_url":"https://hoge/"}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <link rel="unknown" href="httpS://hoge" />
+</feed>
+#parsed
+{}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <link rel="self" href="httpS://fuga" />
+  <link rel="http://www.iana.org/assignments/relation/self" href="httpS://hoge" />
+</feed>
+#parsed
+{"feed_url":"https://fuga/"}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <link rel="prev" href="httpS://hoge" />
+</feed>
+#parsed
+{"prev_feed_url":"https://hoge/"}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <link rel="previous" href="httpS://hoge" />
+</feed>
+#parsed
+{"prev_feed_url":"https://hoge/"}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <link rel="next" href="httpS://hoge" />
+</feed>
+#parsed
+{"next_feed_url":"https://hoge/"}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <link rel="next" href="" />
+</feed>
+#parsed
+{"next_feed_url":"https://base/"}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <link rel="next" href="https://foo:bar" />
+</feed>
+#parsed
+{}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <icon>HTTPS://FOO</icon>
+</feed>
+#parsed
+{"icon":{"url":"https://foo/"}}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <icon>HTTPS://FOO:X</icon>
+</feed>
+#parsed
+{}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <icon/>
+  <icon>https://hoge</icon>
+</feed>
+#parsed
+{"icon":{"url":"https://hoge/"}}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <icon>/icon</icon>
+</feed>
+#parsed
+{"icon":{"url":"https://base/icon"}}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <logo>HTTPS://FOO</logo>
+</feed>
+#parsed
+{"logo":{"url":"https://foo/"}}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <logo>HTTPS://FOO:X</logo>
+</feed>
+#parsed
+{}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <logo/>
+  <logo>https://hoge</logo>
+</feed>
+#parsed
+{"logo":{"url":"https://hoge/"}}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <logo>/logo</logo>
+</feed>
+#parsed
+{"logo":{"url":"https://base/logo"}}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author></author>
+</feed>
+#parsed
+{"authors":[{}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author><name>aa b</name></author>
+</feed>
+#parsed
+{"authors":[{"name":"aa b"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author><name> </name><name>aa b</name></author>
+</feed>
+#parsed
+{"authors":[{"name":"aa b"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author><name>
+</name></author>
+</feed>
+#parsed
+{"authors":[{}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author><name>a</name></author>
+  <author><name>b</name></author>
+</feed>
+#parsed
+{"authors":[{"name":"a"},{"name":"b"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author><name>a</name><email>foo@bar</email></author>
+</feed>
+#parsed
+{"authors":[{"name":"a","email":"foo@bar"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author><name>a</name></author>
+</feed>
+#parsed
+{"authors":[{"name":"a"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author><uri>https://Hoge</uri></author>
+</feed>
+#parsed
+{"authors":[{"page_url":"https://hoge/"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005">
+  <author><uri>https://Hoge</uri><gd:image src="foo.png"/></author>
+</feed>
+#parsed
+{"authors":[{"page_url":"https://hoge/","logo":{"url":"https://base/foo.png"}}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005">
+  <author><uri>https://Hoge</uri><gd:image src="foo.png"
+width="14" height="300"/></author>
+</feed>
+#parsed
+{"authors":[{"page_url":"https://hoge/","logo":{"url":"https://base/foo.png","width":14,"height":300}}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005">
+  <author><uri>https://Hoge</uri><gd:image src="foo.png"
+width="+14" height="-300"/></author>
+</feed>
+#parsed
+{"authors":[{"page_url":"https://hoge/","logo":{"url":"https://base/foo.png"}}]}
