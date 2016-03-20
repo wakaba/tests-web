@@ -1,0 +1,160 @@
+#data
+<rss></rss>
+#parsed
+{}
+
+#data
+<rss><hoge/><hoge/><entry/></rss>
+#parsed
+{}
+
+#data
+<rss><channel/></rss>
+#parsed
+{}
+
+#data
+<rss><channel><image></image></channel></rss>
+#parsed
+{}
+
+#data
+<rss><channel><image><url>HTTPS://FOO</url></image></channel></rss>
+#parsed
+{"logo":{"url":"https://foo/"}}
+
+#data
+<rss><channel><image><url></url></image></channel></rss>
+#parsed
+{}
+
+#data
+<rss xmlns:it="http://www.itunes.com/dtds/podcast-1.0.dtd"><channel><it:image href="hoge"/></channel></rss>
+#parsed
+{"icon":{"url":"https://base/hoge"}}
+
+#data
+<rss xmlns:it="http://www.itunes.com/dtds/podcast-1.0.dtd"><channel><it:image href=""/></channel></rss>
+#parsed
+{}
+
+#data
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><dc:creator></dc:creator></channel></rss>
+#parsed
+{}
+
+#data
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><dc:creator>a</dc:creator></channel></rss>
+#parsed
+{"authors":[{"name":"a"}]}
+
+#data
+<rss xmlns:it="http://www.itunes.com/dtds/podcast-1.0.dtd"><channel><it:author>a</it:author></channel></rss>
+#parsed
+{"authors":[{"name":"a"}]}
+
+#data
+<rss><channel><managingEditor></managingEditor></channel></rss>
+#parsed
+{}
+
+#data
+<rss><channel><managingEditor>ab cd</managingEditor></channel></rss>
+#parsed
+{"authors":[{"name":"ab cd"}]}
+
+#data
+<rss><channel><managingEditor>ab (cd)</managingEditor></channel></rss>
+#parsed
+{"authors":[{"name":"cd","email":"ab"}]}
+
+#data
+<rss><channel><managingEditor>a@b.test (Mr. Foo Bar)</managingEditor></channel></rss>
+#parsed
+{"authors":[{"name":"Mr. Foo Bar","email":"a@b.test"}]}
+
+#data
+<rss><channel><managingEditor>ab ()</managingEditor></channel></rss>
+#parsed
+{"authors":[{"name":"ab ()"}]}
+
+#data
+<rss><channel><managingEditor>a@b.test</managingEditor></channel></rss>
+#parsed
+{"authors":[{"name":"a@b.test"}]}
+
+#data
+<rss><channel><pubDate>Sat, 20 Mar 2016 03:13:44 -0504</pubDate></channel></rss>
+#parsed
+{"updated":"2016-03-20T08:17:44Z"}
+
+#data
+<rss><channel><lastBuildDate>20 Mar 2016 03:13:44 -0504</lastBuildDate></channel></rss>
+#parsed
+{"updated":"2016-03-20T08:17:44Z"}
+
+#data
+<rss><channel><lastBuildDate>3/5</lastBuildDate></channel></rss>
+#parsed
+{}
+
+#data
+<rss><channel><title></title></channel></rss>
+#parsed
+{}
+
+#data
+<rss><channel><title> </title></channel></rss>
+#parsed
+{}
+
+#data
+<rss><channel><title> ab</title></channel></rss>
+#parsed
+{"title":" ab"}
+
+#data
+<rss><channel><subtitle xmlns="http://www.itunes.com/dtds/podcast-1.0.dtd"></subtitle></channel></rss>
+#parsed
+{}
+
+#data
+<rss><channel><subtitle xmlns="http://www.itunes.com/dtds/podcast-1.0.dtd">abbb</subtitle></channel></rss>
+#parsed
+{"subtitle":"abbb"}
+
+#data
+<rss><channel><summary xmlns="http://www.itunes.com/dtds/podcast-1.0.dtd"></summary></channel></rss>
+#parsed
+{}
+
+#data
+<rss><channel><summary xmlns="http://www.itunes.com/dtds/podcast-1.0.dtd">aaa</summary></channel></rss>
+#parsed
+{"summary":"aaa"}
+
+#data
+<rss><channel><description></description></channel></rss>
+#parsed
+{}
+
+#data
+<rss><channel><description>
+aa</description></channel></rss>
+#parsed
+{"summary":"\u000Aaa"}
+
+#data
+<rss><channel><link>aa</link></channel></rss>
+#parsed
+{"page_url":"https://base/aa"}
+
+#data
+<rss><channel><link href="aa" xmlns="http://www.w3.org/2005/Atom"/></channel></rss>
+#parsed
+{"page_url":"https://base/aa"}
+
+#data
+<rss><channel><link href="aa" rel="self" type="application/rss+xml" xmlns="http://www.w3.org/2005/Atom"/></channel></rss>
+#parsed
+{"feed_url":"https://base/aa"}
