@@ -458,3 +458,287 @@ width="+14" height="-300"/></author>
 </feed>
 #parsed
 {"authors":[{"page_url":"https://hoge/","logo":{"url":"https://base/foo.png"}}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <author><uri>https://Hoge</uri><gd:image src="foo.png"
+width="+14" height="-300"/></author>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"authors":[{"page_url":"https://hoge/","logo":{"url":"https://base/foo.png"}}]}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <category term=""/>
+  </entry>
+</feed>
+#parsed
+{"entries":[{}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <category term="foo  bar"/>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"categories":{"foo  bar":1}}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <category term="foo  bar"/>
+    <category term="foo  bar"/>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"categories":{"foo  bar":1}}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <category term="foo  bar"/>
+    <category term="bar"/>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"categories":{"foo  bar":1,"bar":1}}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <published>1903-04-01T12:03:11Z</published>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"published":"1903-04-01T12:03:11Z"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <created>1903-04-01T12:03:11Z</created>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"published":"1903-04-01T12:03:11Z"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <updated>1903-04-01T12:03:11Z</updated>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"updated":"1903-04-01T12:03:11Z"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <modified>1903-04-01T12:03:11Z</modified>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"updated":"1903-04-01T12:03:11Z"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <entry>
+    <title>hoge fuga</title>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"title":"hoge fuga"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <title type="html">hoge&lt;br> fuga</title>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"title":"hoge<br xmlns=\"http://www.w3.org/1999/xhtml\"></br> fuga"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <entry>
+    <summary>hoge fuga</summary>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"summary":"hoge fuga"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <summary type="html">hoge&lt;br> fuga</summary>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"summary":"hoge<br xmlns=\"http://www.w3.org/1999/xhtml\"></br> fuga"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <entry>
+    <content>hoge fuga</content>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"content":"hoge fuga"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <content type="html">hoge&lt;br> fuga</content>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"content":"hoge<br xmlns=\"http://www.w3.org/1999/xhtml\"></br> fuga"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">hoge<br/> fuga</div></content>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"content":"hoge<br xmlns=\"http://www.w3.org/1999/xhtml\"></br> fuga"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <link rel="alternate" href="https://www.example.com"/>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"page_url":"https://www.example.com/"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <link href="https://www.example.com"/>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"page_url":"https://www.example.com/"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <link rel="self" href="https://www.example.com"/>
+  </entry>
+</feed>
+#parsed
+{"entries":[{}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <link rel="next" href="https://www.example.com"/>
+  </entry>
+</feed>
+#parsed
+{"entries":[{}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <link rel="enclosure" href="https://www.example.com"/>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"enclosures":[{"url":"https://www.example.com/"}]}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <link rel="enclosure" href="https://www.example.com" length="133" type="text/plain"/>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"enclosures":[{"url":"https://www.example.com/","type":"text/plain","length":133}]}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <link rel="enclosure" href="https://www.example.com" length="large"/>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"enclosures":[{"url":"https://www.example.com/"}]}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <thumbnail url="foo/bar" xmlns="http://search.yahoo.com/mrss/"/>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"thumbnail":{"url":"https://base/foo/bar"}}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <group xmlns="http://search.yahoo.com/mrss/">
+    </group>
+  </entry>
+</feed>
+#parsed
+{"entries":[{}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <group xmlns="http://search.yahoo.com/mrss/">
+      <title>abc</title>
+    </group>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"title":"abc"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <group xmlns="http://search.yahoo.com/mrss/">
+      <description>abc</description>
+    </group>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"summary":"abc"}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <group xmlns="http://search.yahoo.com/mrss/">
+      <content/>
+    </group>
+  </entry>
+</feed>
+#parsed
+{"entries":[{}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <group xmlns="http://search.yahoo.com/mrss/">
+      <content url=""/>
+    </group>
+  </entry>
+</feed>
+#parsed
+{"entries":[{}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <group xmlns="http://search.yahoo.com/mrss/">
+      <content url="https://foo"/>
+    </group>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"enclosures":[{"url":"https://foo/"}]}]}

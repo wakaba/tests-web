@@ -258,3 +258,121 @@
 </feed>
 #parsed
 {"authors":[{"page_url":"https://hoge/"}]}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <author><uri>https://Hoge</uri><gd:image src="foo.png"
+width="+14" height="-300"/></author>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"authors":[{"page_url":"https://hoge/","logo":{"url":"https://base/foo.png"}}]}]}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <created>1903-04-01T12:03:11Z</created>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"published":"1903-04-01T12:03:11Z"}]}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <modified>1903-04-01T12:03:11Z</modified>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"updated":"1903-04-01T12:03:11Z"}]}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <title>hoge fuga</title>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"title":"hoge fuga"}]}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <title type="text/html" mode="escaped">hoge&lt;br> fuga</title>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"title":"hoge<br xmlns=\"http://www.w3.org/1999/xhtml\"></br> fuga"}]}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <summary>hoge fuga</summary>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"summary":"hoge fuga"}]}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <summary type="text/html" mode="escaped">hoge&lt;br> fuga</summary>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"summary":"hoge<br xmlns=\"http://www.w3.org/1999/xhtml\"></br> fuga"}]}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <content>hoge fuga</content>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"content":"hoge fuga"}]}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#" xmlns:gd="http://schemas.google.com/g/2005">
+  <entry>
+    <content type="text/html" mode="escaped">hoge&lt;br> fuga</content>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"content":"hoge<br xmlns=\"http://www.w3.org/1999/xhtml\"></br> fuga"}]}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#" >
+  <entry>
+    <link rel="alternate" href="https://www.example.com"/>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"page_url":"https://www.example.com/"}]}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#" >
+  <entry>
+    <link href="https://www.example.com"/>
+  </entry>
+</feed>
+#parsed
+{"entries":[{"page_url":"https://www.example.com/"}]}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#" >
+  <entry>
+    <link rel="self" href="https://www.example.com"/>
+  </entry>
+</feed>
+#parsed
+{"entries":[{}]}
+
+#data
+<feed xmlns="http://purl.org/atom/ns#" >
+  <entry>
+    <link rel="next" href="https://www.example.com"/>
+  </entry>
+</feed>
+#parsed
+{"entries":[{}]}
