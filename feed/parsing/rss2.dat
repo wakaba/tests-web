@@ -158,3 +158,241 @@ aa</description></channel></rss>
 <rss><channel><link href="aa" rel="self" type="application/rss+xml" xmlns="http://www.w3.org/2005/Atom"/></channel></rss>
 #parsed
 {"feed_url":"https://base/aa"}
+
+#data
+<rss><channel>
+<item>
+</item>
+</channel></rss>
+#parsed
+{"entries":[{}]}
+
+#data
+<rss>
+<item>
+</item>
+</rss>
+#parsed
+{"entries":[{}]}
+
+#data
+<rss><channel><item>
+  <category>hoge</category>
+  <category>hoge</category>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "categories":{"hoge":1}
+}]}
+
+#data
+<rss><channel><item>
+  <category>hoge</category>
+  <category>fuga</category>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "categories":{"hoge":1,"fuga":1}
+}]}
+
+#data
+<rss><channel><item>
+  <author>foo</author>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "authors":[{"name":"foo"}]
+}]}
+
+#data
+<rss><channel><item>
+  <author>foo@bar</author>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "authors":[{"name":"foo@bar"}]
+}]}
+
+#data
+<rss><channel><item>
+  <author>foo@bar (hoge)</author>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "authors":[{"name":"hoge","email":"foo@bar"}]
+}]}
+
+#data
+<rss><channel><item>
+  <creator xmlns="http://purl.org/dc/elements/1.1/">foo</creator>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "authors":[{"name":"foo"}]
+}]}
+
+#data
+<rss><channel><item>
+  <author xmlns="http://www.itunes.com/dtds/podcast-1.0.dtd">foo</author>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "authors":[{"name":"foo"}]
+}]}
+
+#data
+<rss><channel><item>
+  <pubDate>Sat, 20 Mar 2016 03:13:44 -0504</pubDate>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "updated":"2016-03-20T08:17:44Z"
+}]}
+
+#data
+<rss><channel><item>
+  <updated xmlns="http://www.w3.org/2005/Atom">2016-03-20T08:17:44+00:00</updated>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "updated":"2016-03-20T08:17:44Z"
+}]}
+
+#data
+<rss><channel><item>
+  <link>https://hoge.test</link>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "page_url":"https://hoge.test/"
+}]}
+
+#data
+<rss><channel><item>
+  <thumbnail url="f.a" xmlns="http://search.yahoo.com/mrss/"/>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "thumbnail":{"url":"https://base/f.a"}
+}]}
+
+#data
+<rss><channel><item>
+  <image href="f.a" xmlns="http://www.itunes.com/dtds/podcast-1.0.dtd"/>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "thumbnail":{"url":"https://base/f.a"}
+}]}
+
+#data
+<rss><channel><item>
+  <enclosure/>
+</item></channel></rss>
+#parsed
+{"entries":[{
+}]}
+
+#data
+<rss><channel><item>
+  <enclosure url="foo"/>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "enclosures":[
+    {"url":"https://base/foo"}
+  ]
+}]}
+
+#data
+<rss><channel><item>
+  <enclosure url="foo" type="audio/mpeg"/>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "enclosures":[
+    {"url":"https://base/foo","type":"audio/mpeg"}
+  ]
+}]}
+
+#data
+<rss><channel><item>
+  <enclosure url="foo" length="5333"/>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "enclosures":[
+    {"url":"https://base/foo","length":5333}
+  ]
+}]}
+
+#data
+<rss><channel><item>
+  <title>aa b</title>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "title": "aa b"
+}]}
+
+#data
+<rss><channel><item>
+  <subtitle xmlns="http://www.itunes.com/dtds/podcast-1.0.dtd">aa b</subtitle>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "subtitle": "aa b"
+}]}
+
+#data
+<rss><channel><item>
+  <description>aa &lt;i>b</description>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "summary": "aa <i xmlns=\"http://www.w3.org/1999/xhtml\">b</i>"
+}]}
+
+#data
+<rss><channel><item>
+  <encoded xmlns="http://purl.org/rss/1.0/modules/content/">aa &lt;i>b</encoded>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "content": "aa <i xmlns=\"http://www.w3.org/1999/xhtml\">b</i>"
+}]}
+
+#data
+<rss><channel><item>
+  <duration xmlns="http://www.itunes.com/dtds/podcast-1.0.dtd">53</duration>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "duration": 53
+}]}
+
+#data
+<rss><channel><item>
+  <duration xmlns="http://www.itunes.com/dtds/podcast-1.0.dtd">53:45</duration>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "duration": 3225
+}]}
+
+#data
+<rss><channel><item>
+  <duration xmlns="http://www.itunes.com/dtds/podcast-1.0.dtd">5:53:45</duration>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "duration": 21225
+}]}
+
+#data
+<rss><channel><item>
+  <duration xmlns="http://www.itunes.com/dtds/podcast-1.0.dtd">53:45:43:44</duration>
+</item></channel></rss>
+#parsed
+{"entries":[{
+}]}
