@@ -396,3 +396,84 @@ aa</description></channel></rss>
 #parsed
 {"entries":[{
 }]}
+
+#data
+<rss><channel><item>
+  <link>http://foo.bar</link>
+  <enclosure url="http://foo.bar/"/>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "enclosures":[{"url":"http://foo.bar/"}]
+}]}
+
+#data
+<rss><channel><item>
+  <link>http://foo.bar/1</link>
+  <enclosure url="http://foo.bar/1"/>
+  <enclosure url="http://foo.bar/2"/>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "enclosures":[{"url":"http://foo.bar/1"},{"url":"http://foo.bar/2"}]
+}]}
+
+#data
+<rss><channel><item>
+  <link>http://foo.bar</link>
+  <enclosure url="http://foo.bar/movie"/>
+  <enclosure url="http://foo.bar/thumbnail" type="image/jpeg"/>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "page_url":"http://foo.bar/",
+  "thumbnail":{"url":"http://foo.bar/thumbnail"},
+  "enclosures":[{"url":"http://foo.bar/movie"}]
+}]}
+
+#data
+<rss><channel><item>
+  <link>http://foo.bar</link>
+  <enclosure url="http://foo.bar/movie"/>
+  <enclosure url="http://foo.bar/thumbnail.jpeg"/>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "page_url":"http://foo.bar/",
+  "thumbnail":{"url":"http://foo.bar/thumbnail.jpeg"},
+  "enclosures":[{"url":"http://foo.bar/movie"}]
+}]}
+
+#data
+<rss><channel><item>
+  <link>http://foo.bar</link>
+  <enclosure url="http://foo.bar/movie"/>
+  <enclosure url="http://foo.bar/thumbnail.jpeg"/>
+  <enclosure url="http://foo.bar/thumbnail.jpeg"/>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "page_url":"http://foo.bar/",
+  "thumbnail":{"url":"http://foo.bar/thumbnail.jpeg"},
+  "enclosures":[{"url":"http://foo.bar/movie"},{"url":"http://foo.bar/thumbnail.jpeg"}]
+}]}
+
+#data
+<rss><channel><item>
+  <title>Hello</title>
+  <subtitle xmlns="http://www.itunes.com/dtds/podcast-1.0.dtd">Hello</subtitle>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "title":"Hello"
+}]}
+
+#data
+<rss><channel><item>
+  <title>Hello</title>
+  <description>Hello</description>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "title":"Hello"
+}]}

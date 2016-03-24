@@ -121,3 +121,95 @@
 </rdf:RDF>
 #parsed
 {"prev_feed_url":"https://base/"}
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <item></item>
+</rdf:RDF>
+#parsed
+{"entries":[{
+}]}
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <item><link>https://hoge.test</link></item>
+</rdf:RDF>
+#parsed
+{"entries":[{
+  "page_url":"https://hoge.test/"
+}]}
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <item><imageurl xmlns="http://www.hatena.ne.jp/info/xmlns#">https://hoge.test</imageurl></item>
+</rdf:RDF>
+#parsed
+{"entries":[{
+  "thumbnail":{"url":"https://hoge.test/"}
+}]}
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <item xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:creator>3233</dc:creator>
+  </item>
+</rdf:RDF>
+#parsed
+{"entries":[{
+  "authors":[{"name":"3233"}]
+}]}
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <item xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:date>2013-03-05T00:13:33-03:11</dc:date>
+  </item>
+</rdf:RDF>
+#parsed
+{"entries":[{
+  "updated":"2013-03-05T03:24:33Z"
+}]}
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <item xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:subject>ab c</dc:subject>
+  </item>
+</rdf:RDF>
+#parsed
+{"entries":[{
+  "categories":{"ab c":1}
+}]}
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <item>
+    <title>Ho&lt;p>ge</title>
+  </item>
+</rdf:RDF>
+#parsed
+{"entries":[{
+  "title": "Ho<p>ge"
+}]}
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <item>
+    <description>Ho&lt;p>ge</description>
+  </item>
+</rdf:RDF>
+#parsed
+{"entries":[{
+  "summary": "Ho<p xmlns=\"http://www.w3.org/1999/xhtml\">ge</p>"
+}]}
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <item>
+    <encoded xmlns="http://purl.org/rss/1.0/modules/content/">Ho&lt;p>ge</encoded>
+  </item>
+</rdf:RDF>
+#parsed
+{"entries":[{
+  "content": "Ho<p xmlns=\"http://www.w3.org/1999/xhtml\">ge</p>"
+}]}
