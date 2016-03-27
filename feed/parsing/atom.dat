@@ -763,3 +763,15 @@ width="+14" height="-300"/></author>
   "logo":{"url":"https://base/hoge/fuga"},
   "icon":{"url":"http://base/hoge/fuga"}
 }
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <entry>
+    <summary type="html">aa &lt;p>&lt;rt x=y>d</summary>
+    <title type="html">aa &lt;p>&lt;rt x=y>d</title>
+  </entry>
+</feed>
+#parsed
+{"entries":[{
+  "title": "aa <p xmlns=\"http://www.w3.org/1999/xhtml\"><rt x=\"y\">d</rt></p>"
+}]}

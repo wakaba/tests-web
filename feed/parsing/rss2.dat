@@ -526,3 +526,88 @@ aa</description></channel></rss>
 {"entries":[{
   "authors":[{"name":"Hello"},{"name":"Hello","email":"hoge@fuga"}]
 }]}
+
+#data
+<rss><channel><item>
+  <title>aa b</title>
+  <subtitle xmlns="http://www.itunes.com/dtds/podcast-1.0.dtd">aa b</subtitle>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "title": "aa b"
+}]}
+
+#data
+<rss><channel><item>
+  <title>aa b</title>
+  <subtitle xmlns="http://www.itunes.com/dtds/podcast-1.0.dtd">aa c</subtitle>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "title": "aa b",
+  "subtitle": "aa c"
+}]}
+
+#data
+<rss><channel><item>
+  <description>aa b</description>
+  <subtitle xmlns="http://www.itunes.com/dtds/podcast-1.0.dtd">aa c</subtitle>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "summary": "aa b",
+  "subtitle": "aa c"
+}]}
+
+#data
+<rss><channel><item>
+  <description>aa b</description>
+  <encoded xmlns="http://purl.org/rss/1.0/modules/content/">aa c</encoded>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "summary": "aa b",
+  "content": "aa c"
+}]}
+
+#data
+<rss><channel><item>
+  <description>aa c</description>
+  <encoded xmlns="http://purl.org/rss/1.0/modules/content/">aa c</encoded>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "summary": "aa c"
+}]}
+
+#data
+<rss><channel><item>
+  <description>aa &lt;p>&lt;rt x=y>c</description>
+  <encoded xmlns="http://purl.org/rss/1.0/modules/content/">aa &lt;p>&lt;rt x=y>c</encoded>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "summary": "aa <p xmlns=\"http://www.w3.org/1999/xhtml\"><rt x=\"y\">c</rt></p>"
+}]}
+
+#data
+<rss><channel><item>
+  <description>aa &lt;p>&lt;rt x=y>c</description>
+  <encoded xmlns="http://purl.org/rss/1.0/modules/content/">aa &lt;p>&lt;rt x=y>d</encoded>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "summary": "aa <p xmlns=\"http://www.w3.org/1999/xhtml\"><rt x=\"y\">c</rt></p>",
+  "content": "aa <p xmlns=\"http://www.w3.org/1999/xhtml\"><rt x=\"y\">d</rt></p>"
+}]}
+
+#data
+<rss><channel><item>
+  <description>aa &amp;lt;p>&amp;lt;rt x=y>c</description>
+  <encoded xmlns="http://purl.org/rss/1.0/modules/content/">aa &lt;p>&lt;rt x=y>d</encoded>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "summary": "aa <p><rt x=y>c",
+  "content": "aa <p xmlns=\"http://www.w3.org/1999/xhtml\"><rt x=\"y\">d</rt></p>"
+}]}
