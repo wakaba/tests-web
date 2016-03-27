@@ -742,3 +742,24 @@ width="+14" height="-300"/></author>
 </feed>
 #parsed
 {"entries":[{"enclosures":[{"url":"https://foo/"}]}]}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <logo>hoge/fuga</logo>
+  <icon>https://base/hoge/fuga</icon>
+</feed>
+#parsed
+{
+  "logo":{"url":"https://base/hoge/fuga"}
+}
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <logo>hoge/fuga</logo>
+  <icon>http://base/hoge/fuga</icon>
+</feed>
+#parsed
+{
+  "logo":{"url":"https://base/hoge/fuga"},
+  "icon":{"url":"http://base/hoge/fuga"}
+}

@@ -487,3 +487,33 @@ aa</description></channel></rss>
 {"entries":[{
   "title":"Hello"
 }]}
+
+#data
+<rss><channel><item>
+  <author xmlns="http://www.itunes.com/DTDs/Podcast-1.0.dtd">Hello</author>
+  <creator xmlns="http://purl.org/dc/elements/1.1/">Hello</creator>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "authors":[{"name":"Hello"}]
+}]}
+
+#data
+<rss><channel><item>
+  <author xmlns="http://www.itunes.com/DTDs/Podcast-1.0.dtd">Hello</author>
+  <author>Hello</author>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "authors":[{"name":"Hello"}]
+}]}
+
+#data
+<rss><channel><item>
+  <author xmlns="http://www.itunes.com/DTDs/Podcast-1.0.dtd">Hello</author>
+  <author>hoge@fuga (Hello)</author>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "authors":[{"name":"Hello"},{"name":"Hello","email":"hoge@fuga"}]
+}]}
