@@ -611,3 +611,12 @@ aa</description></channel></rss>
   "summary": "aa <p><rt x=y>c",
   "content": "aa <p xmlns=\"http://www.w3.org/1999/xhtml\"><rt x=\"y\">d</rt></p>"
 }]}
+
+#data
+<rss><channel><item>
+  <content url="f.a" xmlns="http://search.yahoo.com/mrss"/>
+</item></channel></rss>
+#parsed
+{"entries":[{
+  "enclosures":[{"url":"https://base/f.a"}]
+}]}
