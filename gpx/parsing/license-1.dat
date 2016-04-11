@@ -1,0 +1,59 @@
+#data
+<gpx><metadata>
+  <copyright>
+  </copyright>
+</metadata></gpx>
+#parsed
+{"license":{}}
+
+#data
+<gpx><metadata>
+  <copyright author="">
+  </copyright>
+</metadata></gpx>
+#parsed
+{"license":{}}
+
+#data
+<gpx><metadata>
+  <copyright author="hoge">
+  </copyright>
+</metadata></gpx>
+#parsed
+{"license":{"holder":"hoge"}}
+
+#data
+<gpx><metadata>
+  <copyright>
+    <year>1245</year>
+  </copyright>
+</metadata></gpx>
+#parsed
+{"license":{"year":1245}}
+
+#data
+<gpx><metadata>
+  <copyright>
+    <year>31</year>
+  </copyright>
+</metadata></gpx>
+#parsed
+{"license":{}}
+
+#data
+<gpx><metadata>
+  <copyright>
+    <year>10000</year>
+  </copyright>
+</metadata></gpx>
+#parsed
+{"license":{"year":10000}}
+
+#data
+<gpx><metadata>
+  <copyright>
+    <license>https://foo</license>
+  </copyright>
+</metadata></gpx>
+#parsed
+{"license":{"page_url":"https://foo/"}}

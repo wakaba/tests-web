@@ -1,0 +1,80 @@
+#data
+<gpx>
+  <metadata>
+    <author></author>
+  </metadata>
+</gpx>
+#parsed
+{"author":{}}
+
+#data
+<gpx>
+  <metadata>
+    <author><name></name></author>
+  </metadata>
+</gpx>
+#parsed
+{"author":{}}
+
+#data
+<gpx>
+  <metadata>
+    <author><name>ab</name></author>
+  </metadata>
+</gpx>
+#parsed
+{"author":{"name":"ab"}}
+
+#data
+<gpx>
+  <metadata>
+    <author><email>hoge@fuga</email></author>
+  </metadata>
+</gpx>
+#parsed
+{"author":{}}
+
+#data
+<gpx>
+  <metadata>
+    <author><email id="" domain=""/></author>
+  </metadata>
+</gpx>
+#parsed
+{"author":{"email":"@"}}
+
+#data
+<gpx>
+  <metadata>
+    <author><email id="foo" domain=""/></author>
+  </metadata>
+</gpx>
+#parsed
+{"author":{"email":"foo@"}}
+
+#data
+<gpx>
+  <metadata>
+    <author><email domain="fo"/></author>
+  </metadata>
+</gpx>
+#parsed
+{"author":{}}
+
+#data
+<gpx>
+  <metadata>
+    <author><email id="a" domain="b"/></author>
+  </metadata>
+</gpx>
+#parsed
+{"author":{"email":"a@b"}}
+
+#data
+<gpx>
+  <metadata>
+    <author><link href="hoge@fuga"/></author>
+  </metadata>
+</gpx>
+#parsed
+{"author":{"page_url":"https://base/hoge@fuga"}}

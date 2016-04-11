@@ -1,0 +1,123 @@
+#data
+<gpx><trk>
+</trk></gpx>
+#parsed
+{"tracks":[{
+}]}
+
+#data
+<gpx><trk>
+  <name>aa</name>
+</trk></gpx>
+#parsed
+{"tracks":[{
+  "name":"aa"
+}]}
+
+#data
+<gpx><trk>
+  <desc>!#</desc>
+</trk></gpx>
+#parsed
+{"tracks":[{
+  "desc":"!#"
+}]}
+
+#data
+<gpx><trk>
+  <cmt>00</cmt>
+</trk></gpx>
+#parsed
+{"tracks":[{
+  "comment":"00"
+}]}
+
+#data
+<gpx><trk>
+  <src>0</src>
+</trk></gpx>
+#parsed
+{"tracks":[{
+  "source":"0"
+}]}
+
+#data
+<gpx><trk>
+  <type>()</type>
+</trk></gpx>
+#parsed
+{"tracks":[{
+  "type":"()"
+}]}
+
+#data
+<gpx><trk>
+  <number>066</number>
+</trk></gpx>
+#parsed
+{"tracks":[{
+  "number":66
+}]}
+
+#data
+<gpx><trk>
+  <link href="ftp://foo"/>
+</trk></gpx>
+#parsed
+{"tracks":[{
+  "page_url":"ftp://foo/"
+}]}
+
+#data
+<gpx><trk>
+  <trkseg>
+    <trkpt lat="42.440" lon="155.44"></trkpt>
+  </trkseg>
+</trk></gpx>
+#parsed
+{"tracks":[{
+  "segments":[{
+    "points":[
+      {"lat":42.44,"lon":155.44}
+    ]
+  }]
+}]}
+
+#data
+<gpx><trk>
+  <trkseg>
+    <trkpt lat="42.440" lon="155.44"></trkpt>
+    <trkpt lat="-42.440" lon="-155.44"></trkpt>
+  </trkseg>
+</trk></gpx>
+#parsed
+{"tracks":[{
+  "segments":[{
+    "points":[
+      {"lat":42.44,"lon":155.44},
+      {"lat":-42.44,"lon":-155.44}
+    ]
+  }]
+}]}
+
+#data
+<gpx><trk>
+  <trkseg>
+    <trkpt lat="42.440" lon="155.44"></trkpt>
+  </trkseg>
+  <trkseg>
+    <trkpt lat="-42.440" lon="-155.44"></trkpt>
+  </trkseg>
+</trk></gpx>
+#parsed
+{"tracks":[{
+  "segments":[{
+    "points":[
+      {"lat":42.44,"lon":155.44}
+    ]
+  }, {
+    "points":[
+      {"lat":-42.44,"lon":-155.44}
+    ]
+  }]
+}]}

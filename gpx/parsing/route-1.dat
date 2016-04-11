@@ -1,0 +1,93 @@
+#data
+<gpx><rte>
+</rte></gpx>
+#parsed
+{"routes":[{
+}]}
+
+#data
+<gpx><rte>
+  <name>aa</name>
+</rte></gpx>
+#parsed
+{"routes":[{
+  "name":"aa"
+}]}
+
+#data
+<gpx><rte>
+  <desc>!#</desc>
+</rte></gpx>
+#parsed
+{"routes":[{
+  "desc":"!#"
+}]}
+
+#data
+<gpx><rte>
+  <cmt>00</cmt>
+</rte></gpx>
+#parsed
+{"routes":[{
+  "comment":"00"
+}]}
+
+#data
+<gpx><rte>
+  <src>0</src>
+</rte></gpx>
+#parsed
+{"routes":[{
+  "source":"0"
+}]}
+
+#data
+<gpx><rte>
+  <type>()</type>
+</rte></gpx>
+#parsed
+{"routes":[{
+  "type":"()"
+}]}
+
+#data
+<gpx><rte>
+  <number>066</number>
+</rte></gpx>
+#parsed
+{"routes":[{
+  "number":66
+}]}
+
+#data
+<gpx><rte>
+  <link href="ftp://foo"/>
+</rte></gpx>
+#parsed
+{"routes":[{
+  "page_url":"ftp://foo/"
+}]}
+
+#data
+<gpx><rte>
+  <rtept lat="42.440" lon="155.44"></rtept>
+</rte></gpx>
+#parsed
+{"routes":[{
+  "points":[
+    {"lat":42.44,"lon":155.44}
+  ]
+}]}
+
+#data
+<gpx><rte>
+  <rtept lat="42.440" lon="155.44"></rtept>
+  <rtept lat="-42.440" lon="-155.44"></rtept>
+</rte></gpx>
+#parsed
+{"routes":[{
+  "points":[
+    {"lat":42.44,"lon":155.44},
+    {"lat":-42.44,"lon":-155.44}
+  ]
+}]}

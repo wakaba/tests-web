@@ -1,0 +1,176 @@
+#data
+<gpx></gpx>
+#parsed
+{}
+
+#data
+<gpx>
+  
+</gpx>
+#parsed
+{}
+
+#data
+<gpx creator=""></gpx>
+#parsed
+{}
+
+#data
+<gpx creator="foo 12.2 http://hoge"></gpx>
+#parsed
+{"generator":"foo 12.2 http://hoge"}
+
+#data
+<gpx>
+  <metadata>
+  </metadata>
+</gpx>
+#parsed
+{}
+
+#data
+<gpx>
+  <metadata>
+  </metadata>
+  <metadata>
+  </metadata>
+</gpx>
+#parsed
+{}
+
+#data
+<gpx>
+  <metadata>
+    <name>abc bve </name>
+  </metadata>
+</gpx>
+#parsed
+{"name":"abc bve "}
+
+#data
+<gpx>
+  <metadata>
+    <name>abc bve </name>
+    <name> -- AAA </name>
+  </metadata>
+</gpx>
+#parsed
+{"name":"abc bve "}
+
+#data
+<gpx>
+  <metadata>
+    <desc>abc bve </desc>
+  </metadata>
+</gpx>
+#parsed
+{"desc":"abc bve "}
+
+#data
+<gpx>
+  <metadata>
+    <keywords>abc bve </keywords>
+  </metadata>
+</gpx>
+#parsed
+{"keywords":"abc bve "}
+
+#data
+<gpx>
+  <metadata>
+    <link>https://example.COM</link>
+  </metadata>
+</gpx>
+#parsed
+{}
+
+#data
+<gpx>
+  <metadata>
+    <link href="https://example.COM"/>
+  </metadata>
+</gpx>
+#parsed
+{"page_url":"https://example.com/"}
+
+#data
+<gpx>
+  <metadata>
+    <link href="https://example.COM"/>
+    <link href="http://hoge"/>
+  </metadata>
+</gpx>
+#parsed
+{"page_url":"https://example.com/"}
+
+#data
+<gpx><metadata>
+  <time>2042-02-04T00:12:44-09:00</time>
+</metadata></gpx>
+#parsed
+{"timestamp":"2042-02-04T09:12:44Z"}
+
+#data
+<gpx><metadata>
+  <time xmlns="http://www.topografix.com/GPX/gpx_modified/0/1">2042-02-04T00:12:44-09:00</time>
+</metadata></gpx>
+#parsed
+{"updated":"2042-02-04T09:12:44Z"}
+
+#data
+<gpx><metadata>
+  <time>2042-02-04T00:12:44Z</time>
+  <time xmlns="http://www.topografix.com/GPX/gpx_modified/0/1">2042-02-04T00:12:44-09:00</time>
+</metadata></gpx>
+#parsed
+{"updated":"2042-02-04T09:12:44Z",
+"timestamp":"2042-02-04T00:12:44Z"}
+
+#data
+<gpx><metadata>
+  <bounds/>
+</metadata></gpx>
+#parsed
+{}
+
+#data
+<gpx><metadata>
+  <bounds minlat="12"/>
+</metadata></gpx>
+#parsed
+{"min_lat":12}
+
+#data
+<gpx><metadata>
+  <bounds maxlat=".12"/>
+</metadata></gpx>
+#parsed
+{"max_lat":0.12}
+
+#data
+<gpx><metadata>
+  <bounds minlon="-1.244e2"/>
+</metadata></gpx>
+#parsed
+{"min_lon":-124.4}
+
+#data
+<gpx><metadata>
+  <bounds maxlon="+.55e-4"/>
+</metadata></gpx>
+#parsed
+{"max_lon":5.5e-05}
+
+#data
+<gpx><metadata>
+  <bounds maxlon="."/>
+</metadata></gpx>
+#parsed
+{}
+
+#data
+<gpx><metadata>
+  <bounds maxlon="183"/>
+</metadata></gpx>
+#parsed
+{}
