@@ -1,0 +1,556 @@
+#data
+interface A {
+  [SecureContext] attribute DOMString foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "type": "DOMString", "getter": 1, "setter": 1,
+        "SecureContext": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [SecureContext] static attribute DOMString foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static_attribute", {
+        "type": "DOMString", "getter": 1, "setter": 1,
+        "SecureContext": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [SecureContext] DOMString foo ();
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "type": "DOMString", "args":[]
+          }
+        },
+        "SecureContext": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [SecureContext] static DOMString foo ();
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static_operation", {
+        "overload_set": {
+          "": {
+            "type": "DOMString", "args":[]
+          }
+        },
+        "SecureContext": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [SecureContext] DOMString foo ();
+  [SecureContext] DOMString foo (long x);
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "type": "DOMString", "args":[]
+          },
+          "long": {
+            "type": "DOMString",
+            "args":[{"type":"long","name":"x","optionality":"required"}]
+          }
+        },
+        "SecureContext": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  DOMString foo ();
+  [SecureContext] DOMString foo (long x);
+};
+#errors
+1;16;webidl:inconsistent;;[SecureContext];m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "type": "DOMString", "args":[]
+          },
+          "long": {
+            "type": "DOMString",
+            "args":[{"type":"long","name":"x","optionality":"required"}]
+          }
+        },
+        "SecureContext": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [SecureContext] DOMString foo ();
+  DOMString foo (long x);
+};
+#errors
+1;16;webidl:inconsistent;;[SecureContext];m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "type": "DOMString", "args":[]
+          },
+          "long": {
+            "type": "DOMString",
+            "args":[{"type":"long","name":"x","optionality":"required"}]
+          }
+        },
+        "SecureContext": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [SecureContext] getter DOMString foo (DOMString x);
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "DOMString": {
+            "type": "DOMString",
+            "args":[{"type":"DOMString","name":"x","optionality":"required"}]
+          }
+        },
+        "SecureContext": 1
+      }]
+    },
+    "named_getter": ["operation", {
+      "overload_set": {
+        "DOMString": {
+          "type": "DOMString",
+          "args":[{"type":"DOMString","name":"x","optionality":"required"}]
+        }
+      },
+      "SecureContext": 1
+    }]
+  }]
+}
+
+#data
+interface A {
+  [SecureContext] serializer;
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "serializer": ["serializer", {"SecureContext": 1}]
+  }]
+}
+
+#data
+interface A {
+  [SecureContext] iterable<A>;
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "iterable": ["iterable", {"SecureContext": 1, "values_type": ["ref_interface", "A"]}]
+  }]
+}
+
+#data
+interface A {
+  [SecureContext] setlike<A>;
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "iterable": ["setlike", {"SecureContext": 1, "values_type": ["ref_interface", "A"],"read":1,"write":1}]
+  }]
+}
+
+#data
+interface A {
+  [SecureContext] maplike<A,A>;
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "iterable": ["maplike", {
+      "SecureContext": 1,
+      "keys_type": ["ref_interface", "A"],
+      "values_type": ["ref_interface", "A"],
+      "read":1,"write":1
+    }]
+  }]
+}
+
+#data
+interface A {
+  [SecureContext] const long foo = 2;
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["const", {
+        "SecureContext": 1,
+        "type": "long",
+        "value": ["integer", 2]
+      }]
+    }
+  }]
+}
+
+#data
+[Constructor,SecureContext] dictionary A {
+  long foo;
+};
+#errors
+1;;webidl:not defined;;[PrimaryGlobal];w
+#processed
+{
+  "idl_defs": {
+    "A": ["dictionary", {
+      "members": {
+        "foo": ["dictionary_member", {"type":"long"}]
+      }
+    }]
+  },
+  "global_members": {
+    "A": ["operation", {
+      "SecureContext": 1,
+      "overload_set": {
+        "": {
+          "type": ["ref_dictionary", "A"],
+          "args": []
+        }
+      }
+    }]
+  }
+}
+
+#data
+[SecureContext] dictionary A {};
+#errors
+1;1;webidl:not allowed;;SecureContext;m
+#processed
+{
+  "A": ["dictionary",{
+    "members": {}
+  }]
+}
+
+#data
+[SecureContext] callback X = void ();
+#errors
+1;1;webidl:not allowed;;SecureContext;m
+#processed
+{
+  "X": ["callback", {
+    "overload_set": {
+      "": {"type": "void", "args": []}
+    }
+  }]
+}
+
+#data
+interface A {
+  DOMString foo ([SecureContext] long x);
+};
+#errors
+1;32;webidl:not allowed;;SecureContext;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "long": {
+            "type": "DOMString",
+            "args":[{"type":"long","name":"x","optionality":"required"}]
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+[SecureContext]
+interface A {
+  DOMString foo ();
+  static DOMString bar ();
+  attribute DOMString a;
+  static attribute DOMString b;
+  getter DOMString c (DOMString x);
+  serializer;
+  iterable<A>;
+  const long e = 2;
+};
+#processed
+{
+  "A": ["interface", {
+    "SecureContext": 1,
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "type": "DOMString", "args":[]
+          }
+        },
+        "SecureContext": 1
+      }],
+      "bar": ["static_operation", {
+        "overload_set": {
+          "": {
+            "type": "DOMString", "args":[]
+          }
+        },
+        "SecureContext": 1
+      }],
+      "a": ["attribute", {
+        "type": "DOMString", "getter": 1, "setter": 1,
+        "SecureContext": 1
+      }],
+      "b": ["static_attribute", {
+        "type": "DOMString", "getter": 1, "setter": 1,
+        "SecureContext": 1
+      }],
+      "c": ["operation", {
+        "overload_set": {
+          "DOMString": {
+            "type": "DOMString", "args":[{"type":"DOMString","name":"x","optionality":"required"}]
+          }
+        },
+        "SecureContext": 1
+      }],
+      "e": ["const", {
+        "SecureContext": 1,
+        "type": "long",
+        "value": ["integer", 2]
+      }]
+    },
+    "named_getter": ["operation", {
+      "overload_set": {
+        "DOMString": {
+          "type": "DOMString", "args":[{"type":"DOMString","name":"x","optionality":"required"}]
+        }
+      },
+      "SecureContext": 1
+    }],
+    "serializer": ["serializer", {"SecureContext": 1}],
+    "iterable": ["iterable", {"SecureContext": 1, "values_type": ["ref_interface", "A"]}]
+  }]
+}
+
+#data
+[SecureContext] interface A {
+  setlike<A>;
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "SecureContext": 1,
+    "members": {},
+    "iterable": ["setlike", {"SecureContext": 1, "values_type": ["ref_interface", "A"],"read":1,"write":1}]
+  }]
+}
+
+#data
+[SecureContext] interface A {
+  maplike<A,A>;
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "SecureContext": 1,
+    "members": {},
+    "iterable": ["maplike", {
+      "SecureContext": 1,
+      "keys_type": ["ref_interface", "A"],
+      "values_type": ["ref_interface", "A"],
+      "read":1,"write":1
+    }]
+  }]
+}
+
+#data
+interface A {
+  attribute long hoge;
+};
+[SecureContext]
+partial interface A {
+  DOMString foo ();
+  static DOMString bar ();
+  attribute DOMString a;
+  static attribute DOMString b;
+  getter DOMString c (DOMString x);
+  serializer;
+  iterable<A>;
+  const long e = 2;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoge": ["attribute", {
+        "type": "long",
+        "getter": 1, "setter": 1
+      }],
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "type": "DOMString", "args":[]
+          }
+        },
+        "SecureContext": 1
+      }],
+      "bar": ["static_operation", {
+        "overload_set": {
+          "": {
+            "type": "DOMString", "args":[]
+          }
+        },
+        "SecureContext": 1
+      }],
+      "a": ["attribute", {
+        "type": "DOMString", "getter": 1, "setter": 1,
+        "SecureContext": 1
+      }],
+      "b": ["static_attribute", {
+        "type": "DOMString", "getter": 1, "setter": 1,
+        "SecureContext": 1
+      }],
+      "c": ["operation", {
+        "overload_set": {
+          "DOMString": {
+            "type": "DOMString", "args":[{"type":"DOMString","name":"x","optionality":"required"}]
+          }
+        },
+        "SecureContext": 1
+      }],
+      "e": ["const", {
+        "SecureContext": 1,
+        "type": "long",
+        "value": ["integer", 2]
+      }]
+    },
+    "named_getter": ["operation", {
+      "overload_set": {
+        "DOMString": {
+          "type": "DOMString", "args":[{"type":"DOMString","name":"x","optionality":"required"}]
+        }
+      },
+      "SecureContext": 1
+    }],
+    "serializer": ["serializer", {"SecureContext": 1}],
+    "iterable": ["iterable", {"SecureContext": 1, "values_type": ["ref_interface", "A"]}]
+  }]
+}
+
+#data
+[Constructor,SecureContext] interface A {};
+#errors
+1;;webidl:not defined;;[PrimaryGlobal];w
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {
+      "SecureContext": 1,
+      "members": {}
+    }]
+  },
+  "global_members": {
+    "A": ["operation", {
+      "SecureContext": 1,
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        }
+      }
+    }]
+  }
+}
+
+#data
+[NoInterfaceObject,NamedConstructor=X,SecureContext] interface A {};
+#errors
+1;;webidl:not defined;;[PrimaryGlobal];w
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {
+      "SecureContext": 1,
+      "members": {},
+      "NoInterfaceObject": 1
+    }]
+  },
+  "global_members": {
+    "X": ["operation", {
+      "SecureContext": 1,
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        }
+      }
+    }]
+  }
+}
