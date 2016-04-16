@@ -2634,17 +2634,16 @@ abc
 #data
 <menuitem label="a" xmlns="http://www.w3.org/1999/xhtml"> ab</menuitem>
 #errors
-/menuitem/" ab";character not allowed:empty;m
 
 #data
 <menuitem label="a" xmlns="http://www.w3.org/1999/xhtml"><span>aa</span></menuitem>
 #errors
-/menuitem/span;element not allowed:empty;m
+/menuitem/span;element not allowed:text;m
 
 #data
 <menuitem label="a" xmlns="http://www.w3.org/1999/xhtml">  <p>aa</p></menuitem>
 #errors
-/menuitem/p;element not allowed:empty;m
+/menuitem/p;element not allowed:text;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><menuitem label="a"/>a</div>

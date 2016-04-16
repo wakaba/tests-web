@@ -1,0 +1,26 @@
+#data
+<menuitem xmlns="http://www.w3.org/1999/xhtml"></menuitem>
+#errors
+/menuitem;attribute missing;label;m
+
+#data
+<menuitem xmlns="http://www.w3.org/1999/xhtml">  </menuitem>
+#errors
+/menuitem;attribute missing;label;m
+
+#data
+<menuitem xmlns="http://www.w3.org/1999/xhtml">abc</menuitem>
+#errors
+
+#data
+<menuitem xmlns="http://www.w3.org/1999/xhtml" label=""></menuitem>
+#errors
+/menuitem/@label;empty attribute value;m
+
+#data
+<menuitem xmlns="http://www.w3.org/1999/xhtml" label="  "></menuitem>
+#errors
+
+#data
+<menuitem xmlns="http://www.w3.org/1999/xhtml" label="  abc "></menuitem>
+#errors
