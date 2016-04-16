@@ -1,0 +1,133 @@
+#data
+<!DOCTYPE HTML><menuitem>a
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <menuitem>
+|       "a"
+
+#data
+<!DOCTYPE HTML><menu><menuitem>a
+#errors
+no </menu> before EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <menu>
+|       <menuitem>
+|         "a"
+
+#data
+<!DOCTYPE HTML><menuitem>a<hr>b
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <menuitem>
+|       "a"
+|     <hr>
+|     "b"
+
+#data
+<!DOCTYPE HTML><menuitem>a<menuitem>c
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <menuitem>
+|       "a"
+|     <menuitem>
+|       "c"
+
+#data
+<!DOCTYPE HTML><menuitem>a<x><menuitem>
+#errors
+no </x> at EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <menuitem>
+|       "a"
+|       <x>
+|         <menuitem>
+
+#data
+<!DOCTYPE HTML><menuitem>a<menu>d
+#errors
+no </menu> at EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <menuitem>
+|       "a"
+|     <menu>
+|       "d"
+
+#data
+<!DOCTYPE HTML><menuitem>a</menuitem>c
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <menuitem>
+|       "a"
+|     "c"
+
+#data
+<!DOCTYPE HTML><menuitem>a<p>b<menu>c
+#errors
+no </menu> at EOF
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <menuitem>
+|       "a"
+|       <p>
+|         "b"
+|     <menu>
+|       "c"
+
+#data
+<!DOCTYPE HTML><li><menuitem>a<li>b
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <li>
+|       <menuitem>
+|         "a"
+|         <li>
+|           "b"
+
+#data
+<!DOCTYPE HTML><p><menuitem>a<p>b
+#errors
+#document
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       <menuitem>
+|         "a"
+|     <p>
+|       "b"
