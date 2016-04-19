@@ -190,3 +190,24 @@
 #document escaped
 | <{} a\uFFFDab>
 |   "a"
+
+#data
+<a />
+#errors
+1;1;no XML decl;;;s
+#document
+| <{} a>
+
+#data
+<a ></a>
+#errors
+1;1;no XML decl;;;s
+#document
+| <{} a>
+
+#data
+<a></a >
+#errors
+1;1;no XML decl;;;s
+#document
+| <{} a>
