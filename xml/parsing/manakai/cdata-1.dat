@@ -81,6 +81,7 @@ a<![CDATA[bb]]>ccc
 #errors
 1;1;no XML decl;;;s
 1;9;bogus comment;;;m
+1;10;parser:EOF;;;m
 1;10;no root element;;;m
 #document
 
@@ -88,6 +89,7 @@ a<![CDATA[bb]]>ccc
 <p><![CDATA[
 #errors
 1;1;no XML decl;;;s
+1;13;parser:EOF;;;m
 1;13;in body:#eof;p;;m
 #document
 | <{} p>
@@ -98,6 +100,7 @@ a<![CDATA[bb]]>ccc
 1;1;no XML decl;;;s
 1;9;bogus comment;;;m
 1;10;text outside of root element;;;m
+1;11;parser:EOF;;;m
 1;11;no root element;;;m
 #document
 
@@ -105,6 +108,7 @@ a<![CDATA[bb]]>ccc
 <p><![CDATA[a
 #errors
 1;1;no XML decl;;;s
+1;14;parser:EOF;;;m
 1;14;in body:#eof;p;;m
 #document
 | <{} p>
@@ -117,6 +121,7 @@ a<![CDATA[bb]]>ccc
 1;9;bogus comment;;;m
 1;10;text outside of root element;;;m
 1;11;text outside of root element;;;m
+1;12;parser:EOF;;;m
 1;12;no root element;;;m
 #document
 
@@ -124,6 +129,7 @@ a<![CDATA[bb]]>ccc
 <p><![CDATA[a]
 #errors
 1;1;no XML decl;;;s
+1;15;parser:EOF;;;m
 1;15;in body:#eof;p;;m
 #document
 | <{} p>
@@ -136,6 +142,7 @@ a<![CDATA[bb]]>ccc
 1;9;bogus comment;;;m
 1;10;text outside of root element;;;m
 1;11;text outside of root element;;;m
+1;13;parser:EOF;;;m
 1;13;no root element;;;m
 #document
 
@@ -143,6 +150,7 @@ a<![CDATA[bb]]>ccc
 <p><![CDATA[a]]
 #errors
 1;1;no XML decl;;;s
+1;16;parser:EOF;;;m
 1;16;in body:#eof;p;;m
 #document
 | <{} p>
