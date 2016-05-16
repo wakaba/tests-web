@@ -257,10 +257,11 @@
 /fieldset/style/@scoped;attr:obsolete;m
 
 #data
-<fieldset xmlns="http://www.w3.org/1999/xhtml"><style><legend>y</legend>x</field></style><legend>y</legend>x</fieldset>
+<fieldset xmlns="http://www.w3.org/1999/xhtml"><style><legend>y</legend>x</style><legend>y</legend>x</fieldset>
 #errors
-/fieldset/legend;element not allowed:flow;m
+/fieldset/style/legend;element not allowed:flow;m
 /fieldset/style;element not allowed:flow;m
+/fieldset/style;css:qrule:no block;m
 
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml">a
@@ -888,7 +889,7 @@ disabled="">z</output>
 #data
 <label xmlns="http://www.w3.org/1999/xhtml" form="a">x<input/></label>
 #errors
-/label/@form;no referenced form;m
+/label/@form;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -896,6 +897,7 @@ disabled="">z</output>
 <form id="b">x</form>
 </div>
 #errors
+/div/label/@form;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><input form="a"/>x</div>
