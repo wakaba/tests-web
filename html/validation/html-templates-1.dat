@@ -40,25 +40,32 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/>abacee</template>
 #errors
+| #df/style/@scoped;attr:obsolete;m
+| #df/"abacee";character not allowed;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">gaeeee<style scoped=""/></template>
 #errors
-| #df/style;element not allowed:flow style;m
+| #df/"gaeeee";character not allowed;m
+| #df/style/@scoped;attr:obsolete;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/><p>abacee</p></template>
 #errors
+| #df/style/@scoped;attr:obsolete;m
+| #df/p;element not allowed:metadata;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><p>gaeeee</p><style scoped=""/></template>
 #errors
-| #df/style;element not allowed:flow style;m
+| #df/p;element not allowed:metadata;m
+| #df/style/@scoped;attr:obsolete;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><script/><template/><p>gaeeee</p><style scoped=""/></template>
 #errors
-| #df/style;element not allowed:flow style;m
+| #df/p;element not allowed:metadata;m
+| #df/style/@scoped;attr:obsolete;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><li>aa</li></template>
@@ -556,12 +563,12 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><script/><base href="x"/><template/><style scoped=""/></template>
 #errors
-| #df/style/@scoped;attribute not allowed;w
+| #df/style/@scoped;attr:obsolete;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/><script/><base href="x"/><template/></template>
 #errors
-| #df/style/@scoped;attribute not allowed;w
+| #df/style/@scoped;attr:obsolete;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><noscript>a</noscript><style scoped=""/><script/><base href="x"/><template/></template>
@@ -569,7 +576,7 @@
 #errors
 | #df/noscript;in XML:noscript;m
 | #df/noscript/"a";character not allowed;m
-| #df/style/@scoped;attribute not allowed;w
+| #df/style/@scoped;attr:obsolete;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><noscript><p>a</p></noscript><style scoped=""/><script/><base href="x"/><template/></template>
@@ -577,14 +584,16 @@
 #errors
 | #df/noscript;in XML:noscript;m
 | #df/noscript/p;element not allowed:metadata;m
-| #df/style/@scoped;attribute not allowed;w
+| #df/style/@scoped;attr:obsolete;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><p>aabc</p><noscript><p>a</p></noscript><style scoped=""/><script/><template/></template>
 #noscript
 #errors
 | #df/noscript;in XML:noscript;m
-| #df/style;element not allowed:flow style;m
+| #df/p;element not allowed:metadata;m
+| #df/noscript/p;element not allowed:metadata;m
+| #df/style/@scoped;attr:obsolete;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><body>a<template><noscript>x</template></noscript></template>

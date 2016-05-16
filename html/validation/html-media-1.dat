@@ -19,11 +19,15 @@
 <video xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/>xx</video>
 #errors
 /video;child element missing;source;w
+/video/style;element not allowed:flow;m
+/video/style/@scoped;attr:obsolete;m
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/><p>xx</p></video>
 #errors
 /video;child element missing;source;w
+/video/style;element not allowed:flow;m
+/video/style/@scoped;attr:obsolete;m
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml" src=""></video>
@@ -46,11 +50,15 @@
 <video xmlns="http://www.w3.org/1999/xhtml" src=""><style scoped=""/>xx</video>
 #errors
 /video/@src;url:empty;m
+/video/style;element not allowed:flow;m
+/video/style/@scoped;attr:obsolete;m
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml" src=""><style scoped=""/><p>xx</p></video>
 #errors
 /video/@src;url:empty;m
+/video/style;element not allowed:flow;m
+/video/style/@scoped;attr:obsolete;m
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml"><source src=""/></video>
@@ -67,11 +75,15 @@
 <video xmlns="http://www.w3.org/1999/xhtml"><source src=""/><style scoped=""/>xx</video>
 #errors
 /video/source/@src;url:empty;m
+/video/style;element not allowed:flow;m
+/video/style/@scoped;attr:obsolete;m
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml"><source src=""/><style scoped=""/><p>xx</p></video>
 #errors
 /video/source/@src;url:empty;m
+/video/style;element not allowed:flow;m
+/video/style/@scoped;attr:obsolete;m
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml"><source src=""/><source src=""/></video>
@@ -100,6 +112,8 @@
 /video/source;element not allowed:flow;m
 /video/source/@src;url:empty;m
 /video;no significant content;s
+/video/style;element not allowed:flow;m
+/video/style/@scoped;attr:obsolete;m
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml"><source src=""/><style scoped=""/><source src=""/></video>
@@ -108,6 +122,8 @@
 /video/source/@src;url:empty;m
 /video/source/@src;url:empty;m
 /video;no significant content;s
+/video/style;element not allowed:flow;m
+/video/style/@scoped;attr:obsolete;m
 
 #data
 <video xmlns="http://www.w3.org/1999/xhtml"><source src=""/><style scoped=""/><source src=""/><source src=""/></video>
@@ -118,6 +134,8 @@
 /video/source/@src;url:empty;m
 /video/source/@src;url:empty;m
 /video;no significant content;s
+/video/style;element not allowed:flow;m
+/video/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><video></video></div>
@@ -140,14 +158,16 @@
 <div xmlns="http://www.w3.org/1999/xhtml"><video><style scoped=""/>xx</video></div>
 #errors
 /div/video;child element missing;source;w
-/div/video/style;element not allowed:flow style;m
+/div/video/style;element not allowed:flow;m
+/div/video/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <video><style scoped=""/><p>xx</p></video></div>
 #errors
 /div/video;child element missing;source;w
-/div/video/style;element not allowed:flow style;m
+/div/video/style;element not allowed:flow;m
+/div/video/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><video src=""></video></div>
@@ -171,14 +191,16 @@
 <video src=""><style scoped=""/>xx</video></div>
 #errors
 /div/video/@src;url:empty;m
-/div/video/style;element not allowed:flow style;m
+/div/video/style;element not allowed:flow;m
+/div/video/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <video src=""><style scoped=""/><p>xx</p></video></div>
 #errors
 /div/video/@src;url:empty;m
-/div/video/style;element not allowed:flow style;m
+/div/video/style;element not allowed:flow;m
+/div/video/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><video><source src=""/></video></div>
@@ -196,14 +218,16 @@
 <video><source src=""/><style scoped=""/>xx</video></div>
 #errors
 /div/video/source/@src;url:empty;m
-/div/video/style;element not allowed:flow style;m
+/div/video/style;element not allowed:flow;m
+/div/video/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <video><source src=""/><style scoped=""/><p>xx</p></video></div>
 #errors
 /div/video/source/@src;url:empty;m
-/div/video/style;element not allowed:flow style;m
+/div/video/style;element not allowed:flow;m
+/div/video/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -224,7 +248,8 @@
 #errors
 /div/video/source;element not allowed:flow;m
 /div/video/source/@src;url:empty;m
-/div/video/style;element not allowed:flow style;m
+/div/video/style;element not allowed:flow;m
+/div/video/style/@scoped;attr:obsolete;m
 /div/video;no significant content;s
 
 #data
@@ -234,7 +259,8 @@
 /div/video/source;element not allowed:flow;m
 /div/video/source/@src;url:empty;m
 /div/video/source/@src;url:empty;m
-/div/video/style;element not allowed:flow style;m
+/div/video/style;element not allowed:flow;m
+/div/video/style/@scoped;attr:obsolete;m
 /div/video;no significant content;s
 
 #data
@@ -245,7 +271,8 @@
 /div/video/source;element not allowed:flow;m
 /div/video/source/@src;url:empty;m
 /div/video/source/@src;url:empty;m
-/div/video/style;element not allowed:flow style;m
+/div/video/style;element not allowed:flow;m
+/div/video/style/@scoped;attr:obsolete;m
 /div/video;no significant content;s
 
 #data
@@ -270,6 +297,7 @@
 #errors
 /em/video;child element missing;source;w
 /em/video/style;element not allowed:phrasing;m
+/em/video/style/@scoped;attr:obsolete;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
@@ -277,6 +305,7 @@
 #errors
 /em/video;child element missing;source;w
 /em/video/style;element not allowed:phrasing;m
+/em/video/style/@scoped;attr:obsolete;m
 /em/video/p;element not allowed:phrasing;m
 
 #data
@@ -301,12 +330,14 @@
 <video src="a"><style scoped=""/>xx</video></em>
 #errors
 /em/video/style;element not allowed:phrasing;m
+/em/video/style/@scoped;attr:obsolete;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
 <video src="a"><style scoped=""/><p>xx</p></video></em>
 #errors
 /em/video/style;element not allowed:phrasing;m
+/em/video/style/@scoped;attr:obsolete;m
 /em/video/p;element not allowed:phrasing;m
 
 #data
@@ -323,12 +354,14 @@
 <video><source src="a"/><style scoped=""/>xx</video></em>
 #errors
 /em/video/style;element not allowed:phrasing;m
+/em/video/style/@scoped;attr:obsolete;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
 <video><source src="a"/><style scoped=""/><p>xx</p></video></em>
 #errors
 /em/video/style;element not allowed:phrasing;m
+/em/video/style/@scoped;attr:obsolete;m
 /em/video/p;element not allowed:phrasing;m
 
 #data
@@ -349,6 +382,7 @@
 /em/video;no significant content;s
 /em/video/source;element not allowed:phrasing;m
 /em/video/style;element not allowed:phrasing;m
+/em/video/style/@scoped;attr:obsolete;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
@@ -357,6 +391,7 @@
 /em/video;no significant content;s
 /em/video/source;element not allowed:phrasing;m
 /em/video/style;element not allowed:phrasing;m
+/em/video/style/@scoped;attr:obsolete;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
@@ -366,6 +401,7 @@
 /em/video/source;element not allowed:phrasing;m
 /em/video/source;element not allowed:phrasing;m
 /em/video/style;element not allowed:phrasing;m
+/em/video/style/@scoped;attr:obsolete;m
 
 #data
 <audio xmlns="http://www.w3.org/1999/xhtml"></audio>
@@ -388,11 +424,15 @@
 <audio xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/>xx</audio>
 #errors
 /audio;child element missing;source;w
+/audio/style;element not allowed:flow;m
+/audio/style/@scoped;attr:obsolete;m
 
 #data
 <audio xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/><p>xx</p></audio>
 #errors
 /audio;child element missing;source;w
+/audio/style;element not allowed:flow;m
+/audio/style/@scoped;attr:obsolete;m
 
 #data
 <audio xmlns="http://www.w3.org/1999/xhtml" src="a"></audio>
@@ -411,10 +451,14 @@
 #data
 <audio xmlns="http://www.w3.org/1999/xhtml" src="a"><style scoped=""/>xx</audio>
 #errors
+/audio/style;element not allowed:flow;m
+/audio/style/@scoped;attr:obsolete;m
 
 #data
 <audio xmlns="http://www.w3.org/1999/xhtml" src="a"><style scoped=""/><p>xx</p></audio>
 #errors
+/audio/style;element not allowed:flow;m
+/audio/style/@scoped;attr:obsolete;m
 
 #data
 <audio xmlns="http://www.w3.org/1999/xhtml"><source src="a"/></audio>
@@ -428,10 +472,14 @@
 #data
 <audio xmlns="http://www.w3.org/1999/xhtml"><source src="a"/><style scoped=""/>xx</audio>
 #errors
+/audio/style;element not allowed:flow;m
+/audio/style/@scoped;attr:obsolete;m
 
 #data
 <audio xmlns="http://www.w3.org/1999/xhtml"><source src="a"/><style scoped=""/><p>xx</p></audio>
 #errors
+/audio/style;element not allowed:flow;m
+/audio/style/@scoped;attr:obsolete;m
 
 #data
 <audio xmlns="http://www.w3.org/1999/xhtml"><source src="a"/><source src="a"/></audio>
@@ -455,12 +503,16 @@
 #errors
 /audio/source;element not allowed:flow;m
 /audio;no significant content;s
+/audio/style;element not allowed:flow;m
+/audio/style/@scoped;attr:obsolete;m
 
 #data
 <audio xmlns="http://www.w3.org/1999/xhtml"><source src="a"/><style scoped=""/><source src="a"/></audio>
 #errors
 /audio/source;element not allowed:flow;m
 /audio;no significant content;s
+/audio/style;element not allowed:flow;m
+/audio/style/@scoped;attr:obsolete;m
 
 #data
 <audio xmlns="http://www.w3.org/1999/xhtml"><source src="a"/><style scoped=""/><source src="a"/><source src="a"/></audio>
@@ -468,6 +520,8 @@
 /audio/source;element not allowed:flow;m
 /audio/source;element not allowed:flow;m
 /audio;no significant content;s
+/audio/style;element not allowed:flow;m
+/audio/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><audio></audio></div>
@@ -494,7 +548,8 @@
 #errors
 /div;no significant content;s
 /div/audio;child element missing;source;w
-/div/audio/style;element not allowed:flow style;m
+/div/audio/style;element not allowed:flow;m
+/div/audio/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -502,7 +557,8 @@
 #errors
 /div;no significant content;s
 /div/audio;child element missing;source;w
-/div/audio/style;element not allowed:flow style;m
+/div/audio/style;element not allowed:flow;m
+/div/audio/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><audio src="a"></audio></div>
@@ -527,14 +583,16 @@
 <audio src="a"><style scoped=""/>xx</audio></div>
 #errors
 /div;no significant content;s
-/div/audio/style;element not allowed:flow style;m
+/div/audio/style;element not allowed:flow;m
+/div/audio/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <audio src="a"><style scoped=""/><p>xx</p></audio></div>
 #errors
 /div;no significant content;s
-/div/audio/style;element not allowed:flow style;m
+/div/audio/style;element not allowed:flow;m
+/div/audio/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><audio><source src="a"/></audio></div>
@@ -552,14 +610,16 @@
 <audio><source src="a"/><style scoped=""/>xx</audio></div>
 #errors
 /div;no significant content;s
-/div/audio/style;element not allowed:flow style;m
+/div/audio/style;element not allowed:flow;m
+/div/audio/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <audio><source src="a"/><style scoped=""/><p>xx</p></audio></div>
 #errors
 /div;no significant content;s
-/div/audio/style;element not allowed:flow style;m
+/div/audio/style;element not allowed:flow;m
+/div/audio/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -581,7 +641,8 @@
 /div;no significant content;s
 /div/audio;no significant content;s
 /div/audio/source;element not allowed:flow;m
-/div/audio/style;element not allowed:flow style;m
+/div/audio/style;element not allowed:flow;m
+/div/audio/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -590,7 +651,8 @@
 /div;no significant content;s
 /div/audio;no significant content;s
 /div/audio/source;element not allowed:flow;m
-/div/audio/style;element not allowed:flow style;m
+/div/audio/style;element not allowed:flow;m
+/div/audio/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -600,7 +662,8 @@
 /div/audio;no significant content;s
 /div/audio/source;element not allowed:flow;m
 /div/audio/source;element not allowed:flow;m
-/div/audio/style;element not allowed:flow style;m
+/div/audio/style;element not allowed:flow;m
+/div/audio/style/@scoped;attr:obsolete;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml"><audio></audio></em>
@@ -628,6 +691,7 @@
 /em;no significant content;s
 /em/audio;child element missing;source;w
 /em/audio/style;element not allowed:phrasing;m
+/em/audio/style/@scoped;attr:obsolete;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
@@ -636,6 +700,7 @@
 /em;no significant content;s
 /em/audio;child element missing;source;w
 /em/audio/style;element not allowed:phrasing;m
+/em/audio/style/@scoped;attr:obsolete;m
 /em/audio/p;element not allowed:phrasing;m
 
 #data
@@ -665,6 +730,7 @@
 #errors
 /em;no significant content;s
 /em/audio/style;element not allowed:phrasing;m
+/em/audio/style/@scoped;attr:obsolete;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
@@ -672,6 +738,7 @@
 #errors
 /em;no significant content;s
 /em/audio/style;element not allowed:phrasing;m
+/em/audio/style/@scoped;attr:obsolete;m
 /em/audio/p;element not allowed:phrasing;m
 
 #data
@@ -691,6 +758,7 @@
 #errors
 /em;no significant content;s
 /em/audio/style;element not allowed:phrasing;m
+/em/audio/style/@scoped;attr:obsolete;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
@@ -698,6 +766,7 @@
 #errors
 /em;no significant content;s
 /em/audio/style;element not allowed:phrasing;m
+/em/audio/style/@scoped;attr:obsolete;m
 /em/audio/p;element not allowed:phrasing;m
 
 #data
@@ -721,6 +790,7 @@
 /em/audio;no significant content;s
 /em/audio/source;element not allowed:phrasing;m
 /em/audio/style;element not allowed:phrasing;m
+/em/audio/style/@scoped;attr:obsolete;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
@@ -730,6 +800,7 @@
 /em/audio;no significant content;s
 /em/audio/source;element not allowed:phrasing;m
 /em/audio/style;element not allowed:phrasing;m
+/em/audio/style/@scoped;attr:obsolete;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
@@ -740,6 +811,7 @@
 /em/audio/source;element not allowed:phrasing;m
 /em/audio/source;element not allowed:phrasing;m
 /em/audio/style;element not allowed:phrasing;m
+/em/audio/style/@scoped;attr:obsolete;m
 
 #data
 <video src="a" muted="" xmlns="http://www.w3.org/1999/xhtml">a</video>

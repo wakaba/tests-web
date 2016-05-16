@@ -529,7 +529,7 @@
 <title>a</title>
 </head>
 #errors
-/head/style/@scoped;attribute not allowed;w
+/head/style/@scoped;attr:obsolete;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1241,7 +1241,7 @@ a
 </head>
 #noscript
 #errors
-/head/noscript/style/@scoped;attribute not allowed;w
+/head/noscript/style/@scoped;attr:obsolete;m
 /head/noscript;in XML:noscript;m
 
 #data
@@ -3005,14 +3005,14 @@ p {color: green
 <style scoped=""/>
 </head>
 #errors
-/head/style/@scoped;attribute not allowed;w
+/head/style/@scoped;attr:obsolete;m
 
 #data
 <article xmlns="http://www.w3.org/1999/xhtml">
 <style/>
 </article>
 #errors
-/article/style;attribute missing;scoped;m
+/article/style;element not allowed:flow;m
 /article;no significant content;s
 
 #data
@@ -3021,13 +3021,15 @@ p {color: green
 </article>
 #errors
 /article;no significant content;s
+/article/style;element not allowed:flow;m
+/article/style/@scoped;attr:obsolete;m
 
 #data
 <aside xmlns="http://www.w3.org/1999/xhtml">
 <style/>
 </aside>
 #errors
-/aside/style;attribute missing;scoped;m
+/aside/style;element not allowed:flow;m
 /aside;no significant content;s
 
 #data
@@ -3036,13 +3038,15 @@ p {color: green
 </aside>
 #errors
 /aside;no significant content;s
+/aside/style;element not allowed:flow;m
+/aside/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <style/>
 </div>
 #errors
-/div/style;attribute missing;scoped;m
+/div/style;element not allowed:flow;m
 /div;no significant content;s
 
 #data
@@ -3051,13 +3055,15 @@ p {color: green
 </div>
 #errors
 /div;no significant content;s
+/div/style;element not allowed:flow;m
+/div/style/@scoped;attr:obsolete;m
 
 #data
 <section xmlns="http://www.w3.org/1999/xhtml">
 <style/>
 </section>
 #errors
-/section/style;attribute missing;scoped;m
+/section/style;element not allowed:flow;m
 /section;no significant content;s
 
 #data
@@ -3066,6 +3072,8 @@ p {color: green
 </section>
 #errors
 /section;no significant content;s
+/section/style;element not allowed:flow;m
+/section/style/@scoped;attr:obsolete;m
 
 #data
 <section xmlns="http://www.w3.org/1999/xhtml">
@@ -3073,7 +3081,7 @@ p {color: green
 </section>
 #errors
 /section/style/@scope;attribute not defined;m
-/section/style;attribute missing;scoped;m
+/section/style;element not allowed:flow;m
 /section;no significant content;s
 
 #data

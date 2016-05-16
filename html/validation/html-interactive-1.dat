@@ -61,7 +61,7 @@
 #errors
 /head/title;no significant content;m
 /head/noscript;in XML:noscript;m
-/head/noscript/style/@scoped;attribute not allowed;w
+/head/noscript/style/@scoped;attr:obsolete;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -257,7 +257,7 @@
 #data html
 <!DOCTYPE html><html lang=en><noscript><style scoped=""></style></noscript><title>a</title><p>a
 #errors
-1;47;/html/head/noscript;attribute not allowed;w
+1;47;/html/head/noscript;attr:obsolete;m
 
 #data
 <noscript xmlns="http://www.w3.org/1999/xhtml">
@@ -298,7 +298,7 @@
 #errors
 /noscript;no significant content;s
 /noscript;in XML:noscript;m
-/noscript/style;attribute missing;scoped;m
+/noscript/style;element not allowed:flow;m
 
 #data
 <noscript xmlns="http://www.w3.org/1999/xhtml">
@@ -308,6 +308,8 @@
 #errors
 /noscript;no significant content;s
 /noscript;in XML:noscript;m
+/noscript/style;element not allowed:flow;m
+/noscript/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -320,7 +322,8 @@
 /div;no significant content;s
 /div/noscript;no significant content;s
 /div/noscript;in XML:noscript;m
-/div/noscript/style;element not allowed:flow style;m
+/div/noscript/style;element not allowed:flow;m
+/div/noscript/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -339,8 +342,10 @@
 /div/noscript/noscript;in XML:noscript;m
 /div/noscript/noscript;no significant content;s
 /div/noscript/noscript;element not allowed:minus;m
-/div/noscript/noscript/style;element not allowed:flow style;m
-/div/noscript/noscript/style;element not allowed:flow style;m
+/div/noscript/noscript/style;element not allowed:flow;m
+/div/noscript/noscript/style/@scoped;attr:obsolete;m
+/div/noscript/noscript/style;element not allowed:flow;m
+/div/noscript/noscript/style/@scoped;attr:obsolete;m
 
 #data
 <noscript xmlns="http://www.w3.org/1999/xhtml">
@@ -510,6 +515,8 @@
 #errors
 /details;child element missing;summary;m
 /details/legend;element not allowed:flow;m
+/details/style;element not allowed:flow;m
+/details/style/@scoped;attr:obsolete;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml">
@@ -518,6 +525,8 @@
 #errors
 /details;child element missing;summary;m
 /details/legend;element not allowed:flow;m
+/details/style;element not allowed:flow;m
+/details/style/@scoped;attr:obsolete;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml">
@@ -525,7 +534,7 @@
 <style></style><p>yyy</p></details>
 #errors
 /details;child element missing;summary;m
-/details/style;attribute missing;scoped;m
+/details/style;element not allowed:flow;m
 /details/legend;element not allowed:flow;m
 
 #data
@@ -1005,7 +1014,6 @@
 <summary xmlns="http://www.w3.org/1999/xhtml"><h1>aa</h1><style></style></summary>
 #errors
 /summary/style;element not allowed:phrasing;m
-/summary/style;attribute missing;scoped;m
 
 #data
 <summary xmlns="http://www.w3.org/1999/xhtml"><h1>aa</h1><title>a</title></summary>
@@ -1115,7 +1123,6 @@
 <p xmlns="http://www.w3.org/1999/xhtml"><bb><style></style>x</bb></p>
 #errors
 /p;no significant content;s
-/p/bb/style;attribute missing;scoped;m
 /p/bb;element:obsolete;m
 /p/bb;element not allowed:phrasing;m
 
@@ -1361,6 +1368,8 @@
 <style scoped=""></style>
 <p>a</p></details>
 #errors
+/details/style;element not allowed:flow;m
+/details/style/@scoped;attr:obsolete;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml"> <summary>a</summary>
@@ -1368,6 +1377,8 @@
 <p>a</p></details>
 #errors
 /details/summary;element not allowed:flow;m
+/details/style;element not allowed:flow;m
+/details/style/@scoped;attr:obsolete;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml"><object data="a"><summary>xx</summary>y</object>..</details>
@@ -1397,13 +1408,16 @@
 <details xmlns="http://www.w3.org/1999/xhtml"> <style scoped=""></style><summary>a</summary>
 <p>a</p></details>
 #errors
-/details/summary;element not allowed:flow;m
+/details/style;element not allowed:flow;m
+/details/style/@scoped;attr:obsolete;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml"> <style scoped=""></style>
 <p>a</p></details>
 #errors
 /details;child element missing;summary;m
+/details/style;element not allowed:flow;m
+/details/style/@scoped;attr:obsolete;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml"> 
@@ -1412,7 +1426,8 @@ b
 <style scoped=""></style>
 <p>a</p></details>
 #errors
-/details/style;element not allowed:flow style;m
+/details/style;element not allowed:flow;m
+/details/style/@scoped;attr:obsolete;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml"> 
@@ -1421,7 +1436,8 @@ b
 <style scoped=""></style>
 <p>a</p></details>
 #errors
-/details/style;element not allowed:flow style;m
+/details/style;element not allowed:flow;m
+/details/style/@scoped;attr:obsolete;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml"> 
@@ -1431,6 +1447,12 @@ b
 <style scoped=""></style>
 <p>a</p></details>
 #errors
+/details/style;element not allowed:flow;m
+/details/style/@scoped;attr:obsolete;m
+/details/style;element not allowed:flow;m
+/details/style/@scoped;attr:obsolete;m
+/details/style;element not allowed:flow;m
+/details/style/@scoped;attr:obsolete;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml"> 
@@ -1442,6 +1464,12 @@ b
 <p>a</p></details>
 #errors
 /details/summary;element not allowed:flow;m
+/details/style;element not allowed:flow;m
+/details/style/@scoped;attr:obsolete;m
+/details/style;element not allowed:flow;m
+/details/style/@scoped;attr:obsolete;m
+/details/style;element not allowed:flow;m
+/details/style/@scoped;attr:obsolete;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml"> 
@@ -1452,6 +1480,12 @@ b
 </details>
 #errors
 /details;no significant content;s
+/details/style;element not allowed:flow;m
+/details/style/@scoped;attr:obsolete;m
+/details/style;element not allowed:flow;m
+/details/style/@scoped;attr:obsolete;m
+/details/style;element not allowed:flow;m
+/details/style/@scoped;attr:obsolete;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml"> 
@@ -1462,7 +1496,8 @@ b
 </details>
 #errors
 /details/ins;no significant content;s
-/details/ins/style;element not allowed:flow style;m
+/details/ins/style;element not allowed:flow;m
+/details/ins/style/@scoped;attr:obsolete;m
 
 #data
 <details xmlns="http://www.w3.org/1999/xhtml"> 

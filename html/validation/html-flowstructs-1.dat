@@ -922,35 +922,8 @@
   <p>aa</p>
 </figure>
 #errors
-/figure/figcaption;element not allowed:flow;m
-/figure/figcaption;element not allowed:flow;m
-
-#data
-<figure xmlns="http://www.w3.org/1999/xhtml">
-  <figcaption>a</figcaption>
-  <style scoped=""></style>
-  <p>aa</p>
-</figure>
-#errors
-
-#data
-<figure xmlns="http://www.w3.org/1999/xhtml">
-  <figcaption>a</figcaption>
-  <style scoped=""></style>
-  <style scoped=""></style>
-  <p>aa</p>
-</figure>
-#errors
-
-#data
-<figure xmlns="http://www.w3.org/1999/xhtml">
-  <figcaption>a</figcaption>
-  <style scoped=""></style>
-  <style scoped=""></style>
-  <p>aa</p>
-  <figcaption>a</figcaption>
-</figure>
-#errors
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
 /figure/figcaption;element not allowed:flow;m
 
 #data
@@ -958,11 +931,52 @@
   <figcaption>a</figcaption>
   <style scoped=""></style>
   <p>aa</p>
+</figure>
+#errors
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  <style scoped=""></style>
+  <style scoped=""></style>
+  <p>aa</p>
+</figure>
+#errors
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  <style scoped=""></style>
+  <style scoped=""></style>
+  <p>aa</p>
+  <figcaption>a</figcaption>
+</figure>
+#errors
+/figure/figcaption;element not allowed:flow;m
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <figcaption>a</figcaption>
+  <style scoped=""></style>
+  <p>aa</p>
   <style scoped=""></style>
   <figcaption>a</figcaption>
 </figure>
 #errors
-/figure/style;element not allowed:flow style;m
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
 /figure/figcaption;element not allowed:flow;m
 
 #data
@@ -974,7 +988,10 @@
   <figcaption>a</figcaption>
 </figure>
 #errors
-/figure/style;element not allowed:flow style;m
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
 /figure/figcaption;element not allowed:flow;m
 
 #data
@@ -985,7 +1002,10 @@
   <figcaption>a</figcaption>
 </figure>
 #errors
-/figure/style;element not allowed:flow style;m
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
 
 #data
 <figure xmlns="http://www.w3.org/1999/xhtml">
@@ -995,7 +1015,10 @@
   <style scoped=""></style>
 </figure>
 #errors
-/figure/style;element not allowed:flow style;m
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
 
 #data
 <figure xmlns="http://www.w3.org/1999/xhtml">
@@ -1004,6 +1027,10 @@
   <p>aa</p>
 </figure>
 #errors
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
 
 #data
 <figure xmlns="http://www.w3.org/1999/xhtml">
@@ -1012,8 +1039,10 @@
   <style scoped=""></style>
 </figure>
 #errors
-/figure/style;element not allowed:flow style;m
-/figure/style;element not allowed:flow style;m
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
 
 #data
 <figure xmlns="http://www.w3.org/1999/xhtml">
@@ -1022,8 +1051,10 @@
   <style scoped=""></style>
 </figure>
 #errors
-/figure/style;element not allowed:flow style;m
-/figure/style;element not allowed:flow style;m
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
+/figure/style;element not allowed:flow;m
+/figure/style/@scoped;attr:obsolete;m
 
 #data
 <figure xmlns="http://www.w3.org/1999/xhtml">
@@ -1117,7 +1148,8 @@
   </object>
 </section>
 #errors
-/section/object/style;element not allowed:flow style;m
+/section/object/style;element not allowed:flow;m
+/section/object/style/@scoped;attr:obsolete;m
 
 #data
 <section xmlns="http://www.w3.org/1999/xhtml">
@@ -1129,13 +1161,17 @@
 </section>
 #errors
 /section/ins;no significant content;s
-/section/object/style;element not allowed:flow style;m
+/section/object/style;element not allowed:flow;m
+/section/object/style/@scoped;attr:obsolete;m
 
 #data
 <ins xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/>aa</ins>
 #errors
+/ins/style;element not allowed:flow;m
+/ins/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><ins><style scoped=""/>aa</ins></div>
 #errors
-/div/ins/style;element not allowed:flow style;m
+/div/ins/style;element not allowed:flow;m
+/div/ins/style/@scoped;attr:obsolete;m

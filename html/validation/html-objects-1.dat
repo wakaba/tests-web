@@ -140,6 +140,8 @@ aaa
 #errors
 /object/@data;url:empty;m
 /object;no significant content;s
+/object/style;element not allowed:flow;m
+/object/style/@scoped;attr:obsolete;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data="">
@@ -149,6 +151,8 @@ aaa
 </object>
 #errors
 /object/@data;url:empty;m
+/object/style;element not allowed:flow;m
+/object/style/@scoped;attr:obsolete;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data="">
@@ -158,6 +162,8 @@ aaa
 </object>
 #errors
 /object/@data;url:empty;m
+/object/style;element not allowed:flow;m
+/object/style/@scoped;attr:obsolete;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data="">
@@ -168,6 +174,8 @@ aaa
 #errors
 /object/@data;url:empty;m
 /object/param;element not allowed:flow;m
+/object/style;element not allowed:flow;m
+/object/style/@scoped;attr:obsolete;m
 /object;no significant content;s
 
 #data
@@ -178,6 +186,8 @@ aaa
 #errors
 /object/@data;url:empty;m
 /object;no significant content;s
+/object/style;element not allowed:flow;m
+/object/style/@scoped;attr:obsolete;m
 /object/param;element not allowed:flow;m
 
 #data
@@ -188,7 +198,8 @@ aaa
 </object>
 #errors
 /object/@data;url:empty;m
-/object/style;element not allowed:flow style;m
+/object/style;element not allowed:flow;m
+/object/style/@scoped;attr:obsolete;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml" data="">
@@ -197,7 +208,7 @@ aaa
 </object>
 #errors
 /object/@data;url:empty;m
-/object/style;attribute missing;scoped;m
+/object/style;element not allowed:flow;m
 /object;no significant content;s
 
 #data
@@ -211,6 +222,7 @@ aaa
 /p/object;no significant content;s
 /p/object/@data;url:empty;m
 /p/object/style;element not allowed:phrasing;m
+/p/object/style/@scoped;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
@@ -264,8 +276,10 @@ xxax
 </object>
 </div>
 #errors
-/div/object/style;element not allowed:flow style;m
-/div/object/style;element not allowed:flow style;m
+/div/object/style;element not allowed:flow;m
+/div/object/style/@scoped;attr:obsolete;m
+/div/object/style;element not allowed:flow;m
+/div/object/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -334,6 +348,7 @@ xxax
 <p xmlns="http://www.w3.org/1999/xhtml"><object data="y"><style scoped=""></style>xx</object></p>
 #errors
 /p/object/style;element not allowed:phrasing;m
+/p/object/style/@scoped;attr:obsolete;m
 
 #data
 <object xmlns="http://www.w3.org/1999/xhtml"
@@ -575,6 +590,8 @@ aaa
 /applet/@code;attr:obsolete;m
 /applet;attribute missing;width;m
 /applet;attribute missing;height;m
+/applet/style;element not allowed:flow;m
+/applet/style/@scoped;attr:obsolete;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
@@ -587,6 +604,8 @@ aaa
 /applet/@code;attr:obsolete;m
 /applet;attribute missing;width;m
 /applet;attribute missing;height;m
+/applet/style;element not allowed:flow;m
+/applet/style/@scoped;attr:obsolete;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
@@ -599,6 +618,8 @@ aaa
 /applet/@code;attr:obsolete;m
 /applet;attribute missing;width;m
 /applet;attribute missing;height;m
+/applet/style;element not allowed:flow;m
+/applet/style/@scoped;attr:obsolete;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
@@ -613,6 +634,8 @@ aaa
 /applet/@code;attr:obsolete;m
 /applet;attribute missing;width;m
 /applet;attribute missing;height;m
+/applet/style;element not allowed:flow;m
+/applet/style/@scoped;attr:obsolete;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
@@ -626,6 +649,8 @@ aaa
 /applet/@code;attr:obsolete;m
 /applet;attribute missing;width;m
 /applet;attribute missing;height;m
+/applet/style;element not allowed:flow;m
+/applet/style/@scoped;attr:obsolete;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
@@ -634,11 +659,12 @@ aaa
 <style scoped=""/>
 </applet>
 #errors
-/applet/style;element not allowed:flow style;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
 /applet;attribute missing;width;m
 /applet;attribute missing;height;m
+/applet/style;element not allowed:flow;m
+/applet/style/@scoped;attr:obsolete;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
@@ -646,12 +672,12 @@ aaa
 <style/>
 </applet>
 #errors
-/applet/style;attribute missing;scoped;m
 /applet;no significant content;s
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
 /applet;attribute missing;width;m
 /applet;attribute missing;height;m
+/applet/style;element not allowed:flow;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
@@ -664,6 +690,7 @@ aaa
 /p;no significant content;s
 /p/applet;no significant content;s
 /p/applet/style;element not allowed:phrasing;m
+/p/applet/style/@scoped;attr:obsolete;m
 /p/applet;element:obsolete;m
 /p/applet/@code;attr:obsolete;m
 /p/applet;element not allowed:phrasing;m
@@ -732,8 +759,10 @@ xxax
 /div/applet;element not allowed:flow;m
 /div/applet;attribute missing;width;m
 /div/applet;attribute missing;height;m
-/div/applet/style;element not allowed:flow style;m
-/div/applet/style;element not allowed:flow style;m
+/div/applet/style;element not allowed:flow;m
+/div/applet/style/@scoped;attr:obsolete;m
+/div/applet/style;element not allowed:flow;m
+/div/applet/style/@scoped;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -873,6 +902,7 @@ xxax
 #errors
 /p;no significant content;s
 /p/applet/style;element not allowed:phrasing;m
+/p/applet/style/@scoped;attr:obsolete;m
 /p/applet;element:obsolete;m
 /p/applet/@code;attr:obsolete;m
 /p/applet;element not allowed:phrasing;m

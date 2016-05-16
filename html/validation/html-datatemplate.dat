@@ -267,6 +267,8 @@
 #errors
 /rule;element:obsolete;m
 /rule/section;no significant content;s
+/rule/section/style;element not allowed:flow;m
+/rule/section/style/@scoped;attr:obsolete;m
 /rule/section/nest;element:obsolete;m
 /rule/section/nest;element not allowed:flow;m
 
@@ -279,6 +281,8 @@
 /rule;element:obsolete;m
 /rule/section/nest;element:obsolete;m
 /rule/section/nest;element not allowed:flow;m
+/rule/section/style;element not allowed:flow;m
+/rule/section/style/@scoped;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -289,15 +293,18 @@
 /rule;element:obsolete;m
 /rule/section/nest;element:obsolete;m
 /rule/section/nest;element not allowed:flow;m
+/rule/section/style;element not allowed:flow;m
+/rule/section/style/@scoped;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <section><p/><style scoped=""/><nest/></section>
 </rule>
 #errors
-/rule/section/style;element not allowed:flow style;m
 /rule/section/p;no significant content;s
 /rule;element:obsolete;m
+/rule/section/style;element not allowed:flow;m
+/rule/section/style/@scoped;attr:obsolete;m
 /rule/section/nest;element:obsolete;m
 /rule/section/nest;element not allowed:flow;m
 
@@ -519,6 +526,8 @@
 /rule;element:obsolete;m
 /rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
+/rule/aside/style;element not allowed:flow;m
+/rule/aside/style/@scoped;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -528,6 +537,8 @@
 /rule;element:obsolete;m
 /rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
+/rule/aside/style;element not allowed:flow;m
+/rule/aside/style/@scoped;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -539,6 +550,8 @@
 /rule;element:obsolete;m
 /rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
+/rule/aside/style;element not allowed:flow;m
+/rule/aside/style/@scoped;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -549,6 +562,8 @@
 /rule;element:obsolete;m
 /rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
+/rule/aside/style;element not allowed:flow;m
+/rule/aside/style/@scoped;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -560,6 +575,8 @@
 /rule;element:obsolete;m
 /rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
+/rule/aside/style;element not allowed:flow;m
+/rule/aside/style/@scoped;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -572,6 +589,8 @@
 /rule;element:obsolete;m
 /rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
+/rule/aside/style;element not allowed:flow;m
+/rule/aside/style/@scoped;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -582,39 +601,44 @@
 /rule;element:obsolete;m
 /rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
+/rule/aside/style;element not allowed:flow;m
+/rule/aside/style/@scoped;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <aside><nest/>aa<style scoped=""/></aside>
 </rule>
 #errors
-/rule/aside/style;element not allowed:flow style;m
 /rule;element:obsolete;m
 /rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
+/rule/aside/style;element not allowed:flow;m
+/rule/aside/style/@scoped;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <aside><nest/><i/><style scoped=""/></aside>
 </rule>
 #errors
-/rule/aside/style;element not allowed:flow style;m
 /rule/aside/i;no significant content;s
 /rule/aside/i;attribute missing;class;w
 /rule;element:obsolete;m
 /rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
+/rule/aside/style;element not allowed:flow;m
+/rule/aside/style/@scoped;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <aside><nest/><p/><style scoped=""/></aside>
 </rule>
 #errors
-/rule/aside/style;element not allowed:flow style;m
 /rule/aside/p;no significant content;s
 /rule;element:obsolete;m
 /rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
+/rule/aside/style;element not allowed:flow;m
+/rule/aside/style/@scoped;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -661,44 +685,48 @@
 <aside>aa<nest/><style scoped=""/></aside>
 </rule>
 #errors
-/rule/aside/style;element not allowed:flow style;m
 /rule;element:obsolete;m
 /rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
+/rule/aside/style;element not allowed:flow;m
+/rule/aside/style/@scoped;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <aside><i/><nest/><style scoped=""/></aside>
 </rule>
 #errors
-/rule/aside/style;element not allowed:flow style;m
 /rule/aside/i;no significant content;s
 /rule/aside/i;attribute missing;class;w
 /rule;element:obsolete;m
 /rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
+/rule/aside/style;element not allowed:flow;m
+/rule/aside/style/@scoped;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <aside><blockquote/><nest/><style scoped=""/></aside>
 </rule>
 #errors
-/rule/aside/style;element not allowed:flow style;m
 /rule/aside/blockquote;no significant content;s
 /rule;element:obsolete;m
 /rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
+/rule/aside/style;element not allowed:flow;m
+/rule/aside/style/@scoped;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <aside><p/><nest/><style scoped=""/></aside>
 </rule>
 #errors
-/rule/aside/style;element not allowed:flow style;m
 /rule/aside/p;no significant content;s
 /rule;element:obsolete;m
 /rule/aside/nest;element:obsolete;m
 /rule/aside/nest;element not allowed:flow;m
+/rule/aside/style;element not allowed:flow;m
+/rule/aside/style/@scoped;attr:obsolete;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><ruby><nest/></ruby></rule>
@@ -1060,7 +1088,6 @@
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml"><style><nest/></style></rule>
 #errors
-/rule/style;attribute missing;scoped;m
 /rule;element:obsolete;m
 /rule/style/nest;element:obsolete;m
 /rule/style/nest;element not allowed;m
@@ -1660,6 +1687,8 @@
 #errors
 /rule/form;no significant content;s
 /rule;element:obsolete;m
+/rule/form/style;element not allowed:flow;m
+/rule/form/style/@scoped;attr:obsolete;m
 /rule/form/nest;element:obsolete;m
 /rule/form/nest;element not allowed:flow;m
 

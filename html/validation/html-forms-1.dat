@@ -46,20 +46,29 @@
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/><ins>xx</ins></form>
 #errors
+/form/style;element not allowed:flow;m
+/form/style/@scoped;attr:obsolete;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml">xx<style scoped=""/>yy</form>
 #errors
-/form/style;element not allowed:flow style;m
+/form/style;element not allowed:flow;m
+/form/style/@scoped;attr:obsolete;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/><style scoped=""/>xx</form>
 #errors
+/form/style;element not allowed:flow;m
+/form/style/@scoped;attr:obsolete;m
+/form/style;element not allowed:flow;m
+/form/style/@scoped;attr:obsolete;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"><style/><style scoped=""/>xx</form>
 #errors
-/form/style;attribute missing;scoped;m
+/form/style;element not allowed:flow;m
+/form/style;element not allowed:flow;m
+/form/style/@scoped;attr:obsolete;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml"><nest/></form>
@@ -138,6 +147,8 @@
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml"><style scoped=""></style>x</fieldset>
 #errors
+/fieldset/style;element not allowed:flow;m
+/fieldset/style/@scoped;attr:obsolete;m
 
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml"><legend>y</legend>x</fieldset>
@@ -224,39 +235,52 @@
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml"><style scoped=""></style><legend>y</legend>x</fieldset>
 #errors
-/fieldset/legend;element not allowed:flow;m
+/fieldset/style;element not allowed:flow;m
+/fieldset/style/@scoped;attr:obsolete;m
 
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml"><style scoped=""></style><style scoped=""></style>x</fieldset>
 #errors
+/fieldset/style;element not allowed:flow;m
+/fieldset/style/@scoped;attr:obsolete;m
+/fieldset/style;element not allowed:flow;m
+/fieldset/style/@scoped;attr:obsolete;m
 
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml">
 <style scoped=""></style>
 <style scoped=""></style>x</fieldset>
 #errors
+/fieldset/style;element not allowed:flow;m
+/fieldset/style/@scoped;attr:obsolete;m
+/fieldset/style;element not allowed:flow;m
+/fieldset/style/@scoped;attr:obsolete;m
 
 #data
-<fieldset xmlns="http://www.w3.org/1999/xhtml"><style></style><legend>y</legend>x</fieldset>
+<fieldset xmlns="http://www.w3.org/1999/xhtml"><style><legend>y</legend>x</field></style><legend>y</legend>x</fieldset>
 #errors
 /fieldset/legend;element not allowed:flow;m
-/fieldset/style;attribute missing;scoped;m
+/fieldset/style;element not allowed:flow;m
 
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml">a
 <style scoped=""></style>
 <style scoped=""></style>x</fieldset>
 #errors
-/fieldset/style;element not allowed:flow style;m
-/fieldset/style;element not allowed:flow style;m
+/fieldset/style;element not allowed:flow;m
+/fieldset/style/@scoped;attr:obsolete;m
+/fieldset/style;element not allowed:flow;m
+/fieldset/style/@scoped;attr:obsolete;m
 
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml"><br/>
 <style scoped=""></style>
 <style scoped=""></style>x</fieldset>
 #errors
-/fieldset/style;element not allowed:flow style;m
-/fieldset/style;element not allowed:flow style;m
+/fieldset/style;element not allowed:flow;m
+/fieldset/style/@scoped;attr:obsolete;m
+/fieldset/style;element not allowed:flow;m
+/fieldset/style/@scoped;attr:obsolete;m
 
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml"
