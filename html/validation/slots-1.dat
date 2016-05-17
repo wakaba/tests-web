@@ -1,0 +1,158 @@
+#data
+<slot xmlns="http://www.w3.org/1999/xhtml"></slot>
+#errors
+/slot;no significant content;s
+/slot;light slot;w
+
+#data
+<slot xmlns="http://www.w3.org/1999/xhtml">
+</slot>
+#errors
+/slot;no significant content;s
+/slot;light slot;w
+
+#data
+<slot xmlns="http://www.w3.org/1999/xhtml">abc</slot>
+#errors
+/slot;light slot;w
+
+#data
+<slot xmlns="http://www.w3.org/1999/xhtml"><span>abcM</span></slot>
+#errors
+/slot;light slot;w
+
+#data
+<slot xmlns="http://www.w3.org/1999/xhtml"><p>abc</p></slot>
+#errors
+/slot;light slot;w
+
+#data
+<slot xmlns="http://www.w3.org/1999/xhtml"><title>abc</title></slot>
+#errors
+/slot;no significant content;s
+/slot/title;element not allowed:flow;m
+/slot;light slot;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <slot>a</slot>
+</div>
+#errors
+/div;no significant content;s
+/div/slot;light slot;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <slot><div>b</div>a</slot>
+</div>
+#errors
+/div;no significant content;s
+/div/slot;light slot;w
+
+#data
+<span xmlns="http://www.w3.org/1999/xhtml">
+  <slot>a</slot>
+</span>
+#errors
+/span;no significant content;s
+/span/slot;light slot;w
+
+#data
+<span xmlns="http://www.w3.org/1999/xhtml">
+  <slot><div>b</div>a</slot>
+</span>
+#errors
+/span;no significant content;s
+/span/slot/div;element not allowed:phrasing;m
+/span/slot;light slot;w
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <slot>a</slot>
+  <title>x</title>
+</head>
+#errors
+/head/slot;element not allowed:metadata;m
+/head/slot;light slot;w
+
+#data
+<slot xmlns="http://www.w3.org/1999/xhtml" class="x">abc</slot>
+#errors
+/slot;light slot;w
+
+#data
+<slot xmlns="http://www.w3.org/1999/xhtml" hoge="">abc</slot>
+#errors
+/slot/@hoge;attribute not defined;m
+/slot;light slot;w
+
+#data
+<slot xmlns="http://www.w3.org/1999/xhtml" name="">abc</slot>
+#errors
+/slot;light slot;w
+
+#data
+<slot xmlns="http://www.w3.org/1999/xhtml" name=" ">abc</slot>
+#errors
+/slot;light slot;w
+
+#data
+<slot xmlns="http://www.w3.org/1999/xhtml" name="abc">abc</slot>
+#errors
+/slot;light slot;w
+
+#data
+<slot xmlns="http://www.w3.org/1999/xhtml" name="x y">abc</slot>
+#errors
+/slot;light slot;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <slot name="">x</slot>  abc   <slot name="a">x</slot>
+</div>
+#errors
+/div/slot;light slot;w
+/div/slot;light slot;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <slot name="">x</slot>  abc   <slot name="">x</slot>
+</div>
+#errors
+/div/slot/@name;duplicate slot name;w
+/div/slot;light slot;w
+/div/slot;light slot;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <slot name="">x</slot>  abc   <slot>x</slot>
+</div>
+#errors
+/div/slot;duplicate slot name;w
+/div/slot;light slot;w
+/div/slot;light slot;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <slot >x</slot>  abc   <slot name="">x</slot>
+</div>
+#errors
+/div/slot/@name;duplicate slot name;w
+/div/slot;light slot;w
+/div/slot;light slot;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <slot name="abc">x</slot>  abc   <slot name="abc">x</slot>
+</div>
+#errors
+/div/slot/@name;duplicate slot name;w
+/div/slot;light slot;w
+/div/slot;light slot;w
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml">
+  <slot name="abc">x</slot>  abc   <slot name="abc">x</slot>
+</template>
+#errors
+| #df/slot/@name;duplicate slot name;w

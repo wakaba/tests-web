@@ -1,0 +1,64 @@
+#data
+<p xmlns="http://www.w3.org/1999/xhtml" slot="">a</p>
+#errors
+/p/@slot;slot:parent not host;w
+
+#data
+<unknown xmlns="http://www.w3.org/1999/xhtml" slot="">a</unknown>
+#errors
+/unknown;element not defined;m
+/unknown/@slot;slot:parent not host;w
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"><span slot="">a</span></p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"><q slot="">a</q></p>
+#errors
+
+#data
+<q xmlns="http://www.w3.org/1999/xhtml"><q slot="">a</q></q>
+#errors
+/q/q/@slot;slot:parent not host;w
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><q slot="">a</q></template>
+#errors
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml"><q><q slot="">a</q></q></template>
+#errors
+| #df/q/q/@slot;slot:parent not host;w
+
+#data
+<iframe xmlns="http://www.w3.org/1999/xhtml" srcdoc="
+  &lt;html slot='x'>&lt;head>&lt;/head>&lt;body>x&lt;/body>&lt;/html>
+"></iframe>
+#errors
+/iframe/@srcdoc;slot:parent not host;w
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"><span slot="abc">a</span></p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"><span slot="  ">a</span></p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <span slot="">a</span>
+  <span slot="abc">a</span>
+  <span slot="">a</span>
+</p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <span slot="">a</span>
+  <span slot="abc">a</span>
+  <q><span slot="">a</span></q>
+</p>
+#errors
+/p/q/span/@slot;slot:parent not host;w
