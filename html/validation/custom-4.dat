@@ -1,0 +1,34 @@
+#data
+<div xmlns="http://www.w3.org/1999/xhtml" is="ab-cd">x</div>
+#errors
+
+#data
+<hoge xmlns="http://www.w3.org/1999/xhtml" is="ab-cd">x</hoge>
+#errors
+/hoge;element not defined;m
+
+#data
+<hoge xmlns="http://www.w3.org/2000/svg" is="ab-cd">x</hoge>
+#errors
+/hoge;element not defined;m
+/hoge/@is;attribute not defined;m
+
+#data
+<hoge xmlns="http://test/" is="ab-cd">x</hoge>
+#errors
+/hoge;unknown namespace element;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml" is="">x</div>
+#errors
+/div/@is;is:not custom element name;w
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml" is="-cd">x</div>
+#errors
+/div/@is;is:not custom element name;w
+
+#data
+<embed xmlns="http://www.w3.org/1999/xhtml" is="-cd" src="x"></embed>
+#errors
+/embed/@is;is:not custom element name;w
