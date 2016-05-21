@@ -1,0 +1,164 @@
+#data
+<ho-ge xmlns="http://www.w3.org/1999/xhtml"></ho-ge>
+#errors
+/ho-ge;no significant content;s
+
+#data
+<ho-ge xmlns="http://www.w3.org/1999/xhtml">  </ho-ge>
+#errors
+/ho-ge;no significant content;s
+
+#data
+<ho-ge xmlns="http://www.w3.org/1999/xhtml"> abc </ho-ge>
+#errors
+
+#data
+<ho-ge xmlns="http://www.w3.org/1999/xhtml">
+  <base href="http://x/"/>
+</ho-ge>
+#errors
+/ho-ge;no significant content;s
+/ho-ge/base;element not allowed:flow;m
+
+#data
+<ho-ge xmlns="http://www.w3.org/1999/xhtml">
+  <span>abc</span>
+</ho-ge>
+#errors
+
+#data
+<ho-ge xmlns="http://www.w3.org/1999/xhtml">
+  <div>abc</div>
+</ho-ge>
+#errors
+
+#data
+<ho-ge xmlns="http://www.w3.org/1999/xhtml">
+  <a href="">ho><div>g</div>e</a>
+</ho-ge>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <h-g/>
+</div>
+#errors
+/div/h-g;no significant content;s
+
+#data
+<del xmlns="http://www.w3.org/1999/xhtml">
+  <h-g/>
+</del>
+#errors
+/del/h-g;no significant content;s
+
+#data
+<a href="y" xmlns="http://www.w3.org/1999/xhtml">
+  <h-g/>
+</a>
+#errors
+/a/h-g;no significant content;s
+
+#data
+<span xmlns="http://www.w3.org/1999/xhtml">
+  <h-g/>
+</span>
+#errors
+/span/h-g;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <ins>
+    <h-g/>
+  </ins>
+</div>
+#errors
+/div/ins/h-g;no significant content;s
+
+#data
+<br xmlns="http://www.w3.org/1999/xhtml">
+  <h-g/>
+</br>
+#errors
+/br/h-g;element not allowed:empty;m
+/br/h-g;no significant content;s
+
+#data
+<video src="y" xmlns="http://www.w3.org/1999/xhtml">
+  <h-g/>
+</video>
+#errors
+/video/h-g;no significant content;s
+
+#data
+<ruby xmlns="http://www.w3.org/1999/xhtml">
+  <h-g/>
+  <rt>x</rt>
+</ruby>
+#errors
+/ruby/h-g;no significant content;s
+
+#data
+<ruby xmlns="http://www.w3.org/1999/xhtml">
+  x<h-g/>
+  <rt>x</rt>
+</ruby>
+#errors
+/ruby/h-g;no significant content;s
+
+#data
+<ruby xmlns="http://www.w3.org/1999/xhtml">
+  <h-g/>
+  <rt>x</rt>
+  <h-g/>
+  <rt>x</rt>
+</ruby>
+#errors
+/ruby/h-g;no significant content;s
+/ruby/h-g;no significant content;s
+/ruby/rt;no significant content before;s
+#XXX     ^ Web::HTML::Validator is broken
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <h-g/>
+</figure>
+#errors
+/figure/h-g;no significant content;s
+
+#data
+<figure xmlns="http://www.w3.org/1999/xhtml">
+  <h-g/>
+  <figcaption>x</figcaption>
+</figure>
+#errors
+/figure/h-g;no significant content;s
+
+#data
+<details xmlns="http://www.w3.org/1999/xhtml">
+  <summary>x</summary>
+  <h-g/>
+</details>
+#errors
+/details/h-g;no significant content;s
+
+#data
+<fieldset xmlns="http://www.w3.org/1999/xhtml">
+  <h-g/>
+</fieldset>
+#errors
+/fieldset/h-g;no significant content;s
+
+#data
+<menu xmlns="http://www.w3.org/1999/xhtml">
+  <h-g/>
+</menu>
+#errors
+/menu/h-g;no significant content;s
+
+#data
+<template xmlns="http://www.w3.org/1999/xhtml">
+  <h-g/>
+</template>
+#errors
+| #df/h-g;no significant content;s
