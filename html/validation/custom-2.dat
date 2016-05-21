@@ -1,0 +1,42 @@
+#data
+<ab- xmlns="http://www.w3.org/1999/xhtml">a</ab->
+#errors
+
+#data
+<-hoge xmlns="http://www.w3.org/1999/xhtml">a</-hoge>
+#errors
+/-hoge;not custom element name;m
+
+#data escaped
+<\u4E00-x xmlns="http://www.w3.org/1999/xhtml">a</\u4E00-x>
+#errors escaped
+/\u4E00-x;not custom element name;m
+
+#data escaped
+<ab-\u4E00 xmlns="http://www.w3.org/1999/xhtml">a</ab-\u4E00>
+#errors
+
+#data
+<ab-X xmlns="http://www.w3.org/1999/xhtml">a</ab-X>
+#errors
+/ab-X;not custom element name;m
+
+#data
+<A-b xmlns="http://www.w3.org/1999/xhtml">a</A-b>
+#errors
+/A-b;not custom element name;m
+
+#data escaped
+<ab-\uFFFE xmlns="http://www.w3.org/1999/xhtml">a</ab-\uFFFE>
+#errors escaped
+/ab-\uFFFE;not custom element name;m
+
+#data
+<annotation-xml xmlns="http://www.w3.org/1999/xhtml">a</annotation-xml>
+#errors
+/annotation-xml;not custom element name;m
+
+#data
+<font-face xmlns="http://www.w3.org/1999/xhtml">a</font-face>
+#errors
+/font-face;not custom element name;m
