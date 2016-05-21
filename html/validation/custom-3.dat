@@ -1,4 +1,30 @@
 #data
+<x-y xmlns="http://www.w3.org/1999/xhtml" class="foo-bar">abc</x-y>
+#errors
+
+#data
+<x-y xmlns="http://www.w3.org/1999/xhtml" title="foo-bar">abc</x-y>
+#errors
+
+#data
+<x-y xmlns="http://www.w3.org/1999/xhtml" id="">abc</x-y>
+#errors
+/x-y/@id;empty attribute value;m
+
+#data
 <x-y xmlns="http://www.w3.org/1999/xhtml" is="foo-bar">abc</x-y>
 #errors
 /x-y/@is;attribute not allowed;m
+
+#data
+<x-y xmlns="http://www.w3.org/1999/xhtml" data-id="">abc</x-y>
+#errors
+
+#data
+<x-y xmlns="http://www.w3.org/1999/xhtml" hoge="">abc</x-y>
+#errors
+
+#data
+<x-y xmlns="http://www.w3.org/1999/xhtml" Abc="">abc</x-y>
+#errors
+/x-y/@Abc;attribute not defined;m
