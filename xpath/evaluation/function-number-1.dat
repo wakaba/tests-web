@@ -1,7 +1,7 @@
 #data
 number("abc")
 #result
-nan
+NaN
 
 #data
 number("12.55")
@@ -26,7 +26,7 @@ number("0424.")
 #data
 number("12452abc")
 #result
-nan
+NaN
 
 #data
 number("-0")
@@ -36,37 +36,37 @@ number("-0")
 #data
 1 div number("-0")
 #result
--inf
+-Infinity
 
 #data escaped
 1 div number("\u000A -0  ")
 #result
--inf
+-Infinity
 
 #data
 number("inf")
 #result
-nan
+NaN
 
 #data
 number("Inifinity")
 #result
-nan
+NaN
 
 #data
 number("+1242")
 #result
-nan
+NaN
 
 #data
 number("- 424")
 #result
-nan
+NaN
 
 #data
 number("")
 #result
-nan
+NaN
 
 #data
 number(1 = 4)
@@ -84,12 +84,12 @@ number(21 = 21.0)
 #data
 number(/)
 #result 1
-nan
+NaN
 
 #data
 number(//q)
 #result 1
-nan
+NaN
 
 #data
 number(//q[2])
@@ -109,17 +109,17 @@ number(00)
 #data
 number(1 div 0)
 #result 1
-inf
+Infinity
 
 #data
 number (1 div -0)
 #result 1
--inf
+-Infinity
 
 #data
 number ("aa" div 0)
 #result 1
-nan
+NaN
 
 #data
 number (0)
@@ -134,7 +134,7 @@ number (-0)
 #data
 number (1 div -0)
 #result
--inf
+-Infinity
 
 #xml 2
 <p><q>31</q><q>-31</q><q>-0</q><q>4.442</q><q>.33</q></p>
@@ -149,7 +149,7 @@ sum (/p/q)
 #data
 sum (/)
 #result 2
-nan
+NaN
 
 #data
 sum (/hoge)
@@ -159,12 +159,12 @@ sum (/hoge)
 #data
 1 div -0 + 0 * sum(/p/q)
 #result 
--inf
+-Infinity
 
 #data
 1 div sum (/p/q[3])
 #result 2
-inf
+Infinity
 
 #data
 sum ("abc")
@@ -225,7 +225,7 @@ floor (0.5)
 #data
 1 div floor (0.5)
 #result
-inf
+Infinity
 
 #data
 floor (-0.6)
@@ -235,17 +235,17 @@ floor (-0.6)
 #data
 floor (1 div 0)
 #result
-inf
+Infinity
 
 #data
 floor (1 div -0)
 #result
--inf
+-Infinity
 
 #data
 floor ("abc")
 #result
-nan
+NaN
 
 #data
 floor (1 div (1 div 0))
@@ -260,22 +260,22 @@ floor (1 div (1 div -0))
 #data
 floor (1 div (1 div (1 div 0)))
 #result
-inf
+Infinity
 
 #data
 floor (1 div (1 div (1 div -0)))
 #result
--inf
+-Infinity
 
 #data
 1 div floor (1 div (1 div 0))
 #result
-inf
+Infinity
 
 #data
 1 div floor (1 div (1 div -0))
 #result
--inf
+-Infinity
 
 #data
 ceiling(1)
@@ -325,22 +325,22 @@ ceiling (-0.6)
 #data
 1 div ceiling (-0.6)
 #result
--inf
+-Infinity
 
 #data
 ceiling (1 div 0)
 #result
-inf
+Infinity
 
 #data
 ceiling (1 div -0)
 #result
--inf
+-Infinity
 
 #data
 ceiling ("abc")
 #result
-nan
+NaN
 
 #data
 ceiling (1 div (1 div 0))
@@ -355,22 +355,22 @@ ceiling (1 div (1 div -0))
 #data
 ceiling (1 div (1 div (1 div 0)))
 #result
-inf
+Infinity
 
 #data
 ceiling (1 div (1 div (1 div -0)))
 #result
--inf
+-Infinity
 
 #data
 1 div ceiling (1 div (1 div 0))
 #result
-inf
+Infinity
 
 #data
 1 div ceiling (1 div (1 div -0))
 #result
--inf
+-Infinity
 
 #data
 round(1)
@@ -440,7 +440,7 @@ round (-0.5)
 #data
 1 div round (-0.5)
 #result
--inf
+-Infinity
 
 #data
 round (-0.6)
@@ -455,17 +455,17 @@ round (-0.6)
 #data
 round (1 div 0)
 #result
-inf
+Infinity
 
 #data
 round (1 div -0)
 #result
--inf
+-Infinity
 
 #data
 round ("abc")
 #result
-nan
+NaN
 
 #data
 round (1 div (1 div 0))
@@ -480,19 +480,19 @@ round (1 div (1 div -0))
 #data
 round (1 div (1 div (1 div 0)))
 #result
-inf
+Infinity
 
 #data
 round (1 div (1 div (1 div -0)))
 #result
--inf
+-Infinity
 
 #data
 1 div round (1 div (1 div 0))
 #result
-inf
+Infinity
 
 #data
 1 div round (1 div (1 div -0))
 #result
--inf
+-Infinity
