@@ -112,9 +112,8 @@
 #errors
 /head/title;no significant content;m
 /head/noscript;in XML:noscript;m
-/head/noscript/event-source;element not allowed:metadata;m
 /head/noscript/event-source;element:obsolete;m
-/head/noscript/event-source/@src;attr:obsolete;m
+/head/noscript/event-source;element not allowed:metadata;m
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -1261,19 +1260,16 @@
 <event-source src="http://test/" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /event-source;element:obsolete;m
-/event-source/@src;attr:obsolete;m
 
 #data
 <event-source src="http://test/`" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /event-source;element:obsolete;m
-/event-source/@src;attr:obsolete;m
 
 #data
 <event-source src="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /event-source;element:obsolete;m
-/event-source/@src;attr:obsolete;m
 
 #data
 <eventsource xmlns="http://www.w3.org/1999/xhtml"/>
