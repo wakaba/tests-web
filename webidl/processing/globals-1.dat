@@ -902,25 +902,18 @@ interface X {};
 #data
 [PrimaryGlobal] interface G {};
 [Constructor] dictionary D {};
+#errors
+1;33;webidl:not allowed;;Constructor;m
 #processed
 {
   "idl_defs": {
     "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
-    "D": ["dictionary", {"members":{},"Exposed":{"G":1}}]
+    "D": ["dictionary", {"members":{}}]
   },
   "global_names": {"G":{"G":1}},
   "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
-    "D": ["operation", {
-      "overload_set": {
-        "": {
-          "type": ["ref_dictionary", "D"],
-          "args": []
-        }
-      },
-      "Exposed":{"G":1}
-    }]
+    "G": ["object", {"Exposed":{"G":1}}]
   }
 }
 
@@ -928,27 +921,21 @@ interface X {};
 [PrimaryGlobal] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [Constructor,Exposed=G2] dictionary D {};
+#errors
+1;70;webidl:not allowed;;Constructor;m
+1;82;webidl:not allowed;;Exposed;m
 #processed
 {
   "idl_defs": {
     "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
     "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
-    "D": ["dictionary", {"members":{},"Exposed":{"G2":1}}]
+    "D": ["dictionary", {"members":{}}]
   },
   "global_names": {"G":{"G":1},"G2": {"G2":1}},
   "primary_global": "G",
   "global_members": {
     "G": ["object", {"Exposed":{"G":1}}],
-    "G2": ["object", {"Exposed":{"G2":1}}],
-    "D": ["operation", {
-      "overload_set": {
-        "": {
-          "type": ["ref_dictionary", "D"],
-          "args": []
-        }
-      },
-      "Exposed":{"G2":1}
-    }]
+    "G2": ["object", {"Exposed":{"G2":1}}]
   }
 }
 

@@ -260,6 +260,8 @@ interface A {
   long foo;
 };
 #errors
+1;1;webidl:not allowed;;Constructor;m
+1;13;webidl:not allowed;;SecureContext;m
 1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
@@ -270,17 +272,7 @@ interface A {
       }
     }]
   },
-  "global_members": {
-    "A": ["operation", {
-      "SecureContext": 1,
-      "overload_set": {
-        "": {
-          "type": ["ref_dictionary", "A"],
-          "args": []
-        }
-      }
-    }]
-  }
+  "global_members": {}
 }
 
 #data
