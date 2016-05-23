@@ -1,0 +1,125 @@
+#data
+interface A {
+  [CEReactions] attribute DOMString foo;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["attribute", {
+        "type": "DOMString", "getter": 1, "setter": 1,
+        "CEReactions": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [CEReactions] DOMString foo ();
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "type": "DOMString", "args":[],
+            "CEReactions": 1
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [CEReactions] static DOMString foo ();
+};
+#errors
+1;17;webidl:not allowed;;CEReactions;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["static_operation", {
+        "overload_set": {
+          "": {
+            "type": "DOMString", "args":[]
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [CEReactions] DOMString foo ();
+  DOMString foo (long x);
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "type": "DOMString", "args":[], "CEReactions": 1
+          },
+          "long": {
+            "type": "DOMString",
+            "args":[{"type":"long","name":"x","optionality":"required"}]
+          }
+        }
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [CEReactions] getter DOMString foo (DOMString x);
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "DOMString": {
+            "type": "DOMString",
+            "args":[{"type":"DOMString","name":"x","optionality":"required"}],
+            "CEReactions": 1
+          }
+        }
+      }]
+    },
+    "named_getter": ["operation", {
+      "overload_set": {
+        "DOMString": {
+          "type": "DOMString",
+          "args":[{"type":"DOMString","name":"x","optionality":"required"}],
+          "CEReactions": 1
+        }
+      }
+    }]
+  }]
+}
+
+#data
+interface A {
+  [CEReactions] serializer;
+};
+#errors
+1;17;webidl:not allowed;;CEReactions;m
+#processed
+{
+  "A": ["interface", {
+    "members": {},
+    "serializer": ["serializer", {}]
+  }]
+}
