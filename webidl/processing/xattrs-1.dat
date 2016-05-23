@@ -1149,6 +1149,114 @@ interface Foo {
 
 #data
 interface A {
+  [LenientSetter] readonly attribute long hoge;
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoge": ["attribute", {
+        "type": "long",
+        "getter": 1,
+        "setter": "LenientSetter"
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [LenientSetter] static readonly attribute long hoge;
+};
+#errors
+1;17;webidl:not allowed;;LenientSetter;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoge": ["static_attribute", {
+        "type": "long",
+        "getter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [LenientSetter]  attribute long hoge;
+};
+#errors
+1;17;webidl:duplicate;;LenientSetter;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoge": ["attribute", {
+        "type": "long",
+        "getter": 1,
+        "setter": "LenientSetter"
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  [LenientSetter, PutForwards=foo] readonly attribute Foo hoge;
+};
+interface Foo {
+  attribute DOMString foo;
+};
+#errors
+1;32;webidl:duplicate;;PutForwards;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoge": ["attribute", {
+        "type": ["ref_interface", "Foo"],
+        "getter": 1,
+        "setter": ["ref_attribute", "foo"]
+      }]
+    }
+  }],
+  "Foo": ["interface", {
+    "members": {
+      "foo": ["attribute", {"type": "DOMString", "getter": 1, "setter": 1}]
+    }
+  }]
+}
+
+#data
+interface A {
+  [LenientSetter, Replaceable] readonly attribute Foo hoge;
+};
+interface Foo {
+  attribute DOMString foo;
+};
+#errors
+1;32;webidl:duplicate;;Replaceable;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoge": ["attribute", {
+        "type": ["ref_interface", "Foo"],
+        "getter": 1,
+        "setter": "replaceable"
+      }]
+    }
+  }],
+  "Foo": ["interface", {
+    "members": {
+      "foo": ["attribute", {"type": "DOMString", "getter": 1, "setter": 1}]
+    }
+  }]
+}
+
+#data
+interface A {
   [SameObject] static readonly attribute long[] Foo;
 };
 #errors
