@@ -1,0 +1,49 @@
+#data
+<meta name="theme-color" content="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@content;css:color:syntax error;m
+
+#data
+<meta name="theme-color" content="#123456" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<meta name="theme-color" content="
+blue " xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<meta name="theme-color" content="RGBa(42,55
+,53,0.4)" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<meta name="theme-color" content="inherit" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@content;css:color:syntax error;m
+
+#data
+<meta name="theme-color" content="Initial" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@content;css:color:syntax error;m
+
+#data
+<meta name="theme-color" content="hoge" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@content;css:color:syntax error;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+<title>a</title>
+<meta name="theme-color" content="red"/>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+<title>a</title>
+<meta name="theme-color" content="red"/>
+<meta name="theme-color" content="blue"/>
+</head>
+#errors
+/head/meta/@name;metadata:duplicate;theme-color;m

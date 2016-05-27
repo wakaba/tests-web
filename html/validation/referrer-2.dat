@@ -1,0 +1,80 @@
+#data
+<meta name="referrer" content="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@content;enumerated:invalid;m
+
+#data
+<meta name="referrer" content="no-referrer" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<meta name="referrer" content="no-referrer-WHEN-DOWNGRADE" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<meta name="referrer" content="oRigin" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<meta name="referrer" content="Origin-when-cross-origin" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<meta name="referrer" content="unsafe-url" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<meta name="referrer" content="nEver" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@content;enumerated:non-conforming;m
+
+#data
+<meta name="referrer" content="Always" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@content;enumerated:non-conforming;m
+
+#data
+<meta name="referrer" content="default" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@content;enumerated:non-conforming;m
+
+#data
+<meta name="referrer" content=" no-referrer " xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@content;enumerated:invalid;m
+
+#data
+<meta name="referrer" content="abcd" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/meta/@content;enumerated:invalid;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+<title>a</title>
+<meta name="referrer" content="no-referrer"/>
+<meta name="referrer" content="origin"/>
+</head>
+#errors
+/head/meta;element not allowed;w
+/head/meta;element not allowed;w
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+<title>a</title>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="no-referrer"/>
+<meta name="referrer" content="origin"/>
+</head>
+#errors
+/head/meta;element not allowed;w
+/head/meta;element not allowed;w
+/head/meta;element not allowed;w
+
+#data
+<iframe xmlns="http://www.w3.org/1999/xhtml" srcdoc=" &lt;meta name=referrer content=origin>x "/>
+#errors
+
+#data
+<iframe xmlns="http://www.w3.org/1999/xhtml" srcdoc=" &lt;noscript>&lt;meta name=referrer content=origin>&lt;/noscript>x "/>
+#errors
+/iframe/@srcdoc;element not allowed;w
