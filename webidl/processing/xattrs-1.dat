@@ -1286,6 +1286,26 @@ callback Hoge = void ();
 }
 
 #data
+[TreatNonObjectAsNull]
+callback Hoge = void (optional long foo);
+#processed
+{
+  "Hoge": ["callback", {
+    "TreatNonObjectAsNull": 1,
+    "overload_set": {
+      "": {
+        "type": "void",
+        "args": []
+      },
+      "long": {
+        "type": "void",
+        "args": [{"type": "long", "name": "foo", "optionality": "optional"}]
+      }
+    }
+  }]
+}
+
+#data
 [TreatNonCallableAsNull]
 callback Hoge = void ();
 #errors
