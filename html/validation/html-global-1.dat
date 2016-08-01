@@ -728,16 +728,34 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
 
 #data
+<p tabindex="-00001" xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+
+#data
 <p tabindex="0" xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+
+#data
+<p tabindex="00000" xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+
+#data
+<p tabindex="-0" xmlns="http://www.w3.org/1999/xhtml">x</p>
+#errors
+
+#data
+<p tabindex="-0000" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
 
 #data
 <p tabindex="1" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
+/p/@tabindex;tabindex:indexed;s
 
 #data
 <p tabindex="10000" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #errors
+/p/@tabindex;tabindex:indexed;s
 
 #data
 <p tabindex="1.0" xmlns="http://www.w3.org/1999/xhtml">x</p>
@@ -762,6 +780,7 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #data
 <input type="hidden" tabindex="1" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/input/@tabindex;tabindex:indexed;s
 
 #data
 <dialog tabindex="0" xmlns="http://www.w3.org/1999/xhtml">a</dialog>
@@ -774,6 +793,7 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 </button>
 #errors
 /button/span;element not allowed:minus;m
+/button/span/@tabindex;tabindex:indexed;s
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml">
@@ -783,6 +803,7 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 </button>
 #errors
 /button/em/audio;element not allowed:minus;m
+/button/em/audio/@tabindex;tabindex:indexed;s
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml">
