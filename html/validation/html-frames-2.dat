@@ -292,6 +292,32 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 
 #data
+<iframe src="a" sandbox="allow-presentation"
+    xmlns="http://www.w3.org/1999/xhtml"></iframe>
+#errors
+
+#data
+<iframe src="a" sandbox="Allow-screen-orientation"
+    xmlns="http://www.w3.org/1999/xhtml"></iframe>
+#errors
+/iframe/@sandbox;word not allowed;m
+
+#data
+<iframe src="a" sandbox="Allow-orientation-lock"
+    xmlns="http://www.w3.org/1999/xhtml"></iframe>
+#errors
+
+#data
+<iframe src="a" sandbox="Allow-MODALS"
+    xmlns="http://www.w3.org/1999/xhtml"></iframe>
+#errors
+
+#data
+<iframe src="a" sandbox="Allow-popups-to-escape-sandbox"
+    xmlns="http://www.w3.org/1999/xhtml"></iframe>
+#errors
+
+#data
 <iframe src="a" seamless=""
     xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
