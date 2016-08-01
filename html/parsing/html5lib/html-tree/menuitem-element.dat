@@ -78,7 +78,7 @@
 |   <body>
 |     <li>
 |       <menuitem>
-|         <li>
+|     <li>
 
 #data
 <!DOCTYPE html><menuitem><p></menuitem>x
@@ -96,7 +96,9 @@
 #data
 <!DOCTYPE html><p><b></p><menuitem>
 #errors
+25: End tag “p” seen, but there were open elements.
 21: Unclosed element “b”.
+35: End of file seen and there were open elements.
 #document
 | <!DOCTYPE html>
 | <html>
@@ -104,12 +106,14 @@
 |   <body>
 |     <p>
 |       <b>
-|     <menuitem>
+|     <b>
+|       <menuitem>
 
 #data
 <!DOCTYPE html><menuitem><asdf></menuitem>x
 #errors
-No </asdf> before </menuitem>
+40: End tag “menuitem” seen, but there were open elements.
+31: Unclosed element “asdf”.
 #document
 | <!DOCTYPE html>
 | <html>
