@@ -10,4 +10,4 @@ html5lib-tests:
 	patch -p4 < htmlparser-data-manakai.diff
 
 htmlparser-data-manakai.diff: html-tokenizer html-tree
-	git diff --text 9791b29 -- html-tokenizer html-tree > $@
+	git diff --text 4d425bc -- html-tokenizer html-tree > $@

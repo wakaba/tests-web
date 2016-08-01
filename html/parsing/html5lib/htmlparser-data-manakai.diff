@@ -84,39 +84,27 @@ index 34b4e62..0b1b737 100644
  (1,32): unexpected-end-tag
  #document
  | <html>
-diff --git a/html/parsing/html5lib/html-tree/entities01.dat b/html/parsing/html5lib/html-tree/entities01.dat
-index b271f82..cd5b1db 100644
---- a/html/parsing/html5lib/html-tree/entities01.dat
-+++ b/html/parsing/html5lib/html-tree/entities01.dat
-@@ -763,6 +763,7 @@ FOO&#11111111111ZOO
- #errors
- (1,3): expected-doctype-but-got-chars
- (1,13): illegal-codepoint-for-numeric-entity
-+no refc
- #document
- | <html>
- |   <head>
-@@ -774,6 +775,7 @@ FOO&#1111111111ZOO
- #errors
- (1,3): expected-doctype-but-got-chars
- (1,13): illegal-codepoint-for-numeric-entity
-+no refc
- #document
- | <html>
- |   <head>
-@@ -785,6 +787,7 @@ FOO&#111111111111ZOO
- #errors
- (1,3): expected-doctype-but-got-chars
- (1,13): illegal-codepoint-for-numeric-entity
-+no refc
- #document
- | <html>
- |   <head>
 diff --git a/html/parsing/html5lib/html-tree/entities02.dat b/html/parsing/html5lib/html-tree/entities02.dat
-index 22365c9..b82647e 100644
+index 22365c9..7f3db2a 100644
 --- a/html/parsing/html5lib/html-tree/entities02.dat
 +++ b/html/parsing/html5lib/html-tree/entities02.dat
-@@ -285,6 +285,8 @@
+@@ -45,7 +45,6 @@
+ #data
+ <div bar="ZZ&gt=YY"></div>
+ #errors
+-(1,15): named-entity-without-semicolon
+ (1,20): expected-doctype-but-got-start-tag
+ #document
+ | <html>
+@@ -194,7 +193,6 @@
+ #data
+ <div bar="ZZ&pound=23"></div>
+ #errors
+-(1,18): named-entity-without-semicolon
+ (1,23): expected-doctype-but-got-start-tag
+ #document
+ | <html>
+@@ -285,6 +283,8 @@
  #data
  <div>ZZ&AElig=</div>
  #errors
@@ -126,7 +114,7 @@ index 22365c9..b82647e 100644
  | <html>
  |   <head>
 diff --git a/html/parsing/html5lib/html-tree/foreign-fragment.dat b/html/parsing/html5lib/html-tree/foreign-fragment.dat
-index 2e3cb6c..07584cc 100644
+index 1f72b7a..8f60405 100644
 --- a/html/parsing/html5lib/html-tree/foreign-fragment.dat
 +++ b/html/parsing/html5lib/html-tree/foreign-fragment.dat
 @@ -3,7 +3,6 @@
@@ -177,73 +165,6 @@ index 2e3cb6c..07584cc 100644
  #document-fragment
  math mtext
  #document
-@@ -488,7 +482,6 @@ svg desc
- <plaintext><foo>
- #errors
- 16: End of file seen and there were open elements.
--11: Unclosed element “plaintext”.
- #document-fragment
- svg desc
- #document
-diff --git a/html/parsing/html5lib/html-tree/isindex.dat b/html/parsing/html5lib/html-tree/isindex.dat
-index 42ef997..3281944 100644
---- a/html/parsing/html5lib/html-tree/isindex.dat
-+++ b/html/parsing/html5lib/html-tree/isindex.dat
-@@ -2,46 +2,36 @@
- <isindex>
- #errors
- (1,9): expected-doctype-but-got-start-tag
--(1,9): deprecated-tag
-+EOF
- #document
- | <html>
- |   <head>
- |   <body>
--|     <form>
--|       <hr>
--|       <label>
--|         "This is a searchable index. Enter search keywords: "
--|         <input>
--|           name="isindex"
--|       <hr>
-+|     <isindex>
- 
- #data
- <isindex name="A" action="B" prompt="C" foo="D">
- #errors
- (1,48): expected-doctype-but-got-start-tag
--(1,48): deprecated-tag
-+EOF
- #document
- | <html>
- |   <head>
- |   <body>
--|     <form>
-+|     <isindex>
- |       action="B"
--|       <hr>
--|       <label>
--|         "C"
--|         <input>
--|           foo="D"
--|           name="isindex"
--|       <hr>
-+|       foo="D"
-+|       name="A"
-+|       prompt="C"
- 
- #data
- <form><isindex>
- #errors
- (1,6): expected-doctype-but-got-start-tag
--(1,15): deprecated-tag
- (1,15): expected-closing-tag-but-got-eof
- #document
- | <html>
- |   <head>
- |   <body>
- |     <form>
-+|       <isindex>
 diff --git a/html/parsing/html5lib/html-tree/math.dat b/html/parsing/html5lib/html-tree/math.dat
 index ae9cd7c..666148f 100644
 --- a/html/parsing/html5lib/html-tree/math.dat
@@ -330,6 +251,46 @@ index ae9cd7c..666148f 100644
  #document-fragment
  tbody
  #document
+diff --git a/html/parsing/html5lib/html-tree/menuitem-element.dat b/html/parsing/html5lib/html-tree/menuitem-element.dat
+index 3069332..4549fa5 100644
+--- a/html/parsing/html5lib/html-tree/menuitem-element.dat
++++ b/html/parsing/html5lib/html-tree/menuitem-element.dat
+@@ -78,7 +78,7 @@
+ |   <body>
+ |     <li>
+ |       <menuitem>
+-|     <li>
++|         <li>
+ 
+ #data
+ <!DOCTYPE html><menuitem><p></menuitem>x
+@@ -96,9 +96,7 @@
+ #data
+ <!DOCTYPE html><p><b></p><menuitem>
+ #errors
+-25: End tag “p” seen, but there were open elements.
+ 21: Unclosed element “b”.
+-35: End of file seen and there were open elements.
+ #document
+ | <!DOCTYPE html>
+ | <html>
+@@ -106,14 +104,12 @@
+ |   <body>
+ |     <p>
+ |       <b>
+-|     <b>
+-|       <menuitem>
++|     <menuitem>
+ 
+ #data
+ <!DOCTYPE html><menuitem><asdf></menuitem>x
+ #errors
+-40: End tag “menuitem” seen, but there were open elements.
+-31: Unclosed element “asdf”.
++No </asdf> before </menuitem>
+ #document
+ | <!DOCTYPE html>
+ | <html>
 diff --git a/html/parsing/html5lib/html-tree/namespace-sensitivity.dat b/html/parsing/html5lib/html-tree/namespace-sensitivity.dat
 index ca35c0e..ff0eade 100644
 --- a/html/parsing/html5lib/html-tree/namespace-sensitivity.dat
@@ -384,38 +345,14 @@ index f40dd57..cf72889 100644
  #data
  <html> <frameset></frameset>
 diff --git a/html/parsing/html5lib/html-tree/ruby.dat b/html/parsing/html5lib/html-tree/ruby.dat
-index 1ca8016..d9b1fc8 100644
+index 696782f..ebe73ee 100644
 --- a/html/parsing/html5lib/html-tree/ruby.dat
 +++ b/html/parsing/html5lib/html-tree/ruby.dat
-@@ -58,6 +58,7 @@
- <html><ruby>a<rb>b<span></ruby></html>
- #errors
- (1,6): expected-doctype-but-got-start-tag
-+no </span>
- #document
- | <html>
- |   <head>
-@@ -128,6 +129,7 @@
- <html><ruby>a<rt>b<span></ruby></html>
- #errors
- (1,6): expected-doctype-but-got-start-tag
-+no </span>
- #document
- | <html>
- |   <head>
-@@ -201,6 +203,7 @@
+@@ -203,6 +203,7 @@
  <html><ruby>a<rtc>b<span></ruby></html>
  #errors
  (1,6): expected-doctype-but-got-start-tag
-+no </span>
- #document
- | <html>
- |   <head>
-@@ -271,6 +274,7 @@
- <html><ruby>a<rp>b<span></ruby></html>
- #errors
- (1,6): expected-doctype-but-got-start-tag
-+no </span>
++no </span> before </ruby>
  #document
  | <html>
  |   <head>
@@ -433,7 +370,7 @@ index f0caaa3..39303dd 100644
  #document
  | <html>
 diff --git a/html/parsing/html5lib/html-tree/template.dat b/html/parsing/html5lib/html-tree/template.dat
-index 690f605..61a62c4 100644
+index b38d4f5..2e00c1b 100644
 --- a/html/parsing/html5lib/html-tree/template.dat
 +++ b/html/parsing/html5lib/html-tree/template.dat
 @@ -1090,6 +1090,10 @@ eof in template
@@ -469,22 +406,14 @@ index 690f605..61a62c4 100644
  | <html>
  |   <head>
 diff --git a/html/parsing/html5lib/html-tree/tests1.dat b/html/parsing/html5lib/html-tree/tests1.dat
-index d6726e3..4e17fcb 100644
+index 33f6dc2..b086444 100644
 --- a/html/parsing/html5lib/html-tree/tests1.dat
 +++ b/html/parsing/html5lib/html-tree/tests1.dat
-@@ -357,7 +357,6 @@ Line1<br>Line2<br>Line3<br>Line4
- (1,27): unexpected-select-in-select
- (1,39): unexpected-end-tag
- (1,48): unexpected-end-tag
--(1,49): expected-closing-tag-but-got-eof
- #document
- | <html>
- |   <head>
-@@ -425,17 +424,9 @@ Line1<br>Line2<br>Line3<br>Line4
+@@ -424,17 +424,9 @@ Line1<br>Line2<br>Line3<br>Line4
  #errors
  (1,7): unexpected-dash-after-double-dash-in-comment
  (1,14): expected-doctype-but-got-start-tag
-+foster-parenting-char
++foster parenting
  (1,41): unexpected-start-tag-implies-table-voodoo
  (1,48): foster-parenting-character-in-table
 -(1,48): foster-parenting-character-in-table
@@ -499,7 +428,7 @@ index d6726e3..4e17fcb 100644
  (1,48): unexpected-cell-in-table-body
  (1,63): unexpected-cell-end-tag
  (1,71): eof-in-table
-@@ -838,7 +829,7 @@ Line1<br>Line2<br>Line3<br>Line4
+@@ -837,7 +829,7 @@ Line1<br>Line2<br>Line3<br>Line4
  |       "D"
  
  #data
@@ -508,7 +437,7 @@ index d6726e3..4e17fcb 100644
  #errors
  (1,0): expected-doctype-but-got-eof
  #document
-@@ -1125,7 +1116,6 @@ Line1<br>Line2<br>Line3<br>Line4
+@@ -1124,7 +1116,6 @@ Line1<br>Line2<br>Line3<br>Line4
  (1,39): unexpected-start-tag-implies-end-tag
  (1,39): unexpected-end-tag
  (1,45): foster-parenting-character-in-table
@@ -516,7 +445,7 @@ index d6726e3..4e17fcb 100644
  (1,68): foster-parenting-character-in-table
  (1,71): expected-closing-tag-but-got-eof
  #document
-@@ -1178,8 +1168,6 @@ Line1<br>Line2<br>Line3<br>Line4
+@@ -1177,8 +1168,6 @@ Line1<br>Line2<br>Line3<br>Line4
  (1,7): expected-doctype-but-got-start-tag
  (1,22): unexpected-start-tag-implies-table-voodoo
  (1,29): foster-parenting-character-in-table
@@ -525,14 +454,6 @@ index d6726e3..4e17fcb 100644
  (1,54): unexpected-cell-end-tag
  (1,68): foster-parenting-character-in-table
  (1,71): expected-closing-tag-but-got-eof
-@@ -1539,7 +1527,6 @@ Line1<br>Line2<br>Line3<br>Line4
- (1,27): unexpected-select-in-select
- (1,39): unexpected-end-tag
- (1,48): unexpected-end-tag
--(1,48): expected-closing-tag-but-got-eof
- #document
- | <html>
- |   <head>
 diff --git a/html/parsing/html5lib/html-tree/tests10.dat b/html/parsing/html5lib/html-tree/tests10.dat
 index 3e9a9f1..f782161 100644
 --- a/html/parsing/html5lib/html-tree/tests10.dat
@@ -595,10 +516,26 @@ index 93d06a8..f9f68c4 100644
  #document
  | <!DOCTYPE html>
 diff --git a/html/parsing/html5lib/html-tree/tests16.dat b/html/parsing/html5lib/html-tree/tests16.dat
-index 1219157..897f86f 100644
+index 8d9631f..1ef2bef 100644
 --- a/html/parsing/html5lib/html-tree/tests16.dat
 +++ b/html/parsing/html5lib/html-tree/tests16.dat
-@@ -2407,8 +2407,8 @@
+@@ -217,7 +217,6 @@
+ <!doctype html><script><!
+ #errors
+ (1,25): expected-script-data-but-got-eof
+-(1,25): expected-named-closing-tag-but-got-eof
+ #document
+ | <!DOCTYPE html>
+ | <html>
+@@ -1447,7 +1446,6 @@
+ #errors
+ (1,8): expected-doctype-but-got-start-tag
+ (1,10): expected-script-data-but-got-eof
+-(1,10): expected-named-closing-tag-but-got-eof
+ #document
+ | <html>
+ |   <head>
+@@ -2409,8 +2407,8 @@
  |     "-->"
  
  #data
@@ -609,7 +546,7 @@ index 1219157..897f86f 100644
  #errors
  (2,0): eof-in-table
  #document
-@@ -2446,7 +2446,6 @@
+@@ -2448,7 +2446,6 @@
  (1,35): unexpected-end-tag-implies-table-voodoo
  (1,35): unexpected-end-tag
  (1,41): unexpected-form-in-table
@@ -694,91 +631,10 @@ index 926bccb..9561bf6 100644
  #document
  | <!DOCTYPE html>
 diff --git a/html/parsing/html5lib/html-tree/tests19.dat b/html/parsing/html5lib/html-tree/tests19.dat
-index 02158c8..50eb305 100644
+index a189777..f3474e8 100644
 --- a/html/parsing/html5lib/html-tree/tests19.dat
 +++ b/html/parsing/html5lib/html-tree/tests19.dat
-@@ -84,7 +84,6 @@
- #data
- <!doctype html><form><isindex>
- #errors
--(1,30): deprecated-tag
- (1,30): expected-closing-tag-but-got-eof
- #document
- | <!DOCTYPE html>
-@@ -92,6 +91,7 @@
- |   <head>
- |   <body>
- |     <form>
-+|       <isindex>
- 
- #data
- <!doctype html><isindex action="POST">
-@@ -102,14 +102,8 @@
- | <html>
- |   <head>
- |   <body>
--|     <form>
-+|     <isindex>
- |       action="POST"
--|       <hr>
--|       <label>
--|         "This is a searchable index. Enter search keywords: "
--|         <input>
--|           name="isindex"
--|       <hr>
- 
- #data
- <!doctype html><isindex prompt="this is isindex">
-@@ -120,13 +114,8 @@
- | <html>
- |   <head>
- |   <body>
--|     <form>
--|       <hr>
--|       <label>
--|         "this is isindex"
--|         <input>
--|           name="isindex"
--|       <hr>
-+|     <isindex>
-+|       prompt="this is isindex"
- 
- #data
- <!doctype html><isindex type="hidden">
-@@ -137,14 +126,8 @@
- | <html>
- |   <head>
- |   <body>
--|     <form>
--|       <hr>
--|       <label>
--|         "This is a searchable index. Enter search keywords: "
--|         <input>
--|           name="isindex"
--|           type="hidden"
--|       <hr>
-+|     <isindex>
-+|       type="hidden"
- 
- #data
- <!doctype html><isindex name="foo">
-@@ -155,13 +138,8 @@
- | <html>
- |   <head>
- |   <body>
--|     <form>
--|       <hr>
--|       <label>
--|         "This is a searchable index. Enter search keywords: "
--|         <input>
--|           name="isindex"
--|       <hr>
-+|     <isindex>
-+|       name="foo"
- 
- #data
- <!doctype html><ruby><p><rp>
-@@ -390,8 +368,6 @@
+@@ -320,8 +320,6 @@
  <!doctype html><table>abc<!--foo-->
  #errors
  (1,23): foster-parenting-character
@@ -787,7 +643,7 @@ index 02158c8..50eb305 100644
  (1,35): eof-in-table
  #document
  | <!DOCTYPE html>
-@@ -419,8 +395,6 @@
+@@ -349,8 +347,6 @@
  <!doctype html><table> b <!--foo-->
  #errors
  (1,23): foster-parenting-character
@@ -796,7 +652,7 @@ index 02158c8..50eb305 100644
  (1,35): eof-in-table
  #document
  | <!DOCTYPE html>
-@@ -1116,7 +1090,6 @@
+@@ -1046,7 +1042,6 @@
  <!doctype html><math></html>
  #errors
  (1,28): unexpected-end-tag
@@ -804,7 +660,7 @@ index 02158c8..50eb305 100644
  (1,28): unexpected-end-tag
  #document
  | <!DOCTYPE html>
-@@ -1176,6 +1149,8 @@
+@@ -1106,6 +1101,8 @@
  <!doctype html><image/>
  #errors
  (1,23): image-start-tag
@@ -814,7 +670,7 @@ index 02158c8..50eb305 100644
  | <!DOCTYPE html>
  | <html>
 diff --git a/html/parsing/html5lib/html-tree/tests2.dat b/html/parsing/html5lib/html-tree/tests2.dat
-index 4195316..6f12199 100644
+index bd2d11d..4f2ccd0 100644
 --- a/html/parsing/html5lib/html-tree/tests2.dat
 +++ b/html/parsing/html5lib/html-tree/tests2.dat
 @@ -162,9 +162,6 @@
@@ -837,41 +693,15 @@ index 4195316..6f12199 100644
  (1,30): eof-in-table
  #document
  | <!DOCTYPE html>
-@@ -471,7 +465,6 @@
- <!DOCTYPE html><select><optgroup><option></optgroup><option><select><option>
- #errors
- (1,68): unexpected-select-in-select
--(1,76): expected-closing-tag-but-got-eof
- #document
- | <!DOCTYPE html>
- | <html>
-@@ -562,14 +555,9 @@
- | <html>
- |   <head>
- |   <body>
--|     <form>
--|       <hr>
--|       <label>
--|         "This is a searchable index. Enter search keywords: "
--|         <input>
--|           name="isindex"
--|           test="x"
--|       <hr>
-+|     <isindex>
-+|       name="x"
-+|       test="x"
- 
- #data
- test
 diff --git a/html/parsing/html5lib/html-tree/tests20.dat b/html/parsing/html5lib/html-tree/tests20.dat
-index 52c5acd..ca91149 100644
+index afdae74..db02b3f 100644
 --- a/html/parsing/html5lib/html-tree/tests20.dat
 +++ b/html/parsing/html5lib/html-tree/tests20.dat
-@@ -407,7 +407,6 @@
- <option><option>
- #errors
- (1,8): expected-doctype-but-got-start-tag
--(1,16): expected-closing-tag-but-got-eof
+@@ -559,6 +559,7 @@
+ (1,6): expected-doctype-but-got-start-tag
+ (1,28): unexpected-end-tag
+ (1,29): expected-closing-tag-but-got-eof
++???
  #document
  | <html>
  |   <head>
@@ -943,19 +773,6 @@ index d384a55..1482c70 100644
  (1,21): expected-closing-tag-but-got-eof
  #document
  | <html>
-diff --git a/html/parsing/html5lib/html-tree/tests25.dat b/html/parsing/html5lib/html-tree/tests25.dat
-index 103574e..63f7482 100644
---- a/html/parsing/html5lib/html-tree/tests25.dat
-+++ b/html/parsing/html5lib/html-tree/tests25.dat
-@@ -97,7 +97,7 @@ eof
- |   <head>
- |   <body>
- |     <menuitem>
--|     "A"
-+|       "A"
- 
- #data
- <!DOCTYPE html><body><embed>A
 diff --git a/html/parsing/html5lib/html-tree/tests26.dat b/html/parsing/html5lib/html-tree/tests26.dat
 index 8964624..b9e82d1 100644
 --- a/html/parsing/html5lib/html-tree/tests26.dat
@@ -994,7 +811,7 @@ index d774fc2..5027dc4 100644
  | <!DOCTYPE html "-//W3C//DTD HTML 4.01//EN" "">
  | <html>
 diff --git a/html/parsing/html5lib/html-tree/tests7.dat b/html/parsing/html5lib/html-tree/tests7.dat
-index 78fb6fa..20209e1 100644
+index 395dc72..5850f09 100644
 --- a/html/parsing/html5lib/html-tree/tests7.dat
 +++ b/html/parsing/html5lib/html-tree/tests7.dat
 @@ -350,8 +350,6 @@ html
@@ -1016,13 +833,14 @@ index 78fb6fa..20209e1 100644
  #document
  | <html>
  |   <head>
-@@ -390,7 +386,6 @@ A<table><tr> B</tr> </em>C</table>
+@@ -390,8 +386,6 @@ A<table><tr> B</tr> </em>C</table>
  #errors
  (1,1): expected-doctype-but-got-chars
  (1,13): foster-parenting-character
 -(1,14): foster-parenting-character
- (1,20): foster-parenting-character
+-(1,20): foster-parenting-character
  (1,25): unexpected-end-tag
+ (1,25): unexpected-end-tag-in-special-element
  (1,26): foster-parenting-character
 diff --git a/html/parsing/html5lib/html-tree/tests9.dat b/html/parsing/html5lib/html-tree/tests9.dat
 index f8d04b2..8693600 100644
@@ -1090,44 +908,6 @@ index f8d04b2..8693600 100644
  #document
  | <!DOCTYPE html>
  | <html>
-diff --git a/html/parsing/html5lib/html-tree/tests_innerHTML_1.dat b/html/parsing/html5lib/html-tree/tests_innerHTML_1.dat
-index 9c5c182..8af0cda 100644
---- a/html/parsing/html5lib/html-tree/tests_innerHTML_1.dat
-+++ b/html/parsing/html5lib/html-tree/tests_innerHTML_1.dat
-@@ -826,7 +826,6 @@ td
- </select><option>
- #errors
- (1,9): XXX-undefined-error
--(1,17): eof-in-select
- #document-fragment
- select
- #document
-@@ -836,7 +835,6 @@ select
- <input><option>
- #errors
- (1,7): unexpected-input-in-select
--(1,15): eof-in-select
- #document-fragment
- select
- #document
-@@ -846,7 +844,6 @@ select
- <keygen><option>
- #errors
- (1,8): unexpected-input-in-select
--(1,16): eof-in-select
- #document-fragment
- select
- #document
-@@ -855,8 +852,7 @@ select
- #data
- <textarea><option>
- #errors
--(1,10): unexpected-input-in-select
--(1,18): eof-in-select
-+(1,1): unexpected-textarea-in-select
- #document-fragment
- select
- #document
 diff --git a/html/parsing/html5lib/html-tree/tricky01.dat b/html/parsing/html5lib/html-tree/tricky01.dat
 index 753502a..98f4645 100644
 --- a/html/parsing/html5lib/html-tree/tricky01.dat
@@ -1164,30 +944,22 @@ index 753502a..98f4645 100644
  #document
  | <html>
 diff --git a/html/parsing/html5lib/html-tree/webkit01.dat b/html/parsing/html5lib/html-tree/webkit01.dat
-index f1cd858..e32f28a 100644
+index da91d77..fd787c9 100644
 --- a/html/parsing/html5lib/html-tree/webkit01.dat
 +++ b/html/parsing/html5lib/html-tree/webkit01.dat
-@@ -385,7 +385,6 @@ console.log("FOO<span>BAR</span>BAZ");
- (1,59): unexpected-select-in-select
- (1,93): unexpected-select-in-select
- (1,127): unexpected-select-in-select
--(1,127): expected-closing-tag-but-got-eof
- #document
- | <html>
- |   <head>
-@@ -653,6 +652,10 @@ console.log("FOO<span>BAR</span>BAZ");
+@@ -652,6 +652,10 @@ console.log("FOO<span>BAR</span>BAZ");
  #data
  <table><tr><td><svg><desc><td></desc><circle>
  #errors
 +no DOCTYPE
-+<td> bad context
-+bad </desc>
-+EOF
++no </desc></svg> before </td>
++stray </desc>
++no EOF
  #document
  | <html>
  |   <head>
 diff --git a/html/parsing/html5lib/html-tree/webkit02.dat b/html/parsing/html5lib/html-tree/webkit02.dat
-index d9ef820..4b48da7 100644
+index c596820..e1da4d1 100644
 --- a/html/parsing/html5lib/html-tree/webkit02.dat
 +++ b/html/parsing/html5lib/html-tree/webkit02.dat
 @@ -136,6 +136,7 @@
@@ -1270,34 +1042,16 @@ index d9ef820..4b48da7 100644
  #document-fragment
  div
  #document
-@@ -259,21 +283,19 @@ div
- #data
- <isindex action="x">
- #errors
-+<isindex> in table
-+no </isindex>
- #document-fragment
- table
- #document
--| <form>
-+| <isindex>
- |   action="x"
--|   <hr>
--|   <label>
--|     "This is a searchable index. Enter search keywords: "
--|     <input>
--|       name="isindex"
--|   <hr>
- 
+@@ -259,6 +283,8 @@ div
  #data
  <option><XH<optgroup></optgroup>
  #errors
-+<xH<optgroup> in select
-+bad </optgroup>
++Bad start tag
++stray end tag
  #document-fragment
  select
  #document
-@@ -282,6 +304,8 @@ select
+@@ -267,6 +293,8 @@ select
  #data
  <svg><foreignObject><div>foo</div><plaintext></foreignObject></svg><div>bar</div>
  #errors
@@ -1306,7 +1060,7 @@ index d9ef820..4b48da7 100644
  #document
  | <html>
  |   <head>
-@@ -296,6 +320,8 @@ select
+@@ -281,6 +309,8 @@ select
  #data
  <svg><foreignObject></foreignObject><title></svg>foo
  #errors
@@ -1315,7 +1069,7 @@ index d9ef820..4b48da7 100644
  #document
  | <html>
  |   <head>
-@@ -308,6 +334,9 @@ select
+@@ -293,6 +323,9 @@ select
  #data
  </foreignObject><plaintext><div>foo</div>
  #errors
