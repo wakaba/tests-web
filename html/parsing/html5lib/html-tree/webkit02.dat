@@ -136,6 +136,7 @@
 #data
 <legend>test</legend>
 #errors
+no DOCTYPE
 #document
 | <html>
 |   <head>
@@ -146,6 +147,9 @@
 #data
 <table><input>
 #errors
+no DOCTYPE
+<input> in table
+EOF
 #document
 | <html>
 |   <head>
@@ -156,6 +160,9 @@
 #data
 <b><em><foo><foo><aside></b>
 #errors
+no DOCTYPE
+AAA
+EOF
 #document
 | <html>
 |   <head>
@@ -171,6 +178,10 @@
 #data
 <b><em><foo><foo><aside></b></em>
 #errors
+no DOCTYPE
+AAA
+AAA
+EOF
 #document
 | <html>
 |   <head>
@@ -187,6 +198,9 @@
 #data
 <b><em><foo><foo><foo><aside></b>
 #errors
+no DOCTYPE
+AAA
+EOF
 #document
 | <html>
 |   <head>
@@ -202,6 +216,10 @@
 #data
 <b><em><foo><foo><foo><aside></b></em>
 #errors
+no DOCTYPE
+AAA
+bad </em>
+EOF
 #document
 | <html>
 |   <head>
@@ -217,6 +235,9 @@
 #data
 <b><em><foo><foo><foo><foo><foo><foo><foo><foo><foo><foo><aside></b></em>
 #errors
+AAA
+no </em>
+EOF
 #document-fragment
 div
 #document
@@ -238,6 +259,9 @@ div
 #data
 <b><em><foo><foob><foob><foob><foob><fooc><fooc><fooc><fooc><food><aside></b></em>
 #errors
+AAA
+bad </em>
+EOF
 #document-fragment
 div
 #document
@@ -259,6 +283,8 @@ div
 #data
 <option><XH<optgroup></optgroup>
 #errors
+Bad start tag
+stray end tag
 #document-fragment
 select
 #document
@@ -267,6 +293,8 @@ select
 #data
 <svg><foreignObject><div>foo</div><plaintext></foreignObject></svg><div>bar</div>
 #errors
+no DOCTYPE
+no </plaintext>
 #document
 | <html>
 |   <head>
@@ -281,6 +309,8 @@ select
 #data
 <svg><foreignObject></foreignObject><title></svg>foo
 #errors
+no DOCTYPE
+no </title>
 #document
 | <html>
 |   <head>
@@ -293,6 +323,9 @@ select
 #data
 </foreignObject><plaintext><div>foo</div>
 #errors
+no DOCTYPE
+bad </foreignObject>
+no EOF
 #document
 | <html>
 |   <head>

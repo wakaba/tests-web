@@ -320,8 +320,6 @@
 <!doctype html><table>abc<!--foo-->
 #errors
 (1,23): foster-parenting-character
-(1,24): foster-parenting-character
-(1,25): foster-parenting-character
 (1,35): eof-in-table
 #document
 | <!DOCTYPE html>
@@ -349,8 +347,6 @@
 <!doctype html><table> b <!--foo-->
 #errors
 (1,23): foster-parenting-character
-(1,24): foster-parenting-character
-(1,25): foster-parenting-character
 (1,35): eof-in-table
 #document
 | <!DOCTYPE html>
@@ -1046,7 +1042,6 @@
 <!doctype html><math></html>
 #errors
 (1,28): unexpected-end-tag
-(1,28): expected-one-end-tag-but-got-another
 (1,28): unexpected-end-tag
 #document
 | <!DOCTYPE html>
@@ -1106,6 +1101,8 @@
 <!doctype html><image/>
 #errors
 (1,23): image-start-tag
+#warnings
+nestc
 #document
 | <!DOCTYPE html>
 | <html>
