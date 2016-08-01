@@ -1,5 +1,279 @@
+diff --git a/html/parsing/html5lib/html-tokenizer/domjs.test b/html/parsing/html5lib/html-tokenizer/domjs.test
+index 8f1e42f..7e71505 100644
+--- a/html/parsing/html5lib/html-tokenizer/domjs.test
++++ b/html/parsing/html5lib/html-tokenizer/domjs.test
+@@ -84,7 +84,7 @@
+             "description":"--!NUL in comment ",
+             "doubleEscaped":true,
+             "input":"<!----!\\u0000-->",
+-            "output":["ParseError", "ParseError", ["Comment", "--!\\uFFFD"]]
++            "output":["ParseError", ["Comment", "--!\\uFFFD"]]
+         },
+         {
+             "description":"space EOF after doctype ",
+diff --git a/html/parsing/html5lib/html-tokenizer/pendingSpecChanges.test b/html/parsing/html5lib/html-tokenizer/pendingSpecChanges.test
+index 1b7dc3c..dc7a54f 100644
+--- a/html/parsing/html5lib/html-tokenizer/pendingSpecChanges.test
++++ b/html/parsing/html5lib/html-tokenizer/pendingSpecChanges.test
+@@ -2,6 +2,6 @@
+ 
+ {"description":"<!---- >",
+ "input":"<!---- >",
+-"output":["ParseError", "ParseError", ["Comment","-- >"]]}
++"output":["ParseError", ["Comment","-- >"]]}
+ 
+ ]}
+diff --git a/html/parsing/html5lib/html-tokenizer/test1.test b/html/parsing/html5lib/html-tokenizer/test1.test
+index b97b2cb..1907f89 100644
+--- a/html/parsing/html5lib/html-tokenizer/test1.test
++++ b/html/parsing/html5lib/html-tokenizer/test1.test
+@@ -74,11 +74,11 @@
+ 
+ {"description":"Comment, Central dash no space",
+  "input":"<!----->",
+- "output":["ParseError", ["Comment", "-"]]},
++ "output":[["Comment", "-"]]},
+ 
+ {"description":"Comment, two central dashes",
+ "input":"<!-- --comment -->",
+-"output":["ParseError", ["Comment", " --comment "]]},
++"output":[["Comment", " --comment "]]},
+ 
+ {"description":"Unfinished comment",
+ "input":"<!--comment",
+diff --git a/html/parsing/html5lib/html-tokenizer/test3.test b/html/parsing/html5lib/html-tokenizer/test3.test
+index 8fc529a..2cc3da4 100644
+--- a/html/parsing/html5lib/html-tokenizer/test3.test
++++ b/html/parsing/html5lib/html-tokenizer/test3.test
+@@ -522,47 +522,47 @@
+ 
+ {"description":"<!----\\u0009",
+ "input":"<!----\u0009",
+-"output":["ParseError", "ParseError", ["Comment", "--\u0009"]]},
++"output":["ParseError", ["Comment", "--\u0009"]]},
+ 
+ {"description":"<!----\\u000A",
+ "input":"<!----\u000A",
+-"output":["ParseError", "ParseError", ["Comment", "--\u000A"]]},
++"output":["ParseError", ["Comment", "--\u000A"]]},
+ 
+ {"description":"<!----\\u000B",
+ "input":"<!----\u000B",
+-"output":["ParseError", "ParseError", "ParseError", ["Comment", "--\u000B"]]},
++"output":["ParseError", "ParseError", ["Comment", "--\u000B"]]},
+ 
+ {"description":"<!----\\u000C",
+ "input":"<!----\u000C",
+-"output":["ParseError", "ParseError", ["Comment", "--\u000C"]]},
++"output":["ParseError", ["Comment", "--\u000C"]]},
+ 
+ {"description":"<!---- ",
+ "input":"<!---- ",
+-"output":["ParseError", "ParseError", ["Comment", "-- "]]},
++"output":["ParseError", ["Comment", "-- "]]},
+ 
+ {"description":"<!---- -",
+ "input":"<!---- -",
+-"output":["ParseError", "ParseError", ["Comment", "-- "]]},
++"output":["ParseError", ["Comment", "-- "]]},
+ 
+ {"description":"<!---- --",
+ "input":"<!---- --",
+-"output":["ParseError", "ParseError", ["Comment", "-- "]]},
++"output":["ParseError", ["Comment", "-- "]]},
+ 
+ {"description":"<!---- -->",
+ "input":"<!---- -->",
+-"output":["ParseError", ["Comment", "-- "]]},
++"output":[["Comment", "-- "]]},
+ 
+ {"description":"<!----  -->",
+ "input":"<!----  -->",
+-"output":["ParseError", ["Comment", "--  "]]},
++"output":[["Comment", "--  "]]},
+ 
+ {"description":"<!---- a-->",
+ "input":"<!---- a-->",
+-"output":["ParseError", ["Comment", "-- a"]]},
++"output":[["Comment", "-- a"]]},
+ 
+ {"description":"<!----!",
+ "input":"<!----!",
+-"output":["ParseError", "ParseError", ["Comment", ""]]},
++"output":["ParseError", ["Comment", ""]]},
+ 
+ {"description":"<!----!>",
+ "input":"<!----!>",
+@@ -570,79 +570,79 @@
+ 
+ {"description":"<!----!a",
+ "input":"<!----!a",
+-"output":["ParseError", "ParseError", ["Comment", "--!a"]]},
++"output":["ParseError", ["Comment", "--!a"]]},
+ 
+ {"description":"<!----!a-",
+ "input":"<!----!a-",
+-"output":["ParseError", "ParseError", ["Comment", "--!a"]]},
++"output":["ParseError", ["Comment", "--!a"]]},
+ 
+ {"description":"<!----!a--",
+ "input":"<!----!a--",
+-"output":["ParseError", "ParseError", ["Comment", "--!a"]]},
++"output":["ParseError", ["Comment", "--!a"]]},
+ 
+ {"description":"<!----!a-->",
+ "input":"<!----!a-->",
+-"output":["ParseError", ["Comment", "--!a"]]},
++"output":[["Comment", "--!a"]]},
+ 
+ {"description":"<!----!-",
+ "input":"<!----!-",
+-"output":["ParseError", "ParseError", ["Comment", "--!"]]},
++"output":["ParseError", ["Comment", "--!"]]},
+ 
+ {"description":"<!----!--",
+ "input":"<!----!--",
+-"output":["ParseError", "ParseError", ["Comment", "--!"]]},
++"output":["ParseError", ["Comment", "--!"]]},
+ 
+ {"description":"<!----!-->",
+ "input":"<!----!-->",
+-"output":["ParseError", ["Comment", "--!"]]},
++"output":[["Comment", "--!"]]},
+ 
+ {"description":"<!----\"",
+ "input":"<!----\"",
+-"output":["ParseError", "ParseError", ["Comment", "--\""]]},
++"output":["ParseError", ["Comment", "--\""]]},
+ 
+ {"description":"<!----&",
+ "input":"<!----&",
+-"output":["ParseError", "ParseError", ["Comment", "--&"]]},
++"output":["ParseError", ["Comment", "--&"]]},
+ 
+ {"description":"<!----'",
+ "input":"<!----'",
+-"output":["ParseError", "ParseError", ["Comment", "--'"]]},
++"output":["ParseError", ["Comment", "--'"]]},
+ 
+ {"description":"<!----,",
+ "input":"<!----,",
+-"output":["ParseError", "ParseError", ["Comment", "--,"]]},
++"output":["ParseError", ["Comment", "--,"]]},
+ 
+ {"description":"<!-----",
+ "input":"<!-----",
+-"output":["ParseError", "ParseError", ["Comment", "-"]]},
++"output":["ParseError", ["Comment", "-"]]},
+ 
+ {"description":"<!----.",
+ "input":"<!----.",
+-"output":["ParseError", "ParseError", ["Comment", "--."]]},
++"output":["ParseError", ["Comment", "--."]]},
+ 
+ {"description":"<!----/",
+ "input":"<!----/",
+-"output":["ParseError", "ParseError", ["Comment", "--/"]]},
++"output":["ParseError", ["Comment", "--/"]]},
+ 
+ {"description":"<!----0",
+ "input":"<!----0",
+-"output":["ParseError", "ParseError", ["Comment", "--0"]]},
++"output":["ParseError", ["Comment", "--0"]]},
+ 
+ {"description":"<!----1",
+ "input":"<!----1",
+-"output":["ParseError", "ParseError", ["Comment", "--1"]]},
++"output":["ParseError", ["Comment", "--1"]]},
+ 
+ {"description":"<!----9",
+ "input":"<!----9",
+-"output":["ParseError", "ParseError", ["Comment", "--9"]]},
++"output":["ParseError", ["Comment", "--9"]]},
+ 
+ {"description":"<!----<",
+ "input":"<!----<",
+-"output":["ParseError", "ParseError", ["Comment", "--<"]]},
++"output":["ParseError", ["Comment", "--<"]]},
+ 
+ {"description":"<!----=",
+ "input":"<!----=",
+-"output":["ParseError", "ParseError", ["Comment", "--="]]},
++"output":["ParseError", ["Comment", "--="]]},
+ 
+ {"description":"<!---->",
+ "input":"<!---->",
+@@ -650,55 +650,55 @@
+ 
+ {"description":"<!----?",
+ "input":"<!----?",
+-"output":["ParseError", "ParseError", ["Comment", "--?"]]},
++"output":["ParseError", ["Comment", "--?"]]},
+ 
+ {"description":"<!----@",
+ "input":"<!----@",
+-"output":["ParseError", "ParseError", ["Comment", "--@"]]},
++"output":["ParseError", ["Comment", "--@"]]},
+ 
+ {"description":"<!----A",
+ "input":"<!----A",
+-"output":["ParseError", "ParseError", ["Comment", "--A"]]},
++"output":["ParseError", ["Comment", "--A"]]},
+ 
+ {"description":"<!----B",
+ "input":"<!----B",
+-"output":["ParseError", "ParseError", ["Comment", "--B"]]},
++"output":["ParseError", ["Comment", "--B"]]},
+ 
+ {"description":"<!----Y",
+ "input":"<!----Y",
+-"output":["ParseError", "ParseError", ["Comment", "--Y"]]},
++"output":["ParseError", ["Comment", "--Y"]]},
+ 
+ {"description":"<!----Z",
+ "input":"<!----Z",
+-"output":["ParseError", "ParseError", ["Comment", "--Z"]]},
++"output":["ParseError", ["Comment", "--Z"]]},
+ 
+ {"description":"<!----`",
+ "input":"<!----`",
+-"output":["ParseError", "ParseError", ["Comment", "--`"]]},
++"output":["ParseError", ["Comment", "--`"]]},
+ 
+ {"description":"<!----a",
+ "input":"<!----a",
+-"output":["ParseError", "ParseError", ["Comment", "--a"]]},
++"output":["ParseError", ["Comment", "--a"]]},
+ 
+ {"description":"<!----b",
+ "input":"<!----b",
+-"output":["ParseError", "ParseError", ["Comment", "--b"]]},
++"output":["ParseError", ["Comment", "--b"]]},
+ 
+ {"description":"<!----y",
+ "input":"<!----y",
+-"output":["ParseError", "ParseError", ["Comment", "--y"]]},
++"output":["ParseError", ["Comment", "--y"]]},
+ 
+ {"description":"<!----z",
+ "input":"<!----z",
+-"output":["ParseError", "ParseError", ["Comment", "--z"]]},
++"output":["ParseError", ["Comment", "--z"]]},
+ 
+ {"description":"<!----{",
+ "input":"<!----{",
+-"output":["ParseError", "ParseError", ["Comment", "--{"]]},
++"output":["ParseError", ["Comment", "--{"]]},
+ 
+ {"description":"<!----\\uDBC0\\uDC00",
+ "input":"<!----\uDBC0\uDC00",
+-"output":["ParseError", "ParseError", ["Comment", "--\uDBC0\uDC00"]]},
++"output":["ParseError", ["Comment", "--\uDBC0\uDC00"]]},
+ 
+ {"description":"<!---.",
+ "input":"<!---.",
 diff --git a/html/parsing/html5lib/html-tokenizer/xmlViolation.test b/html/parsing/html5lib/html-tokenizer/xmlViolation.test
-index 137d964..d108c4c 100644
+index 137d964..432e06f 100644
 --- a/html/parsing/html5lib/html-tokenizer/xmlViolation.test
 +++ b/html/parsing/html5lib/html-tokenizer/xmlViolation.test
 @@ -3,16 +3,16 @@
@@ -18,10 +292,58 @@ index 137d964..d108c4c 100644
  {"description":"Double hyphen in comment",
  "input":"<!-- foo -- bar -->",
 -"output":["ParseError",["Comment"," foo - - bar "]]},
-+"output":["ParseError",["Comment"," foo -- bar "]]},
++"output":[["Comment"," foo -- bar "]]},
  
  {"description":"FF between attributes",
  "input":"<a b=''\u000Cc=''>",
+diff --git a/html/parsing/html5lib/html-tree/comments01.dat b/html/parsing/html5lib/html-tree/comments01.dat
+index 35ec6cc..64e3366 100644
+--- a/html/parsing/html5lib/html-tree/comments01.dat
++++ b/html/parsing/html5lib/html-tree/comments01.dat
+@@ -27,7 +27,6 @@ FOO<!-- BAR --!>BAZ
+ FOO<!-- BAR --   >BAZ
+ #errors
+ (1,3): expected-doctype-but-got-chars
+-(1,15): unexpected-char-in-comment
+ (1,21): eof-in-comment
+ #document
+ | <html>
+@@ -40,8 +39,6 @@ FOO<!-- BAR --   >BAZ
+ FOO<!-- BAR -- <QUX> -- MUX -->BAZ
+ #errors
+ (1,3): expected-doctype-but-got-chars
+-(1,15): unexpected-char-in-comment
+-(1,24): unexpected-char-in-comment
+ #document
+ | <html>
+ |   <head>
+@@ -54,8 +51,6 @@ FOO<!-- BAR -- <QUX> -- MUX -->BAZ
+ FOO<!-- BAR -- <QUX> -- MUX --!>BAZ
+ #errors
+ (1,3): expected-doctype-but-got-chars
+-(1,15): unexpected-char-in-comment
+-(1,24): unexpected-char-in-comment
+ (1,31): unexpected-bang-after-double-dash-in-comment
+ #document
+ | <html>
+@@ -69,9 +64,6 @@ FOO<!-- BAR -- <QUX> -- MUX --!>BAZ
+ FOO<!-- BAR -- <QUX> -- MUX -- >BAZ
+ #errors
+ (1,3): expected-doctype-but-got-chars
+-(1,15): unexpected-char-in-comment
+-(1,24): unexpected-char-in-comment
+-(1,31): unexpected-char-in-comment
+ (1,35): eof-in-comment
+ #document
+ | <html>
+@@ -156,7 +148,6 @@ FOO<!-->BAZ
+ FOO<!----->BAZ
+ #errors
+ (1,3): expected-doctype-but-got-chars
+-(1,10): unexpected-dash-after-double-dash-in-comment
+ #document
+ | <html>
+ |   <head>
 diff --git a/html/parsing/html5lib/html-tree/doctype01.dat b/html/parsing/html5lib/html-tree/doctype01.dat
 index cec6638..d273730 100644
 --- a/html/parsing/html5lib/html-tree/doctype01.dat
@@ -165,6 +487,18 @@ index 1f72b7a..8f60405 100644
  #document-fragment
  math mtext
  #document
+diff --git a/html/parsing/html5lib/html-tree/html5test-com.dat b/html/parsing/html5lib/html-tree/html5test-com.dat
+index 8c6ec40..f2ecb97 100644
+--- a/html/parsing/html5lib/html-tree/html5test-com.dat
++++ b/html/parsing/html5lib/html-tree/html5test-com.dat
+@@ -133,7 +133,6 @@
+ #data
+ <!--foo--bar-->
+ #errors
+-(1,10): unexpected-char-in-comment
+ (1,15): expected-doctype-but-got-eof
+ #document
+ | <!-- foo--bar -->
 diff --git a/html/parsing/html5lib/html-tree/math.dat b/html/parsing/html5lib/html-tree/math.dat
 index ae9cd7c..666148f 100644
 --- a/html/parsing/html5lib/html-tree/math.dat
@@ -252,18 +586,9 @@ index ae9cd7c..666148f 100644
  tbody
  #document
 diff --git a/html/parsing/html5lib/html-tree/menuitem-element.dat b/html/parsing/html5lib/html-tree/menuitem-element.dat
-index 3069332..4549fa5 100644
+index 3069332..5a9e6fc 100644
 --- a/html/parsing/html5lib/html-tree/menuitem-element.dat
 +++ b/html/parsing/html5lib/html-tree/menuitem-element.dat
-@@ -78,7 +78,7 @@
- |   <body>
- |     <li>
- |       <menuitem>
--|     <li>
-+|         <li>
- 
- #data
- <!DOCTYPE html><menuitem><p></menuitem>x
 @@ -96,9 +96,7 @@
  #data
  <!DOCTYPE html><p><b></p><menuitem>
@@ -406,12 +731,14 @@ index b38d4f5..2e00c1b 100644
  | <html>
  |   <head>
 diff --git a/html/parsing/html5lib/html-tree/tests1.dat b/html/parsing/html5lib/html-tree/tests1.dat
-index 33f6dc2..b086444 100644
+index 33f6dc2..7ea3464 100644
 --- a/html/parsing/html5lib/html-tree/tests1.dat
 +++ b/html/parsing/html5lib/html-tree/tests1.dat
-@@ -424,17 +424,9 @@ Line1<br>Line2<br>Line3<br>Line4
+@@ -422,19 +422,10 @@ Line1<br>Line2<br>Line3<br>Line4
+ #data
+ <!-----><font><div>hello<table>excite!<b>me!<th><i>please!</tr><!--X-->
  #errors
- (1,7): unexpected-dash-after-double-dash-in-comment
+-(1,7): unexpected-dash-after-double-dash-in-comment
  (1,14): expected-doctype-but-got-start-tag
 +foster parenting
  (1,41): unexpected-start-tag-implies-table-voodoo
@@ -428,7 +755,7 @@ index 33f6dc2..b086444 100644
  (1,48): unexpected-cell-in-table-body
  (1,63): unexpected-cell-end-tag
  (1,71): eof-in-table
-@@ -837,7 +829,7 @@ Line1<br>Line2<br>Line3<br>Line4
+@@ -837,7 +828,7 @@ Line1<br>Line2<br>Line3<br>Line4
  |       "D"
  
  #data
@@ -437,7 +764,7 @@ index 33f6dc2..b086444 100644
  #errors
  (1,0): expected-doctype-but-got-eof
  #document
-@@ -1124,7 +1116,6 @@ Line1<br>Line2<br>Line3<br>Line4
+@@ -1124,7 +1115,6 @@ Line1<br>Line2<br>Line3<br>Line4
  (1,39): unexpected-start-tag-implies-end-tag
  (1,39): unexpected-end-tag
  (1,45): foster-parenting-character-in-table
@@ -445,7 +772,7 @@ index 33f6dc2..b086444 100644
  (1,68): foster-parenting-character-in-table
  (1,71): expected-closing-tag-but-got-eof
  #document
-@@ -1177,8 +1168,6 @@ Line1<br>Line2<br>Line3<br>Line4
+@@ -1177,8 +1167,6 @@ Line1<br>Line2<br>Line3<br>Line4
  (1,7): expected-doctype-but-got-start-tag
  (1,22): unexpected-start-tag-implies-table-voodoo
  (1,29): foster-parenting-character-in-table
