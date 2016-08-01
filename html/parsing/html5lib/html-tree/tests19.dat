@@ -82,45 +82,9 @@
 |     <h1>
 
 #data
-<!doctype html><form><isindex>
-#errors
-(1,30): expected-closing-tag-but-got-eof
-#document
-| <!DOCTYPE html>
-| <html>
-|   <head>
-|   <body>
-|     <form>
-|       <isindex>
-
-#data
-<!doctype html><isindex action="POST">
-#errors
-(1,38): deprecated-tag
-#document
-| <!DOCTYPE html>
-| <html>
-|   <head>
-|   <body>
-|     <isindex>
-|       action="POST"
-
-#data
-<!doctype html><isindex prompt="this is isindex">
-#errors
-(1,49): deprecated-tag
-#document
-| <!DOCTYPE html>
-| <html>
-|   <head>
-|   <body>
-|     <isindex>
-|       prompt="this is isindex"
-
-#data
 <!doctype html><isindex type="hidden">
 #errors
-(1,38): deprecated-tag
+(1,38): expected-closing-tag-but-got-eof
 #document
 | <!DOCTYPE html>
 | <html>
@@ -128,18 +92,6 @@
 |   <body>
 |     <isindex>
 |       type="hidden"
-
-#data
-<!doctype html><isindex name="foo">
-#errors
-(1,35): deprecated-tag
-#document
-| <!DOCTYPE html>
-| <html>
-|   <head>
-|   <body>
-|     <isindex>
-|       name="foo"
 
 #data
 <!doctype html><ruby><p><rp>
