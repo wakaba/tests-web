@@ -1,0 +1,22 @@
+#data
+<video playsinline="" src="x" xmlns="http://www.w3.org/1999/xhtml">y</video>
+#errors
+
+#data
+<video playsinline="PlaysInline" src="x" xmlns="http://www.w3.org/1999/xhtml">y</video>
+#errors
+
+#data
+<video playsinline="xyz" src="x" xmlns="http://www.w3.org/1999/xhtml">y</video>
+#errors
+/video/@playsinline;boolean:invalid;m
+
+#data
+<video playinline="" src="x" xmlns="http://www.w3.org/1999/xhtml">y</video>
+#errors
+/video/@playinline;attribute not defined;m
+
+#data
+<audio playsinline="" src="x" xmlns="http://www.w3.org/1999/xhtml">y</audio>
+#errors
+/audio/@playsinline;attribute not defined;m
