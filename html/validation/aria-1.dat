@@ -67,23 +67,26 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <input type="range" role="slider" multiple="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/input/@role;aria:redundant role;w
-/input/@role;attribute missing;aria-valuenow;m
+/input/@role;aria:role:default role;m
+/input/@multiple;input attr not applicable;range;m
 
 #data
 <input type="range" aria-valuemin="12" multiple="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/input/@aria-valuemin;aria:attr not allowed for role;;m
+/input/@multiple;input attr not applicable;range;m
+/input/@aria-valuemin;aria:attr not allowed for element;m
 
 #data
 <input type="range" aria-valuemax="12" multiple="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/input/@aria-valuemax;aria:attr not allowed for role;;m
+/input/@aria-valuemax;aria:attr not allowed for element;m
+/input/@multiple;input attr not applicable;range;m
 
 #data
 <input type="range" aria-valuenow="12" multiple="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/input/@aria-valuenow;aria:attr not allowed for role;;m
+/input/@aria-valuenow;aria:attr not allowed for element;m
+/input/@multiple;input attr not applicable;range;m
 
 #data
 <input type="number" role="spinbutton" xmlns="http://www.w3.org/1999/xhtml"/>
