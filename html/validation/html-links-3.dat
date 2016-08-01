@@ -29,3 +29,28 @@
 #data
 <link href="x" rel="prefetch preload" as="worker" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+
+#data
+<body xmlns="http://www.w3.org/1999/xhtml">
+  <link href="x" rel="prefetch preload" as="worker"/>x
+</body>
+#errors
+
+#data
+<body xmlns="http://www.w3.org/1999/xhtml">
+  <link href="x" rel="stylesheet"/>x
+</body>
+#errors
+
+#data
+<body xmlns="http://www.w3.org/1999/xhtml">
+  <link href="x" rel="icon"/>x
+</body>
+#errors
+/body/link;link:not body-ok;icon;m
+
+#data
+<body xmlns="http://www.w3.org/1999/xhtml">
+  <link href="x" rel="icon stylesheet"/>x
+</body>
+#errors
