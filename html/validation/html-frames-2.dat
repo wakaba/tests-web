@@ -1293,6 +1293,19 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@allow-fullscreen;attribute not defined;m
 
+#data
+<iframe allowusermedia="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<iframe allowusermedia="AllowUserMedia" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<iframe allowusermedia="true" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/iframe/@allowusermedia;boolean:invalid;m
+
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><iframe src="x"></iframe>
 #errors
