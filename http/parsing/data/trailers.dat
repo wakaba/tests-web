@@ -1,0 +1,107 @@
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"0"CRLF
+"Hoge: foo"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+
+#name
+persistent
+#method GET
+#url /
+#data escaped
+receive "GET"
+"HTTP/1.1 202 hoge"CRLF
+"Transfer-Encoding: chunked"CRLF
+"x-test-retry: 1"CRLF
+CRLF
+"4"CRLF
+"anca"CRLF
+"0"CRLF
+"Hoge: foo"CRLF
+CRLF
+receive "GET"
+"HTTP/1.1 203 fuga"CRLF
+"Content-Length: 2"CRLF
+CRLF
+"ab"
+close
+#test-type second
+#status 203
+#reason fuga
+#headers
+Content-Length: 2
+#body escaped
+ab(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"0"CRLF
+"Hoge: foo"CRLF
+"Content-Length: 5, 6"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+
+#name
+no last CRLF
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"0"CRLF
+"Hoge: foo"CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+
+#name
+broken header
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"0"CRLF
+"Hoge: "
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)

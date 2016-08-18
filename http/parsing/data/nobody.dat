@@ -1,0 +1,371 @@
+#name
+304 (HTTP/1.0)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 304 notmodified"CRLF
+"ho-ge:bar"CRLF
+CRLF
+"abcd"
+close
+#version 1.0
+#status 304
+#reason notmodified
+#headers
+ho-ge: bar
+#body escaped
+(close)
+
+#name
+304 (HTTP/1.1)
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 304 notmodified"CRLF
+"ho-ge:bar"CRLF
+CRLF
+"abcd"
+close
+#status 304
+#reason notmodified
+#headers
+ho-ge: bar
+#body escaped
+(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 304 notmodified"CRLF
+"ho-ge:bar"CRLF
+"Content-Length:3"CRLF
+CRLF
+"abcd"
+close
+#version 1.0
+#status 304
+#reason notmodified
+#headers
+ho-ge: bar
+Content-Length: 3
+#body escaped
+(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 304 notmodified"CRLF
+"ho-ge:bar"CRLF
+"Content-Length:3"CRLF
+CRLF
+"abcd"
+close
+#status 304
+#reason notmodified
+#headers
+ho-ge: bar
+Content-Length: 3
+#body escaped
+(close)
+
+#name
+204 (HTTP/1.0)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 204 notmodified"CRLF
+"ho-ge:bar"CRLF
+CRLF
+"abcd"
+close
+#version 1.0
+#status 204
+#reason notmodified
+#headers
+ho-ge: bar
+#body escaped
+(close)
+
+#name
+204 (HTTP/1.1)
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 204 notmodified"CRLF
+"ho-ge:bar"CRLF
+CRLF
+"abcd"
+close
+#status 204
+#reason notmodified
+#headers
+ho-ge: bar
+#body escaped
+(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 204 notmodified"CRLF
+"ho-ge:bar"CRLF
+"Content-Length:3"CRLF
+CRLF
+"abcd"
+close
+#version 1.0
+#status 204
+#reason notmodified
+#headers
+ho-ge: bar
+Content-Length: 3
+#body escaped
+(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 204 notmodified"CRLF
+"ho-ge:bar"CRLF
+"Content-Length:3"CRLF
+CRLF
+"abcd"
+close
+#status 204
+#reason notmodified
+#headers
+ho-ge: bar
+Content-Length: 3
+#body escaped
+(close)
+
+#name
+205 (HTTP/1.0)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 205 notmodified"CRLF
+"ho-ge:bar"CRLF
+CRLF
+"abcd"
+close
+#version 1.0
+#status 205
+#reason notmodified
+#headers
+ho-ge: bar
+#body escaped
+(close)
+
+#name
+205 (HTTP/1.1)
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 205 notmodified"CRLF
+"ho-ge:bar"CRLF
+CRLF
+"abcd"
+close
+#status 205
+#reason notmodified
+#headers
+ho-ge: bar
+#body escaped
+(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 205 notmodified"CRLF
+"ho-ge:bar"CRLF
+"Content-Length:3"CRLF
+CRLF
+"abcd"
+close
+#version 1.0
+#status 205
+#reason notmodified
+#headers
+ho-ge: bar
+Content-Length: 3
+#body escaped
+(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 205 notmodified"CRLF
+"ho-ge:bar"CRLF
+"Content-Length:3"CRLF
+CRLF
+"abcd"
+close
+#status 205
+#reason notmodified
+#headers
+ho-ge: bar
+Content-Length: 3
+#body escaped
+(close)
+
+#name
+HEAD (HTTP/1.0)
+#method HEAD
+#url /
+#data escaped
+"HTTP/1.0 200 notmodified"CRLF
+"ho-ge:bar"CRLF
+CRLF
+"abcd"
+close
+#version 1.0
+#status 200
+#reason notmodified
+#headers
+ho-ge: bar
+#body escaped
+(close)
+
+#name
+HEAD (HTTP/1.1)
+#method HEAD
+#url /
+#data escaped
+"HTTP/1.1 200 notmodified"CRLF
+"ho-ge:bar"CRLF
+CRLF
+"abcd"
+close
+#status 200
+#reason notmodified
+#headers
+ho-ge: bar
+#body escaped
+(close)
+
+#method HEAD
+#url /
+#data escaped
+"HTTP/1.0 200 notmodified"CRLF
+"ho-ge:bar"CRLF
+"Content-Length:3"CRLF
+CRLF
+"abcd"
+close
+#version 1.0
+#status 200
+#reason notmodified
+#headers
+ho-ge: bar
+Content-Length: 3
+#body escaped
+(close)
+
+#method HEAD
+#url /
+#data escaped
+"HTTP/1.1 200 notmodified"CRLF
+"ho-ge:bar"CRLF
+"Content-Length:3"CRLF
+CRLF
+"abcd"
+close
+#status 200
+#reason notmodified
+#headers
+ho-ge: bar
+Content-Length: 3
+#body escaped
+(close)
+
+#name
+304 bad Content-Length
+#method HEAD
+#url /
+#data escaped
+"HTTP/1.1 304 notmodified"CRLF
+"Content-Length:3"CRLF
+"Content-Length:2"CRLF
+CRLF
+"abcd"
+close
+#status 0
+#headers
+#body escaped
+(close)
+
+#name
+304 bad Content-Length, Transfer-Encoding
+#method HEAD
+#url /
+#data escaped
+"HTTP/1.1 304 notmodified"CRLF
+"Transfer-Encoding: chunked"CRLF
+"Content-Length:3"CRLF
+"Content-Length:2"CRLF
+CRLF
+"abcd"
+close
+#status 304
+#reason notmodified
+#headers
+Transfer-Encoding: chunked
+Content-Length: 3
+Content-Length: 2
+#body escaped
+(close)
+
+#name
+HEAD bad Content-Length
+#method HEAD
+#url /
+#data escaped
+"HTTP/1.1 200 notmodified"CRLF
+"Content-Length:3"CRLF
+"Content-Length:2"CRLF
+CRLF
+"abcd"
+close
+#status 0
+#headers
+#body escaped
+(close)
+
+#name
+Content-Length: 0 (HTTP/1.1)
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 notmodified"CRLF
+"ho-ge:bar"CRLF
+"Content-Length:0"CRLF
+CRLF
+"abcd"
+close
+#status 200
+#reason notmodified
+#headers
+ho-ge: bar
+Content-Length: 0
+#body escaped
+(close)
+
+#name
+Content-Length: 0 (HTTP/1.0)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 notmodified"CRLF
+"ho-ge:bar"CRLF
+"Content-Length:0"CRLF
+CRLF
+"abcd"
+close
+#version 1.0
+#status 200
+#reason notmodified
+#headers
+ho-ge: bar
+Content-Length: 0
+#body escaped
+(close)

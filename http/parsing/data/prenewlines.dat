@@ -1,0 +1,91 @@
+#method GET
+#url /
+#data escaped
+CR
+close
+#version 0.9
+#status 200
+#reason OK
+#headers
+#body escaped
+\u000D(close)
+
+#method GET
+#url /
+#data escaped
+LF
+close
+#version 0.9
+#status 200
+#reason OK
+#headers
+#body escaped
+\u000A(close)
+
+#method GET
+#url /
+#data escaped
+CRLF
+close
+#version 0.9
+#status 200
+#reason OK
+#headers
+#body escaped
+\u000D
+(close)
+
+#method GET
+#url /
+#data escaped
+CRLF
+"HTTP/1.0 202 hoge"CRLF
+CRLF
+"anc"
+close
+#version 1.0
+#status 202
+#reason hoge
+#headers
+#body escaped
+anc(close)
+
+#method GET
+#url /
+#data escaped
+CR
+CRLF
+"HTTP/1.0 202 hoge"CRLF
+CRLF
+"anc"
+close
+#version 1.0
+#status 202
+#reason hoge
+#headers
+#body escaped
+anc(close)
+
+#method GET
+#url /
+#data escaped
+CRLF
+CRLF
+CRLF
+CRLF
+"HTTP/1.0 202 hoge"CRLF
+CRLF
+"anc"
+close
+#version 0.9
+#status 200
+#reason OK
+#headers
+#body escaped
+\u000D
+\u000D
+\u000D
+\u000D
+HTTP/1.0 202 hoge\u000D
+\u000D
+anc(close)

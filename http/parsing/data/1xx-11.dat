@@ -1,0 +1,484 @@
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 190 cont."CRLF
+CRLF
+"HTTP/1.1 201 foo"CRLF
+"Hoge:3"CRLF
+CRLF
+"xyz"
+close
+#1xx
+| #status 190
+| #reason cont.
+#version 1.1
+#status 201
+#reason foo
+#headers
+Hoge: 3
+#body escaped
+xyz(close)
+
+#name
+multiple 1xx responses
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 190 cont."CRLF
+CRLF
+"HTTP/1.1 190 cont."CRLF
+CRLF
+"HTTP/1.1 201 foo"CRLF
+"Hoge:3"CRLF
+CRLF
+"xyz"
+close
+#1xx
+| #status 190
+| #reason cont.
+#1xx
+| #status 190
+| #reason cont.
+#version 1.1
+#status 201
+#reason foo
+#headers
+Hoge: 3
+#body escaped
+xyz(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 190 cont."CRLF
+"Content-Length: 3"CRLF
+CRLF
+"aab"
+"HTTP/1.1 201 foo"CRLF
+"Hoge:3"CRLF
+CRLF
+"xyz"
+close
+#1xx
+| #status 190
+| #reason cont.
+| #headers
+| Content-Length: 3
+#version 1.1
+#status 201
+#reason foo
+#headers
+Hoge: 3
+#body escaped
+xyz(close)
+
+#name
+1xx with Content-Length
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 190 cont."CRLF
+"Content-Length: 8"CRLF
+CRLF
+"aababbbb"
+"HTTP/1.1 201 foo"CRLF
+"Hoge:3"CRLF
+CRLF
+"xyz"
+close
+#1xx
+| #status 190
+| #reason cont.
+| #headers
+| Content-Length: 8
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+aababbbbHTTP/1.1 201 foo\u000D
+Hoge:3\u000D
+\u000D
+xyz(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 190 cont."CRLF
+"Content-Length: 3"CRLF
+CRLF
+"aab"
+close
+#1xx
+| #status 190
+| #reason cont.
+| #headers
+| Content-Length: 3
+#version 0.9
+#status 200
+#reason OK
+#headers
+#body escaped
+aab(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 190 cont."CRLF
+"Content-Length: 3"CRLF
+CRLF
+"HTTP/"
+"1.1 201 foo"CRLF
+CRLF
+"aab"
+close
+#1xx
+| #status 190
+| #reason cont.
+| #headers
+| Content-Length: 3
+#version 1.1
+#status 201
+#reason foo
+#headers
+#body escaped
+aab(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 190 cont."CRLF
+"Content-Length: 3"CRLF
+CRLF
+"HTTP/"
+"1.0 201 foo"CRLF
+CRLF
+"aab"
+close
+#1xx
+| #status 190
+| #reason cont.
+| #headers
+| Content-Length: 3
+#version 1.0
+#status 201
+#reason foo
+#headers
+#body escaped
+aab(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 190 cont."CRLF
+CRLF
+"aab"
+close
+#1xx
+| #status 190
+| #reason cont.
+#version 0.9
+#status 200
+#reason OK
+#headers
+#body escaped
+aab(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 190 cont."CRLF
+CRLF
+"HTTP/1.1 190 cont."CRLF
+CRLF
+"aab"
+close
+#1xx
+| #status 190
+| #reason cont.
+#1xx
+| #status 190
+| #reason cont.
+#version 0.9
+#status 200
+#reason OK
+#headers
+#body escaped
+aab(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 190 cont."CRLF
+CRLF
+close
+#status 0
+#headers
+#body escaped
+(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 190 cont."CRLF
+"connection: close"CRLF
+CRLF
+"HTTP/1.1 201 foo"CRLF
+"Hoge:3"CRLF
+CRLF
+"xyz"
+close
+#1xx
+| #status 190
+| #reason cont.
+| #headers
+| connection: close
+#version 1.1
+#status 201
+#reason foo
+#headers
+Hoge: 3
+#body escaped
+xyz(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 0190 cont."CRLF
+CRLF
+"HTTP/1.1 201 foo"CRLF
+"Hoge:3"CRLF
+CRLF
+"xyz"
+close
+#1xx
+| #status 190
+| #reason cont.
+#version 1.1
+#status 201
+#reason foo
+#headers
+Hoge: 3
+#body escaped
+xyz(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 099 cont."CRLF
+CRLF
+"HTTP/1.1 201 foo"CRLF
+"Hoge:3"CRLF
+CRLF
+"xyz"
+close
+#version 1.1
+#status 99
+#reason cont.
+#body escaped
+HTTP/1.1 201 foo\u000D
+Hoge:3\u000D
+\u000D
+xyz(close)
+
+#name
+1xx with bad Content-Length
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 100 cont."CRLF
+"Content-Length: 1"CRLF
+"Content-Length: 2"CRLF
+CRLF
+"ab"
+"HTTP/1.1 201 foo"CRLF
+"Hoge:3"CRLF
+CRLF
+"xyz"
+close
+#status 0
+#body escaped
+(close)
+
+#name
+Upgrade: websocket in response (HTTP/1.1)
+#method GET
+#url /
+#data escaped
+receive "GET"
+"HTTP/1.1 101 switching"CRLF
+"Upgrade: websocket"CRLF
+CRLF
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#1xx
+| #status 101
+| #reason switching
+| #headers
+| Upgrade: websocket
+#version 1.1
+#status 200
+#reason OK
+#body escaped
+abc(close)
+
+#name
+Upgrade: websocket in response (HTTP/0.9)
+#method GET
+#url /
+#data escaped
+receive "GET"
+"HTTP/1.1 101 switching"CRLF
+"Upgrade: websocket"CRLF
+CRLF
+"abcdefghijklmn"
+close
+#1xx
+| #status 101
+| #reason switching
+| #headers
+| Upgrade: websocket
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+abcdefghijklmn(close)
+
+#name
+Upgrade: hoge in response (HTTP/1.1)
+#method GET
+#url /
+#data escaped
+receive "GET"
+"HTTP/1.1 101 switching"CRLF
+"Upgrade: hoge"CRLF
+CRLF
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#1xx
+| #status 101
+| #reason switching
+| #headers
+| Upgrade: hoge
+#version 1.1
+#status 200
+#reason OK
+#body escaped
+abc(close)
+
+#name
+Upgrade: hoge in response (HTTP/0.9)
+#method GET
+#url /
+#data escaped
+receive "GET"
+"HTTP/1.1 101 switching"CRLF
+"Upgrade: hoge"CRLF
+CRLF
+"abcdefghijklmn"
+close
+#1xx
+| #status 101
+| #reason switching
+| #headers
+| Upgrade: hoge
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+abcdefghijklmn(close)
+
+#name
+102 with Upgrade: hoge in response (HTTP/1.1)
+#method GET
+#url /
+#data escaped
+receive "GET"
+"HTTP/1.1 102 switching"CRLF
+"Upgrade: hoge"CRLF
+CRLF
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#1xx
+| #status 102
+| #reason switching
+| #headers
+| Upgrade: hoge
+#version 1.1
+#status 200
+#reason OK
+#body escaped
+abc(close)
+
+#name
+102 with Upgrade: hoge in response (HTTP/0.9)
+#method GET
+#url /
+#data escaped
+receive "GET"
+"HTTP/1.1 102 switching"CRLF
+"Upgrade: hoge"CRLF
+CRLF
+"abcdefghijklmn"
+close
+#1xx
+| #status 102
+| #reason switching
+| #headers
+| Upgrade: hoge
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+abcdefghijklmn(close)
+
+#name
+156 with Upgrade: hoge in response (HTTP/1.1)
+#method GET
+#url /
+#data escaped
+receive "GET"
+"HTTP/1.1 156 switching"CRLF
+"Upgrade: hoge"CRLF
+CRLF
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#1xx
+| #status 156
+| #reason switching
+| #headers
+| Upgrade: hoge
+#version 1.1
+#status 200
+#reason OK
+#body escaped
+abc(close)
+
+#name
+156 with Upgrade: hoge in response (HTTP/0.9)
+#method GET
+#url /
+#data escaped
+receive "GET"
+"HTTP/1.1 156 switching"CRLF
+"Upgrade: hoge"CRLF
+CRLF
+"abcdefghijklmn"
+close
+#1xx
+| #status 156
+| #reason switching
+| #headers
+| Upgrade: hoge
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+abcdefghijklmn(close)

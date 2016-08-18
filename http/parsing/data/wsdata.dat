@@ -1,0 +1,688 @@
+#name
+text frame, empty
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=1 length=0
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=0",
+  "  code=-1 reason="
+]
+#ws-status 1005
+#ws-reason
+#ws-was-clean
+
+#name
+text frame
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=1 length=3
+"abc"
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received
+abc
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=0",
+  "  code=-1 reason="
+]
+#ws-status 1005
+#ws-reason
+#ws-was-clean
+
+#name
+text frame, utf8
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=1 length=4
+"a"
+0xE3
+0x81
+0xBB
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received escaped
+a\u307B
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=0",
+  "  code=-1 reason="
+]
+#ws-status 1005
+#ws-reason
+#ws-was-clean
+
+#name
+text frame, utf8 broken
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=1 length=4
+"a"
+0xBB
+0x81
+0xE3
+ws-send-header opcode=1 length=1
+"x"
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received escaped
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=29",
+  "  code=1002 reason=Invalid%20UTF-8%20in%20text%20frame"
+]
+#ws-status 1006
+#ws-reason
+
+#name
+binary frame, empty
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=2 length=0
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=0",
+  "  code=-1 reason="
+]
+#ws-status 1005
+#ws-reason
+#ws-was-clean
+
+#name
+binary frame
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=2 length=3
+"abc"
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received
+abc
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=0",
+  "  code=-1 reason="
+]
+#ws-status 1005
+#ws-reason
+#ws-was-clean
+
+#name
+binary frame
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=2 length=3
+0xBB
+0x81
+0xE3
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received escaped
+\u00BB\u0081\u00E3
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=0",
+  "  code=-1 reason="
+]
+#ws-status 1005
+#ws-reason
+#ws-was-clean
+
+#name
+text frame, continue frame
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=1 length=1 FIN=0
+"a"
+ws-send-header opcode=0 length=1
+"b"
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received
+ab
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=0",
+  "  code=-1 reason="
+]
+#ws-status 1005
+#ws-reason
+#ws-was-clean
+
+#name
+text frame, continue frames
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=1 length=1 FIN=0
+"a"
+ws-send-header opcode=0 length=1 FIN=0
+"b"
+ws-send-header opcode=0 length=1
+"c"
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received
+abc
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=0",
+  "  code=-1 reason="
+]
+#ws-status 1005
+#ws-reason
+#ws-was-clean
+
+#name
+text frame, continue frames, utf8 bytes
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=1 length=1 FIN=0
+0xE3
+ws-send-header opcode=0 length=1 FIN=0
+0x81
+ws-send-header opcode=0 length=1
+0xBB
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received escaped
+\u307B
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=0",
+  "  code=-1 reason="
+]
+#ws-status 1005
+#ws-reason
+#ws-was-clean
+
+#name
+byte frame, continue frames, utf8 bytes
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=2 length=1 FIN=0
+0xE3
+ws-send-header opcode=0 length=1 FIN=0
+0x81
+ws-send-header opcode=0 length=1
+0xBB
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received escaped
+\u00E3\u0081\u00BB
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=0",
+  "  code=-1 reason="
+]
+#ws-status 1005
+#ws-reason
+#ws-was-clean
+
+#name
+continue frame after FIN frame
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=2 length=1 FIN=1
+0xE3
+ws-send-header opcode=0 length=1 FIN=0
+0x81
+ws-send-header opcode=0 length=1
+0xBB
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received escaped
+\u00E3
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=25",
+  "  code=1002 reason=Unexpected%20continuation"
+]
+#ws-status 1006
+#ws-reason
+
+#name
+continue frame, no leading frame
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=0 length=1 FIN=0
+0x81
+ws-send-header opcode=0 length=1
+0xBB
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received escaped
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=25",
+  "  code=1002 reason=Unexpected%20continuation"
+]
+#ws-status 1006
+#ws-reason
+
+#name
+text frame, continue frame, pong frame, continue frame
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=1 length=1 FIN=0
+"a"
+ws-send-header opcode=10 length=0 FIN=1
+ws-send-header opcode=0 length=1 FIN=0
+"b"
+ws-send-header opcode=0 length=1
+"c"
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received
+abc
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=0",
+  "  code=-1 reason="
+]
+#ws-status 1005
+#ws-reason
+#ws-was-clean
+
+#name
+text frame, continue frame, ping frame, continue frame
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=1 length=1 FIN=0
+"a"
+ws-send-header opcode=9 length=0 FIN=1
+ws-send-header opcode=0 length=1 FIN=0
+"b"
+ws-send-header opcode=0 length=1
+"c"
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received
+abc
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0xA masking=1 length=0",
+  "  "
+]
+#ws-status 1005
+#ws-reason
+#ws-was-clean
+
+#name
+text frame, continue frame, close frame, continue frame
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=1 length=1 FIN=0
+"a"
+ws-send-header opcode=8 length=0 FIN=1
+ws-send-header opcode=0 length=1 FIN=0
+"b"
+ws-send-header opcode=0 length=1
+"c"
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=0",
+  "  code=-1 reason="
+]
+#ws-status 1006
+#ws-reason
+
+#name
+text frame, continue frame FIN=0, text frame
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=1 length=1 FIN=0
+"a"
+ws-send-header opcode=0 length=1 FIN=0
+"b"
+ws-send-header opcode=1 length=1
+"c"
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=32",
+  "  code=1002 reason=Previous%20data%20frame%20unfinished"
+]
+#ws-status 1006
+#ws-reason
+
+#name
+binary frame, continue frame FIN=0, text frame
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=2 length=1 FIN=0
+"a"
+ws-send-header opcode=0 length=1 FIN=0
+"b"
+ws-send-header opcode=1 length=1
+"c"
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=32",
+  "  code=1002 reason=Previous%20data%20frame%20unfinished"
+]
+#ws-status 1006
+#ws-reason
+
+#name
+binary frame FIN=0, text frame
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=2 length=1 FIN=0
+"a"
+ws-send-header opcode=1 length=1
+"c"
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=32",
+  "  code=1002 reason=Previous%20data%20frame%20unfinished"
+]
+#ws-status 1006
+#ws-reason
+
+#name
+binary frame FIN=0, text frame + RSV
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=2 length=1 FIN=0
+"a"
+ws-send-header opcode=1 length=1 RSV1=1
+"c"
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=22",
+  "  code=1002 reason=Invalid%20reserved%20bit"
+]
+#ws-status 1006
+#ws-reason
+
+#name
+binary frame FIN=0, unknown data frame
+#url /
+#data escaped
+receive "GET", start capture
+receive CRLFCRLF, end capture
+"HTTP/1.1 101 OK"CRLF
+"Upgrade: websocket"CRLF
+"Sec-WebSocket-Accept: "
+ws-accept
+CRLF
+"Connection: Upgrade"CRLF
+CRLF
+ws-send-header opcode=2 length=1 FIN=0
+"a"
+ws-send-header opcode=3 length=1
+"c"
+ws-send-header opcode=8 length=0
+ws-receive-header
+ws-receive-data
+close
+#test-type ws
+#received
+#result-data
+[
+  "WS FIN=1 RSV=0b000 opcode=0x8 masking=1 length=16",
+  "  code=1002 reason=Unknown%20opcode"
+]
+#ws-status 1006
+#ws-reason

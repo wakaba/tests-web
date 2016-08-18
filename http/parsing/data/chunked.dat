@@ -1,0 +1,753 @@
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+
+#name
+HTTP/1.0
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"0"CRLF
+CRLF
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+4\u000D
+aabd\u000D
+0\u000D
+\u000D
+(close)
+
+#name
+bad first chunk
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"xyz%%()"
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+(close)
+#incomplete
+
+#name
+bad second chunk
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"2"CRLF
+"ab"CRLF
+"xyz%%()"
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+ab(close)
+#incomplete
+
+#name
+bad chunk
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"400"CRLF
+"x" x 1024
+CRLF
+"400"CRLF
+"x" x 1024
+CRLF
+"xyz%%()"
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx(close)
+#incomplete
+
+#name
+no last chunk
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+#incomplete
+
+#name
+broken chunk
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"41"CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+#incomplete
+
+#name
+broken chunk
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"41"
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+#incomplete
+
+#name
+broken chunk
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"41"CRLF
+"abcdefg"
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabdabcdefg(close)
+#incomplete
+
+#name
+lowercase hexadecimal
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"f"CRLF
+"aabd156346334ag"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd156346334ag(close)
+
+#name
+uppercase hexadecimal
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"F"CRLF
+"aabd156346334ag"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd156346334ag(close)
+
+#name
+leading zero
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"0F"CRLF
+"aabd156346334ag"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd156346334ag(close)
+
+#name
+broken chunk
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"f"CRLF
+"aabd156346334ag"CRLF
+"4"CRLF
+"abcdefg"
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd156346334agabcd(close)
+#incomplete
+
+#name
+space
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4  "CRLF
+"aabd"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+
+#name
+space broken chunk extension
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4  abc"CRLF
+"aabd"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+
+#name
+broken chunk extension (no ;)
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4xyz"CRLF
+"aabd"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+
+#name
+broken chunk extension ( ;)
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4 ;xyz"CRLF
+"aabd"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+
+#name
+broken chunk extension (;)
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4;xyz"CRLF
+"aabd"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+
+#name
+broken chunk extension
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4;aa=xyz"CRLF
+"aabd"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+
+#name
+LF
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"LF
+"aabd"LF
+"0"LF
+LF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+
+#name
+CR
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"CR
+"aabd"CR
+"0"CR
+LF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+(close)
+#incomplete
+
+#name
+CRCRLF
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"CR
+CRLF
+"aabd"CR
+CRLF
+"0"CR
+CRLF
+CR
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+#incomplete
+
+#name
+persistent
+#method GET
+#url /
+#data escaped
+receive "GET"
+"HTTP/1.1 202 hoge"CRLF
+"Transfer-Encoding: chunked"CRLF
+"x-test-retry: 1"CRLF
+CRLF
+"4"CRLF
+"anca"CRLF
+"0"CRLF
+CRLF
+receive "GET"
+"HTTP/1.1 203 fuga"CRLF
+"Content-Length: 2"CRLF
+CRLF
+"ab"
+close
+#test-type second
+#status 203
+#reason fuga
+#headers
+Content-Length: 2
+#body escaped
+ab(close)
+
+#name
+leading zero for last chunk
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"00"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+
+#name
+chunk extension for last chunk
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"0;abc"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+
+#name
+broken chunk extension for last chunk
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"0xabc"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: Chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: Chunked
+#body escaped
+aabd(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: abc,chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: abc,chunked
+#body escaped
+aabd(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked,xyz"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked,xyz
+#body escaped
+aabd(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked,gzip,chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked,gzip,chunked
+#body escaped
+aabd(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: abc"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: abc
+Transfer-Encoding: chunked
+#body escaped
+aabd(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: notchunked"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: notchunked
+#body escaped
+4\u000D
+aabd\u000D
+0\u000D
+\u000D
+(close)
+
+#name
+Transfer-Encoding & Content-Length
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+"Content-Length: 4"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+Content-Length: 4
+#body escaped
+aabd(close)
+
+#name
+Transfer-Encoding & Content-Length
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+"Content-Length: 4,5"CRLF
+CRLF
+"4"CRLF
+"aabd"CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+Content-Length: 4,5
+#body escaped
+aabd(close)
+
+#name
+empty
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"0"CRLF
+CRLF
+close
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+(close)
+
+#name
+chunk size overflow
+#method GET
+#url /
+#data escaped
+"HTTP/1.1 200 OK"CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"525532532532535d3353535235251afe4"CRLF
+"aabd"
+#status 200
+#reason OK
+#headers
+Transfer-Encoding: chunked
+#body escaped
+(close)
+#incomplete

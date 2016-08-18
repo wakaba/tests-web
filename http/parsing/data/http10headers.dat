@@ -1,0 +1,898 @@
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"Foo: bar"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers escaped
+Foo: bar
+#body
+abc(close)
+
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"foo: bar"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+foo: bar
+#body
+abc(close)
+
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"Foo: bar"CRLF
+"Foo:baz"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: bar
+Foo: baz
+#body
+abc(close)
+
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"Foo: bar"CRLF
+"foo:baz"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: bar
+foo: baz
+#body
+abc(close)
+
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"dnT: bar"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+dnT: bar
+#body
+abc(close)
+
+#name
+Bare U+000D in header value
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"Foo: ba"
+CR
+"r:x"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers escaped
+Foo: ba
+r: x
+#body
+abc(close)
+
+#name
+Bare U+000A in header value
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"Foo: ba"
+LF
+"r:x"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: ba
+r: x
+#body
+abc(close)
+
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"Foo: ba"CRLF
+" r"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: ba r
+#body
+abc(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Foo: ba"CRLF
+"\u0009r"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: ba r
+#body
+abc(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Foo: ba"CRLF
+"\u000br:x"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers escaped
+Foo: ba
+\u000Br: x
+#body
+abc(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Foo: ba"CRLF
+"\u000Cr:x"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers escaped
+Foo: ba
+\u000Cr: x
+#body
+abc(close)
+
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"Foo: ba"CRLF
+" r"CRLF
+" x"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: ba r x
+#body
+abc(close)
+
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"Foo: ba"CRLF
+" r"CR
+" x"LF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: ba r x
+#body
+abc(close)
+
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"Foo: ba"CRLF
+"  r"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: ba r
+#body
+abc(close)
+
+#name
+space before :
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"Foo :ba"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: ba
+#body
+abc(close)
+
+#name
+space before :
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"Foo   :ba"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: ba
+#body
+abc(close)
+
+#name
+space before :
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Foo\u0009:ba"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: ba
+#body
+abc(close)
+
+#name
+U+0009 after :
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Foo:\u0009ba"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: ba
+#body
+abc(close)
+
+#name
+U+000C after :
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Foo:\u000Cba"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers escaped
+Foo: \u000Cba
+#body
+abc(close)
+
+#name
+U+0009 after :
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Foo: \u0009ba"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: ba
+#body
+abc(close)
+
+#name
+space after value
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"Foo: ba "CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: ba
+#body
+abc(close)
+
+#name
+space after value
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Foo: ba \u0009"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: ba
+#body
+abc(close)
+
+#name
+has bad line
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Foo:bar"CRLF
+"xyz"CRLF
+"Abcd:def"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: bar
+Abcd: def
+#body
+abc(close)
+
+#name
+has bad line
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"xyz"CRLF
+"Foo:bar"CRLF
+"Abcd:def"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: bar
+Abcd: def
+#body
+abc(close)
+
+#name
+has bad line
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+" xyz"CRLF
+"Foo:bar"CRLF
+"Abcd:def"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: bar
+Abcd: def
+#body
+abc(close)
+
+#name
+empty value
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Foo:"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: 
+#body
+abc(close)
+
+#name
+empty value
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Foo:  "CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: 
+#body
+abc(close)
+
+#name
+empty value
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Foo:\u0009"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: 
+#body
+abc(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Foo:abc"CRLF
+"def"CRLF
+" xyz"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: abc
+#body
+abc(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Foo:abc "CRLF
+"    def"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: abc  def
+#body
+abc(close)
+
+#name
+space-only line
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Foo:abc"CRLF
+"    "CRLF
+"    "CRLF
+"Bar:1"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: abc
+Bar: 1
+#body
+abc(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Foo:abc"CRLF
+"    "CRLF
+"    "CRLF
+"   a"CRLF
+"Bar:1"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: abc   a
+Bar: 1
+#body
+abc(close)
+
+#name
+bad header name
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Foo!?:abc"CRLF
+"::x"CRLF
+"#a:bb"CRLF
+"a b c:d"CRLF
+"a   bc:d"CRLF
+"ab\u0009c:d"CRLF
+"Bar:1"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers escaped
+| Foo!?: abc
+| #a: bb
+| a b c: d
+| a   bc: d
+| ab\u0009c: d
+| Bar: 1
+#body
+abc(close)
+
+#name
+non-ASCII header name
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"F"
+0x80
+0xFE
+"oo:abc"CRLF
+"Bar:1"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers escaped
+F\u0080\u00FEoo: abc
+Bar: 1
+#body
+abc(close)
+
+#name
+non-ASCII header value
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"F:"
+0x80
+0xFE
+"abc"CRLF
+"Bar:1"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers escaped
+F: \u0080\u00FEabc
+Bar: 1
+#body
+abc(close)
+
+#name
+non-ASCII header value
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"F:"
+0x81
+0x40
+"abc"CRLF
+"Bar:1"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers escaped
+F: \u0081@abc
+Bar: 1
+#body
+abc(close)
+
+#name
+non-ASCII header value
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Type: text/plain; charset=utf-8"CRLF
+"F:"
+0x81
+0x40
+"abc"CRLF
+"Bar:1"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers escaped
+Content-Type: text/plain; charset=utf-8
+F: \u0081@abc
+Bar: 1
+#body
+abc(close)
+
+#name
+CR as newline
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 201 foo"CR
+"XYZ:a"CR
+CR
+"abc"CRLF
+CRLF
+"def"
+close
+#version 1.0
+#status 201
+#reason foo
+#headers escaped
+XYZ: a
+#body
+def(close)
+
+#name
+CR as newline
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 201 foo"LF
+"XYZ:a"CR
+CR
+"abc"CRLF
+CRLF
+"def"
+close
+#version 1.0
+#status 201
+#reason foo
+#headers escaped
+XYZ: a
+#body
+def(close)
+
+#name
+CR as newline
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 201 foo"LF
+"XYZ:a"CR
+CRLF
+"abc"CRLF
+CRLF
+"def"
+close
+#version 1.0
+#status 201
+#reason foo
+#headers escaped
+XYZ: a
+#body
+def(close)
+
+#name
+CRCRLF
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 201 foo"CR
+CRLF
+"XYZ:a"CR
+CRLF
+CR
+CRLF
+"abc"CRLF
+CRLF
+"def"
+close
+#version 1.0
+#status 201
+#reason escaped
+foo
+#headers escaped
+XYZ: a
+#body
+def(close)
+
+#name
+CRCRCRLF
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 201 foo"CR
+CR
+CRLF
+"XYZ:a"CR
+CR
+CRLF
+CR
+CR
+CRLF
+"abc"CRLF
+CRLF
+"def"
+close
+#version 1.0
+#status 201
+#reason escaped
+foo
+#headers escaped
+XYZ: a
+#body
+def(close)
+
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"Foo: bar"CRLF
+"x" x 10000000
+CRLF
+"abc"
+close
+#status 0
+#body
+(close)
+
+#name
+truncated header (no empty line)
+#method GET
+#url /
+#data
+"HTTP/1.1 200 OK"CRLF
+"Foo: bar"CRLF
+close
+#status 200
+#reason OK
+#headers
+Foo: bar
+#body
+(close)
+#incomplete
+
+#name
+truncated header (EOF before header CRLF)
+#method GET
+#url /
+#data
+"HTTP/1.1 200 OK"CRLF
+"Foo: bar"
+close
+#status 200
+#reason OK
+#headers
+Foo: bar
+#body
+(close)
+#incomplete
+
+#name
+truncated headers
+#method GET
+#url /
+#data
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+"Foo: bar"CRLF
+close
+#status 200
+#reason OK
+#headers escaped
+Foo: bar
+#body
+(close)
+#incomplete
+
+#name
+truncated headers
+#method GET
+#url /
+#data
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+"Content-Length: 3"CRLF
+"Foo: bar"CRLF
+close
+#status 0
+#headers escaped
+#body
+(close)

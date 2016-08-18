@@ -1,0 +1,476 @@
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3"CRLF
+CRLF
+"aab"
+close
+#headers
+Content-Length: 3
+#version 1.0
+#status 200
+#reason OK
+#body escaped
+aab(close)
+
+#name
+padded content length (0003)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 0003"CRLF
+CRLF
+"aabde"
+close
+#headers
+Content-Length: 0003
+#version 1.0
+#status 200
+#reason OK
+#body escaped
+aab(close)
+
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 2"CRLF
+CRLF
+"aab"
+close
+#headers
+Content-Length: 2
+#version 1.0
+#status 200
+#reason OK
+#body escaped
+aa(close)
+
+#name
+shorter than content-length
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 5"CRLF
+CRLF
+"aab"
+close
+#headers
+Content-Length: 5
+#version 1.0
+#status 200
+#reason OK
+#body escaped
+aab(close)
+#incomplete
+
+#method GET
+#url /
+#data escaped
+receive "GET"
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 5"CRLF
+CRLF
+"aab"
+sleep 3
+close
+#headers
+Content-Length: 5
+#version 1.0
+#status 200
+#reason OK
+#body escaped
+aab(close)
+#incomplete
+
+#method GET
+#url /
+#data escaped
+receive "GET"
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 1030"CRLF
+CRLF
+"x" x 1024
+CRLF
+"aab"
+sleep 5
+close
+#headers
+Content-Length: 1030
+#version 1.0
+#status 200
+#reason OK
+#body escaped
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\u000D\u000Aaab(close)
+#incomplete
+
+#method GET
+#url /
+#data escaped
+receive "GET"
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 1030"CRLF
+CRLF
+"x" x 1024
+"aab"
+sleep 5
+close
+#version 1.0
+#headers
+Content-Length: 1030
+#status 200
+#reason OK
+#body escaped
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxaab(close)
+#incomplete
+
+#name
+bad content length (abc)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: abc"CRLF
+CRLF
+"aabde"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Content-Length: abc
+#body escaped
+aabde(close)
+
+#name
+bad content length (3.0)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3.0"CRLF
+CRLF
+"aabde"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Content-Length: 3.0
+#body escaped
+aabde(close)
+
+#name
+bad content length (3abc)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3abc"CRLF
+CRLF
+"aabde"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Content-Length: 3abc
+#body escaped
+aabde(close)
+
+#name
+bad content length (3,abc)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3,abc"CRLF
+CRLF
+"aabde"
+close
+#status 0
+#headers
+#body escaped
+(close)
+
+#name
+bad content length (abc,3)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: abc,3"CRLF
+CRLF
+"aabde"
+close
+#status 0
+#headers
+#body escaped
+(close)
+
+#name
+bad content length (3,3)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3,3"CRLF
+CRLF
+"aabde"
+close
+#headers
+Content-Length: 3,3
+#version 1.0
+#status 200
+#reason OK
+#body escaped
+aab(close)
+
+#name
+bad content length (3,5)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3,5"CRLF
+CRLF
+"aabde"
+close
+#headers
+#status 0
+#body escaped
+(close)
+
+#name
+bad content length (5,3)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 5,3"CRLF
+CRLF
+"aabde"
+close
+#headers
+#status 0
+#body escaped
+(close)
+
+#name
+bad content length (3 abc)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3 abc"CRLF
+CRLF
+"aabde"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Content-Length: 3 abc
+#body escaped
+aabde(close)
+
+#name
+multiple content length (3\n5)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3"CRLF
+"Content-Length: 5"CRLF
+CRLF
+"aabde"
+close
+#headers
+#status 0
+#body escaped
+(close)
+
+#name
+multiple content length (3\n3)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3"CRLF
+"Content-Length: 3"CRLF
+CRLF
+"aabde"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Content-Length: 3
+Content-Length: 3
+#body escaped
+aab(close)
+
+#name
+multiple content length (abc\n3)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: abc"CRLF
+"Content-Length: 3"CRLF
+CRLF
+"aabde"
+close
+#headers
+#status 0
+#body escaped
+(close)
+
+#name
+multiple content length (3\nabc)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3"CRLF
+"Content-Length: abc"CRLF
+CRLF
+"aabde"
+close
+#headers
+#status 0
+#body escaped
+(close)
+
+#name
+multiple content length (3\n3abc)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3"CRLF
+"Content-Length: 3abc"CRLF
+CRLF
+"aabde"
+close
+#headers
+#status 0
+#body escaped
+(close)
+
+#name
+multiple content length (3abc\n3abc)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3abc"CRLF
+"Content-Length: 3abc"CRLF
+CRLF
+"aabde"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Content-Length: 3abc
+Content-Length: 3abc
+#body escaped
+aabde(close)
+
+#name
+multiple content length (3abc,3\n3abc,3)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3abc,3"CRLF
+"Content-Length: 3abc,3"CRLF
+CRLF
+"aabde"
+close
+#status 0
+#headers
+#body escaped
+(close)
+
+#name
+multiple content length (3abc,3\n3)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3abc,3"CRLF
+"Content-Length: 3"CRLF
+CRLF
+"aabde"
+close
+#status 0
+#headers
+#body escaped
+(close)
+
+#name
+multiple content length (3abc,4\n3abc,4)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3abc,4"CRLF
+"Content-Length: 3abc,4"CRLF
+CRLF
+"aabde"
+close
+#status 0
+#headers
+#body escaped
+(close)
+
+#name
+multiple content length (3\n0003)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3"CRLF
+"Content-Length: 0003"CRLF
+CRLF
+"aabde"
+close
+#headers
+#status 0
+#body escaped
+(close)
+
+#name
+multiple content length (3,abc\n3,abc)
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3,abc"CRLF
+"Content-Length: 3,abc"CRLF
+CRLF
+"aabde"
+close
+#headers
+#status 0
+#body escaped
+(close)
+
+#name
+content length too large
+#method GET
+#url /
+#data escaped
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 34343333325154121444"CRLF
+CRLF
+"aabde"
+close
+#status 0
+#body escaped
+(close)

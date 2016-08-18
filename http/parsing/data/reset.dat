@@ -1,0 +1,59 @@
+#name
+reset
+#method GET
+#url /
+#data
+receive LF
+reset
+#status 0
+#body
+(close)
+
+#name
+data then reset
+#method GET
+#url /
+#data
+receive LF
+"hoge"
+reset
+#status 0
+#body
+(close)
+
+#name
+header then reset
+#method GET
+#url /
+#data
+receive LF
+"HTTP/1.0 200 OK"CRLF
+CRLF
+reset
+#status 0
+#body
+(close)
+
+#name
+body then reset
+#method GET
+#url /
+#data
+receive LF
+"HTTP/1.0 200 OK"CRLF
+CRLF
+"abc"
+reset
+#status 0
+#body
+(close)
+
+#method GET
+#url /
+#data
+receive LF
+"abcdefg"
+reset
+#status 0
+#body
+(close)

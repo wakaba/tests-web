@@ -1,0 +1,41 @@
+#name
+large request body
+#method POST
+#url /
+#data escaped
+receive "POST"
+"HTTP/1.0 202 hoge"CRLF
+CRLF
+"anc"
+showreceivedlength
+close
+#test-type largerequest
+#version 1.0
+#status 202
+#reason hoge
+#headers
+#body escaped
+anc(close)
+
+#method POST
+#url /
+#data escaped
+receive "HTTP/1"
+"HTTP/1.1 202 hoge"CRLF
+"Content-Length: 3"CRLF
+CRLF
+"anc"
+receive "HTTP/1", showlength
+"HTTP/1.1 201 ok"CRLF
+"Content-Length: 2"CRLF
+CRLF
+"bb"
+showreceivedlength
+close
+#test-type largerequest-second
+#status 201
+#reason ok
+#headers
+Content-Length: 2
+#body escaped
+bb(close)

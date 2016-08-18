@@ -1,0 +1,81 @@
+#name
+size = 2^14
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=16384
+">" x 16384
+#status 200
+#reason OK
+#headers
+#body-length
+16384
+#result-data
+[]
+
+#name
+size = 2^14+1
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=16385
+">" x 16385
+#status 0
+#body-length
+0
+#result-data
+[{"type":"GOAWAY","error":1}]
+
+#name
+size = 2^16
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=65536
+">" x 65536
+#status 0
+#body-length
+0
+#result-data
+[]
+
+#name
+size = 2^18+1
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=262145
+">" x 262145
+#status 0
+#body-length
+0
+#result-data
+[]

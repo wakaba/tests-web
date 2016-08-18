@@ -1,0 +1,111 @@
+#name
+100
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "100"
+h2-send-frame type=1 stream=shift END_HEADERS=1
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=last END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+#body
+abcdef(close)
+
+#name
+100
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "100"
+h2-send-frame type=1 stream=shift END_HEADERS=1
+push-h2-header ":status" "100"
+h2-send-frame type=1 stream=last END_HEADERS=1
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=last END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+#body
+abcdef(close)
+
+#name
+101
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "101"
+h2-send-frame type=1 stream=shift END_HEADERS=1
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=last END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+100 then DATA
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "100"
+h2-send-frame type=1 stream=shift END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[]
+
+#name
+101 then DATA
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "101"
+h2-send-frame type=1 stream=shift END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]

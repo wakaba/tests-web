@@ -1,0 +1,45 @@
+#name
+trailers
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=0 length=4
+"abcd"
+push-h2-header "a" "4"
+h2-send-frame type=1 stream=last END_STREAM=1 END_HEADERS=1
+#status 200
+#reason OK
+#headers escaped
+#body
+abcd(close)
+
+#name
+trailers with no END_STREAM
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=0 length=4
+"abcd"
+push-h2-header "a" "4"
+h2-send-frame type=1 stream=last END_STREAM=0 END_HEADERS=1
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "GOAWAY", "error": 1}
+]

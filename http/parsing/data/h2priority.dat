@@ -1,0 +1,169 @@
+#name
+HEADERS with PRIORITY (stream dependency=0)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1 PRIORITY=1 weight=100
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers
+#body
+abcdef(close)
+
+#name
+HEADERS with PRIORITY (stream dependency=10100)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1 PRIORITY=1 weight=100 dependency=10100
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers
+#body
+abcdef(close)
+
+#name
+HEADERS with PRIORITY (stream dependency=10101)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1 PRIORITY=1 weight=100 dependency=10101
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers
+#body
+abcdef(close)
+
+#name
+PRIORITY (stream dependency=0) before HEADERS
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=2 stream=shift length=5
+0x00
+0x00
+0x00
+0x00
+0x01
+h2-send-frame type=1 stream=last END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "GOAWAY", "error": 1}
+]
+
+#name
+PRIORITY (stream dependency=0) after HEADERS
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=2 stream=last length=5
+0x00
+0x00
+0x00
+0x00
+0x01
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers
+#body
+abcdef(close)
+
+#name
+PRIORITY new stream
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=2 stream=12164 stream_nosave=1 length=5
+0x00
+0x00
+0x00
+0x01
+0x01
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers
+#body
+abcdef(close)
+#result-data
+[]
+
+#name
+PRIORITY new stream
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=2 stream=12165 stream_nosave=1 length=5
+0x00
+0x00
+0x00
+0x01
+0x01
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers
+#body
+abcdef(close)
+#result-data
+[]

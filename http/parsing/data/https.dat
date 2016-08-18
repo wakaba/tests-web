@@ -1,0 +1,415 @@
+#name
+TLS + HTTP/0.9
+#tls
+#method GET
+#url /
+#data
+starttls
+receive "GET"
+"abc"
+close
+#version 0.9
+#status 200
+#reason OK
+#headers escaped
+#body
+abc(close)
+
+#name
+TLS + HTTP/1.0
+#tls
+#method GET
+#url /
+#data
+starttls
+receive "GET"
+"HTTP/1.0 200 OK"CRLF
+"Foo: bar"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers escaped
+Foo: bar
+#body
+abc(close)
+
+#name
+TLS + HTTP/1.0 + Content-Length
+#tls
+#method GET
+#url /
+#data
+starttls
+receive "GET"
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3"CRLF
+"Foo: bar"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers escaped
+Content-Length: 3
+Foo: bar
+#body
+abc(close)
+
+#name
+TLS + HTTP/1.0 + Content-Length + redundant
+#tls
+#method GET
+#url /
+#data
+starttls
+receive "GET"
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3"CRLF
+"Foo: bar"CRLF
+CRLF
+"abcd"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers escaped
+Content-Length: 3
+Foo: bar
+#body
+abc(close)
+
+#name
+TLS + HTTP/1.0 + Content-Length (shorter than content-length)
+#tls
+#method GET
+#url /
+#data
+starttls
+receive "GET"
+"HTTP/1.0 200 OK"CRLF
+"Content-Length: 3"CRLF
+"Foo: bar"CRLF
+CRLF
+"ab"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers escaped
+Content-Length: 3
+Foo: bar
+#body
+ab(close)
+#incomplete
+
+#name
+TLS + HTTP/1.1 + Content-Length
+#tls
+#method GET
+#url /
+#data
+starttls
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+"Content-Length: 3"CRLF
+"Foo: bar"CRLF
+CRLF
+"abc"
+close
+#status 200
+#reason OK
+#headers escaped
+Content-Length: 3
+Foo: bar
+#body
+abc(close)
+
+#name
+TLS + HTTP/1.1 + Content-Length (shorter than content-length)
+#tls
+#method GET
+#url /
+#data
+starttls
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+"Content-Length: 3"CRLF
+CRLF
+"ab"
+close
+#status 0
+#headers
+#body
+(close)
+
+#name
+TLS + HTTP/1.1 + Connection: close, no Content-Length
+#tls
+#method GET
+#url /
+#data
+starttls
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+"Connection: close"CRLF
+CRLF
+"ab"
+close
+#status 200
+#reason OK
+#headers
+Connection: close
+#body
+ab(close)
+
+#name
+urgent data
+#tls
+#method GET
+#url /
+#data
+urgent "a"
+starttls
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+"Content-Length: 3"CRLF
+"Foo: bar"CRLF
+CRLF
+"abc"
+close
+#status 200
+#reason OK
+#headers escaped
+Content-Length: 3
+Foo: bar
+#body
+abc(close)
+
+#name
+urgent data
+#tls
+#method GET
+#url /
+#data
+starttls
+receive "GET"
+urgent "a"
+"HTTP/1.1 200 OK"CRLF
+"Content-Length: 3"CRLF
+"Foo: bar"CRLF
+CRLF
+"abc"
+close
+#status 200
+#reason OK
+#headers escaped
+Content-Length: 3
+Foo: bar
+#body
+abc(close)
+
+#name
+TLS truncated headers
+#tls
+#method GET
+#url /
+#data
+starttls
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+"Foo: bar"CRLF
+close
+#status 200
+#reason OK
+#headers escaped
+Foo: bar
+#body
+(close)
+#incomplete
+
+#name
+TLS truncated headers
+#tls
+#method GET
+#url /
+#data
+starttls
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+"Content-Length: 3"CRLF
+"Foo: bar"CRLF
+close
+#status 0
+#headers escaped
+#body
+(close)
+
+#name
+TLS + response before request
+#tls
+#method GET
+#url /
+#data
+starttls
+"HTTP/1.1 200 OK"CRLF
+"Content-Length: 3"CRLF
+"Foo: bar"CRLF
+CRLF
+"abc"
+close
+#status 200
+#reason OK
+#headers escaped
+Content-Length: 3
+Foo: bar
+#body
+abc(close)
+
+#name
+TLS HTTP/1.1 -> HTTP/1.1
+#tls
+#method GET
+#url /
+#data escaped
+starttls
+receive "GET"
+"HTTP/1.1 202 hoge"CRLF
+"Content-Length: 3"CRLF
+"x-test-retry: 1"CRLF
+CRLF
+"anc"
+receive "GET"
+"HTTP/1.1 203 fuga"CRLF
+"Content-Length: 2"CRLF
+CRLF
+"ab"
+close
+#test-type second
+#status 203
+#reason fuga
+#headers
+Content-Length: 2
+#body escaped
+ab(close)
+
+#name
+TLS HTTP/1.1 -> garbage -> HTTP/1.1
+#tls
+#method GET
+#url /
+#data escaped
+starttls
+receive "GET"
+"HTTP/1.1 202 hoge"CRLF
+"Content-Length: 3"CRLF
+"x-test-retry: 1"CRLF
+CRLF
+"anc"
+"abcdefgh"
+receive "GET"
+"HTTP/1.1 203 fuga"CRLF
+"Content-Length: 2"CRLF
+CRLF
+"ab"
+close
+#test-type second
+#status 203
+#reason fuga
+#headers
+Content-Length: 2
+#body escaped
+ab(close)
+
+#name
+TLS redundant space between responses
+#tls
+#method GET
+#url /
+#data escaped
+starttls
+receive "GET"
+"HTTP/1.1 202 hoge"CRLF
+"Content-Length: 3"CRLF
+"x-test-retry: 1"CRLF
+CRLF
+"anc"
+"\u0009"
+receive "GET"
+"HTTP/1.1 203 fuga"CRLF
+"Content-Length: 2"CRLF
+CRLF
+"ab"
+close
+#test-type second
+#status 203
+#reason fuga
+#headers
+Content-Length: 2
+#body escaped
+ab(close)
+
+#name
+TLS renegotiation (no client auth) 1
+#tls
+#method GET
+#url /
+#data
+starttls
+receive "GET"
+tlsreneg
+"HTTP/1.1 200 OK"CRLF
+"Content-Length: 3"CRLF
+tlsreneg
+CRLF
+tlsreneg
+"abc"
+tlsreneg
+close
+#status 200
+#reason OK
+#headers escaped
+Content-Length: 3
+#body
+abc(close)
+
+#name
+TLS renegotiation (no client auth) 2
+#note
+Chrome and curl fail with "empty response"; OpenSSL might or might not fail,
+depending on its version (?).
+#tls
+#method GET
+#url /
+#data
+starttls
+tlsreneg
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+"Content-Length: 3"CRLF
+CRLF
+"abc"
+close
+#status 0
+#headers escaped
+#body
+(close)
+
+#name
+https client, http server
+#tls
+#method GET
+#url /
+#data
+"HTTP/1.1 200 OK"CRLF
+"Content-Length: 3"CRLF
+CRLF
+"abc"
+close
+#status 0
+#headers escaped
+#body
+(close)

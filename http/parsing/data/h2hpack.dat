@@ -1,0 +1,233 @@
+#name
+dynamic table size update
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-hpack-dynamic-size 10
+push-h2-header ":status" "200"
+push-h2-header "hoge" "a"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=1
+"a"
+#status 200
+#reason OK
+#headers
+hoge: a
+#body
+a(close)
+
+#name
+dynamic table size update x 2
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-hpack-dynamic-size 10
+push-hpack-dynamic-size 4
+push-h2-header ":status" "200"
+push-h2-header "hoge" "a"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=1
+"a"
+#status 200
+#reason OK
+#headers
+hoge: a
+#body
+a(close)
+
+#name
+dynamic table size update x 3
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-hpack-dynamic-size 10
+push-hpack-dynamic-size 4
+push-hpack-dynamic-size 6
+push-h2-header ":status" "200"
+push-h2-header "hoge" "a"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=1
+"a"
+#status 200
+#reason OK
+#headers
+hoge: a
+#body
+a(close)
+
+#name
+dynamic table size update between headers
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-hpack-dynamic-size 4
+push-h2-header "hoge" "a"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=1
+"a"
+#status 200
+#reason OK
+#headers
+hoge: a
+#body
+a(close)
+
+#name
+dynamic table size update size=30
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-hpack-dynamic-size 30
+push-h2-header ":status" "200"
+push-h2-header "hoge" "a"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=1
+"a"
+#status 200
+#reason OK
+#headers
+hoge: a
+#body
+a(close)
+
+#name
+dynamic table size update size=31
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-hpack-dynamic-size 31
+push-h2-header ":status" "200"
+push-h2-header "hoge" "a"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=1
+"a"
+#status 200
+#reason OK
+#headers
+hoge: a
+#body
+a(close)
+
+#name
+dynamic table size update size=32
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-hpack-dynamic-size 32
+push-h2-header ":status" "200"
+push-h2-header "hoge" "a"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=1
+"a"
+#status 200
+#reason OK
+#headers
+hoge: a
+#body
+a(close)
+
+#name
+dynamic table size update size=4095
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-hpack-dynamic-size 4095
+push-h2-header ":status" "200"
+push-h2-header "hoge" "a"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=1
+"a"
+#status 200
+#reason OK
+#headers
+hoge: a
+#body
+a(close)
+
+#name
+dynamic table size update size=4096
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-hpack-dynamic-size 4096
+push-h2-header ":status" "200"
+push-h2-header "hoge" "a"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=1
+"a"
+#status 200
+#reason OK
+#headers
+hoge: a
+#body
+a(close)
+
+#name
+dynamic table size update size=4097
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-hpack-dynamic-size 4097
+push-h2-header ":status" "200"
+push-h2-header "hoge" "a"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=1
+"a"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "GOAWAY", "error": 9}
+]

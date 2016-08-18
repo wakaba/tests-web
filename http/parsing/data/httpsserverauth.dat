@@ -1,0 +1,104 @@
+#name
+server auth OK
+#tls
+#method GET
+#url /
+#data
+starttls
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#status 200
+#reason OK
+#headers escaped
+#body
+abc(close)
+
+#name
+bad server name
+#tls
+#method GET
+#url /
+#data
+starttls host=bad.name.test
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#status 0
+#headers escaped
+#body
+(close)
+
+#name
+bad wildcard
+#tls
+#method GET
+#url /
+#data
+starttls host=*
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#status 0
+#headers escaped
+#body
+(close)
+
+#name
+server auth OK, CN-ID
+#tls
+#method GET
+#url /
+#data
+starttls no_san=1
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#status 200
+#reason OK
+#headers escaped
+#body
+abc(close)
+
+#name
+Good CN-ID and bad DNS-ID
+#tls
+#method GET
+#url /
+#data
+starttls cn=##HOST## host=invalid
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#status 0
+#headers escaped
+#body
+(close)
+
+#name
+CN-ID and EMAIL-ID
+#tls
+#method GET
+#url /
+#data
+starttls host=mailto:foo@bar cn=##HOST## no_san=1
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#status 200
+#reason OK
+#headers escaped
+#body
+abc(close)

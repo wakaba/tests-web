@@ -1,0 +1,184 @@
+#name
+SETTINGS between HEADERS and DATA
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=4 length=0
+h2-send-frame type=0 stream=last END_STREAM=1 length=4
+"abcd"
+#status 200
+#reason OK
+#body
+abcd(close)
+#result-data
+[]
+
+#name
+SETTINGS with ACK between HEADERS and DATA
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=4 length=0 ACK=1
+h2-send-frame type=4 length=0 ACK=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=4
+"abcd"
+#status 200
+#reason OK
+#body
+abcd(close)
+#result-data
+[]
+
+#name
+unknown setting
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=4 length=6
+0x00
+0xf0
+0xff
+0xff
+0x00
+0x00
+h2-send-frame type=0 stream=last END_STREAM=1 length=4
+"abcd"
+#status 200
+#reason OK
+#body
+abcd(close)
+#result-data
+[]
+
+#name
+unknown setting
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=4 length=6
+0x00
+0x00
+0x00
+0x00
+0x00
+0x00
+h2-send-frame type=0 stream=last END_STREAM=1 length=4
+"abcd"
+#status 200
+#reason OK
+#body
+abcd(close)
+#result-data
+[]
+
+#name
+bad setting (SETTINGS_MAX_FRAME_SIZE)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=4 length=6
+0x00
+0x00
+0x00
+0x05
+0x00
+0x03
+h2-send-frame type=0 stream=last END_STREAM=1 length=4
+"abcd"
+#status 200
+#reason OK
+#body
+abcd(close)
+#result-data
+[]
+
+#name
+bad setting (SETTINGS_INITIAL_WINDOW_SIZE)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=4 length=6
+0x00
+0x00
+0x00
+0x04
+0xFF
+0xF0
+h2-send-frame type=0 stream=last END_STREAM=1 length=4
+"abcd"
+#status 200
+#reason OK
+#body
+abcd(close)
+#result-data
+[]
+
+#name
+bad setting (SETTINGS_ENABLE_PUSH)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=4 length=6
+0x00
+0x00
+0x00
+0x02
+0x00
+0x01
+h2-send-frame type=0 stream=last END_STREAM=1 length=4
+"abcd"
+#status 200
+#reason OK
+#body
+abcd(close)
+#result-data
+[]

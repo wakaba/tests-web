@@ -1,0 +1,152 @@
+#name
+Not stapled
+#tls
+#method GET
+#url /
+#data
+starttls
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#status 200
+#reason OK
+#headers escaped
+#body
+abc(close)
+
+#name
+Stapled, good
+#tls
+#method GET
+#url /
+#data
+starttls stapling=good
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#status 200
+#reason OK
+#headers escaped
+#body
+abc(close)
+
+#name
+Stapled, revoked
+#tls
+#method GET
+#url /
+#data
+starttls stapling=revoked
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#status 0
+#body
+(close)
+
+#name
+Stapled, good, no nextUpdate
+#tls
+#method GET
+#url /
+#data
+starttls stapling=good stapling_no_next=1
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#status 200
+#reason OK
+#headers escaped
+#body
+abc(close)
+
+#name
+Stapled but no applicable data
+#tls
+#method GET
+#url /
+#data
+starttls stapling=expired
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#status 0
+#body
+(close)
+
+#name
+Broken staple
+#tls
+#method GET
+#url /
+#data
+starttls stapling=broken
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#status 0
+#body
+(close)
+
+#name
+Stapled, good, must-staple
+#tls
+#method GET
+#url /
+#data
+starttls stapling=good must_staple=1
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#status 200
+#reason OK
+#headers escaped
+#body
+abc(close)
+
+#name
+Not stapled, must-staple
+#tls
+#method GET
+#url /
+#data
+starttls must_staple=1
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#status 0
+#body
+(close)
+
+#name
+Stapled but expired
+#time +100000000
+#tls
+#method GET
+#url /
+#data
+starttls stapling=good
+receive "GET"
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"abc"
+close
+#status 0
+#body
+(close)

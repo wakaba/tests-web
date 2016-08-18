@@ -1,0 +1,179 @@
+#name
+100
+#method CONNECT
+#url /
+#data escaped
+"HTTP/1.1 100 foo"CRLF
+CRLF
+"HTTP/1.1 200 OK"CRLF
+CRLF
+"aabde"
+close
+#status 0
+#body escaped
+(close)
+
+#name
+CONNECT -> HTTP/0.9
+#method CONNECT
+#url /
+#data escaped
+receive "CONNECT"
+"aabde"
+close
+#status 0
+#body escaped
+(close)
+
+#name
+CONNECT -> HTTP/0.9
+#method CONNECT
+#url /
+#data escaped
+receive "CONNECT"
+"aabdeaewta3wtagtawgwaeaw3we"
+close
+#status 0
+#body escaped
+(close)
+
+#name
+CONNECT -> HTTP/0.9
+#method CONNECT
+#url /
+#data escaped
+receive "CONNECT"
+close
+#status 0
+#body escaped
+(close)
+
+#name
+407
+#method CONNECT
+#url /
+#data escaped
+"HTTP/1.1 407 foo"CRLF
+"Proxy-Authenticate: Basic realm=x"CRLF
+CRLF
+"aabde"
+close
+#status 407
+#reason foo
+#headers
+Proxy-Authenticate: Basic realm=x
+#body escaped
+aabde(close)
+
+#method CONNECT
+#url /
+#data escaped
+receive "HTTP/"
+"HTTP/1.1 407 hoge"CRLF
+"Content-Length: 3"CRLF
+"x-test-retry: 1"CRLF
+CRLF
+"anc"
+receive "HTTP/"
+"HTTP/1.1 407 fuga"CRLF
+"Content-Length: 2"CRLF
+CRLF
+"ab"
+close
+#test-type second
+#status 407
+#reason fuga
+#headers
+Content-Length: 2
+#body escaped
+ab(close)
+
+#name
+CONNECT -> HTTP/1.1 with Content-Length
+#method CONNECT
+#url /
+#data escaped
+receive "HTTP/"
+"HTTP/1.1 200 hoge"CRLF
+"Content-Length: 3"CRLF
+CRLF
+"anchoge"
+close
+#status 200
+#reason hoge
+#headers
+Content-Length: 3
+#body escaped
+anchoge(close)
+
+#name
+CONNECT -> HTTP/1.0 with Content-Length
+#method CONNECT
+#url /
+#data escaped
+receive "HTTP/"
+"HTTP/1.0 200 hoge"CRLF
+"Content-Length: 3"CRLF
+CRLF
+"anchoge"
+close
+#version 1.0
+#status 200
+#reason hoge
+#headers
+Content-Length: 3
+#body escaped
+anchoge(close)
+
+#name
+CONNECT -> HTTP/1.1 with Connection: close
+#method CONNECT
+#url /
+#data escaped
+receive "HTTP/"
+"HTTP/1.1 200 hoge"CRLF
+"Connection: close"CRLF
+CRLF
+"anchoge"
+close
+#status 200
+#reason hoge
+#headers
+Connection: close
+#body escaped
+anchoge(close)
+
+#name
+data then reset
+#method CONNECT
+#url /
+#data escaped
+receive "HTTP/"
+"HTTP/1.1 200 data then reset"CRLF
+"Content-Length: 3"CRLF
+CRLF
+"anchoge"
+reset
+#status 0
+#body escaped
+(close)
+
+#method CONNECT
+#url /
+#tunnel-send
+abc
+#tunnel-send
+xyz
+#data escaped
+receive "HTTP/"
+"HTTP/1.1 200 hoge"CRLF
+CRLF
+receive "abc"
+"abc"
+receive "xyz"
+"zzz"
+close
+#status 200
+#reason hoge
+#body escaped
+abczzz(close)

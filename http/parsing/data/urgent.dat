@@ -1,0 +1,79 @@
+#name
+urgent data
+#method GET
+#url /
+#data
+show "wait..."
+receive LF
+show "received LF"
+"abc"
+urgent "xyz"
+"def"
+close
+#version 0.9
+#status 200
+#reason OK
+#body
+abcxydef(close)
+
+#method GET
+#url /
+#data
+urgent "a"
+close
+#status 0
+#body
+(close)
+
+#method GET
+#url /
+#data
+CR
+urgent "a"
+LF
+close
+#status 200
+#reason OK
+#version 0.9
+#body escaped
+\u000D\u000A(close)
+
+#name
+in headers
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"Ho"
+urgent "b"
+"ge:1"CRLF
+CRLF
+"abc"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Hoge: 1
+#body escaped
+abc(close)
+
+#name
+in body
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"Hoge:1"CRLF
+CRLF
+"ab"
+urgent "b"
+"c"
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Hoge: 1
+#body escaped
+abc(close)

@@ -1,0 +1,580 @@
+#name
+empty response
+#method GET
+#url /
+#data
+close
+#status 0
+#body
+(close)
+
+#name
+empty response
+#method GET
+#url /
+#data
+receive "GET", start capture
+receive LF, end capture
+showcaptured
+close
+#status 0
+#body
+(close)
+
+#method GET
+#url /
+#data
+CRLF
+close
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+\u000D\u000A(close)
+
+#method GET
+#url /
+#data escaped
+"\u0000"
+close
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+\u0000(close)
+
+#method GET
+#url /
+#data
+"foo"
+"bar"
+close
+#version 0.9
+#status 200
+#reason OK
+#body
+foobar(close)
+
+#method GET
+#url /
+#data
+"foo"CRLF
+close
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+foo\u000D\u000A(close)
+
+#method GET
+#url /
+#data
+receive LF
+"foo"
+close
+#version 0.9
+#status 200
+#reason OK
+#body
+foo(close)
+
+#method GET
+#url /
+#data
+receive LF
+"12345678foo"
+sleep 1
+"bar"
+close
+#version 0.9
+#status 200
+#reason OK
+#boundary 1
+#body
+12345678foo(boundary)bar(boundary)(close)
+
+#method GET
+#url /
+#data
+receive LF
+"HTTP/1.0 200 OK"CRLF
+CRLF
+"bar"
+close
+#version 1.0
+#status 200
+#reason OK
+#body escaped
+bar(close)
+
+#method GET
+#url /
+#data
+receive LF
+"HTTP/1.0 201 OK"CRLF
+CRLF
+"bar"
+close
+#version 1.0
+#status 201
+#reason OK
+#body escaped
+bar(close)
+
+#method POST
+#url /
+#data
+"bar"
+close
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+bar(close)
+
+#name
+PUT
+#method PUT
+#url /
+#data
+"bar"
+close
+#status 0
+#body escaped
+(close)
+
+#method DELETE
+#url /
+#data
+"bar"
+close
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+bar(close)
+
+#method OPTIONS
+#url /
+#data
+"bar"
+close
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+bar(close)
+
+#method HEAD
+#url /
+#data
+"bar"
+close
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+bar(close)
+
+#name
+LINK
+#method LINK
+#url /
+#data
+"bar"
+close
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+bar(close)
+
+#method HOGE
+#url /
+#data
+"bar"
+close
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+bar(close)
+
+#name
+PUT
+#method PUT
+#url /
+#data
+close
+#status 0
+#body escaped
+(close)
+
+#method HOGE
+#url /
+#data
+close
+#status 0
+#body escaped
+(close)
+
+#name
+"H" close
+#method GET
+#url /
+#data
+"H"
+close
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+H(close)
+
+#name
+"HT" close
+#method GET
+#url /
+#data
+"HT"
+close
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+HT(close)
+
+#name
+"HTT" close
+#method GET
+#url /
+#data
+"HTT"
+close
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+HTT(close)
+
+#name
+"XHTT" close
+#method GET
+#url /
+#data
+"XHTT"
+close
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+XHTT(close)
+
+#name
+"ABCHTT" close
+#method GET
+#url /
+#data
+"ABCHTT"
+close
+#version 0.9
+#status 200
+#reason OK
+#body escaped
+ABCHTT(close)
+
+#name
+"HTTP" close
+#method GET
+#url /
+#data
+"HTTP"
+close
+#version 1.0
+#status 200
+#reason OK
+#body escaped
+(close)
+#incomplete
+
+#name
+"http" close
+#method GET
+#url /
+#data
+"http"
+close
+#version 1.0
+#status 200
+#reason OK
+#body escaped
+(close)
+#incomplete
+
+#name
+"XHTTP" close
+#method GET
+#url /
+#data
+"XHTTP"
+close
+#version 1.0
+#status 200
+#reason OK
+#body escaped
+(close)
+#incomplete
+
+#name
+"HTTP/" close
+#method GET
+#url /
+#data
+"HTTP/"
+close
+#version 1.0
+#status 200
+#reason OK
+#body escaped
+(close)
+#incomplete
+
+#name
+"HTTP/1" close
+#method GET
+#url /
+#data
+"HTTP/1"
+close
+#version 1.0
+#status 200
+#reason OK
+#body escaped
+(close)
+#incomplete
+
+#name
+"HTTP/1." close
+#method GET
+#url /
+#data
+"HTTP/1."
+close
+#version 1.0
+#status 200
+#reason OK
+#body escaped
+(close)
+#incomplete
+
+#name
+"HTTP/1.0" close
+#method GET
+#url /
+#data
+"HTTP/1.0"
+close
+#version 1.0
+#status 200
+#reason OK
+#body escaped
+(close)
+#incomplete
+
+#name
+"HTTP/1.1" close
+#method GET
+#url /
+#data
+"HTTP/1.1"
+close
+#status 200
+#reason OK
+#body escaped
+(close)
+#incomplete
+
+#name
+"HTTP/1.1 " close
+#method GET
+#url /
+#data
+"HTTP/1.1 "
+close
+#status 200
+#reason OK
+#body escaped
+(close)
+#incomplete
+
+#name
+"HTTP/1.1 2" close
+#method GET
+#url /
+#data
+"HTTP/1.1 2"
+close
+#status 2
+#reason 
+#body escaped
+(close)
+#incomplete
+
+#name
+"HTTP/1.1 200" close
+#method GET
+#url /
+#data
+"HTTP/1.1 200"
+close
+#status 200
+#reason
+#body escaped
+(close)
+#incomplete
+
+#name
+"HTTP/1.1 200 " close
+#method GET
+#url /
+#data
+"HTTP/1.1 200 "
+close
+#status 200
+#reason 
+#body escaped
+(close)
+#incomplete
+
+#name
+"HTTP/1.1 200 OK." close
+#method GET
+#url /
+#data
+"HTTP/1.1 200 OK."
+close
+#status 200
+#reason OK.
+#body escaped
+(close)
+#incomplete
+
+#name
+"HTTP/1.1 200 OK\r\n" close
+#method GET
+#url /
+#data
+"HTTP/1.1 200 OK"CRLF
+close
+#status 200
+#reason OK
+#body escaped
+(close)
+#incomplete
+
+#name
+"HTTP/1.1 200 OK\r\nheader:value" close
+#method GET
+#url /
+#data
+"HTTP/1.1 200 OK"CRLF
+"Header:Value"
+close
+#status 200
+#reason OK
+#headers
+Header: Value
+#body escaped
+(close)
+#incomplete
+
+#name
+"HTTP/1.1 200 OK\r\nheader:value\r\n" close
+#method GET
+#url /
+#data
+"HTTP/1.1 200 OK"CRLF
+"Header:Value"CRLF
+close
+#status 200
+#reason OK
+#headers
+Header: Value
+#body escaped
+(close)
+#incomplete
+
+#name
+"HTTP/1.1 200 OK\r\nheader:value" close
+#method GET
+#url /
+#data
+"HTTP/1.1 200 OK"CRLF
+"Foo:1"CRLF
+"Header:Value"
+close
+#status 200
+#reason OK
+#headers
+Foo: 1
+Header: Value
+#body escaped
+(close)
+#incomplete
+
+#name
+"HTTP/1.0 200 OK\r\nheader:value\r\n" close
+#method GET
+#url /
+#data
+"HTTP/1.0 200 OK"CRLF
+"Foo:1"CRLF
+"Header:Value"CRLF
+close
+#version 1.0
+#status 200
+#reason OK
+#headers
+Foo: 1
+Header: Value
+#body escaped
+(close)
+#incomplete
+
+#name
+"HTTP/1.1 200 OK\r\nheader:value\r\n" close
+#method GET
+#url /
+#data
+"HTTP/1.1 200 OK"CRLF
+"Foo:1"CRLF
+"Header:Value"CRLF
+close
+#status 200
+#reason OK
+#headers
+Foo: 1
+Header: Value
+#body escaped
+(close)
+#incomplete
+
+#name
+"HTTP/1.1 200 OK\r\nheader:value\r\nContent-Length: 0\r\n" close
+#method GET
+#url /
+#data
+"HTTP/1.1 200 OK"CRLF
+"Foo:1"CRLF
+"Header:Value"CRLF
+"Content-Length: 0"CRLF
+close
+#status 200
+#reason OK
+#headers
+Foo: 1
+Header: Value
+Content-Length: 0
+#body escaped
+(close)
+#incomplete

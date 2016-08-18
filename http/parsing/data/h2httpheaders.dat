@@ -1,0 +1,1153 @@
+#name
+no :status
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header "ab" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+bad :status (ab)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "ab"
+push-h2-header "ab" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers
+ab: c
+#body
+abcdef(close)
+
+#name
+bad :status (00201)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "00201"
+push-h2-header "ab" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 201
+#reason Created
+#headers
+ab: c
+#body
+abcdef(close)
+
+#name
+bad :status (201ab)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "201ab"
+push-h2-header "ab" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 201
+#reason Created
+#headers
+ab: c
+#body
+abcdef(close)
+
+#name
+bad :status (5)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "5"
+push-h2-header "ab" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 5
+#reason OK
+#headers
+ab: c
+#body
+abcdef(close)
+
+#name
+duplicate :status
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header ":status" "201"
+push-h2-header "ab" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers
+ab: c
+#body
+abcdef(close)
+
+#name
+:path in response
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header ":path" "/x"
+push-h2-header "ab" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+pseudo unknown
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header ":hoge" "x"
+push-h2-header "ab" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+pseudo unknown
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header ":version" "HTTP/1.1"
+push-h2-header "ab" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+pseudo after normal header
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab" "c"
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+pseudo after normal header
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header "ab" "c"
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+bad header name (uppercase)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "abX" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+bad header name (uppercase)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "abX@" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+bad header name (empty)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[]
+
+#name
+bad header name (not token)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab{}" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers
+ab{}: c
+#body
+abcdef(close)
+
+#name
+bad header name (not token)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab:" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers
+ab:: c
+#body
+abcdef(close)
+
+#name
+bad header name (control)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab\x04" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab\u0004: c
+#body
+abcdef(close)
+
+#name
+bad header name (control)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab\x7F" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab\u007F: c
+#body
+abcdef(close)
+
+#name
+bad header name (space)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab d" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab d: c
+#body
+abcdef(close)
+
+#name
+bad header name (non-ascii)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab\x8A" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab\u008A: c
+#body
+abcdef(close)
+
+#name
+bad header name (space)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab " "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab : c
+#body
+abcdef(close)
+
+#name
+bad header name (space)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header " ab" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ ab: c
+#body
+abcdef(close)
+
+#name
+bad header name (newline)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "a\x0Ab" "c"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+a\u000Ab: c
+#body
+abcdef(close)
+
+#name
+bad header value (space)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab" " "
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab: 
+#body
+abcdef(close)
+
+#name
+bad header value (space)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab" "a "
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab: a
+#body
+abcdef(close)
+
+#name
+bad header value (space)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab" " z"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab: z
+#body
+abcdef(close)
+
+#name
+bad header value (space)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab" "a\x09z"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab: a\u0009z
+#body
+abcdef(close)
+
+#name
+bad header value (space)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab" "a\x09"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab: a
+#body
+abcdef(close)
+
+#name
+bad header value (newline)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab" "z\x0D\x0Ax"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab: z\u000D\u000Ax
+#body
+abcdef(close)
+
+#name
+bad header value (newline)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab" "\x0D\x0A z"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab: z
+#body
+abcdef(close)
+
+#name
+bad header value (newline)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab" "\x0D\x0Az"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab: z
+#body
+abcdef(close)
+
+#name
+bad header value (newline)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab" "z\x0D\x0A"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab: z
+#body
+abcdef(close)
+
+#name
+bad header value (newline)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab" "z\x0D\x0A "
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab: z
+#body
+abcdef(close)
+
+#name
+bad header value (newline)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab" "z\x0D\x0A x"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab: z\u000D\u000A x
+#body
+abcdef(close)
+
+#name
+bad header value (newline)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab" "z\x0Dx"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab: z x
+#body
+abcdef(close)
+
+#name
+bad header value (control)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab" "z\x03x"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab: z\u0003x
+#body
+abcdef(close)
+
+#name
+bad header value (control)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab" "z\x7Fx"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab: z\u007Fx
+#body
+abcdef(close)
+
+#name
+bad header value (non-ascii)
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "ab" "z\xE3x"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+ab: z\u00E3x
+#body
+abcdef(close)
+
+#name
+connection-option: connection: close
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "connection" "close"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+connection: close
+#body
+abcdef(close)
+
+#name
+connection-option: upgrade: websocket
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "upgrade" "websocket"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+upgrade: websocket
+#body
+abcdef(close)
+
+#name
+connection-option: te: gzip
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "te" "gzip"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers escaped
+te: gzip
+#body
+abcdef(close)
+
+#name
+connection-option: transfer-encoding: chunked
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "transfer-encoding" "chunked"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+connection-option: transfer-encoding: gzip
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "transfer-encoding" "gzip"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+connection-option: transfer-encoding: hoge
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "transfer-encoding" "hoge"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+connection-option: content-length: 12
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "content-length" "12"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+connection-option: content-length: 12,15
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "content-length" "12,15"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+connection-option: content-length: abc
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "content-length" "abc"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+connection-option: content-length: 6
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+push-h2-header "content-length" "6"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+204 with zero DATA
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "204"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=0
+#status 204
+#reason
+No Content
+#headers escaped
+#body
+(close)
+
+#name
+204 with non-zero DATA
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "204"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=4
+"abcd"
+#status 204
+#reason
+No Content
+#headers escaped
+#body
+abcd(close)
+
+#name
+HEAD with zero DATA
+#tls
+#method HEAD
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=0
+#status 200
+#reason OK
+#headers escaped
+#body
+(close)
+
+#name
+HEAD with non-zero DATA
+#tls
+#method HEAD
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=4
+"abcd"
+#status 200
+#reason OK
+#headers escaped
+#body
+abcd(close)

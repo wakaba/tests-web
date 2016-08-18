@@ -1,0 +1,89 @@
+#name
+ok
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers
+#body
+abcdef(close)
+
+#name
+DATA after END_STREAM
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+h2-send-frame type=0 stream=last END_STREAM=1 length=3
+"xyz"
+#status 200
+#reason OK
+#headers
+#body
+abcdef(close)
+
+#name
+data with bad stream
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=1 stream=13 stream_nosave=1 length=0
+h2-send-frame type=1 stream=13 stream_nosave=1 END_HEADERS=1 END_STREAM=1 length=0
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "GOAWAY", "error": 1}
+]
+
+#name
+data with bad stream
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+h2-send-frame type=1 stream=14 stream_nosave=1 length=0
+h2-send-frame type=1 stream=14 stream_nosave=1 END_HEADERS=1 END_STREAM=1 length=0
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 0
+#body
+(close)
+#result-data
+[
+  {"type": "GOAWAY", "error": 1}
+]
