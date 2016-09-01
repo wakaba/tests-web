@@ -1,0 +1,24 @@
+<myml xmlns="http://www.example.com/myml">
+  <style xmlns="http://www.w3.org/1999/xhtml">
+    p {
+      display: block;
+    }
+  </style>
+  <p xml:base="../../../html/link/href/escape/dump-query.cgi?あいうえお">
+    <a href="" xmlns="http://www.w3.org/1999/xhtml">?あいうえお (UTF-8)</a>
+  </p>
+  <p>PASS iff the linked page says "%E3%81%82%E3%81%84%E3%81%86%E3%81%88%E3%81%8A".</p>
+  <!--
+    According to HTML5 spec (2.5.3 Resolving URLs), the base URL of the
+    |href| attribute value is the /base URI of the element/ as defined
+    by the XML Base specification.  According to the XML Base 1e
+    Recommendation (4.2 Granularity of base URI information), the base URI
+    of an element is (in this case) the base URI specified by the |xml:base|
+    attribute.  By the way, according to the XML Base specification (3.1
+    URI Reference Encoding and Escaping), processor MUST encode and escape
+    disallowed characters to obtain a valid URI reference from the
+    attribute value.  Therefore, characters "あいうえお" have to be
+    escaped when the URI reference specified in the |xml:base| attribute
+    is used.
+  -->
+</myml>

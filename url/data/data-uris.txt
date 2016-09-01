@@ -1,0 +1,675 @@
+#data
+data:
+#non-conforming
+"," missing
+#tag
+no scheme-specific data
+no media type separator
+
+#data
+DATA:
+#non-conforming
+"," missing
+#tag
+no scheme-specific data
+no media type separator
+
+#data
+Data:
+#non-conforming
+"," missing
+#tag
+no scheme-specific data
+no media type separator
+
+#data
+data:,
+#conforming
+The shortest conforming data: URI
+#tag
+implied media type
+implied charset
+empty data
+
+#data
+data:%2C
+#non-conforming
+"," is percent-encoded
+#tag
+no media type separator
+
+#data
+data:text
+#non-conforming
+"," missing
+#tag
+broken media type
+
+#data
+data:test
+#source
+<http://www.mozilla.org/quality/networking/testing/datatests.html>
+#tag
+broken media type
+
+#data
+data:,
+#conforming
+"text/plain;charset=us-ascii" implied
+#data
+implied media type
+implied charset
+empty data
+
+#data
+data:text/plain
+#non-conforming
+"," missing
+#tag
+no media type separator
+
+#data
+data:text/plain,
+#conforming
+";charset=us-ascii" implied
+#tag
+implied charset
+empty data
+
+#data
+data:text/plain;charset=utf-16,
+#conforming
+UTF-16 without BOM
+#tag
+empty data
+
+#data
+data:text,abc
+#non-conforming
+"text" is not a valid IMT
+#tag
+broken media type
+
+#data
+data:text/plain;charset=us-ascii;abc
+#non-conforming
+"," missing
+#tag
+no media type separator
+
+#data
+data:text/plain;charset=us-ascii,abc
+#conforming
+
+#data
+data:,a,b
+#note
+confirm parser takes data
+segment from first ","
+#source
+<http://www.mozilla.org/quality/networking/testing/datatests.html>
+#tag
+implied media type
+implied charset
+
+#data
+data:,foo bar
+#source
+<http://www.mozilla.org/quality/networking/testing/datatests.html>
+#non-conforming
+implied media type
+implied charset
+illegal as URI
+
+#data
+data:,abc#def
+#note
+"#" in URI
+#tag
+implied media type
+implied charset
+fragment
+
+#data
+data:,abc#def#ghi
+#note
+"#"s in URI
+#tag
+implied media type
+implied charset
+fragment
+
+#data
+data:text / plain,abc
+#non-conforming
+space in URI
+#tag
+white space in media type
+implied charset
+illegal as URI
+
+#data
+data: text/plain ,abc
+#non-conforming
+space in URI
+#tag
+white space in media type
+implied charset
+illegal as URI
+
+#data
+data:TEXT/PLAIN,ABC
+#conforming
+";charset=us-ascii" implied
+#tag
+implied charset
+
+#data
+data:text\plain,abc
+#non-conforming
+"\" instead of "/" in media type
+#tag
+broken media type
+illegal as URI
+backslash
+implied charset
+
+#data
+data:text/./plain,abc
+#non-conforming
+relative path component in media type
+#tag
+broken media type
+dot-segment
+implied charset
+
+#data
+data:application/../text/plain,abc
+#non-conforming
+relative path component in media type
+#tag
+broken media type
+dot-segment
+implied charset
+
+#data
+data:;,test
+#source
+<http://www.mozilla.org/quality/networking/testing/datatests.html>
+#non-conforming
+";" not followed by a parameter
+#tag
+broken parameter
+implied media type
+implied charset
+
+#data
+data:text/plain;,abc
+#non-conforming
+";" not followed by a parameter
+#tag
+implied charset
+broken parameter
+
+#data
+data:,A%20brief%20note
+#source
+<http://www.mozilla.org/quality/networking/testing/datatests.html>
+#conforming
+#tag
+implied media type
+implied charset
+percent-encoding in data
+
+#data
+data:text/plain;charset,abc
+#non-conforming
+"=charset-name" missing
+#tag
+broken parameter
+implied charset
+
+#data
+data:text/plain; charset=us-ascii,abc
+#non-conforming
+space in URI
+#tag
+illegal as URI
+white space in media type
+
+#data
+data:text/plain;charset=US-ASCII,test
+#source
+<http://www.mozilla.org/quality/networking/testing/datatests.html>
+
+#data
+data:;charset=UTF-8,Hello
+#source
+<http://www.mozilla.org/quality/networking/testing/datatests.html>
+#conforming
+implied media type
+superset charset name
+
+#data
+data:text/plain;charset=iso-8859-1,%A1%A2
+#conforming
+#tag
+percent-encoding in data
+
+#data
+data:text/plain;charset=euc-jp,%A1%A2
+#conforming
+#tag
+percent-encoding in data
+
+#data
+data:text/plain;charset=iso-8859-7,%b8%f7%fe
+#source
+<http://www.mozilla.org/quality/networking/testing/datatests.html>
+#data
+percent-encoding in data
+
+#data
+data:text/plain;charset=iso-8859-1;charset=euc-jp,%A1%A2
+#note
+Compare with
+<#data_0000003Atext_0000002Fplain_0000003Bcharset_0000003Diso-8859-1_0000002C_00000025A1_00000025A2>
+and <#data_0000003Atext_0000002Fplain_0000003Bcharset_0000003Deuc-jp_0000002C_00000025A1_00000025A2>.
+#tag
+parameter duplication
+percent-encoding in data
+
+#data
+data:text/plain;charset;charset=euc-jp,%A1%A2
+#non-conforming
+Broken ";charset;" parameter
+#data
+parameter duplication
+broken parameter
+percent-encoding in data
+
+#data
+data:text/plain;CHARSET=us-ascii,abc
+#conforming
+
+#data
+data:text/plain;charset=us-ascii ,abc
+#non-conforming
+space in URI
+#tag
+illegal as URI
+white space in media type
+
+#data
+data:text/plain;charset="us-ascii",abc
+#non-conforming
+" in URI
+#tag
+quoted-string
+illegal as URI
+
+#data
+data:text/plain;charset="euc-jp",%A1%A2
+#non-conforming
+" in URI
+#tag
+quoted-string
+illegal as URI
+percent-encoding in data
+
+#data
+data:text/plain;charset='euc-jp',%A1%A2
+#tag
+unknown charset
+percent-encoding in data
+
+#data
+data:text/plain;noncharset=euc-jp,%A1%A2
+#tag
+unknown parameter
+implied charset
+percent-encoding in media type
+
+#data
+data:text/plain;noncharset=euc-jp;charset=iso-8859-1,%A1%A2
+#tag
+unknown parameter
+percent-encoding in media type
+
+#data
+data:text/plain;charset=%22euc-jp%22,%A1%A2
+#tag
+quoted-string
+illegal as URI
+percent-encoding in data
+percent-encoding in media type
+
+#data
+data:text/plain;charset="\euc-jp",%A1%A2
+#non-conforming
+" and \ in URI
+#tag
+illegal as URI
+quoted-string
+quoted-pair
+percent-encoding in data
+
+#data
+data:text/plain;x-data="#",abc
+#non-conforming
+" in URI
+#tag
+illegal as URI
+fragment
+quoted-string
+unknown parameter
+
+#data
+data:t%65xt/plain;charset=euc-jp,%A1%A2
+#tag
+percent-encoding in data
+percent-encoding in media type
+
+#data
+data:text%2Fplain;charset=euc-jp,%A1%A2
+#tag
+percent-encoding in media type
+percent-encoding in data
+
+#data
+data:text/pl%61in;charset=euc-jp,%A1%A2
+#tag
+percent-encoding in media type
+percent-encoding in data
+
+#data
+data:text/plain%3Bcharset=euc-jp,%A1%A2
+#tag
+percent-encoding in media type
+percent-encoding in data
+
+#data
+data:text/plain;%63harset=euc-jp,%A1%A2
+#tag
+percent-encoding in media type
+percent-encoding in data
+
+#data
+data:text/plain;charset%3Deuc-jp,%A1%A2
+#tag
+percent-encoding in media type
+percent-encoding in data
+
+#data
+data:text/plain;charset=eu%63-jp,%A1%A2
+#tag
+percent-encoding in media type
+percent-encoding in data
+
+#data
+data:text/plain;charset=us-ascii%2Cabc
+#tag
+percent-encoded comma
+
+#data
+data:text/plain;charset=iso-8859-8-i,%f9%ec%e5%ed
+#conforming
+ISO-8859-8 in URL-encoding
+#source
+<https://bugzilla.mozilla.org/attachment.cgi?id=94670&action=view>
+#tag
+percent-encoding in data
+
+#data
+data:text/plain;charset=UTF-8,%d7%a9%d7%9c%d7%95%d7%9d
+#conforming
+UTF-8 in URL-encoding
+#source
+<https://bugzilla.mozilla.org/attachment.cgi?id=94670&action=view>
+#tag
+percent-encoding in data
+
+#data
+data:,;test
+#conforming
+data w/ traditionally reserved
+chaacters like ";"
+#source
+<http://www.mozilla.org/quality/networking/testing/datatests.html>
+#tag
+reserved in data
+implied media type
+implied charset
+
+#data
+data:,a+b+c
+#conforming
+data including "+" (a PLUS SIGN character, not a SPACE character).
+#tag
+reserved in data
+implied media type
+implied charset
+
+#data
+data:,a/../b
+#conforming
+data including "/../"
+#tag
+dot-segment
+implied media type
+implied charset
+
+#data
+data:,a/./b
+#conforming
+data including "/./"
+#tag
+dot-segment
+implied media type
+implied charset
+
+#data
+data:text/plain;charset=thing;base64;test
+#source
+<http://www.mozilla.org/quality/networking/testing/datatests.html>
+#non-conforming
+"," missing
+#tag
+unknown charset
+no media type separator
+
+#data
+data:text/plain;charset=unknown;base64,test
+#conforming
+#tag
+unknown charset
+base64
+
+#data
+data:;charset=,test
+#source
+<http://www.mozilla.org/quality/networking/testing/datatests.html>
+#non-conforming
+broken parameter "charset="
+#tag
+implied media type
+broken parameter
+unknown charset
+
+#data
+data:application/vnd-xxx-query,select_vcount,fcol_from_fieldtable/local
+#source
+<http://www.mozilla.org/quality/networking/testing/datatests.html>
+#conforming
+#tag
+unknown media type
+
+#data
+data:application/octet-stream;name=filename.dat,abc
+#conforming
+#tag
+obsolete parameter
+name parameter
+
+#data
+data:application/x-unknown;name=filename.dat,abc
+#conforming
+#tag
+unknown media type
+unknown parameter
+name parameter
+
+#data
+data:application/xml,%3Cformdata%20xmlns%3D%22http%3A%2F%2Fn.whatwg.org%2Fformdata%22%20type%3D%22incremental%22%2F%3E
+#source
+<http://www.whatwg.org/specs/web-forms/current-work/#events>
+#conforming
+#tag
+missing XML charset
+percent-encoding in data
+
+#data
+data:application/xml,%3Cselect%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxhtml%22%20type%3D%22incremental%22%3E%3Coption%3Eb%3C%2Foption%3E%3C%2Fselect%3E
+#source
+<http://www.whatwg.org/specs/web-forms/current-work/#selectSeeding>
+#tag
+missing XML charset
+percent-encoding in data
+
+#data
+data:;base64,
+#tag
+base64
+empty data
+implied media type
+implied charset
+
+#data
+data:;base64,hello
+#non-conforming
+broken Base64 data
+#source
+<http://www.mozilla.org/quality/networking/testing/datatests.html>
+#tag
+base64
+broken base64
+implied media type
+implied charset
+
+#data
+data:text/plain;charset=iso-8859-8-i;base64,+ezl7Q==
+#note
+ISO-8859-8 in Base64
+#source
+<https://bugzilla.mozilla.org/attachment.cgi?id=94670&action=view>
+#tag
+base64
+
+#data
+data:text/plain;charset=UTF-8;base64,16nXnNeV150=
+#note
+UTF-8 in Base64
+#source
+<https://bugzilla.mozilla.org/attachment.cgi?id=94670&action=view>
+#tag
+base64
+
+#data
+data:text/html;base64,VGhpcyBpcyBhIHRlc3QK
+#note
+"This is a test"
+#source
+<http://www.mozilla.org/quality/networking/testing/datatests.html>
+#tag
+base64
+missing HTML charset
+
+#data
+data:text/plain;base64,VGhpcyBpcyBhIHRlc3QK!?
+#note
+Base64'ed "This is a test" followed by non-Base64'ed "!?".
+#tag
+base64
+broken base64
+implied charset
+
+#data
+data:text/plain;base64,VGhpcyBpcyBhIHRlc3QK!?!?
+#note
+Base64'ed "This is a test" followed by non-Base64'ed "!?!?".
+#tag
+base64
+broken base64
+implied charset
+
+#data
+data:text/plain;base64,VGhpcyBpcyBhIHRlc3QK#fragment
+#note
+Base64'ed "This is a test" followed by non-Base64'ed "#fragment"
+#tag
+base64
+broken base64
+fragment
+implied charset
+
+#data
+data:text/plain;base64,VG!h$pcy]BpcyBh[IHRl>c3QK
+#non-conforming
+Base64'ed "This is a test" with garbages inside it
+#tag
+base64
+broken base64
+implied charset
+illegal as URI
+
+#data
+data:text/html;base64,PGh0bWw+PGhlYWQ+PHRpdGxlPlRlc3Q8L3RpdGxlPjwvaGVhZD48Ym9keT48cD5UaGlzIGlzIGEgdGVzdDwvYm9keT48L2h0bWw+Cg==
+#source
+<http://www.mozilla.org/quality/networking/testing/datatests.html>
+#tag
+base64
+missing HTML charset
+
+#data
+data:,Data%20was:%20'%%%%'
+#source
+<http://www.whatwg.org/specs/web-forms/current-work/#for-data>
+#non-conforming
+WF2 form action="" (This string itself is not a conforming URI)
+#tag
+illegal as URI
+broken percent-encoding
+implied media type
+implied charset
+percent-encoding in data
+
+#data
+data:,Data%20was:%20'x%253DIt%2527s%252Ba%252Btest'
+#source
+<http://www.whatwg.org/specs/web-forms/current-work/#for-data>
+#tag
+percent-encoding in data
+implied media type
+implied charset
+
+#data
+data:,Data%20was:%20'%%'
+#source
+<http://www.whatwg.org/specs/web-forms/current-work/#for-data>
+#non-conforming
+WF2 form action="" (This string itself is not a conforming URI)
+#tag
+percent-encoding in data
+implied media type
+implied charset
+broken percent-encoding
+illegal as URI
+
+#data
+data:,Data%20was:%20'x%3DIt's%2Ba%2Btest'
+#source
+<http://www.whatwg.org/specs/web-forms/current-work/#for-data>
+#tag
+implied media type
+implied charset
+percent-encoding in data

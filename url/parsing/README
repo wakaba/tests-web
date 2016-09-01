@@ -1,0 +1,57 @@
+URL parsing tests
+~~~~~~~~~~~~~~~~~
+
+This repository contains a number of test data for URL parsing,
+resolution, and canonicalization as performed by Web browsers,
+developed in 2011 along with Perl Web::URL module, then partially
+updated to be compatible with WHATWG URL Standard.
+
+* Tests
+
+- *.dat - URL canonicalization tests (See data/README for more info)
+- browsers/*.html - Test harnesses for testing your browser
+
+* Format
+
+Test data are encoded in a custom format similar to HTML parser tests
+<https://wiki.whatwg.org/wiki/Parser_tests>.
+
+There are JavaScript implementation
+<https://suika.fam.cx/www/js/sami/script/sami-test.js> (SAMI.Test) and
+Perl implementation <https://github.com/wakaba/testdataparser> for the
+format.
+
+* Test harness for Web browsers
+
+There is a test harness to run these tests in Web browsers.  See
+directory "./browsers/".
+
+* Spec and test results of browsers as of 2011
+
+See <https://github.com/wakaba/tests-web-url/>.
+
+These are test data for URL canonicalization.
+
+* Author
+
+Wakaba <wakaba@suikawiki.org>.
+
+* Acknowledgements
+
+URLs in these test cases come from various sources, including:
+
+- RFC 3986
+- <http://www.gbiv.com/protocols/uri/test/rel_examples1.html>
+- <https://www.w3.org/2004/04/uri-rel-test.html>
+- <https://github.com/abarth/url-spec/raw/master/tests/gurl-results/by-browser.txt>
+- <http://trac.webkit.org/browser/trunk/LayoutTests/fast/url/>
+- <https://www.mozilla.org/quality/networking/testing/datatests.html>
+- <http://commons.apache.org/vfs/filesystems.html>
+- <https://suika.fam.cx/gate/git/wi/manakai.git/blob/HEAD:/lib/Message/URI/Generic.dis>
+- <https://suika.fam.cx/~wakaba/-temp/test/uri/>
+- <https://suika.fam.cx/%7Ewakaba/wiki/sw/n/file%3A>
+
+* License
+
+You are granted a license to use, reproduce and create derivative
+works of these test data.
