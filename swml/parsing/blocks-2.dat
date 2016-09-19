@@ -1,0 +1,159 @@
+#data
+| abc
+| -*-*-
+| xyz
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "abc"
+|     <hr>
+|     <p>
+|       "xyz"
+
+#data escaped
+| abc
+| -*-*-\u0009\u0020
+| xyz
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "abc"
+|     <hr>
+|     <p>
+|       "xyz"
+
+#data
+| abc
+| 
+| -*-*-
+| 
+| xyz
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "abc"
+|     <hr>
+|     <p>
+|       "xyz"
+
+#data
+| - abc
+| -*-*-
+| - xyz
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <ul>
+|       <li>
+|         "abc"
+|     <hr>
+|     <ul>
+|       <li>
+|         "xyz"
+
+#data
+| [POSTAMBLE[
+| - abc
+| -*-*-
+| - xyz
+| ]POSTAMBLE]
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <sw postamble>
+|       <ul>
+|         <li>
+|           "abc"
+|       <hr>
+|       <ul>
+|         <li>
+|           "xyz"
+
+#data
+| abc
+| -*-*-()
+| xyz
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "abc"
+|     <hr>
+|       class=""
+|     <p>
+|       "xyz"
+
+#data
+| abc
+| -*-*-(ab cd)
+| xyz
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "abc"
+|     <hr>
+|       class="ab cd"
+|     <p>
+|       "xyz"
+
+#data
+| abc
+| -*-*-( )
+| xyz
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "abc"
+|     <hr>
+|       class=" "
+|     <p>
+|       "xyz"
+
+#data
+| *foo
+| abc
+| -*-*-
+| xyz
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <section>
+|       <h1>
+|         "foo"
+|       <p>
+|         "abc"
+|       <hr>
+|       <p>
+|         "xyz"
