@@ -1272,8 +1272,83 @@
 |       <dt>
 |       <dd>
 |         <figcaption>
+|           "a"
+|         "b"
+
+#data
+| ::
+| [FIGCAPTION[
+| a
+| 
+| c
+| ]FIGCAPTION]
+| b
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <dl>
+|       <dt>
+|       <dd>
+|         <figcaption>
+|           "a"
 |           <p>
-|             "a"
+|             "c"
+|         "b"
+
+#data
+| ::
+| [FIGCAPTION[
+| a
+| 
+| -z
+| -c
+| ]FIGCAPTION]
+| b
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <dl>
+|       <dt>
+|       <dd>
+|         <figcaption>
+|           "a"
+|           <ul>
+|             <li>
+|               "z"
+|             <li>
+|               "c"
+|         "b"
+
+#data
+| ::
+| [FIGCAPTION[
+| a
+| -z
+| -c
+| ]FIGCAPTION]
+| b
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <dl>
+|       <dt>
+|       <dd>
+|         <figcaption>
+|           "a"
+|           <ul>
+|             <li>
+|               "z"
+|             <li>
+|               "c"
 |         "b"
 
 #data
@@ -1552,8 +1627,7 @@
 |         <li>
 |           "xyz"
 |           <figcaption>
-|             <p>
-|               "hoge"
+|             "hoge"
 |     <ul>
 |       <li>
 |         <ul>
@@ -1581,8 +1655,7 @@
 |         <li>
 |           "xyz"
 |           <figcaption>
-|             <p>
-|               "hoge"
+|             "hoge"
 |     <ul>
 |       <li>
 |         <ul>
@@ -1647,6 +1720,71 @@
 |   <head>
 |   <body>
 |     <sw postamble>
+|       <ul>
+|         <li>
+|           "abc"
+|         <li>
+|           "xyz"
+|     <ul>
+|       <li>
+|         <ul>
+|           <li>
+
+#data
+| [FIG[[4]a[[a]]
+| - abc
+| - xyz
+| [FIGCAPTION[
+| hoge
+| ]FIGCAPTION]
+| ]FIG]
+| --
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <figure>
+|       <figcaption>
+|         <sw anchor-end>
+|           sw anchor="4"
+|           "[4]"
+|         "a"
+|         <sw anchor>
+|           "a"
+|       <ul>
+|         <li>
+|           "abc"
+|         <li>
+|           "xyz"
+|           <figcaption>
+|             "hoge"
+|     <ul>
+|       <li>
+|         <ul>
+|           <li>
+
+#data
+| [FIGCAPTION[[4]a[[a]]
+| - abc
+| - xyz
+| ]FIGCAPTION]
+| --
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <figcaption>
+|       <figcaption>
+|         <sw anchor-end>
+|           sw anchor="4"
+|           "[4]"
+|         "a"
+|         <sw anchor>
+|           "a"
 |       <ul>
 |         <li>
 |           "abc"
