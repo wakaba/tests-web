@@ -31,6 +31,78 @@
 
 #data
 | [TALK[
+| [SPEAKER[
+| [4]a[[a]]
+| ]SPEAKER]
+| - abc
+| - xyz
+| ]TALK]
+| --
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <sw dialogue>
+|       <sw talk>
+|         <sw speaker>
+|           <sw anchor-end>
+|             sw anchor="4"
+|             "[4]"
+|           "a"
+|           <sw anchor>
+|             "a"
+|         <ul>
+|           <li>
+|             "abc"
+|           <li>
+|             "xyz"
+|     <ul>
+|       <li>
+|         <ul>
+|           <li>
+
+#data
+| [TALK[
+| [SPEAKER[
+| [4]a[[a]]
+| 
+| ab
+| ]SPEAKER]
+| - abc
+| - xyz
+| ]TALK]
+| --
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <sw dialogue>
+|       <sw talk>
+|         <sw speaker>
+|           <sw anchor-end>
+|             sw anchor="4"
+|             "[4]"
+|           "a"
+|           <sw anchor>
+|             "a"
+|           <p>
+|             "ab"
+|         <ul>
+|           <li>
+|             "abc"
+|           <li>
+|             "xyz"
+|     <ul>
+|       <li>
+|         <ul>
+|           <li>
+
+#data
+| [TALK[
 | xyz
 | ]TALK]
 | [TALK[
