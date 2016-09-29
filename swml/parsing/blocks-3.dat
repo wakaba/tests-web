@@ -1,0 +1,252 @@
+#data
+| [TALK[[4]a[[a]]
+| - abc
+| - xyz
+| ]TALK]
+| --
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <sw dialogue>
+|       <sw talk>
+|         <sw speaker>
+|           <sw anchor-end>
+|             sw anchor="4"
+|             "[4]"
+|           "a"
+|           <sw anchor>
+|             "a"
+|         <ul>
+|           <li>
+|             "abc"
+|           <li>
+|             "xyz"
+|     <ul>
+|       <li>
+|         <ul>
+|           <li>
+
+#data
+| [TALK[
+| xyz
+| ]TALK]
+| [TALK[
+| abc
+| ]TALK]
+| z
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <sw dialogue>
+|       <sw talk>
+|         <p>
+|           "xyz"
+|       <sw talk>
+|         <p>
+|           "abc"
+|     <p>
+|       "z"
+
+#data
+| z
+| [TALK[
+| xyz
+| ]TALK]
+| [TALK[
+| abc
+| ]TALK]
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "z"
+|       <sw dialogue>
+|         <sw talk>
+|           <p>
+|             "xyz"
+|         <sw talk>
+|           <p>
+|             "abc"
+
+#data
+| -z
+| [TALK[
+| xyz
+| ]TALK]
+| [TALK[
+| abc
+| ]TALK]
+| -a
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <ul>
+|       <li>
+|         "z"
+|         <sw dialogue>
+|           <sw talk>
+|             <p>
+|               "xyz"
+|           <sw talk>
+|             <p>
+|               "abc"
+|       <li>
+|         "a"
+
+#data
+| [TALK[
+| xyz
+| ]TALK]
+| 
+| [TALK[
+| abc
+| ]TALK]
+| z
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <sw dialogue>
+|       <sw talk>
+|         <p>
+|           "xyz"
+|       <sw talk>
+|         <p>
+|           "abc"
+|     <p>
+|       "z"
+
+#data
+| [TALK[
+| xyz
+| ]TALK]
+| a
+| [TALK[
+| abc
+| ]TALK]
+| z
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <sw dialogue>
+|       <sw talk>
+|         <p>
+|           "xyz"
+|     <p>
+|       "a"
+|       <sw dialogue>
+|         <sw talk>
+|           <p>
+|             "abc"
+|       "z"
+
+#data
+| [TALK[
+| xyz
+| ]TALK]
+| 
+| [FIG[
+| abc
+| ]FIG]
+| z
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <sw dialogue>
+|       <sw talk>
+|         <p>
+|           "xyz"
+|     <figure>
+|       <p>
+|         "abc"
+|     <p>
+|       "z"
+
+#data
+| [TALK[
+| xyz
+| ]TALK]
+| 
+| z
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <sw dialogue>
+|       <sw talk>
+|         <p>
+|           "xyz"
+|     <p>
+|       "z"
+
+#data
+| [TALK[
+| xyz
+| ]TALK]
+| 
+| -z
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <sw dialogue>
+|       <sw talk>
+|         <p>
+|           "xyz"
+|     <ul>
+|       <li>
+|         "z"
+
+#data
+| -
+| [TALK[
+| xyz
+| ]TALK]
+| -
+| [TALK[
+| abc
+| ]TALK]
+| -z
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <ul>
+|       <li>
+|         <sw dialogue>
+|           <sw talk>
+|             <p>
+|               "xyz"
+|       <li>
+|         <sw dialogue>
+|           <sw talk>
+|             <p>
+|               "abc"
+|       <li>
+|         "z"
