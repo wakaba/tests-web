@@ -7812,3 +7812,29 @@ https://hoge%EF%BB%BF/
 #host escaped
 hoge
 #path /
+
+#name
+domain with Mark
+#data escaped
+https://hoge.\u0301/
+#invalid 1
+
+#name
+domain with Mark
+#data escaped
+https://hoge.a\u0301/
+#canon https://hoge.xn--1ca/
+#scheme https
+#host escaped
+hoge.xn--1ca
+#path /
+
+#name
+domain with Mark
+#data escaped
+https://hoge.\u4E00\u0301/
+#canon https://hoge.xn--lsa1159a/
+#scheme https
+#host escaped
+hoge.xn--lsa1159a
+#path /
