@@ -586,27 +586,21 @@ index ae9cd7c..666148f 100644
  tbody
  #document
 diff --git a/html/parsing/html5lib/html-tree/menuitem-element.dat b/html/parsing/html5lib/html-tree/menuitem-element.dat
-index 3069332..5a9e6fc 100644
+index 3069332..6987389 100644
 --- a/html/parsing/html5lib/html-tree/menuitem-element.dat
 +++ b/html/parsing/html5lib/html-tree/menuitem-element.dat
-@@ -96,9 +96,7 @@
+@@ -96,9 +96,8 @@
  #data
  <!DOCTYPE html><p><b></p><menuitem>
  #errors
 -25: End tag “p” seen, but there were open elements.
  21: Unclosed element “b”.
 -35: End of file seen and there were open elements.
++no </b> at EOF
  #document
  | <!DOCTYPE html>
  | <html>
-@@ -106,14 +104,12 @@
- |   <body>
- |     <p>
- |       <b>
--|     <b>
--|       <menuitem>
-+|     <menuitem>
- 
+@@ -112,8 +111,7 @@
  #data
  <!DOCTYPE html><menuitem><asdf></menuitem>x
  #errors
