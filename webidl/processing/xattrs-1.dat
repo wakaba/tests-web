@@ -704,22 +704,24 @@ interface A {
 #data
 [ImplicitThis]
 interface A { };
+#errors
+1;1;webidl:not allowed;;ImplicitThis;m
 #processed
 {
   "A": ["interface", {
-    "members": {},
-    "ImplicitThis": 1
+    "members": {}
   }]
 }
 
 #data
 [ImplicitThis]
 callback interface A { };
+#errors
+1;1;webidl:not allowed;;ImplicitThis;m
 #processed
 {
   "A": ["callback_interface", {
-    "members": {},
-    "ImplicitThis": 1
+    "members": {}
   }]
 }
 
@@ -1433,10 +1435,11 @@ callback interface A {
 #data
 [Unforgeable]
 interface A {};
+#errors
+1;1;webidl:not allowed;;Unforgeable;m
 #processed
 {
   "A": ["interface", {
-    "Unforgeable": 1,
     "members": {}
   }]
 }
@@ -1445,14 +1448,15 @@ interface A {};
 interface A {
   [Unforgeable] attribute DOMString foo;
 };
+#errors
+1;17;webidl:not allowed;;Unforgeable;m
 #processed
 {
   "A": ["interface", {
     "members": {
       "foo": ["attribute", {
         "type": "DOMString",
-        "getter": 1, "setter": 1,
-        "Unforgeable": 1
+        "getter": 1, "setter": 1
       }]
     }
   }]
@@ -1480,12 +1484,13 @@ interface A {
 interface A {
   [Unforgeable] void foo ();
 };
+#errors
+1;17;webidl:not allowed;;Unforgeable;m
 #processed
 {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
-        "Unforgeable": 1,
         "overload_set": {
           "": {
             "type": "void",
@@ -1524,12 +1529,14 @@ interface A {
   [Unforgeable] void foo ();
   [Unforgeable] void foo (long a);
 };
+#errors
+1;17;webidl:not allowed;;Unforgeable;m
+1;46;webidl:not allowed;;Unforgeable;m
 #processed
 {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
-        "Unforgeable": 1,
         "overload_set": {
           "": {
             "type": "void",
@@ -1551,13 +1558,12 @@ interface A {
   void foo (long a);
 };
 #errors
-1;16;webidl:bad unforgeablility;;;m
+1;17;webidl:not allowed;;Unforgeable;m
 #processed
 {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
-        "Unforgeable": 1,
         "overload_set": {
           "": {
             "type": "void",
