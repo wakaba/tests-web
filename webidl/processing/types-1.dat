@@ -184,7 +184,7 @@ callback hoge = sequence<sequence<long>?>? ();
 
 #data
 interface A { 
-  legacycaller Promise ();
+  legacycaller Promise<any> ();
 };
 #errors
 1;17;webidl:bad type;;Promise[any];m
@@ -711,5 +711,23 @@ typedef Float32Array? Hoge;
 {
   "Hoge": ["typedef", {
     "type": ["nullable", "Float32Array"]
+  }]
+}
+
+#data
+typedef record<DOMString, Float32Array>Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["record", "DOMString", "Float32Array"]
+  }]
+}
+
+#data
+typedef record<DOMString, Float32Array?>Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["record", "DOMString", ["nullable", "Float32Array"]]
   }]
 }

@@ -1,0 +1,38 @@
+#data
+typedef record<DOMString, long> A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_parameterized": {
+    "type_outer": "record",
+    "type_key": {"type": "DOMString"},
+    "type": "long"
+  }
+} ] }
+
+#data
+typedef record<USVString, any> A;
+#parsed
+{ "definitions": [ {
+  "index": 0, "definition_type": "typedef", "name": "A",
+  "type_parameterized": {
+    "type_outer": "record",
+    "type_key": {"type": "USVString"},
+    "type": "any"
+  }
+} ] }
+
+#data
+typedef record<USVString?, any> A;
+#errors
+24;webidl:parse error;,, ;;m
+
+#data
+typedef record<double, any> A;
+#errors
+15;webidl:parse error;ByteString, ;;m
+
+#data
+typedef record<ByteString> A;
+#errors
+25;webidl:parse error;,, ;;m
