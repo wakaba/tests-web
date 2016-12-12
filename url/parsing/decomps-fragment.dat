@@ -1,4 +1,3 @@
-
 #data
 http://www.example.com/##asdf
 #canon http://www.example.com/##asdf
@@ -18,12 +17,12 @@ http://www.example.com/#%23asdf
 #data escaped
 http://www.example.com/#\ud800\u597d
 #canon escaped
-http://www.example.com/#\uFFFD\u597D
+http://www.example.com/#%EF%BF%BD%E5%A5%BD
 #scheme http
 #host www.example.com
 #path /
 #fragment escaped
-\uFFFD\u597D
+%EF%BF%BD%E5%A5%BD
 
 #data escaped
 http://www.example.com/#%EF%BF%BD%E5%A5%BD
@@ -44,12 +43,12 @@ http://www.example.com/#%26%2355296%3B%26%2322909%3B
 #data escaped
 http://www.example.com/#a\uFDD0
 #canon escaped
-http://www.example.com/#a\uFFFD
+http://www.example.com/#a%EF%BF%BD
 #scheme http
 #host www.example.com
 #path /
 #fragment escaped
-a\uFFFD
+a%EF%BF%BD
 
 #data
 http://www.example.com/#a%EF%B7%90
@@ -88,12 +87,12 @@ http://www.example.com/#hello,%20world.
 #data escaped
 http://www.example.com/#\u00C2\u00A9
 #canon escaped
-http://www.example.com/#\u00C2\u00A9
+http://www.example.com/#%C3%82%C2%A9
 #scheme http
 #host www.example.com
 #path /
 #fragment escaped
-\u00C2\u00A9
+%C3%82%C2%A9
 
 #data
 http://www.example.com/#%C2%A9
@@ -114,12 +113,12 @@ http://www.example.com/#%C3%82%C2%A9
 #data escaped
 http://www.example.com/#\U00010300ss
 #canon escaped
-http://www.example.com/#\U00010300ss
+http://www.example.com/#%F0%90%8C%80ss
 #scheme http
 #host www.example.com
 #path /
 #fragment escaped
-\U00010300ss
+%F0%90%8C%80ss
 
 #data
 http://www.example.com/#%F0%90%8C%80ss
@@ -1167,1379 +1166,1471 @@ http://example.com/#a\u007Fb
 #data escaped
 http://example.com/#a\u0080b
 #canon escaped
-http://example.com/#a\u0080b
+http://example.com/#a%C2%80b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0080b
+a%C2%80b
 
 #data escaped
 http://example.com/#a\u0081b
 #canon escaped
-http://example.com/#a\u0081b
+http://example.com/#a%C2%81b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0081b
+a%C2%81b
 
 #data escaped
 http://example.com/#a\u0082b
 #canon escaped
-http://example.com/#a\u0082b
+http://example.com/#a%C2%82b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0082b
+a%C2%82b
 
 #data escaped
 http://example.com/#a\u0083b
 #canon escaped
-http://example.com/#a\u0083b
+http://example.com/#a%C2%83b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0083b
+a%C2%83b
 
 #data escaped
 http://example.com/#a\u0084b
 #canon escaped
-http://example.com/#a\u0084b
+http://example.com/#a%C2%84b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0084b
+a%C2%84b
 
 #data escaped
 http://example.com/#a\u0085b
 #canon escaped
-http://example.com/#a\u0085b
+http://example.com/#a%C2%85b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0085b
+a%C2%85b
 
 #data escaped
 http://example.com/#a\u0086b
 #canon escaped
-http://example.com/#a\u0086b
+http://example.com/#a%C2%86b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0086b
+a%C2%86b
 
 #data escaped
 http://example.com/#a\u0087b
 #canon escaped
-http://example.com/#a\u0087b
+http://example.com/#a%C2%87b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0087b
+a%C2%87b
 
 #data escaped
 http://example.com/#a\u0088b
 #canon escaped
-http://example.com/#a\u0088b
+http://example.com/#a%C2%88b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0088b
+a%C2%88b
 
 #data escaped
 http://example.com/#a\u0089b
 #canon escaped
-http://example.com/#a\u0089b
+http://example.com/#a%C2%89b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0089b
+a%C2%89b
 
 #data escaped
 http://example.com/#a\u008Ab
 #canon escaped
-http://example.com/#a\u008Ab
+http://example.com/#a%C2%8Ab
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u008Ab
+a%C2%8Ab
 
 #data escaped
 http://example.com/#a\u008Bb
 #canon escaped
-http://example.com/#a\u008Bb
+http://example.com/#a%C2%8Bb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u008Bb
+a%C2%8Bb
 
 #data escaped
 http://example.com/#a\u008Cb
 #canon escaped
-http://example.com/#a\u008Cb
+http://example.com/#a%C2%8Cb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u008Cb
+a%C2%8Cb
 
 #data escaped
 http://example.com/#a\u008Db
 #canon escaped
-http://example.com/#a\u008Db
+http://example.com/#a%C2%8Db
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u008Db
+a%C2%8Db
 
 #data escaped
 http://example.com/#a\u008Eb
 #canon escaped
-http://example.com/#a\u008Eb
+http://example.com/#a%C2%8Eb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u008Eb
+a%C2%8Eb
 
 #data escaped
 http://example.com/#a\u008Fb
 #canon escaped
-http://example.com/#a\u008Fb
+http://example.com/#a%C2%8Fb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u008Fb
+a%C2%8Fb
 
 #data escaped
 http://example.com/#a\u0090b
 #canon escaped
-http://example.com/#a\u0090b
+http://example.com/#a%C2%90b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0090b
+a%C2%90b
 
 #data escaped
 http://example.com/#a\u0091b
 #canon escaped
-http://example.com/#a\u0091b
+http://example.com/#a%C2%91b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0091b
+a%C2%91b
 
 #data escaped
 http://example.com/#a\u0092b
 #canon escaped
-http://example.com/#a\u0092b
+http://example.com/#a%C2%92b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0092b
+a%C2%92b
 
 #data escaped
 http://example.com/#a\u0093b
 #canon escaped
-http://example.com/#a\u0093b
+http://example.com/#a%C2%93b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0093b
+a%C2%93b
 
 #data escaped
 http://example.com/#a\u0094b
 #canon escaped
-http://example.com/#a\u0094b
+http://example.com/#a%C2%94b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0094b
+a%C2%94b
 
 #data escaped
 http://example.com/#a\u0095b
 #canon escaped
-http://example.com/#a\u0095b
+http://example.com/#a%C2%95b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0095b
+a%C2%95b
 
 #data escaped
 http://example.com/#a\u0096b
 #canon escaped
-http://example.com/#a\u0096b
+http://example.com/#a%C2%96b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0096b
+a%C2%96b
 
 #data escaped
 http://example.com/#a\u0097b
 #canon escaped
-http://example.com/#a\u0097b
+http://example.com/#a%C2%97b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0097b
+a%C2%97b
 
 #data escaped
 http://example.com/#a\u0098b
 #canon escaped
-http://example.com/#a\u0098b
+http://example.com/#a%C2%98b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0098b
+a%C2%98b
 
 #data escaped
 http://example.com/#a\u0099b
 #canon escaped
-http://example.com/#a\u0099b
+http://example.com/#a%C2%99b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0099b
+a%C2%99b
 
 #data escaped
 http://example.com/#a\u009Ab
 #canon escaped
-http://example.com/#a\u009Ab
+http://example.com/#a%C2%9Ab
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u009Ab
+a%C2%9Ab
 
 #data escaped
 http://example.com/#a\u009Bb
 #canon escaped
-http://example.com/#a\u009Bb
+http://example.com/#a%C2%9Bb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u009Bb
+a%C2%9Bb
 
 #data escaped
 http://example.com/#a\u009Cb
 #canon escaped
-http://example.com/#a\u009Cb
+http://example.com/#a%C2%9Cb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u009Cb
+a%C2%9Cb
 
 #data escaped
 http://example.com/#a\u009Db
 #canon escaped
-http://example.com/#a\u009Db
+http://example.com/#a%C2%9Db
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u009Db
+a%C2%9Db
 
 #data escaped
 http://example.com/#a\u009Eb
 #canon escaped
-http://example.com/#a\u009Eb
+http://example.com/#a%C2%9Eb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u009Eb
+a%C2%9Eb
 
 #data escaped
 http://example.com/#a\u009Fb
 #canon escaped
-http://example.com/#a\u009Fb
+http://example.com/#a%C2%9Fb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u009Fb
+a%C2%9Fb
 
 #data escaped
 http://example.com/#a\u00a0b
 #canon escaped
-http://example.com/#a\u00A0b
+http://example.com/#a%C2%A0b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00A0b
+a%C2%A0b
 
 #data escaped
 http://example.com/#a\u00a1b
 #canon escaped
-http://example.com/#a\u00A1b
+http://example.com/#a%C2%A1b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00A1b
+a%C2%A1b
 
 #data escaped
 http://example.com/#a\u00a2b
 #canon escaped
-http://example.com/#a\u00A2b
+http://example.com/#a%C2%A2b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00A2b
+a%C2%A2b
 
 #data escaped
 http://example.com/#a\u00a3b
 #canon escaped
-http://example.com/#a\u00A3b
+http://example.com/#a%C2%A3b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00A3b
+a%C2%A3b
 
 #data escaped
 http://example.com/#a\u00a4b
 #canon escaped
-http://example.com/#a\u00A4b
+http://example.com/#a%C2%A4b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00A4b
+a%C2%A4b
 
 #data escaped
 http://example.com/#a\u00a5b
 #canon escaped
-http://example.com/#a\u00A5b
+http://example.com/#a%C2%A5b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00A5b
+a%C2%A5b
 
 #data escaped
 http://example.com/#a\u00a6b
 #canon escaped
-http://example.com/#a\u00A6b
+http://example.com/#a%C2%A6b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00A6b
+a%C2%A6b
 
 #data escaped
 http://example.com/#a\u00a7b
 #canon escaped
-http://example.com/#a\u00A7b
+http://example.com/#a%C2%A7b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00A7b
+a%C2%A7b
 
 #data escaped
 http://example.com/#a\u00a8b
 #canon escaped
-http://example.com/#a\u00A8b
+http://example.com/#a%C2%A8b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00A8b
+a%C2%A8b
 
 #data escaped
 http://example.com/#a\u00a9b
 #canon escaped
-http://example.com/#a\u00A9b
+http://example.com/#a%C2%A9b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00A9b
+a%C2%A9b
 
 #data escaped
 http://example.com/#a\u00aAb
 #canon escaped
-http://example.com/#a\u00AAb
+http://example.com/#a%C2%AAb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00AAb
+a%C2%AAb
 
 #data escaped
 http://example.com/#a\u00aBb
 #canon escaped
-http://example.com/#a\u00ABb
+http://example.com/#a%C2%ABb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00ABb
+a%C2%ABb
 
 #data escaped
 http://example.com/#a\u00aCb
 #canon escaped
-http://example.com/#a\u00ACb
+http://example.com/#a%C2%ACb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00ACb
+a%C2%ACb
 
 #data escaped
 http://example.com/#a\u00aDb
 #canon escaped
-http://example.com/#a\u00ADb
+http://example.com/#a%C2%ADb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00ADb
+a%C2%ADb
 
 #data escaped
 http://example.com/#a\u00aEb
 #canon escaped
-http://example.com/#a\u00AEb
+http://example.com/#a%C2%AEb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00AEb
+a%C2%AEb
 
 #data escaped
 http://example.com/#a\u00aFb
 #canon escaped
-http://example.com/#a\u00AFb
+http://example.com/#a%C2%AFb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00AFb
+a%C2%AFb
 
 #data escaped
 http://example.com/#a\u00B0b
 #canon escaped
-http://example.com/#a\u00B0b
+http://example.com/#a%C2%B0b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00B0b
+a%C2%B0b
 
 #data escaped
 http://example.com/#a\u00B1b
 #canon escaped
-http://example.com/#a\u00B1b
+http://example.com/#a%C2%B1b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00B1b
+a%C2%B1b
 
 #data escaped
 http://example.com/#a\u00B2b
 #canon escaped
-http://example.com/#a\u00B2b
+http://example.com/#a%C2%B2b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00B2b
+a%C2%B2b
 
 #data escaped
 http://example.com/#a\u00B3b
 #canon escaped
-http://example.com/#a\u00B3b
+http://example.com/#a%C2%B3b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00B3b
+a%C2%B3b
 
 #data escaped
 http://example.com/#a\u00B4b
 #canon escaped
-http://example.com/#a\u00B4b
+http://example.com/#a%C2%B4b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00B4b
+a%C2%B4b
 
 #data escaped
 http://example.com/#a\u00B5b
 #canon escaped
-http://example.com/#a\u00B5b
+http://example.com/#a%C2%B5b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00B5b
+a%C2%B5b
 
 #data escaped
 http://example.com/#a\u00B6b
 #canon escaped
-http://example.com/#a\u00B6b
+http://example.com/#a%C2%B6b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00B6b
+a%C2%B6b
 
 #data escaped
 http://example.com/#a\u00B7b
 #canon escaped
-http://example.com/#a\u00B7b
+http://example.com/#a%C2%B7b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00B7b
+a%C2%B7b
 
 #data escaped
 http://example.com/#a\u00B8b
 #canon escaped
-http://example.com/#a\u00B8b
+http://example.com/#a%C2%B8b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00B8b
+a%C2%B8b
 
 #data escaped
 http://example.com/#a\u00B9b
 #canon escaped
-http://example.com/#a\u00B9b
+http://example.com/#a%C2%B9b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00B9b
+a%C2%B9b
 
 #data escaped
 http://example.com/#a\u00BAb
 #canon escaped
-http://example.com/#a\u00BAb
+http://example.com/#a%C2%BAb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00BAb
+a%C2%BAb
 
 #data escaped
 http://example.com/#a\u00BBb
 #canon escaped
-http://example.com/#a\u00BBb
+http://example.com/#a%C2%BBb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00BBb
+a%C2%BBb
 
 #data escaped
 http://example.com/#a\u00BCb
 #canon escaped
-http://example.com/#a\u00BCb
+http://example.com/#a%C2%BCb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00BCb
+a%C2%BCb
 
 #data escaped
 http://example.com/#a\u00BDb
 #canon escaped
-http://example.com/#a\u00BDb
+http://example.com/#a%C2%BDb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00BDb
+a%C2%BDb
 
 #data escaped
 http://example.com/#a\u00BEb
 #canon escaped
-http://example.com/#a\u00BEb
+http://example.com/#a%C2%BEb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00BEb
+a%C2%BEb
 
 #data escaped
 http://example.com/#a\u00BFb
 #canon escaped
-http://example.com/#a\u00BFb
+http://example.com/#a%C2%BFb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00BFb
+a%C2%BFb
 
 #data escaped
 http://example.com/#a\u00C0b
 #canon escaped
-http://example.com/#a\u00C0b
+http://example.com/#a%C3%80b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00C0b
+a%C3%80b
 
 #data escaped
 http://example.com/#a\u00C1b
 #canon escaped
-http://example.com/#a\u00C1b
+http://example.com/#a%C3%81b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00C1b
+a%C3%81b
 
 #data escaped
 http://example.com/#a\u00C2b
 #canon escaped
-http://example.com/#a\u00C2b
+http://example.com/#a%C3%82b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00C2b
+a%C3%82b
 
 #data escaped
 http://example.com/#a\u00C3b
 #canon escaped
-http://example.com/#a\u00C3b
+http://example.com/#a%C3%83b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00C3b
+a%C3%83b
 
 #data escaped
 http://example.com/#a\u00C4b
 #canon escaped
-http://example.com/#a\u00C4b
+http://example.com/#a%C3%84b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00C4b
+a%C3%84b
 
 #data escaped
 http://example.com/#a\u00C5b
 #canon escaped
-http://example.com/#a\u00C5b
+http://example.com/#a%C3%85b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00C5b
+a%C3%85b
 
 #data escaped
 http://example.com/#a\u00C6b
 #canon escaped
-http://example.com/#a\u00C6b
+http://example.com/#a%C3%86b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00C6b
+a%C3%86b
 
 #data escaped
 http://example.com/#a\u00C7b
 #canon escaped
-http://example.com/#a\u00C7b
+http://example.com/#a%C3%87b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00C7b
+a%C3%87b
 
 #data escaped
 http://example.com/#a\u00C8b
 #canon escaped
-http://example.com/#a\u00C8b
+http://example.com/#a%C3%88b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00C8b
+a%C3%88b
 
 #data escaped
 http://example.com/#a\u00C9b
 #canon escaped
-http://example.com/#a\u00C9b
+http://example.com/#a%C3%89b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00C9b
+a%C3%89b
 
 #data escaped
 http://example.com/#a\u00CAb
 #canon escaped
-http://example.com/#a\u00CAb
+http://example.com/#a%C3%8Ab
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00CAb
+a%C3%8Ab
 
 #data escaped
 http://example.com/#a\u00CBb
 #canon escaped
-http://example.com/#a\u00CBb
+http://example.com/#a%C3%8Bb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00CBb
+a%C3%8Bb
 
 #data escaped
 http://example.com/#a\u00CCb
 #canon escaped
-http://example.com/#a\u00CCb
+http://example.com/#a%C3%8Cb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00CCb
+a%C3%8Cb
 
 #data escaped
 http://example.com/#a\u00CDb
 #canon escaped
-http://example.com/#a\u00CDb
+http://example.com/#a%C3%8Db
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00CDb
+a%C3%8Db
 
 #data escaped
 http://example.com/#a\u00CEb
 #canon escaped
-http://example.com/#a\u00CEb
+http://example.com/#a%C3%8Eb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00CEb
+a%C3%8Eb
 
 #data escaped
 http://example.com/#a\u00CFb
 #canon escaped
-http://example.com/#a\u00CFb
+http://example.com/#a%C3%8Fb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00CFb
+a%C3%8Fb
 
 #data escaped
 http://example.com/#a\u00D0b
 #canon escaped
-http://example.com/#a\u00D0b
+http://example.com/#a%C3%90b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00D0b
+a%C3%90b
 
 #data escaped
 http://example.com/#a\u00D1b
 #canon escaped
-http://example.com/#a\u00D1b
+http://example.com/#a%C3%91b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00D1b
+a%C3%91b
 
 #data escaped
 http://example.com/#a\u00D2b
 #canon escaped
-http://example.com/#a\u00D2b
+http://example.com/#a%C3%92b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00D2b
+a%C3%92b
 
 #data escaped
 http://example.com/#a\u00D3b
 #canon escaped
-http://example.com/#a\u00D3b
+http://example.com/#a%C3%93b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00D3b
+a%C3%93b
 
 #data escaped
 http://example.com/#a\u00D4b
 #canon escaped
-http://example.com/#a\u00D4b
+http://example.com/#a%C3%94b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00D4b
+a%C3%94b
 
 #data escaped
 http://example.com/#a\u00D5b
 #canon escaped
-http://example.com/#a\u00D5b
+http://example.com/#a%C3%95b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00D5b
+a%C3%95b
 
 #data escaped
 http://example.com/#a\u00D6b
 #canon escaped
-http://example.com/#a\u00D6b
+http://example.com/#a%C3%96b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00D6b
+a%C3%96b
 
 #data escaped
 http://example.com/#a\u00D7b
 #canon escaped
-http://example.com/#a\u00D7b
+http://example.com/#a%C3%97b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00D7b
+a%C3%97b
 
 #data escaped
 http://example.com/#a\u00D8b
 #canon escaped
-http://example.com/#a\u00D8b
+http://example.com/#a%C3%98b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00D8b
+a%C3%98b
 
 #data escaped
 http://example.com/#a\u00D9b
 #canon escaped
-http://example.com/#a\u00D9b
+http://example.com/#a%C3%99b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00D9b
+a%C3%99b
 
 #data escaped
 http://example.com/#a\u00DAb
 #canon escaped
-http://example.com/#a\u00DAb
+http://example.com/#a%C3%9Ab
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00DAb
+a%C3%9Ab
 
 #data escaped
 http://example.com/#a\u00DBb
 #canon escaped
-http://example.com/#a\u00DBb
+http://example.com/#a%C3%9Bb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00DBb
+a%C3%9Bb
 
 #data escaped
 http://example.com/#a\u00DCb
 #canon escaped
-http://example.com/#a\u00DCb
+http://example.com/#a%C3%9Cb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00DCb
+a%C3%9Cb
 
 #data escaped
 http://example.com/#a\u00DDb
 #canon escaped
-http://example.com/#a\u00DDb
+http://example.com/#a%C3%9Db
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00DDb
+a%C3%9Db
 
 #data escaped
 http://example.com/#a\u00DEb
 #canon escaped
-http://example.com/#a\u00DEb
+http://example.com/#a%C3%9Eb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00DEb
+a%C3%9Eb
 
 #data escaped
 http://example.com/#a\u00DFb
 #canon escaped
-http://example.com/#a\u00DFb
+http://example.com/#a%C3%9Fb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00DFb
+a%C3%9Fb
 
 #data escaped
 http://example.com/#a\u00E0b
 #canon escaped
-http://example.com/#a\u00E0b
+http://example.com/#a%C3%A0b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00E0b
+a%C3%A0b
 
 #data escaped
 http://example.com/#a\u00E1b
 #canon escaped
-http://example.com/#a\u00E1b
+http://example.com/#a%C3%A1b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00E1b
+a%C3%A1b
 
 #data escaped
 http://example.com/#a\u00E2b
 #canon escaped
-http://example.com/#a\u00E2b
+http://example.com/#a%C3%A2b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00E2b
+a%C3%A2b
 
 #data escaped
 http://example.com/#a\u00E3b
 #canon escaped
-http://example.com/#a\u00E3b
+http://example.com/#a%C3%A3b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00E3b
+a%C3%A3b
 
 #data escaped
 http://example.com/#a\u00E4b
 #canon escaped
-http://example.com/#a\u00E4b
+http://example.com/#a%C3%A4b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00E4b
+a%C3%A4b
 
 #data escaped
 http://example.com/#a\u00E5b
 #canon escaped
-http://example.com/#a\u00E5b
+http://example.com/#a%C3%A5b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00E5b
+a%C3%A5b
 
 #data escaped
 http://example.com/#a\u00E6b
 #canon escaped
-http://example.com/#a\u00E6b
+http://example.com/#a%C3%A6b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00E6b
+a%C3%A6b
 
 #data escaped
 http://example.com/#a\u00E7b
 #canon escaped
-http://example.com/#a\u00E7b
+http://example.com/#a%C3%A7b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00E7b
+a%C3%A7b
 
 #data escaped
 http://example.com/#a\u00E8b
 #canon escaped
+http://example.com/#a%C3%A8b
+#oldcanon
 http://example.com/#a\u00E8b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%A8b
+#old
 a\u00E8b
 
 #data escaped
 http://example.com/#a\u00E9b
 #canon escaped
+http://example.com/#a%C3%A9b
+#oldcanon
 http://example.com/#a\u00E9b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%A9b
+#old
 a\u00E9b
 
 #data escaped
 http://example.com/#a\u00EAb
 #canon escaped
+http://example.com/#a%C3%AAb
+#oldcanon
 http://example.com/#a\u00EAb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%AAb
+#old
 a\u00EAb
 
 #data escaped
 http://example.com/#a\u00EBb
 #canon escaped
-http://example.com/#a\u00EBb
+http://example.com/#a%C3%ABb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u00EBb
+a%C3%ABb
 
 #data escaped
 http://example.com/#a\u00ECb
 #canon escaped
+http://example.com/#a%C3%ACb
+#oldcanon
 http://example.com/#a\u00ECb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%ACb
+#old
 a\u00ECb
 
 #data escaped
 http://example.com/#a\u00EDb
 #canon escaped
+http://example.com/#a%C3%ADb
+#oldcanon
 http://example.com/#a\u00EDb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%ADb
+#old
 a\u00EDb
 
 #data escaped
 http://example.com/#a\u00EEb
 #canon escaped
+http://example.com/#a%C3%AEb
+#oldcanon
 http://example.com/#a\u00EEb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%AEb
+#old
 a\u00EEb
 
 #data escaped
 http://example.com/#a\u00EFb
 #canon escaped
+http://example.com/#a%C3%AFb
+#oldcanon
 http://example.com/#a\u00EFb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%AFb
+#old
 a\u00EFb
 
 #data escaped
 http://example.com/#a\u00F0b
 #canon escaped
+http://example.com/#a%C3%B0b
+#oldcanon
 http://example.com/#a\u00F0b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%B0b
+#old
 a\u00F0b
 
 #data escaped
 http://example.com/#a\u00F1b
 #canon escaped
+http://example.com/#a%C3%B1b
+#oldcanon
 http://example.com/#a\u00F1b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%B1b
+#old
 a\u00F1b
 
 #data escaped
 http://example.com/#a\u00F2b
 #canon escaped
+http://example.com/#a%C3%B2b
+#oldcanon
 http://example.com/#a\u00F2b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%B2b
+#old
 a\u00F2b
 
 #data escaped
 http://example.com/#a\u00F3b
 #canon escaped
+http://example.com/#a%C3%B3b
+#oldcanon
 http://example.com/#a\u00F3b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%B3b
+#old
 a\u00F3b
 
 #data escaped
 http://example.com/#a\u00F4b
 #canon escaped
+http://example.com/#a%C3%B4b
+#oldcanon
 http://example.com/#a\u00F4b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%B4b
+#old
 a\u00F4b
 
 #data escaped
 http://example.com/#a\u00F5b
 #canon escaped
+http://example.com/#a%C3%B5b
+#oldcanon
 http://example.com/#a\u00F5b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%B5b
+#old
 a\u00F5b
 
 #data escaped
 http://example.com/#a\u00F6b
 #canon escaped
+http://example.com/#a%C3%B6b
+#oldcanon
 http://example.com/#a\u00F6b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%B6b
+#old
 a\u00F6b
 
 #data escaped
 http://example.com/#a\u00F7b
 #canon escaped
+http://example.com/#a%C3%B7b
+#oldcanon
 http://example.com/#a\u00F7b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%B7b
+#old
 a\u00F7b
 
 #data escaped
 http://example.com/#a\u00F8b
 #canon escaped
+http://example.com/#a%C3%B8b
+#oldcanon
 http://example.com/#a\u00F8b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%B8b
+#old
 a\u00F8b
 
 #data escaped
 http://example.com/#a\u00F9b
 #canon escaped
+http://example.com/#a%C3%B9b
+#oldcanon
 http://example.com/#a\u00F9b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%B9b
+#old
 a\u00F9b
 
 #data escaped
 http://example.com/#a\u00FAb
 #canon escaped
+http://example.com/#a%C3%BAb
+#oldcanon
 http://example.com/#a\u00FAb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%BAb
+#old
 a\u00FAb
 
 #data escaped
 http://example.com/#a\u00FBb
 #canon escaped
+http://example.com/#a%C3%BBb
+#oldcanon
 http://example.com/#a\u00FBb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%BBb
+#old
 a\u00FBb
 
 #data escaped
 http://example.com/#a\u00FCb
 #canon escaped
+http://example.com/#a%C3%BCb
+#oldcanon
 http://example.com/#a\u00FCb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%BCb
+#old
 a\u00FCb
 
 #data escaped
 http://example.com/#a\u00FDb
 #canon escaped
+http://example.com/#a%C3%BDb
+#oldcanon
 http://example.com/#a\u00FDb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%BDb
+#old
 a\u00FDb
 
 #data escaped
 http://example.com/#a\u00FEb
 #canon escaped
+http://example.com/#a%C3%BEb
+#oldcanon
 http://example.com/#a\u00FEb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%BEb
+#old
 a\u00FEb
 
 #data escaped
 http://example.com/#a\u00FFb
 #canon escaped
+http://example.com/#a%C3%BFb
+#oldcanon
 http://example.com/#a\u00FFb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
+a%C3%BFb
+#old
 a\u00FFb
 
 #data escaped
 http://example.com/#a\u0100b
 #canon escaped
-http://example.com/#a\u0100b
+http://example.com/#a%C4%80b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\u0100b
+a%C4%80b
 
 #data escaped
 http://example.com/#a\uD800b
 #canon escaped
-http://example.com/#a\uFFFDb
+http://example.com/#a%EF%BF%BDb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\uFFFDb
+a%EF%BF%BDb
 
 #data escaped
 http://example.com/#a\uD800\uDFFFb
 #canon escaped
 http://example.com/#a\U000103FFb
 #canon8 escaped
-http://example.com/#a\uFFFD\uFFFDb
+http://example.com/#a%EF%BF%BD%EF%BF%BDb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
 a\U000103FFb
 #fragment8 escaped
-a\uFFFD\uFFFDb
+a%EF%BF%BD%EF%BF%BDb
 
 #data escaped
 http://example.com/#a\uF000b
 #canon escaped
-http://example.com/#a\uF000b
+http://example.com/#a%EF%80%80b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\uF000b
+a%EF%80%80b
 
 #data escaped
 http://example.com/#a\uF800b
 #canon escaped
-http://example.com/#a\uF800b
+http://example.com/#a%EF%A0%80b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\uF800b
+a%EF%A0%80b
 
 #data escaped
 http://example.com/#a\uFFFEb
 #canon escaped
-http://example.com/#a\uFFFDb
+http://example.com/#a%EF%BF%BDb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\uFFFDb
+a%EF%BF%BDb
 
 #data escaped
 http://example.com/#a\uFFFFb
 #base http://foo/bar
 #canon escaped
-http://example.com/#a\uFFFDb
+http://example.com/#a%EF%BF%BDb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\uFFFDb
+a%EF%BF%BDb
 
 #data escaped
 http://example.com/#a\U00010000b
 #base http://foo/bar
 #canon escaped
-http://example.com/#a\U00010000b
+http://example.com/#a%F0%90%80%80b
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\U00010000b
+a%F0%90%80%80b
 
 #data escaped
 http://example.com/#a\U10000000b
 #base http://foo/bar
 #canon escaped
-http://example.com/#a\uFFFDb
+http://example.com/#a%EF%BF%BDb
 #scheme http
 #host example.com
 #path /
 #fragment escaped
-a\uFFFDb
+a%EF%BF%BDb
 
 #data
 http://foo/#a%00b

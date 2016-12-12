@@ -551,22 +551,24 @@ foo
 #data escaped
 jscript:a % 55 // # \u4e00
 #canon escaped
-jscript:a % 55 // # \u4e00
+jscript:a % 55 // # %E4%B8%80
 #scheme jscript
 #path escaped
 a % 55 //\u0020
 #fragment escaped
+ %E4%B8%80
+#old
  \u4e00
 
 #data escaped
 jscript:a % 55 // # \u4e00 "
 #canon escaped
-jscript:a % 55 // # \u4e00 "
+jscript:a % 55 // # %E4%B8%80 "
 #scheme jscript
 #path escaped
 a % 55 //\u0020
 #fragment escaped
- \u4e00 \u0022
+ %E4%B8%80 \u0022
 
 #data escaped
 vbscript:a % 55 ' # \u4e00
@@ -587,102 +589,112 @@ a % 55 ' # %E4%B8%80 "
 #data escaped
 mocha:a % 55 // # \u4e00
 #canon escaped
-mocha:a % 55 // # \u4e00
+mocha:a % 55 // # %E4%B8%80
 #scheme mocha
 #path escaped
 a % 55 //\u0020
 #fragment escaped
- \u4e00
+ %E4%B8%80
 
 #data escaped
 mocha:a % 55 // # \u4e00 "
 #canon escaped
-mocha:a % 55 // # \u4e00 "
+mocha:a % 55 // # %E4%B8%80 "
 #scheme mocha
 #path escaped
 a % 55 //\u0020
 #fragment escaped
- \u4e00 \u0022
+ %E4%B8%80 \u0022
 
 #data escaped
 ecmascript:a % 55 // # \u4e00
 #canon escaped
-ecmascript:a % 55 // # \u4e00
+ecmascript:a % 55 // # %E4%B8%80
 #scheme ecmascript
 #path escaped
 a % 55 //\u0020
 #fragment escaped
+ %E4%B8%80
+#old
  \u4e00
 
 #data escaped
 ecmascript:a % 55 // # \u4e00 "
 #canon escaped
-ecmascript:a % 55 // # \u4e00 "
+ecmascript:a % 55 // # %E4%B8%80 "
 #scheme ecmascript
 #path escaped
 a % 55 //\u0020
 #fragment escaped
- \u4e00 \u0022
+ %E4%B8%80 \u0022
 
 #data escaped
 livescript:a % 55 // # \u4e00
 #canon escaped
-livescript:a % 55 // # \u4e00
+livescript:a % 55 // # %E4%B8%80
 #scheme livescript
 #path escaped
 a % 55 //\u0020
 #fragment escaped
+ %E4%B8%80
+#old
  \u4e00
 
 #data escaped
 livescript:a % 55 // # \u4e00 "
 #canon escaped
-livescript:a % 55 // # \u4e00 "
+livescript:a % 55 // # %E4%B8%80 "
 #scheme livescript
 #path escaped
 a % 55 //\u0020
 #fragment escaped
- \u4e00 \u0022
+ %E4%B8%80 \u0022
 
 #data escaped
 perlscript:a % 55 // # \u4e00
 #canon escaped
-perlscript:a % 55 // # \u4e00
+perlscript:a % 55 // # %E4%B8%80
 #scheme perlscript
 #path escaped
 a % 55 //\u0020
 #fragment escaped
+ %E4%B8%80
+#old
  \u4e00
 
 #data escaped
 perlscript:a % 55 // # \u4e00 "
 #canon escaped
-perlscript:a % 55 // # \u4e00 "
+perlscript:a % 55 // # %E4%B8%80 "
 #scheme perlscript
 #path escaped
 a % 55 //\u0020
 #fragment escaped
- \u4e00 \u0022
+ %E4%B8%80 \u0022
 
 #data escaped
 unknownscript:a % 55 // # \u4e00
 #canon escaped
+unknownscript:a % 55 // # %E4%B8%80
+#oldcanon
 unknownscript:a % 55 // # \u4e00
 #scheme unknownscript
 #path escaped
 a % 55 //\u0020
 #fragment escaped
+ %E4%B8%80
+#old
  \u4e00
 
 #data escaped
 unknownscript:a % 55 // # \u4e00 "
 #canon escaped
-unknownscript:a % 55 // # \u4e00 "
+unknownscript:a % 55 // # %E4%B8%80 "
 #scheme unknownscript
 #path escaped
 a % 55 //\u0020
 #fragment escaped
- \u4e00 \u0022
+ %E4%B8%80 \u0022
 
 #data
 mocha://foo
