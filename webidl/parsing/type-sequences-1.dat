@@ -37,14 +37,14 @@ typedef sequence<sequence < DOMString >?> A;
 } ] }
 
 #data
-typedef sequence<Promise < DOMString >?> A;
+typedef Promise<sequence < DOMString >?> A;
 #parsed
 { "definitions": [ {
   "index": 0, "definition_type": "typedef", "name": "A",
   "type_parameterized": {
-    "type_outer": "sequence",
+    "type_outer": "Promise",
     "type_parameterized": {
-      "type_outer": "Promise",
+      "type_outer": "sequence",
       "type": "DOMString"
     },
     "type_nullable": 1

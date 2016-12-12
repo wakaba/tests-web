@@ -75,3 +75,37 @@ typedef Promise<sequence < DOMString >?> A;
 typedef Promise<sequence < DOMString >[]> A;
 #errors
 38;webidl:parse error;?, ;;m
+
+#data
+interface A {
+  attribute Promise<long> foo;
+};
+#errors
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "index": 0,
+      "members": [
+        {
+          "member_type": "attribute",
+          "index": 16,
+          "name": "foo",
+          "type_parameterized": {
+            "type": "long",
+            "type_outer": "Promise"
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  attribute Promise<long> ? foo;
+};
+#errors
+40;webidl:parse error;[, ;;m
