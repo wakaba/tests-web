@@ -1,0 +1,34 @@
+#encoding
+utf-8
+
+#b
+\xFE\xFF\x12\x34
+#c
+\u{1234}
+#bc decode
+#used
+utf-16be
+#name
+UTF-16BE BOM
+
+#b
+\xFE\xFF\x12\x34
+#c
+\u{FFFD}\u{FFFD}\u{12}\u{34}
+#bc utf8
+
+#b
+\xFF\xFE\x12\x34
+#c
+\u{3412}
+#bc decode
+#used
+utf-16le
+#name
+UTF-16LE BOM
+
+#b
+\xFF\xFE\x12\x34
+#c
+\u{FFFD}\u{FFFD}\u{12}\u{34}
+#bc utf8
