@@ -114,7 +114,7 @@ utf-16be
 #b
 \xFF\xFE
 #c
-#bc bom
+#bc bomsniffing
 #used
 utf-16le
 
@@ -122,7 +122,7 @@ utf-16le
 \xFF\xFE
 #c
 \u{FFFE}
-#bc nobom
+#bc nobomsniffing
 #cb
 
 #b
@@ -153,23 +153,23 @@ utf-16le
 \xFF\xFE\x12\x34
 #c
 \u{3412}
-#bc bom
+#bc bomsniffing
 #used
 utf-16le
 
 #b
 \xFF\xFE\x12\x34
 #c
-\u{FFFE}\u{3412}
+\u{FFFE}\u{1234}
 #bc nobom
 #name
-U+FFFE U+3412 (utf-16be no BOM)
+U+FFFE U+1234 (utf-16be no BOM)
 
 #b
 \xEF\xBB\xBF\xE4\xB8\x80
 #c
 \u{4e00}
-#bc bom
+#bc bomsniffing
 #used
 utf-8
 #name
@@ -179,7 +179,7 @@ UTF-16BE but in fact UTF-8 with BOM
 \xEF\xBB\xBF\xE4\xB8\x80
 #c
 \u{EFBB}\u{BFE4}\u{B880}
-#bc nobom
+#bc nobomsniffing
 
 #encoding
 utf-16le
@@ -275,6 +275,8 @@ BOM U+FEFF U+3412 (UTF-16LE)
 \xFF\xFE
 #c
 #bc bom
+#name
+BOM (UTF-16LE) only
 
 #b
 \xFF\xFE
@@ -282,11 +284,13 @@ BOM U+FEFF U+3412 (UTF-16LE)
 \u{FEFF}
 #bc nobom
 #cb
+#name
+U+FEFF (UTF-16LE no BOM)
 
 #b
 \xFE\xFF
 #c
-#bc bom
+#bc bomsniffing
 #used
 utf-16be
 
@@ -294,14 +298,14 @@ utf-16be
 \xFE\xFF
 #c
 \u{FFFE}
-#bc nobom
+#bc nobomsniffing
 #cb
 
 #b
 \xFE\xFF\x12\x34
 #c
 \u{1234}
-#bc bom
+#bc bomsniffing
 #used
 utf-16be
 
@@ -309,7 +313,7 @@ utf-16be
 \xFE\xFF\x12\x34
 #c
 \u{FFFE}\u{3412}
-#bc nobom
+#bc nobomsniffing
 #cb
 
 #b
@@ -331,11 +335,13 @@ U+FEFF U+3412 (utf-16le no BOM)
 \xEF\xBB\xBF\xE4\xB8\x80
 #c
 \u{4e00}
-#bc bom
+#bc bomsniffing
+#used
+utf-8
 
 #b
 \xEF\xBB\xBF\xE4\xB8\x80
 #c
 \u{BBEF}\u{E4BF}\u{80B8}
-#bc nobom
+#bc nobomsniffing
 #cb

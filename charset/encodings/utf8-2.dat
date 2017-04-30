@@ -5,7 +5,7 @@ utf-8
 \xFE\xFF\x12\x34
 #c
 \u{1234}
-#bc decode
+#bc bomsniffing
 #used
 utf-16be
 #name
@@ -15,13 +15,13 @@ UTF-16BE BOM
 \xFE\xFF\x12\x34
 #c
 \u{FFFD}\u{FFFD}\u{12}\u{34}
-#bc utf8
+#bc nobomsniffing
 
 #b
 \xFF\xFE\x12\x34
 #c
 \u{3412}
-#bc decode
+#bc bomsniffing
 #used
 utf-16le
 #name
@@ -31,4 +31,4 @@ UTF-16LE BOM
 \xFF\xFE\x12\x34
 #c
 \u{FFFD}\u{FFFD}\u{12}\u{34}
-#bc utf8
+#bc nobomsniffing
