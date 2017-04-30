@@ -213,6 +213,8 @@ _
 \u{FEF1}\u{FEFF}\u{1234}
 #bc
 #cb
+#name
+FEF1 FEFF 1234 (utf-16be)
 
 #b
 \xF0
@@ -221,5 +223,24 @@ _
 \x12\x34
 #c
 \u{F0F1}\u{FEFF}\u{1234}
+#bc
+#cb
+
+#encoding
+utf-16le
+#b
+\xFF
+\xFE\x12\x34
+#c
+\u{3412}
+#bc bom
+
+#encoding
+utf-16le
+#b
+\xFF
+\xFF\xFE\x12\x34\x56
+#c
+\u{FFFF}\u{12FE}\u{5634}
 #bc
 #cb
