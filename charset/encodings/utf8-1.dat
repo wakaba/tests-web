@@ -501,12 +501,16 @@ U+FEFF <-> \xEF\xBB\xBF (roundtripable if decoder does not support BOM)
 #bc bom
 #name
 \xEF\xBB\xBF -> BOM
+#errors
+0;s;bom;
 
 #b
 \xEF
 \xBB\xBF
 #c
 #bc bom
+#errors
+0;s;bom;
 
 #b
 \xEF
@@ -514,12 +518,16 @@ U+FEFF <-> \xEF\xBB\xBF (roundtripable if decoder does not support BOM)
 \xBF
 #c
 #bc bom
+#errors
+0;s;bom;
 
 #b
 \xEF\xBB
 \xBF
 #c
 #bc bom
+#errors
+0;s;bom;
 
 #b
 \xEF
@@ -530,6 +538,8 @@ U+FEFF <-> \xEF\xBB\xBF (roundtripable if decoder does not support BOM)
 #c
 \u{4e00}
 #bc bom
+#errors
+0;s;bom;
 
 #b
 \xEF\xBB\xBF\xED\xA0\x80
@@ -537,6 +547,7 @@ U+FEFF <-> \xEF\xBB\xBF (roundtripable if decoder does not support BOM)
 \u{FFFD}\u{FFFD}\u{FFFD}
 #bc bom
 #errors fatal
+0;s;bom;
 3;m;utf-8:bad bytes;\xED
 4;m;utf-8:bad bytes;\xA0
 5;m;utf-8:bad bytes;\x80
@@ -556,6 +567,8 @@ U+FEFF <-> \xEF\xBB\xBF (roundtripable if decoder does not support BOM)
 #c
 abc
 #bc bom
+#errors
+0;s;bom;
 
 #b
 \xEF\xBB\xBFabc
@@ -568,6 +581,8 @@ abc
 #c
 \u{FEFF}
 #bc bom
+#errors
+0;s;bom;
 
 #b
 \xEF\xBB\xBF\xEF\xBB\xBF

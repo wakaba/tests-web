@@ -57,6 +57,8 @@ utf-16be
 #c
 \u{FEFF}\u{1234}
 #bc bom
+#errors
+0;s;bom;
 
 #b
 \xFE\xFF\xFE\xFF\x12\x34
@@ -70,6 +72,8 @@ utf-16be
 #c
 \u{FFFE}\u{1234}
 #bc bom
+#errors
+0;s;bom;
 
 #b
 \xFE\xFF\xFF\xFE\x12\x34
@@ -117,6 +121,8 @@ utf-16be
 #bc bomsniffing
 #used
 utf-16le
+#errors
+0;s;bom;
 
 #b
 \xFF\xFE
@@ -129,6 +135,8 @@ utf-16le
 \xFE\xFF
 #c
 #bc bom
+#errors
+0;s;bom;
 
 #b
 \xFE\xFF
@@ -141,6 +149,8 @@ utf-16le
 #c
 \u{1234}
 #bc bom
+#errors
+0;s;bom;
 
 #b
 \xFE\xFF\x12\x34
@@ -156,6 +166,8 @@ utf-16le
 #bc bomsniffing
 #used
 utf-16le
+#errors
+0;s;bom;
 
 #b
 \xFF\xFE\x12\x34
@@ -174,6 +186,8 @@ U+FFFE U+1234 (utf-16be no BOM)
 utf-8
 #name
 UTF-16BE but in fact UTF-8 with BOM
+#errors
+0;s;bom;
 
 #b
 \xEF\xBB\xBF\xE4\xB8\x80
@@ -231,6 +245,8 @@ utf-16le
 #bc bom
 #name
 BOM U+FEFF U+3412 (UTF-16LE)
+#errors
+0;s;bom;
 
 #b
 \xFF\xFE\xFF\xFE\x12\x34
@@ -244,6 +260,8 @@ BOM U+FEFF U+3412 (UTF-16LE)
 #c
 \u{FFFE}\u{3412}
 #bc bom
+#errors
+0;s;bom;
 
 #b
 \xFF\xFE\xFE\xFF\x12\x34
@@ -277,6 +295,8 @@ BOM U+FEFF U+3412 (UTF-16LE)
 #bc bom
 #name
 BOM (UTF-16LE) only
+#errors
+0;s;bom;
 
 #b
 \xFF\xFE
@@ -293,6 +313,8 @@ U+FEFF (UTF-16LE no BOM)
 #bc bomsniffing
 #used
 utf-16be
+#errors
+0;s;bom;
 
 #b
 \xFE\xFF
@@ -308,6 +330,8 @@ utf-16be
 #bc bomsniffing
 #used
 utf-16be
+#errors
+0;s;bom;
 
 #b
 \xFE\xFF\x12\x34
@@ -321,6 +345,8 @@ utf-16be
 #c
 \u{3412}
 #bc bom
+#errors
+0;s;bom;
 
 #b
 \xFF\xFE\x12\x34
@@ -338,6 +364,8 @@ U+FEFF U+3412 (utf-16le no BOM)
 #bc bomsniffing
 #used
 utf-8
+#errors
+0;s;bom;
 
 #b
 \xEF\xBB\xBF\xE4\xB8\x80
