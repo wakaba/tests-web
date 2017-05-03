@@ -325,11 +325,10 @@ _
 #b
 \xED\x9F
 #c
-\u{FFFD}\u{FFFD}
+\u{FFFD}
 #bc
 #errors fatal
-0;m;utf-8:bad bytes;\xED
-1;m;utf-8:bad bytes;\x9F
+0;m;utf-8:bad bytes;\xED\x9F
 
 #b
 \xED\xA0
@@ -343,22 +342,20 @@ _
 #b
 \xED\x9F\xC0
 #c
-\u{FFFD}\u{FFFD}\u{FFFD}
+\u{FFFD}\u{FFFD}
 #bc
 #errors fatal
-0;m;utf-8:bad bytes;\xED
-1;m;utf-8:bad bytes;\x9F
+0;m;utf-8:bad bytes;\xED\x9F
 2;m;utf-8:bad bytes;\xC0
 
 #b
 \xED\x9F
 \xC0
 #c
-\u{FFFD}\u{FFFD}\u{FFFD}
+\u{FFFD}\u{FFFD}
 #bc
 #errors fatal
-0;m;utf-8:bad bytes;\xED
-1;m;utf-8:bad bytes;\x9F
+0;m;utf-8:bad bytes;\xED\x9F
 2;m;utf-8:bad bytes;\xC0
 
 #b
@@ -424,11 +421,10 @@ a\u{FFFD}\u{FFFD}b
 #b
 \xEF\xBB
 #c
-\u{FFFD}\u{FFFD}
+\u{FFFD}
 #bc
 #errors fatal
-0;m;utf-8:bad bytes;\xEF
-1;m;utf-8:bad bytes;\xBB
+0;m;utf-8:bad bytes;\xEF\xBB
 
 #b
 \xF4\x8F\xBF\xBD

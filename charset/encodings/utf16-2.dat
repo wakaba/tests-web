@@ -1,0 +1,135 @@
+#encoding
+utf-16le
+#b
+\x61\x00\x62\x00
+#c
+\u{0061}\u{0062}
+#bc
+#cb
+
+#encoding
+utf-16be
+#b
+\x00\x61\x00\x62
+#c
+\u{0061}\u{0062}
+#bc
+#cb
+
+#encoding
+utf-16be
+#b
+\xFE\xFF\x00\x61\x00\x62
+#c
+\u{0061}\u{0062}
+#bc bom
+#errors
+0;s;bom;
+
+#encoding
+utf-16le
+#b
+\xFF\xFE\x61\x00\x62\x00
+#bc bom
+#c
+\u{0061}\u{0062}
+#errors
+0;s;bom;
+
+#encoding
+utf-16le
+#b
+\x61\x00\x62
+#c
+\u{0061}\u{FFFD}
+#bc
+#errors fatal
+2;m;utf-16:lone byte;\x62
+
+#encoding
+utf-16be
+#b
+\x00\x61\x00
+#c
+\u{0061}\u{FFFD}
+#bc
+#errors fatal
+2;m;utf-16:lone byte;\x00
+
+#encoding
+utf-16le
+#b
+\x3D\xD8\xA9
+#c
+\u{FFFD}
+#bc
+#errors fatal
+2;m;utf-16:lone byte;\xA9
+
+#encoding
+utf-16be
+#b
+\xD8\x3D\xDC
+#c
+\u{FFFD}
+#bc
+#errors fatal
+2;m;utf-16:lone byte;\xDC
+
+#encoding
+utf-16le
+#b
+\x3D\xD8\xA9\xDC\x03\x26
+#c
+\u{1F4A9}\u{2603}
+#bc
+#cb
+
+#encoding
+utf-16be
+#b
+\xD8\x3D\xDC\xA9\x26\x03
+#c
+\u{1F4A9}\u{2603}
+#bc
+#cb
+
+#encoding
+utf-16le
+#b
+\xA9\xDC\x03\x26
+#c
+\u{FFFD}\u{2603}
+#bc
+#errors fatal
+0;m;utf-16:lone low surrogate$0xDCA9;
+
+#encoding
+utf-16be
+#b
+\xDC\xA9\x26\x03
+#c
+\u{FFFD}\u{2603}
+#bc
+#errors fatal
+0;m;utf-16:lone low surrogate$0xDCA9;
+
+#encoding
+utf-16le
+#b
+\x3D\xD8\x03\x26
+#c
+\u{FFFD}\u{2603}
+#bc
+#errors fatal
+0;m;utf-16:lone high surrogate$0xD83D;
+
+#encoding
+utf-16be
+#b
+\xD8\x3D\x26\x03
+#c
+\u{FFFD}\u{2603}
+#bc
+#errors fatal
+0;m;utf-16:lone high surrogate$0xD83D;

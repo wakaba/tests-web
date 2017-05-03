@@ -1,0 +1,989 @@
+#encoding
+utf-8
+
+#name
+ASCII
+#b
+ab
+#c
+ab
+#bc
+#cb
+
+#name
+Low BMP with last byte missing
+#b
+a\xC3Z
+#c
+a\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xC3
+
+#name
+Low BMP with last byte missing
+#b
+a\xC3
+#c
+a\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xC3
+
+#name
+High BMP with last byte missing
+#b
+a\xE2\x98Z
+#c
+a\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xE2\x98
+
+#name
+High BMP with last byte missing
+#b
+a\xE2\x98
+#c
+a\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xE2\x98
+
+#name
+Astral with last byte missing
+#b
+a\xF0\x9F\x92Z
+#c
+a\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0\x9F\x92
+
+#name
+Astral with last byte missing
+#b
+a\xF0\x9F\x92
+#c
+a\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0\x9F\x92
+
+#name
+Lone highest continuation
+#b
+a\xBFZ
+#c
+a\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xBF
+
+#name
+Lone highest continuation
+#b
+a\xBF
+#c
+a\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xBF
+
+#name
+Two lone highest continuations
+#b
+a\xBF\xBFZ
+#c
+a\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xBF
+2;m;utf-8:bad bytes;\xBF
+
+#name
+Two lone highest continuations
+#b
+a\xBF\xBF
+#c
+a\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xBF
+2;m;utf-8:bad bytes;\xBF
+
+#name
+Low BMP followed by lowest lone continuation
+#b
+a\xC3\xA4\x80Z
+#c
+a\u{E4}\u{FFFD}Z
+#bc
+#errors fatal
+3;m;utf-8:bad bytes;\x80
+
+#name
+Low BMP followed by lowest lone continuation
+#b
+a\xC3\xA4\x80
+#c
+a\u{E4}\u{FFFD}
+#bc
+#errors fatal
+3;m;utf-8:bad bytes;\x80
+
+#name
+Low BMP followed by highest lone continuation
+#b
+a\xC3\xA4\xBFZ
+#c
+a\u{E4}\u{FFFD}Z
+#bc
+#errors fatal
+3;m;utf-8:bad bytes;\xBF
+
+#name
+Low BMP followed by highest lone continuation
+#b
+a\xC3\xA4\xBF
+#c
+a\u{E4}\u{FFFD}
+#bc
+#errors fatal
+3;m;utf-8:bad bytes;\xBF
+
+#name
+High BMP followed by lowest lone continuation
+#b
+a\xE2\x98\x83\x80Z
+#c
+a\u{2603}\u{FFFD}Z
+#bc
+#errors fatal
+4;m;utf-8:bad bytes;\x80
+
+#name
+High BMP followed by lowest lone continuation
+#b
+a\xE2\x98\x83\x80
+#c
+a\u{2603}\u{FFFD}
+#bc
+#errors fatal
+4;m;utf-8:bad bytes;\x80
+
+#name
+High BMP followed by highest lone continuation
+#b
+a\xE2\x98\x83\xBFZ
+#c
+a\u{2603}\u{FFFD}Z
+#bc
+#errors fatal
+4;m;utf-8:bad bytes;\xBF
+
+#name
+High BMP followed by highest lone continuation
+#b
+a\xE2\x98\x83\xBF
+#c
+a\u{2603}\u{FFFD}
+#bc
+#errors fatal
+4;m;utf-8:bad bytes;\xBF
+
+#name
+Astral followed by lowest lone continuation
+#b
+a\xF0\x9F\x92\xA9\x80Z
+#c
+a\u{1F4A9}\u{FFFD}Z
+#bc
+#errors fatal
+5;m;utf-8:bad bytes;\x80
+
+#name
+Astral followed by lowest lone continuation
+#b
+a\xF0\x9F\x92\xA9\x80
+#c
+a\u{1F4A9}\u{FFFD}
+#bc
+#errors fatal
+5;m;utf-8:bad bytes;\x80
+
+#name
+Astral followed by highest lone continuation
+#b
+a\xF0\x9F\x92\xA9\xBFZ
+#c
+a\u{1F4A9}\u{FFFD}Z
+#bc
+#errors fatal
+5;m;utf-8:bad bytes;\xBF
+
+#name
+Astral followed by highest lone continuation
+#b
+a\xF0\x9F\x92\xA9\xBF
+#c
+a\u{1F4A9}\u{FFFD}
+#bc
+#errors fatal
+5;m;utf-8:bad bytes;\xBF
+
+#name
+Lowest single-byte
+#b
+Z\x00
+#c
+Z\u{0000}
+#bc
+#cb
+
+#b
+Z\x00Z
+#c
+Z\u{0000}Z
+#bc
+#cb
+
+#name
+Lowest single-byte as two-byte overlong sequence
+#b
+a\xC0\x80
+#c
+a\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xC0
+2;m;utf-8:bad bytes;\x80
+
+#b
+a\xC0\x80Z
+#c
+a\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xC0
+2;m;utf-8:bad bytes;\x80
+
+#name
+Lowest single-byte as three-byte overlong sequence
+#b
+a\xE0\x80\x80
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xE0
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\x80
+
+#b
+a\xE0\x80\x80Z
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xE0
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\x80
+
+#name
+Lowest single-byte as four-byte overlong sequence
+#b
+a\xF0\x80\x80\x80
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\x80
+4;m;utf-8:bad bytes;\x80
+
+#b
+a\xF0\x80\x80\x80Z
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\x80
+4;m;utf-8:bad bytes;\x80
+
+#name
+One below lowest single-byte
+#b
+a\xFF
+#c
+a\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xFF
+
+#b
+a\xFFZ
+#c
+a\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xFF
+
+#name
+Highest single-byte
+#b
+a\x7F
+#c
+a\u{7F}
+#bc
+#cb
+
+#b
+a\x7FZ
+#c
+a\u{7F}Z
+#bc
+#cb
+
+#name
+Highest single-byte as two-byte overlong sequence
+#b
+a\xC1\xBF
+#c
+a\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xC1
+2;m;utf-8:bad bytes;\xBF
+
+#b
+a\xC1\xBFZ
+#c
+a\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xC1
+2;m;utf-8:bad bytes;\xBF
+
+#name
+Highest single-byte as three-byte overlong sequence
+#b
+a\xE0\x81\xBF
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xE0
+2;m;utf-8:bad bytes;\x81
+3;m;utf-8:bad bytes;\xBF
+
+#b
+a\xE0\x81\xBFZ
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xE0
+2;m;utf-8:bad bytes;\x81
+3;m;utf-8:bad bytes;\xBF
+
+#name
+Highest single-byte as four-byte overlong sequence
+#b
+a\xF0\x80\x81\xBF
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\x81
+4;m;utf-8:bad bytes;\xBF
+
+#b
+a\xF0\x80\x81\xBFZ
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\x81
+4;m;utf-8:bad bytes;\xBF
+
+#name
+One past highest single byte (also lone continuation)
+#b
+a\x80Z
+#c
+a\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\x80
+
+#b
+a\x80
+#c
+a\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\x80
+
+#name
+Two lone continuations
+#b
+a\x80\x80Z
+#c
+a\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\x80
+2;m;utf-8:bad bytes;\x80
+
+#b
+a\x80\x80
+#c
+a\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\x80
+2;m;utf-8:bad bytes;\x80
+
+#name
+Three lone continuations
+#b
+a\x80\x80\x80Z
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\x80
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\x80
+
+#b
+a\x80\x80\x80
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\x80
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\x80
+
+#name
+Four lone continuations
+#b
+a\x80\x80\x80\x80Z
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\x80
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\x80
+4;m;utf-8:bad bytes;\x80
+
+#b
+a\x80\x80\x80\x80
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\x80
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\x80
+4;m;utf-8:bad bytes;\x80
+
+#name
+Lowest two-byte
+#b
+a\xC2\x80
+#c
+a\u{0080}
+#bc
+#cb
+
+#b
+a\xC2\x80Z
+#c
+a\u{0080}Z
+#bc
+#cb
+
+#name
+Lowest two-byte as three-byte overlong sequence
+#b
+a\xE0\x82\x80
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xE0
+2;m;utf-8:bad bytes;\x82
+3;m;utf-8:bad bytes;\x80
+
+#b
+a\xE0\x82\x80Z
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xE0
+2;m;utf-8:bad bytes;\x82
+3;m;utf-8:bad bytes;\x80
+
+#name
+Lowest two-byte as four-byte overlong sequence
+#b
+a\xF0\x80\x82\x80
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\x82
+4;m;utf-8:bad bytes;\x80
+
+#b
+a\xF0\x80\x82\x80Z
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\x82
+4;m;utf-8:bad bytes;\x80
+
+#name
+Lead one below lowest two-byte
+#b
+a\xC1\x80
+#c
+a\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xC1
+2;m;utf-8:bad bytes;\x80
+
+#b
+a\xC1\x80Z
+#c
+a\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xC1
+2;m;utf-8:bad bytes;\x80
+
+#name
+Trail one below lowest two-byte
+#b
+a\xC2\x7F
+#c
+a\u{FFFD}\u{007F}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xC2
+
+#b
+a\xC2\x7FZ
+#c
+a\u{FFFD}\u{007F}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xC2
+
+#name
+Highest two-byte
+#b
+a\xDF\xBF
+#c
+a\u{07FF}
+#bc
+#cb
+
+#b
+a\xDF\xBFZ
+#c
+a\u{07FF}Z
+#bc
+#cb
+
+#name
+Highest two-byte as three-byte overlong sequence
+#b
+a\xE0\x9F\xBF
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xE0
+2;m;utf-8:bad bytes;\x9F
+3;m;utf-8:bad bytes;\xBF
+
+#b
+a\xE0\x9F\xBFZ
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xE0
+2;m;utf-8:bad bytes;\x9F
+3;m;utf-8:bad bytes;\xBF
+
+#name
+Highest two-byte as four-byte overlong sequence
+#b
+a\xF0\x80\x9F\xBF
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\x9F
+4;m;utf-8:bad bytes;\xBF
+
+#b
+a\xF0\x80\x9F\xBFZ
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\x9F
+4;m;utf-8:bad bytes;\xBF
+
+#name
+Lowest three-byte
+#b
+a\xE0\xA0\x80
+#c
+a\u{0800}
+#bc
+#cb
+
+#b
+a\xE0\xA0\x80Z
+#c
+a\u{0800}Z
+#bc
+#cb
+
+#name
+Lowest three-byte as four-byte overlong sequence
+#b
+a\xF0\x80\xA0\x80
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\xA0
+4;m;utf-8:bad bytes;\x80
+
+#b
+a\xF0\x80\xA0\x80Z
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\xA0
+4;m;utf-8:bad bytes;\x80
+
+#name
+Highest below surrogates
+#b
+a\xED\x9F\xBF
+#c
+a\u{D7FF}
+#bc
+#cb
+
+#b
+a\xED\x9F\xBFZ
+#c
+a\u{D7FF}Z
+#bc
+#cb
+
+#name
+Highest below surrogates as four-byte overlong sequence
+#b
+a\xF0\x8D\x9F\xBF
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x8D
+3;m;utf-8:bad bytes;\x9F
+4;m;utf-8:bad bytes;\xBF
+
+#b
+a\xF0\x8D\x9F\xBFZ
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x8D
+3;m;utf-8:bad bytes;\x9F
+4;m;utf-8:bad bytes;\xBF
+
+#name
+First surrogate
+#b
+a\xED\xA0\x80
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xED
+2;m;utf-8:bad bytes;\xA0
+3;m;utf-8:bad bytes;\x80
+
+#b
+a\xED\xA0\x80Z
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xED
+2;m;utf-8:bad bytes;\xA0
+3;m;utf-8:bad bytes;\x80
+
+#name
+First surrogate as four-byte overlong sequence
+#b
+a\xF0\x8D\xA0\x80
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x8D
+3;m;utf-8:bad bytes;\xA0
+4;m;utf-8:bad bytes;\x80
+
+#b
+a\xF0\x8D\xA0\x80Z
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x8D
+3;m;utf-8:bad bytes;\xA0
+4;m;utf-8:bad bytes;\x80
+
+#name
+Last surrogate
+#b
+a\xED\xBF\xBF
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xED
+2;m;utf-8:bad bytes;\xBF
+3;m;utf-8:bad bytes;\xBF
+
+#b
+a\xED\xBF\xBFZ
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xED
+2;m;utf-8:bad bytes;\xBF
+3;m;utf-8:bad bytes;\xBF
+
+#name
+Last surrogate as four-byte overlong sequence
+#b
+a\xF0\x8D\xBF\xBF
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x8D
+3;m;utf-8:bad bytes;\xBF
+4;m;utf-8:bad bytes;\xBF
+
+#b
+a\xF0\x8D\xBF\xBFZ
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x8D
+3;m;utf-8:bad bytes;\xBF
+4;m;utf-8:bad bytes;\xBF
+
+#name
+Lowest above surrogates
+#b
+a\xEE\x80\x80
+#c
+a\u{E000}
+#bc
+#cb
+
+#b
+a\xEE\x80\x80Z
+#c
+a\u{E000}Z
+#bc
+#cb
+
+#name
+Lowest above surrogates as four-byte overlong sequence
+#b
+a\xF0\x8E\x80\x80
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x8E
+3;m;utf-8:bad bytes;\x80
+4;m;utf-8:bad bytes;\x80
+
+#b
+a\xF0\x8E\x80\x80Z
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x8E
+3;m;utf-8:bad bytes;\x80
+4;m;utf-8:bad bytes;\x80
+
+#name
+Highest three-byte
+#b
+a\xEF\xBF\xBF
+#c
+a\u{FFFF}
+#bc
+#cb
+
+#b
+a\xEF\xBF\xBFZ
+#c
+a\u{FFFF}Z
+#bc
+#cb
+
+#name
+Highest three-byte as four-byte overlong sequence
+#b
+a\xF0\x8F\xBF\xBF
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x8F
+3;m;utf-8:bad bytes;\xBF
+4;m;utf-8:bad bytes;\xBF
+
+#b
+a\xF0\x8F\xBF\xBFZ
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF0
+2;m;utf-8:bad bytes;\x8F
+3;m;utf-8:bad bytes;\xBF
+4;m;utf-8:bad bytes;\xBF
+
+#name
+Lowest four-byte
+#b
+a\xF0\x90\x80\x80
+#c
+a\u{10000}
+#bc
+#cb
+
+#b
+a\xF0\x90\x80\x80Z
+#c
+a\u{10000}Z
+#bc
+#cb
+
+#name
+Highest four-byte
+#b
+a\xF4\x8F\xBF\xBF
+#c
+a\u{10FFFF}
+#bc
+#cb
+
+#b
+a\xF4\x8F\xBF\xBFZ
+#c
+a\u{10FFFF}Z
+#bc
+#cb
+
+#name
+One past highest four-byte
+#b
+a\xF4\x90\x80\x80
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF4
+2;m;utf-8:bad bytes;\x90
+3;m;utf-8:bad bytes;\x80
+4;m;utf-8:bad bytes;\x80
+
+#b
+a\xF4\x90\x80\x80Z
+#c
+a\u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF4
+2;m;utf-8:bad bytes;\x90
+3;m;utf-8:bad bytes;\x80
+4;m;utf-8:bad bytes;\x80
+
+#name
+Highest four-byte with last byte replaced with 0xFF
+#b
+a\xF4\x8F\xBF\xFF
+#c
+a\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF4\x8F\xBF
+4;m;utf-8:bad bytes;\xFF
+
+#b
+a\xF4\x8F\xBF\xFFZ
+#c
+a\u{FFFD}\u{FFFD}Z
+#bc
+#errors fatal
+1;m;utf-8:bad bytes;\xF4\x8F\xBF
+4;m;utf-8:bad bytes;\xFF
