@@ -38,6 +38,8 @@ utf-16be
 #c
 \u{0102}\u{FFFD}
 #bc
+#errors fatal
+2;m;utf-16:lone byte;\x03
 
 #b
 \xFF\xFD
@@ -51,6 +53,8 @@ utf-16be
 #c
 \u{FFFD}
 #bc
+#errors fatal
+0;m;utf-16:lone byte;\x06
 
 #b
 \xFE\xFF\xFE\xFF\x12\x34
@@ -108,12 +112,16 @@ utf-16be
 #c
 \u{FFFD}
 #bc
+#errors fatal
+0;m;utf-16:lone byte;\xFE
 
 #b
 \xFF
 #c
 \u{FFFD}
 #bc
+#errors fatal
+0;m;utf-16:lone byte;\xFF
 
 #b
 \xFF\xFE
@@ -217,6 +225,8 @@ utf-16le
 #c
 \u{0201}\u{FFFD}
 #bc
+#errors fatal
+2;m;utf-16:lone byte;\x03
 
 #b
 \xFF\xFD
@@ -237,6 +247,8 @@ utf-16le
 #c
 \u{FFFD}
 #bc
+#errors fatal
+0;m;utf-16:lone byte;\x06
 
 #b
 \xFF\xFE\xFF\xFE\x12\x34
@@ -282,12 +294,16 @@ BOM U+FEFF U+3412 (UTF-16LE)
 #c
 \u{FFFD}
 #bc
+#errors fatal
+0;m;utf-16:lone byte;\xFE
 
 #b
 \xFF
 #c
 \u{FFFD}
 #bc
+#errors fatal
+0;m;utf-16:lone byte;\xFF
 
 #b
 \xFF\xFE
@@ -373,3 +389,45 @@ utf-8
 \u{BBEF}\u{E4BF}\u{80B8}
 #bc nobomsniffing
 #cb
+
+#encoding
+utf-16le
+#b
+\x3D\xD8\x12\x3C
+#c
+\u{FFFD}\u{3C12}
+#bc
+#errors fatal
+0;m;utf-16:lone high surrogate$0xD83D;
+
+#encoding
+utf-16le
+#b
+\x3D
+\xD8\x12\x3C
+#c
+\u{FFFD}\u{3C12}
+#bc
+#errors fatal
+0;m;utf-16:lone high surrogate$0xD83D;
+
+#encoding
+utf-16le
+#b
+\x3D\xD8
+\x12\x3C
+#c
+\u{FFFD}\u{3C12}
+#bc
+#errors fatal
+0;m;utf-16:lone high surrogate$0xD83D;
+
+#encoding
+utf-16be
+#b
+\xD8\x3D\x12\x3C
+#c
+\u{FFFD}\u{123C}
+#bc
+#errors fatal
+0;m;utf-16:lone high surrogate$0xD83D;

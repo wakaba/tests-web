@@ -21,6 +21,8 @@ _
 #c
 \u{FFFD}
 #bc
+#errors fatal
+0;m;utf-16:lone byte;\x12
 
 #b
 \x12
@@ -28,6 +30,8 @@ _
 #c
 \u{1234}\u{FFFD}
 #bc
+#errors fatal
+2;m;utf-16:lone byte;\x56
 
 #b
 \x12
@@ -44,6 +48,8 @@ _
 #c
 \u{FFFD}
 #bc
+#errors fatal
+0;m;utf-16:lone byte;\x12
 
 #b
 \x12
@@ -53,6 +59,8 @@ _
 #c
 \u{1234}\u{FFFD}
 #bc
+#errors fatal
+2;m;utf-16:lone byte;\x56
 
 #b
 \x12\x34\x56
@@ -60,6 +68,8 @@ _
 #c
 \u{1234}\u{5667}\u{8912}\u{FFFD}
 #bc
+#errors fatal
+6;m;utf-16:lone byte;\x45
 
 #b
 \xD8\x3D
@@ -100,18 +110,96 @@ _
 #c
 \u{FFFD}
 #bc
+#errors fatal
+2;m;utf-16:lone byte;\xDC
 
+#encoding
+utf-16be
 #b
 \xD8\x3D
 #c
 \u{FFFD}
 #bc
+#errors fatal
+0;m;utf-16:lone high surrogate$0xD83D;
 
+#encoding
+utf-16le
+#b
+\x3D\xD8
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;utf-16:lone high surrogate$0xD83D;
+
+#encoding
+utf-16le
+#b
+\x12\x34\x3D\xD8
+#c
+\u{3412}\u{FFFD}
+#bc
+#errors fatal
+2;m;utf-16:lone high surrogate$0xD83D;
+
+#encoding
+utf-16le
+#b
+\x12\x34
+\x3D\xD8
+#c
+\u{3412}\u{FFFD}
+#bc
+#errors fatal
+2;m;utf-16:lone high surrogate$0xD83D;
+
+#encoding
+utf-16le
+#b
+\x12\x34\x3D
+\xD8
+#c
+\u{3412}\u{FFFD}
+#bc
+#errors fatal
+2;m;utf-16:lone high surrogate$0xD83D;
+
+#encoding
+utf-16be
 #b
 \xDC\xA9\x26\x03
 #c
 \u{FFFD}\u{2603}
 #bc
+#errors fatal
+0;m;utf-16:lone low surrogate$0xDCA9;
+
+#b
+\x12\x34\xDC\xA9\x26\x03
+#c
+\u{1234}\u{FFFD}\u{2603}
+#bc
+#errors fatal
+2;m;utf-16:lone low surrogate$0xDCA9;
+
+#b
+\x12\x34
+\xDC\xA9\x26\x03
+#c
+\u{1234}\u{FFFD}\u{2603}
+#bc
+#errors fatal
+2;m;utf-16:lone low surrogate$0xDCA9;
+
+#b
+\x12\x34\xDC
+\xA9\x26\x03
+#c
+\u{1234}\u{FFFD}\u{2603}
+#bc
+#errors fatal
+2;m;utf-16:lone low surrogate$0xDCA9;
 
 #b
 \xD8\x3D
@@ -127,6 +215,10 @@ _
 #c
 \u{FFFD}\u{1F4A9}\u{2603}
 #bc
+#errors fatal
+0;m;utf-16:lone high surrogate$0xD83D;
+#name
+lone surrogate + surroagte + normal
 
 #b
 \x12\x34
