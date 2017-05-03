@@ -25,6 +25,8 @@ abc
 \xFE
 #c
 \u{FFFD}
+#errors fatal
+0;m;utf-8:bad bytes;\xFE
 
 #bc
 #b
@@ -33,12 +35,16 @@ _
 _
 #c
 \u{FFFD}
+#errors fatal
+0;m;utf-8:bad bytes;\xFE
 
 #bc
 #b
 \xFF
 #c
 \u{FFFD}
+#errors fatal
+0;m;utf-8:bad bytes;\xFF
 
 #bc
 #b
@@ -47,6 +53,8 @@ _
 _
 #c
 \u{FFFD}
+#errors fatal
+0;m;utf-8:bad bytes;\xFF
 
 #b
 \x00
@@ -115,6 +123,8 @@ _
 #c
 \u{4e00}\u{FFFD}
 #bc
+#errors fatal
+3;m;utf-8:bad bytes;\xE4
 
 #b
 \xE4
@@ -124,6 +134,8 @@ _
 #c
 \u{4e00}\u{FFFD}\u{4E00}
 #bc
+#errors fatal
+3;m;utf-8:bad bytes;\xE4
 
 #b
 \xE4
@@ -133,6 +145,8 @@ _
 #c
 \u{4e00}\u{FFFD}\u{4E00}
 #bc
+#errors fatal
+3;m;utf-8:bad bytes;\x80
 
 #b
 \xED\x9F\x9F
@@ -216,6 +230,8 @@ _
 \x8F\xBF\xBE
 \x81
 #bc
+#errors fatal
+4;m;utf-8:bad bytes;\x81
 
 #c
 \u{10FFFF}
@@ -229,42 +245,60 @@ _
 #c
 \u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\x80
 
 #b
 \x91
 #c
 \u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\x91
 
 #b
 \xA0
 #c
 \u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xA0
 
 #b
 \x80ab
 #c
 \u{FFFD}ab
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\x80
 
 #b
 \xC0\x80
 #c
 \u{FFFD}\u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xC0
+1;m;utf-8:bad bytes;\x80
 
 #b
 \xE0\x9F
 #c
 \u{FFFD}\u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xE0
+1;m;utf-8:bad bytes;\x9F
 
 #b
 \xE0\x9F\xA0
 #c
 \u{FFFD}\u{FFFD}\u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xE0
+1;m;utf-8:bad bytes;\x9F
+2;m;utf-8:bad bytes;\xA0
 
 #b
 \xE0
@@ -272,6 +306,10 @@ _
 #c
 \u{FFFD}\u{FFFD}\u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xE0
+1;m;utf-8:bad bytes;\x9F
+2;m;utf-8:bad bytes;\xA0
 
 #b
 \xE0\x9F
@@ -279,36 +317,69 @@ _
 #c
 \u{FFFD}\u{FFFD}\u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xE0
+1;m;utf-8:bad bytes;\x9F
+2;m;utf-8:bad bytes;\xA0
 
 #b
 \xED\x9F
 #c
 \u{FFFD}\u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xED
+1;m;utf-8:bad bytes;\x9F
 
 #b
 \xED\xA0
 #c
 \u{FFFD}\u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xED
+1;m;utf-8:bad bytes;\xA0
 
 #b
 \xED\x9F\xC0
 #c
 \u{FFFD}\u{FFFD}\u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xED
+1;m;utf-8:bad bytes;\x9F
+2;m;utf-8:bad bytes;\xC0
+
+#b
+\xED\x9F
+\xC0
+#c
+\u{FFFD}\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+0;m;utf-8:bad bytes;\xED
+1;m;utf-8:bad bytes;\x9F
+2;m;utf-8:bad bytes;\xC0
 
 #b
 \xED\xA0\x80
 #c
 \u{FFFD}\u{FFFD}\u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xED
+1;m;utf-8:bad bytes;\xA0
+2;m;utf-8:bad bytes;\x80
 
 #b
 \xED\xA0\x9F
 #c
 \u{FFFD}\u{FFFD}\u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xED
+1;m;utf-8:bad bytes;\xA0
+2;m;utf-8:bad bytes;\x9F
 
 #b
 \xED
@@ -317,6 +388,10 @@ _
 #c
 \u{FFFD}\u{FFFD}\u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xED
+1;m;utf-8:bad bytes;\xA0
+2;m;utf-8:bad bytes;\x9F
 
 #b
 \xED
@@ -324,24 +399,36 @@ _
 #c
 \u{FFFD}\u{FFFD}\u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xED
+1;m;utf-8:bad bytes;\xA0
+2;m;utf-8:bad bytes;\x9F
 
 #b
 a\xc1\x80b
 #c
 a\u{FFFD}\u{FFFD}b
 #bc
+#errors fatal
+1;m;utf-8:bad bytes;\xC1
+2;m;utf-8:bad bytes;\x80
 
 #b
 \xEF
 #c
 \u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xEF
 
 #b
 \xEF\xBB
 #c
 \u{FFFD}\u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xEF
+1;m;utf-8:bad bytes;\xBB
 
 #b
 \xF4\x8F\xBF\xBD
@@ -369,6 +456,11 @@ a\u{FFFD}\u{FFFD}b
 #c
 \u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xF4
+1;m;utf-8:bad bytes;\x90
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\x80
 
 #b
 \xF4\x90\x80
@@ -376,6 +468,11 @@ a\u{FFFD}\u{FFFD}b
 #c
 \u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xF4
+1;m;utf-8:bad bytes;\x90
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\x80
 
 #b
 \xF4
@@ -383,6 +480,11 @@ a\u{FFFD}\u{FFFD}b
 #c
 \u{FFFD}\u{FFFD}\u{FFFD}\u{FFFD}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xF4
+1;m;utf-8:bad bytes;\x90
+2;m;utf-8:bad bytes;\x80
+3;m;utf-8:bad bytes;\x80
 
 #c
 \u{FEFF}
@@ -434,12 +536,20 @@ U+FEFF <-> \xEF\xBB\xBF (roundtripable if decoder does not support BOM)
 #c
 \u{FFFD}\u{FFFD}\u{FFFD}
 #bc bom
+#errors fatal
+3;m;utf-8:bad bytes;\xED
+4;m;utf-8:bad bytes;\xA0
+5;m;utf-8:bad bytes;\x80
 
 #b
 \xEF\xBB\xBF\xED\xA0\x80
 #c
 \u{FEFF}\u{FFFD}\u{FFFD}\u{FFFD}
 #bc nobom
+#errors fatal
+3;m;utf-8:bad bytes;\xED
+4;m;utf-8:bad bytes;\xA0
+5;m;utf-8:bad bytes;\x80
 
 #b
 \xEF\xBB\xBFabc

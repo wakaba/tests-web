@@ -16,6 +16,9 @@ UTF-16BE BOM
 #c
 \u{FFFD}\u{FFFD}\u{12}\u{34}
 #bc nobomsniffing
+#errors fatal
+0;m;utf-8:bad bytes;\xFE
+1;m;utf-8:bad bytes;\xFF
 
 #b
 \xFF\xFE\x12\x34
@@ -32,6 +35,9 @@ UTF-16LE BOM
 #c
 \u{FFFD}\u{FFFD}\u{12}\u{34}
 #bc nobomsniffing
+#errors fatal
+0;m;utf-8:bad bytes;\xFF
+1;m;utf-8:bad bytes;\xFE
 
 #b
 \xFF
@@ -39,6 +45,10 @@ UTF-16LE BOM
 #c
 \u{FFFD}\u{FFFD}\u{FFFD}\u{4E00}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xFF
+1;m;utf-8:bad bytes;\xFF
+2;m;utf-8:bad bytes;\xFE
 
 #b
 \xFE
@@ -46,6 +56,10 @@ UTF-16LE BOM
 #c
 \u{FFFD}\u{FFFD}\u{FFFD}\u{4E00}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xFE
+1;m;utf-8:bad bytes;\xFE
+2;m;utf-8:bad bytes;\xFF
 
 #b
 \xFF
@@ -53,6 +67,8 @@ UTF-16LE BOM
 #c
 \u{FFFD}\u{4E00}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xFF
 
 #b
 _
@@ -61,3 +77,5 @@ _
 #c
 \u{FFFD}\u{4E00}
 #bc
+#errors fatal
+0;m;utf-8:bad bytes;\xFE
