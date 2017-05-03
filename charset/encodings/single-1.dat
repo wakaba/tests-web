@@ -32,6 +32,8 @@ iso-8859-8
 #c
 \u{200F}\u{80}\u{FFFD}abc\u{90}x
 #bc
+#errors fatal
+2;m;encoding:unassigned;\xCC
 
 #encoding
 iso-8859-8-i
@@ -49,3 +51,50 @@ iso-8859-8-i
 #c
 \u{200F}\u{80}\u{FFFD}abc\u{90}x
 #bc
+#errors fatal
+2;m;encoding:unassigned;\xCC
+
+#encoding
+iso-8859-8
+#b
+\xFE\x80\xCCabc\x90x\xCB
+#c
+\u{200F}\u{80}\u{FFFD}abc\u{90}x\u{FFFD}
+#bc
+#errors fatal
+2;m;encoding:unassigned;\xCC
+8;m;encoding:unassigned;\xCB
+
+#encoding
+iso-8859-8
+#b
+\xFE\x80\xCC
+abc\x90x\xCB
+#c
+\u{200F}\u{80}\u{FFFD}abc\u{90}x\u{FFFD}
+#bc
+#errors fatal
+2;m;encoding:unassigned;\xCC
+8;m;encoding:unassigned;\xCB
+
+#encoding
+iso-8859-8
+#b
+\xFE\x80\xCC
+abc\x90x\xCB
+#c
+\u{200F}\u{80}\u{FFFD}abc\u{90}x\u{FFFD}
+#bc
+#errors fatal
+2;m;encoding:unassigned;\xCC
+8;m;encoding:unassigned;\xCB
+
+#encoding
+iso-8859-8
+#b
+\xCC
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xCC
