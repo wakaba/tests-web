@@ -1,0 +1,357 @@
+#encoding
+shift_jis
+
+#b
+#c
+#bc
+#cb
+
+#b
+\x00
+#c
+\u{00}
+#bc
+#cb
+
+#name
+ASCII
+#b
+\x61\x62
+#c
+\u{0061}\u{0062}
+#bc
+#cb
+
+#b
+\x5C
+#c
+\u{5C}
+#bc
+#cb
+
+#b
+\x7E
+#c
+\u{7E}
+#bc
+#cb
+
+#b
+\x7F
+#c
+\u{7F}
+#bc
+#cb
+
+#name
+Half-width
+#b
+\xA1
+#c
+\u{FF61}
+#bc
+#cb
+
+#b
+\xDF
+#c
+\u{FF9F}
+#bc
+#cb
+
+#b
+\xA0
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xA0
+
+#c
+\u{A0}
+#b
+&#160;
+#cb html
+
+#c
+\u{A1}
+#b
+&#161;
+#cb html
+
+#b
+\xE0
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE0
+
+#b
+\xA0+
+#c
+\u{FFFD}+
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xA0
+
+#b
+\xE0+
+#c
+\u{FFFD}+
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE0
+
+#name
+EUDC 1 (bc)
+#b
+\xF0\x40
+#c
+\u{E000}
+#bc
+#errors
+
+#name
+EUDC 1 (bc)
+#b
+\xF0
+\x40
+#c
+\u{E000}
+#bc
+#errors
+
+#name
+EUDC 1 (cb)
+#b
+&#57344;
+#c
+\u{E000}
+#cb html
+
+#name
+EUDC 2 (bc)
+#b
+\xF9\xFC
+#c
+\u{E757}
+#bc
+#errors
+
+#name
+EUDC 2 (cb)
+#b
+&#59223;
+#c
+\u{E757}
+#cb html
+
+#b
+\xEF\xFC
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xEF\xFC
+
+#b
+\xFA\x40
+#c
+\u{2170}
+#bc
+#cb
+
+#b
+\xFA
+\x40
+#c
+\u{2170}
+#bc
+#cb
+
+#b
+\xEF\x81\x40
+#c
+\u{FFFD}@
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xEF\x81
+
+#b
+\xEF
+\x81\x40
+#c
+\u{FFFD}@
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xEF\x81
+
+#name
+JIS X 0208
+#b
+\x81\x40
+#c
+\u{3000}
+#bc
+#cb
+
+#b
+\x81\x3F
+#c
+\u{FFFD}?
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\x81
+
+#b
+\xEE\xFC
+#c
+\u{FF02}
+#bc
+#errors
+0;w;encoding:not canonical;\xEE\xFC
+
+#b
+\xEE\xFD
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xEE\xFD
+
+#b
+\xEE
+\xFD
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xEE\xFD
+
+#b
+\xFA\x40
+#c
+\u{2170}
+#bc
+#cb
+
+#b
+\xFA\x3F
+#c
+\u{FFFD}?
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xFA
+
+#b
+\xFA
+_
+\x3F
+#c
+\u{FFFD}?
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xFA
+
+#b
+\xFC\x4B
+#c
+\u{9ED1}
+#bc
+#cb
+
+#b
+\xFC\x4C
+#c
+\u{FFFD}L
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xFC\x4C
+
+#b
+\xFC
+_
+\x4C
+#c
+\u{FFFD}L
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xFC\x4C
+
+#c
+\u{0080}
+#b
+\x80
+#bc
+#cb
+
+#c
+\u{00A5}
+#b
+\x5C
+#cb
+
+#c
+\u{203E}
+#b
+\x7E
+#cb
+
+#c
+\u{2212}
+#b
+\x81\x7C
+#cb
+
+#name
+JIS X 0212
+#c
+\u{02D8}
+#b
+&#728;
+#cb html
+
+#b
+\xFC
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xFC
+
+#b
+\xFD
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xFD
+
+#b
+\xFD\x81
+#c
+\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xFD
+1;m;multibyte:lone lead byte;\x81
+
+#b
+\xFE\x81
+#c
+\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xFE
+1;m;multibyte:lone lead byte;\x81
+
+#b
+\xFF
+\x81
+#c
+\u{FFFD}\u{FFFD}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xFF
+1;m;multibyte:lone lead byte;\x81
