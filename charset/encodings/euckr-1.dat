@@ -1,0 +1,135 @@
+#encoding
+euc-kr
+
+#b
+#c
+#bc
+#cb
+
+#name
+ASCII
+#b
+\x61\x62
+#c
+\u{0061}\u{0062}
+#bc
+#cb
+
+#b
+\x81\x41
+#c
+\u{AC02}
+#bc
+#cb
+
+#b
+\x81\x5B
+#c
+\u{FFFD}\u{5B}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\x81\x5B
+
+#b
+\xFD\xFE
+#c
+\u{8A70}
+#bc
+#cb
+
+#b
+\xFE\x41
+#c
+\u{FFFD}\u{41}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xFE\x41
+
+#b
+\xFE
+_
+_
+\x41
+#c
+\u{FFFD}\u{41}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xFE\x41
+
+#b
+\xFF\x41
+#c
+\u{FFFD}\u{41}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xFF
+
+#b
+\x80\x41
+#c
+\u{FFFD}\u{41}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\x80
+
+#b
+\xA1\xFF
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xA1\xFF
+
+#b
+\xA1
+_
+\xFF
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xA1\xFF
+
+#b
+\x81\xFF
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\x81\xFF
+
+#b
+\x81\x40
+#c
+\u{FFFD}@
+#bc
+#errors fatal
+0;m;encoding:unassigned;\x81\x40
+
+#b
+\x81
+\x40
+#c
+\u{FFFD}@
+#bc
+#errors fatal
+0;m;encoding:unassigned;\x81\x40
+
+#b
+\x81\x3F
+#c
+\u{FFFD}?
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\x81
+
+#b
+_
+\x81
+_
+\x3F
+#c
+\u{FFFD}?
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\x81

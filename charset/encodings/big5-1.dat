@@ -729,3 +729,19 @@ a&#234;&#772;b
 #bc
 #errors
 0;w;encoding:not canonical;\xFE\xDD
+
+#b
+\xA1\x7Fx
+#c
+\u{FFFD}\u{7F}x
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xA1\x7F
+
+#b
+\xA1\x3Fx
+#c
+\u{FFFD}\u{3F}x
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xA1
