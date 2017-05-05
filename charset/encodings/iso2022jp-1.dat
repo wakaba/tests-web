@@ -1,0 +1,1440 @@
+#encoding
+iso-2022-jp
+
+#b
+#c
+#bc
+#cb
+
+#name
+ASCII
+#b
+\x61\x62
+#c
+\u{0061}\u{0062}
+#bc
+#cb
+
+#name
+Partial escapes
+#b
+\x1B
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$
+#c
+\u{FFFD}$
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B(
+#c
+\u{FFFD}(
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B.
+#c
+\u{FFFD}.
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#name
+ISO escapes
+#b
+\x1B(B
+#c
+#bc
+#errors
+
+#b
+\x1B(J
+#c
+#bc
+#errors
+3;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$@
+#c
+#bc
+#errors
+3;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B
+#c
+#bc
+#errors
+3;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$(D
+#c
+\u{FFFD}$(D
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$A
+#c
+\u{FFFD}$A
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$(C
+#c
+\u{FFFD}$(C
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B.A
+#c
+\u{FFFD}.A
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B.F
+#c
+\u{FFFD}.F
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B(I
+#c
+#bc
+#errors
+3;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$(O
+#c
+\u{FFFD}$(O
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$(P
+#c
+\u{FFFD}$(P
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$(Q
+#c
+\u{FFFD}$(Q
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$)C
+#c
+\u{FFFD}$)C
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$)A
+#c
+\u{FFFD}$)A
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$)G
+#c
+\u{FFFD}$)G
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$*H
+#c
+\u{FFFD}$*H
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$)E
+#c
+\u{FFFD}$)E
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$+I
+#c
+\u{FFFD}$+I
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$+J
+#c
+\u{FFFD}$+J
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$+K
+#c
+\u{FFFD}$+K
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$+L
+#c
+\u{FFFD}$+L
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$+M
+#c
+\u{FFFD}$+M
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$(@
+#c
+\u{FFFD}$(@
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$(A
+#c
+\u{FFFD}$(A
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B$(B
+#c
+\u{FFFD}$(B
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x1B%G
+#c
+\u{FFFD}%G
+#bc
+#errors fatal
+0;m;iso2022jp:lone escape;\x1B
+
+#b
+\x5B
+#c
+\u{005B}
+#bc
+#cb
+
+#b
+\x5C
+#c
+\u{005C}
+#bc
+#cb
+
+#b
+\x7E
+#c
+\u{007E}
+#bc
+#cb
+
+#b
+\x0E
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\x0E
+
+#b
+\x0F
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\x0F
+
+#b
+\x80
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\x80
+
+#b
+\xFF
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xFF
+
+#b
+\x1B(B\x5B
+#c
+\u{005B}
+#bc
+#errors
+
+#b
+\x1B(B\x5C
+#c
+\u{005C}
+#bc
+#errors
+
+#b
+\x1B(B\x7E
+#c
+\u{007E}
+#bc
+#errors
+
+#b
+\x1B(B\x0E
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x0E
+
+#b
+\x1B(B\x0F
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x0F
+
+#b
+\x1B(B\x80
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x80
+
+#b
+\x1B(B\xFF
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\xFF
+
+#b
+\x1B(J\x5B
+#c
+\u{005B}
+#bc
+#errors
+4;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(J\x5C
+#c
+\u{00A5}
+#bc
+#errors
+4;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(J\x7E
+#c
+\u{203E}
+#bc
+#errors
+4;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(J\x0E
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x0E
+4;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(J\x0F
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x0F
+4;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(J\x80
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x80
+4;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(J\xFF
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\xFF
+4;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(I\x20
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x20
+4;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(I\x21
+#c
+\u{FF61}
+#bc
+#errors
+4;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(I\x5F
+#c
+\u{FF9F}
+#bc
+#errors
+4;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(I\x60
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x60
+4;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(I\x0E
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x0E
+4;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(I\x0F
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x0F
+4;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(I\x80
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x80
+4;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(I\xFF
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\xFF
+4;w;iso2022jp:not ascii at end;
+
+#name
+0208 differences from 1978 to 1983
+#b
+\x1B$@\x54\x64
+#c
+\u{58FA}
+#bc
+#errors
+5;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$@\x44\x5B
+#c
+\u{58F7}
+#bc
+#errors
+5;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$@\x74\x21
+#c
+\u{582F}
+#bc
+#errors
+5;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$@\x36\x46
+#c
+\u{5C2D}
+#bc
+#errors
+5;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$@\x28\x2E
+#c
+\u{250F}
+#bc
+#errors
+5;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x54\x64
+#c
+\u{58FA}
+#bc
+#errors
+5;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x44\x5B
+#c
+\u{58F7}
+#bc
+#errors
+5;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x74\x21
+#c
+\u{582F}
+#bc
+#errors
+5;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x74\x21\x1B(B
+#c
+\u{582F}
+#bc
+#errors
+
+#b
+\x1B$B\x74
+\x21\x1B(B
+#c
+\u{582F}
+#bc
+#errors
+
+#b
+\x1B$B
+_
+\x74
+_
+\x21
+\x1B(B
+#c
+\u{582F}
+#bc
+#errors
+
+#b
+\x1B$B\x74\x21\x8A\x74\x21\x1B(B
+#c
+\u{582F}\u{FFFD}\u{582F}
+#bc
+#errors fatal
+5;m;encoding:unassigned;\x8A
+
+#b
+\x1B$B\x74\x21\x8A
+#c
+\u{582F}\u{FFFD}
+#bc
+#errors fatal
+5;m;encoding:unassigned;\x8A
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x74
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;multibyte:lone lead byte;\x74
+4;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x74\x21\x74
+#c
+\u{582F}\u{FFFD}
+#bc
+#errors fatal
+5;m;multibyte:lone lead byte;\x74
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x7E\x21\x1B(B
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x7E\x21
+
+#b
+\x1B$B\x7E\xA1\x1B(Bx
+#c
+\u{FFFD}x
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x7E\xA1
+
+#b
+\x1B$B\x7E
+\xA1\x1B(Bx
+#c
+\u{FFFD}x
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x7E\xA1
+
+#b
+\x1B$B\x36\x46
+#c
+\u{5C2D}
+#bc
+#errors
+5;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x28\x2E
+#c
+\u{250F}
+#bc
+#errors
+5;w;iso2022jp:not ascii at end;
+
+#name
+Broken 0208
+#b
+\x1B$B\x28\x41
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x28\x41
+5;w;iso2022jp:not ascii at end;
+
+#name
+Broken 0208
+#b
+\x1B$@\x28\x41
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x28\x41
+5;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x80\x54\x64
+#c
+\u{FFFD}\u{58FA}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x80
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$@\x80\x54\x64
+#c
+\u{FFFD}\u{58FA}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x80
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x28\x80
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x28\x80
+5;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$@\x28\x80
+#c
+\u{FFFD}
+#bc
+#errors fatal
+3;m;encoding:unassigned;\x28\x80
+5;w;iso2022jp:not ascii at end;
+
+#name
+Transitions
+#b
+\x1B(B\x5C\x1B(J\x5C
+#c
+\u{005C}\u{00A5}
+#bc
+#errors
+8;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(B\x5C\x1B(I\x21
+#c
+\u{005C}\u{FF61}
+#bc
+#errors
+8;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(B\x5C\x1B$@\x54\x64
+#c
+\u{005C}\u{58FA}
+#bc
+#errors
+9;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(B\x5C\x1B$B\x54\x64
+#c
+\u{005C}\u{58FA}
+#bc
+#errors
+9;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(J\x5C\x1B(B\x5C
+#c
+\u{00A5}\u{005C}
+#bc
+
+#b
+\x1B(J\x5C\x1B(I\x21
+#c
+\u{00A5}\u{FF61}
+#bc
+#errors
+8;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(J\x5C\x1B$@\x54\x64
+#c
+\u{00A5}\u{58FA}
+#bc
+#errors
+9;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(J\x5C\x1B$B\x54\x64
+#c
+\u{00A5}\u{58FA}
+#bc
+#errors
+9;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(I\x21\x1B(J\x5C
+#c
+\u{FF61}\u{00A5}
+#bc
+#errors
+8;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(I\x21\x1B(B\x5C
+#c
+\u{FF61}\u{005C}
+#bc
+#errors
+
+#b
+\x1B(I\x21\x1B$@\x54\x64
+#c
+\u{FF61}\u{58FA}
+#bc
+#errors
+9;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(I\x21\x1B$B\x54\x64
+#c
+\u{FF61}\u{58FA}
+#bc
+#errors
+9;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$@\x54\x64\x1B(J\x5C
+#c
+\u{58FA}\u{00A5}
+#bc
+#errors
+9;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$@\x54\x64\x1B(I\x21
+#c
+\u{58FA}\u{FF61}
+#bc
+#errors
+9;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$@\x54\x64\x1B(B\x5C
+#c
+\u{58FA}\u{005C}
+#bc
+9;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$@\x54\x64\x1B$B\x54\x64
+#c
+\u{58FA}\u{58FA}
+#bc
+#errors
+10;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x54\x64\x1B(J\x5C
+#c
+\u{58FA}\u{00A5}
+#bc
+#errors
+9;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x54\x64\x1B(I\x21
+#c
+\u{58FA}\u{FF61}
+#bc
+#errors
+9;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x54\x64\x1B$@\x54\x64
+#c
+\u{58FA}\u{58FA}
+#bc
+#errors
+10;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x54\x64\x1B(B\x5C
+#c
+\u{58FA}\u{005C}
+#bc
+
+#b
+\x1B$B\x54\x64 \x1B(B
+#c
+\u{58FA}\u{FFFD}
+#bc
+#errors fatal
+5;m;encoding:unassigned;\x20
+
+#b
+\x1B$B\x54\x64\x0A\x1B(B
+#c
+\u{58FA}\u{FFFD}
+#bc
+#errors fatal
+5;m;encoding:unassigned;\x0A
+
+#b
+\x1B$@\x54\x64 \x1B(B
+#c
+\u{58FA}\u{FFFD}
+#bc
+#errors fatal
+5;m;encoding:unassigned;\x20
+
+#b
+\x1B(I\x21 \x1B(B
+#c
+\u{FF61}\u{FFFD}
+#bc
+#errors fatal
+4;m;encoding:unassigned;\x20
+
+#b
+\x1B(J\x21 x\x1B(B
+#c
+! x
+#bc
+
+#b
+\x1B(J\x21 x\x0D\x1B(B
+#c
+! x\u{0D}
+#bc
+
+#name
+Empty transitions
+#b
+\x1B(B\x1B(J
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x28\x42
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(B\x1B(I
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x28\x42
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(B\x1B$@
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x28\x42
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(B\x1B$B
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x28\x42
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(J\x1B(B
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x28\x4A
+
+#b
+\x1B(J\x1B(I
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x28\x4A
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(J\x1B$@
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x28\x4A
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(J\x1B$B
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x28\x4A
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(I\x1B(J
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x28\x49
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(I\x1B(B
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x28\x49
+
+#b
+\x1B(I\x1B$@
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x28\x49
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(I\x1B$B
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x28\x49
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$@\x1B(J
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x24\x40
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$@\x1B(I
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x24\x40
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$@\x1B(B
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x24\x40
+
+#b
+\x1B$@\x1B$B
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x24\x40
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x1B(J
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x24\x42
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B
+$B\x1B(J
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x24\x42
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x1B(
+J
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x24\x42
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x1B(I
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x24\x42
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x1B$@
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x24\x42
+6;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x1B(B
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;iso2022jp:redundant escape;\x1B\x24\x42
+
+#name
+Transitions to self
+#b
+\x1B(B\x5C\x1B(B\x5C
+#c
+\u{005C}\u{005C}
+#bc
+#errors
+
+#b
+\x1B(J\x5C\x1B(J\x5C
+#c
+\u{00A5}\u{00A5}
+#bc
+#errors
+8;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(I\x21\x1B(I\x21
+#c
+\u{FF61}\u{FF61}
+#bc
+#errors
+8;w;iso2022jp:not ascii at end;
+
+#b
+\x1B(
+I\x21\x1B(I\x21
+#c
+\u{FF61}\u{FF61}
+#bc
+#errors
+8;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$@\x54\x64\x1B$@\x54\x64
+#c
+\u{58FA}\u{58FA}
+#bc
+#errors
+10;w;iso2022jp:not ascii at end;
+
+#b
+\x1B$B\x54\x64\x1B$B\x54\x64
+#c
+\u{58FA}\u{58FA}
+#bc
+#errors
+10;w;iso2022jp:not ascii at end;
+
+#c
+\u{1F4A9}
+#b
+&#128169;
+#cb html
+
+#c
+\u{1B}
+#b
+&#65533;
+#cb html
+
+#c
+\u{0E}
+#b
+&#65533;
+#cb html
+
+#c
+\u{0F}
+#b
+&#65533;
+#cb html
+
+#name
+Roman
+#c
+a\u{00A5}b
+#b
+a\x1B(J\x5Cb\x1B(B
+#cb
+#bc
+
+#c
+a\u{203E}b
+#b
+a\x1B(J\x7Eb\x1B(B
+#cb
+#bc
+
+#c
+a\u{00A5}b\u{5C}
+#b
+a\x1B(J\x5Cb\x1B(B\x5C
+#cb
+#bc
+
+#c
+a\u{203E}b\u{7E}
+#b
+a\x1B(J\x7Eb\x1B(B\x7E
+#cb
+#bc
+
+#c
+\u{00A5}\u{1F4A9}
+#b
+\x1B(J\x5C&#128169;\x1B(B
+#cb html
+
+#c
+\u{00A5}\u{1B}
+#b
+\x1B(J\x5C&#65533;\x1B(B
+#cb html
+
+#c
+\u{00A5}\u{0E}
+#b
+\x1B(J\x5C&#65533;\x1B(B
+#cb html
+
+#c
+\u{00A5}\u{0F}
+#b
+\x1B(J\x5C&#65533;\x1B(B
+#cb html
+
+#c
+\u{00A5}\u{58FA}
+#b
+\x1B(J\x5C\x1B$B\x54\x64\x1B(B
+#cb
+#bc
+
+#name
+Half-width Katakana
+#c
+\u{FF61}
+#b
+&#65377;
+#cb html
+
+#name
+0208
+#c
+\u{58FA}
+#b
+\x1B$B\x54\x64\x1B(B
+#cb
+#bc
+
+#c
+\u{58FA}\u{250F}
+#b
+\x1B$B\x54\x64\x28\x2E\x1B(B
+#cb
+#bc
+
+#c
+\u{58FA}\u{1F4A9}
+#b
+\x1B$B\x54\x64\x1B(B&#128169;
+#cb html
+
+#c
+\u{58FA}\u{1B}
+#b
+\x1B$B\x54\x64\x1B(B&#65533;
+#cb html
+
+#c
+\u{58FA}\u{0E}
+#b
+\x1B$B\x54\x64\x1B(B&#65533;
+#cb html
+
+#c
+\u{58FA}\u{0F}
+#b
+\x1B$B\x54\x64\x1B(B&#65533;
+#cb html
+
+#c
+\u{58FA}\u{00A5}
+#b
+\x1B$B\x54\x64\x1B(J\x5C\x1B(B
+#cb
+#bc
+
+#c
+\u{58FA}a
+#b
+\x1B$B\x54\x64\x1B(Ba
+#cb
+#bc
+
+#c
+\u{2212}
+#b
+\x1B$B!]\x1B(B
+#cb
+
+#c
+\u{FF0D}
+#b
+\x1B$B!]\x1B(B
+#cb
+#bc
+
+#c
+a\u{A5}\u{203E}
+#b
+a\x1B(J\~\x1B(B
+#cb
+#bc
+
+#c
+a\u{A5}\u{203E}
+#b
+a\x1B(J\
+~\x1B(B
+#bc
+
+#c
+a\u{203E}\u{A5}c
+#b
+a\x1B(J~\c\x1B(B
+#cb
+#bc
+
+#c
+a\u{203E}\u{A5}c
+#b
+a\x1B
+(
+J~\c\x1B(B
+#cb
+#bc
+
+#c
+a\u{203E}\u{A5}c
+#b
+a\x1B(
+J~\c\x1B(B
+#cb
+#bc
+
+#c
+xy\u{1333}
+#b
+xy&#4915;
+#cb html
+
+#c
+xy\u{3000}\u{1333}
+#b
+xy\x1B$B!!\x1B(B&#4915;
+#cb html
+
+#c
+xy\u{81}
+#b
+xy&#129;
+#cb html
+
+#b
+\x1B
+$B\x54\x64\x1B(B
+#c
+\u{58FA}
+#bc
+
+#b
+\x1B
+$
+B\x54\x64\x1B(B
+#c
+\u{58FA}
+#bc
+
+#b
+\x1B$
+B\x54\x64\x1B(B
+#c
+\u{58FA}
+#bc
+
+#b
+\x1B$
+@\x54\x64\x1B(B
+#c
+\u{58FA}
+#bc
+
+#b
+\x1B$B\x54\x64\x1B
+(By
+#c
+\u{58FA}y
+#bc
+
+#b
+\x1B$B\x54\x64\x1B(
+Bx
+#c
+\u{58FA}x
+#bc
+
+#b
+\x1B$B\x2D\x7C\x1B(B
+#c
+\u{222A}
+#bc
+#errors
+3;w;encoding:not canonical;\x2D\x7C
