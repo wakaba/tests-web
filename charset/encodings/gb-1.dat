@@ -1,0 +1,563 @@
+#encoding
+gb18030
+
+#b
+#c
+#bc
+#cb
+
+#name
+ASCII
+#b
+\x61\x62
+#c
+\u{0061}\u{0062}
+#bc
+#cb
+
+#name
+euro
+#b
+\x80
+#c
+\u{20AC}
+#bc
+#errors
+
+#b
+\xA2\xE3
+#c
+\u{20AC}
+#bc
+#cb
+
+#b
+\xA2
+\xE3
+#c
+\u{20AC}
+#bc
+
+#name
+two bytes
+#b
+\x81\x40
+#c
+\u{4E02}
+#bc
+#cb
+
+#name
+two bytes
+#b
+\x81
+\x40
+#c
+\u{4E02}
+#bc
+
+#b
+\x81\x7E
+#c
+\u{4E8A}
+#bc
+#cb
+
+#b
+\x81\x7F
+#c
+\u{FFFD}\u{007F}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\x81\x7F
+
+#b
+\x81
+\x7F
+#c
+\u{FFFD}\u{007F}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\x81\x7F
+
+#b
+\x81\x80
+#c
+\u{4E90}
+#bc
+#cb
+
+#b
+\x81\xFE
+#c
+\u{4FA2}
+#bc
+#cb
+
+#b
+\xFE\x40
+#c
+\u{FA0C}
+#cb
+#bc
+
+#b
+\xFE
+\x40
+#c
+\u{FA0C}
+#bc
+
+#b
+\xFE\x7E
+#c
+\u{E843}
+#bc
+#cb
+
+#b
+\xFE\x7F
+#c
+\u{FFFD}\u{007F}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xFE\x7F
+
+#b
+\xFE
+\x7F
+#c
+\u{FFFD}\u{007F}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xFE\x7F
+
+#b
+\xFE\x80
+#c
+\u{4723}
+#bc
+#cb
+
+#b
+\xFE\xFE
+#c
+\u{E4C5}
+#bc
+#cb
+
+#name
+The difference from the original GB18030
+#b
+\xA3\xA0
+#c
+\u{3000}
+#bc
+#errors
+
+#b
+\xA1\xA1
+#c
+\u{3000}
+#bc
+#cb
+
+#name
+The difference from the original GB18030
+#c
+\u{E5E5}
+#b
+&#58853;
+#cb html
+
+#name
+0xFF
+#b
+\xFF\x40
+#c
+\u{FFFD}\u{0040}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xFF
+
+#name
+0xFF
+#b
+\xFF
+\x40
+#c
+\u{FFFD}\u{0040}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xFF
+
+#name
+Four bytes
+#b
+\x81\x30\x81\x30
+#c
+\u{0080}
+#bc
+#cb
+
+#name
+Four bytes
+#b
+\x81
+\x30\x81\x30
+#c
+\u{0080}
+#bc
+#cb
+
+#name
+Four bytes
+#b
+\x81\x30\x81
+\x30
+#c
+\u{0080}
+#bc
+#cb
+
+#name
+Four bytes
+#b
+\x81
+\x30
+\x81
+\x30
+#c
+\u{0080}
+#bc
+#cb
+
+#name
+Four bytes
+#b
+\x81\x30
+\x81\x30
+#c
+\u{0080}
+#bc
+#cb
+
+#name
+Four bytes
+#b
+\x81
+_
+\x30\x81
+_
+\x30
+_
+#c
+\u{0080}
+#bc
+#cb
+
+#b
+\x81\x35\xF4\x37
+#c
+\u{E7C7}
+#bc
+#cb
+
+#b
+\x81\x35\xF4
+\x37
+#c
+\u{E7C7}
+#bc
+
+#b
+\x81\x37\xA3\x30
+#c
+\u{2603}
+#bc
+#cb
+
+#b
+\x94\x39\xDA\x33
+#c
+\u{1F4A9}
+#bc
+#cb
+
+#b
+\xE3\x32\x9A\x35
+#c
+\u{10FFFF}
+#bc
+#cb
+
+#b
+_
+\xE3
+\x32\x9A
+_
+\x35
+#c
+\u{10FFFF}
+#bc
+#cb
+
+#b
+\xE3\x32\x9A\x36\x81\x30
+#c
+\u{FFFD}\u{0032}\u{309B8}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xE3\x32\x9A\x36
+
+#b
+\xE3\x32\x9A\x36\x81
+\x30
+#c
+\u{FFFD}\u{0032}\u{309B8}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xE3\x32\x9A\x36
+
+#b
+\xE3\x32
+\x9A\x36\x81\x30
+#c
+\u{FFFD}\u{0032}\u{309B8}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xE3\x32\x9A\x36
+
+#b
+\xE3\x32\x9A\x36\x81\x40
+#c
+\u{FFFD}\u{0032}\u{FFFD}\u{0036}\u{4E02}
+#bc
+#errors fatal
+0;m;encoding:unassigned;\xE3\x32\x9A\x36
+2;m;multibyte:lone lead byte;\x9A\x36
+
+#b
+\xE3\x32\x9A
+#c
+\u{FFFD}
+#note
+not \u{FFFD}\u{0032}\u{FFFD} !
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32\x9A
+
+#b
+\xE3
+\x32\x9A
+#c
+\u{FFFD}
+#note
+not \u{FFFD}\u{0032}\u{FFFD} !
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32\x9A
+
+#b
+\xE3\x32
+\x9A
+#c
+\u{FFFD}
+#note
+not \u{FFFD}\u{0032}\u{FFFD} !
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32\x9A
+
+#b
+\xE3
+\x32
+\x9A
+#c
+\u{FFFD}
+#note
+not \u{FFFD}\u{0032}\u{FFFD} !
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32\x9A
+
+#name
+Edge cases
+#c
+\u{00F7}
+#b
+\xA1\xC2
+#cb
+#bc
+
+#b
+\xE3\x00
+#c
+\u{FFFD}\u{00}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3
+
+#b
+\xE3\x32\x9A\x00
+#c
+\u{FFFD}2\u{00}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32\x9A
+
+#b
+\xE3\x32\x9A
+\x00
+#c
+\u{FFFD}2\u{00}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32\x9A
+
+#b
+\xE3\x32\x9A
+_
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32\x9A
+
+#b
+\xE3\x32\x80\x00
+#c
+\u{FFFD}2\u{20AC}\u{00}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32
+
+#b
+\xE3\x32
+\x80\x00
+#c
+\u{FFFD}2\u{20AC}\u{00}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32
+
+#b
+\xE3\x32\x80
+\x00
+#c
+\u{FFFD}2\u{20AC}\u{00}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32
+
+#b
+\xE3\x32\xFF\x00
+#c
+\u{FFFD}2\u{FFFD}\u{00}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32
+2;m;encoding:unassigned;\xFF
+
+#b
+\xE3\x32abcd
+#c
+\u{FFFD}2abcd
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32
+
+#b
+\xE3\x32
+abcd
+#c
+\u{FFFD}2abcd
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32
+
+#b
+\xE3\x32\xA1\xA1
+#c
+\u{FFFD}2\u{3000}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32
+
+#b
+\xE3\x32\xA1
+\xA1
+#c
+\u{FFFD}2\u{3000}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32
+
+#b
+\xE3
+\x32\xA1\xA1
+#c
+\u{FFFD}2\u{3000}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32
+
+#b
+\xE3\x32
+\xA1\xA1
+#c
+\u{FFFD}2\u{3000}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32
+
+#b
+\xE3
+\x32
+\xA1
+\xA1
+#c
+\u{FFFD}2\u{3000}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32
+
+#b
+\xE3\x32
+\xA1
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32\xA1
+
+#b
+\xE3
+\x32
+\xA1
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32\xA1
+
+#b
+\xE3
+\x32\xA1
+#c
+\u{FFFD}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32\xA1
+
+#b
+\xE3\x32
+\xA1
+\xE3\x32
+\xA1
+#c
+\u{FFFD}2\u{B0}2\u{FFFD}
+#bc
+#errors fatal
+0;m;multibyte:lone lead byte;\xE3\x32
+5;m;multibyte:lone lead byte;\xA1
