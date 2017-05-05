@@ -69,6 +69,7 @@ ISO escapes
 #c
 #bc
 #errors
+0;m;iso2022jp:jis78;\x1B\x24\x40
 3;w;iso2022jp:not ascii at end;
 
 #b
@@ -505,6 +506,7 @@ ISO escapes
 \u{58FA}
 #bc
 #errors
+0;m;iso2022jp:jis78;\x1B\x24\x40
 5;w;iso2022jp:not ascii at end;
 
 #b
@@ -513,6 +515,7 @@ ISO escapes
 \u{58F7}
 #bc
 #errors
+0;m;iso2022jp:jis78;\x1B\x24\x40
 5;w;iso2022jp:not ascii at end;
 
 #b
@@ -521,6 +524,7 @@ ISO escapes
 \u{582F}
 #bc
 #errors
+0;m;iso2022jp:jis78;\x1B\x24\x40
 5;w;iso2022jp:not ascii at end;
 
 #b
@@ -529,6 +533,7 @@ ISO escapes
 \u{5C2D}
 #bc
 #errors
+0;m;iso2022jp:jis78;\x1B\x24\x40
 5;w;iso2022jp:not ascii at end;
 
 #b
@@ -537,6 +542,7 @@ ISO escapes
 \u{250F}
 #bc
 #errors
+0;m;iso2022jp:jis78;\x1B\x24\x40
 5;w;iso2022jp:not ascii at end;
 
 #b
@@ -685,6 +691,7 @@ Broken 0208
 \u{FFFD}
 #bc
 #errors fatal
+0;m;iso2022jp:jis78;\x1B\x24\x40
 3;m;encoding:unassigned;\x28\x41
 5;w;iso2022jp:not ascii at end;
 
@@ -703,6 +710,7 @@ Broken 0208
 \u{FFFD}\u{58FA}
 #bc
 #errors fatal
+0;m;iso2022jp:jis78;\x1B\x24\x40
 3;m;encoding:unassigned;\x80
 6;w;iso2022jp:not ascii at end;
 
@@ -721,6 +729,7 @@ Broken 0208
 \u{FFFD}
 #bc
 #errors fatal
+0;m;iso2022jp:jis78;\x1B\x24\x40
 3;m;encoding:unassigned;\x28\x80
 5;w;iso2022jp:not ascii at end;
 
@@ -748,6 +757,7 @@ Transitions
 \u{005C}\u{58FA}
 #bc
 #errors
+4;m;iso2022jp:jis78;\x1B\x24\x40
 9;w;iso2022jp:not ascii at end;
 
 #b
@@ -778,6 +788,7 @@ Transitions
 \u{00A5}\u{58FA}
 #bc
 #errors
+4;m;iso2022jp:jis78;\x1B\x24\x40
 9;w;iso2022jp:not ascii at end;
 
 #b
@@ -809,6 +820,7 @@ Transitions
 \u{FF61}\u{58FA}
 #bc
 #errors
+4;m;iso2022jp:jis78;\x1B\x24\x40
 9;w;iso2022jp:not ascii at end;
 
 #b
@@ -825,6 +837,7 @@ Transitions
 \u{58FA}\u{00A5}
 #bc
 #errors
+0;m;iso2022jp:jis78;\x1B\x24\x40
 9;w;iso2022jp:not ascii at end;
 
 #b
@@ -833,6 +846,7 @@ Transitions
 \u{58FA}\u{FF61}
 #bc
 #errors
+0;m;iso2022jp:jis78;\x1B\x24\x40
 9;w;iso2022jp:not ascii at end;
 
 #b
@@ -840,7 +854,8 @@ Transitions
 #c
 \u{58FA}\u{005C}
 #bc
-9;w;iso2022jp:not ascii at end;
+#errors
+0;m;iso2022jp:jis78;\x1B\x24\x40
 
 #b
 \x1B$@\x54\x64\x1B$B\x54\x64
@@ -848,6 +863,7 @@ Transitions
 \u{58FA}\u{58FA}
 #bc
 #errors
+0;m;iso2022jp:jis78;\x1B\x24\x40
 10;w;iso2022jp:not ascii at end;
 
 #b
@@ -872,6 +888,7 @@ Transitions
 \u{58FA}\u{58FA}
 #bc
 #errors
+5;m;iso2022jp:jis78;\x1B\x24\x40
 10;w;iso2022jp:not ascii at end;
 
 #b
@@ -902,6 +919,7 @@ Transitions
 \u{58FA}\u{FFFD}
 #bc
 #errors fatal
+0;m;iso2022jp:jis78;\x1B\x24\x40
 5;m;encoding:unassigned;\x20
 
 #b
@@ -951,6 +969,7 @@ Empty transitions
 #bc
 #errors fatal
 0;m;iso2022jp:redundant escape;\x1B\x28\x42
+3;m;iso2022jp:jis78;\x1B\x24\x40
 6;w;iso2022jp:not ascii at end;
 
 #b
@@ -986,6 +1005,7 @@ Empty transitions
 #bc
 #errors fatal
 0;m;iso2022jp:redundant escape;\x1B\x28\x4A
+3;m;iso2022jp:jis78;\x1B\x24\x40
 6;w;iso2022jp:not ascii at end;
 
 #b
@@ -1021,6 +1041,7 @@ Empty transitions
 #bc
 #errors fatal
 0;m;iso2022jp:redundant escape;\x1B\x28\x49
+3;m;iso2022jp:jis78;\x1B\x24\x40
 6;w;iso2022jp:not ascii at end;
 
 #b
@@ -1039,6 +1060,7 @@ Empty transitions
 #bc
 #errors fatal
 0;m;iso2022jp:redundant escape;\x1B\x24\x40
+0;m;iso2022jp:jis78;\x1B\x24\x40
 6;w;iso2022jp:not ascii at end;
 
 #b
@@ -1048,6 +1070,7 @@ Empty transitions
 #bc
 #errors fatal
 0;m;iso2022jp:redundant escape;\x1B\x24\x40
+0;m;iso2022jp:jis78;\x1B\x24\x40
 6;w;iso2022jp:not ascii at end;
 
 #b
@@ -1056,6 +1079,7 @@ Empty transitions
 \u{FFFD}
 #bc
 #errors fatal
+0;m;iso2022jp:jis78;\x1B\x24\x40
 0;m;iso2022jp:redundant escape;\x1B\x24\x40
 
 #b
@@ -1065,6 +1089,7 @@ Empty transitions
 #bc
 #errors fatal
 0;m;iso2022jp:redundant escape;\x1B\x24\x40
+0;m;iso2022jp:jis78;\x1B\x24\x40
 6;w;iso2022jp:not ascii at end;
 
 #b
@@ -1112,6 +1137,7 @@ J
 #bc
 #errors fatal
 0;m;iso2022jp:redundant escape;\x1B\x24\x42
+3;m;iso2022jp:jis78;\x1B\x24\x40
 6;w;iso2022jp:not ascii at end;
 
 #b
@@ -1162,6 +1188,8 @@ I\x21\x1B(I\x21
 \u{58FA}\u{58FA}
 #bc
 #errors
+0;m;iso2022jp:jis78;\x1B\x24\x40
+5;m;iso2022jp:jis78;\x1B\x24\x40
 10;w;iso2022jp:not ascii at end;
 
 #b
@@ -1416,6 +1444,8 @@ B\x54\x64\x1B(B
 #c
 \u{58FA}
 #bc
+#errors
+0;m;iso2022jp:jis78;\x1B\x24\x40
 
 #b
 \x1B$B\x54\x64\x1B
