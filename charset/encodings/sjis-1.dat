@@ -355,3 +355,33 @@ JIS X 0212
 #errors fatal
 0;m;encoding:unassigned;\xFF
 1;m;multibyte:lone lead byte;\x81
+
+#c
+\u{222A}
+#b
+\x81\xBE
+#cb
+#bc
+
+#c
+\u{222A}
+#b
+\x87\x9C
+#bc
+#errors
+0;w;encoding:not canonical;\x87\x9C
+
+#c
+\u{2160}
+#b
+\x87\x54
+#bc
+#cb
+
+#c
+\u{2160}
+#b
+\xFA\x4A
+#bc
+#errors
+0;w;encoding:not canonical;\xFA\x4A
