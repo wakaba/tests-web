@@ -23,13 +23,22 @@ sub send_file ($$$$) {
   return $app->throw_error (500, reason_phrase => "Unknown filter |$filter|")
       if defined $filter and not {expand => 1}->{$filter};
   $app->http->set_response_header ('Content-Type' => $mime) if defined $mime;
-  $app->http->set_response_last_modified ($file->stat->mtime);
   if (defined $filter and $filter eq 'expand') {
     my $body = $file->slurp;
     my $rand = {};
+    $body =~ s{\@\@HEADER:([^:\s]+):\s*([^\x0D\x0A]*?)\@\@[\x0D\x0A]*}{
+      $app->http->set_response_header ($1, $2);
+      '';
+    }ge;
     $body =~ s/\@\@RAND\(([A-Za-z0-9_-]+)\)\@\@/$rand->{$1} ||= int rand 10000000/ge;
+    $body =~ s{\@\@BYTES:(.*?)\@\@}{
+      my $v = $1;
+      $v =~ s/\\x([0-9A-Fa-f]{2})/pack 'C', hex $1/ge;
+      $v;
+    }ge;
     $app->http->send_response_body_as_ref (\$body);
   } else {
+    $app->http->set_response_last_modified ($file->stat->mtime);
     $app->http->send_response_body_as_ref (\($file->slurp));
   }
   return $app->http->close_response_body;
