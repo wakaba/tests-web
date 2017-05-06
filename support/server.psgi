@@ -78,6 +78,8 @@ sub load_htaccess ($$) {
     } elsif (s{^\s*AddCharset\s+(\S+)\s+}{}) {
       my $charset = $1;
       $defs->{charset}->{$_} = $charset for map { my $x = $_; $x =~ s/^\.//; $x } split /\s+/, $_;
+    } elsif (s{^\s*RemoveCharset\s+}{}) {
+      delete $defs->{charset}->{$_} for map { my $x = $_; $x =~ s/^\.//; $x } split /\s+/, $_;
     } elsif (s{^\s*AddFilter\s+(\S+)\s+}{}) {
       my $filter = $1;
       $defs->{filter}->{$_} = $filter for map { my $x = $_; $x =~ s/^\.//; $x } split /\s+/, $_;
