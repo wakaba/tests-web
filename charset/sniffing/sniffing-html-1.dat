@@ -564,3 +564,161 @@ hoge
 #encoding koi8
 #confidence tentative
 #source embed
+
+#context html
+#data
+<?xml version="1.0" encoding="windows-31j"?>
+#encoding shift_jis
+#confidence tentative
+#source xml
+
+#context html
+#data
+<?xml version="1.0" encoding="windows-31j">
+#encoding shift_jis
+#confidence tentative
+#source xml
+
+#context html
+#data
+<?xml version="1.0" encoding='windows-31j'?>
+#encoding shift_jis
+#confidence tentative
+#source xml
+
+#context html
+#data
+<?xml encoding="windows-31j"?>
+#encoding shift_jis
+#confidence tentative
+#source xml
+
+#context html
+#data
+<?xml version="1.0" encoding encoding='windows-31j'?>
+#encoding windows-1252
+#confidence tentative
+#source locale
+
+#context html
+#data
+<?xml version="1.0" encoding=encoding='windows-31j'?>
+#encoding windows-1252
+#confidence tentative
+#source locale
+
+#context html
+#data
+<?xml version="1.0" encoding="x encoding='windows-31j'?>
+#encoding windows-1252
+#confidence tentative
+#source locale
+
+#context html
+#data
+<?xml version="1.0" encoding="windows-31j
+#encoding windows-1252
+#confidence tentative
+#source locale
+
+#context html
+#data
+<?xml version="1.0" encoding="windows-31j>"?>
+#encoding windows-1252
+#confidence tentative
+#source locale
+
+#context html
+#data
+<?xml encoding="windows-31j" encoding="iso-2022-jp"?>
+#encoding shift_jis
+#confidence tentative
+#source xml
+
+#context html
+#data
+<?xml version="1.0" encoding="windows-31j'?>
+#encoding windows-1252
+#confidence tentative
+#source locale
+
+#context html
+#data
+\xFE\xFF<?xml version="1.0" encoding="windows-31j"?>
+#encoding utf-16be
+#confidence certain
+#source bom
+
+#context html
+#data
+\xFF\xFE<?xml version="1.0" encoding="windows-31j"?>
+#encoding utf-16le
+#confidence certain
+#source bom
+
+#context html
+#data
+\xEF\xBB\xBF<?xml version="1.0" encoding="windows-31j"?>
+#encoding utf-8
+#confidence certain
+#source bom
+
+#context html
+#data
+\x00<\x00?\x00x\x00m\x00l\x00 \x00v\x00e\x00r\x00s\x00i\x00o\x00n\x00=\x00"\x001\x00.\x000\x00"\x00 \x00e\x00n\x00c\x00o\x00d\x00i\x00n\x00g\x00=\x00"\x00w\x00i\x00n\x00d\x00o\x00w\x00s\x00-\x003\x001\x00j\x00"\x00?\x00>
+#encoding utf-16be
+#confidence tentative
+#source xml
+
+#context html
+#data
+<\x00?\x00x\x00m\x00l\x00 \x00v\x00e\x00r\x00s\x00i\x00o\x00n\x00=\x00"\x001\x00.\x000\x00"\x00 \x00e\x00n\x00c\x00o\x00d\x00i\x00n\x00g\x00=\x00"\x00w\x00i\x00n\x00d\x00o\x00w\x00s\x00-\x003\x001\x00j\x00"\x00?\x00>\x00
+#encoding utf-16le
+#confidence tentative
+#source xml
+
+#context html
+#data
+<?xml version="1.0" encoding="utf-16le"?>
+#encoding utf-8
+#confidence tentative
+#source xml
+
+#context html
+#data
+<?xml version="1.0" encoding="utf-16BE"?>
+#encoding utf-8
+#confidence tentative
+#source xml
+
+#context html
+#transport EUC-jp
+#data
+<?xml version="1.0" encoding="shift_jis"?>
+#encoding euc-jp
+#confidence certain
+#source transport
+
+#context html
+#override EUC-jp
+#data
+<?xml version="1.0" encoding="shift_jis"?>
+#encoding euc-jp
+#confidence certain
+#source override
+
+#context html
+#transport EUC-jp
+#data
+\xFE\xFF<?xml version="1.0" encoding="shift_jis"?>
+#encoding utf-16be
+#confidence certain
+#source bom
+
+#context html
+#override EUC-jp
+#data
+\xFE\xFF<?xml version="1.0" encoding="shift_jis"?>
+#encoding utf-16be
+#confidence certain
+#source bom
