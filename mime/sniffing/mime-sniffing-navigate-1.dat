@@ -321,6 +321,17 @@ application/octet-stream
 #data
 \x02
 #content-type
+text/plain; charset=ISO-8859-1
+#nonhttp
+#computed
+text/plain
+#name
+0x02 - not HTTP
+
+#context navigate
+#data
+\x02
+#content-type
 text/plain; charset=UTF-8
 #computed
 application/octet-stream
@@ -331,11 +342,33 @@ application/octet-stream
 #data
 \x02
 #content-type
+text/plain; charset=UTF-8
+#nonhttp
+#computed
+text/plain
+#name
+0x02 (text/plain; charset=UTF-8) - not HTTP
+
+#context navigate
+#data
+\x02
+#content-type
 text/plain; charset=isO-8859-1
 #computed
 text/plain
 #name
 0x02; charset=isO-8859-1
+
+#context navigate
+#data
+\x02
+#content-type
+text/plain; charset=isO-8859-1
+#nonhttp
+#computed
+text/plain
+#name
+0x02; charset=isO-8859-1 - not HTTP
 
 #context navigate
 #data
@@ -386,6 +419,17 @@ text/plain; charset=UTF-8
 application/octet-stream
 #name
 0x0B
+
+#context navigate
+#data
+\x0B
+#content-type
+text/plain; charset=UTF-8
+#nonhttp
+#computed
+text/plain
+#name
+0x0B - not HTTP
 
 #context navigate
 #data
