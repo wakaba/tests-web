@@ -1,0 +1,179 @@
+#data
+typedef [Clamp] long Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["Clamp", "long"]
+  }]
+}
+
+#data
+typedef [Clamp] boolean Hoge;
+#errors
+1;9;webidl:not allowed;;Clamp;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": "boolean"
+  }]
+}
+
+#data
+typedef [Clamp] Foo Hoge;
+#errors
+1;9;webidl:not allowed;;Clamp;m
+1;;webidl:not defined;;Foo;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["ref", "Foo"]
+  }]
+}
+
+#data
+typedef [EnforceRange] unsigned  long Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["EnforceRange", "unsigned long"]
+  }]
+}
+
+#data
+typedef [EnforceRange]   double Hoge;
+#errors
+1;9;webidl:not allowed;;EnforceRange;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": "double"
+  }]
+}
+
+#data
+typedef [EnforceRange, Clamp] long Hoge;
+#errors
+1;;webidl:not allowed;;Clamp;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["Clamp", "long"]
+  }]
+}
+
+#data
+interface A {
+  attribute [TreatNullAs=EmptyString ] DOMString hoe;
+};
+#errors
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoe": ["attribute", {
+        "type": ["TreatNullAsEmptyString", "DOMString"],
+        "getter": 1,
+        "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  attribute [TreatNullAs] DOMString hoe;
+};
+#errors
+1;27;webidl:bad args;;TreatNullAs;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoe": ["attribute", {
+        "type": "DOMString",
+        "getter": 1,
+        "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  attribute [TreatNullAs=Empty] _DOMString hoe;
+};
+#errors
+1;27;webidl:not allowed;;TreatNullAs;m
+1;;webidl:not defined;;_DOMString;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoe": ["attribute", {
+        "type": ["ref", "_DOMString"],
+        "getter": 1,
+        "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  attribute [TreatNullAs=EmptyString ] USVString hoe;
+};
+#errors
+1;27;webidl:not allowed;;TreatNullAs;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoe": ["attribute", {
+        "type": "USVString",
+        "getter": 1,
+        "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
+  attribute [TreatNullAs=EmptyString ] long hoe;
+};
+#errors
+1;27;webidl:not allowed;;TreatNullAs;m
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "hoe": ["attribute", {
+        "type": "long",
+        "getter": 1,
+        "setter": 1
+      }]
+    }
+  }]
+}
+
+#data
+typedef [Clamp,Clamp] long Hoge;
+#errors
+1;15;webidl:not allowed;;Clamp;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["Clamp", "long"]
+  }]
+}
+
+#data
+typedef [Hoge] long Hoge;
+#errors
+1;9;webidl:not allowed;;Hoge;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": "long"
+  }]
+}

@@ -1,0 +1,294 @@
+#data
+interface A {
+  void hoge ([Clamp] optional octet foo);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "name": "hoge",
+          "type": "void",
+          "arguments": [
+            {
+              "index": 27,
+              "name": "foo",
+              "type": "octet",
+              "optional": 1,
+              "extended_attributes": [
+                {
+                  "index": 28,
+                  "name": "Clamp"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  void hoge ([Clamp] optional [EnforceRange] octet foo);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "name": "hoge",
+          "type": "void",
+          "arguments": [
+            {
+              "index": 27,
+              "name": "foo",
+              "type": {
+                "extended_attributes": [
+                  {"name": "EnforceRange", "index": 45}
+                ],
+                "type": "octet"
+              },
+              "optional": 1,
+              "extended_attributes": [
+                {
+                  "index": 28,
+                  "name": "Clamp"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  void hoge ([Clamp]  octet foo);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "name": "hoge",
+          "type": "void",
+          "arguments": [
+            {
+              "index": 27,
+              "name": "foo",
+              "type": "octet",
+              "extended_attributes": [
+                {
+                  "index": 28,
+                  "name": "Clamp"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  attribute [Clamp] long foo ;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "attribute",
+          "name": "foo",
+          "type": {
+            "type": "long",
+            "extended_attributes": [
+              {
+                "index": 27,
+                "name": "Clamp"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  maplike <B ,[EnforceRange] long >;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "index": 0,
+      "members": [
+        {
+          "index": 16,
+          "member_type": "maplike",
+          "type1": {
+            "type_name": "B"
+          },
+          "type2": {
+            "type": {
+              "extended_attributes": [{"name": "EnforceRange", "index": 29}],
+              "type": "long"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  maplike <[Clamp] unsigned long ,[EnforceRange] long >;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "index": 0,
+      "members": [
+        {
+          "index": 16,
+          "member_type": "maplike",
+          "type1": {
+            "type": {
+              "extended_attributes": [{"name": "Clamp", "index": 26}],
+              "type": "unsigned long"
+            }
+          },
+          "type2": {
+            "type": {
+              "extended_attributes": [{"name": "EnforceRange", "index": 49}],
+              "type": "long"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  setlike <[Clamp] unsigned long >;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "index": 0,
+      "members": [
+        {
+          "index": 16,
+          "member_type": "setlike",
+          "type1": {
+            "type": {
+              "extended_attributes": [{"name": "Clamp", "index": 26}],
+              "type": "unsigned long"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  setlike <[Clamp] unsigned long ?>;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "index": 0,
+      "members": [
+        {
+          "index": 16,
+          "member_type": "setlike",
+          "type1": {
+            "type": {
+              "extended_attributes": [{"name": "Clamp", "index": 26}],
+              "type": "unsigned long",
+              "type_nullable": 1
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  [Clamp] long foo (long hh);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "extended_attributes": [{"name": "Clamp", "index": 17}],
+          "member_type": "operation",
+          "name": "foo",
+          "type": "long",
+          "arguments": [
+            {
+              "index": 34,
+              "name": "hh",
+              "type": "long"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
