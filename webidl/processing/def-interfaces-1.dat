@@ -83,12 +83,7 @@ class A {};
 interface B {};
 A implements B;
 #errors
-1;28;webidl:bad type;;B;m
-#processed
-{
-  "A": ["class", {"members": {}}],
-  "B": ["interface", {"members": {}}]
-}
+1;6;webidl:parse error;implements, ;;m
 
 #data
 interface A {};
@@ -107,12 +102,7 @@ interface A {};
 class B {};
 A implements B;
 #errors
-1;28;webidl:bad type;;B;m
-#processed
-{
-  "A": ["interface", {"members": {}}],
-  "B": ["class", {"members": {}}]
-}
+1;22;webidl:parse error;implements, ;;m
 
 #data
 interface A {};
