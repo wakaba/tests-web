@@ -177,3 +177,55 @@ typedef [Hoge] long Hoge;
     "type": "long"
   }]
 }
+
+#data
+dictionary A {
+  required [Clamp] long hoge;
+};
+#processed
+{
+  "A": ["dictionary", {
+    "members": {
+      "hoge": ["dictionary_member", {
+        "required": 1,
+        "type": ["Clamp", "long"]
+      }]
+    }
+  }]
+}
+
+#data
+dictionary A {
+  [Clamp] required long hoge;
+};
+#errors
+1;18;webidl:not allowed;;Clamp;m
+#processed
+{
+  "A": ["dictionary", {
+    "members": {
+      "hoge": ["dictionary_member", {
+        "required": 1,
+        "type": "long"
+      }]
+    }
+  }]
+}
+
+#data
+dictionary A {
+  [EnforceRange] required [Clamp] long hoge;
+};
+#errors
+1;18;webidl:not allowed;;EnforceRange;m
+#processed
+{
+  "A": ["dictionary", {
+    "members": {
+      "hoge": ["dictionary_member", {
+        "required": 1,
+        "type": ["Clamp", "long"]
+      }]
+    }
+  }]
+}
