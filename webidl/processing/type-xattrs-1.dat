@@ -229,3 +229,38 @@ dictionary A {
     }
   }]
 }
+
+#data
+typedef [AllowShared]  Int8Array  Hoge;
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": ["AllowShared", "Int8Array"]
+  }]
+}
+
+#data
+typedef [AllowShared] boolean Hoge;
+#errors
+1;9;webidl:not allowed;;AllowShared;m
+#processed
+{
+  "Hoge": ["typedef", {
+    "type": "boolean"
+  }]
+}
+
+#data
+dictionary A {
+  [AllowShared] Int32Array hoge;
+};
+#processed
+{
+  "A": ["dictionary", {
+    "members": {
+      "hoge": ["dictionary_member", {
+        "type": ["AllowShared", "Int32Array"]
+      }]
+    }
+  }]
+}
