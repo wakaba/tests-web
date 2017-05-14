@@ -11,3 +11,77 @@
 {
   "A": ["interface", {"members": {}, "Serializable": 1}]
 }
+
+#data
+[HTMLConstructor] interface A {};
+#errors
+1;;webidl:not defined;;[PrimaryGlobal];w
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {"members": {}}]
+  },
+  "global_members": {
+    "A": ["HTMLConstructor"]
+  }
+}
+
+#data
+[HTMLConstructor, Constructor] interface A {};
+#errors
+1;0;webidl:not allowed;;Constructor;m
+1;;webidl:not defined;;[PrimaryGlobal];w
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {"members": {}}]
+  },
+  "global_members": {
+    "A": ["HTMLConstructor"]
+  }
+}
+
+#data
+[Constructor, HTMLConstructor] interface A {};
+#errors
+1;0;webidl:not allowed;;Constructor;m
+1;;webidl:not defined;;[PrimaryGlobal];w
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {"members": {}}]
+  },
+  "global_members": {
+    "A": ["HTMLConstructor"]
+  }
+}
+
+#data
+[NoInterfaceObject, Constructor] interface A {};
+#errors
+1;0;webidl:not allowed;;Constructor;m
+1;;webidl:not defined;;[PrimaryGlobal];w
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {"members": {}, "NoInterfaceObject":1}]
+  },
+  "global_members": {
+    "A": ["operation", {"overload_set": {"": {"args":[],"type":["ref_interface","A"]}}}]
+  }
+}
+
+#data
+[NoInterfaceObject, HTMLConstructor] interface A {};
+#errors
+1;0;webidl:not allowed;;Constructor;m
+1;;webidl:not defined;;[PrimaryGlobal];w
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {"members": {}, "NoInterfaceObject":1}]
+  },
+  "global_members": {
+    "A": ["HTMLConstructor"]
+  }
+}
