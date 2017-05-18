@@ -1,0 +1,134 @@
+#input
+"GET /"
+"x" x 300
+" HTTP/1.0"
+CRLF
+CRLF
+#result
+{{404nohosth}}{{eof}}
+
+#input
+"GET /"
+"x" x 300
+CRLF
+CRLF
+#result
+{{404nohostbody}}{{eof}}
+
+#input
+"GET /"
+"x" x 5000
+CRLF
+CRLF
+#result
+{{404nohostbody}}{{eof}}
+
+#input
+"GET /"
+"x" x 8170
+CRLF
+CRLF
+#result
+{{404nohostbody}}{{eof}}
+
+#input
+"GET /"
+"x" x 8180
+CRLF
+CRLF
+#result
+{{404nohostbody}}{{eof}}
+
+#input
+"GET /"
+"x" x 8185
+CRLF
+CRLF
+#result
+{{404nohostbody}}{{eof}}
+
+#input
+"GET /"
+"x" x 8186
+CRLF
+CRLF
+#result
+{{414h|}}{{eof}}
+#result-nginx
+{{414body}}{{eof}}
+
+#input
+"GET /"
+"x" x 8190
+CRLF
+CRLF
+#result
+{{414h|}}{{eof}}
+#result-nginx
+{{414body}}{{eof}}
+
+#name
+HTTP/1.0 8177
+#input
+"GET /"
+"x" x 8177
+"HTTP/1.0"
+CRLF
+CRLF
+#result
+{{404nohostbody}}{{eof}}
+
+#name
+HTTP/1.0 8178
+#input
+"GET /"
+"x" x 8178
+"HTTP/1.0"
+CRLF
+CRLF
+#result
+{{414h|}}{{eof}}
+#result-nginx
+{{414body}}{{eof}}
+
+#input
+"GET /"
+"x" x 10000
+CRLF
+CRLF
+#result
+{{414h|}}{{eof}}
+#result-nginx
+{{414body}}{{eof}}
+
+#input
+"GET /"
+"x" x 20000
+CRLF
+CRLF
+#result
+{{414h|}}{{eof}}
+#result-nginx
+{{414body}}{{eof}}
+
+#input
+"GET /"
+"x" x 30000
+CRLF
+CRLF
+#result
+{{414h|}}{{eof}}
+#result-nginx
+{{414body}}{{eof}}
+
+#name
+HEAD
+#input
+"HEAD /"
+"x" x 9000
+CRLF
+CRLF
+#result
+{{414h|}}{{eof}}
+#result-nginx
+{{414body}}{{eof}}

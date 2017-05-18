@@ -106,15 +106,8 @@ class B {};
 interface A {
   B foo ();
 };
-#processed
-{
-  "B": ["class", {"members":{}}],
-  "A": ["interface", {"members": {
-    "foo": ["operation", {
-      "overload_set": {"": {"type": ["ref_class", "B"], "args": []}}
-    }]
-  }}]
-}
+#errors
+1;6;webidl:parse error;implements, ;;m
 
 #data
 callback interface B {};

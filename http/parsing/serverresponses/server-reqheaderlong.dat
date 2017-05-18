@@ -1,0 +1,176 @@
+#input
+"GET /400 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"a:"
+"x" x 8000
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#input
+"GET /400 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"a:"
+"x" x 8188
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#input
+"GET /400 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"a:"
+"x" x 8189
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+
+#input
+"GET /400 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"a:"
+"x" x 9000
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+
+#input
+"GET /400 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"a:"
+"x" x 8188
+CRLF
+" "LF
+CRLF
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+
+#input
+"GET /400 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"a:"
+"x" x 8188
+CRLF
+" abcde"LF
+CRLF
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+
+#name
+many headers 99
+#input
+"GET /400 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"a:b\x0A" x 99
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+
+#name
+many headers 100
+#input
+"GET /400 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"a:b\x0A" x 100
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+
+#name
+many headers
+#input
+"GET /400 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"a:b\x0A" x 8000
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+
+#name
+many headers 8437
+#input
+"GET /400 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"a:b\x0A" x 8437
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+
+#name
+many headers 8438
+#input
+"GET /400 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"a:b\x0A" x 8437
+"x:"LF
+CRLF
+#result
+{{400h}}{{eof}}
+
+#name
+many headers
+#input
+"GET /400 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"a:b\x0A" x 8438
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+
+#name
+many headers
+#input
+"GET /400 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"a:b\x0A" x 9000
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}

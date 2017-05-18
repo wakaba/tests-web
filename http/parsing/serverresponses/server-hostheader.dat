@@ -1,0 +1,211 @@
+#name
+No Host: 1.0
+#input
+"GET /404 HTTP/1.0"CRLF
+CRLF
+#result
+{{404nohosth}}{{eof}}
+
+#name
+No Host: 1.1
+#input
+"GET /404 HTTP/1.1"CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+
+#name
+multiple Host:
+#input
+"GET /404 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{eof}}
+
+#name
+multiple Host:
+#input
+"GET /404 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"host:abc"CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404nohosth}}{{eof}}
+
+#name
+multiple Host:
+#input
+"GET /404 HTTP/1.0"CRLF
+"host:xyz"CRLF
+"host:abc"CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404nohosth}}{{eof}}
+
+#name
+Host: bad port
+#input
+"GET /404 HTTP/1.0"CRLF
+"host:xyz:foo"CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404nohosth}}{{eof}}
+
+#name
+bad Host: /
+#input
+"GET /404 HTTP/1.0"CRLF
+"host:xyz/"CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+
+#name
+bad Host: /
+#input
+"GET /404 HTTP/1.0"CRLF
+"host:xyz/hoge"CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+
+#name
+bad Host: query
+#input
+"GET /404 HTTP/1.0"CRLF
+"host:xyz?foo"CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404nohosth}}{{eof}}
+
+#name
+bad Host: fragment
+#input
+"GET /404 HTTP/1.0"CRLF
+"host:xyz#foo"CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404nohosth}}{{eof}}
+
+#name
+bad Host: authority
+#input
+"GET /404 HTTP/1.0"CRLF
+"host://xyz/"CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+
+#name
+bad Host: (non-ASCII)
+#input
+"GET /404 HTTP/1.0"CRLF
+"host:xyz\xFE\x80"CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404nohosth}}{{eof}}
+
+#name
+bad Host: (empty)
+#input
+"GET /404 HTTP/1.0"CRLF
+"host:"CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+
+#name
+bad Host: (%)
+#input
+"GET /404 HTTP/1.0"CRLF
+"host:hoge%fuga"CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404nohosth}}{{eof}}
+
+#name
+bad Host: (0x09)
+#input
+"GET /404 HTTP/1.0"CRLF
+"host:\x09\x09"CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404nohosth}}{{eof}}
+
+#name
+authority = Host:
+#input
+"GET http://hoge.test/404 HTTP/1.0"CRLF
+"host:hoge.test"CRLF
+CRLF
+close
+#result
+{{404nohosth}}{{eof}}
+
+#name
+authority != Host:
+#input
+"GET http://fuga.test/404 HTTP/1.0"CRLF
+"host:hoge.test"CRLF
+CRLF
+close
+#result
+{{404nohosth}}{{eof}}
+
+#name
+has authority, no Host: 1.0
+#input
+"GET http://fuga.test/404 HTTP/1.0"CRLF
+CRLF
+close
+#result
+{{404nohosth}}{{eof}}
+
+#name
+has authority, no Host: 1.1
+#input
+"GET http://fuga.test/404 HTTP/1.1"CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}

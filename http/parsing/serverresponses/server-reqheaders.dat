@@ -1,0 +1,472 @@
+#input
+"GET /404 HTTP/1.0"CRLF
+"ABC:x"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+space before ":"
+#input
+"GET /404 HTTP/1.0"CRLF
+"ABC :x"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+0x09 before :
+#input
+"GET /404 HTTP/1.0"CRLF
+"ABC\x09:x"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+space in header name
+#input
+"GET /404 HTTP/1.0"CRLF
+"AB C:x"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+NULL in header name
+#input
+"GET /404 HTTP/1.0"CRLF
+"ABC\x00:x"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+
+#input
+"GET /404 HTTP/1.0"CRLF
+"\x00aa:x"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+
+#input
+"GET /404 HTTP/1.0"CRLF
+"ABC\x01:x"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#input
+"GET /404 HTTP/1.0"CRLF
+"ABC\x90\xFEb:x"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#input
+"GET /404 HTTP/1.0"CRLF
+"ABC_X:x"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#input
+"GET /404 HTTP/1.0"CRLF
+"124:x"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#input
+"GET /404 HTTP/1.0"CRLF
+"*\x22:x"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#input
+"GET /404 HTTP/1.0"CRLF
+"ab\x0C:x"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+0x0D in header name
+#input
+"GET /404 HTTP/1.0"CRLF
+"ab\x0D:x"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+0x0D in header value
+#input
+"GET /404 HTTP/1.0"CRLF
+"ab:\x0Dx"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+0x0D in header value
+#input
+"GET /404 HTTP/1.0"CRLF
+"ab:ab\x0Dx"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+0x00 in header value
+#input
+"GET /404 HTTP/1.0"CRLF
+"ab:ab\x00x"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+
+#name
+0x0D in header value
+#input
+"GET /404 HTTP/1.0"CRLF
+"ab:ab\x0Dx"LF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+header value (Content-Length) 1
+#input
+"GET /404 HTTP/1.1\x0D\x0Ahost:"
+hostport
+CRLF
+"content-length:5"CRLF
+CRLF
+"abcde"
+receive "</html>"
+"GET /404"CRLF
+#result
+{{404h}}{{404nohostbody}}{{eof}}
+
+#name
+header value (Content-Length)
+#input
+"GET /404 HTTP/1.1\x0D\x0Ahost:"
+hostport
+CRLF
+"content-length: 5 "CRLF
+CRLF
+"abcde"
+receive "</html>"
+"GET /404"CRLF
+#result
+{{404h}}{{404nohostbody}}{{eof}}
+
+#name
+header value (Content-Length) \x09length
+#input
+"GET /404 HTTP/1.1\x0D\x0Ahost:"
+hostport
+CRLF
+"content-length:\x095"CRLF
+CRLF
+"abcde"
+receive "</html>"
+"GET /404"CRLF
+#result
+{{404h}}{{404nohostbody}}{{eof}}
+#result-nginx
+{{411h}}{{eof}}
+#result-apache
+{{404h}}{{404nohostbody}}{{eof}}
+
+#name
+header value (Content-Length)
+#input
+"GET /404 HTTP/1.1\x0D\x0Ahost:"
+hostport
+CRLF
+"content-length:\x09\x095\x09"CRLF
+CRLF
+"abcde"
+receive "</html>"
+"GET /404"CRLF
+#result
+{{404h}}{{404nohostbody}}{{eof}}
+#result-nginx
+{{411h}}{{eof}}
+#result-apache
+{{404h}}{{404nohostbody}}{{eof}}
+
+#name
+header value (Content-Length) \x0C5
+#input
+"GET /404 HTTP/1.1\x0D\x0Ahost:"
+hostport
+CRLF
+"content-length:\x0C5"CRLF
+CRLF
+"abcde"
+receive "</html>"
+"GET /404"CRLF
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{411h}}{{eof}}
+#result-apache
+{{404h}}{{404nohostbody}}{{eof}}
+
+#name
+header value (Content-Length)
+#input
+"GET /404 HTTP/1.1\x0D\x0Ahost:"
+hostport
+CRLF
+"content-length:"CRLF
+" 5"CRLF
+CRLF
+"abcde"
+receive "</html>"
+"GET /404"CRLF
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{411h}}{{eof}}
+
+#name
+header value (Content-Length) CRLF\x09
+#input
+"GET /404 HTTP/1.1\x0D\x0Ahost:"
+hostport
+CRLF
+"content-length:"CRLF
+"\x095"CRLF
+CRLF
+"abcde"
+receive "</html>"
+"GET /404"CRLF
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{411h}}{{eof}}
+
+#name
+header value (Content-Length) 5\x0D\x0A\x20
+#input
+"GET /404 HTTP/1.1\x0D\x0Ahost:"
+hostport
+CRLF
+"content-length:5"CRLF
+" "CRLF
+CRLF
+"abcde"
+receive "</html>"
+"GET /404"CRLF
+#result
+{{404h}}{{404nohostbody}}{{eof}}
+#result-nginx
+{{404h}}{{400body}}{{eof}}
+#result-apache
+{{400h}}{{eof}}
+
+#name
+header value (Content-Length) 5\x0D\x0A\x09
+#input
+"GET /404 HTTP/1.1\x0D\x0Ahost:"
+hostport
+CRLF
+"content-length:5"CRLF
+"\x09"CRLF
+CRLF
+"abcde"
+receive "</html>"
+"GET /404"CRLF
+#result
+{{404h}}{{404nohostbody}}{{eof}}
+#result-nginx
+{{404h}}{{400body}}{{eof}}
+#result-apache
+{{400h}}{{eof}}
+
+#name
+header value (Host) 1
+#input
+"GET /404 HTTP/1.1\x0D\x0Ahost:\x0D\x0A "
+hostport
+CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+header value (Host - trailing wrapped spaces)
+#input
+"GET /404 HTTP/1.1\x0D\x0Ahost:"
+hostport
+"\x0D\x0A "CRLF
+CRLF
+close
+#result
+{{404h}}{{eof}}
+
+#name
+header value (Host)
+#input
+"GET /404 HTTP/1.1\x0D\x0Ahost:\x09"
+hostport
+CRLF
+CRLF
+close
+#result
+{{404nohosth}}{{eof}}
+
+#name
+multiple wrapped lines
+#input
+"GET /404 HTTP/1.0"CRLF
+"hoge:foo\x0A bar\x0A x\x0A xyz"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{404h}}{{eof}}
+
+#name
+multiple wrapped lines
+#input
+"GET /404 HTTP/1.0"CRLF
+"hoge:foo\x0A bar\x0A \x0A xyz"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{404h}}{{eof}}
+
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"hoge:foo"CRLF
+"\x09bar"LF
+"\x09"CRLF
+" xyz"CRLF
+CRLF
+close
+#result
+{{404h}}{{eof}}
+#result-nginx
+{{eof}}
+#result-apache
+{{400h}}{{eof}}
+
+#name
+continue with :
+#input
+"GET /404 HTTP/1.0"CRLF
+"foo:bar\x0D\x0A a:b"CRLF
+"host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#input
+timeout 2
+"GET /404 HTTP/1.0"CRLF
+"foo:bar"CRLF
+" a:b"CRLF
+"host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+#result-nginx
+{{timeout}}{{eof}}
+#result-apache
+{{timeout}}{{eof}}
+
+#input
+timeout 2
+"GET /404 HTTP/1.0"CRLF
+" a:b"CRLF
+"foo:bar"CRLF
+"host:"
+hostport
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{timeout}}{{eof}}
+#result-apache
+{{timeout}}{{eof}}

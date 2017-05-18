@@ -9,20 +9,22 @@
 
 #data
 [ArrayClass] interface A {};
+#errors
+1;1;webidl:not allowed;;ArrayClass;m
 #processed
 {
   "A": ["interface", {
-    "ArrayClass": 1,
     "members": {}
   }]
 }
 
 #data
 [ArrayClass] callback interface A {};
+#errors
+1;1;webidl:not allowed;;ArrayClass;m
 #processed
 {
   "A": ["callback_interface", {
-    "ArrayClass": 1,
     "members": {}
   }]
 }
@@ -30,11 +32,10 @@
 #data
 [ArrayClass()] interface A {};
 #errors
-1;1;webidl:bad args;;ArrayClass;m
+1;1;webidl:not allowed;;ArrayClass;m
 #processed
 {
   "A": ["interface", {
-    "ArrayClass": 1,
     "members": {}
   }]
 }
@@ -42,11 +43,10 @@
 #data
 [ArrayClass=foo()] interface A {};
 #errors
-1;1;webidl:bad args;;ArrayClass;m
+1;1;webidl:not allowed;;ArrayClass;m
 #processed
 {
   "A": ["interface", {
-    "ArrayClass": 1,
     "members": {}
   }]
 }
@@ -54,11 +54,10 @@
 #data
 [ArrayClass=foo] interface A {};
 #errors
-1;1;webidl:bad args;;ArrayClass;m
+1;1;webidl:not allowed;;ArrayClass;m
 #processed
 {
   "A": ["interface", {
-    "ArrayClass": 1,
     "members": {}
   }]
 }
@@ -66,11 +65,10 @@
 #data
 [ArrayClass=(foo,bar)] interface A {};
 #errors
-1;1;webidl:bad args;;ArrayClass;m
+1;1;webidl:not allowed;;ArrayClass;m
 #processed
 {
   "A": ["interface", {
-    "ArrayClass": 1,
     "members": {}
   }]
 }
@@ -228,8 +226,7 @@ dictionary A {
   "A": ["dictionary", {
     "members": {
       "lhoo": ["dictionary_member", {
-        "Clamp": 1,
-        "type": "long"
+        "type": ["Clamp", "long"]
       }]
     }
   }]
@@ -239,12 +236,13 @@ dictionary A {
 interface A {
   [Clamp] attribute long  lhoo;
 };
+#errors
+1;17;webidl:not allowed;;Clamp;m
 #processed
 {
   "A": ["interface", {
     "members": {
       "lhoo": ["attribute", {
-        "Clamp": 1,
         "type": "long",
         "getter": 1, "setter": 1
       }]
@@ -274,13 +272,29 @@ interface A {
 dictionary A {
   [Clamp]  long  lhoo;
 };
-#errors
 #processed
 {
   "A": ["dictionary", {
     "members": {
       "lhoo": ["dictionary_member", {
-        "type": "long", "Clamp": 1
+        "type": ["Clamp", "long"]
+      }]
+    }
+  }]
+}
+
+#data
+dictionary A {
+  [Hoge]  long  lhoo;
+};
+#errors
+1;18;webidl:not allowed;;Hoge;m
+#processed
+{
+  "A": ["dictionary", {
+    "members": {
+      "lhoo": ["dictionary_member", {
+        "type": "long"
       }]
     }
   }]
@@ -291,13 +305,13 @@ interface A {
   [Clamp,Clamp] attribute long  lhoo;
 };
 #errors
+1;17;webidl:not allowed;;Clamp;m
 1;23;webidl:not allowed;;Clamp;m
 #processed
 {
   "A": ["interface", {
     "members": {
       "lhoo": ["attribute", {
-        "Clamp": 1,
         "type": "long",
         "getter": 1, "setter": 1
       }]
@@ -570,8 +584,7 @@ dictionary A {
   "A": ["dictionary", {
     "members": {
       "hoge": ["dictionary_member", {
-        "EnforceRange": 1,
-        "type": "long"
+        "type": ["EnforceRange", "long"]
       }]
     }
   }]
@@ -581,12 +594,13 @@ dictionary A {
 interface A {
   [EnforceRange] attribute long hoge;
 };
+#errors
+1;17;webidl:not allowed;;EnforceRange;m
 #processed
 {
   "A": ["interface", {
     "members": {
       "hoge": ["attribute", {
-        "EnforceRange": 1,
         "type": "long",
         "getter": 1, "setter": 1
       }]
@@ -599,14 +613,13 @@ interface A {
   [Clamp,EnforceRange] attribute long hoge;
 };
 #errors
-1;16;webidl:not allowed;;Clamp;m
+1;17;webidl:not allowed;;Clamp;m
+1;23;webidl:not allowed;;EnforceRange;m
 #processed
 {
   "A": ["interface", {
     "members": {
       "hoge": ["attribute", {
-        "Clamp": 1,
-        "EnforceRange": 1,
         "type": "long",
         "getter": 1, "setter": 1
       }]
@@ -657,19 +670,17 @@ interface A {};
 1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
-  "idl_defs":
-{
-  "A": ["interface", {
-    "members": {}
-  }]
-},
+  "idl_defs": {
+    "A": ["interface", {
+      "members": {}
+    }]
+  },
   "global_members": {
     "A": ["operation", {
-      "overload_set": {"unsigned long": {
+      "overload_set": {"EnforceRange[unsigned long]": {
         "type": ["ref_interface", "A"],
         "args": [{
-          "EnforceRange": 1,
-          "type": "unsigned long",
+          "type": ["EnforceRange", "unsigned long"],
           "optionality": "required",
           "name": "a"
         }]
@@ -1345,13 +1356,14 @@ callback Hoge = void ();
 interface A {
   [ TreatNullAs = EmptyString]attribute DOMString foo;
 };
+#errors
+1;18;webidl:not allowed;;TreatNullAs;m
 #processed
 {
   "A": ["interface", {
     "members": {
       "foo": ["attribute", {
         "type": "DOMString",
-        "TreatNullAs": "EmptyString",
         "getter": 1, "setter": 1
       }]
     }
@@ -1363,7 +1375,7 @@ interface A {
   [ TreatNullAs ]attribute DOMString foo;
 };
 #errors
-1;18;webidl:bad args;;TreatNullAs;m
+1;18;webidl:not allowed;;TreatNullAs;m
 #processed
 {
   "A": ["interface", {
@@ -1381,7 +1393,7 @@ interface A {
   [ TreatNullAs =Null ]attribute DOMString foo;
 };
 #errors
-1;18;webidl:bad args;;TreatNullAs;m
+1;18;webidl:not allowed;;TreatNullAs;m
 #processed
 {
   "A": ["interface", {
@@ -1398,13 +1410,14 @@ interface A {
 interface A {
   [ TreatNullAs=EmptyString ] readonly attribute DOMString foo;
 };
+#errors
+1;18;webidl:not allowed;;TreatNullAs;m
 #processed
 {
   "A": ["interface", {
     "members": {
       "foo": ["attribute", {
         "type": "DOMString",
-        "TreatNullAs": "EmptyString",
         "getter": 1
       }]
     }
@@ -1415,6 +1428,8 @@ interface A {
 callback interface A {
   [TreatNullAs=EmptyString] DOMString foo ();
 };
+#errors
+1;26;webidl:not allowed;;TreatNullAs;m
 #processed
 {
   "A": ["callback_interface", {
@@ -1423,7 +1438,6 @@ callback interface A {
         "overload_set": {
           "": {
             "type": "DOMString",
-            "TreatNullAs": "EmptyString",
             "args": []
           }
         }

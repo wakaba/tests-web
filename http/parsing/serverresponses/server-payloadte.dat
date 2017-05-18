@@ -1,0 +1,68 @@
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+#result
+{{411h}}{{eof}}
+#result-apache
+{{400h}}{{eof}}
+
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+"abcd"
+#result
+{{411h}}{{eof}}
+#result-apache
+{{400h}}{{eof}}
+
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Transfer-Encoding: hoge"CRLF
+CRLF
+"abcd"
+close
+#result
+{{411h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+#result-apache
+{{501h}}{{eof}}
+
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Transfer-Encoding:"CRLF
+CRLF
+"abcd"
+close
+#result
+{{411h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+#result-apache
+{{501h}}{{eof}}
+
+#input
+"HEAD /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Transfer-Encoding: chunked"CRLF
+CRLF
+#result
+{{411header}}\x0D\x0A{{eof}}
+#result-apache
+{{400header}}\x0D\x0A{{eof}}

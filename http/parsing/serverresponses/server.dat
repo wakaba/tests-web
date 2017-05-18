@@ -1,0 +1,1432 @@
+#name
+bad request-line
+#input
+"hoge"
+#result
+{{eof}}
+#result-nginx
+{{400body}}{{eof}}
+#notes
+apache - timeout
+
+#name
+bad request-line
+#input
+"GET"CRLF
+#result
+{{400body}}{{eof}}
+
+#name
+bad request-line
+#input
+"GET foo"CRLF
+#result
+{{400body}}{{eof}}
+
+#name
+bad request-line
+#input
+"GET hoge"LF
+#result
+{{400body}}{{eof}}
+
+#name
+HTTP/0.9 request
+#input
+"GET /404"CRLF
+#result
+{{404nohostbody}}{{eof}}
+
+#name
+HTTP/0.9 request
+#input
+"GET /404"LF
+#result
+{{404nohostbody}}{{eof}}
+
+#name
+HTTP/0.9 request, bad request-method (get)
+#input
+"get /404"CRLF
+#result
+{{400body|405body}}{{eof}}
+#notes
+nginx - 400
+apache - 501
+
+#name
+HTTP/0.9 request, bad request-method (HEAD)
+#input
+"HEAD /404"CRLF
+#result
+{{400body}}{{eof}}
+
+#name
+HTTP/0.9 request, bad request-method (POST)
+#input
+"POST /404"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{404body}}{{eof}}
+
+#name
+HTTP/0.9 request, bad request-method (unknown)
+#input
+"ABCDEF /404"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{405body}}{{eof}}
+
+#name
+HTTP/0.9 request, bad request-method (OPTIONS)
+#input
+"OPTIONS /404"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{500body}}{{eof}}
+
+#name
+bad HTTP-version in request-line (request-line only)
+#input
+"GET /404 HTTP/0.9"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{408h}}{{eof}}
+
+#name
+bad HTTP-version in request-line (HTTP/1 request-line and headers)
+#input
+"GET /404 HTTP/0.9"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+bad HTTP-version in request-line (HTTP/0.900)
+#input
+"GET /404 HTTP/0.900"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{408h}}{{eof}}
+
+#name
+bad HTTP-version in request-line (HTTP/12345)
+#input
+"GET /404 HTTP/12345"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{408h}}{{eof}}
+
+#name
+bad HTTP-version in request-line (HTTPFOOBAR)
+#input
+"GET /404 HTTPFOOBAR"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{408h}}{{eof}}
+
+#name
+bad HTTP-version in request-line (H)
+#input
+"GET /404 H"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{408h}}{{eof}}
+
+#name
+bad HTTP-version in request-line (HT)
+#input
+"GET /404 HT"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{408h}}{{eof}}
+
+#name
+bad HTTP-version in request-line (HTTX)
+#input
+"GET /404 HTTX"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{408h}}{{eof}}
+
+#name
+bad HTTP-version in request-line (FOOHTTPBAR)
+#input
+"GET /404 FOOHTTPBAR"CRLF
+#result
+{{404nohostbody}}{{eof}}
+#result-apache
+{{408h}}{{eof}}
+
+#name
+bad HTTP-version in request-line (FOOBAR)
+#input
+"GET /404 FOOBAR"CRLF
+#result
+{{404nohostbody}}{{eof}}
+#result-apache
+{{408h}}{{eof}}
+
+#name
+bad HTTP-version in request-line (foobar)
+#input
+"GET /404 foobar"CRLF
+#result
+{{404nohostbody}}{{eof}}
+#result-apache
+{{408h}}{{eof}}
+
+#name
+bad HTTP-version in request-line (HTTP)
+#input
+"GET /404 HTTP"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{408h}}{{eof}}
+
+#name
+bad HTTP-version in request-line (HTTP/0)
+#input
+"GET /404 HTTP/0"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{408h}}{{eof}}
+
+#name
+bad HTTP-version in request-line (HTTP/0.1)
+#input
+"GET /404 HTTP/0.1"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{408h}}{{eof}}
+
+#name
+bad request-target of HTTP/0.9
+#input
+"GET HTTP/0.9"CRLF
+#result
+{{400body}}{{eof}}
+
+#name
+bad request-target of HTTP/0.9
+#input
+"GET hoge:124"CRLF
+#result
+{{400body}}{{eof}}
+
+#name
+bad request-target of HTTP/0.9
+#input
+"CONNECT foo:55"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{405body}}{{eof}}
+
+#name
+HTTP/0.9 request-target authority-URL
+#input
+"GET //foo/bar"CRLF
+#result
+{{404nohostbody}}{{eof}}
+
+#name
+HTTP/0.9 request-target absolute URL (https://)
+#input
+"GET https://foo/bar"CRLF
+#result
+{{404nohostbody}}{{eof}}
+
+#name
+HTTP/0.9 request-target absolute URL (about:)
+#input
+"GET about:blank"CRLF
+#result
+{{400body}}{{eof}}
+
+#name
+HTTP/0.9 request-target absolute URL (https:)
+#input
+"GET https:foo/bar"CRLF
+#result
+{{400body}}{{eof}}
+
+#name
+HTTP/0.9 request-target absolute URL (FTP:)
+#input
+"GET FTP://foo/bar"CRLF
+#result
+{{404nohostbody}}{{eof}}
+
+#name
+HTTP/0.9 request-target bad char
+#input
+"GET /[]"CRLF
+#result
+{{404nohostbody}}{{eof}}
+
+#name
+HTTP/0.9 request-target bad char (NULL)
+#input
+"GET /\x00"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{400h}}{{eof}}
+
+#name
+HTTP/0.9 request-target bad char (non-ASCII and NULL)
+#input
+"GET /\x89\xFE\x00\xA2"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{400h}}{{eof}}
+
+#name
+HTTP/0.9 request-target bad char (non-ASCII)
+#input
+"GET /\x89\xFE\xA2"CRLF
+#result
+{{404nohostbody}}{{eof}}
+
+#name
+HTTP/0.9 request-target bad char
+#input
+"GET /404?query"CRLF
+#result
+{{404nohostbody}}{{eof}}
+
+#name
+HTTP/0.9 request-target bad char
+#input
+"GET /404#fragment"CRLF
+#result
+{{404nohostbody}}{{eof}}
+
+#name
+bad request-line (second request)
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+"hoge"CRLF
+#result
+{{404h}}{{400body}}{{eof}}
+#result-apache
+{{404h}}{{405body}}{{eof}}
+
+#name
+HTTP/1.0 GET request (closed by server)
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+HTTP/1.0 request (closed by server) - bad request-method
+#input
+"get /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{400body|405h}}{{eof}}
+#notes
+nginx - HTTP/0.9 400
+apache - HTTP/1.1 501
+
+#name
+HTTP/1.0 request (closed by server) - bad request-method
+#input
+"ABCDE /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{405h}}{{eof}}
+
+#name
+PUT, no Content-Length
+#input
+"PUT /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{411h|405h}}{{eof}}
+
+#name
+DELETE, no Content-Length
+#input
+"DELETE /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{405h}}{{eof}}
+
+#name
+POST, no Content-Length
+#input
+"POST /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+HTTP/1.0 HEAD request (closed by server)
+#input
+"HEAD /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{404header}}\x0D\x0A{{eof}}
+
+#name
+HTTP/1.0 bad header line
+#input
+"POST /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+"hoge"CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+
+#name
+HTTP/1.0 bad header line
+#input
+"POST /404 HTTP/1.0"CRLF
+"hoge"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+
+#name
+HTTP/1.0 bad header line
+#input
+"GET /404 HTTP/1.0"CRLF
+"hoge"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+
+#name
+HTTP/1.0 bad header name
+#input
+"GET /404 HTTP/1.0"CRLF
+":hoge"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+HTTP/1.0 bad header name
+#input
+"GET /404 HTTP/1.0"CRLF
+":::hoge"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+HTTP/1.1 bad header name
+#input
+"GET /404 HTTP/1.1"CRLF
+":::hoge"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+HTTP/1.1 bad header name (non-ASCII)
+#input
+"GET /404 HTTP/1.1"CRLF
+"a\x53\x98\x01\xFE:hoge"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+close
+#result
+{{404h}}{{eof}}
+
+#name
+HTTP/1.1 bad header (no-: line after request line)
+#input
+"GET /404 HTTP/1.1"CRLF
+"foo"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+
+#name
+HTTP/1.1 bad header (continuous after request-line)
+#input
+"GET /404 HTTP/1.1"CRLF
+" foo"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+
+#name
+HTTP/1.1 bad header (continuous with : after request line)
+#input
+"GET /404 HTTP/1.1"CRLF
+" fo:o"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+
+#name
+newlines before request 1
+#input
+CRLF
+"hoge"
+#result
+{{eof}}
+#result-nginx
+{{400body}}{{eof}}
+
+#name
+newlines before request 2
+#input
+CRLF
+"hoge"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{405body}}{{eof}}
+
+#name
+newlines before request 3
+#input
+CRLF
+"GET /404 HTTP/1.0"CRLF
+CRLF
+#result
+{{404nohosth}}{{eof}}
+
+#name
+newlines before request (LF)
+#input
+LF
+"GET /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+newlines before request (CRLF)
+#input
+CRLF
+"GET /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+newlines before request (LF LF)
+#input
+LF
+LF
+"GET /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+close
+#result
+{{400body}}{{eof}}
+#result-apache
+{{400h}}{{eof}}
+#result-nginx
+{{eof}}
+
+#name
+newlines before request (CR LF LF)
+#input
+CR
+LF
+LF
+"GET /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+close
+#result
+{{400body}}{{eof}}
+#result-apache
+{{400h}}{{eof}}
+#result-nginx
+{{eof}}
+
+#name
+newlines before request (CR CR LF)
+#input
+CR
+CR
+LF
+"GET /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+close
+#result
+{{400body}}{{eof}}
+#result-apache
+{{405body}}{{eof}}
+#result-nginx
+{{eof}}
+
+#name
+newlines before request (CR CR LF LF)
+#input
+CR
+CR
+LF
+LF
+"GET /404 HTTP/1.0"CRLF
+CRLF
+#result
+{{400body}}{{eof}}
+#result-nginx
+{{404nohosth}}{{eof}}
+#result-apache
+{{405body}}{{eof}}
+
+#name
+newlines before request (CRLFCRLF)
+#input
+CRLF
+CRLF
+"GET /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+close
+#result
+{{400body}}{{eof}}
+#result-apache
+{{400h}}{{eof}}
+#result-nginx
+{{eof}}
+
+#name
+newlines before request (CRLFLFCRCRLF)
+#input
+CRLF
+LF
+CR
+CR
+LF
+"GET /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+close
+#result
+{{400body}}{{eof}}
+#result-apache
+{{405body}}{{eof}}
+#result-nginx
+{{eof}}
+
+#name
+two GET requests
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+close
+#result
+{{404h}}{{404h}}{{eof}}
+
+#name
+two GET requests, newline between requests (CRLF)
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+CRLF
+"GET /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+close
+#result
+{{404h}}{{404h}}{{eof}}
+
+#name
+two GET requests, newline between requests (CRLF CRLF)
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+CRLF
+CRLF
+"GET /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+
+#name
+two GET requests, newline between requests (CRLF LF LF LF)
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+CRLF
+LF
+LF
+LF
+"GET /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+
+#name
+two GET requests, newline between requests, waiting header only
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive CRLFCRLF
+CRLF
+LF
+LF
+LF
+"GET /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+
+#name
+two GET requests, newline between requests, waiting header only
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive CRLFCRLF
+CRLF
+CRLF
+CRLF
+CRLF
+"GET /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+
+#name
+two GET requests, newline between requests (CR LF CR CR LF LF LF)
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+CR
+LF
+CR
+CR
+LF
+LF
+LF
+"GET /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+#result-apache
+{{404h}}{{405body}}{{eof}}
+
+#name
+two GET requests, newline between requests (CR LF CR CR LF LF LF CR)
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+CR
+LF
+CR
+CR
+LF
+LF
+LF
+CR
+"GET /404 HTTP/1.0"CRLF
+"Host: "
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+#result-apache
+{{404h}}{{405body}}{{eof}}
+
+#name
+GET with Content-Length
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Content-Length: 5"CRLF
+CRLF
+"abcde"
+#result
+{{404h}}{{eof}}
+#result-apache
+{{400h}}{{eof}}
+
+#name
+POST with Content-Length
+#input
+"POST /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Content-Length: 5"CRLF
+CRLF
+"abcde"
+#result
+{{404h}}{{eof}}
+#result-apache
+{{400h}}{{eof}}
+
+#name
+HEAD with Content-Length
+#input
+"HEAD /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Content-Length: 5"CRLF
+CRLF
+"abcde"
+#result
+{{404header}}\x0D\x0A{{eof}}
+#result-apache
+{{400header}}\x0D\x0A{{eof}}
+
+#name
+client closed before Content-Length
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Content-Length: 10"CRLF
+CRLF
+"abcde"
+close
+#result
+{{404h}}{{eof}}
+#result-apache
+{{400h}}{{eof}}
+#incomplete
+
+#name
+client closed before end of header, HTTP/1.0
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Hoge: fuga"CRLF
+"Foo: bar"CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{eof}}
+
+#name
+GET with Content-Length, multiple (same values)
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Content-Length: 5"CRLF
+"Content-Length: 5"CRLF
+CRLF
+"abcde"
+#result
+{{400h}}{{eof}}
+#result-apache
+{{408h}}{{eof}}
+
+#name
+GET with Content-Length, multiple (different values)
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Content-Length: 5"CRLF
+"Content-Length: 10"CRLF
+CRLF
+"abcde"
+#result
+{{400h}}{{eof}}
+#result-apache
+{{408h}}{{eof}}
+
+#name
+GET with Content-Length, multiple values (invalid)
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Content-Length: 5,5"CRLF
+CRLF
+"abcde"
+#result
+{{400h|411h}}{{eof}}
+
+#name
+POST with Content-Length, multiple
+#input
+"POST /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Content-Length: 5"CRLF
+"Content-Length: 5"CRLF
+CRLF
+"abcde"
+#result
+{{400h}}{{eof}}
+#result-apache
+{{408h}}{{eof}}
+
+#name
+POST with Content-Length, multiple
+#input
+"POST /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Content-Length: 5"CRLF
+"Content-Length: 10"CRLF
+CRLF
+"abcde"
+#result
+{{400h}}{{eof}}
+#result-apache
+{{408h}}{{eof}}
+
+#name
+POST with Content-Length, multiple values (invalid)
+#input
+"POST /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Content-Length: 5,5"CRLF
+CRLF
+"abcde"
+#result
+{{400h|411h}}{{eof}}
+
+#name
+request-target not absolute, HTTP/1.1
+#input
+"GET hoge HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{400body}}{{eof}}
+
+#name
+request-target absolute path, HTTP/1.1
+#input
+"GET /404/foo/bar HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{404h}}{{eof}}
+
+#name
+request-target authority and path, HTTP/1.1
+#input
+"GET //hoge/foo/bar HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{404h}}{{eof}}
+
+#name
+bad protocol-version - leading zero for HTTP/1.0
+#input
+"GET /404 HTTP/01.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+bad protocol-version - trailing zero for HTTP/1.0
+#input
+"GET /404 HTTP/1.000"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+bad protocol-version - HTTP/1.0 + e (1.1 leading 0)
+#input
+"GET /404 HTTP/1.0001"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{404h}}{{400body|405body}}{{eof}}
+
+#name
+bad protocol-version - HTTP/1.0 + e
+#input
+"GET /404 HTTP/1.0002"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{404h}}{{400body|405body}}{{eof}}
+
+#name
+bad protocol-version - HTTP/1.1 + leading zero
+#input
+"GET /404 HTTP/01.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{404h}}{{400body|405body}}{{eof}}
+
+#name
+bad protocol-version - HTTP/1.1 + leading zero
+#input
+"GET /404 HTTP/1.01"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{404h}}{{400body|405body}}{{eof}}
+
+#name
+bad protocol-version - HTTP/1.1 + e
+#input
+"GET /404 HTTP/1.1001"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{404h}}{{400body|405body}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+bad protocol-version - HTTP/1:2
+#input
+"GET /404 HTTP/1:2"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+bad protocol-version - HTTP/102
+#input
+"GET /404 HTTP/102"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+bad protocol-version - HTTP/1.0002
+#input
+"GET /404 HTTP/1.0002"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{404h}}{{400body|405body}}{{eof}}
+
+#name
+bad protocol-version - HTTP/1.0abc
+#input
+"GET /404 HTTP/1.0abc"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+bad protocol-version - HTTP/1.0.0
+#input
+"GET /404 HTTP/1.0.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+bad protocol-version - HTTP/1.2
+#input
+"GET /404 HTTP/1.2"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{404h}}{{400body|405body}}{{eof}}
+
+#name
+bad protocol-version - HTTP/2.0
+#input
+"GET /404 HTTP/2.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{404h}}{{400body|405body}}{{eof}}
+
+#name
+bad protocol-version - HTTP/3.0
+#input
+"GET /404 HTTP/3.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{404h}}{{400body|405body}}{{eof}}
+
+#name
+bad protocol-version - HTTP/31.0
+#input
+"GET /404 HTTP/31.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{404h}}{{400body|405body}}{{eof}}
+
+#name
+bad protocol-version - HTTP/0.5
+#input
+"GET /404 HTTP/0.5"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+bad protocol-version - HTTP/0.90
+#input
+"GET /404 HTTP/0.90"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+bad protocol-version - HTTP/0.0009
+#input
+"GET /404 HTTP/0.0009"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+bad protocol-version - HTTP/000.90
+#input
+"GET /404 HTTP/000.90"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{404h}}{{eof}}
+
+#name
+bad protocol-version - http/1.0
+#input
+"GET /404 http/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{404nohostbody}}{{eof}}
+#result-apache
+{{404h}}{{405body}}{{eof}}
+
+#name
+bad protocol-version - http/1.1 (lowercase)
+#input
+"GET /404l http/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{404nohostbody}}{{eof}}
+#result-apache
+{{404h}}{{405body}}{{eof}}
+
+#name
+bad protocol-version - HOGE/1.1
+#input
+"GET /404 HOGE/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"hoge"CRLF
+#result
+{{400body}}{{eof}}
+#result-apache
+{{404h}}{{eof}}

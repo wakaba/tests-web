@@ -45,44 +45,25 @@ dictionary B { };
 interface A : B {};
 class B { };
 #errors
-1;0;webidl:bad type;;B;m
-#processed
-{
-  "A": ["interface", {"members": {}}],
-  "B": ["class", {"members": {}}]
-}
+1;26;webidl:parse error;implements, ;;m
 
 #data
 class A extends B {};
 interface B { };
 #errors
-1;0;webidl:bad type;;B;m
-#processed
-{
-  "A": ["class", {"members": {}}],
-  "B": ["interface", {"members": {}}]
-}
+1;6;webidl:parse error;implements, ;;m
 
 #data
 class A extends B {};
 interface B { };
 #errors
-1;0;webidl:bad type;;B;m
-#processed
-{
-  "A": ["class", {"members": {}}],
-  "B": ["interface", {"members": {}}]
-}
+1;6;webidl:parse error;implements, ;;m
 
 #data
 class A extends B {};
 class B { };
 #errors
-#processed
-{
-  "A": ["class", {"members": {}, "implements": {"B": {"depth": 1}}}],
-  "B": ["class", {"members": {}}]
-}
+1;6;webidl:parse error;implements, ;;m
 
 #data
 interface A : B {};

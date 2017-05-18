@@ -1,0 +1,181 @@
+#name
+request-target scheme, authority and path, HTTP/1.1
+#input
+"GET http://hoge/foo/bar HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{404nohosth}}{{eof}}
+
+#input
+"GET HTTP://hoge/foo/bar HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{404nohosth}}{{eof}}
+
+#name
+request-target scheme, authority and path, HTTP/1.1
+#input
+"GET https://hoge/foo/bar HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{404nohosth}}{{eof}}
+
+#name
+request-target scheme, authority and path, HTTP/1.1
+#input
+"GET ftp://hoge/foo/bar HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{404nohosth}}{{eof}}
+
+#name
+request-target scheme, authority and path, HTTP/1.1
+#input
+"GET unknownurlscheme://hoge/foo/bar HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{404nohosth}}{{eof}}
+
+#name
+request-target scheme, scheme-data, HTTP/1.1
+#input
+"GET unknownscheme:hoge/foo/bar HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{400body}}{{eof}}
+
+#name
+request-target scheme, scheme-data, HTTP/1.1
+#input
+"GET http:hoge/foo/bar HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{400body}}{{eof}}
+
+#input
+"GET 353223://hoge/foo/bar HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{400body}}{{eof}}
+
+#input
+"GET .ab23://hoge/foo/bar HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{400body}}{{eof}}
+
+#input
+"GET -ab23://hoge/foo/bar HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{400body}}{{eof}}
+
+#input
+"GET +ab23://hoge/foo/bar HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{400h}}{{eof}}
+#result-nginx
+{{400body}}{{eof}}
+
+#input
+"GET unkno..me://hoge/foo/bar HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{404nohosth}}{{eof}}
+#result-nginx
+{{400body}}{{eof}}
+
+#input
+"GET unkno--://hoge/foo/bar HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{404nohosth}}{{eof}}
+#result-nginx
+{{400body}}{{eof}}
+
+#input
+"GET unkn++://hoge/foo/bar HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{404nohosth}}{{eof}}
+#result-nginx
+{{400body}}{{eof}}
+
+#input
+"GET unkno42544://hoge/foo/bar HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+close
+#result
+{{404nohosth}}{{eof}}
+#result-nginx
+{{400body}}{{eof}}

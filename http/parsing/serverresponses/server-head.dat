@@ -1,0 +1,8 @@
+#input
+"HEAD /404 HTTP/1.0"CRLF
+"Host:"CRLF
+CRLF
+#result
+{{400header}}\x0D\x0A{{eof}}
+#result-apache
+{{404header}}\x0D\x0A{{eof}}
