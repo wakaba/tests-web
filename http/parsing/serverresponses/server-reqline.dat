@@ -1,0 +1,112 @@
+#input
+"GET HTTP/1.0"CRLF
+CRLF
+CRLF
+#result
+{{400body|400h}}{{eof}}
+
+#input
+"GET  HTTP/1.0"CRLF
+CRLF
+CRLF
+#result
+{{400body|400h}}{{eof}}
+
+#input
+"GET /404\x09HTTP/1.0"CRLF
+CRLF
+CRLF
+#result
+{{404nohostbody}}{{eof}}
+#result-apache
+{{404nohosth}}{{eof}}
+
+#input
+"GET /404\x0CHTTP/1.0"CRLF
+CRLF
+CRLF
+#result
+{{404nohostbody}}{{eof}}
+#result-apache
+{{404nohosth}}{{eof}}
+
+#input
+"GET /404  HTTP/1.0"CRLF
+CRLF
+CRLF
+#result
+{{404nohosth}}{{eof}}
+
+#input
+"GET /404      HTTP/1.0"CRLF
+CRLF
+CRLF
+#result
+{{404nohosth}}{{eof}}
+
+#input
+"GET      /404 HTTP/1.0"CRLF
+CRLF
+CRLF
+#result
+{{404nohosth}}{{eof}}
+
+#input
+"GET\x09/404 HTTP/1.0"CRLF
+CRLF
+CRLF
+#result
+{{400body|400h}}{{eof}}
+#result-apache
+{{404nohosth}}{{eof}}
+
+#name
+0x0D in target
+#input
+"GET /ab\x0Dcd HTTP/1.0"CRLF
+CRLF
+CRLF
+#result
+{{400body|400h}}{{eof}}
+#result-apache
+{{404nohosth}}{{eof}}
+
+#name
+0x00 in target
+#input
+"GET /ab\x00cd HTTP/1.0"CRLF
+CRLF
+CRLF
+#result
+{{400body|400h}}{{eof}}
+
+#name
+0x00 in method
+#input
+"GET\x00 /404 HTTP/1.0"CRLF
+CRLF
+CRLF
+#result
+{{400body|400h}}{{eof}}
+
+#name
+0x0D in method
+#input
+"GET\x0D /404 HTTP/1.0"CRLF
+CRLF
+CRLF
+#result
+{{400body|400h}}{{eof}}
+#result-apache
+{{404nohosth}}{{eof}}
+
+#name
+space in target
+#input
+"GET /ho ge/ HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}

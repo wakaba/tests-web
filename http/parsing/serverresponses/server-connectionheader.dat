@@ -1,0 +1,633 @@
+#name
+1.1 default
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+
+#name
+1.0 default
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+1.1 connection:keep-alive
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: keep-alive"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+
+#name
+1.0 connection:keep-alive
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: keep-alive"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+
+#name
+1.1 connection:close
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: close"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+1.0 connection:close
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: close"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+1.1 connection:keep-alive connection:close
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: keep-alive\x0D\x0AConnection: close"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+1.1 connection:keep-alive connection:close
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: keep-alive"CRLF
+"Connection: close"CRLF
+CRLF
+timeout 4
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+#result-nginx
+{{timeout}}{{eof}}
+#result-apache
+{{timeout}}{{eof}}
+
+#name
+1.1 connection:keep-alive connection:close
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: close"CRLF
+"Connection: keep-alive"CRLF
+CRLF
+timeout 4
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+#result-nginx
+{{timeout}}{{eof}}
+#result-apache
+{{timeout}}{{eof}}
+
+#name
+1.0 connection:keep-alive connection:close
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: keep-alive\x0D\x0Aconnection: CLOSE"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+1.0 connection:keep-alive,close
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: keep-ALIVE,close"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+1.0 connection:keep-alive,closed
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: keep-alive,closed"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+
+#name
+1.0 connection:close,keep-alive
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: close,keep-alive"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+1.0 connection:keep-alive,hoe
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: keep-alive,hoe"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+
+#name
+1.0 connection:hoe,keep-alive
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: hoe,keep-alive"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+
+#name
+1.1 connection:close
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: hoge\x09,\x09\x09close\x09"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+1.1 connection:close
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Connection:\x09\x09close\x09"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+1.1 connection:close
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Connection:close,foo"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+1.1 connection:close
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Connection:foo,close"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+1.1 connection:close
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Connection:foo,,close,,"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+1.0 connection:keep-alive
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: \x09keep-alive\x09"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+
+#name
+1.0 connection:keep-alive
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: KEEP-ALIVE"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+
+#name
+1.0 connection:keep-alive
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: KEEP-ALIVE\x0D\x0AConnection: hoge\x0D\x0A"
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+
+#name
+1.1 default
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"connection: foo, bar"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+
+#name
+1.1 connection:close
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: \x09close\x09"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+1.1 connection:close
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: ,\x09close\x09,"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+1.1 connection:dontcloseplease
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: dontcloseplease"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+
+#name
+1.0 connection:dokeep-aliveplease
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: dokeep-aliveplease"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+#result-nginx
+{{404h}}{{404h}}{{eof}}
+
+#name
+1.0 connection:keep-alive wrapped
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: \x0D\x0A keep-alive"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+#result-nginx
+{{404h}}{{eof}}
+
+#name
+1.1 connection:close wrapped
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: \x0D\x0A close"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+#result-nginx
+{{404h}}{{404h}}{{eof}}
+
+#name
+1.0 connection:keep-alive wrapped
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: keep-alive\x0D\x0A "CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+
+#name
+1.1 connection:close wrapped
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: close\x0D\x0A "CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#name
+1.0 connection:keep-alive wrapped
+#input
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: keep-alive,\x0D\x0A "CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
+
+#name
+1.1 connection:close wrapped
+#input
+"GET /404 HTTP/1.1"CRLF
+"Host:"
+hostport
+CRLF
+"Connection: \x0D\x0A ,close"CRLF
+CRLF
+receive "</html>"
+"GET /404 HTTP/1.0"CRLF
+"Host:"
+hostport
+CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+#result-nginx
+{{404h}}{{404h}}{{eof}}

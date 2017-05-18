@@ -1,0 +1,36 @@
+#input
+"GET /400 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"content-length: 0"CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#input
+"GET /400 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"content-length: 0000"CRLF
+CRLF
+#result
+{{404h}}{{eof}}
+
+#input
+"GET /400 HTTP/1.1"CRLF
+"host:"
+hostport
+CRLF
+"content-length: 0"CRLF
+CRLF
+receive "</html>"
+"GET /400 HTTP/1.0"CRLF
+"host:"
+hostport
+CRLF
+"content-length: 0"CRLF
+CRLF
+#result
+{{404h}}{{404h}}{{eof}}
