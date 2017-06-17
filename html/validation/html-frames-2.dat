@@ -1332,6 +1332,19 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@allowusermedia;boolean:invalid;m
 
+#data
+<iframe allowpaymentrequest="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<iframe allowpaymentrequest="AllowpayMentrequeST" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<iframe allowpaymentrequest="true" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/iframe/@allowpaymentrequest;boolean:invalid;m
+
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><iframe src="x"></iframe>
 #errors
