@@ -3,18 +3,21 @@
 <iframe srcdoc="">a</iframe>
 #errors
 2;9;/html/body/iframe/@srcdoc;no significant content;s
+/html/body/iframe/"a";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
 <iframe srcdoc=''>a</iframe>
 #errors
 2;9;/html/body/iframe/@srcdoc;no significant content;s
+/html/body/iframe/"a";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
 <iframe srcdoc>a</iframe>
 #errors
 2;9;/html/body/iframe/@srcdoc;no significant content;s
+/html/body/iframe/"a";character not allowed:empty;m
 
 #data
 <iframe srcdoc="" xmlns="http://www.w3.org/1999/xhtml"></iframe>
@@ -35,6 +38,7 @@
 <!DOCTYPE html><html lang=en><title>iframe</title>
 <iframe srcdoc="hoge">x</iframe>
 #errors
+/html/body/iframe/"x";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
@@ -44,6 +48,7 @@
 3;1;/html/body/iframe/@srcdoc;element not defined;m
 3;1;/html/body/iframe/@srcdoc;element not allowed:flow;m
 3;11;/html/body/iframe/@srcdoc;in body:#eof;xaab;m
+/html/body/iframe/"x";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
@@ -51,6 +56,7 @@
 <p style='hoge:a1;color:black'>hoge">x</iframe>
 #errors
 3;11;/html/body/iframe/@srcdoc;css:prop:unknown;m
+/html/body/iframe/"x";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
@@ -59,6 +65,7 @@
  hoge:a1;color:black'>hoge">x</iframe>
 #errors
 4;2;/html/body/iframe/@srcdoc;css:prop:unknown;m
+/html/body/iframe/"x";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
@@ -89,6 +96,7 @@
 2;18;/html/body/iframe/@srcdoc;element not defined;m
 2;18;/html/body/iframe/@srcdoc;element not allowed:flow;m
 2;26;/html/body/iframe/@srcdoc;in body:#eof;xg;m
+/html/body/iframe/"x";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
@@ -98,6 +106,7 @@
 2;18;/html/body/iframe/@srcdoc;element not defined;m
 2;18;/html/body/iframe/@srcdoc;element not allowed:flow;m
 2;26;/html/body/iframe/@srcdoc;in body:#eof;xg;m
+/html/body/iframe/"x";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
@@ -107,6 +116,7 @@
 2;18;/html/body/iframe/@srcdoc;element not defined;m
 2;18;/html/body/iframe/@srcdoc;element not allowed:flow;m
 2;29;/html/body/iframe/@srcdoc;in body:#eof;xg;m
+/html/body/iframe/"x";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
@@ -115,6 +125,7 @@
 2;18;/html/body/iframe/@srcdoc;element not defined;m
 2;18;/html/body/iframe/@srcdoc;element not allowed:flow;m
 2;26;/html/body/iframe/@srcdoc;in body:#eof;xg;m
+/html/body/iframe/"x";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>iframe</title>
@@ -123,6 +134,7 @@
 2;18;/html/body/iframe/@srcdoc;element not defined;m
 2;18;/html/body/iframe/@srcdoc;element not allowed:flow;m
 2;26;/html/body/iframe/@srcdoc;in body:#eof;xg;m
+/html/body/iframe/"x";character not allowed:empty;m
 
 #data
 <iframe srcdoc=" &lt;p>&lt;/p>" xmlns="http://www.w3.org/1999/xhtml"></iframe>
@@ -149,6 +161,7 @@
 <iframe srcdoc=" <meta charset=utf-8>a">x</iframe>
 #errors
 2;18;/html/body/iframe/@srcdoc;srcdoc:charset;m
+/html/body/iframe/"x";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><iframe srcdoc="<noscript><hoge ></noscript>y">x</iframe>
@@ -160,6 +173,7 @@
 1;79;/html/body/iframe/@srcdoc;in noscript;m
 1;91;/html/body/iframe/@srcdoc;in body:#eof;hoge;m
 1;90;/html/body/iframe/@srcdoc;stray end tag;m
+/html/body/iframe/"x";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><iframe srcdoc="<noscript><hoge ></noscript>y">x</iframe>
@@ -167,3 +181,4 @@
 1;72;/html/body/iframe/@srcdoc;element not allowed:metadata;m
 1;72;/html/body/iframe/@srcdoc;element not defined;m
 1;79;/html/body/iframe/@srcdoc;in body:#eof;hoge;m
+/html/body/iframe/"x";character not allowed:empty;m
