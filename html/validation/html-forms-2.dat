@@ -21,8 +21,9 @@
   <div><keygen name="a" autofocus=""/></div>
 </div>
 #errors
-/div/input/@autofocus;duplicate autofocus;m
-/div/div/keygen/@autofocus;duplicate autofocus;m
+/div/div/keygen;element not allowed:flow;m
+/div/div/keygen;element:obsolete;m
+/div/div/keygen/@name;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -32,6 +33,10 @@
 </div>
 #errors
 /div/input/@autofocus;duplicate autofocus;m
+/div/dialog/keygen;element not allowed:flow;m
+/div/dialog/keygen;element:obsolete;m
+/div/dialog/keygen/@name;attr:obsolete;m
+/div/dialog/keygen/@autofocus;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">

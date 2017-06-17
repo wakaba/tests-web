@@ -1016,7 +1016,8 @@ disabled="">z</output>
 <keygen xmlns="http://www.w3.org/1999/xhtml"
     form=""/>
 #errors
-/keygen/@form;no referenced form;m
+/keygen;element:obsolete;m
+/keygen/@form;attr:obsolete;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml" id="a">
@@ -1024,6 +1025,9 @@ disabled="">z</output>
     form="a"/>a
 </form>
 #errors
+/form/keygen;element:obsolete;m
+/form/keygen/@form;attr:obsolete;m
+/form/keygen;element not allowed:flow;m
 
 #data
 <progress xmlns="http://www.w3.org/1999/xhtml"
