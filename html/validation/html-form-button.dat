@@ -1474,43 +1474,52 @@
 #data
 <button type="menu" xmlns="http://www.w3.org/1999/xhtml">a</button>
 #errors
-/button;attribute missing;menu;m
+/button/@type;enumerated:invalid;m
 
 #data
 <button type="MeNU" menu="" xmlns="http://www.w3.org/1999/xhtml">a</button>
 #errors
-/button/@menu;no referenced menu;m
+/button/@type;enumerated:invalid;m
+/button/@menu;attr:obsolete;m
 
 #data
 <button type="MeNU" menu="abc" xmlns="http://www.w3.org/1999/xhtml">a</button>
 #errors
-/button/@menu;no referenced menu;m
+/button/@type;enumerated:invalid;m
+/button/@menu;attr:obsolete;m
 
 #data
 <button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><span id="foo">a</span></button>
 #errors
-/button/@menu;no referenced menu;m
+/button/@type;enumerated:invalid;m
+/button/@menu;attr:obsolete;m
 
 #data
 <button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><menu id="foo">a</menu></button>
 #errors
-/button/@menu;no referenced menu;m
+/button/@type;enumerated:invalid;m
+/button/@menu;attr:obsolete;m
 /button/menu;element not allowed:phrasing;m
 
 #data
 <button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><menu id="foo" type="toolbar">a</menu></button>
 #errors
-/button/@menu;no referenced menu;m
+/button/@type;enumerated:invalid;m
+/button/@menu;attr:obsolete;m
 /button/menu;element not allowed:phrasing;m
 
 #data
 <button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><menu id="foo" type="context"></menu>x</button>
 #errors
+/button/@type;enumerated:invalid;m
+/button/@menu;attr:obsolete;m
 /button/menu;element not allowed:phrasing;m
 
 #data
 <button type="menu" menu="foo" xmlns="http://www.w3.org/1999/xhtml"><menu type="context"><menu id="foo"></menu></menu>x</button>
 #errors
+/button/@type;enumerated:invalid;m
+/button/@menu;attr:obsolete;m
 /button/menu;element not allowed:phrasing;m
 
 #data
@@ -1520,6 +1529,8 @@
 </div>
 #errors
 /div/menu/@id;space in ID;m
+/div/button/@type;enumerated:invalid;m
+/div/button/@menu;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1529,6 +1540,8 @@
 </div>
 #errors
 /div/menu/@id;duplicate ID;m
+/div/button/@type;enumerated:invalid;m
+/div/button/@menu;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1539,6 +1552,8 @@
 #errors
 /div/menu/@id;duplicate ID;m
 /div/button/@menu;no referenced menu;m
+/div/button/@type;enumerated:invalid;m
+/div/button/@menu;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1547,6 +1562,8 @@
 </div>
 #errors
 /div/button/@menu;attribute not allowed;m
+/div/button/@type;enumerated:invalid;m
+/div/button/@menu;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1555,6 +1572,8 @@
 </div>
 #errors
 /div/button/@menu;attribute not allowed;m
+/div/button/@type;enumerated:invalid;m
+/div/button/@menu;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1563,3 +1582,5 @@
 </div>
 #errors
 /div/button/@menu;attribute not allowed;m
+/div/button/@type;enumerated:invalid;m
+/div/button/@menu;attr:obsolete;m
