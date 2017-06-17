@@ -1,0 +1,52 @@
+#data
+<script xmlns="http://www.w3.org/1999/xhtml"
+    nomodule=""/>
+#errors
+
+#data
+<script xmlns="http://www.w3.org/1999/xhtml"
+    nomodule="nomodule"/>
+#errors
+
+#data
+<script xmlns="http://www.w3.org/1999/xhtml"
+    nomodule="noModule"/>
+#errors
+
+#data
+<script xmlns="http://www.w3.org/1999/xhtml"
+    nomodule="" type="module"/>
+#errors
+/script/@nomodule;script:ignored nomodule;m
+
+#data
+<script xmlns="http://www.w3.org/1999/xhtml"
+    nomodule="" type="MODULE"/>
+#errors
+/script/@nomodule;script:ignored nomodule;m
+
+#data
+<script xmlns="http://www.w3.org/1999/xhtml"
+    nomodule="" type="text/plain"/>
+#errors
+/script/@nomodule;script:ignored nomodule;m
+/script;unknown script lang;u
+
+#data
+<script xmlns="http://www.w3.org/1999/xhtml"
+    nomodule="" type="image/svg+xml"/>
+#errors
+/script/@nomodule;script:ignored nomodule;m
+/script;unknown script lang;u
+
+#data
+<script xmlns="http://www.w3.org/1999/xhtml"
+    nomodule="" type="text/javascript"/>
+#errors
+/script/@type;script type:classic;s
+
+#data
+<script xmlns="http://www.w3.org/1999/xhtml"
+    nomodule="" language="javascript"/>
+#errors
+/script/@language;script language;s
