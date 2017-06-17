@@ -1,0 +1,27 @@
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>xxyz</dt>
+    <dd>abc</dd>
+  </div>
+  <div>
+    <dt>xxyz</dt>
+    <dd>abc</dd>
+  </div>
+</dl>
+#errors
+/dl/div/dt;duplicate dl name;s
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>x<span>x</span>yz</dt>
+    <dd>abc</dd>
+  </div>
+  <div>
+    <dt>xxyz</dt>
+    <dd>abc</dd>
+  </div>
+</dl>
+#errors
+/dl/div/dt;duplicate dl name;s

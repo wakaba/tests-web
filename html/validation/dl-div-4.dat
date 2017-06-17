@@ -1,0 +1,46 @@
+#data
+<section xmlns="http://www.w3.org/1999/xhtml">
+  <dl>
+    <div>
+      <dt>x<span>x</span>yz</dt>
+      <dd>abc</dd>
+    </div>
+  </dl>
+</dl>
+#errors
+
+#data
+<section xmlns="http://www.w3.org/1999/xhtml">
+  <dl>
+    <div>
+      <dt>x<span>x</span>yz</dt>
+    </div>
+  </dl>
+</dl>
+#errors
+/section/dl/div;dl:last dd missing;m
+
+#data
+<section xmlns="http://www.w3.org/1999/xhtml">
+  <dl>
+    <div>
+    </div>
+  </dl>
+</dl>
+#errors
+/section;no significant content;s
+/section/dl/div;child element missing:dt;m
+
+#data
+<section xmlns="http://www.w3.org/1999/xhtml">
+  <dl>
+    <div>
+    </div>
+    <dt>aa</dt>
+    <dd>bb</dd>
+  </dl>
+</dl>
+#errors
+/section/dl/div;child element missing:dt;m
+/section/dl/dt;dl:no div;m
+/section/dl/dd;dl:no div;m

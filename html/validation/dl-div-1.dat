@@ -1,0 +1,143 @@
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+  </div>
+</dl>
+#errors
+/dl/div;child element missing:dt;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>xxyz</dt>
+    <dd>abc</dd>
+  </div>
+</dl>
+#errors
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>xxyz</dt>
+    <dd>abc</dd>
+  </div>
+  <div>
+    <dt>xa</dt>
+    <dd>adc</dd>
+  </div>
+</dl>
+#errors
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dd>abc</dd>
+  </div>
+</dl>
+#errors
+/dl/div/dd;ps element missing:dt;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>abc</dt>
+  </div>
+</dl>
+#errors
+/dl/div;dl:last dd missing;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>xxyz</dt>
+    <script/>
+    <dd>abc</dd>
+  </div>
+</dl>
+#errors
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>xxyz</dt>
+    <dd>abc</dd>
+    <template/>
+  </div>
+</dl>
+#errors
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <script/>
+    <dt>xxyz</dt>
+    <template/>
+    <dd>abc</dd>
+  </div>
+</dl>
+#errors
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>xxyz</dt>
+    <dd>abc</dd>
+    <dt>xyz</dt>
+  </div>
+</dl>
+#errors
+/dl/div/dt;dl:div:second dt;m
+/dl/div;dl:last dd missing;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>xxyz</dt>
+    <dd>abc</dd>
+    <dt>xxz</dt>
+    <dd>abc</dd>
+  </div>
+</dl>
+#errors
+/dl/div/dt;dl:div:second dt;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>xxyz</dt>
+    <dd>abc</dd>
+    <dt>xxz</dt>
+    <dd>abc</dd>
+    <dt>x:z</dt>
+    <dd>abc</dd>
+  </div>
+</dl>
+#errors
+/dl/div/dt;dl:div:second dt;m
+/dl/div/dt;dl:div:second dt;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>xxyz</dt>
+    <dt>xxz</dt>
+    <dt>x:z</dt>
+    <dd>abc</dd>
+    <dd>abc</dd>
+    <dd>abc</dd>
+  </div>
+</dl>
+#errors
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>xxyz</dt>
+  </div>
+  <div>
+    <dd>abc</dd>
+  </div>
+</dl>
+#errors
+/dl/div;dl:last dd missing;m
+/dl/div/dd;ps element missing:dt;m

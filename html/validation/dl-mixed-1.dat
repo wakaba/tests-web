@@ -1,0 +1,233 @@
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt><dd>xy</dd>
+  <div>
+    <dt>xyz</dt><dd>faa</dd>
+  </div>
+</dl>
+#errors
+/dl/div;dl:div:mixed;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>xyz</dt><dd>faa</dd>
+  </div>
+  <dt>abc</dt><dd>xy</dd>
+</dl>
+#errors
+/dl/dt;dl:no div;m
+/dl/dd;dl:no div;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>xyz</dt><dd>faa</dd>
+  </div>
+  <dt>abc</dt><dd>xy</dd>
+  <div>
+    <dt>zxyz</dt><dd>faa</dd>
+  </div>
+</dl>
+#errors
+/dl/dt;dl:no div;m
+/dl/dd;dl:no div;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>xyz</dt><dd>faa</dd>
+  </div>
+  <dt>abc</dt>
+</dl>
+#errors
+/dl/dt;dl:no div;m
+/dl;dl:last dd missing;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>xyz</dt><dd>faa</dd>
+  </div>
+  <dt>abc</dt>
+  <dt>abd</dt>
+</dl>
+#errors
+/dl/dt;dl:no div;m
+/dl/dt;dl:no div;m
+/dl;dl:last dd missing;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>xyz</dt><dd>faa</dd>
+  </div>
+  <dt>abc</dt>
+  <dd>abc</dd>
+  <dd>abc</dd>
+</dl>
+#errors
+/dl/dt;dl:no div;m
+/dl/dd;dl:no div;m
+/dl/dd;dl:no div;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>xyz</dt><dd>faa</dd>
+  </div>
+  <dd>abc</dd>
+</dl>
+#errors
+/dl/dd;dl:no div;m
+/dl/dd;ps element missing:dt;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <div>
+    <dt>xyz</dt><dd>faa</dd>
+  </div>
+  <dt>abc</dt>
+  <div>
+    <dt>zxyz</dt><dd>faa</dd>
+  </div>
+</dl>
+#errors
+/dl/div;ps element missing:dd;m
+/dl/dt;dl:no div;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt><div>abc</div><dd>xy</dd>
+</dl>
+#errors
+/dl/div;ps element missing:dd;m
+/dl/div;dl:div:mixed;m
+/dl/div;child element missing:dt;m
+/dl/div/"abc";character not allowed:dl;m
+/dl/dd;ps element missing:dt;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt>
+  <div>
+    <dt>xyz</dt><dd>faa</dd>
+  </div>
+  <dd>xy</dd>
+</dl>
+#errors
+/dl/div;ps element missing:dd;m
+/dl/div;dl:div:mixed;m
+/dl/dd;ps element missing:dt;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt>
+  <div>
+    <dt>xyz</dt><dd>faa</dd>
+  </div>
+  <div></div>
+  <dd>xy</dd>
+</dl>
+#errors
+/dl/div;ps element missing:dd;m
+/dl/div;dl:div:mixed;m
+/dl/dd;ps element missing:dt;m
+/dl/div;dl:div:mixed;m
+/dl/div;child element missing:dt;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt>
+  <div>
+    <dt>xyz</dt><dd>faa</dd>
+  </div>
+  <div></div>
+  <dt>xy</dt>
+</dl>
+#errors
+/dl/div;ps element missing:dd;m
+/dl/div;dl:div:mixed;m
+/dl/div;dl:div:mixed;m
+/dl/div;child element missing:dt;m
+/dl;dl:last dd missing;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt>
+  <div>
+    <dt>xyz</dt><dd>faa</dd>
+  </div>
+  <div></div>
+  <div></div>
+  <dt>xy</dt>
+</dl>
+#errors
+/dl/div;ps element missing:dd;m
+/dl/div;dl:div:mixed;m
+/dl/div;dl:div:mixed;m
+/dl/div;child element missing:dt;m
+/dl/div;dl:div:mixed;m
+/dl/div;child element missing:dt;m
+/dl;dl:last dd missing;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt>
+  <dd>ab</dd>
+  <div>
+    <dt>xyz</dt><dd>faa</dd>
+  </div>
+  <div></div>
+  <div></div>
+  <dt>xy</dt>
+</dl>
+#errors
+/dl/div;dl:div:mixed;m
+/dl/div;dl:div:mixed;m
+/dl/div;child element missing:dt;m
+/dl/div;dl:div:mixed;m
+/dl/div;child element missing:dt;m
+/dl;dl:last dd missing;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt>
+  <dd>ab</dd>
+  <dd>ab</dd>
+  <div>
+    <dt>xyz</dt><dd>faa</dd>
+  </div>
+  <div></div>
+  <div></div>
+  <dt>xy</dt>
+</dl>
+#errors
+/dl/div;dl:div:mixed;m
+/dl/div;dl:div:mixed;m
+/dl/div;child element missing:dt;m
+/dl/div;dl:div:mixed;m
+/dl/div;child element missing:dt;m
+/dl;dl:last dd missing;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt>
+  <dd>ab</dd>
+  <dd>ab</dd>
+  <div>
+    <dt>xyz</dt><dd>faa</dd>
+  </div>
+  <dd>ab</dd>
+  <div></div>
+  <div></div>
+  <dt>xy</dt>
+</dl>
+#errors
+/dl/div;dl:div:mixed;m
+/dl/dd;ps element missing:dt;m
+/dl/div;dl:div:mixed;m
+/dl/div;child element missing:dt;m
+/dl/div;dl:div:mixed;m
+/dl/div;child element missing:dt;m
+/dl;dl:last dd missing;m

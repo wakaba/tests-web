@@ -1,0 +1,20 @@
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt>abc<dd>xy</dd>
+</dl>
+#errors
+/dl/"abc";character not allowed:dl;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt><span>abc</span><dd>xy</dd>
+</dl>
+#errors
+/dl/span;element not allowed:dl;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt><p>abc</p><dd>xy</dd>
+</dl>
+#errors
+/dl/p;element not allowed:dl;m
