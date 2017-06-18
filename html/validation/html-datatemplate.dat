@@ -1998,7 +1998,7 @@
 #errors
 /rule;element:obsolete;m
 /rule/menu/nest;element:obsolete;m
-/rule/menu/nest;element not allowed:menu type=toolbar;m
+/rule/menu/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -2008,7 +2008,7 @@
 /rule/menu/li;no significant content;s
 /rule;element:obsolete;m
 /rule/menu/nest;element:obsolete;m
-/rule/menu/nest;element not allowed:menu type=toolbar;m
+/rule/menu/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -2018,7 +2018,7 @@
 /rule/menu/li;no significant content;s
 /rule;element:obsolete;m
 /rule/menu/nest;element:obsolete;m
-/rule/menu/nest;element not allowed:menu type=toolbar;m
+/rule/menu/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -2029,7 +2029,7 @@
 /rule/menu/li;no significant content;s
 /rule;element:obsolete;m
 /rule/menu/nest;element:obsolete;m
-/rule/menu/nest;element not allowed:menu type=toolbar;m
+/rule/menu/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -2037,8 +2037,9 @@
 </rule>
 #errors
 /rule;element:obsolete;m
+/rule/menu/"aa";character not allowed;m
 /rule/menu/nest;element:obsolete;m
-/rule/menu/nest;element not allowed:menu type=toolbar;m
+/rule/menu/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -2047,7 +2048,8 @@
 #errors
 /rule;element:obsolete;m
 /rule/menu/nest;element:obsolete;m
-/rule/menu/nest;element not allowed:menu type=toolbar;m
+/rule/menu/nest;element not allowed;m
+/rule/menu/"aa";character not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
@@ -2055,30 +2057,32 @@
 </rule>
 #errors
 /rule;element:obsolete;m
+/rule/menu/"aa";character not allowed;m
 /rule/menu/nest;element:obsolete;m
-/rule/menu/nest;element not allowed:menu type=toolbar;m
+/rule/menu/nest;element not allowed;m
+/rule/menu/"bb";character not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <menu>aa<nest/><li/></menu>
 </rule>
 #errors
-/rule/menu/li;element not allowed:menu type=toolbar;m
+/rule/menu/"aa";character not allowed;m
 /rule/menu/li;no significant content;s
 /rule;element:obsolete;m
 /rule/menu/nest;element:obsolete;m
-/rule/menu/nest;element not allowed:menu type=toolbar;m
+/rule/menu/nest;element not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">
 <menu><li/><nest/>aa</menu>
 </rule>
 #errors
-/rule/menu/"aa";character not allowed;m
 /rule/menu/li;no significant content;s
 /rule;element:obsolete;m
 /rule/menu/nest;element:obsolete;m
-/rule/menu/nest;element not allowed:menu type=toolbar;m
+/rule/menu/nest;element not allowed;m
+/rule/menu/"aa";character not allowed;m
 
 #data
 <rule xmlns="http://www.w3.org/1999/xhtml">

@@ -391,40 +391,54 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menu>a</menu></template>
 #errors
+| #df/menu/"a";character not allowed;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menu type="popup">a</menu></template>
 #errors
-| #df/menu/@type;enumerated:invalid;m
+| #df/menu/@type;attr:obsolete;m
+| #df/menu/"a";character not allowed;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menu type="context">a</menu></template>
 #errors
+| #df/menu/@type;attr:obsolete;m
 | #df/menu/"a";character not allowed;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menuitem label="x"/></template>
 #errors
+| #df/menuitem;element:obsolete;m
+| #df/menuitem;element not allowed:flow;m
+| #df/menuitem/@label;attr:obsolete;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menuitem label="x"/>ac</template>
 #errors
-| #df/"ac";character not allowed;m
+| #df/menuitem;element:obsolete;m
+| #df/menuitem;element not allowed:flow;m
+| #df/menuitem/@label;attr:obsolete;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menuitem label="x"/>ac<hr/></template>
 #errors
-| #df/"ac";character not allowed;m
+| #df/menuitem;element:obsolete;m
+| #df/menuitem;element not allowed:flow;m
+| #df/menuitem/@label;attr:obsolete;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menu><menuitem label="x"/></menu></template>
 #errors
-| #df/menu/menuitem;element not allowed:menu type=toolbar;m
+| #df/menu/menuitem;element:obsolete;m
+| #df/menu/menuitem;element not allowed;m
+| #df/menu/menuitem/@label;attr:obsolete;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menu><menuitem label="x"/></menu><hr/></template>
 #errors
-| #df/menu/menuitem;element not allowed:menu type=toolbar;m
+| #df/menu/menuitem;element:obsolete;m
+| #df/menu/menuitem;element not allowed;m
+| #df/menu/menuitem/@label;attr:obsolete;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><hr/></template>
@@ -433,6 +447,9 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menuitem label="x"/><script/><template/><hr/></template>
 #errors
+| #df/menuitem;element:obsolete;m
+| #df/menuitem;element not allowed:flow;m
+| #df/menuitem/@label;attr:obsolete;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><script/><template/></template>

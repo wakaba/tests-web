@@ -1517,7 +1517,8 @@ para
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml" type="1">a</menu>
 #errors
-/menu/@type;enumerated:invalid;m
+/menu/"a";character not allowed;m
+/menu/@type;attr:obsolete;m
 
 #data
 <body xmlns="http://www.w3.org/1999/xhtml">
@@ -6006,65 +6007,76 @@ a
     align="">a</menu>
 #errors
 /menu/@align;attr:obsolete;m
+/menu/"a";character not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml"
     align="   ">a</menu>
 #errors
 /menu/@align;attr:obsolete;m
+/menu/"a";character not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml"
     align="abc">a</menu>
 #errors
 /menu/@align;attr:obsolete;m
+/menu/"a";character not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml"
     align="left">a</menu>
 #errors
 /menu/@align;attr:obsolete;m
+/menu/"a";character not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml"
     align="right">a</menu>
 #errors
 /menu/@align;attr:obsolete;m
+/menu/"a";character not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml"
     align="center">a</menu>
 #errors
 /menu/@align;attr:obsolete;m
+/menu/"a";character not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml"
     align="justify">a</menu>
 #errors
 /menu/@align;attr:obsolete;m
+/menu/"a";character not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml"
     align="right ">a</menu>
 #errors
 /menu/@align;attr:obsolete;m
+/menu/"a";character not allowed;m
 
 #data escaped
 <menu xmlns="http://www.w3.org/1999/xhtml"
     align="r\u0130ght">a</menu>
 #errors
 /menu/@align;attr:obsolete;m
+/menu/"a";character not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml"
     align="r\u0131ght">a</menu>
 #errors
 /menu/@align;attr:obsolete;m
+/menu/"a";character not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml"
     autosubmit="abc">a</menu>
 #errors
+/menu/"a";character not allowed;m
 /menu/@autosubmit;attr:obsolete;m
 
 #data
@@ -6087,16 +6099,24 @@ a
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">abc<script/><template/><li>a</li></menu>
 #errors
-/menu/li;element not allowed:menu type=toolbar;m
+/menu/"abc";character not allowed;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml"><menuitem label="a"/><script/><template/><hr/></menu>
 #errors
+/menu/@type;attr:obsolete;m
+/menu/menuitem;element:obsolete;m
+/menu/menuitem;element not allowed;m
+/menu/menuitem/@label;attr:obsolete;m
+/menu/hr;element not allowed;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml"><menuitem label="a"/><script/><template/><li>a</li></menu>
 #errors
-/menu/li;element not allowed:menu type=popup;m
+/menu/@type;attr:obsolete;m
+/menu/menuitem;element:obsolete;m
+/menu/menuitem;element not allowed;m
+/menu/menuitem/@label;attr:obsolete;m
 
 #data
 <dl compact="" xmlns="http://www.w3.org/1999/xhtml"/>
