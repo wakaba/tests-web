@@ -26,3 +26,121 @@
     nonce=""/>
 #errors
 /link/@nonce;non external resource nonce;w
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="serviceworker"
+    workertype="classic" />
+#errors
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="serviceworker"
+    workertype="MODULE" />
+#errors
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="serviceworker"
+    workertype="abcde" />
+#errors
+/link/@workertype;enumerated:invalid;m
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="serviceworker"
+    workertype="" />
+#errors
+/link/@workertype;enumerated:invalid;m
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="next"
+    workertype="classic" />
+#errors
+/link/@workertype;link:ignored workertype;m
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="serviceworker"
+    updateviacache="" />
+#errors
+/link/@updateviacache;enumerated:invalid;m
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="serviceworker"
+    updateviacache="all" />
+#errors
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="serviceworker"
+    updateviacache="imports" />
+#errors
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="serviceworker"
+    updateviacache="none" />
+#errors
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="canonical"
+    updateviacache="all" />
+#errors
+/link/@updateviacache;link:ignored updateviacache;m
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="serviceworker"
+    scope="https://www.example.com/" />
+#errors
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="serviceworker"
+    scope="https://www.example.com:foo/" />
+#errors
+/link/@scope;syntax error:iriref3987;m
+/link/@scope;URL:non-DNS host;w
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="serviceworker"
+    scope="" />
+#errors
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="stylesheet"
+    scope="https://www.example.com/" />
+#errors
+/link/@scope;link:ignored scope;m
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="mask-icon"
+    color="red" />
+#errors
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="mask-icon"
+    color="#ccc" />
+#errors
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="mask-icon"
+    color="aiueo" />
+#errors
+/link/@color;css:color:syntax error;m
+
+#data
+<link xmlns="http://www.w3.org/1999/xhtml"
+    href="x" rel="icon"
+    color="red" />
+#errors
+/link/@color;link:ignored color;m

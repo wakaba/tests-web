@@ -5,6 +5,7 @@
 #data
 <link href="x" rel="preload" as="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/link/@as;enumerated:invalid;m
 
 #data
 <link href="x" rel="preload" as="image" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -13,7 +14,14 @@
 #data
 <link href="x" rel="preload" as="scripT" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@as;enumerated:invalid;m
+
+#data
+<link href="x" rel="preload" as="fetch" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<link href="x" rel="preload" as="FETCH" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
 
 #data
 <link href="x" rel="preload" as="as" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -23,8 +31,7 @@
 #data
 <link href="x" rel="prefetch" as="scripT" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@as;enumerated:invalid;m
-/link/@as;link:as:not preload;m
+/link/@as;link:ignored as;m
 
 #data
 <link href="x" rel="prefetch preload" as="worker" xmlns="http://www.w3.org/1999/xhtml"/>
