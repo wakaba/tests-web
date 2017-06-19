@@ -1,0 +1,21 @@
+#data
+<body onmessageerror="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</p>
+#errors
+
+#data
+<body onmessageerror="a b" xmlns="http://www.w3.org/1999/xhtml">aa</body>
+#errors
+/body/@onmessageerror;js:parse error;Expected semicolon, '}' or end of line but found ' b';m
+
+#data
+<frameset onmessageerror="alert(1)" xmlns="http://www.w3.org/1999/xhtml"><frame src="ax"/></frameset>
+#errors
+/frameset;element:obsolete;m
+/frameset/frame;element:obsolete;m
+/frameset/frame/@src;attr:obsolete;m
+/frameset/@onmessageerror;attribute not defined;m
+
+#data
+<p onmessageerror="alert(1)" xmlns="http://www.w3.org/1999/xhtml">aa</p>
+#errors
+/p/@onmessageerror;attribute not defined;m
