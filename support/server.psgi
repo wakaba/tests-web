@@ -228,6 +228,7 @@ return sub {
       my $defs = load_defs $path;
       my $html = sprintf q{
         <!DOCTYPE HTML>
+        <head>
         <link rel=stylesheet href=/support/directory.css>
         <meta name=viewport content="width=device-width">
         <meta name="google-site-verification" content="0eAhmbMnDYcNF9NNcvcBRmWj87LYwqcQWJ_4ovaMGKs" />
