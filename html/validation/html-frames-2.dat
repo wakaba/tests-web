@@ -270,6 +270,17 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 
 #data
+<iframe src="a" sandbox="Allow-TOP-navigation-by-user-activation"
+    xmlns="http://www.w3.org/1999/xhtml"></iframe>
+#errors
+
+#data
+<iframe src="a" sandbox="Allow-TOP-navigation-by-user-activation allow-top-navigation"
+    xmlns="http://www.w3.org/1999/xhtml"></iframe>
+#errors
+/iframe/@sandbox;sandbox duplicate allow-top-navigation;m
+
+#data
 <iframe src="a" sandbox="ALLOW-SAME-ORIGIN"
     xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
