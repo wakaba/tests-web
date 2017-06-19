@@ -1463,12 +1463,12 @@ interface A {
   [Unforgeable] attribute DOMString foo;
 };
 #errors
-1;17;webidl:not allowed;;Unforgeable;m
 #processed
 {
   "A": ["interface", {
     "members": {
       "foo": ["attribute", {
+        "Unforgeable": 1,
         "type": "DOMString",
         "getter": 1, "setter": 1
       }]
@@ -1481,12 +1481,12 @@ interface A {
   [Unforgeable] static attribute DOMString foo;
 };
 #errors
-1;17;webidl:not allowed;;Unforgeable;m
 #processed
 {
   "A": ["interface", {
     "members": {
       "foo": ["static_attribute", {
+        "Unforgeable": 1,
         "type": "DOMString",
         "getter": 1, "setter": 1
       }]
@@ -1499,12 +1499,12 @@ interface A {
   [Unforgeable] void foo ();
 };
 #errors
-1;17;webidl:not allowed;;Unforgeable;m
 #processed
 {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
+        "Unforgeable": 1,
         "overload_set": {
           "": {
             "type": "void",
@@ -1544,13 +1544,12 @@ interface A {
   [Unforgeable] void foo (long a);
 };
 #errors
-1;17;webidl:not allowed;;Unforgeable;m
-1;46;webidl:not allowed;;Unforgeable;m
 #processed
 {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
+        "Unforgeable": 1,
         "overload_set": {
           "": {
             "type": "void",
@@ -1572,12 +1571,13 @@ interface A {
   void foo (long a);
 };
 #errors
-1;17;webidl:not allowed;;Unforgeable;m
+1;16;webidl:bad unforgeablility;;;m
 #processed
 {
   "A": ["interface", {
     "members": {
       "foo": ["operation", {
+        "Unforgeable": 1,
         "overload_set": {
           "": {
             "type": "void",
