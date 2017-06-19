@@ -1177,3 +1177,211 @@ interface A {};
     }]
   }
 }
+
+#data
+[PrimaryGlobal] interface G {};
+[LegacyWindowAlias=B] interface A {};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "A": ["interface", {"members":{},"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "B": ["alias", {"name": "A", "Exposed":{"G":1}}],
+    "A": ["object", {"Exposed":{"G":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[LegacyWindowAlias=B, LegacyWindowAlias=C] interface A {};
+#errors
+1;54;webidl:not allowed;;LegacyWindowAlias;m
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "A": ["interface", {"members":{},"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "B": ["alias", {"name": "A", "Exposed":{"G":1}}],
+    "A": ["object", {"Exposed":{"G":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[LegacyWindowAlias=(B,C)] interface A {};
+#errors
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "A": ["interface", {"members":{},"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "B": ["alias", {"name": "A", "Exposed":{"G":1}}],
+    "C": ["alias", {"name": "A", "Exposed":{"G":1}}],
+    "A": ["object", {"Exposed":{"G":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[LegacyWindowAlias=(B,C)] interface A {};
+interface B {};
+#errors
+1;;webidl:duplicate;;B;m
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "A": ["interface", {"members":{},"Exposed":{"G":1}}],
+    "B": ["interface", {"members":{},"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "B": ["alias", {"name": "A", "Exposed":{"G":1}}],
+    "C": ["alias", {"name": "A", "Exposed":{"G":1}}],
+    "A": ["object", {"Exposed":{"G":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[LegacyWindowAlias=(B,C)] interface A {};
+[NamedConstructor=B] interface D {};
+#errors
+1;;webidl:duplicate;;B;m
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "A": ["interface", {"members":{},"Exposed":{"G":1}}],
+    "D": ["interface", {"members":{},"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "B": ["alias", {"name": "A", "Exposed":{"G":1}}],
+    "C": ["alias", {"name": "A", "Exposed":{"G":1}}],
+    "A": ["object", {"Exposed":{"G":1}}],
+    "D": ["object", {"Exposed":{"G":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[LegacyWindowAlias=(B,C), NamedConstructor = B] interface A {};
+#errors
+1;32;webidl:duplicate;;B;m
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "A": ["interface", {"members":{},"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "B": ["alias", {"name": "A", "Exposed":{"G":1}}],
+    "C": ["alias", {"name": "A", "Exposed":{"G":1}}],
+    "A": ["object", {"Exposed":{"G":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[NoInterfaceObject, LegacyWindowAlias=B] interface A {};
+#errors
+1;32;webidl:not allowed;;LegacyWindowAlias;m
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "A": ["interface", {"members":{},"Exposed":{"G":1}, "NoInterfaceObject": 1}]
+  },
+  "global_names": {"G":{"G":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}]
+  }
+}
+
+#data
+[PrimaryGlobal] interface G {};
+[Global,Exposed=G2] interface G2 {};
+[LegacyWindowAlias=B, Exposed=(G,G2)] interface A {};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
+    "A": ["interface", {"members":{},"Exposed":{"G2":1,"G":1}}]
+  },
+  "global_names": {"G":{"G":1}, "G2":{"G2":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "G2": ["object", {"Exposed":{"G2":1}}],
+    "B": ["alias", {"name": "A", "Exposed":{"G2":1,"G":1}}],
+    "A": ["object", {"Exposed":{"G2":1,"G":1}}]
+  }
+}
+#note
+non-conforming
+
+#data
+[PrimaryGlobal] interface G {};
+[Global,Exposed=G2] interface G2 {};
+[LegacyWindowAlias=B, Exposed=G2] interface A {};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
+    "A": ["interface", {"members":{},"Exposed":{"G2":1}}]
+  },
+  "global_names": {"G":{"G":1}, "G2":{"G2":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}],
+    "G2": ["object", {"Exposed":{"G2":1}}],
+    "B": ["alias", {"name": "A", "Exposed":{"G2":1}}],
+    "A": ["object", {"Exposed":{"G2":1}}]
+  }
+}
+#note
+non-conforming
+
+#data
+[PrimaryGlobal] interface G {};
+[LegacyWindowAlias=B] callback interface A {};
+#errors
+1;33;webidl:not allowed;;LegacyWindowAlias;m
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "A": ["callback_interface", {"members":{},"Exposed":{"G":1}}]
+  },
+  "global_names": {"G":{"G":1}},
+  "primary_global": "G",
+  "global_members": {
+    "G": ["object", {"Exposed":{"G":1}}]
+  }
+}
