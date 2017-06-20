@@ -761,23 +761,344 @@ starttls alpn=h2
 receive preface
 h2-send-frame type=4 ACK=1
 h2-receive-headers
-h2-send-frame type=5 stream=shift END_HEADERS=1 promised=2
-push-h2-header ":status" "200"
-h2-send-frame type=1 stream=last END_STREAM=0 END_HEADERS=1
 push-h2-header ":method" "GET"
 push-h2-header ":scheme" "https"
 push-h2-header ":authority" authority
 push-h2-header ":path" "/hoge"
+h2-send-frame type=5 stream=shift END_HEADERS=1 promised=2
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=last END_STREAM=0 END_HEADERS=1
 h2-send-frame type=0 stream=last END_STREAM=1 length=6
 "abcdef"
 push-h2-header ":status" "200"
 h2-send-frame type=1 stream=2 END_HEADERS=1
 h2-send-frame type=0 stream=2 END_STREAM=1 length=1
 "x"
+#status 200
+#reason OK
+#headers
+#body
+abcdef(close)
+#result-data
+[]
+
+#name
+pushed from PUSH_PROMISE stream, before HEADERS
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+push-h2-header ":method" "GET"
+push-h2-header ":scheme" "https"
+push-h2-header ":authority" authority
+push-h2-header ":path" "/hoge"
+h2-send-frame type=5 stream=last END_HEADERS=1 promised=2
+push-h2-header ":method" "GET"
+push-h2-header ":scheme" "https"
+push-h2-header ":authority" authority
+push-h2-header ":path" "/fuga"
+h2-send-frame type=5 stream=2 stream_nosave=1 END_HEADERS=1 promised=4
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=2 END_HEADERS=1
+h2-send-frame type=0 stream=2 END_STREAM=1 length=1
+"x"
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=4 END_HEADERS=1
+h2-send-frame type=0 stream=4 END_STREAM=1 length=1
+"y"
+#status 200
+#reason OK
+#body
+abcdef(close)
+#result-data
+[]
+
+#name
+pushed from PUSH_PROMISE stream, after HEADERS
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+push-h2-header ":method" "GET"
+push-h2-header ":scheme" "https"
+push-h2-header ":authority" authority
+push-h2-header ":path" "/hoge"
+h2-send-frame type=5 stream=last END_HEADERS=1 promised=2
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=2 stream_nosave=1 END_HEADERS=1
+push-h2-header ":method" "GET"
+push-h2-header ":scheme" "https"
+push-h2-header ":authority" authority
+push-h2-header ":path" "/fuga"
+h2-send-frame type=5 stream=2 stream_nosave=1 END_HEADERS=1 promised=4
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+h2-send-frame type=0 stream=2 END_STREAM=1 length=1
+"x"
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=4 END_HEADERS=1
+h2-send-frame type=0 stream=4 END_STREAM=1 length=1
+"y"
+#status 200
+#reason OK
+#headers
+#body
+abcdef(close)
+#result-data
+[]
+
+#name
+pushed from PUSH_PROMISE stream, after DATA
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+push-h2-header ":method" "GET"
+push-h2-header ":scheme" "https"
+push-h2-header ":authority" authority
+push-h2-header ":path" "/hoge"
+h2-send-frame type=5 stream=last END_HEADERS=1 promised=2
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=2 stream_nosave=1 END_HEADERS=1
+push-h2-header ":method" "GET"
+push-h2-header ":scheme" "https"
+push-h2-header ":authority" authority
+push-h2-header ":path" "/fuga"
+h2-send-frame type=0 stream=2 stream_nosave=1 END_STREAM=1 length=1
+"x"
+h2-send-frame type=5 stream=2 stream_nosave=1 END_HEADERS=1 promised=4
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=4 END_HEADERS=1
+h2-send-frame type=0 stream=4 END_STREAM=1 length=1
+"y"
 #status 0
 #body
 (close)
 #result-data
 [
   {"type": "GOAWAY", "error": 1}
+]
+
+#name
+pushed multiple
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+push-h2-header ":method" "GET"
+push-h2-header ":scheme" "https"
+push-h2-header ":authority" authority
+push-h2-header ":path" "/hoge"
+h2-send-frame type=5 stream=last END_HEADERS=1 promised=2
+push-h2-header ":method" "GET"
+push-h2-header ":scheme" "https"
+push-h2-header ":authority" authority
+push-h2-header ":path" "/fuga"
+h2-send-frame type=5 stream=last END_HEADERS=1 promised=4
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=2 stream_nosave=1 END_HEADERS=1
+h2-send-frame type=0 stream=2 stream_nosave=1 END_STREAM=1 length=1
+"x"
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=4 stream_nosave=1 END_HEADERS=1
+h2-send-frame type=0 stream=4 stream_nosave=1 END_STREAM=1 length=1
+"y"
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers
+#body
+abcdef(close)
+
+#name
+pushed multiple, same :path
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+push-h2-header ":method" "GET"
+push-h2-header ":scheme" "https"
+push-h2-header ":authority" authority
+push-h2-header ":path" "/hoge"
+h2-send-frame type=5 stream=last END_HEADERS=1 promised=2
+push-h2-header ":method" "GET"
+push-h2-header ":scheme" "https"
+push-h2-header ":authority" authority
+push-h2-header ":path" "/hoge"
+h2-send-frame type=5 stream=last END_HEADERS=1 promised=4
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=2 stream_nosave=1 END_HEADERS=1
+h2-send-frame type=0 stream=2 stream_nosave=1 END_STREAM=1 length=1
+"x"
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=4 stream_nosave=1 END_HEADERS=1
+h2-send-frame type=0 stream=4 stream_nosave=1 END_STREAM=1 length=1
+"y"
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers
+#body
+abcdef(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+pushed multiple, same :path
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+push-h2-header ":method" "GET"
+push-h2-header ":scheme" "https"
+push-h2-header ":authority" authority
+push-h2-header ":path" "/hoge"
+h2-send-frame type=5 stream=last END_HEADERS=1 promised=2
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=2 stream_nosave=1 END_HEADERS=1
+h2-send-frame type=0 stream=2 stream_nosave=1 END_STREAM=1 length=1
+"x"
+push-h2-header ":method" "GET"
+push-h2-header ":scheme" "https"
+push-h2-header ":authority" authority
+push-h2-header ":path" "/hoge"
+h2-send-frame type=5 stream=last END_HEADERS=1 promised=4
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=4 stream_nosave=1 END_HEADERS=1
+h2-send-frame type=0 stream=4 stream_nosave=1 END_STREAM=1 length=1
+"y"
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers
+#body
+abcdef(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+pushed multiple, same :path
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+push-h2-header ":method" "GET"
+push-h2-header ":scheme" "https"
+push-h2-header ":authority" authority
+push-h2-header ":path" "/hoge"
+h2-send-frame type=5 stream=last END_HEADERS=1 promised=2
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=2 stream_nosave=1 END_HEADERS=1
+push-h2-header ":method" "GET"
+push-h2-header ":scheme" "https"
+push-h2-header ":authority" authority
+push-h2-header ":path" "/hoge"
+h2-send-frame type=5 stream=2 stream_nosave=1 END_HEADERS=1 promised=4
+h2-send-frame type=0 stream=2 stream_nosave=1 END_STREAM=1 length=1
+"x"
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=4 stream_nosave=1 END_HEADERS=1
+h2-send-frame type=0 stream=4 stream_nosave=1 END_STREAM=1 length=1
+"y"
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers
+#body
+abcdef(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
+]
+
+#name
+pushed multiple, same :path, no HEADERS
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=shift END_STREAM=0 END_HEADERS=1
+push-h2-header ":method" "GET"
+push-h2-header ":scheme" "https"
+push-h2-header ":authority" authority
+push-h2-header ":path" "/hoge"
+h2-send-frame type=5 stream=last END_HEADERS=1 promised=2
+push-h2-header ":status" "200"
+h2-send-frame type=1 stream=2 stream_nosave=1 END_HEADERS=1
+h2-send-frame type=0 stream=2 stream_nosave=1 END_STREAM=1 length=1
+"x"
+push-h2-header ":method" "GET"
+push-h2-header ":scheme" "https"
+push-h2-header ":authority" authority
+push-h2-header ":path" "/hoge"
+h2-send-frame type=5 stream=last END_HEADERS=1 promised=4
+h2-send-frame type=0 stream=last END_STREAM=1 length=6
+"abcdef"
+#status 200
+#reason OK
+#headers
+#body
+abcdef(close)
+#result-data
+[
+  {"type": "RST_STREAM", "error": 1}
 ]

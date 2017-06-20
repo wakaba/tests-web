@@ -53,6 +53,32 @@ abcdef(close)
 []
 
 #name
+RST_STREAM after PUSH_PROMISE
+#tls
+#method GET
+#url /
+#data
+starttls alpn=h2
+receive preface
+h2-send-frame type=4 ACK=1
+h2-receive-headers
+push-h2-header ":method" "GET"
+push-h2-header ":scheme" "https"
+push-h2-header ":authority" authority
+push-h2-header ":path" "/hoge"
+h2-send-frame type=5 stream=shift END_HEADERS=1 promised=4
+h2-send-frame type=3 stream=last length=4
+0x00
+0x00
+0x00
+0x01
+#status 0
+#body
+(close)
+#result-data
+[]
+
+#name
 RST_STREAM after HEADERS
 #tls
 #method GET
