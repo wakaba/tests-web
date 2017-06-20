@@ -1,26 +1,32 @@
 #data
 <menuitem xmlns="http://www.w3.org/1999/xhtml"></menuitem>
 #errors
-/menuitem;attribute missing;label;m
+/menuitem;element:obsolete;m
 
 #data
 <menuitem xmlns="http://www.w3.org/1999/xhtml">  </menuitem>
 #errors
-/menuitem;attribute missing;label;m
+/menuitem;element:obsolete;m
 
 #data
 <menuitem xmlns="http://www.w3.org/1999/xhtml">abc</menuitem>
 #errors
+/menuitem;element:obsolete;m
 
 #data
 <menuitem xmlns="http://www.w3.org/1999/xhtml" label=""></menuitem>
 #errors
-/menuitem/@label;empty attribute value;m
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
 
 #data
 <menuitem xmlns="http://www.w3.org/1999/xhtml" label="  "></menuitem>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
 
 #data
 <menuitem xmlns="http://www.w3.org/1999/xhtml" label="  abc "></menuitem>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m

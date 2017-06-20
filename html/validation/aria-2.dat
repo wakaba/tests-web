@@ -222,24 +222,25 @@
 #data
 <div aria-haspopup="false" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
-/div/@aria-haspopup;aria:not preferred markup:html-attr;contextmenu;w
 
 #data
 <div aria-haspopup="undefined" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
 /div/@aria-haspopup;enumerated:invalid;m
-/div/@aria-haspopup;aria:not preferred markup:html-attr;contextmenu;w
 
 #data
 <div aria-haspopup="mixed" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
 /div/@aria-haspopup;enumerated:invalid;m
-/div/@aria-haspopup;aria:not preferred markup:html-attr;contextmenu;w
 
 #data
 <div aria-haspopup="true" contextmenu="b" xmlns="http://www.w3.org/1999/xhtml">aa<menu id="b" type="context"><menuitem label="foo"/></menu></div>
 #errors
-/div/@aria-haspopup;aria:redundant:html-attr;contextmenu;w
+/div/@contextmenu;attr:obsolete;m
+/div/menu/@type;attr:obsolete;m
+/div/menu/menuitem/@label;attr:obsolete;m
+/div/menu/menuitem;element not allowed;m
+/div/menu/menuitem;element:obsolete;m
 
 #data
 <div aria-hidden="true" xmlns="http://www.w3.org/1999/xhtml">aa</div>
@@ -857,7 +858,7 @@
 </div>
 #errors
 /div/div/@role;aria:not preferred markup:html-element;menu;w
-/div/div;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
+/div/div;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -866,7 +867,7 @@
 </div>
 #errors
 /div/div/@role;aria:not preferred markup:html-element;menu;w
-/div/div;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
+/div/div;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
 /div/div/@aria-activedescendant;aria:activedescendant:not owned;s
 
 #data
@@ -877,7 +878,7 @@
 #errors
 /div/div/@role;aria:not preferred markup:html-element;menu;w
 /div/div/@aria-owns;aria:owns;w
-/div/div;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
+/div/div;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -887,7 +888,7 @@
 #errors
 /div/div/@role;aria:not preferred markup:html-element;menu;w
 /div/div/@aria-owns;aria:owns;w
-/div/div;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
+/div/div;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -896,7 +897,7 @@
 </div>
 #errors
 /div/div/@role;aria:not preferred markup:html-element;menu;w
-/div/div;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
+/div/div;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
 /div/div/p/@aria-owns;aria:owns;w
 
 #data
@@ -905,7 +906,7 @@
 </div>
 #errors
 /div/div/@role;aria:not preferred markup:html-element;menu;w
-/div/div;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
+/div/div;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
 /div/div/@aria-activedescendant;aria:activedescendant:not owned;s
 
 #data
@@ -914,7 +915,7 @@
 </div>
 #errors
 /div/div/@role;aria:not preferred markup:html-element;menu;w
-/div/div;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
+/div/div;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
 /div/div/@aria-activedescendant;no referenced element;m
 
 #data
@@ -924,7 +925,7 @@
 </div>
 #errors
 /div/div/@role;aria:not preferred markup:html-element;menu;w
-/div/div;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
+/div/div;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
 /div/div/@aria-activedescendant;aria:activedescendant:not owned;s
 /div/div/span/@id;duplicate ID;m
 
@@ -999,65 +1000,53 @@
 #data
 <div aria-dropeffect="" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
-/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="copy" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
-/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="move" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
-/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="link" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
-/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="execute" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
-/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect=" popup " xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
-/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="none" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
-/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="copy move" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
-/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="popup none
 " xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
-/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="true" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
 /div/@aria-dropeffect;word not allowed;m
-/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="copy copy" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
 /div/@aria-dropeffect;duplicate token;m
-/div/@aria-dropeffect;aria:not preferred markup:html-attr;dropzone;w
 
 #data
 <div aria-dropeffect="" dropzone="" title="x" xmlns="http://www.w3.org/1999/xhtml">aa</div>
 #errors
-/div/@aria-dropeffect;aria:redundant:html-attr;dropzone;w
 
 #data
 <div aria-relevant="" xmlns="http://www.w3.org/1999/xhtml">aa</div>

@@ -228,8 +228,10 @@ return sub {
       my $defs = load_defs $path;
       my $html = sprintf q{
         <!DOCTYPE HTML>
+        <head>
         <link rel=stylesheet href=/support/directory.css>
         <meta name=viewport content="width=device-width">
+        <meta name="google-site-verification" content="0eAhmbMnDYcNF9NNcvcBRmWj87LYwqcQWJ_4ovaMGKs" />
         <title>tests-web/%s</title><h1>tests-web/%s</h1>
         <nav class=protocol>
           <a href="javascript:location.href=location.href.replace(/^https:/, 'http:')">HTTP</a>

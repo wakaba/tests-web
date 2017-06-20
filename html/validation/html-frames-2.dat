@@ -270,6 +270,17 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 
 #data
+<iframe src="a" sandbox="Allow-TOP-navigation-by-user-activation"
+    xmlns="http://www.w3.org/1999/xhtml"></iframe>
+#errors
+
+#data
+<iframe src="a" sandbox="Allow-TOP-navigation-by-user-activation allow-top-navigation"
+    xmlns="http://www.w3.org/1999/xhtml"></iframe>
+#errors
+/iframe/@sandbox;sandbox duplicate allow-top-navigation;m
+
+#data
 <iframe src="a" sandbox="ALLOW-SAME-ORIGIN"
     xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
@@ -371,6 +382,7 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /html;attribute missing;lang;w
 2;9;/html/body/iframe/@srcdoc;no significant content;s
+/html/body/iframe/"a";character not allowed:empty;m
 
 #data
 <iframe srcdoc="" xmlns="http://www.w3.org/1999/xhtml"></iframe>
@@ -1332,80 +1344,88 @@ allow-scripts" xmlns="http://www.w3.org/1999/xhtml"></iframe>
 #errors
 /iframe/@allowusermedia;boolean:invalid;m
 
+#data
+<iframe allowpaymentrequest="" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<iframe allowpaymentrequest="AllowpayMentrequeST" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+
+#data
+<iframe allowpaymentrequest="true" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/iframe/@allowpaymentrequest;boolean:invalid;m
+
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><iframe src="x"></iframe>
 #errors
-/html/body/iframe;no significant content;s
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><iframe src="x"><span>abc</span><span>axt</span></iframe>
 #errors
+/html/body/iframe/"<span>abc</span><span>axt</span>";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><iframe src="x"><hoge</iframe>
 #errors
-/html/body/iframe;no significant content;s
-1;67;/html/body/iframe;parser:EOF;m
+/html/body/iframe/"<hoge";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><iframe src="x"><hoge></iframe>
 #errors
-1;62;/html/body/iframe;element not defined;m
-1;62;/html/body/iframe;element not allowed:phrasing;m
-1;68;/html/body/iframe;in body:#eof;hoge;m
-/html/body/iframe;no significant content;s
+/html/body/iframe/"<hoge>";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><iframe src="x"><p>abc</iframe>
 #errors
-1;62;/html/body/iframe;element not allowed:phrasing;m
+/html/body/iframe/"<p>abc";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><iframe src="x"><script></script>abc</iframe>
 #errors
-1;62;/html/body/iframe;element not allowed:minus;m
+/html/body/iframe/"<script></script>abc";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><video src="b"><iframe src="x"><audio src="a">x</audio>abc</iframe></video>
 #errors
-1;77;/html/body/video/iframe;element not allowed:minus;m
+/html/body/video/iframe/"<audio src="a">x</audio>abc";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><button><iframe src="x"><a href="a">x</a>abc</iframe></button>
 #errors
 /html/body/button/iframe;element not allowed:minus;m
-1;70;/html/body/button/iframe;element not allowed:minus;m
+/html/body/button/iframe/"<a href="a">x</a>abc";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><label><iframe src="x"><input>abc</iframe></label>
 #errors
+/html/body/label/iframe/"<input>abc";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><label><input><iframe src="x"><input>abc</iframe></label>
 #errors
-1;76;/html/body/label/iframe;multiple labelable fae;m
+/html/body/label/iframe/"<input>abc";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><label><iframe src="x"><input>abc</iframe><input></label>
 #errors
+/html/body/label/iframe/"<input>abc";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><canvas><iframe src="a"><input>abc</iframe></canvas>
 #errors
 /html/body/canvas/iframe;element not allowed:minus;m
-1;70;/html/body/canvas/iframe;element not allowed:minus;m
+/html/body/canvas/iframe/"<input>abc";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><canvas><iframe src="a"><input type=button value=x>abc</iframe></canvas>
 #errors
 /html/body/canvas/iframe;element not allowed:minus;m
+/html/body/canvas/iframe/"<input type=button value=x>abc";character not allowed:empty;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>
 <iframe><noscript><foo></noscript></iframe>
 #errors
-/html/body/iframe;no significant content;s
-2;9;/html/body/iframe;no significant content;s
-2;19;/html/body/iframe;element not allowed:phrasing;m
-2;19;/html/body/iframe;element not defined;m
-2;24;/html/body/iframe;in body:#eof;foo;m
+/html/body/iframe/"<noscript><foo></noscript>";character not allowed:empty;m

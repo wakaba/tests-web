@@ -1,103 +1,137 @@
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/keygen;element:obsolete;m
 
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml"
     challenge=""/>
 #errors
+/keygen;element:obsolete;m
+/keygen/@challenge;attr:obsolete;m
 
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml"
     challenge="aaa"/>
 #errors
+/keygen;element:obsolete;m
+/keygen/@challenge;attr:obsolete;m
 
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml"
     keytype="rsa"/>
 #errors
+/keygen;element:obsolete;m
+/keygen/@keytype;attr:obsolete;m
 
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml"
     keytype="RSA"/>
 #errors
+/keygen;element:obsolete;m
+/keygen/@keytype;attr:obsolete;m
 
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml"
     keytype="abc"/>
 #errors
-/keygen/@keytype;enumerated:invalid;m
+/keygen;element:obsolete;m
+/keygen/@keytype;attr:obsolete;m
 
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml"
     autofocus=""/>
 #errors
+/keygen;element:obsolete;m
+/keygen/@autofocus;attr:obsolete;m
 
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml"
     autofocus="autofocus"/>
 #errors
+/keygen;element:obsolete;m
+/keygen/@autofocus;attr:obsolete;m
 
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml"
     autofocus="AutoFocus"/>
 #errors
+/keygen;element:obsolete;m
+/keygen/@autofocus;attr:obsolete;m
 
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml"
     autofocus="true"/>
 #errors
-/keygen/@autofocus;boolean:invalid;m
+/keygen;element:obsolete;m
+/keygen/@autofocus;attr:obsolete;m
 
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml"
     disabled=""/>
 #errors
+/keygen;element:obsolete;m
+/keygen/@disabled;attr:obsolete;m
 
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml"
     disabled="Disabled"/>
 #errors
+/keygen;element:obsolete;m
+/keygen/@disabled;attr:obsolete;m
 
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml"
     disabled="disabled"/>
 #errors
+/keygen;element:obsolete;m
+/keygen/@disabled;attr:obsolete;m
 
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml"
     disabled="enable"/>
 #errors
+/keygen;element:obsolete;m
+/keygen/@disabled;attr:obsolete;m
 /keygen/@disabled;boolean:invalid;m
 
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml"
     name=""/>
 #errors
-/keygen/@name;empty control name;m
+/keygen;element:obsolete;m
+/keygen/@name;attr:obsolete;m
 
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml"
     name="abc"/>
 #errors
+/keygen;element:obsolete;m
+/keygen/@name;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
 <keygen/>a
 </p>
 #errors
+/p/keygen;element not allowed:phrasing;m
+/p/keygen;element:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <keygen/>a
 </div>
 #errors
+/div/keygen;element:obsolete;m
+/div/keygen;element not allowed:flow;m
 
 #data
 <em xmlns="http://www.w3.org/1999/xhtml">
 <keygen/>a
 </em>
 #errors
+/em/keygen;element:obsolete;m
+/em/keygen;element not allowed:phrasing;m
 
 #data
 <hr xmlns="http://www.w3.org/1999/xhtml">
@@ -105,12 +139,15 @@
 </hr>
 #errors
 /hr/keygen;element not allowed:empty;m
+/hr/keygen;element:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
 <ins><keygen/>a</ins>
 </p>
 #errors
+/p/ins/keygen;element:obsolete;m
+/p/ins/keygen;element not allowed:phrasing;m
 
 #data
 <fieldset xmlns="http://www.w3.org/1999/xhtml">
@@ -118,12 +155,15 @@
 <keygen/>a
 </fieldset>
 #errors
+/fieldset/keygen;element:obsolete;m
+/fieldset/keygen;element not allowed:flow;m
 
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml">
 <option>a</option>
 </keygen>
 #errors
+/keygen;element:obsolete;m
 /keygen/option;element not allowed:empty;m
 
 #data
@@ -131,93 +171,96 @@
 <keygen/>a
 </a>
 #errors
-/a/keygen;element not allowed:minus;m
+/a/keygen;element:obsolete;m
+/a/keygen;element not allowed:flow;m
 
 #data
 <keygen pqg="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/keygen;element:obsolete;m
 /keygen/@pqg;attr:obsolete;m
-/keygen/@pqg;attribute not allowed;m
 
 #data
 <keygen xmlns="http://www.w3.org/1999/xhtml"
     keyparams=""/>
 #errors
+/keygen;element:obsolete;m
 /keygen/@keyparams;attr:obsolete;m
-/keygen/@keyparams;attribute not allowed;m
 
 #data
 <keygen keytype="RSA" xmlns="http://www.w3.org/1999/xhtml"
     keyparams=""/>
 #errors
+/keygen;element:obsolete;m
+/keygen/@keytype;attr:obsolete;m
 /keygen/@keyparams;attr:obsolete;m
-/keygen/@keyparams;attribute not allowed;m
 
 #data
 <keygen keytype="dsa" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/keygen/@keytype;enumerated:non-conforming;m
-/keygen;attribute missing:keyparams|pqg;m
+/keygen;element:obsolete;m
+/keygen/@keytype;attr:obsolete;m
 
 #data
 <keygen keytype="dsa" xmlns="http://www.w3.org/1999/xhtml"
     keyparams=""/>
 #errors
-/keygen/@keytype;enumerated:non-conforming;m
+/keygen;element:obsolete;m
+/keygen/@keytype;attr:obsolete;m
 /keygen/@keyparams;attr:obsolete;m
 
 #data
 <keygen keytype="dsa" xmlns="http://www.w3.org/1999/xhtml"
     pqg=""/>
 #errors
-/keygen/@keytype;enumerated:non-conforming;m
+/keygen;element:obsolete;m
+/keygen/@keytype;attr:obsolete;m
 /keygen/@pqg;attr:obsolete;m
 
 #data
 <keygen keytype="dsa" xmlns="http://www.w3.org/1999/xhtml"
     keyparams="" pqg=""/>
 #errors
-/keygen/@keytype;enumerated:non-conforming;m
-/keygen/@keyparams;attr:obsolete;m
+/keygen;element:obsolete;m
+/keygen/@keytype;attr:obsolete;m
 /keygen/@pqg;attr:obsolete;m
-/keygen/@pqg;attribute not allowed;m
+/keygen/@keyparams;attr:obsolete;m
 
 #data
 <keygen keytype="DSA" xmlns="http://www.w3.org/1999/xhtml"
     keyparams="" pqg=""/>
 #errors
-/keygen/@keytype;enumerated:non-conforming;m
-/keygen/@keyparams;attr:obsolete;m
+/keygen;element:obsolete;m
+/keygen/@keytype;attr:obsolete;m
 /keygen/@pqg;attr:obsolete;m
-/keygen/@pqg;attribute not allowed;m
+/keygen/@keyparams;attr:obsolete;m
 
 #data
 <keygen keytype="ec" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/keygen/@keytype;enumerated:non-conforming;m
-/keygen;attribute missing;keyparams;m
+/keygen;element:obsolete;m
+/keygen/@keytype;attr:obsolete;m
 
 #data
 <keygen keytype="ec" xmlns="http://www.w3.org/1999/xhtml"
     keyparams=""/>
 #errors
-/keygen/@keytype;enumerated:non-conforming;m
+/keygen;element:obsolete;m
+/keygen/@keytype;attr:obsolete;m
 /keygen/@keyparams;attr:obsolete;m
 
 #data
 <keygen keytype="ec" xmlns="http://www.w3.org/1999/xhtml"
     pqg=""/>
 #errors
-/keygen/@keytype;enumerated:non-conforming;m
+/keygen;element:obsolete;m
+/keygen/@keytype;attr:obsolete;m
 /keygen/@pqg;attr:obsolete;m
-/keygen/@pqg;attribute not allowed;m
-/keygen;attribute missing;keyparams;m
 
 #data
 <keygen keytype="EC" xmlns="http://www.w3.org/1999/xhtml"
     pqg=""/>
 #errors
-/keygen/@keytype;enumerated:non-conforming;m
+/keygen;element:obsolete;m
+/keygen/@keytype;attr:obsolete;m
 /keygen/@pqg;attr:obsolete;m
-/keygen/@pqg;attribute not allowed;m
-/keygen;attribute missing;keyparams;m

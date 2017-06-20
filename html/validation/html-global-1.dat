@@ -144,6 +144,7 @@ id=""><span id="">x</span></p>
 <menu id="a&#xb;" xmlns="http://www.w3.org/1999/xhtml">x</menu>
 #errors
 /menu/@id;text:bad char;m
+/menu/"x";character not allowed;m
 
 #data
 <p title="" xmlns="http://www.w3.org/1999/xhtml">x</p>
@@ -1842,12 +1843,14 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
     sdaform="">a</menu>
 #errors
 /menu/@sdaform;attr:obsolete;m
+/menu/"a";character not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml"
     sdapref="">a</menu>
 #errors
 /menu/@sdapref;attr:obsolete;m
+/menu/"a";character not allowed;m
 
 #data
 <li xmlns="http://www.w3.org/1999/xhtml"

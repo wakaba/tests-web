@@ -1,7 +1,7 @@
 #data
 <script defer="" xmlns="http://www.w3.org/1999/xhtml"></script>
 #errors
-/script/@defer;script:ignored defer;w
+/script/@defer;script:ignored defer;m
 
 #data
 <script src="a" defer="" xmlns="http://www.w3.org/1999/xhtml"></script>
@@ -433,7 +433,7 @@
 #data
 <script defer="defer" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@defer;script:ignored defer;w
+/script/@defer;script:ignored defer;m
 
 #data
 <script src="http://test/" defer="defer"
@@ -443,13 +443,13 @@
 #data
 <script defer="DEFER" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@defer;script:ignored defer;w
+/script/@defer;script:ignored defer;m
 
 #data
 <script defer="true" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@defer;boolean:invalid;m
-/script/@defer;script:ignored defer;w
+/script/@defer;script:ignored defer;m
 
 #data
 <script src="http://test/" defer="true"
@@ -460,7 +460,7 @@
 #data
 <script async="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@async;script:ignored async;w
+/script/@async;script:ignored async;m
 
 #data
 <script src="http://test/" async=""
@@ -470,7 +470,7 @@
 #data
 <script async="async" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@async;script:ignored async;w
+/script/@async;script:ignored async;m
 
 #data
 <script src="http://test/" async="async"
@@ -481,7 +481,7 @@
 <script async="true" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /script/@async;boolean:invalid;m
-/script/@async;script:ignored async;w
+/script/@async;script:ignored async;m
 
 #data
 <script src="http://test/" async="true"
@@ -497,14 +497,14 @@
 #data
 <script defer="" async="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@async;script:ignored async;w
-/script/@defer;script:ignored defer;w
+/script/@async;script:ignored async;m
+/script/@defer;script:ignored defer;m
 
 #data
 <script defer="defer" async="async" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@async;script:ignored async;w
-/script/@defer;script:ignored defer;w
+/script/@async;script:ignored async;m
+/script/@defer;script:ignored defer;m
 
 #data
 <script src="a" defer="" async="" xmlns="http://www.w3.org/1999/xhtml"/>

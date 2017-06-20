@@ -194,34 +194,43 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <menu role="menu" xmlns="http://www.w3.org/1999/xhtml">a</menu>
 #errors
-/menu;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
+/menu;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
 /menu/@role;aria:redundant role;w
+/menu/"a";character not allowed;m
 
 #data
 <menu role="toolbar" xmlns="http://www.w3.org/1999/xhtml">a</menu>
 #errors
 /menu/@role;aria:role:default role;m
+/menu/"a";character not allowed;m
 
 #data
 <menu role="menubar" xmlns="http://www.w3.org/1999/xhtml">a</menu>
 #errors
-/menu;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
+/menu;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
 /menu/@role;aria:redundant role;w
+/menu/"a";character not allowed;m
 
 #data
 <menuitem role="menuitem" xmlns="http://www.w3.org/1999/xhtml" label="a"/>
 #errors
+/menuitem;element:obsolete;m
 /menuitem/@role;aria:redundant role;w
+/menuitem/@label;attr:obsolete;m
 
 #data
 <menuitem role="menuitemcheckbox" xmlns="http://www.w3.org/1999/xhtml" label="a"/>
 #errors
+/menuitem;element:obsolete;m
 /menuitem/@role;aria:redundant role;w
 /menuitem/@role;attribute missing;aria-checked;m
+/menuitem/@label;attr:obsolete;m
 
 #data
 <menuitem role="menuitemradio" xmlns="http://www.w3.org/1999/xhtml" label="a"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
 /menuitem/@role;aria:redundant role;w
 /menuitem/@role;attribute missing;aria-checked;m
 
@@ -1293,7 +1302,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 <select role="menu" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
 #errors
 /select/@role;aria:not preferred markup:html-element;menu;w
-/select;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
+/select;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
 
 #data
 <select multiple="" role="listbox" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
@@ -1305,7 +1314,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /select/@role;aria:role:conflict with semantics;m
 /select/@role;aria:not preferred markup:html-element;menu;w
-/select;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
+/select;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
 
 #data
 <select size="3" role="listbox" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
@@ -1317,7 +1326,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /select/@role;aria:role:conflict with semantics;m
 /select/@role;aria:not preferred markup:html-element;menu;w
-/select;aria:role:no required owned element;group listitem menuitem menuitemcheckbox menuitemradio;m
+/select;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
 
 #data
 <table role="heading" xmlns="http://www.w3.org/1999/xhtml"/>

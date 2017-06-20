@@ -58,10 +58,10 @@
 #data html
 <!DOCTYPE HTML><title>From HTML5 spec</title>
 <menu>
- <a href="settings.html" onclick="panels.show('settings')">Settings</a> |
- <bb type="makeapp" id="makeapp"> </bb>
- <a href="help.html" onclick="panels.show('help')">Help</a> |
- <a href="logout.html" onclick="panels.show('logout')">Sign out</a>
+ <a href="settings.html" onclick="panels.show('settings')">Settings</a> |<!--
+--><bb type="makeapp" id="makeapp"> </bb><!--
+--><a href="help.html" onclick="panels.show('help')">Help</a> |<!--
+ --><a href="logout.html" onclick="panels.show('logout')">Sign out</a>
 </menu>
 <script>
  var bb = document.getElementById('makeapp');
@@ -74,9 +74,15 @@
 </script>
 #errors
 /html;attribute missing;lang;w
+/html/body;no significant content;s
+/html/body/menu/a;element not allowed;m
+/html/body/menu/" |";character not allowed;m
 /html/body/menu/bb;element:obsolete;m
-/html/body/menu/bb;element not allowed:menu type=toolbar;m
+/html/body/menu/bb;element not allowed;m
 /html/body/menu/bb/@type;attr:obsolete;m
+/html/body/menu/a;element not allowed;m
+/html/body/menu/" |";character not allowed;m
+/html/body/menu/a;element not allowed;m
 
 #data html
 <!DOCTYPE HTML><title>From HTML5 spec</title>

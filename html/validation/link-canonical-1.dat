@@ -1,0 +1,44 @@
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <link rel="canonical" href="x"/>
+  <title>x</title>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <link rel="canonical" href=""/>
+  <title>x</title>
+</head>
+#errors
+/head/link/@href;url:empty;m
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <link rel="canonical" href="#abc"/>
+  <title>x</title>
+</head>
+#errors
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <link rel="canonical" href="x"/>
+  <link rel="canonical" href="y"/>
+  <title>x</title>
+</head>
+#errors
+/head/link/@rel;link type:duplicate;w
+
+#data
+<head xmlns="http://www.w3.org/1999/xhtml">
+  <link rel="canonical next" href="x"/>
+  <title>x</title>
+</head>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <a rel="canonical" href="x">a</a>
+</p>
+#errors
+/p/a/@rel;link type:bad context;m

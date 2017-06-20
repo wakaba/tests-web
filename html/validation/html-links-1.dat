@@ -481,13 +481,17 @@ x</div>
 <menu>x</menu>
 </a>
 #errors
+/a;no significant content;s
+/a/menu/"x";character not allowed;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
 <span><menu>x</menu></span>
 </a>
 #errors
+/a/span;no significant content;s
 /a/span/menu;element not allowed:phrasing;m
+/a/span/menu/"x";character not allowed;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -495,12 +499,18 @@ x</div>
 <menu>y</menu>
 </div>
 #errors
+/div/a/menu/"x";character not allowed;m
+/div/a;no significant content;s
+/div/menu/"y";character not allowed;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
 <menu type="toolbar">x</menu>
 </a>
 #errors
+/a/menu/@type;attr:obsolete;m
+/a/menu/"x";character not allowed;m
+/a;no significant content;s
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml">
@@ -508,6 +518,9 @@ x</div>
 </a>
 #errors
 /a/span/menu;element not allowed:phrasing;m
+/a/span/menu/@type;attr:obsolete;m
+/a/span/menu/"x";character not allowed;m
+/a/span;no significant content;s
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -515,6 +528,11 @@ x</div>
 <menu type="toolbar">y</menu>
 </div>
 #errors
+/div/a;no significant content;s
+/div/a/menu/@type;attr:obsolete;m
+/div/a/menu/"x";character not allowed;m
+/div/menu/@type;attr:obsolete;m
+/div/menu/"y";character not allowed;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">

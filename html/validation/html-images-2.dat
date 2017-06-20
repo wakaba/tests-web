@@ -254,7 +254,9 @@
   <keygen name="a"/>a
 </canvas>
 #errors
-/canvas/keygen;element not allowed:minus;m
+/canvas/keygen;element:obsolete;m
+/canvas/keygen/@name;attr:obsolete;m
+/canvas/keygen;element not allowed:flow;m
 
 #data
 <canvas xmlns="http://www.w3.org/1999/xhtml">
@@ -316,12 +318,17 @@
   <menu>aaa</menu>
 </canvas>
 #errors
+/canvas;no significant content;s
+/canvas/menu/"aaa";character not allowed;m
 
 #data
 <canvas xmlns="http://www.w3.org/1999/xhtml">
   <menu type="toolbar">aaa</menu>
 </canvas>
 #errors
+/canvas;no significant content;s
+/canvas/menu/@type;attr:obsolete;m
+/canvas/menu/"aaa";character not allowed;m
 
 #data
 <a xmlns="http://www.w3.org/1999/xhtml" href="a">

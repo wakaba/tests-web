@@ -166,24 +166,31 @@ a<link itemprop="a" href="abc"/>
 
 #data
 <menu itemscope="" xmlns="http://www.w3.org/1999/xhtml">
-<meta itemprop="ab" content="ac"/>
-a<link itemprop="a" href="abc"/>
+<meta itemprop="ab" content="ac"/>a<link itemprop="a" href="abc"/>
 </menu>
 #errors
+/menu/meta;element not allowed;m
+/menu/"a";character not allowed;m
+/menu/link;element not allowed;m
 
 #data
 <menu itemscope="" xmlns="http://www.w3.org/1999/xhtml">
 <link itemprop="a" href="abc"/>
-<meta itemprop="ab" content="ac"/>a
-</menu>
+<meta itemprop="ab" content="ac"/>a</menu>
 #errors
+/menu/meta;element not allowed;m
+/menu/"a";character not allowed;m
+/menu/link;element not allowed;m
 
 #data
-<menu itemscope="" xmlns="http://www.w3.org/1999/xhtml">
-a<link itemprop="a" href="abc"/>
+<menu itemscope="" xmlns="http://www.w3.org/1999/xhtml"
+>a<link itemprop="a" href="abc"/>
 <meta itemprop="ab" content="ac"/>
 </menu>
 #errors
+/menu/meta;element not allowed;m
+/menu/"a";character not allowed;m
+/menu/link;element not allowed;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">

@@ -1224,6 +1224,7 @@
 </bb>
 #errors
 /bb;element:obsolete;m
+/bb/menu/"a";character not allowed;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">
@@ -1231,6 +1232,8 @@
 </bb>
 #errors
 /bb;element:obsolete;m
+/bb/menu/@type;attr:obsolete;m
+/bb/menu/"a";character not allowed;m
 
 #data
 <bb xmlns="http://www.w3.org/1999/xhtml">
@@ -2208,40 +2211,43 @@ b
 #data
 <menu label="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menu/@label;attribute not allowed;m
+/menu/@label;attr:obsolete;m
 
 #data
 <menu label=" " xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menu/@label;attribute not allowed;m
+/menu/@label;attr:obsolete;m
 
 #data
 <menu label="aa" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menu/@label;attribute not allowed;m
+/menu/@label;attr:obsolete;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
   <menu label="a"/>
 </menu>
 #errors
-/menu/menu/@label;attribute not allowed;m
+/menu/menu;element not allowed;m
+/menu/menu/@label;attr:obsolete;m
 
 #data
 <menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
   <menu label="a"/>
 </menu>
 #errors
-/menu/@type;enumerated:invalid;m
-/menu/menu/@label;attribute not allowed;m
+/menu/@type;attr:obsolete;m
+/menu/menu;element not allowed;m
+/menu/menu/@label;attr:obsolete;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
   <menu type="popup" label="a"/>
 </menu>
 #errors
-/menu/menu/@label;attribute not allowed;m
-/menu/menu/@type;enumerated:invalid;m
+/menu/menu;element not allowed;m
+/menu/menu/@label;attr:obsolete;m
+/menu/menu/@type;attr:obsolete;m
 
 #data
 <menu type="popup" xmlns="http://www.w3.org/1999/xhtml">
@@ -2250,22 +2256,28 @@ b
   </menu>
 </menu>
 #errors
-/menu/@type;enumerated:invalid;m
-/menu/menu/menu/@label;attribute not allowed;m
+/menu/@type;attr:obsolete;m
+/menu/menu;element not allowed;m
+/menu/menu/menu;element not allowed;m
+/menu/menu/menu/@label;attr:obsolete;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <menu label="a"/>
 </menu>
 #errors
+/menu/@type;attr:obsolete;m
+/menu/menu;element not allowed;m
+/menu/menu/@label;attr:obsolete;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
   <menu type="context" label="a"/>
 </menu>
 #errors
-/menu;no significant content;s
-/menu/menu/@label;attribute not allowed;m
+/menu/menu;element not allowed;m
+/menu/menu/@type;attr:obsolete;m
+/menu/menu/@label;attr:obsolete;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml">
@@ -2274,6 +2286,10 @@ b
   </menu>
 </menu>
 #errors
+/menu/@type;attr:obsolete;m
+/menu/menu;element not allowed;m
+/menu/menu/menu;element not allowed;m
+/menu/menu/menu/@label;attr:obsolete;m
 
 #data
 <menu type="toolbar" xmlns="http://www.w3.org/1999/xhtml">
@@ -2282,58 +2298,65 @@ b
   </menu>
 </menu>
 #errors
-/menu/menu/menu/@label;attribute not allowed;m
+/menu/@type;attr:obsolete;m
+/menu/menu;element not allowed;m
+/menu/menu/menu;element not allowed;m
+/menu/menu/menu/@label;attr:obsolete;m
 
 #data
 <menu type="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menu/@type;enumerated:invalid;m
+/menu/@type;attr:obsolete;m
 
 #data
 <menu type="type" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menu/@type;enumerated:invalid;m
+/menu/@type;attr:obsolete;m
 
 #data
 <menu type="toolbar" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menu/@type;attr:obsolete;m
 
 #data
 <menu type="Toolbar" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menu/@type;attr:obsolete;m
 
 #data
 <menu type=" toolbar" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menu/@type;enumerated:invalid;m
+/menu/@type;attr:obsolete;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menu/@type;attr:obsolete;m
 
 #data
 <menu type="conteXt" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menu/@type;attr:obsolete;m
 
 #data
 <menu type="popUp" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menu/@type;enumerated:invalid;m
+/menu/@type;attr:obsolete;m
 
 #data
 <menu type="context " xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menu/@type;enumerated:invalid;m
+/menu/@type;attr:obsolete;m
 
 #data
 <menu type="list" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menu/@type;enumerated:invalid;m
+/menu/@type;attr:obsolete;m
 
 #data
 <menu type="context menu" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menu/@type;enumerated:invalid;m
+/menu/@type;attr:obsolete;m
 
 #data
 <menu autosubmit="" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -2366,48 +2389,53 @@ b
 #errors
 
 #data
-<menu xmlns="http://www.w3.org/1999/xhtml">
-abc
-</menu>
+<menu xmlns="http://www.w3.org/1999/xhtml">abc</menu>
 #errors
+/menu/"abc";character not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <span>abc</span>
 </menu>
 #errors
+/menu/span;element not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <p>abc</p>
 </menu>
 #errors
+/menu/p;element not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <menu>abc</menu>
 </menu>
 #errors
+/menu/menu;element not allowed;m
+/menu/menu/"abc";character not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <menu type="popup"></menu>
 </menu>
 #errors
-/menu/menu/@type;enumerated:invalid;m
+/menu/menu;element not allowed;m
+/menu/menu/@type;attr:obsolete;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <span hidden="">aa</span>
 </menu>
 #errors
-/menu;no significant content;s
+/menu/span;element not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
-<span hidden="">aa</span>ab
-</menu>
+<span hidden="">aa</span>ab</menu>
 #errors
+/menu/span;element not allowed;m
+/menu/"ab";character not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
@@ -2417,21 +2445,23 @@ abc
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
-<script></script>xy
-</menu>
+<script></script>xy</menu>
 #errors
+/menu/"xy";character not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <script></script><p>aa</p>
 </menu>
 #errors
+/menu/p;element not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
-<script></script><p>aa</p>aaa
-</menu>
+<script></script><p>aa</p>aaa</menu>
 #errors
+/menu/p;element not allowed;m
+/menu/"aaa";character not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
@@ -2465,105 +2495,129 @@ abc
 <li>aa</li><li>bb</li><hr/>
 </menu>
 #errors
-/menu/hr;element not allowed:menu type=toolbar;m
+/menu/hr;element not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <li>aa</li><li>bb</li><menuitem label="a"/>
 </menu>
 #errors
-/menu/menuitem;element not allowed:menu type=toolbar;m
+/menu/menuitem;element not allowed;m
+/menu/menuitem;element:obsolete;m
+/menu/menuitem/@label;attr:obsolete;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <li>aa</li><li>bb</li><span>aa</span>
 </menu>
 #errors
-/menu/span;element not allowed:menu type=toolbar;m
+/menu/span;element not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <menuitem label="a"/>
 </menu>
 #errors
-/menu/menuitem;element not allowed:menu type=toolbar;m
+/menu/menuitem;element not allowed;m
+/menu/menuitem;element:obsolete;m
+/menu/menuitem/@label;attr:obsolete;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <hr/>
 </menu>
 #errors
-/menu;no significant content;s
+/menu/hr;element not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <menu></menu>
 </menu>
 #errors
+/menu/menu;element not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <menu type="ToolBar"></menu>
 </menu>
 #errors
+/menu/menu;element not allowed;m
+/menu/menu/@type;attr:obsolete;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <menu type="popUp"></menu>
 </menu>
 #errors
-/menu/menu/@type;enumerated:invalid;m
+/menu/menu;element not allowed;m
+/menu/menu/@type;attr:obsolete;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <menu type="conText"></menu>
 </menu>
 #errors
-/menu;no significant content;s
+/menu/menu;element not allowed;m
+/menu/menu/@type;attr:obsolete;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <menu><menu></menu></menu>
 </menu>
 #errors
+/menu/menu;element not allowed;m
+/menu/menu/menu;element not allowed;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <menu><menu type="toolbar"></menu></menu>
 </menu>
 #errors
+/menu/menu;element not allowed;m
+/menu/menu/menu;element not allowed;m
+/menu/menu/menu/@type;attr:obsolete;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <menu type="foo"><menu type="toolbar"></menu></menu>
 </menu>
 #errors
-/menu/menu/@type;enumerated:invalid;m
+/menu/menu;element not allowed;m
+/menu/menu/@type;attr:obsolete;m
+/menu/menu/menu;element not allowed;m
+/menu/menu/menu/@type;attr:obsolete;m
 
 #data
 <menu xmlns="http://www.w3.org/1999/xhtml">
 <menu><menu type="context"></menu></menu>
 </menu>
 #errors
-/menu/menu;no significant content;s
+/menu/menu;element not allowed;m
+/menu/menu/menu;element not allowed;m
+/menu/menu/menu/@type;attr:obsolete;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml">
 </menu>
 #errors
+/menu/@type;attr:obsolete;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <menu></menu>
 </menu>
 #errors
+/menu/@type;attr:obsolete;m
+/menu/menu;element not allowed;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <menu type="toolbar"></menu>
 </menu>
 #errors
-/menu/menu;element not allowed:menu type=popup;m
+/menu/@type;attr:obsolete;m
+/menu/menu;element not allowed;m
+/menu/menu/@type;attr:obsolete;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml">
@@ -2572,7 +2626,10 @@ abc
   </menu>
 </menu>
 #errors
-/menu/menu/menu;element not allowed:menu type=popup;m
+/menu/@type;attr:obsolete;m
+/menu/menu;element not allowed;m
+/menu/menu/menu;element not allowed;m
+/menu/menu/menu/@type;attr:obsolete;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml">
@@ -2581,8 +2638,11 @@ abc
   </menu>
 </menu>
 #errors
-/menu/menu/@type;enumerated:invalid;m
-/menu/menu/menu;element not allowed:menu type=popup;m
+/menu/@type;attr:obsolete;m
+/menu/menu;element not allowed;m
+/menu/menu/@type;attr:obsolete;m
+/menu/menu/menu;element not allowed;m
+/menu/menu/menu/@type;attr:obsolete;m
 
 #data
 <menu type="toolbar" xmlns="http://www.w3.org/1999/xhtml">
@@ -2591,8 +2651,11 @@ abc
   </menu>
 </menu>
 #errors
-/menu;no significant content;s
-/menu/menu/menu;element not allowed:menu type=popup;m
+/menu/@type;attr:obsolete;m
+/menu/menu;element not allowed;m
+/menu/menu/@type;attr:obsolete;m
+/menu/menu/menu;element not allowed;m
+/menu/menu/menu/@type;attr:obsolete;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml">
@@ -2601,6 +2664,11 @@ abc
   <hr/>
 </menu>
 #errors
+/menu/@type;attr:obsolete;m
+/menu/hr;element not allowed;m
+/menu/menu;element not allowed;m
+/menu/menu/@type;attr:obsolete;m
+/menu/hr;element not allowed;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml">
@@ -2610,79 +2678,114 @@ abc
   <menuitem label="x"/>
 </menu>
 #errors
+/menu/@type;attr:obsolete;m
+/menu/hr;element not allowed;m
+/menu/menu;element not allowed;m
+/menu/menu/@type;attr:obsolete;m
+/menu/menuitem;element not allowed;m
+/menu/menuitem;element:obsolete;m
+/menu/menuitem/@label;attr:obsolete;m
+/menu/menuitem;element not allowed;m
+/menu/menuitem;element:obsolete;m
+/menu/menuitem/@label;attr:obsolete;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <hr/>abc<hr/>
 </menu>
 #errors
+/menu/@type;attr:obsolete;m
+/menu/hr;element not allowed;m
 /menu/"abc";character not allowed;m
+/menu/hr;element not allowed;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <hr/><li>a</li><hr/>
 </menu>
 #errors
-/menu/li;element not allowed:menu type=popup;m
+/menu/@type;attr:obsolete;m
+/menu/hr;element not allowed;m
+/menu/hr;element not allowed;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <br/>
 </menu>
 #errors
-/menu/br;element not allowed:menu type=popup;m
+/menu/@type;attr:obsolete;m
+/menu/br;element not allowed;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <hr/><script/><hr/>
 </menu>
 #errors
+/menu/@type;attr:obsolete;m
+/menu/hr;element not allowed;m
+/menu/hr;element not allowed;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <hr/><p>a</p>
 </menu>
 #errors
-/menu/p;element not allowed:menu type=popup;m
+/menu/@type;attr:obsolete;m
+/menu/hr;element not allowed;m
+/menu/p;element not allowed;m
 
 #data
 <menu type="context" xmlns="http://www.w3.org/1999/xhtml">
   <hr/><span>a</span>
 </menu>
 #errors
-/menu/span;element not allowed:menu type=popup;m
+/menu/@type;attr:obsolete;m
+/menu/hr;element not allowed;m
+/menu/span;element not allowed;m
 
 #data
 <menuitem label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
 
 #data
 <menuitem label="a" xmlns="http://www.w3.org/1999/xhtml">  </menuitem>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
 
 #data
 <menuitem label="a" xmlns="http://www.w3.org/1999/xhtml"> ab</menuitem>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
 
 #data
 <menuitem label="a" xmlns="http://www.w3.org/1999/xhtml"><span>aa</span></menuitem>
 #errors
-/menuitem/span;element not allowed:text;m
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
 
 #data
 <menuitem label="a" xmlns="http://www.w3.org/1999/xhtml">  <p>aa</p></menuitem>
 #errors
-/menuitem/p;element not allowed:text;m
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml"><menuitem label="a"/>a</div>
 #errors
 /div/menuitem;element not allowed:flow;m
+/div/menuitem;element:obsolete;m
+/div/menuitem/@label;attr:obsolete;m
 
 #data
 <span xmlns="http://www.w3.org/1999/xhtml"><menuitem label="a"/>a</span>
 #errors
 /span/menuitem;element not allowed:phrasing;m
+/span/menuitem;element:obsolete;m
+/span/menuitem/@label;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -2692,7 +2795,9 @@ abc
   </menu>
 </div>
 #errors
-/div/menu/menuitem;attribute missing;label;m
+/div/menu/@type;attr:obsolete;m
+/div/menu/menuitem;element:obsolete;m
+/div/menu/menuitem;element not allowed;m
 /div/menu/menuitem/@command;attr:obsolete;m
 
 #data
@@ -2703,7 +2808,10 @@ abc
   </menu>
 </div>
 #errors
-/div/menu/menuitem;attribute missing;label;m
+/div/menu/@type;attr:obsolete;m
+/div/menu/menuitem;element:obsolete;m
+/div/menu/menuitem;element not allowed;m
+/div/menu/menuitem/@type;attr:obsolete;m
 /div/menu/menuitem/@command;attr:obsolete;m
 
 #data
@@ -2714,7 +2822,10 @@ abc
   </menu>
 </div>
 #errors
-/div/menu/menuitem;attribute missing;label;m
+/div/menu/@type;attr:obsolete;m
+/div/menu/menuitem;element:obsolete;m
+/div/menu/menuitem;element not allowed;m
+/div/menu/menuitem/@type;attr:obsolete;m
 /div/menu/menuitem/@command;attr:obsolete;m
 
 #data
@@ -2725,6 +2836,10 @@ abc
   </menu>
 </div>
 #errors
+/div/menu/@type;attr:obsolete;m
+/div/menu/menuitem;element:obsolete;m
+/div/menu/menuitem;element not allowed;m
+/div/menu/menuitem/@label;attr:obsolete;m
 /div/menu/menuitem/@command;attr:obsolete;m
 
 #data
@@ -2735,7 +2850,10 @@ abc
   </menu>
 </div>
 #errors
-/div/menu/menuitem;attribute missing;label;m
+/div/menu/@type;attr:obsolete;m
+/div/menu/menuitem;element:obsolete;m
+/div/menu/menuitem;element not allowed;m
+/div/menu/menuitem/@icon;attr:obsolete;m
 /div/menu/menuitem/@command;attr:obsolete;m
 
 #data
@@ -2746,7 +2864,10 @@ abc
   </menu>
 </div>
 #errors
-/div/menu/menuitem;attribute missing;label;m
+/div/menu/@type;attr:obsolete;m
+/div/menu/menuitem;element:obsolete;m
+/div/menu/menuitem;element not allowed;m
+/div/menu/menuitem/@disabled;attr:obsolete;m
 /div/menu/menuitem/@command;attr:obsolete;m
 
 #data
@@ -2757,7 +2878,11 @@ abc
   </menu>
 </div>
 #errors
-/div/menu/menuitem;attribute missing;label;m
+/div/menu/@type;attr:obsolete;m
+/div/menu/menuitem;element:obsolete;m
+/div/menu/menuitem;element not allowed;m
+/div/menu/menuitem/@checked;attr:obsolete;m
+/div/menu/menuitem/@type;attr:obsolete;m
 /div/menu/menuitem/@command;attr:obsolete;m
 
 #data
@@ -2768,7 +2893,11 @@ abc
   </menu>
 </div>
 #errors
-/div/menu/menuitem;attribute missing;label;m
+/div/menu/@type;attr:obsolete;m
+/div/menu/menuitem;element:obsolete;m
+/div/menu/menuitem;element not allowed;m
+/div/menu/menuitem/@radiogroup;attr:obsolete;m
+/div/menu/menuitem/@type;attr:obsolete;m
 /div/menu/menuitem/@command;attr:obsolete;m
 
 #data
@@ -2779,7 +2908,9 @@ abc
   </menu>
 </div>
 #errors
-/div/menu/menuitem;attribute missing;label;m
+/div/menu/@type;attr:obsolete;m
+/div/menu/menuitem;element:obsolete;m
+/div/menu/menuitem;element not allowed;m
 /div/menu/menuitem/@command;attr:obsolete;m
 
 #data
@@ -2790,8 +2921,11 @@ abc
   </menu>
 </div>
 #errors
-/div/menu/menuitem;attribute missing;label;m
+/div/menu/@type;attr:obsolete;m
+/div/menu/menuitem;element:obsolete;m
+/div/menu/menuitem;element not allowed;m
 /div/menu/menuitem/@command;attr:obsolete;m
+/div/menu/menuitem/@default;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -2803,154 +2937,252 @@ abc
   </menu>
 </div>
 #errors
-/div/menu/menuitem;attribute missing;label;m
+/div/menu/@type;attr:obsolete;m
+/div/menu/menuitem;element:obsolete;m
+/div/menu/menuitem;element not allowed;m
+/div/menu/menuitem/@type;attr:obsolete;m
+/div/menu/menuitem/@default;attr:obsolete;m
+/div/menu/menuitem/@label;attr:obsolete;m
+/div/menu/menuitem;element:obsolete;m
+/div/menu/menuitem;element not allowed;m
+/div/menu/menuitem/@type;attr:obsolete;m
+/div/menu/menuitem/@default;attr:obsolete;m
+/div/menu/menuitem/@label;attr:obsolete;m
+/div/menu/menuitem;element:obsolete;m
+/div/menu/menuitem;element not allowed;m
 /div/menu/menuitem/@command;attr:obsolete;m
+/div/menu/menuitem/@default;attr:obsolete;m
 
 #data
 <menuitem type="command" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
 
 #data
 <menuitem type="checkbox" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
 
 #data
 <menuitem type="radio" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
 
 #data
 <menuitem type="Command" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
 
 #data
 <menuitem type="" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menuitem/@type;enumerated:invalid;m
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
 
 #data
 <menuitem type="check" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menuitem/@type;enumerated:invalid;m
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
 
 #data
-<menuitem label="" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
+<menuitem label="" type="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menuitem/@label;empty attribute value;m
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
 
 #data
-<menuitem label="  " label="a" xmlns="http://www.w3.org/1999/xhtml"/>
+<menuitem label="  " type="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
 
 #data
-<menuitem label="abc" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
+<menuitem label="abc" type="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
 
 #data
 <menuitem icon="" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menuitem/@icon;url:empty;m
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@icon;attr:obsolete;m
 
 #data
 <menuitem icon="abc" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@icon;attr:obsolete;m
 
 #data
 <menuitem icon="_:abc" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menuitem/@icon;syntax error:iriref3987;m
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@icon;attr:obsolete;m
 
 #data
 <menuitem disabled="" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@disabled;attr:obsolete;m
 
 #data
 <menuitem disabled="DisAbled" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@disabled;attr:obsolete;m
 
 #data
 <menuitem disabled="abc" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@disabled;attr:obsolete;m
 /menuitem/@disabled;boolean:invalid;m
 
 #data
 <menuitem checked="" type="Checkbox" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
+/menuitem/@checked;attr:obsolete;m
 
 #data
 <menuitem checked="checKED" type="radiO" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
+/menuitem/@checked;attr:obsolete;m
 
 #data
 <menuitem checked="true" type="radio" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menuitem/@checked;boolean:invalid;m
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
+/menuitem/@checked;attr:obsolete;m
 
 #data
 <menuitem checked="" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menuitem/@checked;attribute not allowed;m
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@checked;attr:obsolete;m
 
 #data
 <menuitem checked="" type="CoMMAND" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menuitem/@checked;attribute not allowed;m
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
+/menuitem/@checked;attr:obsolete;m
 
 #data
 <menuitem radiogroup="aa" type="radio" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
+/menuitem/@radiogroup;attr:obsolete;m
 
 #data
 <menuitem radiogroup="aa" type="CommanD" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menuitem/@radiogroup;attribute not allowed;m
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
+/menuitem/@radiogroup;attr:obsolete;m
 
 #data
 <menuitem radiogroup="aa" type="checkbox" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menuitem/@radiogroup;attribute not allowed;m
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
+/menuitem/@radiogroup;attr:obsolete;m
 
 #data
 <menuitem radiogroup="" type="RadIo" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menuitem/@radiogroup;empty attribute value;m
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
+/menuitem/@radiogroup;attr:obsolete;m
 
 #data
 <menuitem radiogroup="
 " type="radio" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@type;attr:obsolete;m
+/menuitem/@radiogroup;attr:obsolete;m
 
 #data
 <menuitem title="" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
 
 #data
 <menuitem title="B" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
 
 #data
 <menuitem default="" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@default;attr:obsolete;m
 
 #data
 <menuitem default="abc" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/menuitem/@default;boolean:invalid;m
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@default;attr:obsolete;m
 
 #data
 <menuitem default="default" label="a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/menuitem;element:obsolete;m
+/menuitem/@label;attr:obsolete;m
+/menuitem/@default;attr:obsolete;m
 
 #data
 <p contextmenu="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/p/@contextmenu;no referenced menu;m
 /p;no significant content;s
+/p/@contextmenu;attr:obsolete;m
 
 #data
 <p contextmenu="aaa" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/p/@contextmenu;no referenced menu;m
 /p;no significant content;s
+/p/@contextmenu;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -2959,7 +3191,7 @@ abc
 #errors
 /div/menu/@id;empty attribute value;m
 /div/p;no significant content;s
-/div/p/@contextmenu;no referenced menu;m
+/div/p/@contextmenu;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -2967,6 +3199,8 @@ abc
 </div>
 #errors
 /div/p;no significant content;s
+/div/p/@contextmenu;attr:obsolete;m
+/div/menu/@type;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -2974,15 +3208,16 @@ abc
 </div>
 #errors
 /div/p;no significant content;s
-/div/p/@contextmenu;no referenced menu;m
+/div/p/@contextmenu;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p contextmenu="a"/><menu id="A" type="context"/>
 </div>
 #errors
-/div/p/@contextmenu;no referenced menu;m
 /div/p;no significant content;s
+/div/p/@contextmenu;attr:obsolete;m
+/div/menu/@type;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -2990,6 +3225,8 @@ abc
 </div>
 #errors
 /div/p;no significant content;s
+/div/p/@contextmenu;attr:obsolete;m
+/div/menu/@type;attr:obsolete;m
 
 #data
 <div contextmenu="a" xmlns="http://www.w3.org/1999/xhtml">
@@ -2997,13 +3234,17 @@ abc
 </div>
 #errors
 /div;no significant content;s
+/div/@contextmenu;attr:obsolete;m
+/div/menu/@type;attr:obsolete;m
 
 #data
 <menu id="a" type="ConText" xmlns="http://www.w3.org/1999/xhtml">
 <span contextmenu="a"/>
 </menu>
 #errors
-/menu/span;element not allowed:menu type=popup;m
+/menu/@type;attr:obsolete;m
+/menu/span/@contextmenu;attr:obsolete;m
+/menu/span;element not allowed;m
 /menu/span;no significant content;s
 
 #data
@@ -3013,31 +3254,35 @@ abc
 #errors
 /div/menu/@id;space in ID;m
 /div/p;no significant content;s
+/div/p/@contextmenu;attr:obsolete;m
+/div/menu/@type;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p contextmenu="a a"/><menu id="a" type="context"/>
 </div>
 #errors
-/div/p/@contextmenu;no referenced menu;m
 /div/p;no significant content;s
+/div/p/@contextmenu;attr:obsolete;m
+/div/menu/@type;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p contextmenu="a  a"/><menu id="a a" type="context"/>
 </div>
 #errors
-/div/p/@contextmenu;no referenced menu;m
 /div/menu/@id;space in ID;m
 /div/p;no significant content;s
+/div/p/@contextmenu;attr:obsolete;m
+/div/menu/@type;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
 <p contextmenu="a"/><ul id="a"/>
 </div>
 #errors
-/div/p/@contextmenu;no referenced menu;m
 /div/p;no significant content;s
+/div/p/@contextmenu;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -3047,6 +3292,9 @@ abc
   <p contextmenu="a">aa</p>
 </div>
 #errors
+/div/p/@contextmenu;attr:obsolete;m
+/div/menu/@type;attr:obsolete;m
+/div/menu/menu;element not allowed;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -3056,7 +3304,9 @@ abc
   <p contextmenu="a">aa</p>
 </div>
 #errors
-/div/p/@contextmenu;no referenced menu;m
+/div/p/@contextmenu;attr:obsolete;m
+/div/menu/@type;attr:obsolete;m
+/div/menu/menu;element not allowed;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -3066,6 +3316,9 @@ abc
 </div>
 #errors
 /div/menu/@id;duplicate ID;m
+/div/p/@contextmenu;attr:obsolete;m
+/div/menu/@type;attr:obsolete;m
+/div/menu/@type;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -3075,7 +3328,9 @@ abc
 </div>
 #errors
 /div/menu/@id;duplicate ID;m
-/div/p/@contextmenu;no referenced menu;m
+/div/menu/@type;attr:obsolete;m
+/div/menu/@type;attr:obsolete;m
+/div/p/@contextmenu;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -3085,6 +3340,9 @@ abc
 </div>
 #errors
 /div/menu/@id;duplicate ID;m
+/div/menu/@type;attr:obsolete;m
+/div/menu/@type;attr:obsolete;m
+/div/p/@contextmenu;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -3094,6 +3352,8 @@ abc
 </div>
 #errors
 /div/ul/@id;duplicate ID;m
+/div/menu/@type;attr:obsolete;m
+/div/p/@contextmenu;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -3103,13 +3363,16 @@ abc
 </div>
 #errors
 /div/menu/@id;duplicate ID;m
-/div/p/@contextmenu;no referenced menu;m
+/div/menu/@type;attr:obsolete;m
+/div/p/@contextmenu;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <menu>aa</menu>
 </div>
 #errors
+/div;no significant content;s
+/div/menu/"aa";character not allowed;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -3118,6 +3381,7 @@ abc
 #errors
 /div;no significant content;s
 /div/menu/"aa";character not allowed;m
+/div/menu/@type;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -3126,6 +3390,7 @@ abc
 #errors
 /div;no significant content;s
 /div/menu/"aa";character not allowed;m
+/div/menu/@type;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -3133,20 +3398,26 @@ abc
 </div>
 #errors
 /div;no significant content;s
+/div/menu/@type;attr:obsolete;m
+/div/menu/menu;element not allowed;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <menu><menu type="context"></menu></menu>
 </div>
 #errors
-/div/menu;no significant content;s
+/div;no significant content;s
+/div/menu/menu;element not allowed;m
+/div/menu/menu/@type;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
   <menu><menu type="context"></menu></menu>
 </div>
 #errors
-/div/menu;no significant content;s
+/div;no significant content;s
+/div/menu/menu;element not allowed;m
+/div/menu/menu/@type;attr:obsolete;m
 
 #data
 <device xmlns="http://www.w3.org/1999/xhtml"/>

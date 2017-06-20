@@ -1,0 +1,106 @@
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml"></dl>
+#errors
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+</dl>
+#errors
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">abc</dl>
+#errors
+/dl/"abc";character not allowed:dl;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">ab<p>c</p></dl>
+#errors
+/dl/"ab";character not allowed:dl;m
+/dl/p;element not allowed:dl;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">ab<span>c</span></dl>
+#errors
+/dl/"ab";character not allowed:dl;m
+/dl/span;element not allowed:dl;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt>
+  <dd>xyz</dd>
+</dl>
+#errors
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt>
+  <dt>abcd</dt>
+  <dd>xyz</dd>
+</dl>
+#errors
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt>
+  <dd>xyz</dd>
+  <dd>xyz</dd>
+</dl>
+#errors
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt>
+  <dd>xyz</dd>
+  <dt>abca</dt>
+  <dd>xyz</dd>
+</dl>
+#errors
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt>
+</dl>
+#errors
+/dl;dl:last dd missing;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt>
+  <script/>
+  <dd>abc</dd>
+</dl>
+#errors
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dt>abc</dt>
+  <template/>
+  <dd>abc</dd>
+</dl>
+#errors
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dd>abc</dd>
+  <dd>abcd</dd>
+</dl>
+#errors
+/dl/dd;ps element missing:dt;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dd>abc</dd>
+  <dt>xxyz</dt>
+  <dd>abcd</dd>
+</dl>
+#errors
+/dl/dd;ps element missing:dt;m
+
+#data
+<dl xmlns="http://www.w3.org/1999/xhtml">
+  <dd>abc</dd>
+  <dt>xxyz</dt>
+</dl>
+#errors
+/dl/dd;ps element missing:dt;m
+/dl;dl:last dd missing;m
