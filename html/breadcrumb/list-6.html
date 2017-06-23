@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<title>Breadcrumb #6</title>
+<style>
+  ul {
+    padding: 0;
+  }
+  li {
+    display: inline;
+  }
+  li + li::before {
+    content: " > ";
+  }
+</style>
+
+<ul itemscope itemtype="http://schema.org/BreadcrumbList">
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href=../../ itemprop=item><span itemprop=name>Grandparent</span></a>
+    <meta itemprop=position content=1>
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href=../ itemprop=item><span itemprop=name>Parent</span></a>
+    <meta itemprop=position content=2>
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href itemprop=item><span itemprop=name>Breadcrumb test page</span></a>
+    <meta itemprop=position content=3>
+</ul>
+
+<p>This is a breadcrumb test page #6 (schema.org microdata, styled).
