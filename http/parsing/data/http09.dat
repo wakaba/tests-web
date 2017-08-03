@@ -21,6 +21,8 @@ close
 #body
 (close)
 
+#name
+CRLF close
 #method GET
 #url /
 #data
@@ -32,6 +34,8 @@ close
 #body escaped
 \u000D\u000A(close)
 
+#name
+NULL close
 #method GET
 #url /
 #data escaped
@@ -43,6 +47,8 @@ close
 #body escaped
 \u0000(close)
 
+#name
+foo then bar
 #method GET
 #url /
 #data
@@ -93,6 +99,8 @@ close
 #body
 12345678foo(boundary)bar(boundary)(close)
 
+#name
+after LF, HTTP/1.0
 #method GET
 #url /
 #data
@@ -133,7 +141,7 @@ close
 bar(close)
 
 #name
-PUT
+PUT data
 #method PUT
 #url /
 #data
@@ -201,7 +209,7 @@ close
 bar(close)
 
 #name
-PUT
+PUT empty
 #method PUT
 #url /
 #data

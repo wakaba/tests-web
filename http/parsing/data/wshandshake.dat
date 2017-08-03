@@ -1,3 +1,5 @@
+#name
+wshandshake 1
 #url /
 #data escaped
 receive "GET", start capture
@@ -826,9 +828,9 @@ CRLF
 CRLF
 ws-send-header opcode=1 length=3
 "xyz"
-ws-send-header opcode=8 length=0
 ws-receive-header
 ws-receive-data
+ws-send-header opcode=8 length=0
 close
 #test-type ws
 #ws-send
@@ -856,9 +858,9 @@ CRLF
 CRLF
 ws-send-header opcode=1 length=3
 "xyz"
-ws-send-header opcode=8 length=0
 ws-receive-header
 ws-receive-data
+ws-send-header opcode=8 length=0
 close
 #test-type ws
 #ws-send
