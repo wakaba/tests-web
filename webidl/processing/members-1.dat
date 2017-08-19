@@ -207,6 +207,21 @@ interface A {
 
 #data
 interface A {
+  [Default] long toJSON  ();
+};
+#processed
+{
+  "A": ["interface", {
+    "members": {
+      "toJSON": ["operation", {
+        "overload_set": {"": {"type": "long", "args": [], "Default": 1}}
+      }]
+    }
+  }]
+}
+
+#data
+interface A {
   long _iterator  ();
 };
 #errors
