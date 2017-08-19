@@ -237,46 +237,15 @@ interface A {
 interface A {
   [*id="ab"*] serializer;
 };
-#parsed
-{
-  "definitions": [
-    {
-      "definition_type": "interface",
-      "name": "A",
-      "members": [
-        {
-          "index": 16,
-          "id": "ab",
-          "member_type": "serializer"
-        }
-      ],
-      "index": 0
-    }
-  ]
-}
+#errors
+38;webidl:parse error;?, ;;m
 
 #data
 interface A {
   [*id="ab"*] serializer = [ab];
 };
-#parsed
-{
-  "definitions": [
-    {
-      "definition_type": "interface",
-      "name": "A",
-      "members": [
-        {
-          "index": 16,
-          "id": "ab",
-          "member_type": "serializer",
-          "value_list": {"value_names": ["ab"]}
-        }
-      ],
-      "index": 0
-    }
-  ]
-}
+#errors
+39;webidl:parse error;?, ;;m
 
 #data
 interface A {

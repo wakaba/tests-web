@@ -60,37 +60,19 @@ interface A {
 interface A {
   serializer  boolean hoge ();
 };
-#parsed
-{
-  "definitions": [
-    {
-      "index": 0,
-      "definition_type": "interface",
-      "name": "A",
-      "members": [
-        {
-          "index": 16,
-          "member_type": "operation",
-          "serializer": 1,
-          "name": "hoge",
-          "type": "boolean",
-          "arguments": []
-        }
-      ]    
-    }
-  ]
-}
+#errors
+28;webidl:parse error;?, ;;m
 
 #data
 interface A {
   deleter  serializer  boolean hoge ();
 };
 #errors
-25;webidl:parse error;getter, ;;m
+37;webidl:parse error;?, ;;m
 
 #data
 interface A {
   serializer getter boolean hoge ();
 };
 #errors
-27;webidl:parse error;unsigned, ;;m
+27;webidl:parse error;?, ;;m

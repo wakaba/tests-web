@@ -182,19 +182,6 @@ interface A {
 
 #data
 interface A {
-  [SecureContext] serializer;
-};
-#errors
-#processed
-{
-  "A": ["interface", {
-    "members": {},
-    "serializer": ["serializer", {"SecureContext": 1}]
-  }]
-}
-
-#data
-interface A {
   [SecureContext] iterable<A>;
 };
 #errors
@@ -329,7 +316,6 @@ interface A {
   attribute DOMString a;
   static attribute DOMString b;
   getter DOMString c (DOMString x);
-  serializer;
   iterable<A>;
   const long e = 2;
 };
@@ -384,7 +370,6 @@ interface A {
       },
       "SecureContext": 1
     }],
-    "serializer": ["serializer", {"SecureContext": 1}],
     "iterable": ["iterable", {"SecureContext": 1, "values_type": ["ref_interface", "A"]}]
   }]
 }
@@ -433,7 +418,6 @@ partial interface A {
   attribute DOMString a;
   static attribute DOMString b;
   getter DOMString c (DOMString x);
-  serializer;
   iterable<A>;
   const long e = 2;
 };
@@ -491,7 +475,6 @@ partial interface A {
       },
       "SecureContext": 1
     }],
-    "serializer": ["serializer", {"SecureContext": 1}],
     "iterable": ["iterable", {"SecureContext": 1, "values_type": ["ref_interface", "A"]}]
   }]
 }
