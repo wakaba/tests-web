@@ -184,38 +184,6 @@ callback hoge = sequence<sequence<long>?>? ();
 
 #data
 interface A { 
-  legacycaller Promise<any> ();
-};
-#errors
-1;17;webidl:bad type;;Promise[any];m
-#processed
-{
-  "A": ["interface", {
-    "legacycaller": ["operation", {
-      "overload_set": {"": {"type": ["Promise", "any"], "args": []}}
-    }],
-    "members": {}
-  }]
-}
-
-#data
-interface A { 
-  legacycaller Promise<long> ();
-};
-#errors
-1;17;webidl:bad type;;Promise[long];m
-#processed
-{
-  "A": ["interface", {
-    "legacycaller": ["operation", {
-      "overload_set": {"": {"type": ["Promise", "long"], "args": []}}
-    }],
-    "members": {}
-  }]
-}
-
-#data
-interface A { 
   stringifier;
 };
 #processed
@@ -662,10 +630,12 @@ typedef Error ? Hoge;
 
 #data
 typedef DOMException ? Hoge;
+#errors
+1;0;webidl:not defined;;DOMException;m
 #processed
 {
   "Hoge": ["typedef", {
-    "type": ["nullable", "DOMException"]
+    "type": ["nullable", ["ref", "DOMException"]]
   }]
 }
 

@@ -251,26 +251,8 @@ interface A {
 interface A {
   [*id="ab"*] legacycaller any ();
 };
-#parsed
-{
-  "definitions": [
-    {
-      "definition_type": "interface",
-      "name": "A",
-      "members": [
-        {
-          "index": 16,
-          "legacycaller_id": "ab",
-          "member_type": "operation",
-          "legacycaller": 1,
-          "type": "any",
-          "arguments": []
-        }
-      ],
-      "index": 0
-    }
-  ]
-}
+#errors
+41;webidl:parse error;?, ;;m
 
 #data
 typedef (Foo or [*id="Bar"*]Bar) Baz;

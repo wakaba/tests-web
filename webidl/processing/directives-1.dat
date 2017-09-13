@@ -130,20 +130,11 @@ partial interface [*id="partial-A"*]A {
 
 #data
 interface A {
-  [*id="L"*]legacycaller [*id="G"*]getter [*id="D"*]deleter DOMString [*id="M"*]foo (DOMString a);
+  [*id="G"*]getter [*id="D"*]deleter DOMString [*id="M"*]foo (DOMString a);
 };
 #processed
 {
   "A": ["interface", {
-    "legacycaller": ["operation", {
-        "id": "L",
-        "overload_set": {
-          "DOMString": {
-            "type": "DOMString",        
-            "args": [{"name": "a", "type": "DOMString", "optionality": "required"}]
-          }
-        }
-    }],
     "named_getter": ["operation", {
         "id": "G",
         "overload_set": {
