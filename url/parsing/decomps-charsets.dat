@@ -13,23 +13,23 @@ http://foo/bar?%1B$B0lCz%1B(B
 http://foo/bar?\u1000
 #charset iso-2022-jp
 #canon escaped
-http://foo/bar??
+http://foo/bar?&#4096;
 #scheme http
 #host foo
 #path /bar
 #query escaped
-?
+&#4096;
 
 #data escaped
 http://foo/bar?\u4E00\u1000\u4E01
 #charset iso-2022-jp
 #canon escaped
-http://foo/bar?%1B$B0l%1B(B?%1B$BCz%1B(B
+http://foo/bar?%1B$B0l%1B(B&#4096;%1B$BCz%1B(B
 #scheme http
 #host foo
 #path /bar
 #query escaped
-%1B$B0l%1B(B?%1B$BCz%1B(B
+%1B$B0l%1B(B&#4096;%1B$BCz%1B(B
 
 #data escaped
 http://foo/bar?\u4E00\u4E01
@@ -90,12 +90,12 @@ http://foo/bar?%B0%EC%C3%FA
 http://foo/bar?\u1000
 #charset euc-jp
 #canon escaped
-http://foo/bar??
+http://foo/bar?&#4096;
 #scheme http
 #host foo
 #path /bar
 #query escaped
-?
+&#4096;
 
 #data escaped
 http://foo/bar?\u4E00\u4E01
@@ -112,12 +112,12 @@ http://foo/bar?%88%EA%92%9A
 http://foo/bar?\u1000
 #charset shift_jis
 #canon escaped
-http://foo/bar??
+http://foo/bar?&#4096;
 #scheme http
 #host foo
 #path /bar
 #query escaped
-?
+&#4096;
 
 #data escaped
 http://foo/bar?\u4E00\u4E01
