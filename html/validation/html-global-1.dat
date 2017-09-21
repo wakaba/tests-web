@@ -2596,139 +2596,137 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="">a</p>
 #errors
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="copy">a</p>
 #errors
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="move">a</p>
 #errors
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="link">a</p>
 #errors
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="COPY">a</p>
 #errors
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone=" Move ">a</p>
 #errors
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="string:abc">a</p>
 #errors
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="StRING:abc">a</p>
 #errors
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="file:hoge">a</p>
 #errors
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="FILE:fuga">a</p>
 #errors
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="string:abc copy">a</p>
 #errors
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="copy String:abc fILe:hoge">a</p>
 #errors
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="bad">a</p>
 #errors
-/p/@dropzone;word not allowed;m
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="x:hoge">a</p>
 #errors
-/p/@dropzone;word not allowed;m
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="copy copy">a</p>
 #errors
-/p/@dropzone;dropzone:duplicate feedback;m
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="fILe:hoge file:hoge">a</p>
 #errors
-/p/@dropzone;duplicate token;m
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="bad bad">a</p>
 #errors
-/p/@dropzone;word not allowed;m
-/p/@dropzone;word not allowed;m
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="string:">a</p>
 #errors
-/p/@dropzone;word not allowed;m
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="file:">a</p>
 #errors
-/p/@dropzone;word not allowed;m
-/p;attribute missing;title;s
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="file:" title="a">a</p>
 #errors
-/p/@dropzone;word not allowed;m
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="string:" title="a">a</p>
 #errors
-/p/@dropzone;word not allowed;m
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="f:" title="a">a</p>
 #errors
-/p/@dropzone;word not allowed;m
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="S:" title="a">a</p>
 #errors
-/p/@dropzone;word not allowed;m
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="f:abc.txt" title="a">a</p>
 #errors
-/p/@dropzone;word not allowed;m
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="s:aaaa" title="a">a</p>
 #errors
-/p/@dropzone;word not allowed;m
+/p/@dropzone;attr:obsolete;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"  dropzone="" title="a">a</p>
 #errors
+/p/@dropzone;attr:obsolete;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"  webkitdropzone="" title="a">a</p>
+#errors
+/p/@webkitdropzone;attr:obsolete;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
