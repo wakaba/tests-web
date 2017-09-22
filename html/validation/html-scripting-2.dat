@@ -231,12 +231,12 @@
 #data
 <script type="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@type;script type:empty;m
+/script/@type;script type:empty;s
 
 #data
 <script type="" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
 #errors
-/script/@type;script type:empty;m
+/script/@type;script type:empty;s
 /script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
 
 #data
@@ -259,14 +259,14 @@
 <script type=" text/javascript " xmlns="http://www.w3.org/1999/xhtml">a b c</script>
 #errors
 /script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
-/script/@type;script type:classic;s
+/script/@type;script type:classic;m
 
 #data
 <script type=" text/jscript
 " xmlns="http://www.w3.org/1999/xhtml">a b c</script>
 #errors
 /script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
-/script/@type;script type:classic;s
+/script/@type;script type:classic;m
 /script/@type;IMT:obsolete subtype;w
 /script/@type;IMT:unregistered subtype;m
 
@@ -287,7 +287,7 @@
 <script type="text/javascript " xmlns="http://www.w3.org/1999/xhtml">a b c</script>
 #errors
 /script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
-/script/@type;script type:classic;s
+/script/@type;script type:classic;m
 
 #data
 <script type="text/javascript;" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
@@ -314,14 +314,14 @@
 <script type="text/javascript " language="javascript" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
 #errors
 /script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
-/script/@type;script type:classic;s
+/script/@type;script type:classic;m
 /script/@language;script language:ne type;m
 
 #data
 <script type="text/javascript " language="javascript " xmlns="http://www.w3.org/1999/xhtml">a b c</script>
 #errors
 /script;js:parse error;Expected semicolon, '}' or end of line but found ' b c';m
-/script/@type;script type:classic;s
+/script/@type;script type:classic;m
 /script/@language;script language:not js;m
 
 #data
