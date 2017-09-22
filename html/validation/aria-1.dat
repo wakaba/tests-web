@@ -3,8 +3,20 @@
 #errors
 
 #data
+<p role="none" xmlns="http://www.w3.org/1999/xhtml">a</p>
+#errors
+/p/@role;aria:not preferred markup:html-attr;hidden;w
+
+#data
 <p role="presentation" xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
+/p/@role;aria:not preferred markup:role;none;w
+
+#data
+<p role="none presentation" xmlns="http://www.w3.org/1999/xhtml">a</p>
+#errors
+/p/@role;aria:not preferred markup:role;none;w
+/p/@role;aria:not preferred markup:html-attr;hidden;w
 
 #data
 <p role="window" xmlns="http://www.w3.org/1999/xhtml">a</p>
@@ -35,6 +47,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <article role="presentation article" xmlns="http://www.w3.org/1999/xhtml">a</article>
 #errors
+/article/@role;aria:not preferred markup:role;none;w
 /article/@role;aria:role:default role;m
 
 #data
@@ -46,13 +59,6 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 <input type="checkbox" role="checkbox" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@role;aria:role:default role;m
-
-#data
-<input role="combobox" xmlns="http://www.w3.org/1999/xhtml"/>
-#errors
-/input;aria:role:no required owned element;listbox textbox;m
-/input/@role;aria:role:conflict with semantics;m
-/input/@role;attribute missing;aria-expanded;m
 
 #data
 <input type="radio" role="radio" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -132,29 +138,29 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <form role=" form " xmlns="http://www.w3.org/1999/xhtml">a</form>
 #errors
-/form/@role;aria:redundant role;w
+/form/@role;aria:role:default role;m
 /form/@role;attribute missing;aria-labelledby;s
 
 #data
 <table role=" grid" xmlns="http://www.w3.org/1999/xhtml"><tr><td>a</td></tr></table>
 #errors
-/table/@role;aria:role:default role;m
+/table/@role;aria:role:conflict with semantics;m
 
 #data
 <table role=" grid" xmlns="http://www.w3.org/1999/xhtml"><tr role="row"><td>a</td></tr></table>
 #errors
-/table/@role;aria:role:default role;m
+/table/@role;aria:role:conflict with semantics;m
 /table/tr/@role;aria:role:default role;m
 
 #data
 <td role="gridcell" xmlns="http://www.w3.org/1999/xhtml">a</td>
 #errors
-/td/@role;aria:role:default role;m
+/td/@role;aria:role:conflict with semantics;m
 
 #data
 <fieldset role="group" xmlns="http://www.w3.org/1999/xhtml"><legend>a</legend>a</fieldset>
 #errors
-/fieldset/@role;aria:role:default role;m
+/fieldset/@role;aria:redundant role;w
 
 #data
 <h1 role="heading" xmlns="http://www.w3.org/1999/xhtml">nd>a</h1>
@@ -215,14 +221,14 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 <menuitem role="menuitem" xmlns="http://www.w3.org/1999/xhtml" label="a"/>
 #errors
 /menuitem;element:obsolete;m
-/menuitem/@role;aria:redundant role;w
+/menuitem/@role;aria:not preferred markup:html-element;li;w
 /menuitem/@label;attr:obsolete;m
 
 #data
 <menuitem role="menuitemcheckbox" xmlns="http://www.w3.org/1999/xhtml" label="a"/>
 #errors
 /menuitem;element:obsolete;m
-/menuitem/@role;aria:redundant role;w
+/menuitem/@role;aria:not preferred markup:input;checkbox;w
 /menuitem/@role;attribute missing;aria-checked;m
 /menuitem/@label;attr:obsolete;m
 
@@ -231,13 +237,14 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /menuitem;element:obsolete;m
 /menuitem/@label;attr:obsolete;m
-/menuitem/@role;aria:redundant role;w
+/menuitem/@role;aria:not preferred markup:input;radio;w
 /menuitem/@role;attribute missing;aria-checked;m
 
 #data
 <option role="option" xmlns="http://www.w3.org/1999/xhtml">a</option>
 #errors
 /option/@role;aria:redundant role;w
+/option/@role;attribute missing;aria-selected;m
 
 #data
 <progress role="progressbar" xmlns="http://www.w3.org/1999/xhtml">a</progress>
@@ -247,7 +254,6 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <meter role="timer" xmlns="http://www.w3.org/1999/xhtml" value="0.4">1a</meter>
 #errors
-/meter/@role;aria:role:conflict with semantics;m
 
 #data
 <tr role="row" xmlns="http://www.w3.org/1999/xhtml"><td>a</td></tr>
@@ -360,10 +366,13 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <nav role="presentation" xmlns="http://www.w3.org/1999/xhtml">a</nav>
 #errors
+/nav/@role;aria:not preferred markup:role;none;w
+/nav/@role;aria:role:conflict with semantics;m
 
 #data
 <param role="presentation" name="s" value="f" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/param/@role;aria:not preferred markup:role;none;w
 
 #data
 <h1 aria-level="1" xmlns="http://www.w3.org/1999/xhtml">a</h1>
@@ -373,11 +382,13 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <h1 aria-level="1" role="presentation" xmlns="http://www.w3.org/1999/xhtml">a</h1>
 #errors
+/h1/@role;aria:not preferred markup:role;none;w
 /h1/@aria-level;aria:attr not allowed for role;presentation;m
 
 #data
 <h1 aria-level="1" role="heading presentation" xmlns="http://www.w3.org/1999/xhtml">a</h1>
 #errors
+/h1/@role;aria:not preferred markup:role;none;w
 /h1/@role;aria:role:default role;m
 /h1/@aria-level;aria:attr not allowed for element;m
 
@@ -410,6 +421,12 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 /area/@role;aria:role:conflict with semantics;m
 
 #data
+<area role="document" shape="default" href="x" alt="y" xmlns="http://www.w3.org/1999/xhtml"/>
+#errors
+/area/@role;aria:role:conflict with semantics;m
+/area;attribute missing;aria-labelledby;s
+
+#data
 <area role="tab" shape="default" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 
@@ -432,10 +449,12 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <select aria-disabled="true" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
 #errors
+/select/@aria-disabled;aria:attr not allowed for element;m
 
 #data
 <select aria-disabled="true" disabled="" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
 #errors
+/select/@aria-disabled;aria:attr not allowed for element;m
 
 #data
 <h1 aria-level="1" xmlns="http://www.w3.org/1999/xhtml">a</h1>
@@ -471,8 +490,8 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
   <div role="listitem">aa</div>
 </div>
 #errors
+/div/div;aria:role:not required context;combobox directory feed group list listbox menu menubar radiogroup row select toolbar tree treegrid;m
 /div/div/@role;aria:not preferred markup:html-element;li;w
-/div/div;aria:role:not required context;directory list listbox menu menubar tablist;m
 
 #data
 <div role="list" xmlns="http://www.w3.org/1999/xhtml">
@@ -625,6 +644,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </div>
 #errors
 /div;attribute missing;aria-labelledby;s
+/div/div/@role;aria:not preferred markup:html-element;header;w
 
 #data
 <div role="document" xmlns="http://www.w3.org/1999/xhtml">
@@ -634,6 +654,8 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /div;aria:multiple role elements;banner;s
 /div;attribute missing;aria-labelledby;s
+/div/div/@role;aria:not preferred markup:html-element;header;w
+/div/div/@role;aria:not preferred markup:html-element;header;w
 
 #data
 <div role="application" xmlns="http://www.w3.org/1999/xhtml">
@@ -643,6 +665,9 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </div>
 #errors
 /div;attribute missing;aria-labelledby;s
+/div/div/@role;aria:not preferred markup:html-element;header;w
+/div/div/@role;aria:not preferred markup:html-element;header;w
+/div/div/@role;aria:not preferred markup:html-element;header;w
 /div;aria:multiple role elements;banner;s
 
 #data
@@ -654,6 +679,9 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /div;aria:multiple role elements;contentinfo;s
 /div;attribute missing;aria-labelledby;s
+/div/div/@role;aria:not preferred markup:html-element;footer;w
+/div/div/@role;aria:not preferred markup:html-element;footer;w
+/div/div/@role;aria:not preferred markup:html-element;footer;w
 
 #data
 <div role="document" xmlns="http://www.w3.org/1999/xhtml">
@@ -727,6 +755,8 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <body role="application" xmlns="http://www.w3.org/1999/xhtml">aa</body>
 #errors
+/body;attribute missing;aria-labelledby;s
+/body/@role;aria:role:conflict with semantics;m
 
 #data
 <div role="application" xmlns="http://www.w3.org/1999/xhtml">aa</div>
@@ -741,11 +771,14 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <img src="x" role="presentation" alt="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/img/@role;aria:not preferred markup:role;none;w
 
 #data
 <img src="x" role="presentation" alt="ab" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
+/img/@role;aria:not preferred markup:role;none;w
 /img/@alt;aria:img presentation:non empty alt;s
+/img/@role;aria:role:conflict with semantics;m
 
 #data
 <div role="radiogroup" xmlns="http://www.w3.org/1999/xhtml">
@@ -780,18 +813,6 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 
 #data html
 <!DOCTYPE html><html lang="en"><title>a</title>
-<iframe src="x">
-  <span aria-owns=abc aria-activedescendant=def>aa</span>
-  <span id=abc>aaa</span>
-  <span id=def>aaa</span>
-</iframe>
-#errors
-3;9;/html/body/iframe;aria:owns;w
-3;23;/html/body/iframe;aria:activedescendant:not owned;s
-3;23;/html/body/iframe;aria:attr not allowed for role;;m
-
-#data html
-<!DOCTYPE html><html lang="en"><title>a</title>
 <p>a
 <noscript>
   <span aria-owns=abc aria-activedescendant=def>aa</span>
@@ -820,6 +841,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </hgroup>
 #errors
 /hgroup/h1/@role;aria:redundant role;w
+/hgroup/h1/@role;attribute missing;aria-level;m
 
 #data
 <hgroup xmlns="http://www.w3.org/1999/xhtml">
@@ -904,6 +926,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /select/optgroup/optgroup;element not allowed;m
 /select/optgroup/optgroup/option/@role;aria:redundant role;w
+/select/optgroup/optgroup/option/@role;attribute missing;aria-selected;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml">
@@ -911,13 +934,15 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </datalist>
 #errors
 /datalist/option/@role;aria:role:default role;m
+/datalist/option/@role;attribute missing;aria-selected;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml">
   <option role="option" disabled="">aa</option>
 </datalist>
 #errors
-/datalist/option/@role;aria:redundant role;w
+/datalist/option/@role;aria:role:default role;m
+/datalist/option/@role;attribute missing;aria-selected;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml">
@@ -929,6 +954,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 /datalist/div;element not allowed;m
 /datalist/div/option;element not allowed:flow;m
 /datalist/div/option/@role;aria:role:default role;m
+/datalist/div/option/@role;attribute missing;aria-selected;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml">
@@ -939,7 +965,8 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /datalist/div;element not allowed;m
 /datalist/div/option;element not allowed:flow;m
-/datalist/div/option/@role;aria:redundant role;w
+/datalist/div/option/@role;aria:role:default role;m
+/datalist/div/option/@role;attribute missing;aria-selected;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml">
@@ -950,6 +977,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /datalist/optgroup;element not allowed;m
 /datalist/optgroup/option/@role;aria:role:default role;m
+/datalist/optgroup/option/@role;attribute missing;aria-selected;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml">
@@ -959,7 +987,8 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </datalist>
 #errors
 /datalist/optgroup;element not allowed;m
-/datalist/optgroup/option/@role;aria:redundant role;w
+/datalist/optgroup/option/@role;aria:role:default role;m
+/datalist/optgroup/option/@role;attribute missing;aria-selected;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml">
@@ -969,7 +998,8 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </datalist>
 #errors
 /datalist/optgroup;element not allowed;m
-/datalist/optgroup/option/@role;aria:redundant role;w
+/datalist/optgroup/option/@role;aria:role:default role;m
+/datalist/optgroup/option/@role;attribute missing;aria-selected;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml">
@@ -1012,22 +1042,28 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </datalist>
 #errors
 /datalist/optgroup;element not allowed;m
-/datalist/optgroup/option/@role;aria:redundant role;w
+/datalist/optgroup/option/@role;aria:role:default role;m
+/datalist/optgroup/option/@role;attribute missing;aria-selected;m
 
 #data
 <body role="document" xmlns="http://www.w3.org/1999/xhtml">a</body>
 #errors
+/body;attribute missing;aria-labelledby;s
+/body/@role;aria:role:default role;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>
 <body role=document>aa
 #errors
+/html/body;attribute missing;aria-labelledby;s
 /html/body/@role;aria:role:default role;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>
 <body role=application>aa
 #errors
+/html/body;attribute missing;aria-labelledby;s
+/html/body/@role;aria:role:conflict with semantics;m
 
 #data
 <frameset role="document" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -1035,6 +1071,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 /frameset;attribute missing;aria-labelledby;s
 /frameset;child element missing:frame|frameset;m
 /frameset;element:obsolete;m
+/frameset/@role;aria:role:default role;m
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title>
@@ -1055,13 +1092,13 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <link role="link" rel="stylesheet" href="xA" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/link/@role;aria:not preferred markup:html-element;a;w
+/link/@role;aria:role:default role;m
 
 #data
 <link role="link" itemprop="a" href="xA" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /link;microdata:unused itemprop;m
-/link/@role;aria:not preferred markup:html-element;a;w
+/link/@role;aria:role:default role;m
 
 #data
 <input role="textbox" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -1072,8 +1109,9 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 <input role="combobox" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /input/@role;aria:role:conflict with semantics;m
+/input/@role;attribute missing;aria-controls;m
+/input;aria:role:no required owned element;dialog grid listbox textbox tree;m
 /input/@role;attribute missing;aria-expanded;m
-/input;aria:role:no required owned element;listbox textbox;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1082,8 +1120,9 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </div>
 #errors
 /div/input/@role;aria:role:default role;m
+/div/input/@role;attribute missing;aria-controls;m
+/div/input;aria:role:no required owned element;dialog grid listbox textbox tree;m
 /div/input/@role;attribute missing;aria-expanded;m
-/div/input;aria:role:no required owned element;listbox textbox;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1092,6 +1131,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </div>
 #errors
 /div/input/@role;aria:role:conflict with semantics;m
+/div/input/@role;aria:not preferred markup:textbox;w
 
 #data
 <div aria-hidden="true" hidden="" xmlns="http://www.w3.org/1999/xhtml">aa</div>
@@ -1113,6 +1153,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
   <li>aa</li>
 </ul>
 #errors
+/ul/@role;aria:not preferred markup:role;none;w
 
 #data
 <ul role="presentation" xmlns="http://www.w3.org/1999/xhtml">
@@ -1120,23 +1161,29 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
   <li role="list">bb</li>
 </ul>
 #errors
+/ul/@role;aria:not preferred markup:role;none;w
 /ul/li/@role;aria:redundant role;w
 /ul/li/@role;aria:not preferred markup:html-element;ul;w
 /ul/li;aria:role:no required owned element;group listitem;m
-/ul/li;aria:role:not required context;directory list listbox menu menubar tablist;m
+/ul/li;aria:role:not required context;combobox directory feed group list listbox menu menubar radiogroup row select toolbar tree treegrid;m
 
 #data
 <select role="presentation" xmlns="http://www.w3.org/1999/xhtml">
   <option>aa</option>
 </select>
 #errors
+/select/@role;aria:not preferred markup:role;none;w
+/select/@role;aria:role:conflict with semantics;m
 
 #data
 <select role="presentation" xmlns="http://www.w3.org/1999/xhtml">
   <option role="option">aa</option>
 </select>
 #errors
+/select/@role;aria:not preferred markup:role;none;w
+/select/@role;aria:role:conflict with semantics;m
 /select/option/@role;aria:redundant role;w
+/select/option/@role;attribute missing;aria-selected;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml">
@@ -1150,22 +1197,26 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
   <option role="menuitem">aa</option>
 </select>
 #errors
-/select/option;aria:role:not required context;menu menubar;m
-/select/option/@role;aria:not preferred markup:html-element;menuitem;w
+/select/option/@role;aria:not preferred markup:html-element;li;w
+/select/option/@role;aria:role:conflict with semantics;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml">
   <option role="menuitemradio">aa</option>
 </select>
 #errors
-/select/option;aria:role:not required context;menu menubar;m
-/select/option/@role;aria:not preferred markup:html-element;menuitem;w
+/select/option/@role;aria:not preferred markup:input;radio;w
+/select/option/@role;aria:role:conflict with semantics;m
 
 #data
 <select xmlns="http://www.w3.org/1999/xhtml">
   <option role="separator">aa</option>
 </select>
 #errors
+/select/option/@role;aria:role:conflict with semantics;m
+/select/option/@role;attribute missing;aria-valuemax;m
+/select/option/@role;attribute missing;aria-valuemin;m
+/select/option/@role;attribute missing;aria-valuenow;m
 
 #data
 <select size="1" xmlns="http://www.w3.org/1999/xhtml">
@@ -1179,22 +1230,26 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
   <option role="menuitem">aa</option>
 </select>
 #errors
-/select/option;aria:role:not required context;menu menubar;m
-/select/option/@role;aria:not preferred markup:html-element;menuitem;w
+/select/option/@role;aria:not preferred markup:html-element;li;w
+/select/option/@role;aria:role:conflict with semantics;m
 
 #data
 <select size="1" xmlns="http://www.w3.org/1999/xhtml">
   <option role="menuitemradio">aa</option>
 </select>
 #errors
-/select/option;aria:role:not required context;menu menubar;m
-/select/option/@role;aria:not preferred markup:html-element;menuitem;w
+/select/option/@role;aria:not preferred markup:input;radio;w
+/select/option/@role;aria:role:conflict with semantics;m
 
 #data
 <select size="1" xmlns="http://www.w3.org/1999/xhtml">
   <option role="separator">aa</option>
 </select>
 #errors
+/select/option/@role;aria:role:conflict with semantics;m
+/select/option/@role;attribute missing;aria-valuemax;m
+/select/option/@role;attribute missing;aria-valuemin;m
+/select/option/@role;attribute missing;aria-valuenow;m
 
 #data
 <select multiple="" xmlns="http://www.w3.org/1999/xhtml">
@@ -1209,17 +1264,15 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </select>
 #errors
 /select/option/@role;aria:role:conflict with semantics;m
-/select/option;aria:role:not required context;menu menubar;m
-/select/option/@role;aria:not preferred markup:html-element;menuitem;w
+/select/option/@role;aria:not preferred markup:html-element;li;w
 
 #data
 <select multiple="" xmlns="http://www.w3.org/1999/xhtml">
   <option role="menuitemradio">aa</option>
 </select>
 #errors
-/select/option/@role;aria:not preferred markup:html-element;menuitem;w
 /select/option/@role;aria:role:conflict with semantics;m
-/select/option;aria:role:not required context;menu menubar;m
+/select/option/@role;aria:not preferred markup:input;radio;w
 
 #data
 <select multiple="" xmlns="http://www.w3.org/1999/xhtml">
@@ -1227,6 +1280,9 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </select>
 #errors
 /select/option/@role;aria:role:conflict with semantics;m
+/select/option/@role;attribute missing;aria-valuemax;m
+/select/option/@role;attribute missing;aria-valuemin;m
+/select/option/@role;attribute missing;aria-valuenow;m
 
 #data
 <select size="2" xmlns="http://www.w3.org/1999/xhtml">
@@ -1241,17 +1297,15 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </select>
 #errors
 /select/option/@role;aria:role:conflict with semantics;m
-/select/option;aria:role:not required context;menu menubar;m
-/select/option/@role;aria:not preferred markup:html-element;menuitem;w
+/select/option/@role;aria:not preferred markup:html-element;li;w
 
 #data
 <select size="2" xmlns="http://www.w3.org/1999/xhtml">
   <option role="menuitemradio">aa</option>
 </select>
 #errors
-/select/option/@role;aria:not preferred markup:html-element;menuitem;w
 /select/option/@role;aria:role:conflict with semantics;m
-/select/option;aria:role:not required context;menu menubar;m
+/select/option/@role;aria:not preferred markup:input;radio;w
 
 #data
 <select size="2" xmlns="http://www.w3.org/1999/xhtml">
@@ -1259,6 +1313,9 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </select>
 #errors
 /select/option/@role;aria:role:conflict with semantics;m
+/select/option/@role;attribute missing;aria-valuemax;m
+/select/option/@role;attribute missing;aria-valuemin;m
+/select/option/@role;attribute missing;aria-valuenow;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml">
@@ -1266,6 +1323,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </datalist>
 #errors
 /datalist/option/@role;aria:role:default role;m
+/datalist/option/@role;attribute missing;aria-selected;m
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml">
@@ -1273,18 +1331,16 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </datalist>
 #errors
 /datalist/option/@role;aria:role:conflict with semantics;m
-/datalist/option;aria:role:not required context;menu menubar;m
-/datalist/option/@role;aria:not preferred markup:html-element;menuitem;w
+/datalist/option/@role;aria:not preferred markup:html-element;li;w
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml">
   <option role="menuitemradio">aa</option>
 </datalist>
 #errors
-/datalist/option/@role;aria:not preferred markup:html-element;menuitem;w
 /datalist/option/@role;aria:role:conflict with semantics;m
 /datalist/option/@role;attribute missing;aria-checked;m
-/datalist/option;aria:role:not required context;menu menubar;m
+/datalist/option/@role;aria:not preferred markup:input;radio;w
 
 #data
 <datalist xmlns="http://www.w3.org/1999/xhtml">
@@ -1292,6 +1348,9 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 </datalist>
 #errors
 /datalist/option/@role;aria:role:conflict with semantics;m
+/datalist/option/@role;attribute missing;aria-valuemax;m
+/datalist/option/@role;attribute missing;aria-valuemin;m
+/datalist/option/@role;attribute missing;aria-valuenow;m
 
 #data
 <select role="listbox" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
@@ -1301,8 +1360,8 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <select role="menu" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
 #errors
-/select/@role;aria:not preferred markup:html-element;menu;w
 /select;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
+/select/@role;aria:not preferred markup:html-element;menu;w
 
 #data
 <select multiple="" role="listbox" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
@@ -1312,7 +1371,6 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <select multiple="" role="menu" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
 #errors
-/select/@role;aria:role:conflict with semantics;m
 /select/@role;aria:not preferred markup:html-element;menu;w
 /select;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
 
@@ -1324,7 +1382,6 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <select size="3" role="menu" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
 #errors
-/select/@role;aria:role:conflict with semantics;m
 /select/@role;aria:not preferred markup:html-element;menu;w
 /select;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
 
@@ -1333,22 +1390,24 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /table/@role;aria:role:conflict with semantics;m
 /table/@role;aria:not preferred markup:html-element;h1;w
+/table/@role;attribute missing;aria-level;m
 
 #data
 <table aria-readonly="true" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/table/@aria-readonly;aria:attr not allowed for element;m
+/table/@aria-readonly;aria:attr not allowed for role;table;m
 
 #data
 <table aria-readonly="false" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/table/@aria-readonly;aria:attr not allowed for element;m
+/table/@aria-readonly;aria:attr not allowed for role;table;m
 
 #data
 <tbody role="heading" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /tbody/@role;aria:role:conflict with semantics;m
 /tbody/@role;aria:not preferred markup:html-element;h1;w
+/tbody/@role;attribute missing;aria-level;m
 
 #data
 <thead role="grid" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -1374,7 +1433,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #errors
 /th/@role;aria:not preferred markup:html-element;tr;w
 /th/@role;aria:role:conflict with semantics;m
-/th;aria:role:no required owned element;columnheader gridcell rowheader;m
+/th;aria:role:no required owned element;cell columnheader gridcell rowheader;m
 
 #data
 <td role="textbox" xmlns="http://www.w3.org/1999/xhtml">d</td>
