@@ -323,7 +323,7 @@
 </head>
 #errors
 /head;child element missing;title;m
-/head/style/@type;attr:obsolete;m
+/head/style/@type;style type:text/css;s
 
 #data
 <head xmlns="http://www.w3.org/1999/xhtml"></head>
@@ -520,7 +520,7 @@
 <title/>
 </head>
 #errors
-/head/style/@type;attr:obsolete;m
+/head/style/@type;style type:text/css;s
 /head/title;no significant content;m
 
 #data
@@ -545,7 +545,7 @@
 </head>
 #errors
 /head/title;no significant content;m
-/head/style/@type;attr:obsolete;m
+/head/style/@type;style type:text/css;s
 
 #data
 <html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><title></title></head><body></body></html>
@@ -1280,21 +1280,21 @@ a
 #data
 <style type="text/css" xmlns="http://www.w3.org/1999/xhtml"></style>
 #errors
-/style/@type;attr:obsolete;m
+/style/@type;style type:text/css;s
 
 #data
 <style type="text/css" xmlns="http://www.w3.org/1999/xhtml">
 p {color: green}
 </style>
 #errors
-/style/@type;attr:obsolete;m
+/style/@type;style type:text/css;s
 
 #data
 <style type="text/css" xmlns="http://www.w3.org/1999/xhtml">
 p {color: green
 </style>
 #errors
-/style/@type;attr:obsolete;m
+/style/@type;style type:text/css;s
 3;1;/style;css:block:eof;w
 
 #data
@@ -1302,14 +1302,14 @@ p {color: green
 p {color: green
 </style>
 #errors
-/style/@type;attr:obsolete;m
+/style/@type;style type:text/css;s
 3;1;/style;css:block:eof;w
 
 #data
 <style type="text" xmlns="http://www.w3.org/1999/xhtml">hogfe</style>
 #errors
-/style/@type;attr:obsolete;m
-/style/@type;IMT:no /;m
+/style;css:qrule:no block;m
+/style/@type;style type;m
 
 #data
 <style xmlns="http://www.w3.org/1999/xhtml">hogfe {col<br/>or: blue}</style>
@@ -1324,26 +1324,21 @@ p {color: green
 #data
 <style type="text/css; hoge=1" xmlns="http://www.w3.org/1999/xhtml">hogfe {col<div>hoge</div>or: blue}</style>
 #errors
-/style/@type;attr:obsolete;m
-/style/@type;IMT:parameter not allowed;m
-/style;unknown style lang;u
+/style/@type;style type;m
 /style/div;element not allowed;m
 
 #data
 <style type="Text/plain" xmlns="http://www.w3.org/1999/xhtml">hogfe {col<div>hoge</div>or: blue}<br/></style>
 #errors
-/style;unknown style lang;u
-/style/@type;attr:obsolete;m
-/style/@type;IMT:not styling lang;m
+/style/@type;style type;m
 /style/div;element not allowed;m
 /style/br;element not allowed;m
 
 #data
 <style type="Text/xml" xmlns="http://www.w3.org/1999/xhtml">hogfe {col<div>hoge</div>or: blue}</style>
 #errors
-/style;unknown style lang;u
-/style/@type;attr:obsolete;m
-/style/@type;IMT:not styling lang;m
+/style/@type;style type;m
+/style/div;element not allowed;m
 
 #data
 <style disabled="" xmlns="http://www.w3.org/1999/xhtml"></style>
@@ -2955,68 +2950,56 @@ p {color: green
 #data
 <style type="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/style/@type;attr:obsolete;m
-/style/@type;IMT:no type;m
+/style/@type;style type;m
 
 #data
 <style type="text" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/style/@type;attr:obsolete;m
-/style/@type;IMT:no /;m
+/style/@type;style type;m
 
 #data
 <style type="text/CSS; unknown=2" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/style/@type;attr:obsolete;m
-/style/@type;IMT:parameter not allowed;m
-/style;unknown style lang;u
+/style/@type;style type;m
 
 #data
 <style type="text/css" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/style/@type;attr:obsolete;m
+/style/@type;style type:text/css;s
 
 #data
 <style type="Text/CSS" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/style/@type;attr:obsolete;m
+/style/@type;style type:text/css;s
 
 #data
 <style type="TEXT/CSS" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/style/@type;attr:obsolete;m
+/style/@type;style type:text/css;s
 
 #data
 <style type="text/css; charset=us-ascii" xmlns="http://www.w3.org/1999/xhtml">
 </style>
 #errors
-/style/@type;attr:obsolete;m
-/style/@type;IMT:parameter not allowed;m
-/style;unknown style lang;u
+/style/@type;style type;m
 
 #data
 <style type="text/css; charSet=us-ascii" xmlns="http://www.w3.org/1999/xhtml">
 </style>
 #errors
-/style/@type;attr:obsolete;m
-/style/@type;IMT:parameter not allowed;m
-/style;unknown style lang;u
+/style/@type;style type;m
 
 #data
 <style type="text/xsl" xmlns="http://www.w3.org/1999/xhtml">
 </style>
 #errors
-/style/@type;attr:obsolete;m
-/style/@type;IMT:unregistered subtype;m
-/style;unknown style lang;u
+/style/@type;style type;m
 
 #data
 <style type="text/plain" xmlns="http://www.w3.org/1999/xhtml">
 </style>
 #errors
-/style/@type;attr:obsolete;m
-/style/@type;IMT:not styling lang;m
-/style;unknown style lang;u
+/style/@type;style type;m
 
 #data
 <style media="all" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -3178,7 +3161,6 @@ p {color: green
 <style xmlns="http://www.w3.org/1999/xhtml">&lt;!---->
 &lt;!--</style>
 #errors
-2;1;/style;style:unclosed cdo;m
 
 #data
 <style xmlns="http://www.w3.org/1999/xhtml">&lt;!---->
@@ -3198,13 +3180,11 @@ p {color: green
 <style xmlns="http://www.w3.org/1999/xhtml">&lt;!---->
 &lt;!--&lt;!--</style>
 #errors
-2;1;/style;style:unclosed cdo;m
 
 #data
 <style xmlns="http://www.w3.org/1999/xhtml">&lt;!--<span>--></span>
 &lt;!-<br/>-&lt;!--</style>
 #errors
-2;1;/style;style:unclosed cdo;m
 /style/span;element not allowed;m
 /style/br;element not allowed;m
 
@@ -3212,7 +3192,6 @@ p {color: green
 <style xmlns="http://www.w3.org/1999/xhtml">&lt;!--></style>
 #errors
 1;53;/style;css:qrule:no block;m
-1;45;/style;style:unclosed cdo;m
 
 #data
 <style xmlns="http://www.w3.org/1999/xhtml">&lt;!-->&lt;!-->--></style>
