@@ -406,57 +406,42 @@ xxax
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc"></applet>
 #errors
-/applet;no significant content;s
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
 </applet>
 #errors
-/applet;no significant content;s
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">xxax</applet>
 #errors
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc"><p>xx</p></applet>
 #errors
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc"><p></p></applet>
 #errors
-/applet/p;no significant content;s
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
+/applet/p;no significant content;s
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
 <param name="x" value="y"/>
 </applet>
 #errors
-/applet;no significant content;s
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
@@ -464,11 +449,8 @@ xxax
 <param name="v" value="w"/>
 </applet>
 #errors
-/applet;no significant content;s
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
@@ -477,11 +459,8 @@ xxax
 <param name="a" value="b"/>
 </applet>
 #errors
-/applet;no significant content;s
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
@@ -491,8 +470,6 @@ zzz
 #errors
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
@@ -502,8 +479,6 @@ zzz
 #errors
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
@@ -513,8 +488,6 @@ zzz</p><img src="ll" alt="a"/>
 #errors
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
@@ -525,8 +498,6 @@ zzz
 #errors
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
@@ -535,11 +506,8 @@ zzz
 <param name="a" value="y"/>
 </applet>
 #errors
-/applet/param;element not allowed:flow;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
@@ -547,11 +515,8 @@ aaa
 <param name="x" value="y"/>
 </applet>
 #errors
-/applet/param;element not allowed:flow;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 
 #data
 <?xml version="1.1"?>
@@ -560,11 +525,8 @@ aaa
 <param name="x" value="y"/>
 </applet>
 #errors escaped
-/applet/param;element not allowed:flow;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 /applet/"\u000B";text:bad char;m
 
 #data
@@ -573,11 +535,8 @@ aaa
 <param name="x" value="y"/>
 </applet>
 #errors
-/applet/param;element not allowed:flow;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="abc">
@@ -585,12 +544,8 @@ aaa
 <style scoped=""/>
 </applet>
 #errors
-/applet;no significant content;s
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
-/applet/style;element not allowed:flow;m
 /applet/style/@scoped;attr:obsolete;m
 
 #data
@@ -602,9 +557,6 @@ aaa
 #errors
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
-/applet/style;element not allowed:flow;m
 /applet/style/@scoped;attr:obsolete;m
 
 #data
@@ -616,9 +568,6 @@ aaa
 #errors
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
-/applet/style;element not allowed:flow;m
 /applet/style/@scoped;attr:obsolete;m
 
 #data
@@ -628,13 +577,8 @@ aaa
 <param name="xz" value=""/>
 </applet>
 #errors
-/applet/param;element not allowed:flow;m
-/applet;no significant content;s
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
-/applet/style;element not allowed:flow;m
 /applet/style/@scoped;attr:obsolete;m
 
 #data
@@ -643,13 +587,8 @@ aaa
 <param name="x" value="y"/>
 </applet>
 #errors
-/applet;no significant content;s
-/applet/param;element not allowed:flow;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
-/applet/style;element not allowed:flow;m
 /applet/style/@scoped;attr:obsolete;m
 
 #data
@@ -661,9 +600,6 @@ aaa
 #errors
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
-/applet/style;element not allowed:flow;m
 /applet/style/@scoped;attr:obsolete;m
 
 #data
@@ -672,12 +608,8 @@ aaa
 <style/>
 </applet>
 #errors
-/applet;no significant content;s
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
-/applet/style;element not allowed:flow;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
@@ -688,14 +620,10 @@ aaa
 </p>
 #errors
 /p;no significant content;s
-/p/applet;no significant content;s
-/p/applet/style;element not allowed:phrasing;m
 /p/applet/style/@scoped;attr:obsolete;m
 /p/applet;element:obsolete;m
 /p/applet/@code;attr:obsolete;m
 /p/applet;element not allowed:phrasing;m
-/p/applet;attribute missing;width;m
-/p/applet;attribute missing;height;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
@@ -709,8 +637,6 @@ xxax
 /p/applet;element:obsolete;m
 /p/applet/@code;attr:obsolete;m
 /p/applet;element not allowed:phrasing;m
-/p/applet;attribute missing;width;m
-/p/applet;attribute missing;height;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml">
@@ -721,12 +647,9 @@ xxax
 </p>
 #errors
 /p;no significant content;s
-/p/applet/p;element not allowed:phrasing;m
 /p/applet;element:obsolete;m
 /p/applet/@code;attr:obsolete;m
 /p/applet;element not allowed:phrasing;m
-/p/applet;attribute missing;width;m
-/p/applet;attribute missing;height;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -740,8 +663,6 @@ xxax
 /div/applet;element:obsolete;m
 /div/applet/@code;attr:obsolete;m
 /div/applet;element not allowed:flow;m
-/div/applet;attribute missing;width;m
-/div/applet;attribute missing;height;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -757,11 +678,7 @@ xxax
 /div/applet;element:obsolete;m
 /div/applet/@code;attr:obsolete;m
 /div/applet;element not allowed:flow;m
-/div/applet;attribute missing;width;m
-/div/applet;attribute missing;height;m
-/div/applet/style;element not allowed:flow;m
 /div/applet/style/@scoped;attr:obsolete;m
-/div/applet/style;element not allowed:flow;m
 /div/applet/style/@scoped;attr:obsolete;m
 
 #data
@@ -773,12 +690,9 @@ xxax
 </div>
 #errors
 /div;no significant content;s
-/div/applet/param;element not allowed:flow;m
 /div/applet;element:obsolete;m
 /div/applet/@code;attr:obsolete;m
 /div/applet;element not allowed:flow;m
-/div/applet;attribute missing;width;m
-/div/applet;attribute missing;height;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -791,17 +705,11 @@ xxax
 </div>
 #errors
 /div;no significant content;s
-/div/applet;no significant content;s
 /div/applet;element:obsolete;m
 /div/applet/@code;attr:obsolete;m
 /div/applet/applet;element:obsolete;m
 /div/applet/applet/@code;attr:obsolete;m
 /div/applet;element not allowed:flow;m
-/div/applet/applet;element not allowed:flow;m
-/div/applet;attribute missing;width;m
-/div/applet;attribute missing;height;m
-/div/applet/applet;attribute missing;width;m
-/div/applet/applet;attribute missing;height;m
 
 #data
 <span xmlns="http://www.w3.org/1999/xhtml">
@@ -812,12 +720,9 @@ xxax
 </span>
 #errors
 /span;no significant content;s
-/span/applet/p;element not allowed:phrasing;m
 /span/applet;element:obsolete;m
 /span/applet/@code;attr:obsolete;m
 /span/applet;element not allowed:phrasing;m
-/span/applet;attribute missing;width;m
-/span/applet;attribute missing;height;m
 
 #data
 <span xmlns="http://www.w3.org/1999/xhtml">
@@ -830,12 +735,9 @@ xxax
 </span>
 #errors
 /span/ins;no significant content;s
-/span/ins/applet/p;element not allowed:phrasing;m
 /span/ins/applet;element:obsolete;m
 /span/ins/applet/@code;attr:obsolete;m
 /span/ins/applet;element not allowed:phrasing;m
-/span/ins/applet;attribute missing;width;m
-/span/ins/applet;attribute missing;height;m
 
 #data
 <span xmlns="http://www.w3.org/1999/xhtml">
@@ -848,18 +750,11 @@ xxax
 </span>
 #errors
 /span;no significant content;s
-/span/applet/applet/p;element not allowed:phrasing;m
-/span/applet/applet;element not allowed:phrasing;m
 /span/applet/applet;element:obsolete;m
 /span/applet/applet/@code;attr:obsolete;m
 /span/applet;element:obsolete;m
-/span/applet;no significant content;s
 /span/applet/@code;attr:obsolete;m
 /span/applet;element not allowed:phrasing;m
-/span/applet;attribute missing;width;m
-/span/applet;attribute missing;height;m
-/span/applet/applet;attribute missing;width;m
-/span/applet/applet;attribute missing;height;m
 
 #data
 <span xmlns="http://www.w3.org/1999/xhtml">
@@ -872,65 +767,44 @@ xxax
 </span>
 #errors
 /span;no significant content;s
-/span/applet/applet/param;element not allowed:phrasing;m
 /span/applet;element:obsolete;m
-/span/applet;no significant content;s
 /span/applet/@code;attr:obsolete;m
-/span/applet/applet;element not allowed:phrasing;m
 /span/applet/applet;element:obsolete;m
 /span/applet/applet/@code;attr:obsolete;m
 /span/applet;element not allowed:phrasing;m
-/span/applet/applet/p;element not allowed:phrasing;m
-/span/applet;attribute missing;width;m
-/span/applet;attribute missing;height;m
-/span/applet/applet;attribute missing;width;m
-/span/applet/applet;attribute missing;height;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><applet code="abc"><p>xx</p></applet></p>
 #errors
 /p;no significant content;s
-/p/applet/p;element not allowed:phrasing;m
 /p/applet;element:obsolete;m
 /p/applet/@code;attr:obsolete;m
 /p/applet;element not allowed:phrasing;m
-/p/applet;attribute missing;width;m
-/p/applet;attribute missing;height;m
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><applet code="abc"><style scoped=""></style>xx</applet></p>
 #errors
 /p;no significant content;s
-/p/applet/style;element not allowed:phrasing;m
 /p/applet/style/@scoped;attr:obsolete;m
 /p/applet;element:obsolete;m
 /p/applet/@code;attr:obsolete;m
 /p/applet;element not allowed:phrasing;m
-/p/applet;attribute missing;width;m
-/p/applet;attribute missing;height;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml">a</applet>
 #errors
 /applet;element:obsolete;m
-/applet;attribute missing:code|object;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" object="aa">a</applet>
 #errors
 /applet;element:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 /applet/@object;attr:obsolete;m
 
 #data
 <applet xmlns="http://www.w3.org/1999/xhtml" code="a" object="">a</applet>
 #errors
 /applet;element:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 /applet/@code;attr:obsolete;m
 /applet/@object;attr:obsolete;m
 
@@ -938,8 +812,6 @@ xxax
 <applet xmlns="http://www.w3.org/1999/xhtml" code="a" object="b">a</applet>
 #errors
 /applet;element:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 /applet/@code;attr:obsolete;m
 /applet/@object;attr:obsolete;m
 
@@ -947,8 +819,6 @@ xxax
 <applet xmlns="http://www.w3.org/1999/xhtml" code="a" object="">a</applet>
 #errors
 /applet;element:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 /applet/@code;attr:obsolete;m
 /applet/@object;attr:obsolete;m
 
@@ -956,8 +826,6 @@ xxax
 <applet xmlns="http://www.w3.org/1999/xhtml" code="a" object="[]">a</applet>
 #errors
 /applet;element:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 /applet/@code;attr:obsolete;m
 /applet/@object;attr:obsolete;m
 
@@ -965,8 +833,6 @@ xxax
 <applet xmlns="http://www.w3.org/1999/xhtml" code="aa" alt="">a</applet>
 #errors
 /applet;element:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 /applet/@code;attr:obsolete;m
 /applet/@alt;attr:obsolete;m
 
@@ -974,17 +840,13 @@ xxax
 <applet xmlns="http://www.w3.org/1999/xhtml" data="aa" alt="">a</applet>
 #errors
 /applet;element:obsolete;m
-/applet;attribute missing;width;m
-/applet;attribute missing;height;m
 /applet/@data;attribute not defined;m
 /applet/@alt;attr:obsolete;m
-/applet;attribute missing:code|object;m
 
 #data
 <applet code="a" alt="b" width="1" height="1" hspace="0" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /applet/@hspace;attr:obsolete;m
-/applet;no significant content;s
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
 /applet/@alt;attr:obsolete;m
@@ -995,7 +857,6 @@ xxax
 <applet code="a" alt="b" width="1" height="1" hspace="10%" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /applet/@hspace;attr:obsolete;m
-/applet;no significant content;s
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
 /applet/@alt;attr:obsolete;m
@@ -1006,7 +867,6 @@ xxax
 <applet code="a" alt="b" width="1" height="1" hspace="none" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /applet/@hspace;attr:obsolete;m
-/applet;no significant content;s
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
 /applet/@alt;attr:obsolete;m
@@ -1017,7 +877,6 @@ xxax
 <applet code="a" alt="b" width="1" height="1" hspace="%" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /applet/@hspace;attr:obsolete;m
-/applet;no significant content;s
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
 /applet/@alt;attr:obsolete;m
@@ -1027,7 +886,6 @@ xxax
 #data
 <applet code="a" alt="b" width="1" height="1" vspace="0" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@vspace;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1038,7 +896,6 @@ xxax
 #data
 <applet code="a" alt="b" width="1" height="1" vspace="10%" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@vspace;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1049,7 +906,6 @@ xxax
 #data
 <applet code="a" alt="b" width="1" height="1" vspace="none" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@vspace;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1060,7 +916,6 @@ xxax
 #data
 <applet code="a" alt="b" width="1" height="1" vspace="%" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@vspace;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1071,7 +926,6 @@ xxax
 #data
 <applet code="a" alt="b" width="1" height="1" align="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@align;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1082,7 +936,6 @@ xxax
 #data
 <applet code="a" alt="b" width="1" height="1" align="char" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@align;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1093,7 +946,6 @@ xxax
 #data
 <applet code="a" alt="b" width="1" height="1" align="justify" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@align;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1104,7 +956,6 @@ xxax
 #data
 <applet code="a" alt="b" width="1" height="1" align="center" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@align;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1115,7 +966,6 @@ xxax
 #data
 <applet code="a" alt="b" width="1" height="1" align="bottom" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@align;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1126,7 +976,6 @@ xxax
 #data
 <applet code="a" alt="b" width="1" height="1" align="middle" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@align;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1137,7 +986,6 @@ xxax
 #data
 <applet code="a" alt="b" width="1" height="1" align="top" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@align;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1148,7 +996,6 @@ xxax
 #data
 <applet code="a" alt="b" width="1" height="1" align="left" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@align;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1159,7 +1006,6 @@ xxax
 #data
 <applet code="a" alt="b" width="1" height="1" align="right" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@align;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1170,7 +1016,6 @@ xxax
 #data escaped
 <applet code="a" alt="b" width="1" height="1" align="r\u0130ght" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@align;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1181,7 +1026,6 @@ xxax
 #data escaped
 <applet code="a" alt="b" width="1" height="1" align="r\u0131ght" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@align;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1193,7 +1037,6 @@ xxax
 <applet code="a" alt="b" width="1" height="1"
     align="texttop" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@align;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1205,7 +1048,6 @@ xxax
 <applet code="a" alt="b" width="1" height="1"
     align="text-top" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@align;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1217,7 +1059,6 @@ xxax
 <applet code="a" alt="b" width="1" height="1"
     align="absmiddle" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@align;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1229,7 +1070,6 @@ xxax
 <applet code="a" alt="b" width="1" height="1"
     align="abscenter" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@align;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1241,7 +1081,6 @@ xxax
 <applet code="a" alt="b" width="1" height="1"
     align="baseline" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/applet;no significant content;s
 /applet/@align;attr:obsolete;m
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
@@ -1313,7 +1152,6 @@ xxax
 <applet code="a" alt="b" width="1" height="1" codebase="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /applet/@codebase;attr:obsolete;m
-/applet;no significant content;s
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
 /applet/@alt;attr:obsolete;m
@@ -1324,7 +1162,6 @@ xxax
 <applet code="a" alt="b" width="1" height="1" codebase="[]" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /applet/@codebase;attr:obsolete;m
-/applet;no significant content;s
 /applet;element:obsolete;m
 /applet/@code;attr:obsolete;m
 /applet/@alt;attr:obsolete;m
@@ -1337,6 +1174,7 @@ xxax
 </div>
 #errors
 /div;no significant content;s
+/div/applet;element not allowed:flow;m
 /div/applet/@name;attr:obsolete;m
 /div/applet;element:obsolete;m
 /div/applet/@src;attr:obsolete;m
@@ -1351,9 +1189,6 @@ xxax
 /div/applet/@name;attr:obsolete;m
 /div/applet/@src;attr:obsolete;m
 /div/applet/@alt;attr:obsolete;m
-/div/applet;attribute missing:code|object;m
-/div/applet;attribute missing;height;m
-/div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element:obsolete;m
 
@@ -1366,9 +1201,6 @@ xxax
 /div/applet/@name;attr:obsolete;m
 /div/applet/@src;attr:obsolete;m
 /div/applet/@alt;attr:obsolete;m
-/div/applet;attribute missing:code|object;m
-/div/applet;attribute missing;height;m
-/div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element:obsolete;m
 
@@ -1379,14 +1211,11 @@ xxax
 </div>
 #errors
 /div/applet/@name;attr:obsolete;m
-/div/a/@name;duplicate anchor name;m
 /div/applet/@src;attr:obsolete;m
 /div/applet/@alt;attr:obsolete;m
-/div/applet;attribute missing:code|object;m
-/div/applet;attribute missing;height;m
-/div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element:obsolete;m
+/div/a/@name;anchor name;s
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1396,12 +1225,8 @@ xxax
 #errors
 /div/a/@name;anchor name;s
 /div/applet/@name;attr:obsolete;m
-/div/applet/@name;duplicate anchor name;m
 /div/applet/@src;attr:obsolete;m
 /div/applet/@alt;attr:obsolete;m
-/div/applet;attribute missing:code|object;m
-/div/applet;attribute missing;height;m
-/div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element:obsolete;m
 
@@ -1412,13 +1237,9 @@ xxax
 </div>
 #errors
 /div/applet/@name;attr:obsolete;m
-/div/img/@name;duplicate anchor name;m
 /div/img/@name;attr:obsolete;m
 /div/applet/@src;attr:obsolete;m
 /div/applet/@alt;attr:obsolete;m
-/div/applet;attribute missing:code|object;m
-/div/applet;attribute missing;height;m
-/div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element:obsolete;m
 
@@ -1430,12 +1251,8 @@ xxax
 #errors
 /div/img/@name;attr:obsolete;m
 /div/applet/@name;attr:obsolete;m
-/div/applet/@name;duplicate anchor name;m
 /div/applet/@src;attr:obsolete;m
 /div/applet/@alt;attr:obsolete;m
-/div/applet;attribute missing:code|object;m
-/div/applet;attribute missing;height;m
-/div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element:obsolete;m
 
@@ -1445,13 +1262,9 @@ xxax
   <applet src="ll" alt="a" name="abc">a</applet>
 </div>
 #errors
-/div/applet/@name;id name confliction;m
 /div/applet/@name;attr:obsolete;m
 /div/applet/@src;attr:obsolete;m
 /div/applet/@alt;attr:obsolete;m
-/div/applet;attribute missing:code|object;m
-/div/applet;attribute missing;height;m
-/div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element:obsolete;m
 
@@ -1465,9 +1278,6 @@ xxax
 /div/applet/@name;attr:obsolete;m
 /div/applet/@src;attr:obsolete;m
 /div/applet/@alt;attr:obsolete;m
-/div/applet;attribute missing:code|object;m
-/div/applet;attribute missing;height;m
-/div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element:obsolete;m
 
@@ -1478,12 +1288,8 @@ xxax
 </div>
 #errors
 /div/applet/@name;attr:obsolete;m
-/div/span/@id;id name confliction;m
 /div/applet/@src;attr:obsolete;m
 /div/applet/@alt;attr:obsolete;m
-/div/applet;attribute missing:code|object;m
-/div/applet;attribute missing;height;m
-/div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element:obsolete;m
 
@@ -1497,9 +1303,6 @@ xxax
 /div/span/@id;attribute not defined;m
 /div/applet/@src;attr:obsolete;m
 /div/applet/@alt;attr:obsolete;m
-/div/applet;attribute missing:code|object;m
-/div/applet;attribute missing;height;m
-/div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element:obsolete;m
 
@@ -1512,12 +1315,8 @@ xxax
 /div/applet/@name;attr:obsolete;m
 /div/applet/@src;attr:obsolete;m
 /div/applet/@alt;attr:obsolete;m
-/div/applet;attribute missing:code|object;m
-/div/applet;attribute missing;height;m
-/div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element:obsolete;m
-/div/applet/@name;id name mismatch;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1528,9 +1327,6 @@ xxax
 /div/applet/@name;attr:obsolete;m
 /div/applet/@src;attr:obsolete;m
 /div/applet/@alt;attr:obsolete;m
-/div/applet;attribute missing:code|object;m
-/div/applet;attribute missing;height;m
-/div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element:obsolete;m
 /div/applet/@id;attribute not defined;m
@@ -1544,12 +1340,8 @@ xxax
 /div/applet/@name;attr:obsolete;m
 /div/applet/@src;attr:obsolete;m
 /div/applet/@alt;attr:obsolete;m
-/div/applet;attribute missing:code|object;m
-/div/applet;attribute missing;height;m
-/div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element:obsolete;m
-/div/applet/@name;id name mismatch;m
 /div/applet/@id;attribute not defined;m
 
 #data
@@ -1561,9 +1353,6 @@ xxax
 /div/applet/@name;attr:obsolete;m
 /div/applet/@src;attr:obsolete;m
 /div/applet/@alt;attr:obsolete;m
-/div/applet;attribute missing:code|object;m
-/div/applet;attribute missing;height;m
-/div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element:obsolete;m
 /div/applet/@id;attribute not defined;m
@@ -1577,13 +1366,9 @@ xxax
 /div/applet/@name;attr:obsolete;m
 /div/applet/@src;attr:obsolete;m
 /div/applet/@alt;attr:obsolete;m
-/div/applet;attribute missing:code|object;m
-/div/applet;attribute missing;height;m
-/div/applet;attribute missing;width;m
 /div/applet;element not allowed:flow;m
 /div/applet;element:obsolete;m
 /div/applet/@id;attribute not defined;m
-/div/applet/@name;id name mismatch;m
 
 #data
 <applet code="a" width="1" height="1" archive="" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -1593,18 +1378,15 @@ xxax
 /applet/@code;attr:obsolete;m
 /applet/@height;attr:obsolete;m
 /applet/@width;attr:obsolete;m
-/applet;no significant content;s
 
 #data
 <applet code="a" width="1" height="1" archive="  " xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /applet;element:obsolete;m
 /applet/@archive;attr:obsolete;m
-/applet/@archive;url:empty;m
 /applet/@code;attr:obsolete;m
 /applet/@height;attr:obsolete;m
 /applet/@width;attr:obsolete;m
-/applet;no significant content;s
 
 #data
 <applet code="a" width="1" height="1" archive="  abc ,  cdef " xmlns="http://www.w3.org/1999/xhtml"/>
@@ -1614,63 +1396,51 @@ xxax
 /applet/@code;attr:obsolete;m
 /applet/@height;attr:obsolete;m
 /applet/@width;attr:obsolete;m
-/applet;no significant content;s
 
 #data
 <applet code="a" width="1" height="1" archive="a,,b" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /applet;element:obsolete;m
 /applet/@archive;attr:obsolete;m
-/applet/@archive;url:empty;m
 /applet/@code;attr:obsolete;m
 /applet/@height;attr:obsolete;m
 /applet/@width;attr:obsolete;m
-/applet;no significant content;s
 
 #data
 <applet code="a" width="1" height="1" archive="[]" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /applet;element:obsolete;m
 /applet/@archive;attr:obsolete;m
-/applet/@archive;syntax error:iriref3987;m
 /applet/@code;attr:obsolete;m
 /applet/@height;attr:obsolete;m
 /applet/@width;attr:obsolete;m
-/applet;no significant content;s
 
 #data
 <applet code="a" width="1" height="1" archive="a,[]" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /applet;element:obsolete;m
 /applet/@archive;attr:obsolete;m
-/applet/@archive;syntax error:iriref3987;m
 /applet/@code;attr:obsolete;m
 /applet/@height;attr:obsolete;m
 /applet/@width;attr:obsolete;m
-/applet;no significant content;s
 
 #data
 <applet code="a" width="1" height="1" archive="[],[]" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /applet;element:obsolete;m
 /applet/@archive;attr:obsolete;m
-/applet/@archive;syntax error:iriref3987;m
-/applet/@archive;syntax error:iriref3987;m
 /applet/@code;attr:obsolete;m
 /applet/@height;attr:obsolete;m
 /applet/@width;attr:obsolete;m
-/applet;no significant content;s
 
 #data
 <applet code="a" width="1" height="1" archive="a a" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /applet;element:obsolete;m
 /applet/@archive;attr:obsolete;m
-/applet/@archive;syntax error:iriref3987;m
 /applet/@code;attr:obsolete;m
 /applet/@height;attr:obsolete;m
 /applet/@width;attr:obsolete;m
-/applet;no significant content;s
 
 #data
 <applet code="a" width="1" height="1" archives="[]" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -1680,7 +1450,6 @@ xxax
 /applet/@code;attr:obsolete;m
 /applet/@height;attr:obsolete;m
 /applet/@width;attr:obsolete;m
-/applet;no significant content;s
 
 #data
 <applet code="" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml">a</applet>
@@ -1689,7 +1458,6 @@ xxax
 /applet/@height;attr:obsolete;m
 /applet/@width;attr:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet/@code;url:empty;m
 
 #data
 <applet code="[]" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml">a</applet>
@@ -1698,7 +1466,6 @@ xxax
 /applet/@height;attr:obsolete;m
 /applet/@width;attr:obsolete;m
 /applet/@code;attr:obsolete;m
-/applet/@code;syntax error:iriref3987;m
 
 #data
 <applet code="abc/def" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml">a</applet>
@@ -1735,7 +1502,6 @@ xxax
 /applet/@width;attr:obsolete;m
 /applet/@code;attr:obsolete;m
 /applet/@mayscript;attr:obsolete;m
-/applet/@mayscript;boolean:invalid;m
 
 #data
 <applet code="a" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml"
@@ -1776,7 +1542,6 @@ xxax
 /applet/@width;attr:obsolete;m
 /applet/@code;attr:obsolete;m
 /applet/@mayscript;attr:obsolete;m
-/applet/@mayscript;boolean:invalid;m
 
 #data
 <applet code="a" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml"
@@ -1787,7 +1552,6 @@ xxax
 /applet/@width;attr:obsolete;m
 /applet/@code;attr:obsolete;m
 /applet/@mayscript;attr:obsolete;m
-/applet/@mayscript;boolean:invalid;m
 
 #data
 <applet code="a" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml"
@@ -1798,7 +1562,6 @@ xxax
 /applet/@width;attr:obsolete;m
 /applet/@code;attr:obsolete;m
 /applet/@mayscript;attr:obsolete;m
-/applet/@mayscript;boolean:invalid;m
 
 #data
 <applet code="a" width="1" height="1" xmlns="http://www.w3.org/1999/xhtml"
@@ -1809,7 +1572,6 @@ xxax
 /applet/@width;attr:obsolete;m
 /applet/@code;attr:obsolete;m
 /applet/@mayscript;attr:obsolete;m
-/applet/@mayscript;boolean:invalid;m
 
 #data
 <embed xmlns="http://www.w3.org/1999/xhtml"/>

@@ -35,8 +35,7 @@
 #errors
 /script/br;element not allowed;m
 /script/span;element not allowed;m
-3;17;/script;js:parse error;Expected expression but found '>
-';m
+3;17;/script;js:parse error;Expected expression but found '>\n';m
 
 #data
 | <script xmlns="http://www.w3.org/1999/xhtml">
@@ -44,8 +43,7 @@
 | --&gt;
 | </script>
 #errors
-3;1;/script;js:parse error;Expected expression but found '>
-';m
+3;1;/script;js:parse error;Expected expression but found '>\n';m
 
 #data
 | <script xmlns="http://www.w3.org/1999/xhtml">
@@ -53,8 +51,7 @@
 | --&gt;&lt;!----&gt;
 | </script>
 #errors
-3;1;/script;js:parse error;Expected expression but found '><!---->
-';m
+3;1;/script;js:parse error;Expected expression but found '><!---->\n';m
 
 #data
 | <script xmlns="http://www.w3.org/1999/xhtml">
@@ -67,9 +64,9 @@
 | <script xmlns="http://www.w3.org/1999/xhtml">
 | &lt;!-<span>-</span>
 | </script>
-#errors escaped
+#errors
 2;1;/script;style:unclosed cdo;m
-2;1;/script;js:parse error;Expected statement or function declaration but found '<!-\u000A';m
+2;1;/script;js:parse error;Expected statement or function declaration but found '<!-\n';m
 /script/span;element not allowed;m
 
 #data
@@ -166,7 +163,7 @@
 |    // abc<!---->&#xd;
 | </script>
 #errors escaped
-/script/"\u000D\u000A";U+000D not serializable;w
+/script/"\u000D\n";U+000D not serializable;w
 
 #data
 | <script type="text/vbscript" src="xyz" xmlns="http://www.w3.org/1999/xhtml">
