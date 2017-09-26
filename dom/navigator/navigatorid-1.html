@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<title>NavigatorID</title>
+
+<p><code>navigator.userAgent</code>: <output></output>
+<button type=button onclick="
+  var range = document.createRange ();
+  range.selectNode (previousElementSibling);
+  getSelection ().empty ();
+  getSelection ().addRange (range);
+  document.execCommand ('copy')
+">Copy</button>
+
+<p><code>navigator.appCodeName</code>: <output></output>
+<button type=button onclick="
+  var range = document.createRange ();
+  range.selectNode (previousElementSibling);
+  getSelection ().empty ();
+  getSelection ().addRange (range);
+  document.execCommand ('copy')
+">Copy</button>
+
+<p><code>navigator.appName</code>: <output></output>
+<button type=button onclick="
+  var range = document.createRange ();
+  range.selectNode (previousElementSibling);
+  getSelection ().empty ();
+  getSelection ().addRange (range);
+  document.execCommand ('copy')
+">Copy</button>
+
+<p><code>navigator.appVersion</code>: <output></output>
+<button type=button onclick="
+  var range = document.createRange ();
+  range.selectNode (previousElementSibling);
+  getSelection ().empty ();
+  getSelection ().addRange (range);
+  document.execCommand ('copy')
+">Copy</button>
+
+<p><code>navigator.platform</code>: <output></output>
+<button type=button onclick="
+  var range = document.createRange ();
+  range.selectNode (previousElementSibling);
+  getSelection ().empty ();
+  getSelection ().addRange (range);
+  document.execCommand ('copy')
+">Copy</button>
+
+<p><code>navigator.oscpu</code>: <output></output>
+<button type=button onclick="
+  var range = document.createRange ();
+  range.selectNode (previousElementSibling);
+  getSelection ().empty ();
+  getSelection ().addRange (range);
+  document.execCommand ('copy')
+">Copy</button>
+
+<p><code>navigator.product</code>: <output></output>
+<button type=button onclick="
+  var range = document.createRange ();
+  range.selectNode (previousElementSibling);
+  getSelection ().empty ();
+  getSelection ().addRange (range);
+  document.execCommand ('copy')
+">Copy</button>
+
+<p><code>navigator.productSub</code>: <output></output>
+<button type=button onclick="
+  var range = document.createRange ();
+  range.selectNode (previousElementSibling);
+  getSelection ().empty ();
+  getSelection ().addRange (range);
+  document.execCommand ('copy')
+">Copy</button>
+
+<p><code>navigator.vendor</code>: <output></output>
+<button type=button onclick="
+  var range = document.createRange ();
+  range.selectNode (previousElementSibling);
+  getSelection ().empty ();
+  getSelection ().addRange (range);
+  document.execCommand ('copy')
+">Copy</button>
+
+<p><code>navigator.vendorSub</code>: <output></output>
+<button type=button onclick="
+  var range = document.createRange ();
+  range.selectNode (previousElementSibling);
+  getSelection ().empty ();
+  getSelection ().addRange (range);
+  document.execCommand ('copy')
+">Copy</button>
+
+<p><code>navigator.taintEnabled</code>: <output></output>
+<button type=button onclick="
+  var range = document.createRange ();
+  range.selectNode (previousElementSibling);
+  getSelection ().empty ();
+  getSelection ().addRange (range);
+  document.execCommand ('copy')
+">Copy</button>
+
+<script>
+  Array.prototype.forEach.call (document.querySelectorAll ('p'), function (e) {
+    var code = e.getElementsByTagName ('code')[0].textContent;
+    var output = e.getElementsByTagName ('output')[0];
+    output.textContent = eval (code);
+  });
+</script>
