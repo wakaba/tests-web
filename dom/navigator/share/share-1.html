@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title>navigator.share</title>
+
+<button type=button id=submit-button>Share!</button>
+
+<p id=result class=FAIL>FAIL (noscript)
+
+<script>
+  var result = document.querySelector ('#result');
+  result.textContent = 'FAIL (script error)';
+  if (navigator.share) {
+    document.querySelector ('#submit-button').onclick = function () {
+      navigator.share ({url: '', title: "Shared document"}).then (function () {
+        result.className = 'PASS';
+        result.textContent = 'PASS (promise fulfilled)';
+      }, function (e) {
+        result.textContent = 'FAIL (' + e + ')';
+      });
+      result.className = '';
+      result.textContent = '(waiting...)';
+    };
+    result.textContent = '(click "Share!" button)';
+  } else {
+    result.textContent = 'FAIL (not supported)';
+  }
+</script>
