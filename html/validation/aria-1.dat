@@ -185,7 +185,7 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <select role="listbox" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
 #errors
-/select/@role;aria:role:default role;m
+/select/@role;aria:role:conflict with semantics;m
 
 #data
 <li role="listitem" xmlns="http://www.w3.org/1999/xhtml">aa</li>
@@ -1355,11 +1355,12 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <select role="listbox" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
 #errors
-/select/@role;aria:role:default role;m
+/select/@role;aria:role:conflict with semantics;m
 
 #data
 <select role="menu" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
 #errors
+/select/@role;aria:role:conflict with semantics;m
 /select;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
 /select/@role;aria:not preferred markup:html-element;menu;w
 
@@ -1377,11 +1378,12 @@ marquEE " xmlns="http://www.w3.org/1999/xhtml">a</p>
 #data
 <select size="3" role="listbox" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
 #errors
-/select/@role;aria:role:default role;m
+/select/@role;aria:role:conflict with semantics;m
 
 #data
 <select size="3" role="menu" xmlns="http://www.w3.org/1999/xhtml"><option>a</option></select>
 #errors
+/select/@role;aria:role:conflict with semantics;m
 /select/@role;aria:not preferred markup:html-element;menu;w
 /select;aria:role:no required owned element;group menuitem menuitemcheckbox menuitemradio;m
 
