@@ -345,51 +345,46 @@ index 35ec6cc..64e3366 100644
  | <html>
  |   <head>
 diff --git a/html/parsing/html5lib/html-tree/doctype01.dat b/html/parsing/html5lib/html-tree/doctype01.dat
-index cec6638..d273730 100644
+index cec6638..8b5e550 100644
 --- a/html/parsing/html5lib/html-tree/doctype01.dat
 +++ b/html/parsing/html5lib/html-tree/doctype01.dat
-@@ -303,6 +303,8 @@
+@@ -303,6 +303,7 @@
  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
     "http://www.w3.org/TR/html4/strict.dtd">Hello
  #errors
-+#shoulds
-+obsolete permitted
++obsolete DOCTYPE
  #document
  | <!DOCTYPE html "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
  | <html>
-@@ -385,6 +387,8 @@
+@@ -385,6 +386,7 @@
  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd">
  #errors
  (1,50): unexpected-char-in-doctype
-+#shoulds
-+obsolete permitted
++obsolete DOCTYPE
  #document
  | <!DOCTYPE html "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
  | <html>
-@@ -395,6 +399,8 @@
+@@ -395,6 +397,7 @@
  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"'http://www.w3.org/TR/html4/strict.dtd'>
  #errors
  (1,50): unexpected-char-in-doctype
-+#shoulds
-+obsolete permitted
++obsolete DOCTYPE
  #document
  | <!DOCTYPE html "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
  | <html>
-@@ -406,6 +412,8 @@
+@@ -406,6 +409,7 @@
  #errors
  (1,21): unexpected-char-in-doctype
  (1,49): unexpected-char-in-doctype
-+#shoulds
-+obsolete permitted
++obsolete DOCTYPE
  #document
  | <!DOCTYPE html "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
  | <html>
-@@ -417,6 +425,8 @@
+@@ -417,6 +421,7 @@
  #errors
  (1,21): unexpected-char-in-doctype
  (1,49): unexpected-char-in-doctype
-+#shoulds
-+obsolete permitted
++obsolete DOCTYPE
  #document
  | <!DOCTYPE html "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
  | <html>
@@ -1110,7 +1105,7 @@ index 8964624..b9e82d1 100644
  (1,3): expected-doctype-but-got-start-tag
  (1,11): invalid-character-in-attribute-name
 diff --git a/html/parsing/html5lib/html-tree/tests6.dat b/html/parsing/html5lib/html-tree/tests6.dat
-index d774fc2..5027dc4 100644
+index d774fc2..3b3c6b4 100644
 --- a/html/parsing/html5lib/html-tree/tests6.dat
 +++ b/html/parsing/html5lib/html-tree/tests6.dat
 @@ -335,8 +335,6 @@ td
@@ -1122,12 +1117,11 @@ index d774fc2..5027dc4 100644
  (1,20): eof-in-table
  #document
  | <html>
-@@ -600,6 +598,8 @@ html
+@@ -600,6 +598,7 @@ html
  #data
  <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"><html></html>
  #errors
-+#shoulds
-+obsolete permitted
++obsolete DOCTYPE
  #document
  | <!DOCTYPE html "-//W3C//DTD HTML 4.01//EN" "">
  | <html>
