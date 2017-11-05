@@ -1794,3 +1794,50 @@
 |       <li>
 |         <ul>
 |           <li>
+
+#data
+| [BOX[
+| - abc
+| - xyz
+| ]BOX]
+| --
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <sw box>
+|       <ul>
+|         <li>
+|           "abc"
+|         <li>
+|           "xyz"
+|     <ul>
+|       <li>
+|         <ul>
+|           <li>
+
+#data
+| [BOX(abc)[
+| - abc
+| - xyz
+| ]BOX]
+| --
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <sw box>
+|       class="abc"
+|       <ul>
+|         <li>
+|           "abc"
+|         <li>
+|           "xyz"
+|     <ul>
+|       <li>
+|         <ul>
+|           <li>

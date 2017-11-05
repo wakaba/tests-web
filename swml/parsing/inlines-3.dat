@@ -1,0 +1,184 @@
+#data
+aa[SUBSUP[bbb]]o
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw subsup>
+|         <sw subscript>
+|           "bbb"
+|       "o"
+
+#data
+aa[SUBSUP[x][y]]o
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw subsup>
+|         <sw subscript>
+|           "x"
+|         <sw superscript>
+|           "y"
+|       "o"
+
+#data
+aa[SUBSUP[x][y][z]]o
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw subsup>
+|         <sw subscript>
+|           "x"
+|         <sw superscript>
+|           "y"
+|         <sw10 attrvalue>
+|           "z"
+|       "o"
+
+#data
+aa[LINES[bbb]]o
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw lines>
+|         <sw line>
+|           "bbb"
+|       "o"
+
+#data
+aa[LINES[bbb][ccc]]o
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw lines>
+|         <sw line>
+|           "bbb"
+|         <sw line>
+|           "ccc"
+|       "o"
+
+#data
+aa[LINES[b][c][d]]o
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw lines>
+|         <sw line>
+|           "b"
+|         <sw line>
+|           "c"
+|         <sw line>
+|           "d"
+|       "o"
+
+#data
+aa[FENCED[(][bbb][)]]o
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw fenced>
+|         <sw openfence>
+|           "("
+|         <sw fencedtext>
+|           "bbb"
+|         <sw closefence>
+|           ")"
+|       "o"
+
+#data
+aa[FENCED[(][bbb]]o
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw fenced>
+|         <sw openfence>
+|           "("
+|         <sw fencedtext>
+|           "bbb"
+|       "o"
+
+#data
+aa[FENCED[(]]o
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw fenced>
+|         <sw openfence>
+|           "("
+|       "o"
+
+#data
+aa[OKURI[abc]]o
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw okuri>
+|         <rt>
+|           "abc"
+|       "o"
+
+#data
+aa[OKURI[abc][def]]o
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw okuri>
+|         <rt>
+|           "abc"
+|         <rt>
+|           "def"
+|       "o"
