@@ -69,12 +69,12 @@ http://www.example.com/#asdf#qwer
 #data
 http://www.example.com/#hello, world
 #canon
-http://www.example.com/#hello, world
+http://www.example.com/#hello,%20world
 #scheme http
 #host www.example.com
 #path /
 #fragment 
-hello, world
+hello,%20world
 
 #data
 http://www.example.com/#hello,%20world.
@@ -390,12 +390,12 @@ http://example.com/#a\u001fb
 #data escaped
 http://example.com/#a\u0020b
 #canon 
-http://example.com/#a b
+http://example.com/#a%20b
 #scheme http
 #host example.com
 #path /
 #fragment 
-a b
+a%20b
 
 #data escaped
 http://example.com/#a\u0021b
@@ -408,12 +408,12 @@ http://example.com/#a\u0021b
 #data escaped
 http://example.com/#a\u0022b
 #canon 
-http://example.com/#a"b
+http://example.com/#a%22b
 #scheme http
 #host example.com
 #path /
 #fragment 
-a"b
+a%22b
 
 #data escaped
 http://example.com/#a\u0023b
@@ -618,12 +618,12 @@ http://example.com/#a\u003Bb
 #data escaped
 http://example.com/#a\u003Cb
 #canon 
-http://example.com/#a<b
+http://example.com/#a%3Cb
 #scheme http
 #host example.com
 #path /
 #fragment 
-a<b
+a%3Cb
 
 #data escaped
 http://example.com/#a\u003Db
@@ -636,12 +636,12 @@ http://example.com/#a\u003Db
 #data escaped
 http://example.com/#a\u003Eb
 #canon 
-http://example.com/#a>b
+http://example.com/#a%3Eb
 #scheme http
 #host example.com
 #path /
 #fragment 
-a>b
+a%3Eb
 
 #data escaped
 http://example.com/#a\u003Fb
@@ -909,11 +909,11 @@ http://example.com/#a\u005Fb
 
 #data escaped
 http://example.com/#a\u0060b
-#canon http://example.com/#a`b
+#canon http://example.com/#a%60b
 #scheme http
 #host example.com
 #path /
-#fragment a`b
+#fragment a%60b
 
 #data escaped
 http://example.com/#a\u0061b
