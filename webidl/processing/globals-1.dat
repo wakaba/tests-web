@@ -1332,3 +1332,69 @@ non-conforming
     "G": ["object", {"Exposed":{}}]
   }
 }
+
+#data
+[Global] interface G {};
+[Global=G,Exposed=G] interface G2 {};
+[NamedConstructor=Hoge, Exposed=G] interface A {};
+#processed
+{
+  "idl_defs": {
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G":1,"G2":1}}],
+    "A": ["interface", {"members":{},"Exposed":{"G":1,"G2":1}}]
+  },
+  "global_names": {"G":{"G":1,"G2":1}},
+  "global_members": {
+    "G": ["object", {"Exposed":{}}],
+    "G2": ["object", {"Exposed":{"G":1,"G2":1}}],
+    "A": ["object", {"Exposed":{"G":1,"G2":1}}],
+    "Hoge": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        }
+      },
+      "Exposed":{"G":1,"G2":1}
+    }]
+  }
+}
+
+#data
+[Global] interface G1 {};
+[Global] interface G2 {};
+[Exposed=(G1, G2)]
+interface I {
+  [Exposed=(G1,G2)] long hoge ();
+};
+#processed
+{
+  "global_names": {
+    "G1": {"G1": 1},
+    "G2": {"G2": 1}
+  },
+  "idl_defs": {
+    "G1": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "I": ["interface", {
+      "members": {
+        "hoge": ["operation", {
+          "Exposed": {"G1": 1, "G2": 1},
+          "overload_set": {
+            "": {
+              "type": "long",
+              "args": []
+            }
+          }
+        }]
+      },
+      "Exposed": {"G1": 1, "G2":1}
+    }]
+  },
+  "global_members": {
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}],
+    "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
+  }
+}
