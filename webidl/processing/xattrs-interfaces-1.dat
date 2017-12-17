@@ -15,7 +15,6 @@
 #data
 [HTMLConstructor] interface A {};
 #errors
-1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
   "idl_defs": {
@@ -30,7 +29,6 @@
 [HTMLConstructor, Constructor] interface A {};
 #errors
 1;0;webidl:not allowed;;Constructor;m
-1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
   "idl_defs": {
@@ -45,7 +43,6 @@
 [Constructor, HTMLConstructor] interface A {};
 #errors
 1;0;webidl:not allowed;;Constructor;m
-1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
   "idl_defs": {
@@ -60,7 +57,6 @@
 [NoInterfaceObject, Constructor] interface A {};
 #errors
 1;0;webidl:not allowed;;Constructor;m
-1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
   "idl_defs": {
@@ -75,7 +71,6 @@
 [NoInterfaceObject, HTMLConstructor] interface A {};
 #errors
 1;0;webidl:not allowed;;Constructor;m
-1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
   "idl_defs": {
@@ -83,5 +78,19 @@
   },
   "global_members": {
     "A": ["HTMLConstructor"]
+  }
+}
+
+#data
+[PrimaryGlobal] interface A {};
+#errors
+1;1;webidl:not allowed;;PrimaryGlobal;m
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {"members": {}}]
+  },
+  "global_members": {
+    "A": ["object", {}]
   }
 }

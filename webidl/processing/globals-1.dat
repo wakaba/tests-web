@@ -2,7 +2,6 @@
 [Global]
 interface A { };
 #errors
-1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
   "global_names": {
@@ -17,19 +16,18 @@ interface A { };
 }
 
 #data
-[PrimaryGlobal]
+[Global]
 interface A { };
 #processed
 {
   "global_names": {
     "A": {"A": 1}
   },
-  "primary_global": "A",
   "idl_defs": {
-    "A": ["interface", {"members": {}, "Global": 1, "Exposed": {"A":1}}]
+    "A": ["interface", {"members": {}, "Global": 1, "Exposed": {}}]
   },
   "global_members": {
-    "A": ["object", {"Exposed": {"A":1}}]
+    "A": ["object", {"Exposed": {}}]
   }
 }
 
@@ -37,7 +35,6 @@ interface A { };
 [Global] interface A { };
 [Global] interface B { };
 #errors
-1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
   "global_names": {
@@ -56,28 +53,26 @@ interface A { };
 
 #data
 [Global] interface A { };
-[PrimaryGlobal] interface B { };
+[Global] interface B { };
 #processed
 {
   "global_names": {
     "A": {"A": 1},
     "B": {"B": 1}
   },
-  "primary_global": "B",
   "idl_defs": {
-    "A": ["interface", {"members": {}, "Global": 1, "Exposed": {"B":1}}],
-    "B": ["interface", {"members": {}, "Global": 1, "Exposed": {"B":1}}]
+    "A": ["interface", {"members": {}, "Global": 1, "Exposed": {}}],
+    "B": ["interface", {"members": {}, "Global": 1, "Exposed": {}}]
   },
   "global_members": {
-    "A": ["object", {"Exposed": {"B":1}}],
-    "B": ["object", {"Exposed": {"B":1}}]
+    "A": ["object", {"Exposed": {}}],
+    "B": ["object", {"Exposed": {}}]
   }
 }
 
 #data
 [Global=Foo] interface A { };
 #errors
-1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
   "global_names": {
@@ -94,7 +89,6 @@ interface A { };
 #data
 [Global=(Foo,Bar)] interface A { };
 #errors
-1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
   "global_names": {
@@ -113,7 +107,6 @@ interface A { };
 [Global=Foo] interface A { };
 [Global=Foo] interface B { };
 #errors
-1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
   "global_names": {
@@ -130,7 +123,7 @@ interface A { };
 }
 
 #data
-[PrimaryGlobal] interface G1 {};
+[Global] interface G1 {};
 [Global] interface G2 {};
 interface X {};
 #processed
@@ -139,21 +132,20 @@ interface X {};
     "G1": {"G1": 1},
     "G2": {"G2": 1}
   },
-  "primary_global": "G1",
   "idl_defs": {
-    "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
-    "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
-    "X": ["interface", {"members": {}, "Exposed": {"G1":1}}]
+    "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {}}],
+    "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {}}],
+    "X": ["interface", {"members": {}, "Exposed": {}}]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}],
-    "G2": ["object", { "Exposed": {"G1":1}}],
-    "X": ["object", {"Exposed": {"G1":1}}]
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}],
+    "X": ["object", {"Exposed": {}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G1 {};
+[Global] interface G1 {};
 [Global] interface G2 {};
 interface I {};
 #processed
@@ -162,21 +154,20 @@ interface I {};
     "G1": {"G1": 1},
     "G2": {"G2": 1}
   },
-  "primary_global": "G1",
   "idl_defs": {
-    "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
-    "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
-    "I": ["interface", {"members": {}, "Exposed": {"G1":1}}]
+    "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {}}],
+    "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {}}],
+    "I": ["interface", {"members": {}, "Exposed": {}}]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}],
-    "G2": ["object", { "Exposed": {"G1":1}}],
-    "I": ["object", {"Exposed": {"G1":1}}]
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}],
+    "I": ["object", {"Exposed": {}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G1 {};
+[Global] interface G1 {};
 [Global] interface G2 {};
 [Exposed=G1] interface I {};
 #processed
@@ -185,21 +176,20 @@ interface I {};
     "G1": {"G1": 1},
     "G2": {"G2": 1}
   },
-  "primary_global": "G1",
   "idl_defs": {
-    "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
-    "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
+    "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {}}],
+    "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {}}],
     "I": ["interface", {"members": {}, "Exposed": {"G1":1}}]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}],
-    "G2": ["object", { "Exposed": {"G1":1}}],
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}],
     "I": ["object", { "Exposed": {"G1":1}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G1 {};
+[Global] interface G1 {};
 [Global] interface G2 {};
 [Exposed=G2] interface I {};
 #processed
@@ -208,21 +198,20 @@ interface I {};
     "G1": {"G1": 1},
     "G2": {"G2": 1}
   },
-  "primary_global": "G1",
   "idl_defs": {
-    "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
-    "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
+    "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {}}],
+    "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {}}],
     "I": ["interface", {"members": {}, "Exposed": {"G2":1}}]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}],
-    "G2": ["object", { "Exposed": {"G1":1}}],
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}],
     "I": ["object", {"Exposed": {"G2":1}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G1 {};
+[Global] interface G1 {};
 [Global] interface G2 {};
 [Exposed=(G1, G2)] interface I {};
 #processed
@@ -231,21 +220,20 @@ interface I {};
     "G1": {"G1": 1},
     "G2": {"G2": 1}
   },
-  "primary_global": "G1",
   "idl_defs": {
-    "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
-    "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
+    "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {}}],
+    "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {}}],
     "I": ["interface", {"members": {}, "Exposed": {"G1":1, "G2": 1}}]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}],
-    "G2": ["object", { "Exposed": {"G1":1}}],
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}],
     "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
 #data
-[PrimaryGlobal=G] interface G1 {};
+[Global=G] interface G1 {};
 [Global=G] interface G2 {};
 [Exposed=G] interface I {};
 #processed
@@ -253,21 +241,20 @@ interface I {};
   "global_names": {
     "G": {"G1": 1, "G2": 1}
   },
-  "primary_global": "G1",
   "idl_defs": {
-    "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
-    "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
+    "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {}}],
+    "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {}}],
     "I": ["interface", {"members": {}, "Exposed": {"G1":1, "G2": 1}}]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}],
-    "G2": ["object", { "Exposed": {"G1":1}}],
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}],
     "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
 #data
-[PrimaryGlobal=G1] interface G1 {};
+[Global=G1] interface G1 {};
 [Global=G2] interface G2 {};
 [Exposed=G] interface I {};
 #errors
@@ -278,50 +265,46 @@ interface I {};
     "G1": {"G1": 1},
     "G2": {"G2": 1}
   },
-  "primary_global": "G1",
   "idl_defs": {
-    "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
-    "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {"G1": 1}}],
+    "G1": ["interface", {"members": {}, "Global": 1, "Exposed": {}}],
+    "G2": ["interface", {"members": {}, "Global": 1, "Exposed": {}}],
     "I": ["interface", {"members": {}, "Exposed": {}}]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}],
-    "G2": ["object", { "Exposed": {"G1":1}}],
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}],
     "I": ["object", { "Exposed": {}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G1 { };
-[PrimaryGlobal] interface G2 { };
+[Global] interface G1 { };
+[Global] interface G2 { };
 #errors
-1;35;webidl:duplicate;;PrimaryGlobal;m
 #processed
 {
   "global_names": {
     "G1": {"G1": 1},
     "G2": {"G2": 1}
   },
-  "primary_global": "G1",
   "idl_defs": {
-    "G1": ["interface", {"members": {}, "Exposed": {"G1":1}, "Global": 1}],
-    "G2": ["interface", {"members": {}, "Exposed": {"G1":1}, "Global": 1}]
+    "G1": ["interface", {"members": {}, "Exposed": {}, "Global": 1}],
+    "G2": ["interface", {"members": {}, "Exposed": {}, "Global": 1}]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}],
-    "G2": ["object", { "Exposed": {"G1":1}}]
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}]
   }
 }
 
 #data
 interface G1 {  };
-[PrimaryGlobal]
+[Global]
 partial interface G1 {
   getter long  (DOMString a);
 };
 #processed
 {
-  "primary_global": "G1",
   "global_names": {
     "G1": {"G1":1}
   },
@@ -336,12 +319,12 @@ partial interface G1 {
           }
         }
       }],
-      "Exposed": {"G1":1},
+      "Exposed": {},
       "Global": 1
     }]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}]
+    "G1": ["object", { "Exposed": {}}]
   }
 }
 
@@ -352,7 +335,6 @@ partial interface G1 {
   getter long  (DOMString a);
 };
 #errors
-1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
   "global_names": {
@@ -383,7 +365,6 @@ partial interface G1 {
 interface A { };
 #errors
 1;0;webidl:not allowed;;Global;m
-1;;webidl:not defined;;[PrimaryGlobal];w
 #processed
 {
   "global_names": {
@@ -398,7 +379,7 @@ interface A { };
 }
 
 #data
-[PrimaryGlobal,OverrideBuiltins]
+[Global,OverrideBuiltins]
 interface A { };
 #errors
 1;0;webidl:not allowed;;Global;m
@@ -407,17 +388,16 @@ interface A { };
   "global_names": {
     "A": {"A": 1}
   },
-  "primary_global": "A",
   "idl_defs": {
-    "A": ["interface", {"members": {}, "Global": 1, "Exposed": {"A":1}, "OverrideBuiltins": 1}]
+    "A": ["interface", {"members": {}, "Global": 1, "Exposed": {}, "OverrideBuiltins": 1}]
   },
   "global_members": {
-    "A": ["object", {"Exposed": {"A":1}}]
+    "A": ["object", {"Exposed": {}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G1 {};
+[Global] interface G1 {};
 [Global] interface G2 {};
 [Exposed=(G1, G2)]
 interface I {
@@ -430,10 +410,9 @@ interface I {
     "G1": {"G1": 1},
     "G2": {"G2": 1}
   },
-  "primary_global": "G1",
   "idl_defs": {
-    "G1": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
-    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
+    "G1": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "I": ["interface", {
       "members": {
         "hoge": ["attribute", {
@@ -448,14 +427,14 @@ interface I {
     }]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}],
-    "G2": ["object", { "Exposed": {"G1":1}}],
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}],
     "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G1 {};
+[Global] interface G1 {};
 [Global] interface G2 {};
 [Exposed=G1]
 interface I {
@@ -470,10 +449,9 @@ interface I {
     "G1": {"G1": 1},
     "G2": {"G2": 1}
   },
-  "primary_global": "G1",
   "idl_defs": {
-    "G1": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
-    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
+    "G1": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "I": ["interface", {
       "members": {
         "hoge": ["attribute", {
@@ -488,14 +466,14 @@ interface I {
     }]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}],
-    "G2": ["object", { "Exposed": {"G1":1}}],
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}],
     "I": ["object", { "Exposed": {"G1":1}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G1 {};
+[Global] interface G1 {};
 [Global] interface G2 {};
 [Exposed=(G1, G2)]
 interface I {};
@@ -508,10 +486,9 @@ partial interface I {
     "G1": {"G1": 1},
     "G2": {"G2": 1}
   },
-  "primary_global": "G1",
   "idl_defs": {
-    "G1": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
-    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
+    "G1": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "I": ["interface", {
       "members": {
         "hoge": ["attribute", {
@@ -522,14 +499,14 @@ partial interface I {
     }]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}],
-    "G2": ["object", { "Exposed": {"G1":1}}],
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}],
     "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G1 {};
+[Global] interface G1 {};
 [Global] interface G2 {};
 [Exposed=(G1, G2)]
 interface I {};
@@ -543,10 +520,9 @@ partial interface I {
     "G1": {"G1": 1},
     "G2": {"G2": 1}
   },
-  "primary_global": "G1",
   "idl_defs": {
-    "G1": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
-    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
+    "G1": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "I": ["interface", {
       "members": {
         "hoge": ["attribute", {
@@ -558,14 +534,14 @@ partial interface I {
     }]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}],
-    "G2": ["object", { "Exposed": {"G1":1}}],
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}],
     "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G1 {};
+[Global] interface G1 {};
 [Global] interface G2 {};
 [Exposed=(G1, G2)]
 interface I {};
@@ -574,17 +550,16 @@ partial interface I {
   [Exposed=G1] attribute long hoge;
 };
 #errors
-1;132;webidl:not allowed;;Exposed;m
+1;125;webidl:not allowed;;Exposed;m
 #processed
 {
   "global_names": {
     "G1": {"G1": 1},
     "G2": {"G2": 1}
   },
-  "primary_global": "G1",
   "idl_defs": {
-    "G1": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
-    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
+    "G1": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "I": ["interface", {
       "members": {
         "hoge": ["attribute", {
@@ -596,14 +571,14 @@ partial interface I {
     }]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}],
-    "G2": ["object", { "Exposed": {"G1":1}}],
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}],
     "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G1 {};
+[Global] interface G1 {};
 [Global] interface G2 {};
 [Exposed=(G1, G2)]
 interface I {};
@@ -616,10 +591,9 @@ partial interface I {
     "G1": {"G1": 1},
     "G2": {"G2": 1}
   },
-  "primary_global": "G1",
   "idl_defs": {
-    "G1": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
-    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
+    "G1": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "I": ["interface", {
       "members": {
         "hoge": ["attribute", {
@@ -631,14 +605,14 @@ partial interface I {
     }]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}],
-    "G2": ["object", { "Exposed": {"G1":1}}],
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}],
     "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G1 {};
+[Global] interface G1 {};
 [Global] interface G2 {};
 [Exposed=(G1, G2)]
 interface I {
@@ -650,10 +624,9 @@ interface I {
     "G1": {"G1": 1},
     "G2": {"G2": 1}
   },
-  "primary_global": "G1",
   "idl_defs": {
-    "G1": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
-    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
+    "G1": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "I": ["interface", {
       "members": {
         "hoge": ["operation", {
@@ -670,14 +643,14 @@ interface I {
     }]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}],
-    "G2": ["object", { "Exposed": {"G1":1}}],
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}],
     "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G1 {};
+[Global] interface G1 {};
 [Global] interface G2 {};
 [Exposed=(G1, G2)]
 interface I {
@@ -685,17 +658,16 @@ interface I {
   [Exposed=G2] double hoge (long a);
 };
 #errors
-1;94;webidl:inconsistent;;[Exposed];m
+1;87;webidl:inconsistent;;[Exposed];m
 #processed
 {
   "global_names": {
     "G1": {"G1": 1},
     "G2": {"G2": 1}
   },
-  "primary_global": "G1",
   "idl_defs": {
-    "G1": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
-    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
+    "G1": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "I": ["interface", {
       "members": {
         "hoge": ["operation", {
@@ -717,14 +689,14 @@ interface I {
     }]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}],
-    "G2": ["object", { "Exposed": {"G1":1}}],
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}],
     "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G1 {};
+[Global] interface G1 {};
 [Global] interface G2 {};
 [Exposed=(G1, G2)]
 interface I {
@@ -732,17 +704,16 @@ interface I {
   double hoge (long a);
 };
 #errors
-1;94;webidl:inconsistent;;[Exposed];m
+1;87;webidl:inconsistent;;[Exposed];m
 #processed
 {
   "global_names": {
     "G1": {"G1": 1},
     "G2": {"G2": 1}
   },
-  "primary_global": "G1",
   "idl_defs": {
-    "G1": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
-    "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G1":1}}],
+    "G1": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "G2": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "I": ["interface", {
       "members": {
         "hoge": ["operation", {
@@ -764,51 +735,49 @@ interface I {
     }]
   },
   "global_members": {
-    "G1": ["object", { "Exposed": {"G1":1}}],
-    "G2": ["object", { "Exposed": {"G1":1}}],
+    "G1": ["object", { "Exposed": {}}],
+    "G2": ["object", { "Exposed": {}}],
     "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 callback interface C {};
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
-    "C": ["callback_interface", {"members":{},"Exposed":{"G":1}}]
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "C": ["callback_interface", {"members":{},"Exposed":{}}]
   },
   "global_names": {"G":{"G":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}]
+    "G": ["object", {"Exposed":{}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 callback interface C {
   const long foo = 124;
 };
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "C": ["callback_interface", {"members":{
       "foo": ["const", {"type":"long","value":["integer",124]}]
-    },"Exposed":{"G":1}}]
+    },"Exposed":{}}]
   },
   "global_names": {"G":{"G":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
-    "C": ["object", {"Exposed":{"G":1}}]
+    "G": ["object", {"Exposed":{}}],
+    "C": ["object", {"Exposed":{}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [Exposed=(G,G2)]
 callback interface C {
@@ -817,147 +786,139 @@ callback interface C {
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
     "C": ["callback_interface", {"members":{
       "foo": ["const", {"type":"long","value":["integer",124],"Exposed":{"G2":1}}]
     },"Exposed":{"G":1,"G2":1}}]
   },
   "global_names": {"G":{"G":1},"G2":{"G2":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
+    "G": ["object", {"Exposed":{}}],
     "G2": ["object", {"Exposed":{"G2":1}}],
     "C": ["object", {"Exposed":{"G":1,"G2":1}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [NoInterfaceObject] callback interface C {
   const long foo = 124;
 };
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "C": ["callback_interface", {"members":{
       "foo": ["const", {"type":"long","value":["integer",124]}]
-    },"Exposed":{"G":1},"NoInterfaceObject":1}]
+    },"Exposed":{},"NoInterfaceObject":1}]
   },
   "global_names": {"G":{"G":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}]
+    "G": ["object", {"Exposed":{}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 interface X {};
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
-    "X": ["interface", {"members":{},"Exposed":{"G":1}}]
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "X": ["interface", {"members":{},"Exposed":{}}]
   },
   "global_names": {"G":{"G":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
-    "X": ["object", {"Exposed":{"G":1}}]
+    "G": ["object", {"Exposed":{}}],
+    "X": ["object", {"Exposed":{}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [NoInterfaceObject ]interface X {};
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
-    "X": ["interface", {"members":{},"Exposed":{"G":1},"NoInterfaceObject":1}]
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "X": ["interface", {"members":{},"Exposed":{},"NoInterfaceObject":1}]
   },
   "global_names": {"G":{"G":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}]
+    "G": ["object", {"Exposed":{}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [NoInterfaceObject ] interface X {};
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
-    "X": ["interface", {"members":{},"Exposed":{"G":1},"NoInterfaceObject":1}]
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "X": ["interface", {"members":{},"Exposed":{},"NoInterfaceObject":1}]
   },
   "global_names": {"G":{"G":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}]
+    "G": ["object", {"Exposed":{}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [Constructor] dictionary D {};
 #errors
-1;33;webidl:not allowed;;Constructor;m
+1;26;webidl:not allowed;;Constructor;m
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "D": ["dictionary", {"members":{}}]
   },
   "global_names": {"G":{"G":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}]
+    "G": ["object", {"Exposed":{}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [Constructor,Exposed=G2] dictionary D {};
 #errors
-1;70;webidl:not allowed;;Constructor;m
-1;82;webidl:not allowed;;Exposed;m
+1;63;webidl:not allowed;;Constructor;m
+1;75;webidl:not allowed;;Exposed;m
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
     "D": ["dictionary", {"members":{}}]
   },
   "global_names": {"G":{"G":1},"G2": {"G2":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
+    "G": ["object", {"Exposed":{}}],
     "G2": ["object", {"Exposed":{"G2":1}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [NamedConstructor=Hoge] interface A {};
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
-    "A": ["interface", {"members":{},"Exposed":{"G":1}}]
+    "A": ["interface", {"members":{},"Exposed":{}}]
   },
   "global_names": {"G":{"G":1},"G2": {"G2":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
+    "G": ["object", {"Exposed":{}}],
     "G2": ["object", {"Exposed":{"G2":1}}],
-    "A": ["object", {"Exposed":{"G":1}}],
+    "A": ["object", {"Exposed":{}}],
     "Hoge": ["operation", {
       "overload_set": {
         "": {
@@ -965,26 +926,25 @@ interface X {};
           "args": []
         }
       },
-      "Exposed":{"G":1}
+      "Exposed":{}
     }]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [Constructor, NamedConstructor=Hoge] interface A {};
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
-    "A": ["interface", {"members":{},"Exposed":{"G":1}}]
+    "A": ["interface", {"members":{},"Exposed":{}}]
   },
   "global_names": {"G":{"G":1},"G2": {"G2":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
+    "G": ["object", {"Exposed":{}}],
     "G2": ["object", {"Exposed":{"G2":1}}],
     "A": ["operation", {
       "overload_set": {
@@ -993,7 +953,7 @@ interface X {};
           "args": []
         }
       },
-      "Exposed":{"G":1}
+      "Exposed":{}
     }],
     "Hoge": ["operation", {
       "overload_set": {
@@ -1002,26 +962,25 @@ interface X {};
           "args": []
         }
       },
-      "Exposed":{"G":1}
+      "Exposed":{}
     }]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [NoInterfaceObject, NamedConstructor=Hoge] interface A {};
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
-    "A": ["interface", {"members":{},"Exposed":{"G":1},"NoInterfaceObject":1}]
+    "A": ["interface", {"members":{},"Exposed":{},"NoInterfaceObject":1}]
   },
   "global_names": {"G":{"G":1},"G2": {"G2":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
+    "G": ["object", {"Exposed":{}}],
     "G2": ["object", {"Exposed":{"G2":1}}],
     "Hoge": ["operation", {
       "overload_set": {
@@ -1030,34 +989,33 @@ interface X {};
           "args": []
         }
       },
-      "Exposed":{"G":1}
+      "Exposed":{}
     }]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [NamedConstructor=Hoge] callback interface A {};
 #errors
-1;70;webidl:not allowed;;NamedConstructor;m
+1;63;webidl:not allowed;;NamedConstructor;m
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
-    "A": ["callback_interface", {"members":{},"Exposed":{"G":1}}]
+    "A": ["callback_interface", {"members":{},"Exposed":{}}]
   },
   "global_names": {"G":{"G":1},"G2": {"G2":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
+    "G": ["object", {"Exposed":{}}],
     "G2": ["object", {"Exposed":{"G2":1}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 interface A {};
 [NamedConstructor=A] interface B {};
@@ -1066,66 +1024,63 @@ interface A {};
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
-    "A": ["interface", {"members":{},"Exposed":{"G":1}}],
-    "B": ["interface", {"members":{},"Exposed":{"G":1}}]
+    "A": ["interface", {"members":{},"Exposed":{}}],
+    "B": ["interface", {"members":{},"Exposed":{}}]
   },
   "global_names": {"G":{"G":1},"G2": {"G2":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
+    "G": ["object", {"Exposed":{}}],
     "G2": ["object", {"Exposed":{"G2":1}}],
-    "A": ["object", {"Exposed":{"G":1}}],
-    "B": ["object", {"Exposed":{"G":1}}]
+    "A": ["object", {"Exposed":{}}],
+    "B": ["object", {"Exposed":{}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [NoInterfaceObject] interface A {};
 [NamedConstructor=A] interface B {};
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
-    "A": ["interface", {"members":{},"Exposed":{"G":1},"NoInterfaceObject":1}],
-    "B": ["interface", {"members":{},"Exposed":{"G":1}}]
+    "A": ["interface", {"members":{},"Exposed":{},"NoInterfaceObject":1}],
+    "B": ["interface", {"members":{},"Exposed":{}}]
   },
   "global_names": {"G":{"G":1},"G2": {"G2":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
+    "G": ["object", {"Exposed":{}}],
     "G2": ["object", {"Exposed":{"G2":1}}],
     "A": ["operation", {
-      "Exposed":{"G":1},
+      "Exposed":{},
       "overload_set": {
         "": {"type":["ref_interface","B"],"args":[]}
       }
     }],
-    "B": ["object", {"Exposed":{"G":1}}]
+    "B": ["object", {"Exposed":{}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [NamedConstructor=Hoge, NamedConstructor=Fuga] interface A {};
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
-    "A": ["interface", {"members":{},"Exposed":{"G":1}}]
+    "A": ["interface", {"members":{},"Exposed":{}}]
   },
   "global_names": {"G":{"G":1},"G2": {"G2":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
+    "G": ["object", {"Exposed":{}}],
     "G2": ["object", {"Exposed":{"G2":1}}],
-    "A": ["object", {"Exposed":{"G":1}}],
+    "A": ["object", {"Exposed":{}}],
     "Hoge": ["operation", {
       "overload_set": {
         "": {
@@ -1133,7 +1088,7 @@ interface A {};
           "args": []
         }
       },
-      "Exposed":{"G":1}
+      "Exposed":{}
     }],
     "Fuga": ["operation", {
       "overload_set": {
@@ -1142,28 +1097,27 @@ interface A {};
           "args": []
         }
       },
-      "Exposed":{"G":1}
+      "Exposed":{}
     }]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [NamedConstructor=Hoge, NamedConstructor=Hoge(DOMString bxs)] interface A {};
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
-    "A": ["interface", {"members":{},"Exposed":{"G":1}}]
+    "A": ["interface", {"members":{},"Exposed":{}}]
   },
   "global_names": {"G":{"G":1},"G2": {"G2":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
+    "G": ["object", {"Exposed":{}}],
     "G2": ["object", {"Exposed":{"G2":1}}],
-    "A": ["object", {"Exposed":{"G":1}}],
+    "A": ["object", {"Exposed":{}}],
     "Hoge": ["operation", {
       "overloaded": 1,
       "overload_set": {
@@ -1176,71 +1130,68 @@ interface A {};
           "args": [{"name":"bxs","type":"DOMString","optionality":"required"}]
         }
       },
-      "Exposed":{"G":1}
+      "Exposed":{}
     }]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [LegacyWindowAlias=B] interface A {};
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
-    "A": ["interface", {"members":{},"Exposed":{"G":1}}]
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "A": ["interface", {"members":{},"Exposed":{}}]
   },
   "global_names": {"G":{"G":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
-    "B": ["alias", {"name": "A", "Exposed":{"G":1}}],
-    "A": ["object", {"Exposed":{"G":1}}]
+    "G": ["object", {"Exposed":{}}],
+    "B": ["alias", {"name": "A", "Exposed":{}}],
+    "A": ["object", {"Exposed":{}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [LegacyWindowAlias=B, LegacyWindowAlias=C] interface A {};
 #errors
-1;54;webidl:not allowed;;LegacyWindowAlias;m
+1;47;webidl:not allowed;;LegacyWindowAlias;m
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
-    "A": ["interface", {"members":{},"Exposed":{"G":1}}]
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "A": ["interface", {"members":{},"Exposed":{}}]
   },
   "global_names": {"G":{"G":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
-    "B": ["alias", {"name": "A", "Exposed":{"G":1}}],
-    "A": ["object", {"Exposed":{"G":1}}]
+    "G": ["object", {"Exposed":{}}],
+    "B": ["alias", {"name": "A", "Exposed":{}}],
+    "A": ["object", {"Exposed":{}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [LegacyWindowAlias=(B,C)] interface A {};
 #errors
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
-    "A": ["interface", {"members":{},"Exposed":{"G":1}}]
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "A": ["interface", {"members":{},"Exposed":{}}]
   },
   "global_names": {"G":{"G":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
-    "B": ["alias", {"name": "A", "Exposed":{"G":1}}],
-    "C": ["alias", {"name": "A", "Exposed":{"G":1}}],
-    "A": ["object", {"Exposed":{"G":1}}]
+    "G": ["object", {"Exposed":{}}],
+    "B": ["alias", {"name": "A", "Exposed":{}}],
+    "C": ["alias", {"name": "A", "Exposed":{}}],
+    "A": ["object", {"Exposed":{}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [LegacyWindowAlias=(B,C)] interface A {};
 interface B {};
 #errors
@@ -1248,22 +1199,21 @@ interface B {};
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
-    "A": ["interface", {"members":{},"Exposed":{"G":1}}],
-    "B": ["interface", {"members":{},"Exposed":{"G":1}}]
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "A": ["interface", {"members":{},"Exposed":{}}],
+    "B": ["interface", {"members":{},"Exposed":{}}]
   },
   "global_names": {"G":{"G":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
-    "B": ["alias", {"name": "A", "Exposed":{"G":1}}],
-    "C": ["alias", {"name": "A", "Exposed":{"G":1}}],
-    "A": ["object", {"Exposed":{"G":1}}]
+    "G": ["object", {"Exposed":{}}],
+    "B": ["alias", {"name": "A", "Exposed":{}}],
+    "C": ["alias", {"name": "A", "Exposed":{}}],
+    "A": ["object", {"Exposed":{}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [LegacyWindowAlias=(B,C)] interface A {};
 [NamedConstructor=B] interface D {};
 #errors
@@ -1271,75 +1221,71 @@ interface B {};
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
-    "A": ["interface", {"members":{},"Exposed":{"G":1}}],
-    "D": ["interface", {"members":{},"Exposed":{"G":1}}]
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "A": ["interface", {"members":{},"Exposed":{}}],
+    "D": ["interface", {"members":{},"Exposed":{}}]
   },
   "global_names": {"G":{"G":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
-    "B": ["alias", {"name": "A", "Exposed":{"G":1}}],
-    "C": ["alias", {"name": "A", "Exposed":{"G":1}}],
-    "A": ["object", {"Exposed":{"G":1}}],
-    "D": ["object", {"Exposed":{"G":1}}]
+    "G": ["object", {"Exposed":{}}],
+    "B": ["alias", {"name": "A", "Exposed":{}}],
+    "C": ["alias", {"name": "A", "Exposed":{}}],
+    "A": ["object", {"Exposed":{}}],
+    "D": ["object", {"Exposed":{}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [LegacyWindowAlias=(B,C), NamedConstructor = B] interface A {};
 #errors
-1;32;webidl:duplicate;;B;m
+1;25;webidl:duplicate;;B;m
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
-    "A": ["interface", {"members":{},"Exposed":{"G":1}}]
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "A": ["interface", {"members":{},"Exposed":{}}]
   },
   "global_names": {"G":{"G":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
-    "B": ["alias", {"name": "A", "Exposed":{"G":1}}],
-    "C": ["alias", {"name": "A", "Exposed":{"G":1}}],
-    "A": ["object", {"Exposed":{"G":1}}]
+    "G": ["object", {"Exposed":{}}],
+    "B": ["alias", {"name": "A", "Exposed":{}}],
+    "C": ["alias", {"name": "A", "Exposed":{}}],
+    "A": ["object", {"Exposed":{}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [NoInterfaceObject, LegacyWindowAlias=B] interface A {};
 #errors
-1;32;webidl:not allowed;;LegacyWindowAlias;m
+1;25;webidl:not allowed;;LegacyWindowAlias;m
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
-    "A": ["interface", {"members":{},"Exposed":{"G":1}, "NoInterfaceObject": 1}]
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "A": ["interface", {"members":{},"Exposed":{}, "NoInterfaceObject": 1}]
   },
   "global_names": {"G":{"G":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}]
+    "G": ["object", {"Exposed":{}}]
   }
 }
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [LegacyWindowAlias=B, Exposed=(G,G2)] interface A {};
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
     "A": ["interface", {"members":{},"Exposed":{"G2":1,"G":1}}]
   },
   "global_names": {"G":{"G":1}, "G2":{"G2":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
+    "G": ["object", {"Exposed":{}}],
     "G2": ["object", {"Exposed":{"G2":1}}],
     "B": ["alias", {"name": "A", "Exposed":{"G2":1,"G":1}}],
     "A": ["object", {"Exposed":{"G2":1,"G":1}}]
@@ -1349,20 +1295,19 @@ interface B {};
 non-conforming
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [LegacyWindowAlias=B, Exposed=G2] interface A {};
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "G2": ["interface", {"members":{},"Global":1,"Exposed":{"G2":1}}],
     "A": ["interface", {"members":{},"Exposed":{"G2":1}}]
   },
   "global_names": {"G":{"G":1}, "G2":{"G2":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}],
+    "G": ["object", {"Exposed":{}}],
     "G2": ["object", {"Exposed":{"G2":1}}],
     "B": ["alias", {"name": "A", "Exposed":{"G2":1}}],
     "A": ["object", {"Exposed":{"G2":1}}]
@@ -1372,19 +1317,18 @@ non-conforming
 non-conforming
 
 #data
-[PrimaryGlobal] interface G {};
+[Global] interface G {};
 [LegacyWindowAlias=B] callback interface A {};
 #errors
-1;33;webidl:not allowed;;LegacyWindowAlias;m
+1;26;webidl:not allowed;;LegacyWindowAlias;m
 #processed
 {
   "idl_defs": {
-    "G": ["interface", {"members":{},"Global":1,"Exposed":{"G":1}}],
-    "A": ["callback_interface", {"members":{},"Exposed":{"G":1}}]
+    "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
+    "A": ["callback_interface", {"members":{},"Exposed":{}}]
   },
   "global_names": {"G":{"G":1}},
-  "primary_global": "G",
   "global_members": {
-    "G": ["object", {"Exposed":{"G":1}}]
+    "G": ["object", {"Exposed":{}}]
   }
 }
