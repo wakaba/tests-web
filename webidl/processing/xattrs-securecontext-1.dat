@@ -484,12 +484,14 @@ partial interface A {
 #data
 [Constructor,SecureContext] interface A {};
 #errors
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
     "A": ["interface", {
       "SecureContext": 1,
-      "members": {}
+      "members": {},
+      "Exposed":{}
     }]
   },
   "global_members": {
@@ -500,7 +502,8 @@ partial interface A {
           "type": ["ref_interface", "A"],
           "args": []
         }
-      }
+      },
+      "Exposed":{}
     }]
   }
 }
@@ -508,13 +511,15 @@ partial interface A {
 #data
 [NoInterfaceObject,NamedConstructor=X,SecureContext] interface A {};
 #errors
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
     "A": ["interface", {
       "SecureContext": 1,
       "members": {},
-      "NoInterfaceObject": 1
+      "NoInterfaceObject": 1,
+      "Exposed":{}
     }]
   },
   "global_members": {
@@ -525,7 +530,8 @@ partial interface A {
           "type": ["ref_interface", "A"],
           "args": []
         }
-      }
+      },
+      "Exposed":{}
     }]
   }
 }

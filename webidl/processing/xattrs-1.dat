@@ -323,15 +323,18 @@ interface A {
 [Constructor]
 interface A {};
 #errors
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
     "A": ["interface", {
-      "members": {}
+      "members": {},
+      "Exposed":{}
     }]
   },
   "global_members": {
     "A": ["operation", {
+      "Exposed":{},
       "overload_set": {
         "": {
           "type": ["ref_interface", "A"],
@@ -346,11 +349,13 @@ interface A {};
 [Constructor(long foo)]
 interface A {};
 #errors
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
     "A": ["interface", {
-      "members": {}
+      "members": {},
+      "Exposed":{}
     }]
   },
   "global_members": {
@@ -360,7 +365,8 @@ interface A {};
           "type": ["ref_interface", "A"],
           "args": [{"name":"foo","type":"long","optionality":"required"}]
         }
-      }
+      },
+      "Exposed":{}
     }]
   }
 }
@@ -369,16 +375,19 @@ interface A {};
 [Constructor(long foo),Constructor]
 interface A {};
 #errors
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
     "A": ["interface", {
-      "members": {}
+      "members": {},
+      "Exposed":{}
     }]
   },
   "global_members": {
     "A": ["operation", {
       "overloaded": 1,
+      "Exposed":{},
       "overload_set": {
         "": {
           "type": ["ref_interface", "A"],
@@ -397,15 +406,18 @@ interface A {};
 [Constructor(optional long foo)]
 interface A {};
 #errors
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
     "A": ["interface", {
-      "members": {}
+      "members": {},
+      "Exposed":{}
     }]
   },
   "global_members": {
     "A": ["operation", {
+      "Exposed":{},
       "overload_set": {
         "": {
           "type": ["ref_interface", "A"],
@@ -425,16 +437,19 @@ interface A {};
 interface A {};
 #errors
 1;13;webidl:not distinguishable;;;m
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
     "A": ["interface", {
+      "Exposed":{},
       "members": {}
     }]
   },
   "global_members": {
     "A": ["operation", {
       "overloaded": 1,
+      "Exposed":{},
       "overload_set": {
         "": {
           "type": ["ref_interface", "A"],
@@ -455,15 +470,18 @@ interface A {};
 partial interface A {};
 #errors
 1;17;webidl:not allowed;;Constructor;m
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
     "A": ["interface", {
-      "members": {}
+      "members": {},
+      "Exposed":{}
     }]
   },
   "global_members": {
     "A": ["object", {
+      "Exposed":{}
     }]
   }
 }
@@ -475,11 +493,13 @@ interface A {};
 partial interface A {};
 #errors
 1;31;webidl:not allowed;;Constructor;m
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
     "A": ["interface", {
-      "members": {}
+      "members": {},
+      "Exposed":{}
     }]
   },
   "global_members": {
@@ -489,7 +509,8 @@ partial interface A {};
           "type": ["ref_interface", "A"],
           "args": []
         }
-      }
+      },
+      "Exposed":{}
     }]
   }
 }
@@ -530,11 +551,13 @@ dictionary A {};
 callback interface A {};
 #errors
 1;1;webidl:not allowed;;Constructor;m
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
     "A": ["callback_interface", {
-      "members": {}
+      "members": {},
+      "Exposed":{}
     }]
   },
   "global_members": {}
@@ -547,21 +570,27 @@ interface A {};
 interface B {};
 #errors
 1;1;webidl:not allowed;;Constructor;m
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;B;w
 #processed
 {
   "idl_defs": {
   "A": ["interface", {
     "members": {},
-    "implements": {"B": {"depth": 1, "consequential": 1, "supplemental": 1}}
+    "implements": {"B": {"depth": 1, "consequential": 1, "supplemental": 1}},
+    "Exposed":{}
   }],
   "B": ["interface", {
-    "members": {}
+    "members": {},
+    "Exposed":{}
   }]
   },
   "global_members": {
     "A": ["object", {
+      "Exposed":{}
     }],
     "B": ["object", {
+      "Exposed":{}
     }]
   }
 }
@@ -658,11 +687,13 @@ interface A {
 [Constructor([EnforceRange] unsigned long a)]
 interface A {};
 #errors
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
     "A": ["interface", {
-      "members": {}
+      "members": {},
+      "Exposed":{}
     }]
   },
   "global_members": {
@@ -674,7 +705,8 @@ interface A {};
           "optionality": "required",
           "name": "a"
         }]
-      }}
+      }},
+      "Exposed":{}
     }]
   }
 }
@@ -1590,10 +1622,11 @@ interface A {
 [Constructor(optional long hoge = 124)]
 interface A {};
 #errors
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
-    "A": ["interface", {"members":{}}]
+    "A": ["interface", {"members":{},"Exposed":{}}]
   },
   "global_members": {
     "A": ["operation", {
@@ -1608,7 +1641,8 @@ interface A {};
             {"name":"hoge","type":"long","optionality":"optional","value":["integer",124]}
           ]
         }
-      }
+      },
+      "Exposed":{}
     }]
   }
 }
@@ -1618,10 +1652,11 @@ interface A {};
 interface A {};
 #errors
 1;14;webidl:non-optional default;;hoge;m
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
-    "A": ["interface", {"members":{}}]
+    "A": ["interface", {"members":{}, "Exposed":{}}]
   },
   "global_members": {
     "A": ["operation", {
@@ -1636,7 +1671,8 @@ interface A {};
             {"name":"hoge","type":"long","optionality":"optional","value":["integer",124]}
           ]
         }
-      }
+      },
+      "Exposed":{}
     }]
   }
 }

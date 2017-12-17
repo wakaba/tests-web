@@ -2,6 +2,7 @@
 [Global]
 interface A { };
 #errors
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "global_names": {
@@ -18,6 +19,8 @@ interface A { };
 #data
 [Global]
 interface A { };
+#errors
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "global_names": {
@@ -35,6 +38,8 @@ interface A { };
 [Global] interface A { };
 [Global] interface B { };
 #errors
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;B;w
 #processed
 {
   "global_names": {
@@ -54,6 +59,9 @@ interface A { };
 #data
 [Global] interface A { };
 [Global] interface B { };
+#errors
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;B;w
 #processed
 {
   "global_names": {
@@ -73,6 +81,7 @@ interface A { };
 #data
 [Global=Foo] interface A { };
 #errors
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "global_names": {
@@ -89,6 +98,7 @@ interface A { };
 #data
 [Global=(Foo,Bar)] interface A { };
 #errors
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "global_names": {
@@ -107,6 +117,8 @@ interface A { };
 [Global=Foo] interface A { };
 [Global=Foo] interface B { };
 #errors
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;B;w
 #processed
 {
   "global_names": {
@@ -126,6 +138,10 @@ interface A { };
 [Global] interface G1 {};
 [Global] interface G2 {};
 interface X {};
+#errors
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
+1;;webidl:no Exposed;;X;w
 #processed
 {
   "global_names": {
@@ -148,6 +164,10 @@ interface X {};
 [Global] interface G1 {};
 [Global] interface G2 {};
 interface I {};
+#errors
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
+1;;webidl:no Exposed;;I;w
 #processed
 {
   "global_names": {
@@ -170,6 +190,9 @@ interface I {};
 [Global] interface G1 {};
 [Global] interface G2 {};
 [Exposed=G1] interface I {};
+#errors
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
 #processed
 {
   "global_names": {
@@ -192,6 +215,9 @@ interface I {};
 [Global] interface G1 {};
 [Global] interface G2 {};
 [Exposed=G2] interface I {};
+#errors
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
 #processed
 {
   "global_names": {
@@ -214,6 +240,9 @@ interface I {};
 [Global] interface G1 {};
 [Global] interface G2 {};
 [Exposed=(G1, G2)] interface I {};
+#errors
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
 #processed
 {
   "global_names": {
@@ -236,6 +265,9 @@ interface I {};
 [Global=G] interface G1 {};
 [Global=G] interface G2 {};
 [Exposed=G] interface I {};
+#errors
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
 #processed
 {
   "global_names": {
@@ -258,6 +290,8 @@ interface I {};
 [Global=G2] interface G2 {};
 [Exposed=G] interface I {};
 #errors
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
 1;;webidl:not defined;;G;m
 #processed
 {
@@ -281,6 +315,8 @@ interface I {};
 [Global] interface G1 { };
 [Global] interface G2 { };
 #errors
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
 #processed
 {
   "global_names": {
@@ -303,6 +339,8 @@ interface G1 {  };
 partial interface G1 {
   getter long  (DOMString a);
 };
+#errors
+1;;webidl:no Exposed;;G1;w
 #processed
 {
   "global_names": {
@@ -335,6 +373,7 @@ partial interface G1 {
   getter long  (DOMString a);
 };
 #errors
+1;;webidl:no Exposed;;G1;w
 #processed
 {
   "global_names": {
@@ -365,6 +404,7 @@ partial interface G1 {
 interface A { };
 #errors
 1;0;webidl:not allowed;;Global;m
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "global_names": {
@@ -383,6 +423,7 @@ interface A { };
 interface A { };
 #errors
 1;0;webidl:not allowed;;Global;m
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "global_names": {
@@ -404,6 +445,9 @@ interface I {
   [Exposed=G1] attribute long hoge;
   attribute long fuga;
 };
+#errors
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
 #processed
 {
   "global_names": {
@@ -442,6 +486,8 @@ interface I {
   attribute long fuga;
 };
 #errors
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
 1;;webidl:not allowed;;[Exposed=G2];w
 #processed
 {
@@ -480,6 +526,9 @@ interface I {};
 partial interface I {
   attribute long hoge;
 };
+#errors
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
 #processed
 {
   "global_names": {
@@ -514,6 +563,9 @@ interface I {};
 partial interface I {
   attribute long hoge;
 };
+#errors
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
 #processed
 {
   "global_names": {
@@ -551,6 +603,8 @@ partial interface I {
 };
 #errors
 1;125;webidl:not allowed;;Exposed;m
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
 #processed
 {
   "global_names": {
@@ -585,6 +639,9 @@ interface I {};
 partial interface I {
   [Exposed=G1] attribute long hoge;
 };
+#errors
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
 #processed
 {
   "global_names": {
@@ -618,6 +675,9 @@ partial interface I {
 interface I {
   [Exposed=G1] long hoge ();
 };
+#errors
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
 #processed
 {
   "global_names": {
@@ -659,6 +719,8 @@ interface I {
 };
 #errors
 1;87;webidl:inconsistent;;[Exposed];m
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
 #processed
 {
   "global_names": {
@@ -705,6 +767,8 @@ interface I {
 };
 #errors
 1;87;webidl:inconsistent;;[Exposed];m
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
 #processed
 {
   "global_names": {
@@ -744,6 +808,9 @@ interface I {
 #data
 [Global] interface G {};
 callback interface C {};
+#errors
+1;;webidl:no Exposed;;C;w
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -761,6 +828,9 @@ callback interface C {};
 callback interface C {
   const long foo = 124;
 };
+#errors
+1;;webidl:no Exposed;;C;w
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -783,6 +853,8 @@ callback interface C {
 callback interface C {
   [Exposed=G2] const long foo = 124;
 };
+#errors
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -805,6 +877,9 @@ callback interface C {
 [NoInterfaceObject] callback interface C {
   const long foo = 124;
 };
+#errors
+1;;webidl:no Exposed;;C;w
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -822,6 +897,9 @@ callback interface C {
 #data
 [Global] interface G {};
 interface X {};
+#errors
+1;;webidl:no Exposed;;G;w
+1;;webidl:no Exposed;;X;w
 #processed
 {
   "idl_defs": {
@@ -838,6 +916,9 @@ interface X {};
 #data
 [Global] interface G {};
 [NoInterfaceObject ]interface X {};
+#errors
+1;;webidl:no Exposed;;G;w
+1;;webidl:no Exposed;;X;w
 #processed
 {
   "idl_defs": {
@@ -853,6 +934,9 @@ interface X {};
 #data
 [Global] interface G {};
 [NoInterfaceObject ] interface X {};
+#errors
+1;;webidl:no Exposed;;G;w
+1;;webidl:no Exposed;;X;w
 #processed
 {
   "idl_defs": {
@@ -870,6 +954,7 @@ interface X {};
 [Constructor] dictionary D {};
 #errors
 1;26;webidl:not allowed;;Constructor;m
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -889,6 +974,7 @@ interface X {};
 #errors
 1;63;webidl:not allowed;;Constructor;m
 1;75;webidl:not allowed;;Exposed;m
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -907,6 +993,9 @@ interface X {};
 [Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [NamedConstructor=Hoge] interface A {};
+#errors
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -935,6 +1024,9 @@ interface X {};
 [Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [Constructor, NamedConstructor=Hoge] interface A {};
+#errors
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -971,6 +1063,9 @@ interface X {};
 [Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [NoInterfaceObject, NamedConstructor=Hoge] interface A {};
+#errors
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -1000,6 +1095,8 @@ interface X {};
 [NamedConstructor=Hoge] callback interface A {};
 #errors
 1;63;webidl:not allowed;;NamedConstructor;m
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -1020,6 +1117,9 @@ interface X {};
 interface A {};
 [NamedConstructor=A] interface B {};
 #errors
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;B;w
+1;;webidl:no Exposed;;G;w
 1;;webidl:duplicate;;A;m
 #processed
 {
@@ -1043,6 +1143,10 @@ interface A {};
 [Global,Exposed=G2] interface G2 {};
 [NoInterfaceObject] interface A {};
 [NamedConstructor=A] interface B {};
+#errors
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;B;w
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -1069,6 +1173,9 @@ interface A {};
 [Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [NamedConstructor=Hoge, NamedConstructor=Fuga] interface A {};
+#errors
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -1106,6 +1213,9 @@ interface A {};
 [Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [NamedConstructor=Hoge, NamedConstructor=Hoge(DOMString bxs)] interface A {};
+#errors
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -1138,6 +1248,9 @@ interface A {};
 #data
 [Global] interface G {};
 [LegacyWindowAlias=B] interface A {};
+#errors
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -1157,6 +1270,8 @@ interface A {};
 [LegacyWindowAlias=B, LegacyWindowAlias=C] interface A {};
 #errors
 1;47;webidl:not allowed;;LegacyWindowAlias;m
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -1175,6 +1290,8 @@ interface A {};
 [Global] interface G {};
 [LegacyWindowAlias=(B,C)] interface A {};
 #errors
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -1195,6 +1312,9 @@ interface A {};
 [LegacyWindowAlias=(B,C)] interface A {};
 interface B {};
 #errors
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;B;w
+1;;webidl:no Exposed;;G;w
 1;;webidl:duplicate;;B;m
 #processed
 {
@@ -1217,6 +1337,9 @@ interface B {};
 [LegacyWindowAlias=(B,C)] interface A {};
 [NamedConstructor=B] interface D {};
 #errors
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;D;w
+1;;webidl:no Exposed;;G;w
 1;;webidl:duplicate;;B;m
 #processed
 {
@@ -1240,6 +1363,8 @@ interface B {};
 [LegacyWindowAlias=(B,C), NamedConstructor = B] interface A {};
 #errors
 1;25;webidl:duplicate;;B;m
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -1260,6 +1385,8 @@ interface B {};
 [NoInterfaceObject, LegacyWindowAlias=B] interface A {};
 #errors
 1;25;webidl:not allowed;;LegacyWindowAlias;m
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -1276,6 +1403,8 @@ interface B {};
 [Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [LegacyWindowAlias=B, Exposed=(G,G2)] interface A {};
+#errors
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -1298,6 +1427,8 @@ non-conforming
 [Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
 [LegacyWindowAlias=B, Exposed=G2] interface A {};
+#errors
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -1321,6 +1452,8 @@ non-conforming
 [LegacyWindowAlias=B] callback interface A {};
 #errors
 1;26;webidl:not allowed;;LegacyWindowAlias;m
+1;;webidl:no Exposed;;A;w
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -1337,6 +1470,8 @@ non-conforming
 [Global] interface G {};
 [Global=G,Exposed=G] interface G2 {};
 [NamedConstructor=Hoge, Exposed=G] interface A {};
+#errors
+1;;webidl:no Exposed;;G;w
 #processed
 {
   "idl_defs": {
@@ -1368,6 +1503,9 @@ non-conforming
 interface I {
   [Exposed=(G1,G2)] long hoge ();
 };
+#errors
+1;;webidl:no Exposed;;G1;w
+1;;webidl:no Exposed;;G2;w
 #processed
 {
   "global_names": {

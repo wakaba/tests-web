@@ -15,13 +15,14 @@
 #data
 [HTMLConstructor] interface A {};
 #errors
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
-    "A": ["interface", {"members": {}}]
+    "A": ["interface", {"members": {},"Exposed":{}}]
   },
   "global_members": {
-    "A": ["HTMLConstructor"]
+    "A": ["HTMLConstructor", {"Exposed":{}}]
   }
 }
 
@@ -29,13 +30,14 @@
 [HTMLConstructor, Constructor] interface A {};
 #errors
 1;0;webidl:not allowed;;Constructor;m
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
-    "A": ["interface", {"members": {}}]
+    "A": ["interface", {"members": {}, "Exposed":{}}]
   },
   "global_members": {
-    "A": ["HTMLConstructor"]
+    "A": ["HTMLConstructor", {"Exposed":{}}]
   }
 }
 
@@ -43,13 +45,14 @@
 [Constructor, HTMLConstructor] interface A {};
 #errors
 1;0;webidl:not allowed;;Constructor;m
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
-    "A": ["interface", {"members": {}}]
+    "A": ["interface", {"members": {}, "Exposed":{}}]
   },
   "global_members": {
-    "A": ["HTMLConstructor"]
+    "A": ["HTMLConstructor", {"Exposed":{}}]
   }
 }
 
@@ -57,13 +60,17 @@
 [NoInterfaceObject, Constructor] interface A {};
 #errors
 1;0;webidl:not allowed;;Constructor;m
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
-    "A": ["interface", {"members": {}, "NoInterfaceObject":1}]
+    "A": ["interface", {"members": {}, "NoInterfaceObject":1,"Exposed":{}}]
   },
   "global_members": {
-    "A": ["operation", {"overload_set": {"": {"args":[],"type":["ref_interface","A"]}}}]
+    "A": ["operation", {
+      "overload_set": {"": {"args":[],"type":["ref_interface","A"]}},
+      "Exposed":{}
+    }]
   }
 }
 
@@ -71,13 +78,14 @@
 [NoInterfaceObject, HTMLConstructor] interface A {};
 #errors
 1;0;webidl:not allowed;;Constructor;m
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
-    "A": ["interface", {"members": {}, "NoInterfaceObject":1}]
+    "A": ["interface", {"members": {}, "NoInterfaceObject":1,"Exposed":{}}]
   },
   "global_members": {
-    "A": ["HTMLConstructor"]
+    "A": ["HTMLConstructor",{"Exposed":{}}]
   }
 }
 
@@ -85,12 +93,13 @@
 [PrimaryGlobal] interface A {};
 #errors
 1;1;webidl:not allowed;;PrimaryGlobal;m
+1;;webidl:no Exposed;;A;w
 #processed
 {
   "idl_defs": {
-    "A": ["interface", {"members": {}}]
+    "A": ["interface", {"members": {},"Exposed":{}}]
   },
   "global_members": {
-    "A": ["object", {}]
+    "A": ["object", {"Exposed":{}}]
   }
 }
