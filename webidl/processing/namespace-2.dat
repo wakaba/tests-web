@@ -1,0 +1,70 @@
+#data
+namespace A {
+  readonly attribute DOMString foo;
+};
+#errors
+1;;webidl:no Exposed;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {"members": {
+      "foo": ["attribute", {
+        "type": "DOMString",
+        "getter": 1
+      }]
+    }, "Exposed": {}}]
+  },
+  "idl_defs": {
+  }
+}
+
+#data
+namespace A {
+  DOMString bar ();
+  readonly attribute DOMString foo;
+};
+#errors
+1;;webidl:no Exposed;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {"members": {
+      "bar": ["operation", {
+        "overload_set": {
+          "": {
+            "args": [],
+            "type": "DOMString"
+          }
+        }
+      }],
+      "foo": ["attribute", {
+        "type": "DOMString",
+        "getter": 1
+      }]
+    }, "Exposed":{}}]
+  },
+  "idl_defs": {
+  }
+}
+
+#data
+namespace A {
+  DOMString bar ();
+  readonly attribute DOMString bar;
+};
+#errors
+1;16;webidl:duplicate;;bar;m
+1;;webidl:no Exposed;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {"members": {
+      "bar": ["attribute", {
+        "type": "DOMString",
+        "getter": 1
+      }]
+    }, "Exposed":{}}]
+  },
+  "idl_defs": {
+  }
+}

@@ -1,0 +1,143 @@
+#data
+namespace A {
+};
+partial namespace A {
+  readonly attribute DOMString foo;
+};
+#errors
+1;;webidl:no Exposed;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {"members": {
+      "foo": ["attribute", {
+        "type": "DOMString",
+        "getter": 1
+      }]
+    }, "Exposed": {}}]
+  },
+  "idl_defs": {
+  }
+}
+
+#data
+partial namespace A {
+  readonly attribute DOMString foo;
+};
+namespace A {
+};
+#errors
+1;;webidl:no Exposed;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {"members": {
+      "foo": ["attribute", {
+        "type": "DOMString",
+        "getter": 1
+      }]
+    }, "Exposed": {}}]
+  },
+  "idl_defs": {
+  }
+}
+
+#data
+interface A { };
+partial namespace A {
+  readonly attribute DOMString foo;
+};
+#errors
+1;17;webidl:bad type;;namespace;m
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "global_members": {
+    "A": ["object", {"Exposed": {}}]
+  },
+  "idl_defs": {
+    "A": ["interface", {"members": {}, "Exposed": {}}]
+  }
+}
+
+#data
+partial namespace A {
+  readonly attribute DOMString foo;
+};
+interface A { };
+#errors
+1;61;webidl:bad type;;interface;m
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "global_members": {
+    "A": ["object", {"Exposed": {}}]
+  },
+  "idl_defs": {
+    "A": ["interface", {"members": {}, "Exposed": {}}]
+  }
+}
+
+#data
+interface mixin A { };
+partial namespace A {
+  readonly attribute DOMString foo;
+};
+#errors
+1;23;webidl:bad type;;namespace;m
+#processed
+{
+  "global_members": {
+  },
+  "idl_defs": {
+    "A": ["interface_mixin", {"members": {}}]
+  }
+}
+
+#data
+partial namespace A {
+  readonly attribute DOMString foo;
+};
+interface mixin A { };
+#errors
+1;61;webidl:bad type;;interface;m
+#processed
+{
+  "global_members": {
+  },
+  "idl_defs": {
+    "A": ["interface_mixin", {"members": {}}]
+  }
+}
+
+#data
+dictionary A { };
+partial namespace A {
+  readonly attribute DOMString foo;
+};
+#errors
+1;18;webidl:bad type;;namespace;m
+#processed
+{
+  "global_members": {
+  },
+  "idl_defs": {
+    "A": ["dictionary", {"members": {}}]
+  }
+}
+
+#data
+partial namespace A {
+  readonly attribute DOMString foo;
+};
+dictionary A { };
+#errors
+1;61;webidl:bad type;;dictionary;m
+#processed
+{
+  "global_members": {
+  },
+  "idl_defs": {
+    "A": ["dictionary", {"members": {}}]
+  }
+}

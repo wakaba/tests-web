@@ -565,7 +565,7 @@ callback interface A {};
 
 #data
 [Constructor]
-A implements B;
+A includes B;
 interface A {};
 interface B {};
 #errors
@@ -1504,12 +1504,12 @@ interface A {
   [Unforgeable] static attribute DOMString foo;
 };
 #errors
+1;17;webidl:not allowed;;Unforgeable;m
 #processed
 {
   "A": ["interface", {
     "members": {
       "foo": ["static_attribute", {
-        "Unforgeable": 1,
         "type": "DOMString",
         "getter": 1, "setter": 1
       }]

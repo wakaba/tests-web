@@ -1,0 +1,93 @@
+#data
+interface mixin Foo { };
+#errors
+#parsed
+{
+  "definitions" : [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "mixin": 1,
+      "name": "Foo",
+      "members": []
+    }
+  ]
+}
+
+#data
+[Exposed=(Window)]
+interface mixin Foo { };
+#errors
+#parsed
+{
+  "definitions" : [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "mixin": 1,
+      "name": "Foo",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "Exposed",
+          "value_names": ["Window"]          
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface mixin Foo {
+  const long bar = 4;
+  void baz ();
+  attribute DOMString x;
+};
+#errors
+#parsed
+{
+  "definitions" : [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "mixin": 1,
+      "name": "Foo",
+      "members": [
+        {"index": 24, "member_type": "const", "name": "bar",
+         "type": "long", "value_integer": 4},
+        {"index": 46, "member_type": "operation", "name": "baz",
+         "arguments": [], "type": "void"},
+        {"index": 61, "member_type": "attribute", "name": "x",
+         "type": "DOMString"}
+      ]
+    }
+  ]
+}
+
+#data
+interface mixin Foo : Bar { };
+#errors
+20;webidl:parse error;{, ;;m
+
+#data
+callback interface mixin Foo  { };
+#errors
+19;webidl:parse error;[, ;;m
+
+#data
+partial interface mixin Foo { };
+#errors
+#parsed
+{
+  "definitions" : [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "mixin": 1,
+      "partial": 1,
+      "name": "Foo",
+      "members": []
+    }
+  ]
+}

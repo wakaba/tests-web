@@ -1,0 +1,42 @@
+#data
+namespace Foo { };
+#errors
+#parsed
+{
+  "definitions" : [
+    {
+      "index": 0,
+      "definition_type": "namespace",
+      "name": "Foo",
+      "members": []
+    }
+  ]
+}
+
+#data
+namespace Foo : Bar { };
+#errors
+14;webidl:parse error;{, ;;m
+
+#data
+namespace Foo {
+  void baz ();
+  readonly attribute DOMString x;
+};
+#errors
+#parsed
+{
+  "definitions" : [
+    {
+      "index": 0,
+      "definition_type": "namespace",
+      "name": "Foo",
+      "members": [
+        {"index": 18, "member_type": "operation", "name": "baz",
+         "arguments": [], "type": "void"},
+        {"index": 33, "member_type": "attribute", "name": "x",
+         "type": "DOMString", "readonly":1}
+      ]
+    }
+  ]
+}

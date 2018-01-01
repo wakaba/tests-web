@@ -1,0 +1,199 @@
+#data
+partial interface mixin A { };
+#errors
+1;0;webidl:not defined;;A;m
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {"members": {}}]
+  }
+}
+
+#data
+interface mixin A { };
+partial interface mixin A { };
+#errors
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {"members": {}}]
+  }
+}
+
+#data
+partial interface mixin A { };
+interface mixin A { };
+#errors
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {"members": {}}]
+  }
+}
+
+#data
+interface mixin A { };
+partial interface mixin A {
+  attribute long foo;
+};
+#errors
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {"members": {
+      "foo": ["attribute", {"type": "long", "getter": 1, "setter": 1}]
+    }}]
+  }
+}
+
+#data
+interface mixin A { };
+partial interface mixin A {
+  attribute long foo;
+};
+partial interface mixin A {
+  attribute long bar;
+};
+#errors
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {"members": {
+      "foo": ["attribute", {"type": "long", "getter": 1, "setter": 1}],
+      "bar": ["attribute", {"type": "long", "getter": 1, "setter": 1}]
+    }}]
+  }
+}
+
+#data
+interface mixin A { };
+partial interface mixin A {
+  attribute long foo;
+};
+partial interface mixin A {
+  attribute unsigned long foo;
+};
+#errors
+1;106;webidl:duplicate;;foo;m
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {"members": {
+      "foo": ["attribute", {"type": "long", "getter": 1, "setter": 1}]
+    }}]
+  }
+}
+
+#data
+partial interface mixin A {
+  attribute long foo;
+};
+interface mixin A { };
+#errors
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {"members": {
+      "foo": ["attribute", {"type": "long", "getter": 1, "setter": 1}]
+    }}]
+  }
+}
+
+#data
+interface A { };
+partial interface mixin A { };
+#errors
+1;17;webidl:bad type;;interface;m
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "global_members": {
+    "A": ["object", {"Exposed": {}}]
+  },
+  "idl_defs": {
+    "A": ["interface", {"members": {}, "Exposed": {}}]
+  }
+}
+
+#data
+callback interface A { };
+partial interface mixin A { };
+#errors
+1;26;webidl:bad type;;interface;m
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "global_members": {
+  },
+  "idl_defs": {
+    "A": ["callback_interface", {"members": {}, "Exposed": {}}]
+  }
+}
+
+#data
+partial interface mixin A { };
+interface A { };
+#errors
+1;31;webidl:bad type;;interface;m
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "global_members": {
+    "A": ["object", {"Exposed": {}}]
+  },
+  "idl_defs": {
+    "A": ["interface", {"members": {}, "Exposed": {}}]
+  }
+}
+
+#data
+partial interface mixin A { };
+callback interface A { };
+#errors
+1;31;webidl:bad type;;interface;m
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "global_members": {
+  },
+  "idl_defs": {
+    "A": ["callback_interface", {"members": {}, "Exposed": {}}]
+  }
+}
+
+#data
+partial interface mixin A { };
+namespace A { };
+#errors
+1;31;webidl:bad type;;namespace;m
+1;;webidl:no Exposed;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {"members": {}, "Exposed": {}}]
+  },
+  "idl_defs": {
+  }
+}
+
+#data
+namespace A { };
+partial interface mixin A { };
+#errors
+1;17;webidl:bad type;;interface;m
+1;;webidl:no Exposed;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {"members": {}, "Exposed": {}}]
+  },
+  "idl_defs": {
+  }
+}

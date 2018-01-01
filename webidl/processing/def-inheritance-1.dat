@@ -45,25 +45,25 @@ dictionary B { };
 interface A : B {};
 class B { };
 #errors
-1;26;webidl:parse error;implements, ;;m
+1;26;webidl:parse error;includes, ;;m
 
 #data
 class A extends B {};
 interface B { };
 #errors
-1;6;webidl:parse error;implements, ;;m
+1;6;webidl:parse error;includes, ;;m
 
 #data
 class A extends B {};
 interface B { };
 #errors
-1;6;webidl:parse error;implements, ;;m
+1;6;webidl:parse error;includes, ;;m
 
 #data
 class A extends B {};
 class B { };
 #errors
-1;6;webidl:parse error;implements, ;;m
+1;6;webidl:parse error;includes, ;;m
 
 #data
 interface A : B {};
@@ -173,7 +173,7 @@ interface B {};
 #data
 callback interface A {};
 callback interface B {};
-B implements A;
+B includes A;
 #errors
 1;50;webidl:bad type;;A;m
 #processed
@@ -185,7 +185,7 @@ B implements A;
 #data
 interface A {};
 callback interface B {};
-B implements A;
+B includes A;
 #errors
 1;41;webidl:bad type;;A;m
 #processed

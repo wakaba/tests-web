@@ -1,0 +1,91 @@
+#data
+namespace A { };
+#errors
+1;;webidl:no Exposed;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {"members": {}, "Exposed": {}}]
+  },
+  "idl_defs": {
+  }
+}
+
+#data
+namespace A { };
+namespace A { };
+#errors
+1;17;webidl:duplicate;;A;m
+1;;webidl:no Exposed;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {"members": {}, "Exposed": {}}]
+  },
+  "idl_defs": {
+  }
+}
+
+#data
+namespace A { };
+interface A { };
+#errors
+1;17;webidl:duplicate;;A;m
+1;;webidl:no Exposed;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {"members": {}, "Exposed": {}}]
+  },
+  "idl_defs": {
+  }
+}
+
+#data
+namespace A { };
+dictionary A { };
+#errors
+1;17;webidl:duplicate;;A;m
+1;;webidl:no Exposed;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {"members": {}, "Exposed": {}}]
+  },
+  "idl_defs": {
+  }
+}
+
+#data
+namespace A { };
+[NamedConstructor=A, NoInterfaceObject] interface B { };
+#errors
+1;;webidl:no Exposed;;A;m
+1;;webidl:no Exposed;;B;w
+1;;webidl:duplicate;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {"members": {}, "Exposed": {}}]
+  },
+  "idl_defs": {
+    "B": ["interface", {"members": {}, "Exposed": {}, "NoInterfaceObject":1}]
+  }
+}
+
+#data
+[NamedConstructor=A, NoInterfaceObject] interface B { };
+namespace A { };
+#errors
+1;;webidl:no Exposed;;A;m
+1;;webidl:no Exposed;;B;w
+1;;webidl:duplicate;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {"members": {}, "Exposed": {}}]
+  },
+  "idl_defs": {
+    "B": ["interface", {"members": {}, "Exposed": {}, "NoInterfaceObject":1}]
+  }
+}

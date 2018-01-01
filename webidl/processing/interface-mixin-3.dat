@@ -1,0 +1,138 @@
+#data
+[Exposed=(G),NoInterfaceObject,Global] interface G { };
+[Exposed=(G)]
+interface mixin A {
+  attribute long foo;
+};
+#errors
+#processed
+{
+  "global_members": {},
+  "global_names": {"G":{"G":1}},
+  "idl_defs": {
+    "G": ["interface", {"members": {}, "Exposed":{"G":1},
+                        "Global":1, "NoInterfaceObject":1}],
+    "A": ["interface_mixin", {"members": {
+      "foo": ["attribute", {"type": "long", "getter": 1, "setter": 1}]
+    }, "Exposed":{"G":1}}]
+  }
+}
+
+#data
+[Exposed=(G),NoInterfaceObject,Global] interface G { };
+[Exposed=(G2),NoInterfaceObject,Global] interface G2 { };
+[Exposed=(G,G2)]
+interface mixin A {
+  attribute long foo;
+};
+#errors
+#processed
+{
+  "global_members": {},
+  "global_names": {"G":{"G":1},"G2":{"G2":1}},
+  "idl_defs": {
+    "G": ["interface", {"members": {}, "Exposed":{"G":1},
+                        "Global":1, "NoInterfaceObject":1}],
+    "G2": ["interface", {"members": {}, "Exposed":{"G2":1},
+                         "Global":1, "NoInterfaceObject":1}],
+    "A": ["interface_mixin", {"members": {
+      "foo": ["attribute", {"type": "long", "getter": 1, "setter": 1}]
+    }, "Exposed":{"G":1,"G2":1}}]
+  }
+}
+
+#data
+[Exposed=(G),NoInterfaceObject,Global] interface G { };
+[Exposed=(G2),NoInterfaceObject,Global] interface G2 { };
+[Exposed=(G,G2)]
+interface mixin A {
+  [Exposed=(G,G2)] attribute long foo;
+};
+#errors
+#processed
+{
+  "global_members": {},
+  "global_names": {"G":{"G":1},"G2":{"G2":1}},
+  "idl_defs": {
+    "G": ["interface", {"members": {}, "Exposed":{"G":1},
+                        "Global":1, "NoInterfaceObject":1}],
+    "G2": ["interface", {"members": {}, "Exposed":{"G2":1},
+                         "Global":1, "NoInterfaceObject":1}],
+    "A": ["interface_mixin", {"members": {
+      "foo": ["attribute", {"type": "long", "getter": 1, "setter": 1,
+                            "Exposed":{"G":1,"G2":1}}]
+    }, "Exposed":{"G":1,"G2":1}}]
+  }
+}
+
+#data
+[Exposed=(G),NoInterfaceObject,Global] interface G { };
+[Exposed=(G2),NoInterfaceObject,Global] interface G2 { };
+interface mixin A {
+  [Exposed=(G,G2)] attribute long foo;
+};
+#errors
+#processed
+{
+  "global_members": {},
+  "global_names": {"G":{"G":1},"G2":{"G2":1}},
+  "idl_defs": {
+    "G": ["interface", {"members": {}, "Exposed":{"G":1},
+                        "Global":1, "NoInterfaceObject":1}],
+    "G2": ["interface", {"members": {}, "Exposed":{"G2":1},
+                         "Global":1, "NoInterfaceObject":1}],
+    "A": ["interface_mixin", {"members": {
+      "foo": ["attribute", {"type": "long", "getter": 1, "setter": 1,
+                            "Exposed":{"G":1,"G2":1}}]
+    }}]
+  }
+}
+
+#data
+[Exposed=(G),NoInterfaceObject,Global] interface G { };
+[Exposed=(G2),NoInterfaceObject,Global] interface G2 { };
+[Exposed=(G,G2)]
+interface mixin A {
+  [Exposed=(G)] attribute long foo;
+};
+#errors
+#processed
+{
+  "global_members": {},
+  "global_names": {"G":{"G":1},"G2":{"G2":1}},
+  "idl_defs": {
+    "G": ["interface", {"members": {}, "Exposed":{"G":1},
+                        "Global":1, "NoInterfaceObject":1}],
+    "G2": ["interface", {"members": {}, "Exposed":{"G2":1},
+                         "Global":1, "NoInterfaceObject":1}],
+    "A": ["interface_mixin", {"members": {
+      "foo": ["attribute", {"type": "long", "getter": 1, "setter": 1,
+                            "Exposed":{"G":1}}]
+    }, "Exposed":{"G":1,"G2":1}}]
+  }
+}
+
+#data
+[Exposed=(G),NoInterfaceObject,Global] interface G { };
+[Exposed=(G2),NoInterfaceObject,Global] interface G2 { };
+[Exposed=(G)]
+interface mixin A {
+  [Exposed=(G,G2)] attribute long foo;
+};
+#errors
+1;;webidl:not allowed;;[Exposed=G2];w
+#processed
+{
+  "global_members": {},
+  "global_names": {"G":{"G":1},"G2":{"G2":1}},
+  "idl_defs": {
+    "G": ["interface", {"members": {}, "Exposed":{"G":1},
+                        "Global":1, "NoInterfaceObject":1}],
+    "G2": ["interface", {"members": {}, "Exposed":{"G2":1},
+                         "Global":1, "NoInterfaceObject":1}],
+    "A": ["interface_mixin", {"members": {
+      "foo": ["attribute", {"type": "long", "getter": 1, "setter": 1,
+                            "Exposed":{"G":1}}]
+    }, "Exposed":{"G":1}}]
+  }
+}

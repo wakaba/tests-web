@@ -1,0 +1,110 @@
+#data
+interface mixin A { };
+#errors
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {"members": {}}]
+  }
+}
+
+#data
+[Exposed=(Window),Global,NoInterfaceObject] interface Window { };
+[Exposed=(Window)]
+interface mixin A { };
+#errors
+#processed
+{
+  "global_members": {},
+  "global_names": {"Window":{"Window":1}},
+  "idl_defs": {
+    "Window": ["interface", {"members": {}, "Exposed": {"Window":1},
+                             "Global": 1, "NoInterfaceObject": 1}],
+    "A": ["interface_mixin", {"members": {}, "Exposed": {"Window":1}}]
+  }
+}
+
+#data
+interface mixin A { };
+interface mixin A { };
+#errors
+1;23;webidl:duplicate;;A;m
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {"members": {}}]
+  }
+}
+
+#data
+interface mixin A { };
+interface A { };
+#errors
+1;23;webidl:duplicate;;A;m
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {"members": {}}]
+  }
+}
+
+#data
+interface mixin A { };
+callback interface A { };
+#errors
+1;23;webidl:duplicate;;A;m
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {"members": {}}]
+  }
+}
+
+#data
+interface A { };
+interface mixin A { };
+#errors
+1;17;webidl:duplicate;;A;m
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "global_members": {
+    "A": ["object", {"Exposed":{}}]
+  },
+  "idl_defs": {
+    "A": ["interface", {"members": {}, "Exposed": {}}]
+  }
+}
+
+#data
+callback interface A { };
+interface mixin A { };
+#errors
+1;26;webidl:duplicate;;A;m
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["callback_interface", {"members": {}, "Exposed": {}}]
+  }
+}
+
+#data
+interface mixin A {
+  attribute long foo;
+};
+#errors
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {"members": {
+      "foo": ["attribute", {"type": "long", "getter": 1, "setter": 1}]
+    }}]
+  }
+}

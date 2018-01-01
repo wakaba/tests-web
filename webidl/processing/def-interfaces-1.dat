@@ -39,7 +39,7 @@ partial interface A { };
 #data
 interface A {};
 interface B {};
-A implements B;
+A includes B;
 #processed
 {
   "A": ["interface", {"members": {},
@@ -52,7 +52,7 @@ A implements B;
 #data
 interface A {};
 callback interface B {};
-A implements B;
+A includes B;
 #errors
 1;41;webidl:bad type;;B;m
 #processed
@@ -64,7 +64,7 @@ A implements B;
 #data
 callback interface A {};
 interface B {};
-A implements B;
+A includes B;
 #errors
 1;41;webidl:bad type;;B;m
 #processed
@@ -76,7 +76,7 @@ A implements B;
 #data
 callback  interface A {};
 callback interface B {};
-A implements B;
+A includes B;
 #errors
 1;51;webidl:bad type;;B;m
 #processed
@@ -88,14 +88,14 @@ A implements B;
 #data
 class A {};
 interface B {};
-A implements B;
+A includes B;
 #errors
-1;6;webidl:parse error;implements, ;;m
+1;6;webidl:parse error;includes, ;;m
 
 #data
 interface A {};
 dictionary B {};
-A implements B;
+A includes B;
 #errors
 1;33;webidl:bad type;;B;m
 #processed
@@ -107,13 +107,13 @@ A implements B;
 #data
 interface A {};
 class B {};
-A implements B;
+A includes B;
 #errors
-1;22;webidl:parse error;implements, ;;m
+1;22;webidl:parse error;includes, ;;m
 
 #data
 interface A {};
-A implements B;
+A includes B;
 #errors
 1;16;webidl:not defined;;B;m
 #processed
@@ -123,7 +123,7 @@ A implements B;
 
 #data
 interface A {};
-A implements A;
+A includes A;
 #errors
 1;16;webidl:cyclic inheritance;;A;m
 1;16;webidl:implements implements;;A;w
@@ -135,7 +135,7 @@ A implements A;
 #data
 interface A {};
 interface B : A {};
-B implements A;
+B includes A;
 #errors
 1;36;webidl:cyclic inheritance;;A;m
 #processed
@@ -147,7 +147,7 @@ B implements A;
 #data
 interface A {};
 interface B : A {};
-A implements B;
+A includes B;
 #errors
 1;36;webidl:cyclic inheritance;;B;m
 #processed
@@ -160,7 +160,7 @@ A implements B;
 interface A {};
 interface B : A {};
 interface C : B {};
-A implements C;
+A includes C;
 #errors
 1;56;webidl:cyclic inheritance;;C;m
 #processed
@@ -175,7 +175,7 @@ A implements C;
 interface A {};
 interface B : A {};
 interface C : B {};
-C implements A;
+C includes A;
 #errors
 1;56;webidl:cyclic inheritance;;A;m
 #processed
@@ -190,10 +190,10 @@ C implements A;
 interface A {};
 interface B {};
 interface C {};
-A implements B;
-B implements C;
+A includes B;
+B includes C;
 #errors
-1;64;webidl:implements implements;;B;w
+1;62;webidl:implements implements;;B;w
 #processed
 {
   "A":["interface", {"members": {},
@@ -211,14 +211,14 @@ B implements C;
 interface A {};
 interface B {};
 interface C {};
-A implements B;
-B implements C;
-C implements A;
+A includes B;
+B includes C;
+C includes A;
 #errors
-1;80;webidl:cyclic inheritance;;A;m
+1;76;webidl:cyclic inheritance;;A;m
 1;48;webidl:implements implements;;A;w
-1;64;webidl:implements implements;;B;w
-1;80;webidl:implements implements;;C;w
+1;62;webidl:implements implements;;B;w
+1;76;webidl:implements implements;;C;w
 #processed
 {
   "A":["interface", {"members": {},
@@ -235,12 +235,12 @@ C implements A;
 #data
 interface A {};
 interface B {};
-A implements B;
-B implements A;
+A includes B;
+B includes A;
 #errors
-1;48;webidl:cyclic inheritance;;A;m
+1;46;webidl:cyclic inheritance;;A;m
 1;32;webidl:implements implements;;A;w
-1;48;webidl:implements implements;;B;w
+1;46;webidl:implements implements;;B;w
 #processed
 {
   "A":["interface", {"members": {},
@@ -253,7 +253,7 @@ B implements A;
 interface A {};
 interface B : A {};
 interface C {};
-C implements B;
+C includes B;
 #processed
 {
   "A": ["interface", {"members": {}}],
@@ -273,10 +273,10 @@ interface Z {};
 interface A {};
 interface B : A {};
 interface C {};
-C implements B;
-B implements Z;
+C includes B;
+B includes Z;
 #errors
-1;84;webidl:implements implements;;B;w
+1;82;webidl:implements implements;;B;w
 #processed
 {
   "A": ["interface", {"members": {}}],
@@ -303,8 +303,8 @@ interface Z {};
 interface A {};
 interface B : A {};
 interface C {};
-B implements Z;
-C implements B;
+B includes Z;
+C includes B;
 #errors
 1;68;webidl:implements implements;;B;w
 #processed
@@ -333,10 +333,10 @@ interface Z {};
 interface A {};
 interface B : A {};
 interface C {};
-C implements B;
-A implements Z;
+C includes B;
+A includes Z;
 #errors
-1;84;webidl:implements implements;;A;w
+1;82;webidl:implements implements;;A;w
 #processed
 {
   "A": ["interface", {"members": {},
@@ -365,8 +365,8 @@ interface Z {};
 interface A {};
 interface B : A {};
 interface C {};
-A implements Z;
-C implements B;
+A includes Z;
+C includes B;
 #errors
 1;68;webidl:implements implements;;A;w
 #processed
@@ -396,7 +396,7 @@ C implements B;
 interface A {};
 interface B : A {};
 interface C {};
-A implements C;
+A includes C;
 #processed
 {
   "A": ["interface", {"members": {},
