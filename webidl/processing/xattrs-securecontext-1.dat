@@ -535,3 +535,242 @@ partial interface A {
     }]
   }
 }
+
+#data
+[SecureContext]
+interface mixin A { };
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {
+      "members": {},
+      "SecureContext": 1
+    }]
+  }
+}
+
+#data
+[SecureContext]
+interface mixin A { };
+partial interface mixin A { };
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {
+      "members": {},
+      "SecureContext": 1
+    }]
+  }
+}
+
+#data
+interface mixin A { };
+[SecureContext]
+partial interface mixin A { };
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {
+      "members": {}
+    }]
+  }
+}
+
+#data
+[SecureContext]
+interface mixin A { };
+[SecureContext]
+partial interface mixin A { };
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {
+      "members": {},
+      "SecureContext": 1
+    }]
+  }
+}
+
+#data
+interface mixin A {
+  [SecureContext] attribute long x;
+};
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {
+      "members": {
+        "x": ["attribute", {
+          "SecureContext": 1,
+          "type": "long",
+          "getter": 1, "setter": 1
+        }]
+      }
+    }]
+  }
+}
+
+#data
+interface mixin A { };
+partial interface mixin A {
+  [SecureContext] attribute long x;
+};
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {
+      "members": {
+        "x": ["attribute", {
+          "SecureContext": 1,
+          "type": "long",
+          "getter": 1, "setter": 1
+        }]
+      }
+    }]
+  }
+}
+
+#data
+interface mixin A { };
+[SecureContext]
+partial interface mixin A {
+  attribute long x;
+};
+#processed
+{
+  "global_members": {},
+  "idl_defs": {
+    "A": ["interface_mixin", {
+      "members": {
+        "x": ["attribute", {
+          "SecureContext": 1,
+          "type": "long",
+          "getter": 1, "setter": 1
+        }]
+      }
+    }]
+  }
+}
+
+#data
+[SecureContext]
+namespace A  { };
+#errors
+1;;webidl:no Exposed;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {
+      "members": {},
+      "Exposed": {},
+      "SecureContext": 1
+    }]
+  },
+  "idl_defs": {}
+}
+
+#data
+namespace A { };
+[SecureContext]
+partial namespace A  { };
+#errors
+1;;webidl:no Exposed;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {
+      "members": {},
+      "Exposed": {}
+    }]
+  },
+  "idl_defs": {}
+}
+
+#data
+[SecureContext]
+namespace A {
+  readonly attribute long b;
+};
+#errors
+1;;webidl:no Exposed;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {
+      "members": {
+        "b": ["attribute", {"type": "long", "getter": 1, "SecureContext": 1}]
+      },
+      "Exposed": {},
+      "SecureContext": 1
+    }]
+  },
+  "idl_defs": {}
+}
+
+#data
+namespace A {
+  [SecureContext]
+  readonly attribute long b;
+};
+#errors
+1;;webidl:no Exposed;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {
+      "members": {
+        "b": ["attribute", {"type": "long", "getter": 1, "SecureContext": 1}]
+      },
+      "Exposed": {}
+    }]
+  },
+  "idl_defs": {}
+}
+
+#data
+namespace A { };
+[SecureContext]
+partial namespace A {
+  readonly attribute long b;
+};
+#errors
+1;;webidl:no Exposed;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {
+      "members": {
+        "b": ["attribute", {"type": "long", "getter": 1, "SecureContext": 1}]
+      },
+      "Exposed": {}
+    }]
+  },
+  "idl_defs": {}
+}
+
+#data
+namespace A { };
+partial namespace A {
+  [SecureContext]
+  readonly attribute long b;
+};
+#errors
+1;;webidl:no Exposed;;A;m
+#processed
+{
+  "global_members": {
+    "A": ["namespace", {
+      "members": {
+        "b": ["attribute", {"type": "long", "getter": 1, "SecureContext": 1}]
+      },
+      "Exposed": {}
+    }]
+  },
+  "idl_defs": {}
+}
