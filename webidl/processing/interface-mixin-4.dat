@@ -1,0 +1,27 @@
+#data
+interface mixin A { };
+interface B {
+  attribute A ffoo;
+};
+#errors
+1;;webidl:no Exposed;;B;w
+#XXX ref_interface_mixin error
+#processed
+{
+  "global_members": {
+    "B": ["object", {"Exposed": {}}]
+  },
+  "idl_defs": {
+    "A": ["interface_mixin", {"members": {}}],
+    "B": ["interface", {
+      "members": {
+        "ffoo": ["attribute", {
+          "type": ["ref_interface_mixin", "A"],
+          "getter": 1,
+          "setter": 1
+        }]
+      },
+      "Exposed": {}
+    }]
+  }
+}

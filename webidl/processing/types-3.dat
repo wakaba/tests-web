@@ -3,7 +3,7 @@ dictionary A {
   A foo ;
 };
 #errors
-1;;webidl:cyclic inheritance;;A;m
+1;;webidl:dictionary:cyclic;;A;m
 #processed
 {
   "A": ["dictionary", {
@@ -22,8 +22,8 @@ dictionary A {
   B foo ;
 };
 #errors
-1;;webidl:cyclic inheritance;;A;m
-1;;webidl:cyclic inheritance;;B;m
+1;;webidl:dictionary:cyclic;;A;m
+1;;webidl:dictionary:cyclic;;B;m
 #processed
 {
   "A": ["dictionary", {
@@ -48,7 +48,7 @@ dictionary A {
   A? foo ;
 };
 #errors
-1;;webidl:cyclic inheritance;;A;m
+1;;webidl:dictionary:cyclic;;A;m
 #processed
 {
   "A": ["dictionary", {
@@ -68,7 +68,7 @@ dictionary A {
   sequence<A> foo ;
 };
 #errors
-1;;webidl:cyclic inheritance;;A;m
+1;;webidl:dictionary:cyclic;;A;m
 #processed
 {
   "A": ["dictionary", {
@@ -88,7 +88,7 @@ dictionary A {
   (A or long) foo ;
 };
 #errors
-1;;webidl:cyclic inheritance;;A;m
+1;;webidl:dictionary:cyclic;;A;m
 #processed
 {
   "A": ["dictionary", {
@@ -116,8 +116,8 @@ dictionary B {
   A foo;
 };
 #errors
-1;;webidl:cyclic inheritance;;A;m
-1;;webidl:cyclic inheritance;;B;m
+1;;webidl:dictionary:cyclic;;A;m
+1;;webidl:dictionary:cyclic;;B;m
 #processed
 {
   "A": ["dictionary", {
@@ -147,9 +147,9 @@ dictionary B {
 };
 dictionary C : B {};
 #errors
-1;;webidl:cyclic inheritance;;A;m
-1;;webidl:cyclic inheritance;;B;m
-1;;webidl:cyclic inheritance;;C;m
+1;;webidl:dictionary:cyclic;;A;m
+1;;webidl:dictionary:cyclic;;B;m
+1;;webidl:dictionary:cyclic;;C;m
 #processed
 {
   "A": ["dictionary", {

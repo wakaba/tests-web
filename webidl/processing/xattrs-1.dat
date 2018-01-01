@@ -567,29 +567,24 @@ callback interface A {};
 [Constructor]
 A includes B;
 interface A {};
-interface B {};
+interface mixin B {};
 #errors
 1;1;webidl:not allowed;;Constructor;m
 1;;webidl:no Exposed;;A;w
-1;;webidl:no Exposed;;B;w
 #processed
 {
   "idl_defs": {
   "A": ["interface", {
     "members": {},
-    "implements": {"B": {"depth": 1, "consequential": 1, "supplemental": 1}},
+    "implements": {"B": {"depth": 1, "supplemental": 1}},
     "Exposed":{}
   }],
-  "B": ["interface", {
-    "members": {},
-    "Exposed":{}
+  "B": ["interface_mixin", {
+    "members": {}
   }]
   },
   "global_members": {
     "A": ["object", {
-      "Exposed":{}
-    }],
-    "B": ["object", {
       "Exposed":{}
     }]
   }

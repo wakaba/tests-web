@@ -175,7 +175,8 @@ callback interface A {};
 callback interface B {};
 B includes A;
 #errors
-1;50;webidl:bad type;;A;m
+1;50;webidl:includes:left is not interface;;B;m
+1;50;webidl:includes:right is not mixin;;A;m
 #processed
 {
   "A": ["callback_interface", {"members": {}}],
@@ -187,7 +188,8 @@ interface A {};
 callback interface B {};
 B includes A;
 #errors
-1;41;webidl:bad type;;A;m
+1;41;webidl:includes:left is not interface;;B;m
+1;41;webidl:includes:right is not mixin;;A;m
 #processed
 {
   "A": ["interface", {"members": {}}],

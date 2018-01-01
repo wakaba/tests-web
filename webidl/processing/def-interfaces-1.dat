@@ -38,14 +38,38 @@ partial interface A { };
 
 #data
 interface A {};
-interface B {};
+interface mixin B {};
 A includes B;
 #processed
 {
   "A": ["interface", {"members": {},
                       "implements": {"B": {"depth": 1,
-                                           "supplemental": 1,
-                                           "consequential": 1}}}],
+                                           "supplemental": 1}}}],
+  "B": ["interface_mixin", {"members": {}}]
+}
+
+#data
+interface A {};
+interface B {};
+A includes B;
+#errors
+1;32;webidl:includes:right is not mixin;;B;m
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {}}]
+}
+
+#data
+interface mixin A {};
+interface B {};
+A includes B;
+#errors
+1;38;webidl:includes:left is not interface;;A;m
+1;38;webidl:includes:right is not mixin;;B;m
+#processed
+{
+  "A": ["interface_mixin", {"members": {}}],
   "B": ["interface", {"members": {}}]
 }
 
@@ -54,7 +78,7 @@ interface A {};
 callback interface B {};
 A includes B;
 #errors
-1;41;webidl:bad type;;B;m
+1;41;webidl:includes:right is not mixin;;B;m
 #processed
 {
   "A": ["interface", {"members": {}}],
@@ -66,7 +90,8 @@ callback interface A {};
 interface B {};
 A includes B;
 #errors
-1;41;webidl:bad type;;B;m
+1;41;webidl:includes:left is not interface;;A;m
+1;41;webidl:includes:right is not mixin;;B;m
 #processed
 {
   "A": ["callback_interface", {"members": {}}],
@@ -78,7 +103,8 @@ callback  interface A {};
 callback interface B {};
 A includes B;
 #errors
-1;51;webidl:bad type;;B;m
+1;51;webidl:includes:left is not interface;;A;m
+1;51;webidl:includes:right is not mixin;;B;m
 #processed
 {
   "A": ["callback_interface", {"members": {}}],
@@ -86,18 +112,11 @@ A includes B;
 }
 
 #data
-class A {};
-interface B {};
-A includes B;
-#errors
-1;6;webidl:parse error;includes, ;;m
-
-#data
 interface A {};
 dictionary B {};
 A includes B;
 #errors
-1;33;webidl:bad type;;B;m
+1;33;webidl:includes:right is not mixin;;B;m
 #processed
 {
   "A": ["interface", {"members": {}}],
@@ -125,8 +144,7 @@ A includes B;
 interface A {};
 A includes A;
 #errors
-1;16;webidl:cyclic inheritance;;A;m
-1;16;webidl:implements implements;;A;w
+1;16;webidl:includes:right is not mixin;;A;m
 #processed
 {
   "A": ["interface", {"members": {}}]
@@ -137,7 +155,7 @@ interface A {};
 interface B : A {};
 B includes A;
 #errors
-1;36;webidl:cyclic inheritance;;A;m
+1;36;webidl:includes:right is not mixin;;A;m
 #processed
 {
   "A": ["interface", {"members": {}}],
@@ -149,7 +167,7 @@ interface A {};
 interface B : A {};
 A includes B;
 #errors
-1;36;webidl:cyclic inheritance;;B;m
+1;36;webidl:includes:right is not mixin;;B;m
 #processed
 {
   "A": ["interface", {"members": {}}],
@@ -162,7 +180,7 @@ interface B : A {};
 interface C : B {};
 A includes C;
 #errors
-1;56;webidl:cyclic inheritance;;C;m
+1;56;webidl:includes:right is not mixin;;C;m
 #processed
 {
   "A": ["interface", {"members": {}}],
@@ -177,7 +195,7 @@ interface B : A {};
 interface C : B {};
 C includes A;
 #errors
-1;56;webidl:cyclic inheritance;;A;m
+1;56;webidl:includes:right is not mixin;;A;m
 #processed
 {
   "A": ["interface", {"members": {}}],
@@ -193,17 +211,12 @@ interface C {};
 A includes B;
 B includes C;
 #errors
-1;62;webidl:implements implements;;B;w
+1;48;webidl:includes:right is not mixin;;B;m
+1;62;webidl:includes:right is not mixin;;C;m
 #processed
 {
-  "A":["interface", {"members": {},
-                     "implements":{"B":{"depth":1,"supplemental":1,
-                                        "consequential":1},
-                                   "C":{"depth":2,"supplemental":1,
-                                        "consequential":1}}}],
-  "B":["interface", {"members": {},
-                     "implements":{"C":{"depth":1,"supplemental":1,
-                                        "consequential":1}}}],
+  "A":["interface", {"members": {}}],
+  "B":["interface", {"members": {}}],
   "C":["interface", {"members": {}}]
 }
 
@@ -215,20 +228,13 @@ A includes B;
 B includes C;
 C includes A;
 #errors
-1;76;webidl:cyclic inheritance;;A;m
-1;48;webidl:implements implements;;A;w
-1;62;webidl:implements implements;;B;w
-1;76;webidl:implements implements;;C;w
+1;48;webidl:includes:right is not mixin;;B;m
+1;62;webidl:includes:right is not mixin;;C;m
+1;76;webidl:includes:right is not mixin;;A;m
 #processed
 {
-  "A":["interface", {"members": {},
-                     "implements":{"B":{"depth":1,"supplemental":1,
-                                        "consequential":1},
-                                   "C":{"depth":2,"supplemental":1,
-                                        "consequential":1}}}],
-  "B":["interface", {"members": {},
-                     "implements":{"C":{"depth":1,"supplemental":1,
-                                        "consequential":1}}}],
+  "A":["interface", {"members": {}}],
+  "B":["interface", {"members": {}}],
   "C":["interface", {"members": {}}]
 }
 
@@ -238,14 +244,11 @@ interface B {};
 A includes B;
 B includes A;
 #errors
-1;46;webidl:cyclic inheritance;;A;m
-1;32;webidl:implements implements;;A;w
-1;46;webidl:implements implements;;B;w
+1;32;webidl:includes:right is not mixin;;B;m
+1;46;webidl:includes:right is not mixin;;A;m
 #processed
 {
-  "A":["interface", {"members": {},
-                     "implements":{"B":{"depth":1,"supplemental":1,
-                                        "consequential":1}}}],
+  "A":["interface", {"members": {}}],
   "B":["interface", {"members": {}}]
 }
 
@@ -254,18 +257,29 @@ interface A {};
 interface B : A {};
 interface C {};
 C includes B;
+#errors
+1;52;webidl:includes:right is not mixin;;B;m
 #processed
 {
   "A": ["interface", {"members": {}}],
   "B": ["interface", {"members": {},
                       "implements": {"A": {"depth":1}}}],
-  "C": ["interface", {"members": {},
-                      "implements": {"B": {"depth":1,
-                                           "supplemental": 1,
-                                           "consequential": 1},
-                                     "A": {"depth":2,
-                                           "supplemental": 1,
-                                           "consequential": 1}}}]
+  "C": ["interface", {"members": {}}]
+}
+
+#data
+interface mixin A {};
+interface B : A {};
+interface C {};
+C includes B;
+#errors
+1;22;webidl:bad type;;A;m
+1;58;webidl:includes:right is not mixin;;B;m
+#processed
+{
+  "A": ["interface_mixin", {"members": {}}],
+  "B": ["interface", {"members": {}}],
+  "C": ["interface", {"members": {}}]
 }
 
 #data
@@ -276,25 +290,14 @@ interface C {};
 C includes B;
 B includes Z;
 #errors
-1;82;webidl:implements implements;;B;w
+1;68;webidl:includes:right is not mixin;;B;m
+1;82;webidl:includes:right is not mixin;;Z;m
 #processed
 {
   "A": ["interface", {"members": {}}],
   "B": ["interface", {"members": {},
-                      "implements": {"A": {"depth":1},
-                                     "Z": {"depth": 1,
-                                           "supplemental": 1,
-                                           "consequential": 1}}}],
-  "C": ["interface", {"members": {},
-                      "implements": {"B": {"depth":1,
-                                           "supplemental": 1,
-                                           "consequential": 1},
-                                     "A": {"depth":2,
-                                           "supplemental": 1,
-                                           "consequential": 1},
-                                     "Z": {"depth": 2,
-                                           "supplemental": 1,
-                                           "consequential": 1}}}],
+                      "implements": {"A": {"depth":1}}}],
+  "C": ["interface", {"members": {}}],
   "Z": ["interface", {"members": {}}]
 }
 
@@ -306,25 +309,14 @@ interface C {};
 B includes Z;
 C includes B;
 #errors
-1;68;webidl:implements implements;;B;w
+1;68;webidl:includes:right is not mixin;;Z;m
+1;82;webidl:includes:right is not mixin;;B;m
 #processed
 {
   "A": ["interface", {"members": {}}],
   "B": ["interface", {"members": {},
-                      "implements": {"A": {"depth":1},
-                                     "Z": {"depth": 1,
-                                           "supplemental": 1,
-                                           "consequential": 1}}}],
-  "C": ["interface", {"members": {},
-                      "implements": {"B": {"depth":1,
-                                           "supplemental": 1,
-                                           "consequential": 1},
-                                     "A": {"depth":2,
-                                           "supplemental": 1,
-                                           "consequential": 1},
-                                     "Z": {"depth": 2,
-                                           "supplemental": 1,
-                                           "consequential": 1}}}],
+                      "implements": {"A": {"depth":1}}}],
+  "C": ["interface", {"members": {}}],
   "Z": ["interface", {"members": {}}]
 }
 
@@ -336,27 +328,14 @@ interface C {};
 C includes B;
 A includes Z;
 #errors
-1;82;webidl:implements implements;;A;w
+1;68;webidl:includes:right is not mixin;;B;m
+1;82;webidl:includes:right is not mixin;;Z;m
 #processed
 {
-  "A": ["interface", {"members": {},
-                      "implements": {"Z": {"depth": 1,
-                                           "supplemental": 1,
-                                           "consequential": 1}}}],
+  "A": ["interface", {"members": {}}],
   "B": ["interface", {"members": {},
-                      "implements": {"A": {"depth":1},
-                                     "Z": {"depth": 2,
-                                           "supplemental": 1}}}],
-  "C": ["interface", {"members": {},
-                      "implements": {"B": {"depth":1,
-                                           "supplemental": 1,
-                                           "consequential": 1},
-                                     "A": {"depth":2,
-                                           "supplemental": 1,
-                                           "consequential": 1},
-                                     "Z": {"depth": 3,
-                                           "supplemental": 1,
-                                           "consequential": 1}}}],
+                      "implements": {"A": {"depth":1}}}],
+  "C": ["interface", {"members": {}}],
   "Z": ["interface", {"members": {}}]
 }
 
@@ -368,27 +347,14 @@ interface C {};
 A includes Z;
 C includes B;
 #errors
-1;68;webidl:implements implements;;A;w
+1;68;webidl:includes:right is not mixin;;Z;m
+1;82;webidl:includes:right is not mixin;;B;m
 #processed
 {
-  "A": ["interface", {"members": {},
-                      "implements": {"Z": {"depth": 1,
-                                           "supplemental": 1,
-                                           "consequential": 1}}}],
+  "A": ["interface", {"members": {}}],
   "B": ["interface", {"members": {},
-                      "implements": {"A": {"depth":1},
-                                     "Z": {"depth": 2,
-                                           "supplemental": 1}}}],
-  "C": ["interface", {"members": {},
-                      "implements": {"B": {"depth":1,
-                                           "supplemental": 1,
-                                           "consequential": 1},
-                                     "A": {"depth":2,
-                                           "supplemental": 1,
-                                           "consequential": 1},
-                                     "Z": {"depth": 3,
-                                           "supplemental": 1,
-                                           "consequential": 1}}}],
+                      "implements": {"A": {"depth":1}}}],
+  "C": ["interface", {"members": {}}],
   "Z": ["interface", {"members": {}}]
 }
 
@@ -397,17 +363,51 @@ interface A {};
 interface B : A {};
 interface C {};
 A includes C;
+#errors
+1;52;webidl:includes:right is not mixin;;C;m
+#processed
+{
+  "A": ["interface", {"members": {}}],
+  "B": ["interface", {"members": {},
+                      "implements": {
+                        "A": {"depth": 1}
+                      }}],
+  "C": ["interface", {"members": {}}]
+}
+
+#data
+interface A {};
+interface B : A {};
+interface mixin C {};
+A includes C;
+#errors
 #processed
 {
   "A": ["interface", {"members": {},
                       "implements": {
-                        "C": {"depth": 1, "supplemental": 1,
-                              "consequential": 1}
+                        "C": {"depth": 1, "supplemental": 1}
                       }}],
   "B": ["interface", {"members": {},
                       "implements": {
                         "A": {"depth": 1},
                         "C": {"depth": 2, "supplemental": 1}
                       }}],
-  "C": ["interface", {"members": {}}]
+  "C": ["interface_mixin", {"members": {}}]
+}
+
+#data
+interface mixin A { };
+interface B : A { };
+#errors
+1;23;webidl:bad type;;A;m
+1;;webidl:no Exposed;;B;w
+#processed
+{
+  "global_members": {
+    "B": ["object", {"Exposed": {}}]
+  },
+  "idl_defs": {
+    "A": ["interface_mixin", {"members": {}}],
+    "B": ["interface", {"members": {}, "Exposed": {}}]
+  }
 }
