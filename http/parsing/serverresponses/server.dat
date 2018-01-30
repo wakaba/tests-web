@@ -1,5 +1,5 @@
 #name
-bad request-line
+bad request-line 1
 #input
 "hoge"
 #result
@@ -10,21 +10,21 @@ bad request-line
 apache - timeout
 
 #name
-bad request-line
+bad request-line 2
 #input
 "GET"CRLF
 #result
 {{400body}}{{eof}}
 
 #name
-bad request-line
+bad request-line 3
 #input
 "GET foo"CRLF
 #result
 {{400body}}{{eof}}
 
 #name
-bad request-line
+bad request-line 4
 #input
 "GET hoge"LF
 #result
