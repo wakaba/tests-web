@@ -5,6 +5,8 @@ data:
 #tag
 no scheme-specific data
 no media type separator
+#errors
+m;URL:data:no ,;
 
 #data
 DATA:
@@ -13,6 +15,8 @@ DATA:
 #tag
 no scheme-specific data
 no media type separator
+#errors
+m;URL:data:no ,;
 
 #data
 Data:
@@ -21,6 +25,8 @@ Data:
 #tag
 no scheme-specific data
 no media type separator
+#errors
+m;URL:data:no ,;
 
 #data
 data:,
@@ -30,6 +36,8 @@ The shortest conforming data: URI
 implied media type
 implied charset
 empty data
+#mime text/plain;charset=US-ASCII
+#body
 
 #data
 data:%2C
@@ -37,6 +45,8 @@ data:%2C
 "," is percent-encoded
 #tag
 no media type separator
+#errors
+m;URL:data:no ,;
 
 #data
 data:text
@@ -44,6 +54,8 @@ data:text
 "," missing
 #tag
 broken media type
+#errors
+m;URL:data:no ,;
 
 #data
 data:test
@@ -51,6 +63,8 @@ data:test
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
 #tag
 broken media type
+#errors
+m;URL:data:no ,;
 
 #data
 data:,
@@ -60,6 +74,8 @@ data:,
 implied media type
 implied charset
 empty data
+#mime text/plain;charset=US-ASCII
+#body
 
 #data
 data:text/plain
@@ -67,6 +83,8 @@ data:text/plain
 "," missing
 #tag
 no media type separator
+#errors
+m;URL:data:no ,;
 
 #data
 data:text/plain,
@@ -75,6 +93,8 @@ data:text/plain,
 #tag
 implied charset
 empty data
+#mime text/plain
+#body
 
 #data
 data:text/plain;charset=utf-16,
@@ -82,6 +102,8 @@ data:text/plain;charset=utf-16,
 UTF-16 without BOM
 #tag
 empty data
+#mime text/plain;charset=utf-16
+#body
 
 #data
 data:text,abc
@@ -89,6 +111,11 @@ data:text,abc
 "text" is not a valid IMT
 #tag
 broken media type
+#mime text/plain;charset=US-ASCII
+#body
+abc
+#errors
+m;MIME type:no /;text
 
 #data
 data:text/plain;charset=us-ascii;abc
@@ -96,10 +123,15 @@ data:text/plain;charset=us-ascii;abc
 "," missing
 #tag
 no media type separator
+#errors
+m;URL:data:no ,;
 
 #data
 data:text/plain;charset=us-ascii,abc
 #conforming
+#mime text/plain;charset=us-ascii
+#body
+abc
 
 #data
 data:,a,b
@@ -111,6 +143,9 @@ segment from first ","
 #tag
 implied media type
 implied charset
+#mime text/plain;charset=US-ASCII
+#body
+a,b
 
 #data
 data:,foo bar
@@ -120,6 +155,9 @@ data:,foo bar
 implied media type
 implied charset
 illegal as URI
+#mime text/plain;charset=US-ASCII
+#body
+foo bar
 
 #data
 data:,abc#def
@@ -129,6 +167,10 @@ data:,abc#def
 implied media type
 implied charset
 fragment
+#mime text/plain;charset=US-ASCII
+#body
+abc#def
+#XXX
 
 #data
 data:,abc#def#ghi
@@ -138,6 +180,10 @@ data:,abc#def#ghi
 implied media type
 implied charset
 fragment
+#mime text/plain;charset=US-ASCII
+#body
+abc#def#ghi
+#XXX
 
 #data
 data:text / plain,abc
@@ -147,6 +193,11 @@ space in URI
 white space in media type
 implied charset
 illegal as URI
+#mime text/plain;charset=US-ASCII
+#body
+abc
+#errors
+m;MIME type:no /;text / plain
 
 #data
 data: text/plain ,abc
@@ -156,6 +207,9 @@ space in URI
 white space in media type
 implied charset
 illegal as URI
+#mime text/plain
+#body
+abc
 
 #data
 data:TEXT/PLAIN,ABC
@@ -163,6 +217,9 @@ data:TEXT/PLAIN,ABC
 ";charset=us-ascii" implied
 #tag
 implied charset
+#mime text/plain
+#body
+ABC
 
 #data
 data:text\plain,abc
@@ -173,6 +230,11 @@ broken media type
 illegal as URI
 backslash
 implied charset
+#mime text/plain;charset=US-ASCII
+#body
+abc
+#errors
+m;MIME type:no /;text\plain
 
 #data
 data:text/./plain,abc
@@ -182,6 +244,11 @@ relative path component in media type
 broken media type
 dot-segment
 implied charset
+#mime text/plain;charset=US-ASCII
+#body
+abc
+#errors
+m;MIME type:bad char after subtype;text/./plain
 
 #data
 data:application/../text/plain,abc
@@ -191,6 +258,11 @@ relative path component in media type
 broken media type
 dot-segment
 implied charset
+#mime text/plain;charset=US-ASCII
+#body
+abc
+#errors
+m;MIME type:bad char after subtype;application/../text/plain
 
 #data
 data:;,test
@@ -202,6 +274,11 @@ data:;,test
 broken parameter
 implied media type
 implied charset
+#mime text/plain
+#body
+test
+#errors
+m;params:bad name;
 
 #data
 data:text/plain;,abc
@@ -210,6 +287,11 @@ data:text/plain;,abc
 #tag
 implied charset
 broken parameter
+#mime text/plain
+#body
+abc
+#errors
+m;params:bad name;
 
 #data
 data:,A%20brief%20note
@@ -220,6 +302,9 @@ data:,A%20brief%20note
 implied media type
 implied charset
 percent-encoding in data
+#mime text/plain;charset=US-ASCII
+#body
+A brief note
 
 #data
 data:text/plain;charset,abc
@@ -228,6 +313,11 @@ data:text/plain;charset,abc
 #tag
 broken parameter
 implied charset
+#mime text/plain
+#body
+abc
+#errors
+m;params:no =;text/plain;charset
 
 #data
 data:text/plain; charset=us-ascii,abc
@@ -236,11 +326,17 @@ space in URI
 #tag
 illegal as URI
 white space in media type
+#mime text/plain;charset=us-ascii
+#body
+abc
 
 #data
 data:text/plain;charset=US-ASCII,test
 #source
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
+#mime text/plain;charset=US-ASCII
+#body
+test
 
 #data
 data:;charset=UTF-8,Hello
@@ -249,18 +345,27 @@ data:;charset=UTF-8,Hello
 #conforming
 implied media type
 superset charset name
+#mime text/plain;charset=UTF-8
+#body
+Hello
 
 #data
 data:text/plain;charset=iso-8859-1,%A1%A2
 #conforming
 #tag
 percent-encoding in data
+#mime text/plain;charset=iso-8859-1
+#body escaped
+\u00A1\u00A2
 
 #data
 data:text/plain;charset=euc-jp,%A1%A2
 #conforming
 #tag
 percent-encoding in data
+#mime text/plain;charset=euc-jp
+#body escaped
+\u00A1\u00A2
 
 #data
 data:text/plain;charset=iso-8859-7,%b8%f7%fe
@@ -268,6 +373,9 @@ data:text/plain;charset=iso-8859-7,%b8%f7%fe
 <http://www.mozilla.org/quality/networking/testing/datatests.html>
 #data
 percent-encoding in data
+#mime text/plain;charset=iso-8859-7
+#body escaped
+\u00B8\u00F7\u00FE
 
 #data
 data:text/plain;charset=iso-8859-1;charset=euc-jp,%A1%A2
@@ -278,6 +386,11 @@ and <#data_0000003Atext_0000002Fplain_0000003Bcharset_0000003Deuc-jp_0000002C_00
 #tag
 parameter duplication
 percent-encoding in data
+#mime text/plain;charset=iso-8859-1
+#body escaped
+\u00A1\u00A2
+#errors
+m;params:duplicate name;charset
 
 #data
 data:text/plain;charset;charset=euc-jp,%A1%A2
@@ -287,10 +400,18 @@ Broken ";charset;" parameter
 parameter duplication
 broken parameter
 percent-encoding in data
+#mime text/plain;charset=euc-jp
+#body escaped
+\u00A1\u00A2
+#errors
+m;params:no =;text/plain;charset;charset=euc-jp
 
 #data
 data:text/plain;CHARSET=us-ascii,abc
 #conforming
+#mime text/plain;charset=us-ascii
+#body escaped
+abc
 
 #data
 data:text/plain;charset=us-ascii ,abc
@@ -299,6 +420,9 @@ space in URI
 #tag
 illegal as URI
 white space in media type
+#mime text/plain;charset=us-ascii
+#body escaped
+abc
 
 #data
 data:text/plain;charset="us-ascii",abc
@@ -307,6 +431,9 @@ data:text/plain;charset="us-ascii",abc
 #tag
 quoted-string
 illegal as URI
+#mime text/plain;charset=us-ascii
+#body escaped
+abc
 
 #data
 data:text/plain;charset="euc-jp",%A1%A2
@@ -316,12 +443,18 @@ data:text/plain;charset="euc-jp",%A1%A2
 quoted-string
 illegal as URI
 percent-encoding in data
+#mime text/plain;charset=euc-jp
+#body escaped
+\u00A1\u00A2
 
 #data
 data:text/plain;charset='euc-jp',%A1%A2
 #tag
 unknown charset
 percent-encoding in data
+#mime text/plain;charset='euc-jp'
+#body escaped
+\u00A1\u00A2
 
 #data
 data:text/plain;noncharset=euc-jp,%A1%A2
@@ -329,12 +462,18 @@ data:text/plain;noncharset=euc-jp,%A1%A2
 unknown parameter
 implied charset
 percent-encoding in media type
+#mime text/plain;noncharset=euc-jp
+#body escaped
+\u00A1\u00A2
 
 #data
 data:text/plain;noncharset=euc-jp;charset=iso-8859-1,%A1%A2
 #tag
 unknown parameter
 percent-encoding in media type
+#mime text/plain;noncharset=euc-jp;charset=iso-8859-1
+#body escaped
+\u00A1\u00A2
 
 #data
 data:text/plain;charset=%22euc-jp%22,%A1%A2
@@ -343,6 +482,9 @@ quoted-string
 illegal as URI
 percent-encoding in data
 percent-encoding in media type
+#mime text/plain;charset=%22euc-jp%22
+#body escaped
+\u00A1\u00A2
 
 #data
 data:text/plain;charset="\euc-jp",%A1%A2
@@ -353,6 +495,9 @@ illegal as URI
 quoted-string
 quoted-pair
 percent-encoding in data
+#mime text/plain;charset=euc-jp
+#body escaped
+\u00A1\u00A2
 
 #data
 data:text/plain;x-data="#",abc
@@ -363,53 +508,86 @@ illegal as URI
 fragment
 quoted-string
 unknown parameter
+#XXX
+#mime text/plain;x-data=#
+#body
+abc
 
 #data
 data:t%65xt/plain;charset=euc-jp,%A1%A2
 #tag
 percent-encoding in data
 percent-encoding in media type
+#mime t%65xt/plain;charset=euc-jp
+#body escaped
+\u00A1\u00A2
 
 #data
 data:text%2Fplain;charset=euc-jp,%A1%A2
 #tag
 percent-encoding in media type
 percent-encoding in data
+#mime text/plain;charset=US-ASCII
+#body escaped
+\u00A1\u00A2
+#errors
+m;MIME type:no /;text%2Fplain;charset=euc-jp
 
 #data
 data:text/pl%61in;charset=euc-jp,%A1%A2
 #tag
 percent-encoding in media type
 percent-encoding in data
+#mime text/pl%61in;charset=euc-jp
+#body escaped
+\u00A1\u00A2
 
 #data
 data:text/plain%3Bcharset=euc-jp,%A1%A2
 #tag
 percent-encoding in media type
 percent-encoding in data
+#mime text/plain;charset=US-ASCII
+#body escaped
+\u00A1\u00A2
+#errors
+m;MIME type:bad char after subtype;text/plain%3Bcharset=euc-jp
 
 #data
 data:text/plain;%63harset=euc-jp,%A1%A2
 #tag
 percent-encoding in media type
 percent-encoding in data
+#mime text/plain;%63harset=euc-jp
+#body escaped
+\u00A1\u00A2
 
 #data
 data:text/plain;charset%3Deuc-jp,%A1%A2
 #tag
 percent-encoding in media type
 percent-encoding in data
+#mime text/plain
+#body escaped
+\u00A1\u00A2
+#errors
+m;params:no =;text/plain;charset%3Deuc-jp
 
 #data
 data:text/plain;charset=eu%63-jp,%A1%A2
 #tag
 percent-encoding in media type
 percent-encoding in data
+#mime text/plain;charset=eu%63-jp
+#body escaped
+\u00A1\u00A2
 
 #data
 data:text/plain;charset=us-ascii%2Cabc
 #tag
 percent-encoded comma
+#errors
+m;URL:data:no ,;
 
 #data
 data:text/plain;charset=iso-8859-8-i,%f9%ec%e5%ed
@@ -419,6 +597,9 @@ ISO-8859-8 in URL-encoding
 <https://bugzilla.mozilla.org/attachment.cgi?id=94670&action=view>
 #tag
 percent-encoding in data
+#mime text/plain;charset=iso-8859-8-i
+#body escaped
+\u00F9\u00EC\u00E5\u00ED
 
 #data
 data:text/plain;charset=UTF-8,%d7%a9%d7%9c%d7%95%d7%9d
@@ -428,6 +609,9 @@ UTF-8 in URL-encoding
 <https://bugzilla.mozilla.org/attachment.cgi?id=94670&action=view>
 #tag
 percent-encoding in data
+#mime text/plain;charset=UTF-8
+#body escaped
+\u00D7\u00A9\u00D7\u009C\u00D7\u0095\u00D7\u009D
 
 #data
 data:,;test
@@ -440,6 +624,9 @@ chaacters like ";"
 reserved in data
 implied media type
 implied charset
+#mime text/plain;charset=US-ASCII
+#body
+;test
 
 #data
 data:,a+b+c
@@ -449,6 +636,9 @@ data including "+" (a PLUS SIGN character, not a SPACE character).
 reserved in data
 implied media type
 implied charset
+#mime text/plain;charset=US-ASCII
+#body
+a+b+c
 
 #data
 data:,a/../b
@@ -458,6 +648,9 @@ data including "/../"
 dot-segment
 implied media type
 implied charset
+#mime text/plain;charset=US-ASCII
+#body
+a/../b
 
 #data
 data:,a/./b
@@ -467,6 +660,9 @@ data including "/./"
 dot-segment
 implied media type
 implied charset
+#mime text/plain;charset=US-ASCII
+#body
+a/./b
 
 #data
 data:text/plain;charset=thing;base64;test
@@ -477,6 +673,8 @@ data:text/plain;charset=thing;base64;test
 #tag
 unknown charset
 no media type separator
+#errors
+m;URL:data:no ,;
 
 #data
 data:text/plain;charset=unknown;base64,test
@@ -484,6 +682,9 @@ data:text/plain;charset=unknown;base64,test
 #tag
 unknown charset
 base64
+#mime text/plain;charset=unknown
+#body escaped
+\u00B5\u00EB\u002D
 
 #data
 data:;charset=,test
@@ -495,6 +696,11 @@ broken parameter "charset="
 implied media type
 broken parameter
 unknown charset
+#mime text/plain
+#body
+test
+#errors
+m;params:bad value token;
 
 #data
 data:application/vnd-xxx-query,select_vcount,fcol_from_fieldtable/local
@@ -503,6 +709,9 @@ data:application/vnd-xxx-query,select_vcount,fcol_from_fieldtable/local
 #conforming
 #tag
 unknown media type
+#mime application/vnd-xxx-query
+#body
+select_vcount,fcol_from_fieldtable/local
 
 #data
 data:application/octet-stream;name=filename.dat,abc
@@ -510,6 +719,9 @@ data:application/octet-stream;name=filename.dat,abc
 #tag
 obsolete parameter
 name parameter
+#mime application/octet-stream;name=filename.dat
+#body
+abc
 
 #data
 data:application/x-unknown;name=filename.dat,abc
@@ -518,6 +730,9 @@ data:application/x-unknown;name=filename.dat,abc
 unknown media type
 unknown parameter
 name parameter
+#mime application/x-unknown;name=filename.dat
+#body
+abc
 
 #data
 data:application/xml,%3Cformdata%20xmlns%3D%22http%3A%2F%2Fn.whatwg.org%2Fformdata%22%20type%3D%22incremental%22%2F%3E
@@ -527,6 +742,9 @@ data:application/xml,%3Cformdata%20xmlns%3D%22http%3A%2F%2Fn.whatwg.org%2Fformda
 #tag
 missing XML charset
 percent-encoding in data
+#mime application/xml
+#body
+<formdata xmlns="http://n.whatwg.org/formdata" type="incremental"/>
 
 #data
 data:application/xml,%3Cselect%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxhtml%22%20type%3D%22incremental%22%3E%3Coption%3Eb%3C%2Foption%3E%3C%2Fselect%3E
@@ -535,6 +753,9 @@ data:application/xml,%3Cselect%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxht
 #tag
 missing XML charset
 percent-encoding in data
+#mime application/xml
+#body
+<select xmlns="http://www.w3.org/1999/xhtml" type="incremental"><option>b</option></select>
 
 #data
 data:;base64,
@@ -543,6 +764,8 @@ base64
 empty data
 implied media type
 implied charset
+#mime text/plain;charset=US-ASCII
+#body
 
 #data
 data:;base64,hello
@@ -555,6 +778,8 @@ base64
 broken base64
 implied media type
 implied charset
+#errors
+m;URL:data:bad base64 data;
 
 #data
 data:text/plain;charset=iso-8859-8-i;base64,+ezl7Q==
@@ -564,6 +789,9 @@ ISO-8859-8 in Base64
 <https://bugzilla.mozilla.org/attachment.cgi?id=94670&action=view>
 #tag
 base64
+#mime text/plain;charset=iso-8859-8-i
+#body escaped
+\u00F9\u00EC\u00E5\u00ED
 
 #data
 data:text/plain;charset=UTF-8;base64,16nXnNeV150=
@@ -573,6 +801,9 @@ UTF-8 in Base64
 <https://bugzilla.mozilla.org/attachment.cgi?id=94670&action=view>
 #tag
 base64
+#mime text/plain;charset=UTF-8
+#body escaped
+\u00D7\u00A9\u00D7\u009C\u00D7\u0095\u00D7\u009D
 
 #data
 data:text/html;base64,VGhpcyBpcyBhIHRlc3QK
@@ -583,6 +814,9 @@ data:text/html;base64,VGhpcyBpcyBhIHRlc3QK
 #tag
 base64
 missing HTML charset
+#mime text/html
+#body escaped
+This is a test\u000A
 
 #data
 data:text/plain;base64,VGhpcyBpcyBhIHRlc3QK!?
@@ -592,6 +826,8 @@ Base64'ed "This is a test" followed by non-Base64'ed "!?".
 base64
 broken base64
 implied charset
+#errors
+m;URL:data:bad base64 data;
 
 #data
 data:text/plain;base64,VGhpcyBpcyBhIHRlc3QK!?!?
@@ -601,6 +837,8 @@ Base64'ed "This is a test" followed by non-Base64'ed "!?!?".
 base64
 broken base64
 implied charset
+#errors
+m;URL:data:bad base64 data;
 
 #data
 data:text/plain;base64,VGhpcyBpcyBhIHRlc3QK#fragment
@@ -611,6 +849,11 @@ base64
 broken base64
 fragment
 implied charset
+#XXXmime text/plain
+#XXXbody
+This is a test
+#errors
+m;URL:data:bad base64 data;
 
 #data
 data:text/plain;base64,VG!h$pcy]BpcyBh[IHRl>c3QK
@@ -621,6 +864,8 @@ base64
 broken base64
 implied charset
 illegal as URI
+#errors
+m;URL:data:bad base64 data;
 
 #data
 data:text/html;base64,PGh0bWw+PGhlYWQ+PHRpdGxlPlRlc3Q8L3RpdGxlPjwvaGVhZD48Ym9keT48cD5UaGlzIGlzIGEgdGVzdDwvYm9keT48L2h0bWw+Cg==
@@ -629,6 +874,9 @@ data:text/html;base64,PGh0bWw+PGhlYWQ+PHRpdGxlPlRlc3Q8L3RpdGxlPjwvaGVhZD48Ym9keT
 #tag
 base64
 missing HTML charset
+#mime text/html
+#body escaped
+<html><head><title>Test</title></head><body><p>This is a test</body></html>\u000A
 
 #data
 data:,Data%20was:%20'%%%%'
@@ -642,6 +890,9 @@ broken percent-encoding
 implied media type
 implied charset
 percent-encoding in data
+#mime text/plain;charset=US-ASCII
+#body
+Data was: '%%%%'
 
 #data
 data:,Data%20was:%20'x%253DIt%2527s%252Ba%252Btest'
@@ -651,6 +902,10 @@ data:,Data%20was:%20'x%253DIt%2527s%252Ba%252Btest'
 percent-encoding in data
 implied media type
 implied charset
+#conforming
+#mime text/plain;charset=US-ASCII
+#body
+Data was: 'x%3DIt%27s%2Ba%2Btest'
 
 #data
 data:,Data%20was:%20'%%'
@@ -664,6 +919,9 @@ implied media type
 implied charset
 broken percent-encoding
 illegal as URI
+#mime text/plain;charset=US-ASCII
+#body
+Data was: '%%'
 
 #data
 data:,Data%20was:%20'x%3DIt's%2Ba%2Btest'
@@ -673,3 +931,6 @@ data:,Data%20was:%20'x%3DIt's%2Ba%2Btest'
 implied media type
 implied charset
 percent-encoding in data
+#mime text/plain;charset=US-ASCII
+#body
+Data was: 'x=It's+a+test'
