@@ -1,36 +1,36 @@
 #data
 #errors
-0;IMT:no type;;m
+0;MIME type:bad type;;m
 
 #data escaped
 \u000A
 #errors
-0;IMT:no type;;m
+0;MIME type:bad type;;m
 
 #data escaped
 \u000D\u000A
 #errors
-0;IMT:no type;;m
+0;MIME type:bad type;;m
 
 #data escaped
 \u000D\u000A\u0020
 #errors
-0;IMT:no type;;m
+0;MIME type:bad type;;m
 
 #data
 text
 #errors
-4;IMT:no /;;m
+4;MIME type:no /;;m
 
 #data
 >_<
 #errors
-0;IMT:no type;;m
+0;MIME type:bad type;>_<;m
 
 #data
 text /plain
 #errors
-4;IMT:no /;;m
+4;MIME type:no /;;m
 
 #data
 text/plain
@@ -49,17 +49,17 @@ plain
 #data
 text//
 #errors
-5;IMT:no subtype;;m
+5;MIME type:bad subtype;;m
 
 #data
 text/ plain
 #errors
-5;IMT:no subtype;;m
+5;MIME type:bad subtype; plain;m
 
 #data
 text/plain;
 #errors
-11;params:no attr;;m
+11;params:bad name;;m
 #result
 text
 plain
@@ -67,7 +67,7 @@ plain
 #data escaped
 text/plain;\u0009
 #errors
-11;params:no attr;;m
+11;params:bad name;;m
 #result
 text
 plain
@@ -116,8 +116,8 @@ plain
 
 #data escaped
 \u000Btext/plain
-#errors
-0;IMT:no type;;m
+#errors escaped
+0;MIME type:bad type;\u000Btext;m
 
 #data escaped
 text/plain\u000B
@@ -173,7 +173,7 @@ b
 #data
 text/html;charset=
 #errors
-18;params:bad value;;m
+18;params:bad value token;;m
 #result
 text
 html
@@ -181,7 +181,8 @@ html
 #data
 text/HTML ; charset = UTF-8
 #errors
-12;params:bad attr;charset ;m
+12;params:bad name;charset ;m
+21;params:bad value token; UTF-8;m
 #result
 text
 html
@@ -199,7 +200,7 @@ utf-8
 #data
 text/html; charset=utF-8;level=
 #errors
-31;params:bad value;;m
+31;params:bad value token;;m
 #result
 text
 html
@@ -220,7 +221,7 @@ level
 #data
 text/html;charset=utf-8;;level=76
 #errors
-24;params:no attr;;m
+24;params:bad name;;m
 #result
 text
 html
@@ -270,13 +271,13 @@ level
 #data
 "text"/plain
 #errors
-0;IMT:no type;;m
+0;MIME type:bad type;"text";m
 #result
 
 #data
 text/plain;"format"=flowed
 #errors
-11;params:bad attr;"format";m
+11;params:bad name;"format";m
 #result
 text
 plain
@@ -284,7 +285,7 @@ plain
 #data
 text/plain;;text
 #errors
-11;params:no attr;;m
+11;params:bad name;;m
 16;params:no =;;m
 #result
 text
@@ -318,7 +319,7 @@ plain
 #data
 text/plain;charset=a;charset=b
 #errors
-21;params:duplicate attr;charset;m
+21;params:duplicate name;charset;m
 #result
 text
 plain
@@ -328,7 +329,7 @@ a
 #data
 text/plain;charset=a;charset=b;format=flowed
 #errors
-21;params:duplicate attr;charset;m
+21;params:duplicate name;charset;m
 #result
 text
 plain
@@ -336,3 +337,13 @@ charset
 a
 format
 flowed
+
+#data
+text/plain; charset="utf-8"shift_jis
+#errors
+36;params:garbage after quoted-string;;m
+#result escaped
+text
+plain
+charset
+utf-8
