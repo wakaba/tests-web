@@ -15,7 +15,7 @@
 #data escaped
 \u000D\u000A\u0020
 #errors
-3;IMT:no type;;m
+0;IMT:no type;;m
 
 #data
 text
@@ -67,10 +67,62 @@ plain
 #data escaped
 text/plain;\u0009
 #errors
-12;params:no attr;;m
+11;params:no attr;;m
 #result
 text
 plain
+
+#data escaped
+\u000Atext/plain
+#errors
+#result
+text
+plain
+
+#data escaped
+\u000Ctext/plain
+#errors
+#result
+text
+plain
+
+#data escaped
+\u000C\u000Ctext/plain
+#errors
+#result
+text
+plain
+
+#data escaped
+\u000Dtext/plain
+#errors
+#result
+text
+plain
+
+#data escaped
+\u000D\u000Atext/plain
+#errors
+#result
+text
+plain
+
+#data escaped
+text/plain\u000C
+#errors
+#result
+text
+plain
+
+#data escaped
+\u000Btext/plain
+#errors
+0;IMT:no type;;m
+
+#data escaped
+text/plain\u000B
+#errors
+10;MIME type:bad char after subtype;;m
 
 #data
 Image/PNG; abc
@@ -80,10 +132,48 @@ Image/PNG; abc
 image
 png
 
+#data escaped
+text/plain\u000C;a=b
+#errors
+#result
+text
+plain
+a
+b
+
+#data escaped
+text/plain\u000C\u000A;a=b
+#errors
+#result
+text
+plain
+a
+b
+
+#data escaped
+text/plain;\u000C\u000Aa=b
+#errors
+#result
+text
+plain
+a
+b
+
+#data escaped
+text/plain;x=y;\u000C\u000Aa=b
+#errors
+#result
+text
+plain
+x
+y
+a
+b
+
 #data
 text/html;charset=
 #errors
-18;params:no value;;m
+18;params:bad value;;m
 #result
 text
 html
@@ -91,7 +181,7 @@ html
 #data
 text/HTML ; charset = UTF-8
 #errors
-19;params:no =;;m
+12;params:bad attr;charset ;m
 #result
 text
 html
@@ -109,7 +199,7 @@ utf-8
 #data
 text/html; charset=utF-8;level=
 #errors
-31;params:no value;;m
+31;params:bad value;;m
 #result
 text
 html
@@ -136,23 +226,26 @@ text
 html
 charset
 utf-8
+level
+76
 
 #data
 text/html;charset="utf-8
 #errors
-18;params:no value;;m
+24;params:no close quote;;m
 #result
 text
 html
+charset
+utf-8
 
 #data
 text/html;charset=""
 #errors
+18;params:bad value;;m
 #result
-| text
-| html
-| charset
-| 
+text
+html
 
 #data
 text/html; charset="ab\\c";level=4
@@ -183,7 +276,7 @@ level
 #data
 text/plain;"format"=flowed
 #errors
-11;params:no attr;;m
+11;params:bad attr;"format";m
 #result
 text
 plain
@@ -192,6 +285,7 @@ plain
 text/plain;;text
 #errors
 11;params:no attr;;m
+16;params:no =;;m
 #result
 text
 plain
@@ -207,25 +301,24 @@ charset
 
 #data escaped
 text/plain; charset="a\u000A"
-#errors
-20;params:no value;;m
+#errors escaped
+20;params:bad value;a\u000A;m
 #result
 text
 plain
 
 #data escaped
 text/plain;charset="a\u000D\u000A b"
-#errors
+#errors escaped
+19;params:bad value;a\u000D\u000A b;m
 #result escaped
 text
 plain
-charset
-a\u000D\u000A b
 
 #data
 text/plain;charset=a;charset=b
 #errors
-30;params:duplicate attr;charset;w
+21;params:duplicate attr;charset;m
 #result
 text
 plain
@@ -235,7 +328,7 @@ a
 #data
 text/plain;charset=a;charset=b;format=flowed
 #errors
-30;params:duplicate attr;charset;w
+21;params:duplicate attr;charset;m
 #result
 text
 plain
