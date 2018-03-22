@@ -80,11 +80,9 @@ receive "GET"
 CRLF
 "abc"
 close
-#status 200
-#reason OK
-#headers escaped
+#status 0
 #body
-abc(close)
+(close)
 
 #name
 Broken staple
@@ -98,11 +96,9 @@ receive "GET"
 CRLF
 "abc"
 close
-#status 200
-#reason OK
-#headers escaped
+#status 0
 #body
-abc(close)
+(close)
 
 #name
 Stapled, good, must-staple
@@ -151,8 +147,6 @@ receive "GET"
 CRLF
 "abc"
 close
-#status 200
-#reason OK
-#headers escaped
+#status 0
 #body
-abc(close)
+(close)
