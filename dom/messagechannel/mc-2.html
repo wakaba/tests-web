@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<title>MessageChannel</title>
+<p id=result class=FAIL>FAIL (noscript)</p>
+
+  <script type=text/plain id=iframescript>
+    <js>
+      onmessage = function (ev) {
+        var port = ev.ports[0];
+        port.onmessage = (ev) => {
+          if (ev.data.type === 'write') {
+            ev.ports[0].onmessage = (ev) => {
+              var p = document.createElement ('p');
+              p.textContent = ev.data;
+              document.body.appendChild (p);
+
+              top.postMessage ({type: "result", value: p.textContent}, '*');
+            };
+          } else {
+            console.log (ev.data);
+          }
+        };
+      };
+    </js>
+  </script>
+
+  <script>
+    onmessage = function (ev) {
+      if (ev.data.type === 'result') {
+        var result = document.querySelector ('#result');
+        if (ev.data.value === 'abc') {
+          result.textContent = 'PASS';
+          result.className = 'PASS';
+        } else {
+          result.textContent = 'FAIL ('+ev.data.value+')';
+        }
+      }
+    };
+  </script>
+
+  <script>
+    var iframe = document.createElement ('iframe');
+    var source = document.querySelector ("#iframescript");
+    iframe.srcdoc = source.textContent.replace (/<js>/g, '<script>').replace (/<\/js>/g, '</'+'script>');
+    document.body.appendChild (iframe);
+
+    var nestedChannel = new MessageChannel;
+    var nestedPort = nestedChannel.port1;
+
+    nestedPort.postMessage ("abc");
+
+    var channel = new MessageChannel;
+    iframe.onload = () => {
+      iframe.contentWindow.postMessage ({}, "*", [channel.port2]);
+    };
+
+    var port = channel.port1;
+    port.postMessage ({type: "write"}, [nestedChannel.port2]);
+
+    var result = document.querySelector ('#result');
+    result.textContent = 'FAIL (waiting)';
+  </script>
