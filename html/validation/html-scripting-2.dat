@@ -201,7 +201,7 @@
   <br/>
 </script>
 #errors
-/script/@type;IMT:no /;m
+/script/@type;MIME type:no /;m
 /script/br;element not allowed;m
 
 #data
@@ -242,12 +242,12 @@
 #data
 <script type=" " xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@type;IMT:no type;m
+/script/@type;MIME type:bad type;m
 
 #data
 <script type=" " xmlns="http://www.w3.org/1999/xhtml">a b c</script>
 #errors
-/script/@type;IMT:no type;m
+/script/@type;MIME type:bad type;m
 
 #data
 <script language="" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
@@ -274,7 +274,7 @@
 <script language=" javascript " xmlns="http://www.w3.org/1999/xhtml">a b c</script>
 #errors
 /script/@language;script language:not js;m
-/script/@language;IMT:no subtype;m
+/script/@language;MIME type:bad subtype;m
 
 #data
 <script language="javascript " xmlns="http://www.w3.org/1999/xhtml">a b c</script>
@@ -292,7 +292,7 @@
 #data
 <script type="text/javascript;" xmlns="http://www.w3.org/1999/xhtml">a b c</script>
 #errors
-/script/@type;params:no attr;m
+/script/@type;params:bad name;m
 /script/@type;script type:bad params;w
 /script;unknown script lang;u
 
@@ -327,7 +327,7 @@
 #data
 <script type="text" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@type;IMT:no /;m
+/script/@type;MIME type:no /;m
 
 #data
 <script type="text/plain; a=b" xmlns="http://www.w3.org/1999/xhtml"/>
@@ -370,7 +370,7 @@
 <script type="text/javascript; ~=a"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@type;IMT:attribute syntax error;m
+/script/@type;params:bad name;m
 /script;unknown script lang;u
 /script/@type;script type:bad params;w
 
@@ -378,14 +378,14 @@
 <script type="text~/javascript"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@type;IMT:type syntax error;m
+/script/@type;MIME type:bad type;m
 /script;unknown script lang;u
 
 #data
 <script type="text/javascript~"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/script/@type;IMT:subtype syntax error;m
+/script/@type;MIME type:bad subtype;m
 /script;unknown script lang;u
 
 #data

@@ -3287,14 +3287,14 @@
     type="file"
     accept="  "/>
 #errors
-/input/@accept;IMT:no type;m
+/input/@accept;MIME type:bad type;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
     type="file"
     accept=","/>
 #errors
-/input/@accept;IMT:no type;m
+/input/@accept;MIME type:bad type;m
 /input/@accept;duplicate token;m
 
 #data
@@ -3302,7 +3302,7 @@
     type="file"
     accept="  , "/>
 #errors
-/input/@accept;IMT:no type;m
+/input/@accept;MIME type:bad type;m
 /input/@accept;duplicate token;m
 
 #data
@@ -3347,7 +3347,7 @@
     type="file"
     accept="text.html"/>
 #errors
-/input/@accept;IMT:no /;m
+/input/@accept;MIME type:no /;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
@@ -3360,7 +3360,7 @@
     type="file"
     accept="text/plain,"/>
 #errors
-/input/@accept;IMT:no type;m
+/input/@accept;MIME type:bad type;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
@@ -3373,14 +3373,14 @@
     type="file"
     accept=",image/png"/>
 #errors
-/input/@accept;IMT:no type;m
+/input/@accept;MIME type:bad type;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
     type="file"
     accept="image/png,,image/jpeg"/>
 #errors
-/input/@accept;IMT:no type;m
+/input/@accept;MIME type:bad type;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
@@ -3411,65 +3411,65 @@
     type="file"
     accept="text/*"/>
 #errors
-/input/@accept;IMT:subtype syntax error;m
+/input/@accept;MIME type:bad subtype;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
     type="file"
     accept="multipart/*"/>
 #errors
-/input/@accept;IMT:subtype syntax error;m
+/input/@accept;MIME type:bad subtype;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
     type="file"
     accept="model/*"/>
 #errors
-/input/@accept;IMT:subtype syntax error;m
+/input/@accept;MIME type:bad subtype;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
     type="file"
     accept="application/*"/>
 #errors
-/input/@accept;IMT:subtype syntax error;m
+/input/@accept;MIME type:bad subtype;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
     type="file"
     accept="message/*"/>
 #errors
-/input/@accept;IMT:subtype syntax error;m
+/input/@accept;MIME type:bad subtype;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
     type="file"
     accept="font/*"/>
 #errors
-/input/@accept;IMT:subtype syntax error;m
+/input/@accept;MIME type:bad subtype;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
     type="file"
     accept="*/*"/>
 #errors
-/input/@accept;IMT:type syntax error;m
-/input/@accept;IMT:subtype syntax error;m
+/input/@accept;MIME type:bad type;m
+/input/@accept;MIME type:bad subtype;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
     type="file"
     accept="*/*+xml"/>
 #errors
-/input/@accept;IMT:type syntax error;m
-/input/@accept;IMT:subtype syntax error;m
+/input/@accept;MIME type:bad type;m
+/input/@accept;MIME type:bad subtype;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
     type="file"
     accept="*/xml"/>
 #errors
-/input/@accept;IMT:type syntax error;m
+/input/@accept;MIME type:bad type;m
 /input/@accept;IMT:unknown subtype;u
 
 #data
@@ -3525,7 +3525,7 @@
     type="file"
     accept="application/XML, ,image/png"/>
 #errors
-/input/@accept;IMT:no type;m
+/input/@accept;MIME type:bad type;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
@@ -3567,17 +3567,21 @@
     type="file"
     accept='text/plain;x-param="image/png,image/jpeg,image/svg+xml"'/>
 #errors
-/input/@accept;params:no value;m
-/input/@accept;params:garbage;m
+/input/@accept;params:no close quote;m
+/input/@accept;IMT:no param allowed;m
+/input/@accept;MIME type:bad char after subtype;m
+/input/@accept;IMT:parameter not allowed;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
     type="file"
     accept='text/plain;x-param="image/png,image/JPEG,image/svg+xml",image/jpeg'/>
 #errors
-/input/@accept;params:no value;m
-/input/@accept;params:garbage;m
+/input/@accept;params:no close quote;m
+/input/@accept;MIME type:bad char after subtype;m
 /input/@accept;duplicate token;m
+/input/@accept;IMT:no param allowed;m
+/input/@accept;IMT:parameter not allowed;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"
@@ -3592,7 +3596,7 @@
     type="file"
     accept="text/plain;"/>
 #errors
-/input/@accept;params:no attr;m
+/input/@accept;params:bad name;m
 
 #data
 <input xmlns="http://www.w3.org/1999/xhtml"

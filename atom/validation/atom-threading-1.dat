@@ -53,7 +53,7 @@
 #data
 <in-reply-to type="" xmlns="http://purl.org/syndication/thread/1.0" ref="http://y/"/>
 #errors
-/in-reply-to/@type;IMT:no type;m
+/in-reply-to/@type;MIME type:bad type;m
 
 #data
 <in-reply-to type="text/plain" xmlns="http://purl.org/syndication/thread/1.0" ref="http://y/"/>
@@ -62,8 +62,7 @@
 #data
 <in-reply-to type="text/hoge/fuga" xmlns="http://purl.org/syndication/thread/1.0" ref="http://y/"/>
 #errors
-/in-reply-to/@type;params:garbage;m
-/in-reply-to/@type;IMT:unknown subtype;u
+/in-reply-to/@type;MIME type:bad char after subtype;m
 
 #data
 <in-reply-to xmlns="http://purl.org/syndication/thread/1.0" href="http://s/" ref="http://y/"></in-reply-to>

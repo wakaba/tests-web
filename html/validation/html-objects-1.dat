@@ -1595,13 +1595,13 @@ xxax
 #data
 <embed src="http://test/" type="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@type;IMT:no type;m
+/embed/@type;MIME type:bad type;m
 
 #data
 <embed src="http://test/" type="text"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/embed/@type;IMT:no /;m
+/embed/@type;MIME type:no /;m
 
 #data
 <embed src="http://test/" type="text/plain"
@@ -2428,13 +2428,13 @@ xxax
 #data
 <object type="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/object/@type;IMT:no type;m
+/object/@type;MIME type:bad type;m
 /object;no significant content;s
 
 #data
 <object type="text" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/object/@type;IMT:no /;m
+/object/@type;MIME type:no /;m
 /object;no significant content;s
 
 #data
@@ -2735,7 +2735,7 @@ xxax
 <object data="" codetype="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /object/@codetype;attr:obsolete;m
-/object/@codetype;IMT:no type;m
+/object/@codetype;MIME type:bad type;m
 /object/@data;url:empty;m
 /object;no significant content;s
 
@@ -3201,7 +3201,7 @@ xxax
 <param name="a" value="b" type="text" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
 /param/@type;attr:obsolete;m
-/param/@type;IMT:no /;m
+/param/@type;MIME type:no /;m
 
 #data
 <param name="a" value="b" type="text/html" xmlns="http://www.w3.org/1999/xhtml"/>

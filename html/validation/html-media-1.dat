@@ -1635,12 +1635,12 @@
 #data
 <source src="http://test/" type="" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/source/@type;IMT:no type;m
+/source/@type;MIME type:bad type;m
 
 #data
 <source src="http://test/" type="video" xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/source/@type;IMT:no /;m
+/source/@type;MIME type:no /;m
 
 #data
 <source src="http://test/" type="audio/mpeg"
@@ -1657,7 +1657,7 @@
 <source src="http://test/" type="video/3gpp2; codecs=sevc,s263"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/source/@type;params:garbage;m
+/source/@type;params:bad value token;m
 
 #data
 <source src="http://test/" type="video/3gpp2; codecs=&quot;sevc,s263&quot;"
@@ -1673,7 +1673,7 @@
 <source src="http://test/" type="video/3gpp2; codecs='sevc, s263'"
     xmlns="http://www.w3.org/1999/xhtml"/>
 #errors
-/source/@type;params:garbage;m
+/source/@type;params:bad value token;m
 
 #data
 <source src="http://test/" media="screen"
