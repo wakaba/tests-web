@@ -1,6 +1,7 @@
 #data
 <!DOCTYPE HTML><menuitem>a
 #errors
+No </menuitem>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -25,6 +26,7 @@ no </menu> before EOF
 #data
 <!DOCTYPE HTML><menuitem>a<hr>b
 #errors
+No </menuitem>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -32,12 +34,13 @@ no </menu> before EOF
 |   <body>
 |     <menuitem>
 |       "a"
-|     <hr>
-|     "b"
+|       <hr>
+|       "b"
 
 #data
 <!DOCTYPE HTML><menuitem>a<menuitem>c
 #errors
+No </menuitem>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -45,8 +48,8 @@ no </menu> before EOF
 |   <body>
 |     <menuitem>
 |       "a"
-|     <menuitem>
-|       "c"
+|       <menuitem>
+|         "c"
 
 #data
 <!DOCTYPE HTML><menuitem>a<x><menuitem>
@@ -73,8 +76,8 @@ no </menu> at EOF
 |   <body>
 |     <menuitem>
 |       "a"
-|     <menu>
-|       "d"
+|       <menu>
+|         "d"
 
 #data
 <!DOCTYPE HTML><menuitem>a</menuitem>c
@@ -101,12 +104,13 @@ no </menu> at EOF
 |       "a"
 |       <p>
 |         "b"
-|     <menu>
-|       "c"
+|       <menu>
+|         "c"
 
 #data
 <!DOCTYPE HTML><li><menuitem>a<li>b
 #errors
+No </menuitem>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -121,6 +125,7 @@ no </menu> at EOF
 #data
 <!DOCTYPE HTML><p><menuitem>a<p>b
 #errors
+no </menuitem>
 #document
 | <!DOCTYPE html>
 | <html>

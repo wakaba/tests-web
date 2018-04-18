@@ -2,6 +2,7 @@
 <menuitem>
 #errors
 10: Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.
+no </menuitem>
 #document
 | <html>
 |   <head>
@@ -21,6 +22,7 @@
 #data
 <!DOCTYPE html><body><menuitem>A
 #errors
+no </menuitem>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -32,6 +34,7 @@
 #data
 <!DOCTYPE html><body><menuitem>A<menuitem>B
 #errors
+no </menuitem>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -39,12 +42,13 @@
 |   <body>
 |     <menuitem>
 |       "A"
-|     <menuitem>
-|       "B"
+|       <menuitem>
+|         "B"
 
 #data
 <!DOCTYPE html><body><menuitem>A<menu>B</menu>
 #errors
+no </menuitem>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -52,12 +56,13 @@
 |   <body>
 |     <menuitem>
 |       "A"
-|     <menu>
-|       "B"
+|       <menu>
+|         "B"
 
 #data
 <!DOCTYPE html><body><menuitem>A<hr>B
 #errors
+no </menuitem>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -65,12 +70,13 @@
 |   <body>
 |     <menuitem>
 |       "A"
-|     <hr>
-|     "B"
+|       <hr>
+|       "B"
 
 #data
 <!DOCTYPE html><li><menuitem><li>
 #errors
+no </menuitem>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -84,6 +90,7 @@
 <!DOCTYPE html><menuitem><p></menuitem>x
 #errors
 39: Stray end tag “menuitem”.
+no </menuitem>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -165,6 +172,7 @@ No </asdf> before </menuitem>
 #data
 <!DOCTYPE html><option><menuitem>
 #errors
+no </menuitem>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -176,6 +184,7 @@ No </asdf> before </menuitem>
 #data
 <!DOCTYPE html><menuitem><option>
 #errors
+no </menuitem>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -187,6 +196,7 @@ No </asdf> before </menuitem>
 #data
 <!DOCTYPE html><menuitem></body>
 #errors
+no </menuitem>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -197,6 +207,7 @@ No </asdf> before </menuitem>
 #data
 <!DOCTYPE html><menuitem></html>
 #errors
+no </menuitem>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -207,6 +218,7 @@ No </asdf> before </menuitem>
 #data
 <!DOCTYPE html><menuitem><p>
 #errors
+no </menuitem>
 #document
 | <!DOCTYPE html>
 | <html>
@@ -218,6 +230,7 @@ No </asdf> before </menuitem>
 #data
 <!DOCTYPE html><menuitem><li>
 #errors
+no </menuitem>
 #document
 | <!DOCTYPE html>
 | <html>
