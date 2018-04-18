@@ -32,92 +32,109 @@
     href="x" rel="serviceworker"
     workertype="classic" />
 #errors
+/link/@rel;link type:non-conforming;m
+/link/@workertype;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml"
     href="x" rel="serviceworker"
     workertype="MODULE" />
 #errors
+/link/@rel;link type:non-conforming;m
+/link/@workertype;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml"
     href="x" rel="serviceworker"
     workertype="abcde" />
 #errors
-/link/@workertype;enumerated:invalid;m
+/link/@rel;link type:non-conforming;m
+/link/@workertype;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml"
     href="x" rel="serviceworker"
     workertype="" />
 #errors
-/link/@workertype;enumerated:invalid;m
+/link/@rel;link type:non-conforming;m
+/link/@workertype;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml"
     href="x" rel="next"
     workertype="classic" />
 #errors
-/link/@workertype;link:ignored workertype;m
+/link/@workertype;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml"
     href="x" rel="serviceworker"
     updateviacache="" />
 #errors
-/link/@updateviacache;enumerated:invalid;m
+/link/@rel;link type:non-conforming;m
+/link/@updateviacache;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml"
     href="x" rel="serviceworker"
     updateviacache="all" />
 #errors
+/link/@rel;link type:non-conforming;m
+/link/@updateviacache;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml"
     href="x" rel="serviceworker"
     updateviacache="imports" />
 #errors
+/link/@rel;link type:non-conforming;m
+/link/@updateviacache;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml"
     href="x" rel="serviceworker"
     updateviacache="none" />
 #errors
+/link/@rel;link type:non-conforming;m
+/link/@updateviacache;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml"
     href="x" rel="canonical"
     updateviacache="all" />
 #errors
-/link/@updateviacache;link:ignored updateviacache;m
+/link/@updateviacache;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml"
     href="x" rel="serviceworker"
     scope="https://www.example.com/" />
 #errors
+/link/@rel;link type:non-conforming;m
+/link/@scope;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml"
     href="x" rel="serviceworker"
     scope="https://www.example.com:foo/" />
 #errors
-/link/@scope;syntax error:iriref3987;m
-/link/@scope;URL:non-DNS host;w
+/link/@rel;link type:non-conforming;m
+/link/@scope;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml"
     href="x" rel="serviceworker"
     scope="" />
 #errors
+/link/@rel;link type:non-conforming;m
+/link/@scope;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml"
     href="x" rel="stylesheet"
     scope="https://www.example.com/" />
 #errors
-/link/@scope;link:ignored scope;m
+/link/@scope;attr:obsolete;m
 
 #data
 <link xmlns="http://www.w3.org/1999/xhtml"
