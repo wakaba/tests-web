@@ -25,3 +25,48 @@
 | #df
 #attrs
 /template/@xmlns common
+
+#data
+<hohe xmlns="https://foo/"/>
+#triples
+/hohe _:g0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://foo/hohe>
+#errors
+#nonrdf
+#attrs
+/hohe/@xmlns common
+
+#data
+<xmlhohe xmlns="https://foo/"/>
+#triples
+#errors
+/xmlhohe;rdf:element ignored;;;w
+#nonrdf
+/xmlhohe
+#attrs
+
+#data
+<XMLhohe xmlns="https://foo/"/>
+#triples
+#errors
+/XMLhohe;rdf:element ignored;;;w
+#nonrdf
+/XMLhohe
+#attrs
+
+#data
+<xml:hohe xmlns="https://foo/"/>
+#triples
+#errors
+/hohe;rdf:element ignored;;;w
+#nonrdf
+/hohe
+#attrs
+
+#data
+<XMLh:ohe xmlns:XMLh="https://foo/"/>
+#triples
+#errors
+/ohe;rdf:element ignored;;;w
+#nonrdf
+/ohe
+#attrs

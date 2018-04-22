@@ -1,0 +1,79 @@
+#data
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>aA</title>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description>
+        <p id="x">aa</p>
+      </rdf:Description>
+    </rdf:RDF>
+  </head>
+  <body>
+    <label for="x">x</label>
+    <input id="x" name="a"/>
+  </body>
+</html>
+#errors
+/html/head/RDF/Description/p/@id;unqualified attr;m
+/html/head/RDF/Description/p/@id;attribute not allowed;m
+/html/body/input/@id;duplicate ID;m
+/html/body/label/@for;no referenced control;m
+
+#data
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>aA</title>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description id="x">
+      </rdf:Description>
+    </rdf:RDF>
+  </head>
+  <body>
+    <label for="x">x</label>
+    <input id="x" name="a"/>
+  </body>
+</html>
+#errors
+/html/head/RDF/Description/@id;unqualified attr;m
+/html/body/input/@id;duplicate ID;m
+/html/body/label/@for;no referenced control;m
+
+#data
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>aA</title>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="x">
+      <rdf:Description>
+      </rdf:Description>
+    </rdf:RDF>
+  </head>
+  <body>
+    <label for="x">x</label>
+    <input id="x" name="a"/>
+  </body>
+</html>
+#errors
+/html/head/RDF/@id;attribute not allowed;m
+/html/body/input/@id;duplicate ID;m
+/html/body/label/@for;no referenced control;m
+
+#data
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>aA</title>
+  </head>
+  <body>
+    <label for="x">x</label>
+    <input id="x" name="a"/>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description>
+        <p id="x">aa</p>
+      </rdf:Description>
+    </rdf:RDF>
+  </body>
+</html>
+#errors
+/html/body/RDF;element not allowed:flow;m
+/html/body/RDF/Description/p/@id;unqualified attr;m
+/html/body/RDF/Description/p/@id;attribute not allowed;m
+/html/body/RDF/Description/p/@id;duplicate ID;m

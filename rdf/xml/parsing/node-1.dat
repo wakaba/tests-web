@@ -142,3 +142,76 @@
 #attrs
 /RDF/@rdf common
 /RDF/Description/@type url
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <xMLhoge rdf:type="#aa" xmlns="https://abc/"/>
+</rdf:RDF>
+#triples
+#errors
+/RDF/xMLhoge;rdf:element ignored;;;w
+#attrs
+/RDF/@rdf common
+#nonrdf
+/RDF/xMLhoge
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <Xml rdf:type="#aa" xmlns="https://abc/"/>
+</rdf:RDF>
+#triples
+#errors
+/RDF/Xml;rdf:element ignored;;;w
+#attrs
+/RDF/@rdf common
+#nonrdf
+/RDF/Xml
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <xml:hoge rdf:type="#aa" xmlns="https://abc/"/>
+</rdf:RDF>
+#triples
+#errors
+/RDF/hoge;rdf:element ignored;;;w
+#attrs
+/RDF/@rdf common
+#nonrdf
+/RDF/hoge
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <XmLh:oge rdf:type="#aa" xmlns:XmLh="https://abc/"/>
+</rdf:RDF>
+#triples
+#errors
+/RDF/oge;rdf:element ignored;;;w
+#attrs
+/RDF/@rdf common
+#nonrdf
+/RDF/oge
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <xMLh:oge rdf:type="#aa" xmlns:xMLh="https://abc/"/>
+</rdf:RDF>
+#triples
+#errors
+/RDF/oge;rdf:element ignored;;;w
+#attrs
+/RDF/@rdf common
+#nonrdf
+/RDF/oge
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <hoge:xml rdf:type="#aa" xmlns:hoge="https://abc/"/>
+</rdf:RDF>
+#triples
+/RDF/xml _:g0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://abc/xml>
+/RDF/xml/@type _:g0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <about:blank#aa>
+#errors
+#attrs
+/RDF/@rdf common
+/RDF/xml/@type url
+/RDF/xml/@hoge common

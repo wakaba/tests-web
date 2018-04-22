@@ -1,0 +1,49 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://ff/">
+  <rdf:Description rdf:about="">
+    <foo>a</foo>
+    <xml>aa</xml>
+  </rdf:Descriotion>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://ff/">
+  <rdf:Description rdf:about="">
+    <foo>a</foo>
+    <xmlabc>aa</xmlabc>
+  </rdf:Descriotion>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://ff/">
+  <rdf:Description rdf:about="">
+    <foo>a</foo>
+    <xml:abc>aa</xml:abc>
+  </rdf:Descriotion>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://ff/" xmlns:xmla="https://x/">
+  <rdf:Description rdf:about="">
+    <foo>a</foo>
+    <xmla:bc>aa</xmla:bc>
+  </rdf:Descriotion>
+</rdf:RDF>
+#errors
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://ff/" xmlns:x="https://x/">
+  <rdf:Description rdf:about="">
+    <foo>a</foo>
+    <x:xmlabc>aa</x:xmlabc>
+  </rdf:Descriotion>
+</rdf:RDF>
+#errors
