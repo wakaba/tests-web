@@ -194,10 +194,38 @@ about://weather/foo
 #invalid 1
 
 #data
-| #hoge
+| abc#hoge
 #base
 about://weather/foo
 #invalid 1
+
+#data
+| ?aaa#hoge
+#base
+about://weather/foo
+#invalid 1
+
+#data
+| /xya#hoge
+#base
+about://weather/foo
+#invalid 1
+
+#data
+| //aaa#hoge
+#base
+about://weather/foo
+#invalid 1
+
+#data
+| #hoge
+#base
+about://weather/foo
+#canon
+about://weather/foo#hoge
+#scheme about
+#path //weather/foo
+#fragment hoge
 
 #data
 hoge
@@ -227,7 +255,11 @@ about:weather/foo
 | #hoge
 #base
 about:weather/foo
-#invalid 1
+#canon
+about:weather/foo#hoge
+#scheme about
+#path weather/foo
+#fragment hoge
 
 #data
 opera:
@@ -357,7 +389,11 @@ view-source:http://foo/bar
 | #baz
 #base
 view-source:http://foo/bar
-#invalid 1
+#canon
+view-source:http://foo/bar#baz
+#scheme view-source
+#path http://foo/bar
+#fragment baz
 
 #data
 chrome:
@@ -426,7 +462,11 @@ hoge
 #data
 | #/hoge
 #base chrome:foobar
-#invalid 1
+#canon
+chrome:foobar#/hoge
+#scheme chrome
+#path foobar
+#fragment /hoge
 
 #data
 wysiwyg:
@@ -488,7 +528,11 @@ hoge
 #data
 | #/hoge
 #base wysiwyg:foobar
-#invalid 1
+#canon
+wysiwyg:foobar#/hoge
+#scheme wysiwyg
+#path foobar
+#fragment /hoge
 
 #data
 res:
