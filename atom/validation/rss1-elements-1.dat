@@ -1,0 +1,30 @@
+#data
+<title xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"></title>
+#errors
+
+#data
+<title xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">abc</title>
+#errors
+
+#data
+<title xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">ab&lt;aaa</title>
+#errors
+
+#data
+<link xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">abc</link>
+#errors
+
+#data
+<link xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">http://abc/</link>
+#errors
+
+#data
+<link xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">http:[]abc</link>
+#errors
+/link;syntax error:iriref3987;m
+
+#data
+<link xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">ab<p>aa</p>c</link>
+#errors
+/link/p;element not allowed:text;m
+/link/p;element not defined;m
