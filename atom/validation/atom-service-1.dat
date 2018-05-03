@@ -225,6 +225,7 @@
   <app:accept></app:accept>
 </app:collection>
 #errors
+/collection/accept;unknown element;u
 
 #data
 <app:collection xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" href="http://aa/">
@@ -232,6 +233,7 @@
   <app:accept>  </app:accept>
 </app:collection>
 #errors
+/collection/accept;unknown element;u
 
 #data
 <app:collection xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" href="http://aa/">
@@ -239,6 +241,7 @@
   <app:accept>text/plain, text/html</app:accept>
 </app:collection>
 #errors
+/collection/accept;unknown element;u
 
 #data
 <app:collection xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" href="http://aa/">
@@ -247,13 +250,16 @@
   <app:accept>IMAGE/PNG</app:accept>
 </app:collection>
 #errors
+/collection/accept;unknown element;u
+/collection/accept;unknown element;u
 
 #data
 <app:accept xmlns:app="http://www.w3.org/2007/app">IMAGE/PNG</app:accept>
 #errors
+/accept;unknown element;u
 
 #data
 <app:accept xmlns:app="http://www.w3.org/2007/app">IMAGE/<foo>PNG</foo></app:accept>
 #errors
-/accept/foo;element not allowed:text;m
+/accept;unknown element;u
 /accept/foo;unknown namespace element;w
