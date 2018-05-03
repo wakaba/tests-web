@@ -1,0 +1,59 @@
+#rss2
+#data
+<item xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title>aa</title>
+  <dc:creator>aaa</dc:creator>
+</item>
+#errors
+
+#rss2
+#data
+<item xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title>aa</title>
+  <dc:creator>aaa</dc:creator>
+  <dc:creator>aaa</dc:creator>
+</item>
+#errors
+item/creator;element not allowed:duplicate;m
+
+#rss2
+#data
+<channel xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title>aa</title>
+  <dc:creator>aaa</dc:creator>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+
+#rss2
+#data
+<channel xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title>aa</title>
+  <dc:creator>aaa</dc:creator>
+  <dc:creator>aaa</dc:creator>
+</channel>
+#errors
+channel/creator;element not allowed:duplicate;m
+channel;child element missing;description;m
+channel;child element missing;link;m
+
+#rss2
+#data
+<item xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title>aa</title>
+  <dc:creator>aaa</dc:creator>
+  <author>aa@bar.test (goo)</author>
+</item>
+#errors
+item/author;element not allowed:rss2 author dc:creator;s
+
+#rss2
+#data
+<item xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title>aa</title>
+  <author>aa@bar.test (goo)</author>
+  <dc:creator>aaa</dc:creator>
+</item>
+#errors
+item/creator;element not allowed:rss2 author dc:creator;s

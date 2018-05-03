@@ -1,0 +1,418 @@
+#rss2
+#data
+<channel>
+  <item>
+  </item>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/item;child element missing:rss2:title|description;m
+
+#rss2
+#data
+<item>a</item>
+#errors
+item/"a";character not allowed;m
+item;child element missing:rss2:title|description;m
+
+#rss2
+#data
+<item><p>a</p></item>
+#errors
+item/p;element not defined;m
+item;child element missing:rss2:title|description;m
+
+#rss2
+#data
+<item>
+  <author>oo.bar@e.test (aa)</author>
+</item>
+#errors
+item;child element missing:rss2:title|description;m
+
+#rss2
+#data
+<item>
+  <author>oo.bar@e.test(aa)</author>
+</item>
+#errors
+item;child element missing:rss2:title|description;m
+item/author;rss2:person:syntax error;s
+
+#rss2
+#data
+<item>
+  <author>oo.bar@e.test (aa)</author>
+  <author>oo.bar@e.test (aa)</author>
+</item>
+#errors
+item;child element missing:rss2:title|description;m
+item/author;element not allowed:duplicate;m
+
+#rss2
+#data
+<item>
+  <category>aga</category>
+</item>
+#errors
+item;child element missing:rss2:title|description;m
+
+#rss2
+#data
+<item>
+  <category>aga</category>
+  <category>aga</category>
+</item>
+#errors
+item;child element missing:rss2:title|description;m
+
+#rss2
+#data
+<item>
+  <category domain="gaea rwgtw">aga</category>
+  <category>aga</category>
+</item>
+#errors
+item;child element missing:rss2:title|description;m
+
+#rss2
+#data
+<item>
+  <comments>aa</comments>
+</item>
+#errors
+item;child element missing:rss2:title|description;m
+
+#rss2
+#data
+<item>
+  <comments>http://ea/aa</comments>
+</item>
+#errors
+item;child element missing:rss2:title|description;m
+
+#rss2
+#data
+<item>
+  <comments>http:[w//hoa.aa.com:/?aa</comments>
+</item>
+#errors
+item;child element missing:rss2:title|description;m
+item/comments;syntax error:iriref3987;m
+
+#rss2
+#data
+<item>
+  <description>aa&lt;p>aaww</description>
+</item>
+#errors
+
+#rss2
+#data
+<item>
+  <description>aa&lt;p>aaw&lt;w</description>
+</item>
+#errors
+item/description;parser:EOF;m
+
+#rss2
+#data
+<item>
+  <title>a</title>
+  <enclosure/>
+</item>
+#errors
+item/enclosure;attribute missing;length;m
+item/enclosure;attribute missing;type;m
+item/enclosure;attribute missing;url;m
+
+#rss2
+#data
+<item>
+  <title>a</title>
+  <enclosure>aa</enclosure>
+</item>
+#errors
+item/enclosure;attribute missing;length;m
+item/enclosure;attribute missing;type;m
+item/enclosure;attribute missing;url;m
+item/enclosure/"aa";character not allowed:empty;m
+
+#rss2
+#data
+<item>
+  <title>a</title>
+  <enclosure><title>b</title></enclosure>
+</item>
+#errors
+item/enclosure;attribute missing;length;m
+item/enclosure;attribute missing;type;m
+item/enclosure;attribute missing;url;m
+item/enclosure/title;element not allowed:empty;m
+
+#rss2
+#data
+<item>
+  <title>a</title>
+  <enclosure length="42" url="aba" type="text/plain"/>
+</item>
+#errors
+
+#rss2
+#data
+<item>
+  <title>a</title>
+  <enclosure length="42px" url="a]aba" type="textplain"/>
+</item>
+#errors
+item/enclosure/@length;nninteger:syntax error;m
+item/enclosure/@type;MIME type:no /;m
+item/enclosure/@url;syntax error:iriref3987;m
+
+#rss2
+#data
+<item>
+  <title>a</title>
+  <enclosure length="42" url="aba" type="text/plain"/>
+  <enclosure length="42" url="aba" type="text/plain"/>
+</item>
+#errors
+item/enclosure;element not allowed:duplicate;m
+
+#rss2
+#data
+<item>
+  <title>a</title>
+  <guid>gaea</guid>
+</item>
+#errors
+
+#rss2
+#data
+<item>
+  <title>a</title>
+  <guid>gaea</guid>
+  <guid>gaea</guid>
+</item>
+#errors
+item/guid;element not allowed:duplicate;m
+
+#rss2
+#data
+<item>
+  <title>a</title>
+  <guid isPermaLink="true">gaea</guid>
+</item>
+#errors
+
+#rss2
+#data
+<item>
+  <title>a</title>
+  <guid isPermaLink="false">gaea</guid>
+</item>
+#errors
+
+#rss2
+#data
+<item>
+  <title>a</title>
+  <guid isPermaLink="true">http:{}//a/gaea</guid>
+</item>
+#errors
+item/guid;syntax error:iriref3987;m
+
+#rss2
+#data
+<item>
+  <title>a</title>
+  <guid isPermaLink="false">http:{}//a/gaea</guid>
+</item>
+#errors
+
+#rss2
+#data
+<item>
+  <title>a</title>
+  <guid isPermaLink="abac">http:{}//a/gaea</guid>
+</item>
+#errors
+item/guid/@isPermaLink;enumerated:invalid;m
+
+#rss2
+#data
+<item>
+  <title>a</title>
+  <link>http://geaw/</link>
+</item>
+#errors
+
+#rss2
+#data
+<item>
+  <title>a</title>
+  <link>http[]://geaw/</link>
+</item>
+#errors
+item/link;syntax error:iri3987;m
+item/link;syntax error:iriref3987;m
+
+#rss2
+#data
+<item>
+  <title>a</title>
+  <link>ht/geaw/</link>
+</item>
+#errors
+item/link;syntax error:iri3987;m
+
+#rss2
+#data
+<item>
+  <title>aa</title>
+  <pubDate>Fri, 04 OCT 2011 06:44:23 +0900</pubDate>
+</item>
+#errors
+item/pubDate;datetime:bad weekday;Tue;m
+item/pubDate;datetime:month:bad case;s
+
+#rss2
+#data
+<item>
+  <title>aa</title>
+  <pubDate>Fri, 04</pubDate>
+</item>
+#errors
+item/pubDate;datetime:syntax error;m
+
+#rss2
+#data
+<item>
+  <title>aa</title>
+  <pubDate>Fri, 04</pubDate>
+  <pubDate>Fri, 04</pubDate>
+</item>
+#errors
+item/pubDate;datetime:syntax error;m
+item/pubDate;datetime:syntax error;m
+item/pubDate;element not allowed:duplicate;m
+
+#rss2
+#data
+<item>
+  <title>aa</title>
+  <source>aa</source>
+</item>
+#errors
+item/source;attribute missing;url;m
+
+#rss2
+#data
+<item>
+  <title>aa</title>
+  <source url="awe">aa</source>
+</item>
+#errors
+
+#rss2
+#data
+<item>
+  <title>aa</title>
+  <source url="http:[]awe">aa</source>
+</item>
+#errors
+item/source/@url;syntax error:iriref3987;m
+
+#rss2
+#data
+<item>
+  <title>ase&lt;rea</title>
+</item>
+#errors
+
+#rss2
+#data
+<item>
+  <title>ase&lt;rea</title>
+  <title>ase&lt;rea</title>
+</item>
+#errors
+item/title;element not allowed:duplicate;m
+
+#rss2
+#data
+<item xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <title>a</title>
+  <content:encoded>a</content:encoded>
+</item>
+#errors
+
+#rss2
+#data
+<item xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <title>a</title>
+  <content:encoded>ae&lt;p>aaa&lt;x</content:encoded>
+</item>
+#errors
+item/encoded;parser:EOF;m
+
+#rss2
+#data
+<item xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <title>a</title>
+  <description>ae&lt;p>aaa&lt;x</description>
+  <content:encoded>ae&lt;p>aaa&lt;x</content:encoded>
+</item>
+#errors
+item/description;parser:EOF;m
+item/encoded;parser:EOF;m
+
+#rss2
+#data
+<item xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <title>a</title>
+  <content:encoded>a</content:encoded>
+  <content:encoded>a</content:encoded>
+</item>
+#errors
+item/encoded;element not allowed:duplicate;m
+
+#rss2
+#data
+<item>
+  <abac>aww</abac>
+</item>
+#errors
+item/abac;element not defined;m
+item;child element missing:rss2:title|description;m
+
+#rss2
+#data
+<item>
+  <abac xmlns="http://x/">aww</abac>
+</item>
+#errors
+item;child element missing:rss2:title|description;m
+item/abac;unknown namespace element;w
+
+#rss2
+#data
+<item>
+  <abac xmlns="http://x/">aww</abac>
+  <abac xmlns="http://x/">aww</abac>
+</item>
+#errors
+item;child element missing:rss2:title|description;m
+item/abac;unknown namespace element;w
+item/abac;unknown namespace element;w
+
+#rss2
+#data
+<item>
+  <xmlabac xmlns="http://x/">aww</xmlabac>
+</item>
+#errors
+item;child element missing:rss2:title|description;m
+item/xmlabac;unknown namespace element;w

@@ -1,0 +1,178 @@
+#is-document 1
+#data
+<rss></rss>
+#errors
+/;xml:no DTD validation;i
+/rss;attribute missing;version;m
+/rss;child element missing;channel;m
+
+#is-document 1
+#data
+<rss version="2.0"></rss>
+#errors
+/;xml:no DTD validation;i
+/rss;child element missing;channel;m
+
+#is-document 1
+#data
+<rss version="2.00"></rss>
+#errors
+/;xml:no DTD validation;i
+/rss/@version;enumerated:invalid;m
+/rss;child element missing;channel;m
+
+#is-document 1
+#data
+<rss version=""></rss>
+#errors
+/;xml:no DTD validation;i
+/rss/@version;enumerated:invalid;m
+/rss;child element missing;channel;m
+
+#is-document 1
+#data
+<rss version="1.0"></rss>
+#errors
+/;xml:no DTD validation;i
+/rss/@version;enumerated:invalid;m
+/rss;child element missing;channel;m
+
+#is-document 1
+#data
+<rss version="0.91"></rss>
+#errors
+/;xml:no DTD validation;i
+/rss/@version;enumerated:invalid;m
+/rss;child element missing;channel;m
+
+#is-document 1
+#data
+<rss version="0.92"></rss>
+#errors
+/;xml:no DTD validation;i
+/rss/@version;enumerated:invalid;m
+/rss;child element missing;channel;m
+
+#is-document 1
+#data
+<rss version="0.93"></rss>
+#errors
+/;xml:no DTD validation;i
+/rss/@version;enumerated:invalid;m
+/rss;child element missing;channel;m
+
+#is-document 1
+#data
+<rss version="0.94"></rss>
+#errors
+/;xml:no DTD validation;i
+/rss/@version;enumerated:invalid;m
+/rss;child element missing;channel;m
+
+#is-document 1
+#data
+<rss version="0.90"></rss>
+#errors
+/;xml:no DTD validation;i
+/rss/@version;enumerated:invalid;m
+/rss;child element missing;channel;m
+
+#is-document 1
+#data
+<rss version="0.9"></rss>
+#errors
+/;xml:no DTD validation;i
+/rss/@version;enumerated:invalid;m
+/rss;child element missing;channel;m
+
+#is-document 1
+#data
+<rss version="2.01"></rss>
+#errors
+/;xml:no DTD validation;i
+/rss/@version;enumerated:invalid;m
+/rss;child element missing;channel;m
+
+#is-document 1
+#data
+<x>
+<rss></rss>
+</x>
+#errors
+/;xml:no DTD validation;i
+/x;unknown namespace element;w
+/x/rss;unknown namespace element;w
+
+#is-document 1
+#data
+<rss>a</rss>
+#errors
+/;xml:no DTD validation;i
+/rss;attribute missing;version;m
+/rss/"a";character not allowed;m
+/rss;child element missing;channel;m
+
+#is-document 1
+#data
+<rss xmlns="http://a/.a"></rss>
+#errors
+/;xml:no DTD validation;i
+/rss;unknown namespace element;w
+
+#is-document 1
+#data
+<RSS xmlns="http://a/.a"/>
+#errors
+/;xml:no DTD validation;i
+/RSS;unknown namespace element;w
+
+#is-document 1
+#data
+<rss xmlns="" version="2.0"></rss>
+#errors
+/;xml:no DTD validation;i
+/rss;child element missing;channel;m
+
+#is-document 1
+#data
+<rss>
+  <channel></channel>
+</rss>
+#errors
+/;xml:no DTD validation;i
+/rss;attribute missing;version;m
+/rss/channel;child element missing;description;m
+/rss/channel;child element missing;link;m
+/rss/channel;child element missing;title;m
+
+#is-document 1
+#data
+<rss>
+  <channel></channel>
+  <channel></channel>
+</rss>
+#errors
+/;xml:no DTD validation;i
+/rss;attribute missing;version;m
+/rss/channel;child element missing;description;m
+/rss/channel;child element missing;link;m
+/rss/channel;child element missing;title;m
+/rss/channel;child element missing;description;m
+/rss/channel;child element missing;link;m
+/rss/channel;child element missing;title;m
+/rss/channel;element not allowed:duplicate;m
+
+#is-document 1
+#data
+<rss>
+  <channel></channel>
+  <item/>
+</rss>
+#errors
+/;xml:no DTD validation;i
+/rss;attribute missing;version;m
+/rss/channel;child element missing;description;m
+/rss/channel;child element missing;link;m
+/rss/channel;child element missing;title;m
+/rss/item;element not allowed;m
+/rss/item;child element missing:rss2:title|description;m

@@ -1,0 +1,514 @@
+#is-document 1
+#data
+<rss version="2.0">
+  <channel>
+  </channel>
+</rss>
+#errors
+/;xml:no DTD validation;i
+/rss/channel;child element missing;description;m
+/rss/channel;child element missing;link;m
+/rss/channel;child element missing;title;m
+
+#rss2
+#data
+<channel hoge=""/>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/@hoge;attribute not defined;m
+
+#rss2
+#data
+<channel>
+  <description>a</description>
+</channel>
+#errors
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <description>a&lt;a</description>
+</channel>
+#errors
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <description>a</description>
+  <description>a</description>
+</channel>
+#errors
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/description;element not allowed:duplicate;m
+
+#rss2
+#data
+<channel>
+  <link>http://ga/</link>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <link>http://ga/</link>
+  <link>http://ga/</link>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;title;m
+channel/link;element not allowed:duplicate;m
+
+#rss2
+#data
+<channel>
+  <link>//ga/</link>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;title;m
+channel/link;syntax error:iri3987;m
+
+#rss2
+#data
+<channel>
+  <link>http:[]://ga/</link>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;title;m
+channel/link;syntax error:iri3987;m
+channel/link;syntax error:iriref3987;m
+
+#rss2
+#data
+<channel>
+  <title>ate</title>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+
+#rss2
+#data
+<channel>
+  <title>ate</title>
+  <title>ate</title>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel/title;element not allowed:duplicate;m
+
+#rss2
+#data
+<channel>
+  <title xml:lang="en">ate</title>
+  <title xml:lang="ja">ate</title>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel/title;element not allowed:duplicate;m
+
+#rss2
+#data
+<channel>
+  <category>aa</category>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <category>aa</category>
+  <category>bb</category>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <category>aa</category>
+  <category>aa</category>
+  <category>bb</category>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <category domain="x">aa</category>
+  <category>aa</category>
+  <category domain="[oo]">bb</category>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <cloud/>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/cloud;attribute missing;domain;m
+channel/cloud;attribute missing;path;m
+channel/cloud;attribute missing;port;m
+channel/cloud;attribute missing;protocol;m
+channel/cloud;attribute missing;registerProcedure;m
+
+#rss2
+#data
+<channel>
+  <cloud domain="x" path="/y" port="345" protocol="soap" registerProcedure="ga"/>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/cloud/@domain;unknown attribute;u
+channel/cloud/@path;unknown attribute;u
+channel/cloud/@port;unknown attribute;u
+channel/cloud/@protocol;unknown attribute;u
+channel/cloud/@registerProcedure;enumerated:invalid;m
+
+#rss2
+#data
+<channel>
+  <cloud>agw</cloud>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/cloud;attribute missing;domain;m
+channel/cloud;attribute missing;path;m
+channel/cloud;attribute missing;port;m
+channel/cloud;attribute missing;protocol;m
+channel/cloud;attribute missing;registerProcedure;m
+channel/cloud/"agw";character not allowed:empty;m
+
+#rss2
+#data
+<channel>
+  <cloud><title>agw</title></cloud>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/cloud;attribute missing;domain;m
+channel/cloud;attribute missing;path;m
+channel/cloud;attribute missing;port;m
+channel/cloud;attribute missing;protocol;m
+channel/cloud;attribute missing;registerProcedure;m
+channel/cloud/title;element not allowed:empty;m
+
+#rss2
+#data
+<channel>
+  <copyright>aaa&lt;ae</copyright>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <copyright>aaa&lt;ae</copyright>
+  <copyright>aaa&lt;ae</copyright>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/copyright;element not allowed:duplicate;m
+
+#rss2
+#data
+<channel>
+  <docs>http://www.rssboard.org/rss-specification</docs>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <docs>http://www.rssboard.org/rss-specification</docs>
+  <docs>http://www.rssboard.org/rss-specification</docs>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/docs;element not allowed:duplicate;m
+
+#rss2
+#data
+<channel>
+  <docs>http:{}//www.rssboard.org/rss-specification</docs>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/docs;syntax error:iriref3987;m
+
+#rss2
+#data
+<channel>
+  <docs>http</docs>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <generator>aaa&lt;ae</generator>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <generator>aaa&lt;ae</generator>
+  <generator>aaa&lt;ae</generator>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/generator;element not allowed:duplicate;m
+
+#rss2
+#data
+<channel>
+  <language>en</language>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <language>en-US</language>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <language>en-US</language>
+  <language>en-GB</language>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/language;element not allowed:duplicate;m
+
+#rss2
+#data
+<channel>
+  <language>en-US</language>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <language>[]</language>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/language;langtag:language:invalid;m
+channel/language;langtag:language:syntax;m
+
+#rss2
+#data
+<channel>
+  <lastBuildDate>04 Dec 2053 12:25:33 GMT</lastBuildDate>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <lastBuildDate>04 Dec 2053 12:25:33 GMT</lastBuildDate>
+  <lastBuildDate>04 Dec 2053 12:25:33 GMT</lastBuildDate>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/lastBuildDate;element not allowed:duplicate;m
+
+#rss2
+#data
+<channel>
+  <pubDate>04 Dec 2053 12:25:33 GMT</pubDate>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <pubDate>04 Dec 2053 12:25:33 GMT</pubDate>
+  <pubDate>04 Dec 2053 12:25:33 GMT</pubDate>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/pubDate;element not allowed:duplicate;m
+
+#rss2
+#data
+<channel>
+  <managingEditor>aaa@bar.bar (fooba)</managingEditor>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <managingEditor>aaa@bar.bar (fooba)</managingEditor>
+  <managingEditor>aaa@bar.bar (fooba)</managingEditor>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/managingEditor;element not allowed:duplicate;m
+
+#rss2
+#data
+<channel>
+  <rating>aaa</rating>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/rating;unknown element;u
+
+#rss2
+#data
+<channel>
+  <rating>aaa</rating>
+  <rating>aaa</rating>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/rating;unknown element;u
+channel/rating;unknown element;u
+channel/rating;element not allowed:duplicate;m
+
+#rss2
+#data
+<channel>
+  <ttl>53</ttl>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <ttl>53px</ttl>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/ttl;nninteger:syntax error;m
+
+#rss2
+#data
+<channel>
+  <webMaster>aaa@bar.bar (fooba)</webMaster>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <webMaster>aaa@bar.bar (fooba)</webMaster>
+  <webMaster>aaa@bar.bar (fooba)</webMaster>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/webMaster;element not allowed:duplicate;m
+
+#rss2
+#data
+<channel>
+  <webMaster>aaa@bar.bar (fooba</webMaster>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/webMaster;rss2:person:syntax error;s
