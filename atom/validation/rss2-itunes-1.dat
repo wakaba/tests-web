@@ -1,0 +1,65 @@
+#rss2
+#data
+<channel xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <itunes:author>aa</itunes:author>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <itunes:author>aa</itunes:author>
+  <itunes:author>aa</itunes:author>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/author;element not allowed:duplicate;m
+
+#rss2
+#data
+<channel xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <itunes:image />
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/image;attribute missing;href;m
+
+#rss2
+#data
+<channel xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <itunes:image href="http://x/"/>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <itunes:image href="http:[]//x/"/>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/image/@href;syntax error:iriref3987;m
+
+#rss2
+#data
+<channel xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <itunes:image href="http://x/"/>
+  <itunes:image href="http://x/"/>
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+channel/image;element not allowed:duplicate;m

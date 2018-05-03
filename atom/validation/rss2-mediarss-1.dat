@@ -1,0 +1,144 @@
+#rss2
+#data
+<item xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:thumbnail/>
+</item>
+#errors
+item/thumbnail;attribute missing;url;m
+
+#rss2
+#data
+<item xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:thumbnail url="x"/>
+</item>
+#errors
+
+#rss2
+#data
+<item xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:thumbnail url=":[]x"/>
+</item>
+#errors
+item/thumbnail/@url;syntax error:iriref3987;m
+
+#rss2
+#data
+<item xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:thumbnail url="x">aa</media:thumbnail>
+</item>
+#errors
+item/thumbnail/"aa";character not allowed:empty;m
+
+#rss2
+#data
+<item xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:thumbnail url="x"><title>y</title></media:thumbnail>
+</item>
+#errors
+item/thumbnail/title;element not allowed:empty;m
+
+#rss2
+#data
+<item xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:thumbnail url="x"/>
+  <media:thumbnail url="x"/>
+</item>
+#errors
+
+#rss2
+#data
+<item xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:group/>
+</item>
+#errors
+
+#rss2
+#data
+<item xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:group>
+    <media:thumbnail url="y"/>
+  </media:group>
+</item>
+#errors
+
+#rss2
+#data
+<item xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:group>
+    <media:thumbnail url="y"/>
+    <media:thumbnail url="y"/>
+  </media:group>
+  <media:group>
+    <media:thumbnail url="y"/>
+    <media:thumbnail url="y"/>
+  </media:group>
+</item>
+#errors
+
+#rss2
+#data
+<item xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:group>
+    <media:thumbnail url="y"/>
+    <media:title>?a&lt;a</media:title>
+    <media:description>?a&lt;a</media:description>
+    <media:content/>
+  </media:group>
+</item>
+#errors
+
+#rss2
+#data
+<item xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:group>
+    <media:thumbnail url="y"/>
+    <media:title>?a&lt;a</media:title>
+    <media:description>?a&lt;a</media:description>
+    <media:content url="b" type="text/plain" />
+  </media:group>
+</item>
+#errors
+
+#rss2
+#data
+<item xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:group>
+    <media:thumbnail url="y"/>
+    <media:title>?a&lt;a</media:title>
+    <media:description>?a&lt;a</media:description>
+    <media:content url="http>:[]b" type="textplain" />
+  </media:group>
+</item>
+#errors
+item/group/content/@url;syntax error:iriref3987;m
+item/group/content/@type;MIME type:no /;m
+
+#rss2
+#data
+<item xmlns:media="http://search.yahoo.com/mrss">
+  <title>x</title>
+  <media:group>
+    <media:thumbnail url="y"/>
+    <media:title>?a&lt;a</media:title>
+    <media:description>?a&lt;a</media:description>
+    <media:content url="b" type="text/plain" />
+  </media:group>
+</item>
+#errors
+item/group/content;element not defined;m
+item/group/description;element not defined;m
+item/group/thumbnail;element not defined;m
+item/group/title;element not defined;m
+item/group;element not defined;m

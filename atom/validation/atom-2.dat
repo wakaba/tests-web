@@ -1,0 +1,139 @@
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <abc/>
+</entry>
+#errors
+/entry/abc;element not allowed;m
+/entry/abc;element not defined;m
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;title;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <abc xmlns=""/>
+</entry>
+#errors
+/entry/abc;unknown namespace element;w
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;title;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <abc xmlns="http://x/"/>
+</entry>
+#errors
+/entry/abc;unknown namespace element;w
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;title;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <XMLabc xmlns="http://x/"/>
+</entry>
+#errors
+/entry/XMLabc;unknown namespace element;w
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;title;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <xmlo:abc xmlns:xmlo="http://x/"/>
+</entry>
+#errors
+/entry/abc;unknown namespace element;w
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;title;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <abc xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+</entry>
+#errors
+/entry/abc;unknown namespace element;w
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;title;m
+/entry;child element missing:atom;updated;m
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <abc/>
+</feed>
+#errors
+/feed/abc;element not allowed;m
+/feed/abc;element not defined;m
+/feed;child element missing:atom:link:self;s
+/feed;child element missing:atom;id;m
+/feed;child element missing:atom;title;m
+/feed;child element missing:atom;updated;m
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <abc xmlns=""/>
+</feed>
+#errors
+/feed/abc;unknown namespace element;w
+/feed;child element missing:atom:link:self;s
+/feed;child element missing:atom;id;m
+/feed;child element missing:atom;title;m
+/feed;child element missing:atom;updated;m
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <abc xmlns="http://x/"/>
+</feed>
+#errors
+/feed/abc;unknown namespace element;w
+/feed;child element missing:atom:link:self;s
+/feed;child element missing:atom;id;m
+/feed;child element missing:atom;title;m
+/feed;child element missing:atom;updated;m
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <XMLabc xmlns="http://x/"/>
+</feed>
+#errors
+/feed/XMLabc;unknown namespace element;w
+/feed;child element missing:atom:link:self;s
+/feed;child element missing:atom;id;m
+/feed;child element missing:atom;title;m
+/feed;child element missing:atom;updated;m
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <xmlo:abc xmlns:xmlo="http://x/"/>
+</feed>
+#errors
+/feed/abc;unknown namespace element;w
+/feed;child element missing:atom:link:self;s
+/feed;child element missing:atom;id;m
+/feed;child element missing:atom;title;m
+/feed;child element missing:atom;updated;m
+
+#data
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <abc xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+</feed>
+#errors
+/feed/abc;unknown namespace element;w
+/feed;child element missing:atom:link:self;s
+/feed;child element missing:atom;id;m
+/feed;child element missing:atom;title;m
+/feed;child element missing:atom;updated;m

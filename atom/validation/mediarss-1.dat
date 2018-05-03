@@ -1,0 +1,83 @@
+#data
+<media:community xmlns:media="http://search.yahoo.com/mrss/">
+  <media:starRating/>
+</media:community>
+#errors
+
+#data
+<media:community xmlns:media="http://search.yahoo.com/mrss/">
+  <media:starRating/>
+  <media:starRating/>
+</media:community>
+#errors
+/community/starRating;element not allowed:duplicate;m
+
+#data
+<media:community xmlns:media="http://search.yahoo.com/mrss/">
+  <media:starRating average="5.2"/>
+</media:community>
+#errors
+
+#data
+<media:community xmlns:media="http://search.yahoo.com/mrss/">
+  <media:starRating average="abc"/>
+</media:community>
+#errors
+/community/starRating/@average;float:syntax error;m
+
+#data
+<media:community xmlns:media="http://search.yahoo.com/mrss/">
+  <media:starRating max="532"/>
+</media:community>
+#errors
+
+#data
+<media:community xmlns:media="http://search.yahoo.com/mrss/">
+  <media:starRating max="abc"/>
+</media:community>
+#errors
+/community/starRating/@max;nninteger:syntax error;m
+
+#data
+<media:community xmlns:media="http://search.yahoo.com/mrss/">
+  <media:starRating min="532"/>
+</media:community>
+#errors
+
+#data
+<media:community xmlns:media="http://search.yahoo.com/mrss/">
+  <media:starRating min="abc"/>
+</media:community>
+#errors
+/community/starRating/@min;nninteger:syntax error;m
+
+#data
+<media:community xmlns:media="http://search.yahoo.com/mrss/">
+  <media:statistics/>
+</media:community>
+#errors
+
+#data
+<media:community xmlns:media="http://search.yahoo.com/mrss/">
+  <media:statistics/>
+  <media:statistics/>
+</media:community>
+#errors
+/community/statistics;element not allowed:duplicate;m
+
+#data
+<media:community xmlns:media="http://search.yahoo.com/mrss/">
+  <media:tags/>
+</media:community>
+#errors
+/community/tags;unknown element;u
+
+#data
+<media:community xmlns:media="http://search.yahoo.com/mrss/">
+  <media:tags/>
+  <media:tags/>
+</media:community>
+#errors
+/community/tags;element not allowed:duplicate;m
+/community/tags;unknown element;u
+/community/tags;unknown element;u
