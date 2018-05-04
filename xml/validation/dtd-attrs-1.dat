@@ -7,6 +7,7 @@
 #errors
 /a;unknown namespace element;w
 /a/@id;xml:name syntax;m
+/a/@id;empty attribute value;m
 
 #data
 <!DOCTYPE a [
@@ -36,6 +37,7 @@
 #errors
 /a;unknown namespace element;w
 /a/@id;xml:name syntax;m
+/a/@id;space in ID;m
 
 #data
 <!DOCTYPE a [
@@ -49,6 +51,7 @@
 /a;unknown namespace element;w
 /a/b;unknown namespace element;w
 /a/b/@id;VC:ID:unique;m
+/a/b/@id;duplicate ID;m
 
 #data
 <!DOCTYPE a [
@@ -74,6 +77,7 @@
 /!DOCTYPE/!ELEMENT b/@id;xml:dtd:id non-ID;w
 /a;unknown namespace element;w
 /a/b;unknown namespace element;w
+/a/b/@id;duplicate ID;m
 
 #data
 <!DOCTYPE a [
@@ -486,6 +490,7 @@
 /a;unknown namespace element;w
 /a/b;unknown namespace element;w
 /a/b/@id;xml:name syntax;m
+/a/b/@id;space in ID;m
 
 #data
 <!DOCTYPE a[
@@ -579,6 +584,7 @@
 /a/@b;VC:IDREF:referenced element;m
 /a/b;unknown namespace element;w
 /a/b/@id;xml:name syntax;m
+/a/b/@id;space in ID;m
 
 #data
 <!DOCTYPE a[
