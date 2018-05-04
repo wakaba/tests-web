@@ -141,9 +141,9 @@
   <y html:repeat-template="a"/>
 </x>
 #errors
-/x;unknown namespace element;w
-/x/y;unknown namespace element;w
-/x/y;unknown namespace element;w
+/x;unknown namespace element;u
+/x/y;unknown namespace element;u
+/x/y;unknown namespace element;u
 /x/y/@repeat-template;attribute not defined;m
 /x/y/@repeat;attribute not defined;m
 /x/y/@id;attribute not defined;m
@@ -154,9 +154,9 @@
   <y html:repeat-template="a"/>
 </x>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/p/@repeat;attr:obsolete;m
-/x/y;unknown namespace element;w
+/x/y;unknown namespace element;u
 /x/y/@repeat-template;attribute not defined;m
 
 #data
@@ -165,10 +165,10 @@
   <y html:repeat-template="a"/>
 </x>
 #errors
-/x;unknown namespace element;w
-/x/y;unknown namespace element;w
+/x;unknown namespace element;u
+/x/y;unknown namespace element;u
 /x/y/@repeat;attribute not defined;m
-/x/y;unknown namespace element;w
+/x/y;unknown namespace element;u
 /x/y/@repeat-template;attribute not defined;m
 
 #data
@@ -404,32 +404,32 @@
 #data
 <x html:repeat="x" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@repeat;attribute not defined;m
 
 #data
 <x html:repeat-start="x" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@repeat-start;attribute not defined;m
 
 #data
 <x html:repeat-min="x" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@repeat-min;attribute not defined;m
 
 #data
 <x html:repeat-max="x" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@repeat-max;attribute not defined;m
 
 #data
 <x html:repeat-min="1" html:repeat="template"
     xmlns:html="http://www.w3.org/1999/xhtml">a</x>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@repeat;attribute not defined;m
 /x/@repeat-min;attribute not defined;m
 
@@ -437,7 +437,7 @@
 <x html:repeat-max="1" html:repeat="template"
     xmlns:html="http://www.w3.org/1999/xhtml">a</x>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@repeat;attribute not defined;m
 /x/@repeat-max;attribute not defined;m
 
@@ -445,7 +445,7 @@
 <x html:repeat-start="1" html:repeat="template"
     xmlns:html="http://www.w3.org/1999/xhtml">a</x>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@repeat;attribute not defined;m
 /x/@repeat-start;attribute not defined;m
 
@@ -453,27 +453,30 @@
 <x html:repeat-min="1" repeat="template"
     xmlns:html="http://www.w3.org/1999/xhtml">a</x>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@repeat-min;attribute not defined;m
+/x/@repeat;unknown attribute;u
 
 #data
 <x html:repeat-max="1" repeat="template"
     xmlns:html="http://www.w3.org/1999/xhtml">a</x>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@repeat-max;attribute not defined;m
+/x/@repeat;unknown attribute;u
 
 #data
 <x html:repeat-start="1" repeat="template"
     xmlns:html="http://www.w3.org/1999/xhtml">a</x>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@repeat-start;attribute not defined;m
+/x/@repeat;unknown attribute;u
 
 #data
 <x html:repeat-template="x" xmlns:html="http://www.w3.org/1999/xhtml"><p repeat="template" id="x" xmlns="http://www.w3.org/1999/xhtml">x</p></x>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@repeat-template;attribute not defined;m
 /x/p/@repeat;attr:obsolete;m
 
@@ -539,7 +542,9 @@
 <a html:repeat="" html:b=""
 c="" xmlns:d="http://" d:e="" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/a;unknown namespace element;w
+/a;unknown namespace element;u
 /a/@b;attribute not defined;m
 /a/@d;URL:empty path;w
 /a/@repeat;attribute not defined;m
+/a/@c;unknown attribute;u
+/a/@e;unknown attribute;u

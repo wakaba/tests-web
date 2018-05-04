@@ -4,8 +4,9 @@
 ]><a hoge="fuga"></a>
 #is-document
 #errors
-/a;unknown namespace element;w
+/a;unknown namespace element;u
 /a/@hoge;VC:Attribute Value Type:declared;m
+/a/@hoge;unknown attribute;u
 
 #data
 <!DOCTYPE a [
@@ -13,8 +14,9 @@
 ]><a hoge:ab="fuga"></a>
 #is-document
 #errors
-/a;unknown namespace element;w
+/a;unknown namespace element;u
 /a/@hoge:ab;VC:Attribute Value Type:declared;m
+/a/@hoge:ab;unknown attribute;u
 
 #data
 <!DOCTYPE a [
@@ -22,7 +24,7 @@
 ]><a xmlns:hoge="fuga"></a>
 #is-document
 #errors
-/a;unknown namespace element;w
+/a;unknown namespace element;u
 /a/@hoge;VC:Attribute Value Type:declared;m
 
 #data
@@ -31,7 +33,7 @@
 ]><a><b xmlns:hoge="fuga"></b></a>
 #is-document
 #errors
-/a;unknown namespace element;w
+/a;unknown namespace element;u
 /a;VC:Element Valid:declared;m
-/a/b;unknown namespace element;w
+/a/b;unknown namespace element;u
 /a/b/@hoge;VC:Attribute Value Type:declared;m

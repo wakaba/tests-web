@@ -5,7 +5,8 @@
 ]><a hoge="fuga"></a>
 #is-document
 #errors
-/a;unknown namespace element;w
+/a;unknown namespace element;u
+/a/@hoge;unknown attribute;u
 
 #data
 <!DOCTYPE a [
@@ -14,8 +15,9 @@
 ]><a hoge="fuga"></a>
 #is-document
 #errors
-/a;unknown namespace element;w
+/a;unknown namespace element;u
 /a/@hoge;VC:Fixed Attribute Default;foo;m
+/a/@hoge;unknown attribute;u
 
 #data
 <!DOCTYPE a [
@@ -24,7 +26,8 @@
 ]><a hoge="fuga"></a>
 #is-document
 #errors
-/a;unknown namespace element;w
+/a;unknown namespace element;u
+/a/@hoge;unknown attribute;u
 
 #data
 <!DOCTYPE a [
@@ -33,7 +36,8 @@
 ]><a hoge=""></a>
 #is-document
 #errors
-/a;unknown namespace element;w
+/a;unknown namespace element;u
+/a/@hoge;unknown attribute;u
 
 #data
 <!DOCTYPE a [
@@ -42,7 +46,7 @@
 ]><a ></a>
 #is-document
 #errors
-/a;unknown namespace element;w
+/a;unknown namespace element;u
 /a;VC:Required Attribute;hoge;m
 
 #data
@@ -52,7 +56,8 @@
 ]><a hoge:fuga=""></a>
 #is-document
 #errors
-/a;unknown namespace element;w
+/a;unknown namespace element;u
+/a/@hoge:fuga;unknown attribute;u
 
 #data
 <!DOCTYPE a [
@@ -61,5 +66,5 @@
 ]><a ></a>
 #is-document
 #errors
-/a;unknown namespace element;w
+/a;unknown namespace element;u
 /a;VC:Required Attribute;hoge:fuga;m

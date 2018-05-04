@@ -3,60 +3,60 @@
 #is-document
 #errors
 /?hoge;xml:pi:target not declared;w
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 
 #data
 <!DOCTYPE x[<!ELEMENT x ANY>]><?hoge uga?><x></x>
 #is-document
 #errors
 /?hoge;xml:pi:target not declared;w
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 
 #data
 <!DOCTYPE x[<!ELEMENT x ANY>]><x></x><?hoge uga?>
 #is-document
 #errors
 /?hoge;xml:pi:target not declared;w
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 
 #data
 <!DOCTYPE x[<!ELEMENT x ANY><?hoge uga?>]><x></x>
 #is-document
 #errors
 /!DOCTYPE/?hoge;xml:pi:target not declared;w
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 
 #data
 <!DOCTYPE x[<!ELEMENT x ANY>]><?hoge!! uga?><x></x>
 #is-document
 #errors
 /?hoge!!;xml:name syntax;m
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 
 #data
 <!DOCTYPE x[<!ELEMENT x ANY>]><?hog:e uga?><x></x>
 #is-document
 #errors
 /?hog:e;xml:ncname syntax;m
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 
 #data
 <!DOCTYPE x[<!ELEMENT x ANY>]><?xml uga?><x></x>
 #is-document
 #errors
 /?xml;xml:name syntax;m
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 
 #data
 <!DOCTYPE x[<!ELEMENT x ANY>]><?XML uga?><x></x>
 #is-document
 #errors
 /?XML;xml:name syntax;m
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 
 #data
 <!DOCTYPE x[<!ELEMENT x ANY>]><?xMl uga?><x></x>
 #is-document
 #errors
 /?xMl;xml:name syntax;m
-/x;unknown namespace element;w
+/x;unknown namespace element;u

@@ -9,15 +9,15 @@
   id="abc"
 >a</p>
 #errors
-/p;unknown namespace element;w
+/p;unknown namespace element;u
 
 #data
 <p xmlns=""
   id="abc"
 ><q id="abc"/>a</p>
 #errors
-/p;unknown namespace element;w
-/p/q;unknown namespace element;w
+/p;unknown namespace element;u
+/p/q;unknown namespace element;u
 /p/q/@id;duplicate ID;m
 
 #data
@@ -25,7 +25,7 @@
   id="abc"
 ><q id="abc" xmlns=""/>a</p>
 #errors
-/p/q;unknown namespace element;w
+/p/q;unknown namespace element;u
 /p/q/@id;duplicate ID;m
 /p/q;element not allowed:phrasing;m
 

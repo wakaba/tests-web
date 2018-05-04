@@ -10,13 +10,14 @@
 #data
 <hoge xmlns="http://www.w3.org/2000/svg" is="ab-cd">x</hoge>
 #errors
-/hoge;element not defined;m
-/hoge/@is;attribute not defined;m
+/hoge;unknown namespace element;u
+/hoge/@is;unknown attribute;u
 
 #data
 <hoge xmlns="http://test/" is="ab-cd">x</hoge>
 #errors
-/hoge;unknown namespace element;w
+/hoge;unknown namespace element;u
+/hoge/@is;unknown attribute;u
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml" is="">x</div>

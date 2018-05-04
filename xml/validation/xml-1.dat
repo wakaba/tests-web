@@ -1,36 +1,43 @@
 #data
 <unknown u1=""></unknown>
 #errors
-/unknown;unknown namespace element;w
+/unknown;unknown namespace element;u
+/unknown/@u1;unknown attribute;u
 
 #data
 <unknown u1="" xmlns="http://foo/"></unknown>
 #errors
-/unknown;unknown namespace element;w
+/unknown;unknown namespace element;u
+/unknown/@u1;unknown attribute;u
 
 #data
 <unknown u1="" u2=""></unknown>
 #errors
-/unknown;unknown namespace element;w
+/unknown;unknown namespace element;u
+/unknown/@u1;unknown attribute;u
+/unknown/@u2;unknown attribute;u
 
 #data
 <unknown u1="" xmlns=""></unknown>
 #errors
-/unknown;unknown namespace element;w
+/unknown;unknown namespace element;u
+/unknown/@u1;unknown attribute;u
+
 
 #data
 <unknown xml:lang="!" xmlns=""></unknown>
 #errors
-/unknown;unknown namespace element;w
+/unknown;unknown namespace element;u
 /unknown/@lang;langtag:language:syntax;m
 /unknown/@lang;langtag:language:invalid;m
 
 #data
 <unknown u1="" xml:lang="!" xmlns=""></unknown>
 #errors
-/unknown;unknown namespace element;w
+/unknown;unknown namespace element;u
 /unknown/@lang;langtag:language:syntax;m
 /unknown/@lang;langtag:language:invalid;m
+/unknown/@u1;unknown attribute;u
 
 #data
 <unknown u1="" xmlns="http://www.w3.org/1999/xhtml"></unknown>
@@ -57,31 +64,36 @@
 #data
 <unknown xmlns="http://unknown.test/" xml:hoge=""/>
 #errors
-/unknown;unknown namespace element;w
+/unknown;unknown namespace element;u
 /unknown/@hoge;attribute not defined;m
 
 #data
 <unknown xmlns="http://unknown.test/" fuga:hoge="" xmlns:fuga="http://fuga.test/"/>
 #errors
-/unknown;unknown namespace element;w
+/unknown;unknown namespace element;u
+/unknown/@hoge;unknown attribute;u
+
 
 #data
 <unknown abc=""/>
 #errors
-/unknown;unknown namespace element;w
+/unknown;unknown namespace element;u
+/unknown/@abc;unknown attribute;u
 
 #data
 <unknown xml:hoge=""/>
 #errors
-/unknown;unknown namespace element;w
+/unknown;unknown namespace element;u
 /unknown/@hoge;attribute not defined;m
 
 #data
 <unknown fuga:hoge="" xmlns:fuga="http://fuga.test/"/>
 #errors
-/unknown;unknown namespace element;w
+/unknown;unknown namespace element;u
+/unknown/@hoge;unknown attribute;u
 
 #data
 <unknown abc=""/>
 #errors
-/unknown;unknown namespace element;w
+/unknown;unknown namespace element;u
+/unknown/@abc;unknown attribute;u

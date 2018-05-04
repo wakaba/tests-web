@@ -815,8 +815,9 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
   <hoge tabindex="1" xmlns=""/>a
 </button>
 #errors
-/button/hoge;unknown namespace element;w
+/button/hoge;unknown namespace element;u
 /button/hoge;element not allowed:phrasing;m
+/button/hoge/@tabindex;unknown attribute;u
 
 #data
 <button xmlns="http://www.w3.org/1999/xhtml">
@@ -824,7 +825,7 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 </button>
 #errors
 /button/svg;unknown element;u
-/button/svg/@tabindex;attribute not defined;m
+/button/svg/@tabindex;unknown attribute;u
 
 #data html
 <!DOCTYPE html>
@@ -966,11 +967,11 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <body></body>
 </html>
 #errors
-/html;unknown namespace element;w
+/html;unknown namespace element;u
 /html/@xmlns;syntax error:iriref3987;m
-/html/head;unknown namespace element;w
-/html/head/title;unknown namespace element;w
-/html/body;unknown namespace element;w
+/html/head;unknown namespace element;u
+/html/head/title;unknown namespace element;u
+/html/body;unknown namespace element;u
 
 #data html
 <!DOCTYPE html>
@@ -1255,7 +1256,7 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <p xmlns:html="http://www.w3.org/1999/xhtml"
     html:datafld="abc">a</p>
 #errors
-/p;unknown namespace element;w
+/p;unknown namespace element;u
 /p/@datafld;attribute not defined;m
 
 #data
@@ -1287,7 +1288,7 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <p xmlns:html="http://www.w3.org/1999/xhtml"
     html:datasrc="">a</p>
 #errors
-/p;unknown namespace element;w
+/p;unknown namespace element;u
 /p/@datasrc;attribute not defined;m
 
 #data
@@ -1350,7 +1351,7 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <p xmlns:html="http://www.w3.org/1999/xhtml"
     html:datasrc="">a</p>
 #errors
-/p;unknown namespace element;w
+/p;unknown namespace element;u
 /p/@datasrc;attribute not defined;m
 
 #data
@@ -1563,7 +1564,7 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <p xmlns:html="http://www.w3.org/1999/xhtml"
     html:dataformatas="localized">a</p>
 #errors
-/p;unknown namespace element;w
+/p;unknown namespace element;u
 /p/@dataformatas;attribute not defined;m
 
 #data
@@ -1950,85 +1951,85 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 #data
 <x xmlns="" html:active="" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@active;attribute not defined;m
 
 #data
 <x xmlns="" html:instanceof="" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@instanceof;attribute not defined;m
 
 #data
 <x xmlns="" html:cite="" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@cite;attribute not defined;m
 
 #data
 <x xmlns="" html:coords="" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@coords;attribute not defined;m
 
 #data
 <x xmlns="" html:datetime="" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@datetime;attribute not defined;m
 
 #data
 <x xmlns="" html:edit="" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@edit;attribute not defined;m
 
 #data
 <x xmlns="" html:encoding="" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@encoding;attribute not defined;m
 
 #data
 <x xmlns="" html:href="" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@href;attribute not defined;m
 
 #data
 <x xmlns="" html:hreflang="" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@hreflang;attribute not defined;m
 
 #data
 <x xmlns="" html:hrefmedia="" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@hrefmedia;attribute not defined;m
 
 #data
 <x xmlns="" html:hreftype="" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@hreftype;attribute not defined;m
 
 #data
 <x xmlns="" html:ismap="" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@ismap;attribute not defined;m
 
 #data
 <x xmlns="" html:layout="" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@layout;attribute not defined;m
 
 #data
 <x xmlns="" html:media="" xmlns:html="http://www.w3.org/1999/xhtml"/>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@media;attribute not defined;m
 
 #data
@@ -2054,7 +2055,7 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <x xmlns:html="http://www.w3.org/1999/xhtml"
     html:about="[]">a</x>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@about;attribute not defined;m
 
 #data
@@ -2080,7 +2081,7 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <x xmlns:html="http://www.w3.org/1999/xhtml"
     html:resource="[]">a</x>
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x/@resource;attribute not defined;m
 
 #data
@@ -2408,7 +2409,7 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <p xmlns:html="http://www.w3.org/1999/xhtml"
     html:content="">a</p>
 #errors
-/p;unknown namespace element;w
+/p;unknown namespace element;u
 /p/@content;attribute not defined;m
 
 #data
@@ -2440,7 +2441,7 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <p xmlns:html="http://www.w3.org/1999/xhtml"
     html:datatype="">a</p>
 #errors
-/p;unknown namespace element;w
+/p;unknown namespace element;u
 /p/@datatype;attribute not defined;m
 
 #data
@@ -2472,7 +2473,7 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <p xmlns:html="http://www.w3.org/1999/xhtml"
     html:typeof="">a</p>
 #errors
-/p;unknown namespace element;w
+/p;unknown namespace element;u
 /p/@typeof;attribute not defined;m
 
 #data
@@ -2504,7 +2505,7 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 <p xmlns:html="http://www.w3.org/1999/xhtml"
     html:property="">a</p>
 #errors
-/p;unknown namespace element;w
+/p;unknown namespace element;u
 /p/@property;attribute not defined;m
 
 #data html
@@ -2725,7 +2726,7 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 </div>
 #errors
 /div/svg;unknown element;u
-/div/svg/@hidden;attribute not defined;m
+/div/svg/@hidden;unknown attribute;u
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -2733,7 +2734,7 @@ hoge:foo" xmlns="http://www.w3.org/1999/xhtml">x</p>
 </div>
 #errors
 /div/math;unknown element;u
-/div/math/@hidden;attribute not defined;m
+/div/math/@hidden;unknown attribute;u
 
 #data
 <div translate="" xmlns="http://www.w3.org/1999/xhtml">aa</div>
