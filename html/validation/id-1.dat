@@ -1,0 +1,56 @@
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"
+  id="abc"
+>a</p>
+#errors
+
+#data
+<p xmlns=""
+  id="abc"
+>a</p>
+#errors
+/p;unknown namespace element;w
+
+#data
+<p xmlns=""
+  id="abc"
+><q id="abc"/>a</p>
+#errors
+/p;unknown namespace element;w
+/p/q;unknown namespace element;w
+/p/q/@id;duplicate ID;m
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"
+  id="abc"
+><q id="abc" xmlns=""/>a</p>
+#errors
+/p/q;unknown namespace element;w
+/p/q/@id;duplicate ID;m
+/p/q;element not allowed:phrasing;m
+
+#data
+<title xmlns="http://www.w3.org/2005/Atom"
+    id="ab"
+    type="xhtml"
+  >
+  <div xmlns="http://www.w3.org/1999/xhtml">
+    <p id="ab">aaa</p>
+  </div>
+</title>
+#errors
+/title/@id;attribute not defined;m
+/title/div/p/@id;duplicate ID;m
+
+#rss2
+#data
+<description id="foo">a</description>
+#errors
+description/@id;attribute not defined;m
+
+#rss2
+#data
+<description id="">a</description>
+#errors
+description/@id;attribute not defined;m
+description/@id;empty attribute value;m

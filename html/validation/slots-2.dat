@@ -62,3 +62,45 @@
 </p>
 #errors
 /p/q/span/@slot;slot:parent not host;w
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml">
+  <q><span slot="" xmlns="">a</span></q>
+</p>
+#errors
+/p/q;no significant content;s
+/p/q/span;unknown namespace element;w
+/p/q/span;element not allowed:phrasing;m
+/p/q/span/@slot;slot:parent not host;w
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml" xmlns:atom="http://www.w3.org/2005/Atom">
+  <atom:title slot="">a</atom:title>
+  <atom:title slot="abc">a</atom:title>
+  <atom:title slot="">a</atom:title>
+</p>
+#errors
+/p;no significant content;s
+/p/title;element not allowed:phrasing;m
+/p/title/@slot;attribute not defined;m
+/p/title;element not allowed:phrasing;m
+/p/title/@slot;attribute not defined;m
+/p/title;element not allowed:phrasing;m
+/p/title/@slot;attribute not defined;m
+
+#rss2
+#data
+<title slot="x">
+</title>
+#errors
+title/@slot;attribute not defined;m
+
+#rss2
+#data
+<hoge>
+  <title slot="x"/>
+</hoge>
+#errors
+hoge;element not defined;m
+hoge/title/@slot;attribute not defined;m
+hoge/title/@slot;slot:parent not host;w
