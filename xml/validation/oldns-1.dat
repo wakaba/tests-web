@@ -30,6 +30,7 @@
 #errors
 /hoge;unknown namespace element;u
 /hoge/@abac;attribute not defined;m
+
 #data
 <hoge xmlns="http://www.w3.org/2002/06/xhtml2/"></hoge>
 #errors
@@ -48,6 +49,17 @@
 
 #data
 <hoge ns:abac="" xmlns:ns="http://www.w3.org/2005/07/aaa"></hoge>
+#errors
+/hoge;unknown namespace element;u
+/hoge/@abac;attribute not defined;m
+
+#data
+<hoge xmlns="http://www.w3.org/TR/WD-xsl"></hoge>
+#errors
+/hoge;element not defined;m
+
+#data
+<hoge ns:abac="" xmlns:ns="http://www.w3.org/TR/WD-xsl"></hoge>
 #errors
 /hoge;unknown namespace element;u
 /hoge/@abac;attribute not defined;m

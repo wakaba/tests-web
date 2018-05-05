@@ -4,6 +4,7 @@
   <gd:image/>
 </author>
 #errors
+/author/image;limited use;w
 /author/image;attribute missing;rel;m
 /author/image;attribute missing;src;m
 
@@ -13,6 +14,7 @@
   <gd:image>aa</gd:image>
 </author>
 #errors
+/author/image;limited use;w
 /author/image;attribute missing;rel;m
 /author/image;attribute missing;src;m
 /author/image/"aa";character not allowed:empty;m
@@ -23,6 +25,7 @@
   <gd:image rel="W" src="x"/>
 </author>
 #errors
+/author/image;limited use;w
 /author/image/@rel;enumerated:invalid;m
 
 #data
@@ -31,6 +34,7 @@
   <gd:image rel="http://schemas.google.com/g/2005#thumbnail" src="x"/>
 </author>
 #errors
+/author/image;limited use;w
 
 #data
 <author xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005">
@@ -39,6 +43,8 @@
   <gd:image rel="http://schemas.google.com/g/2005#thumbnail" src="x"/>
 </author>
 #errors
+/author/image;limited use;w
+/author/image;limited use;w
 /author/image;element not allowed:duplicate;m
 
 #data
@@ -47,6 +53,7 @@
   <gd:image rel="http://schemas.google.com/g/2005#thumbnail" src=">x" width="0px" height="52px" ala=""/>
 </author>
 #errors
+/author/image;limited use;w
 /author/image/@src;syntax error:iriref3987;m
 /author/image/@height;nninteger:syntax error;m
 /author/image/@width;nninteger:syntax error;m
@@ -58,3 +65,4 @@
   <gd:image rel="http://schemas.google.com/g/2005#thumbnail" src="x" width="42" height="42"/>
 </author>
 #errors
+/author/image;limited use;w

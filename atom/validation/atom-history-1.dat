@@ -1,14 +1,17 @@
 #data
 <fh:complete xmlns:fh="http://purl.org/syndication/history/1.0"/>
 #errors
+/complete;limited use;w
 
 #data
 <fh:complete xmlns:fh="http://purl.org/syndication/history/1.0"> </fh:complete>
 #errors
+/complete;limited use;w
 
 #data
 <fh:complete xmlns:fh="http://purl.org/syndication/history/1.0">abc</fh:complete>
 #errors
+/complete;limited use;w
 /complete/"abc";character not allowed:empty;m
 
 #data
@@ -16,19 +19,23 @@
 <p xmlns="http://www.w3.org/1999/xhtml">a</p>
 </fh:complete>
 #errors
+/complete;limited use;w
 /complete/p;element not allowed:empty;m
 
 #data
 <fh:archive xmlns:fh="http://purl.org/syndication/history/1.0"/>
 #errors
+/archive;limited use;w
 
 #data
 <fh:archive xmlns:fh="http://purl.org/syndication/history/1.0"> </fh:archive>
 #errors
+/archive;limited use;w
 
 #data
 <fh:archive xmlns:fh="http://purl.org/syndication/history/1.0">abc</fh:archive>
 #errors
+/archive;limited use;w
 /archive/"abc";character not allowed:empty;m
 
 #data
@@ -36,6 +43,7 @@
 <p xmlns="http://www.w3.org/1999/xhtml">a</p>
 </fh:archive>
 #errors
+/archive;limited use;w
 /archive/p;element not allowed:empty;m
 
 #data
@@ -48,6 +56,7 @@
   <hoge/>
 </fh:complete>
 #errors
+/complete;limited use;w
 /complete/hoge;element not allowed:empty;m
 /complete/hoge;unknown namespace element;u
 
@@ -56,5 +65,6 @@
   <hoge xmlns="http://x/"/>
 </fh:complete>
 #errors
+/complete;limited use;w
 /complete/hoge;element not allowed:empty;m
 /complete/hoge;unknown namespace element;u

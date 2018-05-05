@@ -1,12 +1,15 @@
 #data
 <app:control xmlns:app="http://www.w3.org/2007/app"></app:control>
 #errors
+/control;limited use;w
 
 #data
 <app:control xmlns:app="http://www.w3.org/2007/app">
   <app:draft>yes</app:draft>
 </app:control>
 #errors
+/control;limited use;w
+/control/draft;limited use;w
 
 #data
 <app:control xmlns:app="http://www.w3.org/2007/app">
@@ -14,6 +17,9 @@
   <app:draft>no</app:draft>
 </app:control>
 #errors
+/control;limited use;w
+/control/draft;limited use;w
+/control/draft;limited use;w
 /control/draft;element not allowed:duplicate;m
 
 #data
@@ -21,6 +27,7 @@
   <atom:title>aa</atom:title>
 </app:control>
 #errors
+/control;limited use;w
 /control/title;element not allowed;m
 
 #data
@@ -28,6 +35,7 @@
   <title xmlns="http://a/"/>
 </app:control>
 #errors
+/control;limited use;w
 /control/title;unknown namespace element;u
 
 #data
@@ -35,38 +43,46 @@
   <title xmlns=""/>
 </app:control>
 #errors
+/control;limited use;w
 /control/title;unknown namespace element;u
 
 #data
 <app:draft xmlns:app="http://www.w3.org/2007/app"></app:draft>
 #errors
 /draft;enumerated:invalid;m
+/draft;limited use;w
 
 #data
 <app:draft xmlns:app="http://www.w3.org/2007/app">yes</app:draft>
 #errors
+/draft;limited use;w
 
 #data
 <app:draft xmlns:app="http://www.w3.org/2007/app">no</app:draft>
 #errors
+/draft;limited use;w
 
 #data
 <app:draft xmlns:app="http://www.w3.org/2007/app">true</app:draft>
 #errors
 /draft;enumerated:invalid;m
+/draft;limited use;w
 
 #data
 <app:draft xmlns:app="http://www.w3.org/2007/app">yes  </app:draft>
 #errors
 /draft;enumerated:invalid;m
+/draft;limited use;w
 
 #data
 <app:draft xmlns:app="http://www.w3.org/2007/app">NO</app:draft>
 #errors
 /draft;enumerated:invalid;m
+/draft;limited use;w
 
 #data
 <app:draft xmlns:app="http://www.w3.org/2007/app">yes<span/></app:draft>
 #errors
+/draft;limited use;w
 /draft/span;element not allowed:text;m
 /draft/span;unknown namespace element;u
