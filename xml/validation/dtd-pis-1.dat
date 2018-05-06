@@ -6,6 +6,7 @@
 #errors
 /a;unknown namespace element;u
 /a/?aa;xml:pi:target not declared;w
+/a/?aa;unknown pi;u
 
 #data
 <!DOCTYPE a[
@@ -15,6 +16,7 @@
 #errors
 /a;unknown namespace element;u
 /a/?aa:b;xml:ncname syntax;m
+/a/?aa:b;unknown pi;u
 
 #data
 <!DOCTYPE a[
@@ -24,6 +26,7 @@
 #errors
 /a;unknown namespace element;u
 /a/?aa:b!;xml:name syntax;m
+/a/?aa:b!;unknown pi;u
 
 #data
 <!DOCTYPE a[
@@ -42,6 +45,7 @@
 #is-document
 #errors
 /a;unknown namespace element;u
+/a/?hoge;unknown pi;u
 
 #data
 <!DOCTYPE a[
@@ -52,3 +56,4 @@
 #errors
 /!DOCTYPE/!NOTATION hoge!;xml:name syntax;m
 /a;unknown namespace element;u
+/a/?hoge!;unknown pi;u
