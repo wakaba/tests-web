@@ -1,0 +1,38 @@
+#data
+<xsl:output xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    method="html"/>
+#errors
+/output;limited use;w
+
+#data
+<xsl:output xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    method="xml"/>
+#errors
+/output;limited use;w
+
+#data
+<xsl:output xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    method="text"/>
+#errors
+/output;limited use;w
+
+#data
+<xsl:output xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    method="xslfoo"/>
+#errors
+/output;limited use;w
+/output/@method;enumerated:invalid;m
+
+#data
+<xsl:output xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    method="xsl:foo"/>
+#errors
+/output;limited use;w
+/output/@method;enumerated:invalid;m
+
+#data
+<xsl:output xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    method="html:hoge"/>
+#errors
+/output;limited use;w
+/output/@method;enumerated:invalid;m

@@ -1,0 +1,32 @@
+#data
+<xsl:sort xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    data-type="text"/>
+#errors
+/sort;unknown element;u
+
+#data
+<xsl:sort xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    data-type="number"/>
+#errors
+/sort;unknown element;u
+
+#data
+<xsl:sort xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    data-type="hoge"/>
+#errors
+/sort;unknown element;u
+/sort/@data-type;enumerated:invalid;m
+
+#data
+<xsl:sort xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    data-type="xsl:foo"/>
+#errors
+/sort;unknown element;u
+/sort/@data-type;enumerated:invalid;m
+
+#data
+<xsl:sort xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    data-type="html:hoge"/>
+#errors
+/sort;unknown element;u
+/sort/@data-type;enumerated:invalid;m

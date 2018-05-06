@@ -1,0 +1,18 @@
+#data
+<xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns="http://www.w3.org/1999/xhtml">
+  <p>abc</p>
+</xsl:template>
+#errors
+/template;unknown element;u
+
+#data
+<xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns="http://www.w3.org/1999/xhtml">
+  <p hoge=""></p>
+</xsl:template>
+#errors
+/template;unknown element;u
+/template/p;no significant content;s
+/template/p/@hoge;attribute not defined;m
+# XXX [t]
