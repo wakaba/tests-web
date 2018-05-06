@@ -1,0 +1,31 @@
+#data
+<p>
+<?hoge?>
+</p>
+#errors
+/p;unknown namespace element;u
+/p/?hoge;unknown pi;u
+
+#data
+<p>
+<?xmlx?>
+</p>
+#errors
+/p;unknown namespace element;u
+/p/?xmlx;unknown pi;u
+
+#data
+<p>
+<?xml-?>
+</p>
+#errors
+/p;unknown namespace element;u
+/p/?xml-;pi not defined;u
+
+#data
+<p>
+<?XML-24?>
+</p>
+#errors
+/p;unknown namespace element;u
+/p/?XML-24;pi not defined;u
