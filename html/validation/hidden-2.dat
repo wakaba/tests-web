@@ -1,0 +1,40 @@
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <p>aa</p>
+  <p hidden="">bb</p>
+  <p>cc</p>
+</div>
+#errors
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <p>aa<bdo></bdo></p>
+  <p hidden="">bb<bdo></bdo></p>
+  <p>cc<bdo></bdo></p>
+</div>
+#errors
+/div/p/bdo;attribute missing;dir;m
+/div/p/bdo;no significant content;s
+/div/p/bdo;attribute missing;dir;m[t]
+/div/p/bdo;no significant content;s[t]
+/div/p/bdo;attribute missing;dir;m
+/div/p/bdo;no significant content;s
+
+#data
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <p>aa</p>
+  <p hidden="">bb
+    <template>
+      <bdo></bdo>
+    </template>
+  </p>
+  <p hidden="">bb<bdo></bdo></p>
+  <p>cc<bdo></bdo></p>
+</div>
+#errors
+| #df/bdo;attribute missing;dir;m[t]
+| #df/bdo;no significant content;s[t]
+/div/p/bdo;attribute missing;dir;m[t]
+/div/p/bdo;no significant content;s[t]
+/div/p/bdo;attribute missing;dir;m
+/div/p/bdo;no significant content;s
