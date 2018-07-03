@@ -77,4 +77,13 @@
   </metadata>
 </gpx>
 #parsed
-{"author":{"url":"https://base/hoge@fuga"}}
+{"author":{"links":[{"url":"https://base/hoge@fuga"}]}}
+
+#data
+<gpx>
+  <metadata>
+    <author><link href="hoge@fuga"/><link href="http://x/"><text>a</text></link></author>
+  </metadata>
+</gpx>
+#parsed
+{"author":{"links":[{"url":"https://base/hoge@fuga"},{"url":"http://x/","text":"a"}]}}
