@@ -91,7 +91,17 @@
 </wpt></gpx>
 #parsed
 {"waypoints":[
-{"page_url":"https://hoge/"}
+{"links":[{"url":"https://hoge/"}]}
+]}
+
+#data
+<gpx><wpt>
+  <link href="https://hoge"/>
+  <link href="ftp://hoge"/>
+</wpt></gpx>
+#parsed
+{"waypoints":[
+{"links":[{"url":"https://hoge/"},{"url":"ftp://hoge/"}]}
 ]}
 
 #data
