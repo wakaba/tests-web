@@ -1,0 +1,16 @@
+{
+  "circleci": {
+    "build": [
+      "make test-deps"
+    ],
+    "tests": [
+      "make test",
+      "USE_XFF=1 ./plackup -p 5114 -t Twiggy::Prefork support/server.psgi &",
+      "sleep 10",
+      "curl -f http://localhost:5114"
+    ],
+    "merger": true,
+    "heroku": true,
+    "gaa": true
+  }
+}
