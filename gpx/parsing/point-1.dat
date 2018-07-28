@@ -151,6 +151,15 @@
 
 #data
 <gpx><wpt>
+  <time>2300-04-05 04:41+01:00</time>
+</wpt></gpx>
+#parsed
+{"waypoints":[
+{"timestamp":"2300-04-05T03:41:00Z"}
+]}
+
+#data
+<gpx><wpt>
   <time>2300-04-05T04:41:04Z</time>
 </wpt></gpx>
 #parsed
@@ -160,7 +169,34 @@
 
 #data
 <gpx><wpt>
+  <time>2300-04-05T04:41:04.123456Z</time>
+</wpt></gpx>
+#parsed
+{"waypoints":[
+{"timestamp":"2300-04-05T04:41:04.123456Z"}
+]}
+
+#data
+<gpx><wpt>
   <time>2300-04-05T04:41:04+01:00&#xA;</time>
+</wpt></gpx>
+#parsed
+{"waypoints":[
+{}
+]}
+
+#data
+<gpx><wpt>
+  <time>2300-04-05T04:41:04.+01:00</time>
+</wpt></gpx>
+#parsed
+{"waypoints":[
+{}
+]}
+
+#data
+<gpx><wpt>
+  <time>2300-04-05T04:41.4344+01:00</time>
 </wpt></gpx>
 #parsed
 {"waypoints":[
