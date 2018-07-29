@@ -20,6 +20,7 @@
 #data
 <email xmlns="http://www.w3.org/2005/Atom">a<?aa []?>@b<!---->.c</email>
 #errors
+/email/?aa;unknown pi;u
 
 #data
 <email xmlns="http://www.w3.org/2005/Atom">gae+`P..@hoge.fUga</email>
@@ -92,8 +93,7 @@ gae+`P..@hoge.fUga  </email>
   <foo xmlns=""/>
 </author>
 #errors
-/author/foo;element not allowed;m
-/author/foo;unknown namespace element;w
+/author/foo;unknown namespace element;u
 
 #data
 <author xmlns="http://www.w3.org/2005/Atom">
@@ -101,4 +101,4 @@ gae+`P..@hoge.fUga  </email>
   <foo xmlns="http://a/"/>
 </author>
 #errors
-/author/foo;unknown namespace element;w
+/author/foo;unknown namespace element;u

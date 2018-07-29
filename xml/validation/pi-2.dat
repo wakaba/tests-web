@@ -1,0 +1,35 @@
+#is-document 1
+#data
+<?hoge?>
+<p/>
+#errors
+/;xml:no DTD validation;i
+/p;unknown namespace element;u
+/?hoge;unknown pi;u
+
+#is-document 1
+#data
+<?xmlx?>
+<p/>
+#errors
+/;xml:no DTD validation;i
+/p;unknown namespace element;u
+/?xmlx;unknown pi;u
+
+#is-document 1
+#data
+<?xml-?>
+<p/>
+#errors
+/;xml:no DTD validation;i
+/p;unknown namespace element;u
+/?xml-;pi not defined;m
+
+#is-document 1
+#data
+<?XML-24?>
+<p/>
+#errors
+/;xml:no DTD validation;i
+/p;unknown namespace element;u
+/?XML-24;pi not defined;m

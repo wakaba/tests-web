@@ -1,0 +1,566 @@
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+</rdf:RDF>
+#errors
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"
+    xml:lang="en">
+</rdf:RDF>
+#errors
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"
+    xml:lang="en[]">
+</rdf:RDF>
+#errors
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+/RDF/@lang;langtag:language:syntax;m
+/RDF/@lang;langtag:language:invalid;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"
+    xml:space="preserve">
+</rdf:RDF>
+#errors
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"
+    xml:space="en">
+</rdf:RDF>
+#errors
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+/RDF/@space;invalid attribute value;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"
+    xml:base="https:[]//hoge/">
+</rdf:RDF>
+#errors
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+/RDF/@base;attribute not defined;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"
+    xml:id="https:[]//hoge/">
+</rdf:RDF>
+#errors
+/RDF/@id;attribute not defined;m
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"
+    xml:abc="https:[]//hoge/">
+</rdf:RDF>
+#errors
+/RDF/@abc;attribute not defined;m
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"
+    xmlabc="">
+</rdf:RDF>
+#errors
+/RDF/@xmlabc;attribute not defined;m
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"
+    abc="">
+</rdf:RDF>
+#errors
+/RDF/@abc;attribute not defined;m
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"
+    abc:xx="" xmlns:abc="foobar">
+</rdf:RDF>
+#errors
+/RDF/@xx;attribute not defined;m
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"
+    rdf:xx="">
+</rdf:RDF>
+#errors
+/RDF/@xx;attribute not defined;m
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"
+    rss:xx="" xmlns:rss="http://purl.org/rss/1.0/">
+</rdf:RDF>
+#errors
+/RDF/@xx;attribute not defined;m
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <xmlabc></xmlabc>
+</rdf:RDF>
+#errors
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+/RDF/xmlabc;element not defined;m
+/RDF/xmlabc;element not allowed;m
+
+#data
+<rdf2:RDF xmlns:rdf2="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+</rdf2:RDF>
+#errors
+/RDF;unknown RDF element;u
+/RDF;attribute missing;rdf;m
+
+#data
+<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+</RDF:RDF>
+#errors
+/RDF;unknown RDF element;u
+/RDF;attribute missing;rdf;m
+
+#data
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rss="http://purl.org/rss/1.0/">
+</RDF>
+#errors
+/RDF;unknown RDF element;u
+/RDF/@xmlns;enumerated:invalid;m
+/RDF;attribute missing;rdf;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rss="http://purl.org/rss/1.0/">
+</rdf:RDF>
+#errors
+/RDF;unknown RDF element;u
+/RDF;attribute missing;xmlns;m
+
+#mime application/rss+xml
+#data
+<rdf2:RDF xmlns:rdf2="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+</rdf2:RDF>
+#errors
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+/RDF;rss1:rdf:RDF:bad prefix;m
+/RDF;attribute missing;rdf;m
+
+#mime application/rss+xml
+#data
+<x>
+<rdf2:RDF xmlns:rdf2="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+</rdf2:RDF>
+</x>
+#errors
+/x;unknown namespace element;u
+/x/RDF;unknown RDF element;u
+/x/RDF;attribute missing;rdf;m
+
+#mime application/rdf+xml
+#is-document 1
+#data
+<rdf2:RDF xmlns:rdf2="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+</rdf2:RDF>
+#errors
+/;xml:no DTD validation;i
+/RDF;unknown RDF element;u
+/RDF;attribute missing;rdf;m
+
+#mime application/xml
+#is-document 1
+#data
+<rdf2:RDF xmlns:rdf2="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+</rdf2:RDF>
+#errors
+/;xml:no DTD validation;i
+/RDF;unknown RDF element;u
+/RDF;attribute missing;rdf;m
+
+#mime application/rss+xml
+#is-document 1
+#data
+<rdf2:RDF xmlns:rdf2="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+</rdf2:RDF>
+#errors
+/;xml:no DTD validation;i
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+/RDF;rss1:rdf:RDF:bad prefix;m
+/RDF;attribute missing;rdf;m
+
+#mime application/rss+xml
+#is-document 1
+#data
+<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+</RDF:RDF>
+#errors
+/;xml:no DTD validation;i
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+/RDF;rss1:rdf:RDF:bad prefix;m
+/RDF;attribute missing;rdf;m
+
+#mime application/rss+xml
+#is-document 1
+#data
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:RDF="http://purl.org/rss/1.0/">
+</RDF>
+#errors
+/;xml:no DTD validation;i
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+/RDF;rss1:rdf:RDF:bad prefix;m
+/RDF/@xmlns;enumerated:invalid;m
+/RDF;attribute missing;rdf;m
+
+#data
+<rdf:rdf xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+</rdf:rdf>
+#errors
+/rdf;unknown namespace element;u
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns" xmlns="http://purl.org/rss/1.0/">
+</rdf:RDF>
+#errors
+/RDF;unknown namespace element;u
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0">
+</rdf:RDF>
+#errors
+/RDF;unknown RDF element;u
+/RDF/@xmlns;enumerated:invalid;m
+
+#mime application/rss+xml
+#is-document 1
+#data
+<x>
+<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+</RDF:RDF>
+</x>
+#errors
+/;xml:no DTD validation;i
+/x/RDF;unknown RDF element;u
+/x;unknown namespace element;u
+/x/RDF;attribute missing;rdf;m
+
+#data
+<a>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+</rdf:RDF>
+</a>
+#errors
+/a;unknown namespace element;u
+/a/RDF;child element missing;channel;m
+/a/RDF;child element missing;item;m
+
+#mime application/rss+xml
+#is-document 1
+#data
+<a>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+</rdf:RDF>
+</a>
+#errors
+/;xml:no DTD validation;i
+/a;unknown namespace element;u
+/a/RDF;child element missing;channel;m
+/a/RDF;child element missing;item;m
+
+#mime application/rss+xml
+#is-document 1
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0//">
+</rdf:RDF>
+#errors
+/;xml:no DTD validation;i
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+/RDF/@xmlns;enumerated:invalid;m
+
+#mime application/rss+xml
+#is-document 1
+#data
+<rd:RDF xmlns:rd="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" xmlns:rdf="https://x/">
+</rd:RDF>
+#errors
+/;xml:no DTD validation;i
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+/RDF/@rdf;enumerated:invalid;m
+/RDF;rss1:rdf:RDF:bad prefix;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" rdf:type="Literal">
+</rdf:RDF>
+#errors
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+/RDF/@type;attribute not defined;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <abc/>
+</rdf:RDF>
+#errors
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+/RDF/abc;element not allowed;m
+/RDF/abc;element not defined;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <abc xmlns="https://ba/"/>
+</rdf:RDF>
+#errors
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+/RDF/abc;element not allowed;m
+/RDF/abc;unknown namespace element;u
+
+#data
+<rdf:DF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#R" xmlns="http://purl.org/rss/1.0/">
+</rdf:DF>
+#errors
+/DF;unknown namespace element;u
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" xmlns:foo="https:[[bar">
+</rdf:RDF>
+#errors
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+/RDF/@foo;syntax error:iriref3987;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="x"/>
+</rdf:RDF>
+#errors
+/RDF;child element missing;item;m
+/RDF/channel;child element missing;description;m
+/RDF/channel;child element missing;items;m
+/RDF/channel;child element missing;link;m
+/RDF/channel;child element missing;title;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="x"/>
+  <channel rdf:about="x"/>
+</rdf:RDF>
+#errors
+/RDF;child element missing;item;m
+/RDF/channel;child element missing;description;m
+/RDF/channel;child element missing;items;m
+/RDF/channel;child element missing;link;m
+/RDF/channel;child element missing;title;m
+/RDF/channel;child element missing;description;m
+/RDF/channel;child element missing;items;m
+/RDF/channel;child element missing;link;m
+/RDF/channel;child element missing;title;m
+/RDF/channel;element not allowed:duplicate;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="x"/>
+  <item rdf:about="x"/>
+</rdf:RDF>
+#errors
+/RDF/channel;child element missing;description;m
+/RDF/channel;child element missing;items;m
+/RDF/channel;child element missing;link;m
+/RDF/channel;child element missing;title;m
+/RDF/item;child element missing;link;m
+/RDF/item;child element missing;title;m
+/RDF/item/@about;rss1:no rdf:resource;rdf:li;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <channel rdf:about="x"/>
+  <item rdf:about="x"/>
+  <item rdf:about="y"/>
+</rdf:RDF>
+#errors
+/RDF/channel;child element missing;description;m
+/RDF/channel;child element missing;items;m
+/RDF/channel;child element missing;link;m
+/RDF/channel;child element missing;title;m
+/RDF/item;child element missing;link;m
+/RDF/item;child element missing;title;m
+/RDF/item/@about;rss1:no rdf:resource;rdf:li;m
+/RDF/item;child element missing;link;m
+/RDF/item;child element missing;title;m
+/RDF/item/@about;rss1:no rdf:resource;rdf:li;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <item rdf:about="x"/>
+  <channel rdf:about="x"/>
+  <item rdf:about="y"/>
+</rdf:RDF>
+#errors
+/RDF/channel;child element missing;description;m
+/RDF/channel;child element missing;items;m
+/RDF/channel;child element missing;link;m
+/RDF/channel;child element missing;title;m
+/RDF/item;child element missing;link;m
+/RDF/item;child element missing;title;m
+/RDF/item/@about;rss1:no rdf:resource;rdf:li;m
+/RDF/item;child element missing;link;m
+/RDF/item;child element missing;title;m
+/RDF/item/@about;rss1:no rdf:resource;rdf:li;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <item rdf:about="x"/>
+  <channel rdf:about="x"/>
+  <image/>
+</rdf:RDF>
+#errors
+/RDF/channel;child element missing;description;m
+/RDF/channel;child element missing;items;m
+/RDF/channel;child element missing;link;m
+/RDF/channel;child element missing;title;m
+/RDF/item;child element missing;link;m
+/RDF/item;child element missing;title;m
+/RDF/item/@about;rss1:no rdf:resource;rdf:li;m
+/RDF/image;child element missing;link;m
+/RDF/image;child element missing;title;m
+/RDF/image;child element missing;url;m
+/RDF/image;attribute missing;rdf:about;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <item rdf:about="x"/>
+  <image/>
+  <channel rdf:about="x"/>
+  <image/>
+</rdf:RDF>
+#errors
+/RDF/channel;child element missing;description;m
+/RDF/channel;child element missing;items;m
+/RDF/channel;child element missing;link;m
+/RDF/channel;child element missing;title;m
+/RDF/item;child element missing;link;m
+/RDF/item;child element missing;title;m
+/RDF/item/@about;rss1:no rdf:resource;rdf:li;m
+/RDF/image;child element missing;link;m
+/RDF/image;child element missing;title;m
+/RDF/image;child element missing;url;m
+/RDF/image;attribute missing;rdf:about;m
+/RDF/image;child element missing;link;m
+/RDF/image;child element missing;title;m
+/RDF/image;child element missing;url;m
+/RDF/image;attribute missing;rdf:about;m
+/RDF/image;element not allowed:duplicate;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <item rdf:about="x"/>
+  <textinput rdf:about="y"/>
+  <channel rdf:about="x"/>
+</rdf:RDF>
+#errors
+/RDF/channel;child element missing;description;m
+/RDF/channel;child element missing;items;m
+/RDF/channel;child element missing;link;m
+/RDF/channel;child element missing;title;m
+/RDF/item;child element missing;link;m
+/RDF/item;child element missing;title;m
+/RDF/item/@about;rss1:no rdf:resource;rdf:li;m
+/RDF/textinput/@about;rss1:no rdf:resource;textinput;m
+/RDF/textinput;child element missing;description;m
+/RDF/textinput;child element missing;link;m
+/RDF/textinput;child element missing;name;m
+/RDF/textinput;child element missing;title;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <item rdf:about="x"/>
+  <textinput rdf:about="x"/>
+  <channel rdf:about="x"/>
+  <textinput rdf:about="y"/>
+</rdf:RDF>
+#errors
+/RDF/channel;child element missing;description;m
+/RDF/channel;child element missing;items;m
+/RDF/channel;child element missing;link;m
+/RDF/channel;child element missing;title;m
+/RDF/item;child element missing;link;m
+/RDF/item;child element missing;title;m
+/RDF/item/@about;rss1:no rdf:resource;rdf:li;m
+/RDF/textinput/@about;rss1:no rdf:resource;textinput;m
+/RDF/textinput;child element missing;description;m
+/RDF/textinput;child element missing;link;m
+/RDF/textinput;child element missing;name;m
+/RDF/textinput;child element missing;title;m
+/RDF/textinput;child element missing;description;m
+/RDF/textinput;child element missing;link;m
+/RDF/textinput;child element missing;name;m
+/RDF/textinput;child element missing;title;m
+/RDF/textinput;element not allowed:duplicate;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <item rdf:about="x"/>
+  <textInput rdf:about="y"/>
+  <channel rdf:about="x"/>
+</rdf:RDF>
+#errors
+/RDF/channel;child element missing;description;m
+/RDF/channel;child element missing;items;m
+/RDF/channel;child element missing;link;m
+/RDF/channel;child element missing;title;m
+/RDF/item;child element missing;link;m
+/RDF/item;child element missing;title;m
+/RDF/item/@about;rss1:no rdf:resource;rdf:li;m
+/RDF/textInput;element not allowed;m
+/RDF/textInput;element not defined;m
+/RDF/textInput/@about;attribute not defined;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <title>a</title>
+</rdf:RDF>
+#errors
+/RDF/title;element not allowed;m
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">abc</rdf:RDF>
+#errors
+/RDF;child element missing;channel;m
+/RDF;child element missing;item;m
+/RDF/"abc";character not allowed;m
+
+#data
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" xmlns:rss="http://purl.org/rss/1.0/">
+  <rss:item rdf:about="z"/>
+  <rss:channel rdf:about="sa"/>
+</rdf:RDF>
+#errors
+/RDF/channel;child element missing;description;m
+/RDF/channel;child element missing;items;m
+/RDF/channel;child element missing;link;m
+/RDF/channel;child element missing;title;m
+/RDF/item;child element missing;link;m
+/RDF/item;child element missing;title;m
+/RDF/item/@about;rss1:no rdf:resource;rdf:li;m

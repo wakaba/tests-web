@@ -1,0 +1,185 @@
+#rss2
+#data
+<channel>
+  <textinput>
+  </textinput>
+</channel>
+#errors
+channel/textinput;element not defined;m
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <textInput>
+  </textInput>
+</channel>
+#errors
+channel/textInput;child element missing;description;m
+channel/textInput;child element missing;link;m
+channel/textInput;child element missing;name;m
+channel/textInput;child element missing;title;m
+channel/textInput;limited use;w
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<textInput></textInput>
+#errors
+textInput;child element missing;description;m
+textInput;child element missing;link;m
+textInput;child element missing;name;m
+textInput;child element missing;title;m
+textInput;limited use;w
+
+#rss2
+#data
+<textInput>abc</textInput>
+#errors
+textInput;child element missing;description;m
+textInput;child element missing;link;m
+textInput;child element missing;name;m
+textInput;child element missing;title;m
+textInput/"abc";character not allowed;m
+textInput;limited use;w
+
+#rss2
+#data
+<textInput>
+  <url>http://aa/</url>
+</textInput>
+#errors
+textInput;child element missing;description;m
+textInput;child element missing;link;m
+textInput;child element missing;name;m
+textInput;child element missing;title;m
+textInput/url;element not allowed;m
+textInput;limited use;w
+
+#rss2
+#data
+<textInput>
+  <description>wa&lt;wae</description>
+</textInput>
+#errors
+textInput;child element missing;link;m
+textInput;child element missing;name;m
+textInput;child element missing;title;m
+textInput;limited use;w
+
+#rss2
+#data
+<textInput>
+  <description>wa&lt;wae</description>
+  <description>wa&lt;wae</description>
+</textInput>
+#errors
+textInput;child element missing;link;m
+textInput;child element missing;name;m
+textInput;child element missing;title;m
+textInput/description;element not allowed:duplicate;m
+textInput;limited use;w
+
+#rss2
+#data
+<textInput>
+  <description>wa&lt;wae</description>
+  <link>http://vgas.e43.test/e</link>
+</textInput>
+#errors
+textInput;child element missing;name;m
+textInput;child element missing;title;m
+textInput;limited use;w
+
+#rss2
+#data
+<textInput>
+  <description>wa&lt;wae</description>
+  <link>http:[]/vgas.e43.test/e</link>
+</textInput>
+#errors
+textInput;child element missing;name;m
+textInput;child element missing;title;m
+textInput/link;syntax error:iri3987;m
+textInput/link;syntax error:iriref3987;m
+textInput;limited use;w
+
+#rss2
+#data
+<textInput>
+  <description>wa&lt;wae</description>
+  <link>ht/vgas.e43.test/e</link>
+</textInput>
+#errors
+textInput;child element missing;name;m
+textInput;child element missing;title;m
+textInput/link;syntax error:iri3987;m
+textInput;limited use;w
+
+#rss2
+#data
+<textInput>
+  <description>wa&lt;wae</description>
+  <link>http://a/vgas.e43.test/e</link>
+  <link>http://a//vgas.e43.test/e</link>
+</textInput>
+#errors
+textInput;child element missing;name;m
+textInput;child element missing;title;m
+textInput/link;element not allowed:duplicate;m
+textInput;limited use;w
+
+#rss2
+#data
+<textInput>
+  <name>aa</name>
+</textInput>
+#errors
+textInput/name;unknown element;u
+textInput;child element missing;description;m
+textInput;child element missing;link;m
+textInput;child element missing;title;m
+textInput;limited use;w
+
+#rss2
+#data
+<textInput>
+  <name>aa</name>
+  <name>aa</name>
+</textInput>
+#errors
+textInput/name;unknown element;u
+textInput/name;unknown element;u
+textInput/name;element not allowed:duplicate;m
+textInput;child element missing;description;m
+textInput;child element missing;link;m
+textInput;child element missing;title;m
+textInput;limited use;w
+
+#rss2
+#data
+<textInput>
+  <title>aa&lt;gve</title>
+</textInput>
+#errors
+textInput;child element missing;description;m
+textInput;child element missing;link;m
+textInput;child element missing;name;m
+textInput;limited use;w
+
+#rss2
+#data
+<textInput>
+  <title>aa&lt;gve</title>
+  <title>aa&lt;gve</title>
+</textInput>
+#errors
+textInput;child element missing;description;m
+textInput;child element missing;link;m
+textInput;child element missing;name;m
+textInput/title;element not allowed:duplicate;m
+textInput;limited use;w

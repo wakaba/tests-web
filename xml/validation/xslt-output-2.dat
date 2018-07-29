@@ -1,0 +1,43 @@
+#data
+<xsl:output xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    method="xml" version="1.0"/>
+#errors
+/output;limited use;w
+/output/@version;attribute not allowed;s
+
+#data
+<xsl:output xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="1.0"/>
+#errors
+/output;limited use;w
+/output/@version;attribute not allowed;s
+
+#data
+<xsl:output xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    method="xml" version="1.1"/>
+#errors
+/output;limited use;w
+/output/@version;enumerated:invalid;m
+/output/@version;attribute not allowed;s
+
+#data
+<xsl:output xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    method="html" version="1.0"/>
+#errors
+/output;limited use;w
+/output/@version;attribute not allowed;s
+
+#data
+<xsl:output xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    method="html" version="4.0"/>
+#errors
+/output;limited use;w
+/output/@version;enumerated:invalid;m
+/output/@version;attribute not allowed;s
+
+#data
+<xsl:output xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    method="text" version="1.0"/>
+#errors
+/output;limited use;w
+/output/@version;attribute not allowed;s

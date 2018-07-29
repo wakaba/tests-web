@@ -8,6 +8,7 @@
 <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0">
 </at:deleted-entry>
 #errors
+/deleted-entry;limited use;w
 /deleted-entry;attribute missing;ref;m
 /deleted-entry;attribute missing;when;m
 
@@ -15,23 +16,27 @@
 <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/">
 </at:deleted-entry>
 #errors
+/deleted-entry;limited use;w
 /deleted-entry;attribute missing;when;m
 
 #data
 <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="htt">
 </at:deleted-entry>
 #errors
+/deleted-entry;limited use;w
 /deleted-entry;attribute missing;when;m
 
 #data
 <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
 </at:deleted-entry>
 #errors
+/deleted-entry;limited use;w
 
 #data
 <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http:[]//hoge/" when="2012-01-01T01:11:21Z">
 </at:deleted-entry>
 #errors
+/deleted-entry;limited use;w
 /deleted-entry/@ref;syntax error:iriref3987;m
 
 #data
@@ -39,6 +44,8 @@
   <at:by><name xmlns="http://www.w3.org/2005/Atom">aa</name></at:by>
 </at:deleted-entry>
 #errors
+/deleted-entry;limited use;w
+/deleted-entry/by;limited use;w
 
 #data
 <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
@@ -46,13 +53,18 @@
   <at:by><name xmlns="http://www.w3.org/2005/Atom">aa</name></at:by>
 </at:deleted-entry>
 #errors
+/deleted-entry;limited use;w
+/deleted-entry/by;limited use;w
 /deleted-entry/by;element not allowed:duplicate;m
+/deleted-entry/by;limited use;w
 
 #data
 <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
   <at:comment>aa</at:comment>
 </at:deleted-entry>
 #errors
+/deleted-entry;limited use;w
+/deleted-entry/comment;limited use;w
 
 #data
 <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
@@ -60,6 +72,9 @@
   <at:comment>aa</at:comment>
 </at:deleted-entry>
 #errors
+/deleted-entry;limited use;w
+/deleted-entry/comment;limited use;w
+/deleted-entry/comment;limited use;w
 /deleted-entry/comment;element not allowed:duplicate;m
 
 #data
@@ -67,6 +82,7 @@
   <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="http://foo/"/>
 </at:deleted-entry>
 #errors
+/deleted-entry;limited use;w
 
 #data
 <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
@@ -74,6 +90,7 @@
   <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="http://foo/"/>
 </at:deleted-entry>
 #errors
+/deleted-entry;limited use;w
 
 #data
 <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
@@ -81,12 +98,14 @@
   <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="alternate" href="http://foo/"/>
 </at:deleted-entry>
 #errors
+/deleted-entry;limited use;w
 
 #data
 <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
   <atom:source xmlns:atom="http://www.w3.org/2005/Atom"/>
 </at:deleted-entry>
 #errors
+/deleted-entry;limited use;w
 
 #data
 <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
@@ -94,6 +113,7 @@
   <atom:source xmlns:atom="http://www.w3.org/2005/Atom"/>
 </at:deleted-entry>
 #errors
+/deleted-entry;limited use;w
 /deleted-entry/source;element not allowed:duplicate;m
 
 #data
@@ -101,20 +121,22 @@
   <source xmlns=""/>
 </at:deleted-entry>
 #errors
-/deleted-entry/source;element not allowed;m
-/deleted-entry/source;unknown namespace element;w
+/deleted-entry;limited use;w
+/deleted-entry/source;unknown namespace element;u
 
 #data
 <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21Z">
   <source xmlns="http://x/"/>
 </at:deleted-entry>
 #errors
-/deleted-entry/source;unknown namespace element;w
+/deleted-entry;limited use;w
+/deleted-entry/source;unknown namespace element;u
 
 #data
 <at:by xmlns:at="http://purl.org/atompub/tombstones/1.0">
 </at:by>
 #errors
+/by;limited use;w
 /by;child element missing:atom;name;m
 
 #data
@@ -122,6 +144,7 @@
   <name>aa</name>
 </at:by>
 #errors
+/by;limited use;w
 
 #data
 <at:by xmlns:at="http://purl.org/atompub/tombstones/1.0" xmlns="http://www.w3.org/2005/Atom">
@@ -129,35 +152,41 @@
   <email>a@b.foo.test</email>
 </at:by>
 #errors
+/by;limited use;w
 
 #data
 <at:comment xmlns:at="http://purl.org/atompub/tombstones/1.0">
 </at:comment>
 #errors
+/comment;limited use;w
 
 #data
 <at:comment xmlns:at="http://purl.org/atompub/tombstones/1.0">
  hoge
 </at:comment>
 #errors
+/comment;limited use;w
 
 #data
 <at:comment xmlns:at="http://purl.org/atompub/tombstones/1.0" type="text">
 foo &lt;bar
 </at:comment>
 #errors
+/comment;limited use;w
 
 #data
 <at:comment xmlns:at="http://purl.org/atompub/tombstones/1.0" type="html">
   &lt;p>aaaa
 </at:comment>
 #errors
+/comment;limited use;w
 
 #data
 <at:comment xmlns:at="http://purl.org/atompub/tombstones/1.0" type="html">
   &lt;p>aaaa&lt;s
 </at:comment>
 #errors
+/comment;limited use;w
 3;1;/comment;parser:EOF;m
 
 #data
@@ -167,6 +196,7 @@ foo &lt;bar
   </div>
 </at:comment>
 #errors
+/comment;limited use;w
 
 #data
 <at:comment xmlns:at="http://purl.org/atompub/tombstones/1.0" type="xhtml">
@@ -175,6 +205,7 @@ foo &lt;bar
   </div>
 </at:comment>
 #errors
+/comment;limited use;w
 /comment/div/d;element not allowed:flow;m
 /comment/div/d;element not defined;m
 /comment/div;no significant content;s
@@ -198,15 +229,18 @@ foo &lt;bar
   </entry>
 </feed>
 #errors
+/feed/deleted-entry;limited use;w
 
 #data
 <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01T01:11:21">
 </at:deleted-entry>
 #errors
+/deleted-entry;limited use;w
 /deleted-entry/@when;datetime:syntax error;m
 
 #data
 <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0" ref="http://hoge/" when="2012-01-01">
 </at:deleted-entry>
 #errors
+/deleted-entry;limited use;w
 /deleted-entry/@when;datetime:syntax error;m

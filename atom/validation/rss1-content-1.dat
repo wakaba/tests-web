@@ -1,0 +1,94 @@
+#data
+<item xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" rdf:about="http://a/"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <content:encoded>abva</content:encoded>
+</item>
+#errors
+/item;child element missing;link;m
+/item;child element missing;title;m
+
+#data
+<item xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" rdf:about="http://a/"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <content:encoded>ab&lt;va</content:encoded>
+</item>
+#errors
+/item;child element missing;link;m
+/item;child element missing;title;m
+/item/encoded;parser:EOF;m
+
+#data
+<item xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" rdf:about="http://a/"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <content:encoded>abv&amp;&lt;p>a</content:encoded>
+</item>
+#errors
+/item;child element missing;link;m
+/item;child element missing;title;m
+
+#data
+<item xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" rdf:about="http://a/"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <content:encoded>abv&lt;legend>a</content:encoded>
+</item>
+#errors
+/item;child element missing;link;m
+/item;child element missing;title;m
+/item/encoded;element not allowed:flow;m
+/item/encoded;in body:#eof;legend;m
+
+#data
+<item xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" rdf:about="http://a/"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <content:encoded>abv&lt;title>a</content:encoded>
+</item>
+#errors
+/item;child element missing;link;m
+/item;child element missing;title;m
+/item/encoded;element not allowed:flow;m
+/item/encoded;in body:#eof;title;m
+
+#data
+<item xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" rdf:about="http://a/"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <content:encoded>abv&lt;abc>a</content:encoded>
+</item>
+#errors
+/item;child element missing;link;m
+/item;child element missing;title;m
+/item/encoded;element not allowed:flow;m
+/item/encoded;element not defined;m
+/item/encoded;in body:#eof;abc;m
+
+#data
+<item xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" rdf:about="http://a/"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <content:encoded>abv<p>end</p>a</content:encoded>
+</item>
+#errors
+/item;child element missing;link;m
+/item;child element missing;title;m
+/item/encoded/p;element not allowed:text;m
+/item/encoded/p;element not defined;m
+
+#data
+<item xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" rdf:about="http://a/"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <content:encoded> </content:encoded>
+</item>
+#errors
+/item;child element missing;link;m
+/item;child element missing;title;m
+/item/encoded;no significant content;s
+
+#data
+<channel xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" rdf:about="http://a/"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <content:encoded>abva</content:encoded>
+</channel>
+#errors
+/channel;child element missing;link;m
+/channel;child element missing;title;m
+/channel;child element missing;description;m
+/channel;child element missing;items;m
+/channel/encoded;element not allowed;m

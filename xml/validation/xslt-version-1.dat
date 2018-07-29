@@ -1,0 +1,106 @@
+#data
+<abc xsl:version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+#errors
+/abc;unknown namespace element;u
+/abc/@version;limited use;w
+/abc/@version;attribute not allowed;m
+
+#data
+<abc xsl:version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+#errors
+/abc;unknown namespace element;u
+/abc/@version;limited use;w
+/abc/@version;attribute not allowed;m
+/abc/@version;enumerated:invalid;m
+
+#is-document 1
+#data
+<abc xsl:version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+#errors
+/;xml:no DTD validation;i
+/abc;xslt:root literal result element;s
+/abc;unknown namespace element;u
+/abc/@version;limited use;w
+
+#is-document 1
+#mime application/xsl+xml
+#data
+<abc xsl:version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+#errors
+/;xml:no DTD validation;i
+/abc;xslt:root literal result element;s
+/abc;unknown namespace element;u
+/abc/@version;limited use;w
+
+#is-document 1
+#mime application/xslt+xml
+#data
+<abc xsl:version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+#errors
+/;xml:no DTD validation;i
+/abc;unknown namespace element;u
+/abc/@version;limited use;w
+
+#is-document 1
+#mime text/xsl
+#data
+<abc xsl:version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+#errors
+/;xml:no DTD validation;i
+/abc;unknown namespace element;u
+/abc/@version;limited use;w
+
+#is-document 1
+#mime text/xsl
+#data
+<abc xsl:version="1.0" xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+#errors
+/;xml:no DTD validation;i
+/abc;element not defined;m
+/abc;element not allowed;m
+/abc/@version;limited use;w
+
+#data
+<abc xsl:version="1.0" xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+#errors
+/abc;element not defined;m
+/abc/@version;attribute not allowed;m
+/abc/@version;limited use;w
+
+#data
+<xsl:stylesheet xsl:version="1.0" xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+#errors
+/stylesheet;unknown element;u
+/stylesheet;attribute missing;version;m
+/stylesheet/@version;limited use;w
+/stylesheet/@version;attribute not allowed;m
+
+#is-document 1
+#mime text/xsl
+#data
+<xsl:stylesheet xsl:version="1.0" xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+#errors
+/;xml:no DTD validation;i
+/stylesheet;unknown element;u
+/stylesheet;attribute missing;version;m
+/stylesheet/@version;limited use;w
+/stylesheet/@version;attribute not allowed;m
+
+#data
+<xsl:transform xsl:version="1.0" xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+#errors
+/transform;unknown element;u
+/transform;attribute missing;version;m
+/transform/@version;limited use;w
+/transform/@version;attribute not allowed;m
+
+#is-document 1
+#mime text/xsl
+#data
+<xsl:transform xsl:version="1.0" xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+#errors
+/;xml:no DTD validation;i
+/transform;unknown element;u
+/transform;attribute missing;version;m
+/transform/@version;attribute not allowed;m
+/transform/@version;limited use;w

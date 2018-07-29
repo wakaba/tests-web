@@ -1,0 +1,19 @@
+#is-document 1
+#mime application/xslt+xml
+#data
+<xsl:transform version="1.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:template match="/">
+    <template>
+      <p><xsl:apply-templates hoge=""/></p>
+    </template>
+  </xsl:template>
+</xsl:transform>
+#errors
+/;xml:no DTD validation;i
+/transform;unknown element;u
+/transform/template;unknown element;u
+/transform/template/@match;unknown attribute;u
+| #df/p;no significant content;s
+| #df/p/apply-templates;element not allowed:phrasing;m
+| #df/p/apply-templates;limited use;w
+| #df/p/apply-templates/@hoge;attribute not defined;m

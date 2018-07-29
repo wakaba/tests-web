@@ -65,7 +65,17 @@
 </trk></gpx>
 #parsed
 {"tracks":[{
-  "page_url":"ftp://foo/"
+  "links":[{"url":"ftp://foo/"}]
+}]}
+
+#data
+<gpx><trk>
+  <link href="ftp://foo"/>
+  <link href="http://foo"/>
+</trk></gpx>
+#parsed
+{"tracks":[{
+  "links":[{"url":"ftp://foo/"},{"url":"http://foo/"}]
 }]}
 
 #data

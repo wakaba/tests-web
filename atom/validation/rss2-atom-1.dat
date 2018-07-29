@@ -1,0 +1,57 @@
+
+#rss2
+#data
+<channel>
+  <atom:link href="x" xmlns:atom="http://www.w3.org/2005/Atom" /> 
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <atom:link href="x" xmlns:atom="http://www.w3.org/2005/Atom" /> 
+  <atom:link href="y" xmlns:atom="http://www.w3.org/2005/Atom" /> 
+</channel>
+#errors
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<item>
+  <title>aa</title>
+  <atom:link xmlns:atom="http://www.w3.org/2005/Atom" /> 
+</item>
+#errors
+item/link;attribute missing;href;m
+
+#rss2
+#data
+<item>
+  <title>aa</title>
+  <atom:link href="x" xmlns:atom="http://www.w3.org/2005/Atom" /> 
+  <atom:link href="y" xmlns:atom="http://www.w3.org/2005/Atom" /> 
+</item>
+#errors
+
+#rss2
+#data
+<item xmlns:atom="http://www.w3.org/2005/Atom">
+   <title>aa</title>
+  <atom:updated>2021-12-11T00:22:12Z</atom:updated>
+</item>
+#errors
+
+#rss2
+#data
+<item xmlns:atom="http://www.w3.org/2005/Atom">
+   <title>aa</title>
+  <atom:updated>2021-12-11T00:22:12Z</atom:updated>
+  <atom:updated>2021-12-11T00:22:12Z</atom:updated>
+</item>
+#errors
+item/updated;element not allowed:duplicate;m

@@ -1,0 +1,25 @@
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <dc:subject>aaa</dc:subject>
+</entry>
+#errors
+/entry/subject;element not allowed;m
+/entry;child element missing:atom;title;m
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <dc:subject>aaa</dc:subject>
+  <dc:subject>aaa</dc:subject>
+</entry>
+#errors
+/entry/subject;element not allowed;m
+/entry/subject;element not allowed;m
+/entry;child element missing:atom;title;m
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;updated;m

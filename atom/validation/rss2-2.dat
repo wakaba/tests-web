@@ -1,0 +1,112 @@
+#rss2
+#data
+<pubDate>Mon, 15 Oct 2007 14:10:00 GMT</pubDate>
+#errors
+
+#rss2
+#data
+<lastBuildDate>Mon, 15 Oct 2007 09:10:00 EST</lastBuildDate>
+#errors
+lastBuildDate;datetime:tzname;w
+
+#rss2
+#data
+<pubDate>Mon, 15 Oct 2007 08:10:00 -0600</pubDate>
+#errors
+
+#rss2
+#data
+<pubDate>Mon, 15 Oct 07 08:10:00 -0600</pubDate>
+#errors
+pubDate;datetime:bad year;s
+
+#rss2
+#data
+<pubDate>Mon, 15 Oct 2007 08:10:00 Z</pubDate>
+#errors
+pubDate;datetime:tzname;w
+
+#rss2
+#data
+<pubDate>Mon, 15 Oct 2007 08:10:00 A</pubDate>
+#errors
+pubDate;datetime:tzname;w
+
+#rss2
+#data
+<managingEditor>luksa@dallas.example.com (Frank Luksa)</managingEditor>
+#errors
+
+#rss2
+#data
+<managingEditor>luksa@dallas.example.com</managingEditor>
+#errors
+managingEditor;rss2:person:syntax error;s
+
+#rss2
+#data
+<managingEditor>(Frank Luksa)</managingEditor>
+#errors
+managingEditor;rss2:person:syntax error;s
+
+#rss2
+#data
+<managingEditor>a.b.c.@o.example (Frank Luksa)</managingEditor>
+#errors
+
+#rss2
+#data
+<managingEditor>".a.b.c."@o.example (Frank Luksa)</managingEditor>
+#errors
+managingEditor;rss2:person:syntax error;s
+
+#rss2
+#data
+<abc>aa</abc>
+#errors
+abc;element not defined;m
+
+#rss2
+#data
+<channel>
+  <abc>aa</abc>
+</channel>
+#errors
+channel/abc;element not defined;m
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <xmlabc>aa</xmlabc>
+</channel>
+#errors
+channel/xmlabc;element not defined;m
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <xml:abc>aa</xml:abc>
+</channel>
+#errors
+channel/abc;element not defined;m
+channel/abc;element not allowed;m
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <abc xmlns="http://a/">aa</abc>
+</channel>
+#errors
+channel/abc;unknown namespace element;u
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m

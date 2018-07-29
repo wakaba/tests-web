@@ -4,8 +4,9 @@
 ]><a><?aa?></a>
 #is-document
 #errors
-/a;unknown namespace element;w
+/a;unknown namespace element;u
 /a/?aa;xml:pi:target not declared;w
+/a/?aa;unknown pi;u
 
 #data
 <!DOCTYPE a[
@@ -13,8 +14,9 @@
 ]><a><?aa:b?></a>
 #is-document
 #errors
-/a;unknown namespace element;w
+/a;unknown namespace element;u
 /a/?aa:b;xml:ncname syntax;m
+/a/?aa:b;unknown pi;u
 
 #data
 <!DOCTYPE a[
@@ -22,8 +24,9 @@
 ]><a><?aa:b!?></a>
 #is-document
 #errors
-/a;unknown namespace element;w
+/a;unknown namespace element;u
 /a/?aa:b!;xml:name syntax;m
+/a/?aa:b!;unknown pi;u
 
 #data
 <!DOCTYPE a[
@@ -31,7 +34,7 @@
 ]><a><?xMl?></a>
 #is-document
 #errors
-/a;unknown namespace element;w
+/a;unknown namespace element;u
 /a/?xMl;xml:name syntax;m
 
 #data
@@ -41,7 +44,8 @@
 ]><a><?hoge?></a>
 #is-document
 #errors
-/a;unknown namespace element;w
+/a;unknown namespace element;u
+/a/?hoge;unknown pi;u
 
 #data
 <!DOCTYPE a[
@@ -51,4 +55,5 @@
 #is-document
 #errors
 /!DOCTYPE/!NOTATION hoge!;xml:name syntax;m
-/a;unknown namespace element;w
+/a;unknown namespace element;u
+/a/?hoge!;unknown pi;u

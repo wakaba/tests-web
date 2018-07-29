@@ -1,0 +1,308 @@
+#rss2
+#data
+<channel>
+  <image></image>
+</channel>
+#errors
+channel/image;child element missing;link;m
+channel/image;child element missing;title;m
+channel/image;child element missing;url;m
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <image></image>
+  <image></image>
+</channel>
+#errors
+channel/image;child element missing;link;m
+channel/image;child element missing;title;m
+channel/image;child element missing;url;m
+channel/image;child element missing;link;m
+channel/image;child element missing;title;m
+channel/image;child element missing;url;m
+channel/image;element not allowed:duplicate;m
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<image>
+  <link>http://aa/</link>
+</image>
+#errors
+image;child element missing;title;m
+image;child element missing;url;m
+
+#rss2
+#data
+<image>
+  <link>http://aa/</link>
+  <link>http://aa/</link>
+</image>
+#errors
+image;child element missing;title;m
+image;child element missing;url;m
+image/link;element not allowed:duplicate;m
+
+#rss2
+#data
+<image>
+  <link>http:[]//aa/</link>
+</image>
+#errors
+image;child element missing;title;m
+image;child element missing;url;m
+image/link;syntax error:iri3987;m
+image/link;syntax error:iriref3987;m
+
+#rss2
+#data
+<image>
+  <link>htt/aa/</link>
+</image>
+#errors
+image;child element missing;title;m
+image;child element missing;url;m
+image/link;syntax error:iri3987;m
+
+#rss2
+#data
+<channel>
+  <link>http://ab/c</link>
+  <image>
+    <link>http://ab/c</link>
+  </image>
+</channel>
+#errors
+channel/image;child element missing;title;m
+channel/image;child element missing;url;m
+channel;child element missing;description;m
+channel;child element missing;title;m
+
+#rss2
+#data
+<channel>
+  <link>http://ab/</link>
+  <image>
+    <link>http://ab/c</link>
+  </image>
+</channel>
+#errors
+channel/image;child element missing;title;m
+channel/image;child element missing;url;m
+channel;child element missing;description;m
+channel;child element missing;title;m
+channel/image/link;rss2:image != channel;s
+
+#rss2
+#data
+<channel>
+  <image>
+    <link>http://ab/c</link>
+  </image>
+  <link>http://ab/</link>
+</channel>
+#errors
+channel/image;child element missing;title;m
+channel/image;child element missing;url;m
+channel;child element missing;description;m
+channel;child element missing;title;m
+channel/image/link;rss2:image != channel;s
+
+#rss2
+#data
+<image>
+  <title>aae</title>
+</image>
+#errors
+image;child element missing;link;m
+image;child element missing;url;m
+
+#rss2
+#data
+<image>
+  <title>a&lt;ae</title>
+  <title>aae</title>
+</image>
+#errors
+image;child element missing;link;m
+image;child element missing;url;m
+image/title;element not allowed:duplicate;m
+
+#rss2
+#data
+<channel>
+  <title>aba</title>
+  <image>
+    <title>aba</title>
+  </image>
+</channel>
+#errors
+channel/image;child element missing;link;m
+channel/image;child element missing;url;m
+channel;child element missing;description;m
+channel;child element missing;link;m
+
+#rss2
+#data
+<channel>
+  <title>aba</title>
+  <image>
+    <title>aba </title>
+  </image>
+</channel>
+#errors
+channel/image;child element missing;link;m
+channel/image;child element missing;url;m
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel/image/title;rss2:image != channel;s
+
+#rss2
+#data
+<channel>
+  <image>
+    <title>aba </title>
+  </image>
+  <title>aba</title>
+</channel>
+#errors
+channel/image;child element missing;link;m
+channel/image;child element missing;url;m
+channel;child element missing;description;m
+channel;child element missing;link;m
+channel/image/title;rss2:image != channel;s
+
+#rss2
+#data
+<image>
+  <url>hra</url>
+</image>
+#errors
+image/url;syntax error:iri3987;m
+image;child element missing;link;m
+image;child element missing;title;m
+
+#rss2
+#data
+<image>
+  <url>http://gadsa/hra</url>
+</image>
+#errors
+image;child element missing;link;m
+image;child element missing;title;m
+
+#rss2
+#data
+<image>
+  <url>http://gadsa/hra</url>
+  <url>http://gadsa/hra</url>
+</image>
+#errors
+image;child element missing;link;m
+image;child element missing;title;m
+image/url;element not allowed:duplicate;m
+
+#rss2
+#data
+<image>
+  <url>http:~?>//gadsa/hra</url>
+</image>
+#errors
+image;child element missing;link;m
+image;child element missing;title;m
+image/url;syntax error:iri3987;m
+image/url;syntax error:iriref3987;m
+
+#rss2
+#data
+<image>
+  <description>geag&lt;ageae</description>
+</image>
+#errors
+image;child element missing;link;m
+image;child element missing;title;m
+image;child element missing;url;m
+
+#rss2
+#data
+<image>
+  <description>geag&lt;ageae</description>
+  <description>geag&lt;ageae</description>
+</image>
+#errors
+image;child element missing;link;m
+image;child element missing;title;m
+image;child element missing;url;m
+image/description;element not allowed:duplicate;m
+
+#rss2
+#data
+<image>
+  <width>42</width>
+</image>
+#errors
+image;child element missing;link;m
+image;child element missing;title;m
+image;child element missing;url;m
+
+#rss2
+#data
+<image>
+  <width>42</width>
+  <width>42</width>
+</image>
+#errors
+image;child element missing;link;m
+image;child element missing;title;m
+image;child element missing;url;m
+image/width;element not allowed:duplicate;m
+
+#rss2
+#data
+<image>
+  <width>4tewaa</width>
+</image>
+#errors
+image;child element missing;link;m
+image;child element missing;title;m
+image;child element missing;url;m
+image/width;nninteger:syntax error;m
+
+#rss2
+#data
+<image>
+  <height>42</height>
+</image>
+#errors
+image;child element missing;link;m
+image;child element missing;title;m
+image;child element missing;url;m
+
+#rss2
+#data
+<image>
+  <height>42</height>
+  <height>42</height>
+</image>
+#errors
+image;child element missing;link;m
+image;child element missing;title;m
+image;child element missing;url;m
+image/height;element not allowed:duplicate;m
+
+#rss2
+#data
+<image>
+  <height>4tewaa</height>
+</image>
+#errors
+image;child element missing;link;m
+image;child element missing;title;m
+image;child element missing;url;m
+image/height;nninteger:syntax error;m

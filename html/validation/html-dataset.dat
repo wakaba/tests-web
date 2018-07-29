@@ -6,7 +6,8 @@
 #data
 <p xmlns="http://ww.w3.org/1999/xhtml" data="">x</p>
 #errors
-/p;unknown namespace element;w
+/p;unknown namespace element;u
+/p/@data;unknown attribute;u
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml" data="">x</p>
@@ -47,7 +48,9 @@
 <p xmlns="http://www.example.com/non-html"
     data-1="" data-2="custom data">x</p>
 #errors
-/p;unknown namespace element;w
+/p;unknown namespace element;u
+/p/@data-1;unknown attribute;u
+/p/@data-2;unknown attribute;u
 
 #data
 <meta xmlns="http://www.w3.org/1999/xhtml"

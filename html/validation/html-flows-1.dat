@@ -171,7 +171,7 @@ para
 /body/style;element not allowed:flow;m
 /body/style/@scoped;attr:obsolete;m
 /body/unknown;element not allowed:flow;m
-/body/unknown;unknown namespace element;w
+/body/unknown;unknown namespace element;u
 /body;no significant content;s
 
 #data
@@ -7736,7 +7736,7 @@ a
 <ins xmlns="http://www.w3.org/1999/xhtml"
     datetime="2007-02-21T23:00+0900">x</ins>
 #errors
-/ins/@datetime;dateandopttime:syntax error;m
+/ins/@datetime;tz:syntax error;m
 
 #data
 <ins xmlns="http://www.w3.org/1999/xhtml"
@@ -8010,6 +8010,7 @@ a
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><?a?>b</p>
 #errors
+/p/?a;unknown pi;u
 
 #data
 <p xmlns="http://www.w3.org/1999/xhtml"><img src="a" alt="a"/></p>

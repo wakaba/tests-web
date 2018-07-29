@@ -1,0 +1,35 @@
+#data
+<gpx><rte>
+  <link href="ftp://foo"/>
+  <link/>
+  <link href="HTtp://foo"/>
+  <link href=""/>
+</rte></gpx>
+#parsed
+{"routes":[{
+  "links":[{"url":"ftp://foo/"},{"url":"http://foo/"},{"url":"https://base/"}]
+}]}
+
+#data
+<gpx>
+  <metadata>
+    <link href="https://example.COM">
+      <text></text>
+      <text>abc</text>
+    </link>
+  </metadata>
+</gpx>
+#parsed
+{"links":[{"url":"https://example.com/","text":"abc"}]}
+
+#data
+<gpx>
+  <metadata>
+    <link href="https://example.COM">
+      <type>text/plain</type>
+      <text>abc</text>
+    </link>
+  </metadata>
+</gpx>
+#parsed
+{"links":[{"url":"https://example.com/","text":"abc","mime_type":"text/plain"}]}

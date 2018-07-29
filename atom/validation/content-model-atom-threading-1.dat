@@ -32,6 +32,7 @@
 /feed;child element missing:atom:link:self;s
 /feed/entry;child element missing:atom:link:alternate;m
 /feed/entry;child element missing:atom:link:alternate;m
+/feed/entry/in-reply-to;limited use;w
 
 #data
 <!-- From RFC 4685 -->
@@ -62,6 +63,7 @@
 #errors
 /feed;child element missing:atom:link:self;s
 /feed/entry;child element missing:atom:link:alternate;m
+/feed/entry/in-reply-to;limited use;w
 
 #data
 <entry xmlns="http://www.w3.org/2005/Atom"
@@ -74,6 +76,7 @@
 <thr:total></thr:total>
 </entry>
 #errors
+/entry/total;limited use;w
 /entry/total;xs:nonNegativeInteger:bad value;m
 
 #data
@@ -87,6 +90,7 @@
 <thr:total>0</thr:total>
 </entry>
 #errors
+/entry/total;limited use;w
 
 #data
 <entry xmlns="http://www.w3.org/2005/Atom"
@@ -99,6 +103,7 @@
 <thr:total>00000</thr:total>
 </entry>
 #errors
+/entry/total;limited use;w
 
 #data
 <entry xmlns="http://www.w3.org/2005/Atom"
@@ -111,6 +116,7 @@
 <thr:total>+0</thr:total>
 </entry>
 #errors
+/entry/total;limited use;w
 
 #data
 <entry xmlns="http://www.w3.org/2005/Atom"
@@ -123,6 +129,7 @@
 <thr:total>-0</thr:total>
 </entry>
 #errors
+/entry/total;limited use;w
 
 #data
 <entry xmlns="http://www.w3.org/2005/Atom"
@@ -135,6 +142,7 @@
 <thr:total>0.00</thr:total>
 </entry>
 #errors
+/entry/total;limited use;w
 /entry/total;xs:nonNegativeInteger:bad value;m
 
 #data
@@ -148,6 +156,7 @@
 <thr:total>12211</thr:total>
 </entry>
 #errors
+/entry/total;limited use;w
 
 #data
 <entry xmlns="http://www.w3.org/2005/Atom"
@@ -161,6 +170,7 @@
 </entry>
 #errors
 /entry/total;xs:nonNegativeInteger:bad value;m
+/entry/total;limited use;w
 
 #data
 <entry xmlns="http://www.w3.org/2005/Atom"
@@ -173,6 +183,7 @@
 <thr:total>444 </thr:total>
 </entry>
 #errors
+/entry/total;limited use;w
 /entry/total;xs:nonNegativeInteger:bad value;m
 
 #data
@@ -186,6 +197,7 @@
 <thr:total>+233</thr:total>
 </entry>
 #errors
+/entry/total;limited use;w
 
 #data
 <entry xmlns="http://www.w3.org/2005/Atom"
@@ -198,6 +210,7 @@
 <thr:total>.444</thr:total>
 </entry>
 #errors
+/entry/total;limited use;w
 /entry/total;xs:nonNegativeInteger:bad value;m
 
 #data
@@ -211,6 +224,7 @@
 <thr:total> 44</thr:total>
 </entry>
 #errors
+/entry/total;limited use;w
 /entry/total;xs:nonNegativeInteger:bad value;m
 
 #data
@@ -224,6 +238,7 @@
 <thr:total>40,444</thr:total>
 </entry>
 #errors
+/entry/total;limited use;w
 /entry/total;xs:nonNegativeInteger:bad value;m
 
 #data
@@ -237,6 +252,7 @@
 <thr:total>0004444</thr:total>
 </entry>
 #errors
+/entry/total;limited use;w
 
 #data
 <thr:in-reply-to
@@ -246,6 +262,7 @@
          href="http://www.example.org/entries/1"
          source="http://www.example.org/myfeed" />
 #errors
+/in-reply-to;limited use;w
 /in-reply-to/@type;MIME type:no /;m
 
 #data
@@ -256,6 +273,7 @@
          href="http://www.example.org/entries/1"
          source="http://www.example.org/myfeed" />
 #errors
+/in-reply-to;limited use;w
 /in-reply-to/@type;IMT:parameter not allowed;m
 
 #data

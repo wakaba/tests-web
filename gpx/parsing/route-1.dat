@@ -65,7 +65,17 @@
 </rte></gpx>
 #parsed
 {"routes":[{
-  "page_url":"ftp://foo/"
+  "links":[{"url":"ftp://foo/"}]
+}]}
+
+#data
+<gpx><rte>
+  <link href="ftp://foo"/>
+  <link href="HTtp://foo"/>
+</rte></gpx>
+#parsed
+{"routes":[{
+  "links":[{"url":"ftp://foo/"},{"url":"http://foo/"}]
 }]}
 
 #data

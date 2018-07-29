@@ -13,7 +13,7 @@
 #data escaped
 <template xmlns="http://www.w3.org/1999/xhtml">\uD800</template>
 #errors escaped
-| #df/"\uD800";text:bad char;m
+| #df/"\uD800";text:bad char;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">abac<p>ee</p></template>
@@ -26,7 +26,7 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">aba<p/>cee</template>
 #errors
-| #df/p;no significant content;s
+| #df/p;no significant content;s[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">abace<script/>e</template>
@@ -35,37 +35,31 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><style/>abacee</template>
 #errors
-| #df/"abacee";character not allowed;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/>abacee</template>
 #errors
-| #df/style/@scoped;attr:obsolete;m
-| #df/"abacee";character not allowed;m
+| #df/style/@scoped;attr:obsolete;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">gaeeee<style scoped=""/></template>
 #errors
-| #df/"gaeeee";character not allowed;m
-| #df/style/@scoped;attr:obsolete;m
+| #df/style/@scoped;attr:obsolete;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/><p>abacee</p></template>
 #errors
-| #df/style/@scoped;attr:obsolete;m
-| #df/p;element not allowed:metadata;m
+| #df/style/@scoped;attr:obsolete;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><p>gaeeee</p><style scoped=""/></template>
 #errors
-| #df/p;element not allowed:metadata;m
-| #df/style/@scoped;attr:obsolete;m
+| #df/style/@scoped;attr:obsolete;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><script/><template/><p>gaeeee</p><style scoped=""/></template>
 #errors
-| #df/p;element not allowed:metadata;m
-| #df/style/@scoped;attr:obsolete;m
+| #df/style/@scoped;attr:obsolete;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><li>aa</li></template>
@@ -82,13 +76,10 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">abc<li>aa</li></template>
 #errors
-| #df/"abc";character not allowed;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><li>aa</li><dt>aaa</dt><p>aa</p></template>
 #errors
-| #df/dt;element not allowed;m
-| #df/p;element not allowed;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><dt>aa</dt><dd>bb</dd><script/><template/></template>
@@ -101,7 +92,6 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><figcaption>a</figcaption></template>
 #errors
-/template;no significant content;s
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">abc<figcaption>a</figcaption></template>
@@ -114,130 +104,98 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">abc<figcaption>a</figcaption>aaa</template>
 #errors
-| #df/figcaption;element not allowed:flow;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><rt>aa</rt></template>
 #errors
-| #df/rt;no significant content before;s
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><rp>aa</rp></template>
 #errors
-| #df/rp;no significant content before;s
-| /template;element missing;rp;m
-| /template;element missing;rt;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">ab<rt>aa</rt>cd</template>
 #errors
-/template;element missing;rt;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><param name="x" value="f"/><param/></template>
 #errors
-| /template;no significant content;s
-| #df/param;attribute missing;name;m
-| #df/param;attribute missing;value;m
+| #df/param;attribute missing;name;m[t]
+| #df/param;attribute missing;value;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">ab<param/></template>
 #errors
-| #df/param;attribute missing;name;m
-| #df/param;attribute missing;value;m
-| #df/param;element not allowed:flow;m
+| #df/param;attribute missing;name;m[t]
+| #df/param;attribute missing;value;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">ab<param/><p>abvc</p></template>
 #errors
-| #df/param;attribute missing;name;m
-| #df/param;attribute missing;value;m
-| #df/param;element not allowed:flow;m
+| #df/param;attribute missing;name;m[t]
+| #df/param;attribute missing;value;m[t]
 
 #data
 <span xmlns="http://www.w3.org/1999/xhtml"><template>ab<param/><p>abvc</p></template></span>
 #errors
 /span;no significant content;s
-| #df/param;attribute missing;name;m
-| #df/param;attribute missing;value;m
-| #df/param;element not allowed:flow;m
+| #df/param;attribute missing;name;m[t]
+| #df/param;attribute missing;value;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><source src="x"/></template>
 #errors
-/template;no significant content;s
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><source src="x"/><source src="xdf"/></template>
 #errors
-/template;no significant content;s
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">xx<source src="x"/><source src="xdf"/></template>
 #errors
-| #df/source;element not allowed:flow;m
-| #df/source;element not allowed:flow;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><track src="x"/></template>
 #errors
-| /template;no significant content;s
-| /template;child element missing;source;w
-| #df/track;attribute missing;srclang;m
+| #df/track;attribute missing;srclang;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><track src="x"/><track src="xdf"/></template>
 #errors
-| /template;child element missing;source;w
-| /template;no significant content;s
-| #df/track;attribute missing;srclang;m
-| #df/track;attribute missing;srclang;m
-| #df/track;duplicate track;m
+| #df/track;attribute missing;srclang;m[t]
+| #df/track;attribute missing;srclang;m[t]
+| #df/track;duplicate track;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">xx<track src="x"/><track src="xdf"/></template>
 #errors
-| /template;child element missing;source;w
-| #df/track;element not allowed:flow;m
-| #df/track;element not allowed:flow;m
-| #df/track;attribute missing;srclang;m
-| #df/track;attribute missing;srclang;m
-| #df/track;duplicate track;m
+| #df/track;attribute missing;srclang;m[t]
+| #df/track;attribute missing;srclang;m[t]
+| #df/track;duplicate track;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">xx<track src="x"/><track src="xdf"/><source/></template>
 #errors
-| #df/track;element not allowed:flow;m
-| #df/track;element not allowed:flow;m
-| #df/source;attribute missing;src;m
-| #df/source;element not allowed:flow;m
-| #df/track;attribute missing;srclang;m
-| #df/track;attribute missing;srclang;m
-| #df/track;duplicate track;m
+| #df/source;attribute missing;src;m[t]
+| #df/track;attribute missing;srclang;m[t]
+| #df/track;attribute missing;srclang;m[t]
+| #df/track;duplicate track;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><template/><track src="x"/><track src="xdf"/><source/></template>
 #errors
-| /template;no significant content;s
-| #df/track;element not allowed:flow;m
-| #df/track;element not allowed:flow;m
-| #df/source;attribute missing;src;m
-| #df/source;element not allowed:flow;m
-| #df/track;attribute missing;srclang;m
-| #df/track;attribute missing;srclang;m
-| #df/track;duplicate track;m
+| #df/source;attribute missing;src;m[t]
+| #df/track;attribute missing;srclang;m[t]
+| #df/track;attribute missing;srclang;m[t]
+| #df/track;duplicate track;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><script/><track src="x"/><track src="xdf"/><source/></template>
 #errors
-| /template;no significant content;s
-| #df/track;element not allowed:flow;m
-| #df/track;element not allowed:flow;m
-| #df/source;attribute missing;src;m
-| #df/source;element not allowed:flow;m
-| #df/track;attribute missing;srclang;m
-| #df/track;attribute missing;srclang;m
-| #df/track;duplicate track;m
+| #df/source;attribute missing;src;m[t]
+| #df/track;attribute missing;srclang;m[t]
+| #df/track;attribute missing;srclang;m[t]
+| #df/track;duplicate track;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><col/></template>
@@ -246,7 +204,6 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><p>a</p><col/></template>
 #errors
-| #df/p;element not allowed:colgroup;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><col/><col/></template>
@@ -255,12 +212,10 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><col/><colgroup/></template>
 #errors
-| #df/colgroup;element not allowed:colgroup;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><col/><script/></template>
 #errors
-| #df/script;element not allowed:colgroup;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><col/><template/></template>
@@ -273,9 +228,6 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><tbody/><template/><tr/><thead/><tfoot/><tbody/></template>
 #errors
-| #df/tr;element not allowed;m
-| #df/thead;element not allowed;m
-| #df/tbody;element not allowed;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><colgroup/><colgroup/><thead/><tbody/><script/><template/><tbody/><tfoot/></template>
@@ -296,7 +248,6 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">aa<tbody/></template>
 #errors
-| #df/"aa";character not allowed;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><tbody/></template>
@@ -305,24 +256,21 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><tfoot/><tr/></template>
 #errors
-| #df/tr;element not allowed;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><th/><td/><td/></template>
 #errors
-| #df/th;no significant content;s
-| #df/td;no significant content;s
-| #df/td;no significant content;s
+| #df/th;no significant content;s[t]
+| #df/td;no significant content;s[t]
+| #df/td;no significant content;s[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><th>a</th>aa</template>
 #errors
-| #df/"aa";character not allowed;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><td>a</td>aa</template>
 #errors
-| #df/"aa";character not allowed;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><legend>aa</legend>aa</template>
@@ -331,12 +279,10 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><legend>a</legend></template>
 #errors
-/template;no significant content;s
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">twww<legend>aa</legend></template>
 #errors
-| #df/legend;element not allowed:flow;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><option>a</option></template>
@@ -345,12 +291,10 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><option>a</option>ab</template>
 #errors
-| #df/"ab";character not allowed;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><option>a</option><p>aa</p></template>
 #errors
-| #df/p;element not allowed;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><option>a</option><optgroup label="a"/></template>
@@ -367,12 +311,11 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><optgroup/><optgroup label="x"/></template>
 #errors
-| #df/optgroup;attribute missing;label;m
+| #df/optgroup;attribute missing;label;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><summary>a</summary></template>
 #errors
-/template;no significant content;s
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><summary>a</summary>b</template>
@@ -381,64 +324,59 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><summary>aa</summary>x<option>a</option></template>
 #errors
-| #df/option;element not allowed:flow;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml">aaaa<summary>aa</summary></template>
 #errors
-| #df/summary;element not allowed:flow;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menu>a</menu></template>
 #errors
-| #df/menu/"a";character not allowed;m
+| #df/menu/"a";character not allowed;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menu type="popup">a</menu></template>
 #errors
-| #df/menu/@type;attr:obsolete;m
-| #df/menu/"a";character not allowed;m
+| #df/menu/@type;attr:obsolete;m[t]
+| #df/menu/"a";character not allowed;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menu type="context">a</menu></template>
 #errors
-| #df/menu/@type;attr:obsolete;m
-| #df/menu/"a";character not allowed;m
+| #df/menu/@type;attr:obsolete;m[t]
+| #df/menu/"a";character not allowed;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menuitem label="x"/></template>
 #errors
-| #df/menuitem;element:obsolete;m
-| #df/menuitem;element not allowed:flow;m
-| #df/menuitem/@label;attr:obsolete;m
+| #df/menuitem;element:obsolete;m[t]
+| #df/menuitem/@label;attr:obsolete;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menuitem label="x"/>ac</template>
 #errors
-| #df/menuitem;element:obsolete;m
-| #df/menuitem;element not allowed:flow;m
-| #df/menuitem/@label;attr:obsolete;m
+| #df/menuitem;element:obsolete;m[t]
+| #df/menuitem/@label;attr:obsolete;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menuitem label="x"/>ac<hr/></template>
 #errors
-| #df/menuitem;element:obsolete;m
-| #df/menuitem;element not allowed:flow;m
-| #df/menuitem/@label;attr:obsolete;m
+| #df/menuitem;element:obsolete;m[t]
+| #df/menuitem/@label;attr:obsolete;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menu><menuitem label="x"/></menu></template>
 #errors
-| #df/menu/menuitem;element:obsolete;m
-| #df/menu/menuitem;element not allowed;m
-| #df/menu/menuitem/@label;attr:obsolete;m
+| #df/menu/menuitem;element:obsolete;m[t]
+| #df/menu/menuitem;element not allowed;m[t]
+| #df/menu/menuitem/@label;attr:obsolete;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menu><menuitem label="x"/></menu><hr/></template>
 #errors
-| #df/menu/menuitem;element:obsolete;m
-| #df/menu/menuitem;element not allowed;m
-| #df/menu/menuitem/@label;attr:obsolete;m
+| #df/menu/menuitem;element:obsolete;m[t]
+| #df/menu/menuitem;element not allowed;m[t]
+| #df/menu/menuitem/@label;attr:obsolete;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><hr/></template>
@@ -447,9 +385,8 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><menuitem label="x"/><script/><template/><hr/></template>
 #errors
-| #df/menuitem;element:obsolete;m
-| #df/menuitem;element not allowed:flow;m
-| #df/menuitem/@label;attr:obsolete;m
+| #df/menuitem;element:obsolete;m[t]
+| #df/menuitem/@label;attr:obsolete;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><script/><template/></template>
@@ -463,13 +400,10 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><source src="a"/><video src="b">aa</video></template>
 #errors
-| #df/video;element not allowed:minus;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><source src="a"/><audio src="b">aa</audio></template>
 #errors
-| /template;no significant content;s
-| #df/audio;element not allowed:minus;m
 
 #data
 <form xmlns="http://www.w3.org/1999/xhtml">a
@@ -494,7 +428,6 @@
 <template><template><video src="b">aa</video><param name="a" value="b"/></template></template>
 </video>
 #errors
-| #df/param;element not allowed:flow;m
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -504,7 +437,7 @@
   </template>
 </div>
 #errors
-| #df/input/@form;no referenced form;m
+| #df/input/@form;no referenced form;m[t]
 
 #data
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -523,9 +456,9 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><link href="aaxs" rel="next"/><meta charset="utf-8"/><meta charset="shift_jis"/></template>
 #errors
-| #df/meta/@charset;in XML:charset;m
-| #df/meta/@charset;mismatched charset name;utf-8;m
-| #df/meta;duplicate meta charset;m
+| #df/meta/@charset;in XML:charset;m[t]
+| #df/meta/@charset;mismatched charset name;utf-8;m[t]
+| #df/meta;duplicate meta charset;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><link href="aaxs" rel="next"/><title>aa</title><title>bb</title></template>
@@ -534,35 +467,28 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><head><link href="aaxs" rel="next"/></head></template>
 #errors
-| #df/head;element not allowed:flow;m
-| #df/head;child element missing;title;m
+| #df/head;child element missing;title;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><head><link href="aaxs" rel="next"/><title>a</title><title>b</title></head></template>
 #errors
-| #df/head;element not allowed:flow;m
-| #df/head/title;element not allowed:head title;m
+| #df/head/title;element not allowed:head title;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><link href="aaxs" rel="next"/><title>aa</title><title>bb</title>abc</template>
 #errors
-| #df/"abc";character not allowed;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><link href="aaxs" rel="next"/><title>aa</title><title>bb</title><p>abc</p></template>
 #errors
-| #df/p;element not allowed:metadata;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><base href="x"/><p>aa</p></template>
 #errors
-| #df/p;element not allowed:metadata;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><p>aa</p><base href="x"/><p>aa</p></template>
 #errors
-| #df/p;element not allowed:metadata;m
-| #df/p;element not allowed:metadata;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><script/><base href="x"/><template/></template>
@@ -575,51 +501,44 @@
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><script/><style></style><p>aa</p></template>
 #errors
-| #df/p;element not allowed:metadata;m
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><script/><base href="x"/><template/><style scoped=""/></template>
 #errors
-| #df/style/@scoped;attr:obsolete;m
+| #df/style/@scoped;attr:obsolete;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><style scoped=""/><script/><base href="x"/><template/></template>
 #errors
-| #df/style/@scoped;attr:obsolete;m
+| #df/style/@scoped;attr:obsolete;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><noscript>a</noscript><style scoped=""/><script/><base href="x"/><template/></template>
 #noscript
 #errors
-| #df/noscript;in XML:noscript;m
-| #df/noscript/"a";character not allowed;m
-| #df/style/@scoped;attr:obsolete;m
+| #df/noscript;in XML:noscript;m[t]
+| #df/style/@scoped;attr:obsolete;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><noscript><p>a</p></noscript><style scoped=""/><script/><base href="x"/><template/></template>
 #noscript
 #errors
-| #df/noscript;in XML:noscript;m
-| #df/noscript/p;element not allowed:metadata;m
-| #df/style/@scoped;attr:obsolete;m
+| #df/noscript;in XML:noscript;m[t]
+| #df/style/@scoped;attr:obsolete;m[t]
 
 #data
 <template xmlns="http://www.w3.org/1999/xhtml"><p>aabc</p><noscript><p>a</p></noscript><style scoped=""/><script/><template/></template>
 #noscript
 #errors
-| #df/noscript;in XML:noscript;m
-| #df/p;element not allowed:metadata;m
-| #df/noscript/p;element not allowed:metadata;m
-| #df/style/@scoped;attr:obsolete;m
+| #df/noscript;in XML:noscript;m[t]
+| #df/style/@scoped;attr:obsolete;m[t]
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><body>a<template><noscript>x</template></noscript></template>
 #errors
-| 1;85;#df/noscript;stray end tag;m
-| #df/noscript;character not allowed;m
+| 1;85;#df/noscript;stray end tag;m[t]
 
 #data html
 <!DOCTYPE html><html lang=en><title>a</title><body>a<template><link rel="next" href="b"><noscript>x</template></noscript></template>
 #errors
-| 1;111;#df/noscript;stray end tag;m
-| #df/noscript;character not allowed;m
+| 1;111;#df/noscript;stray end tag;m[t]

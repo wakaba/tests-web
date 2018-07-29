@@ -1,0 +1,43 @@
+#data
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+#errors
+/stylesheet;unknown element;u
+/stylesheet;attribute missing;version;m
+
+#data
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+#errors
+/transform;unknown element;u
+/transform;attribute missing;version;m
+
+#data
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    hoge:aab="" xmlns:hoge="http://x/"/>
+#errors
+/stylesheet;unknown element;u
+/stylesheet;attribute missing;version;m
+/stylesheet/@aab;unknown attribute;u
+
+#data
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    hoge:aab="" xmlns:hoge="http://x/"/>
+#errors
+/transform;unknown element;u
+/transform;attribute missing;version;m
+/transform/@aab;unknown attribute;u
+
+#data
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    hoge:aab="" xmlns:hoge="http://www.w3.org/1999/xhtml"/>
+#errors
+/stylesheet;unknown element;u
+/stylesheet;attribute missing;version;m
+/stylesheet/@aab;attribute not defined;m
+
+#data
+<xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    hoge:aab="" xmlns:hoge="http://www.w3.org/1999/xhtml"/>
+#errors
+/transform;unknown element;u
+/transform;attribute missing;version;m
+/transform/@aab;attribute not defined;m

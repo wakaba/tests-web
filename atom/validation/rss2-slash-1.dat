@@ -1,0 +1,39 @@
+#rss2
+#data
+<item  xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+  <title>a</title>
+  <slash:comments>42</slash:comments>
+</item>
+#errors
+item/comments;limited use;w
+
+#rss2
+#data
+<item  xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+  <title>a</title>
+  <slash:comments>42a</slash:comments>
+</item>
+#errors
+item/comments;nninteger:syntax error;m
+item/comments;limited use;w
+
+#rss2
+#data
+<item  xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+  <title>a</title>
+  <slash:comments>42</slash:comments>
+  <slash:comments>42</slash:comments>
+</item>
+#errors
+item/comments;element not allowed:duplicate;m
+item/comments;limited use;w
+item/comments;limited use;w
+
+#rss2
+#data
+<item  xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+  <title>a</title>
+  <slash:comment>42</slash:comments>
+</item>
+#errors
+item/comment;unknown namespace element;u

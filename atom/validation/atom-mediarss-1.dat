@@ -1,0 +1,186 @@
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:thumbnail/>
+</entry>
+#errors
+/entry/thumbnail;attribute missing;url;m
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:thumbnail url="x"/>
+</entry>
+#errors
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:thumbnail url=":[]x"/>
+</entry>
+#errors
+/entry/thumbnail/@url;syntax error:iriref3987;m
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:thumbnail url="x">aa</media:thumbnail>
+</entry>
+#errors
+/entry/thumbnail/"aa";character not allowed:empty;m
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:thumbnail url="x"><title>y</title></media:thumbnail>
+</entry>
+#errors
+/entry/thumbnail/title;element not allowed:empty;m
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:thumbnail url="x"/>
+  <media:thumbnail url="x"/>
+</entry>
+#errors
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:group/>
+</entry>
+#errors
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:group>
+    <media:thumbnail url="y"/>
+  </media:group>
+</entry>
+#errors
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:group>
+    <media:thumbnail url="y"/>
+    <media:thumbnail url="y"/>
+  </media:group>
+  <media:group>
+    <media:thumbnail url="y"/>
+    <media:thumbnail url="y"/>
+  </media:group>
+</entry>
+#errors
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:group>
+    <media:thumbnail url="y"/>
+    <media:title>?a&lt;a</media:title>
+    <media:description>?a&lt;a</media:description>
+    <media:content/>
+  </media:group>
+</entry>
+#errors
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:group>
+    <media:thumbnail url="y"/>
+    <media:title>?a&lt;a</media:title>
+    <media:description>?a&lt;a</media:description>
+    <media:content url="b" type="text/plain" />
+  </media:group>
+</entry>
+#errors
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <title>x</title>
+  <media:group>
+    <media:thumbnail url="y"/>
+    <media:title>?a&lt;a</media:title>
+    <media:description>?a&lt;a</media:description>
+    <media:content url="http>:[]b" type="textplain" />
+  </media:group>
+</entry>
+#errors
+/entry/group/content/@url;syntax error:iriref3987;m
+/entry/group/content/@type;MIME type:no /;m
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;updated;m
+
+#data
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss">
+  <title>x</title>
+  <media:group>
+    <media:thumbnail url="y"/>
+    <media:title>?a&lt;a</media:title>
+    <media:description>?a&lt;a</media:description>
+    <media:content url="b" type="text/plain" />
+  </media:group>
+</entry>
+#errors
+/entry/group/content;element not defined;m
+/entry/group/content/@type;attribute not defined;m
+/entry/group/content/@url;attribute not defined;m
+/entry/group/thumbnail/@url;attribute not defined;m
+/entry/group/description;element not defined;m
+/entry/group/thumbnail;element not defined;m
+/entry/group/title;element not defined;m
+/entry/group;element not defined;m
+/entry;child element missing:atom:link:alternate;m
+/entry;child element missing:atom;author;m
+/entry;child element missing:atom;id;m
+/entry;child element missing:atom;updated;m

@@ -5,6 +5,7 @@
 #errors
 /;xml:no DTD validation;i
 /service;child element missing:app;workspace;m
+/service;limited use;w
 
 #data
 <app:service xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -15,6 +16,8 @@
 #is-document
 #errors
 /;xml:no DTD validation;i
+/service;limited use;w
+/service/workspace;limited use;w
 
 #data
 <app:service xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -28,6 +31,9 @@
 #is-document
 #errors
 /;xml:no DTD validation;i
+/service;limited use;w
+/service/workspace;limited use;w
+/service/workspace;limited use;w
 
 #data
 <app:service xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -39,8 +45,9 @@
 #is-document
 #errors
 /;xml:no DTD validation;i
-/service/hoge;element not allowed;m
-/service/hoge;unknown namespace element;w
+/service;limited use;w
+/service/workspace;limited use;w
+/service/hoge;unknown namespace element;u
 
 #data
 <app:service xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -52,7 +59,9 @@
 #is-document
 #errors
 /;xml:no DTD validation;i
-/service/hoge;unknown namespace element;w
+/service;limited use;w
+/service/workspace;limited use;w
+/service/hoge;unknown namespace element;u
 
 #data
 <app:service xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -64,8 +73,9 @@
 #is-document
 #errors
 /;xml:no DTD validation;i
-/service/workspace/hoge;element not allowed;m
-/service/workspace/hoge;unknown namespace element;w
+/service;limited use;w
+/service/workspace;limited use;w
+/service/workspace/hoge;unknown namespace element;u
 
 #data
 <app:service xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -77,7 +87,9 @@
 #is-document
 #errors
 /;xml:no DTD validation;i
-/service/workspace/hoge;unknown namespace element;w
+/service;limited use;w
+/service/workspace;limited use;w
+/service/workspace/hoge;unknown namespace element;u
 
 #data
 <app:service xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -91,11 +103,15 @@
 #is-document
 #errors
 /;xml:no DTD validation;i
+/service;limited use;w
+/service/workspace;limited use;w
+/service/workspace/collection;limited use;w
 
 #data
 <app:workspace xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
 </app:workspace>
 #errors
+/workspace;limited use;w
 /workspace;child element missing:atom;title;m
 
 #data
@@ -104,6 +120,7 @@
   <atom:title>aa</atom:title>
 </app:workspace>
 #errors
+/workspace;limited use;w
 /workspace/title;element not allowed:duplicate;m
 
 #data
@@ -112,8 +129,8 @@
   <hoge xmlns=""/>
 </app:workspace>
 #errors
-/workspace/hoge;element not allowed;m
-/workspace/hoge;unknown namespace element;w
+/workspace;limited use;w
+/workspace/hoge;unknown namespace element;u
 
 #data
 <app:workspace xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -121,7 +138,8 @@
   <hoge xmlns="http://gfw/"/>
 </app:workspace>
 #errors
-/workspace/hoge;unknown namespace element;w
+/workspace;limited use;w
+/workspace/hoge;unknown namespace element;u
 
 #data
 <app:workspace xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -131,6 +149,8 @@
   </app:collection>
 </app:workspace>
 #errors
+/workspace;limited use;w
+/workspace/collection;limited use;w
 /workspace/collection;attribute missing;href;m
 
 #data
@@ -144,12 +164,16 @@
   </app:collection>
 </app:workspace>
 #errors
+/workspace;limited use;w
+/workspace/collection;limited use;w
+/workspace/collection;limited use;w
 
 #data
 <app:collection xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" href="http://foo/">
   <atom:title>aa</atom:title>
 </app:collection>
 #errors
+/collection;limited use;w
 
 #data
 <app:collection xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" href="http://fooo/">
@@ -158,6 +182,7 @@
   <atom:title>aa</atom:title>
 </app:collection>
 #errors
+/collection;limited use;w
 /collection/title;element not allowed:duplicate;m
 /collection/title;element not allowed:duplicate;m
 
@@ -167,6 +192,8 @@
   <atom:title>aa</atom:title>
 </app:collection>
 #errors
+/collection;limited use;w
+/collection/categories;limited use;w
 
 #data
 <app:collection xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" href="http://fooo/">
@@ -176,6 +203,8 @@
   <atom:title>aa</atom:title>
 </app:collection>
 #errors
+/collection;limited use;w
+/collection/categories;limited use;w
 
 #data
 <app:collection xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" href="http://fooo/">
@@ -186,24 +215,30 @@
   <app:categories href="http://gw/"/>
 </app:collection>
 #errors
+/collection;limited use;w
+/collection/categories;limited use;w
+/collection/categories;limited use;w
 
 #data
 <app:collection xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" href="">
   <atom:title>aa</atom:title>
 </app:collection>
 #errors
+/collection;limited use;w
 
 #data
 <app:collection xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" href="http[:]://fooo/">
   <atom:title>aa</atom:title>
 </app:collection>
 #errors
+/collection;limited use;w
 /collection/@href;syntax error:iriref3987;m
 
 #data
 <app:collection xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" href="http://x/">
 </app:collection>
 #errors
+/collection;limited use;w
 /collection;child element missing:atom;title;m
 
 #data
@@ -212,8 +247,8 @@
   <hoge xmlns=""/>
 </app:collection>
 #errors
-/collection/hoge;element not allowed;m
-/collection/hoge;unknown namespace element;w
+/collection;limited use;w
+/collection/hoge;unknown namespace element;u
 
 #data
 <app:collection xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" href="http://aa/">
@@ -221,7 +256,8 @@
   <hoge xmlns="http://gfw/"/>
 </app:collection>
 #errors
-/collection/hoge;unknown namespace element;w
+/collection;limited use;w
+/collection/hoge;unknown namespace element;u
 
 #data
 <app:collection xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" href="http://aa/">
@@ -229,6 +265,8 @@
   <app:accept></app:accept>
 </app:collection>
 #errors
+/collection;limited use;w
+/collection/accept;unknown element;u
 
 #data
 <app:collection xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" href="http://aa/">
@@ -236,6 +274,8 @@
   <app:accept>  </app:accept>
 </app:collection>
 #errors
+/collection;limited use;w
+/collection/accept;unknown element;u
 
 #data
 <app:collection xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" href="http://aa/">
@@ -243,6 +283,8 @@
   <app:accept>text/plain, text/html</app:accept>
 </app:collection>
 #errors
+/collection;limited use;w
+/collection/accept;unknown element;u
 
 #data
 <app:collection xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" href="http://aa/">
@@ -251,13 +293,17 @@
   <app:accept>IMAGE/PNG</app:accept>
 </app:collection>
 #errors
+/collection;limited use;w
+/collection/accept;unknown element;u
+/collection/accept;unknown element;u
 
 #data
 <app:accept xmlns:app="http://www.w3.org/2007/app">IMAGE/PNG</app:accept>
 #errors
+/accept;unknown element;u
 
 #data
 <app:accept xmlns:app="http://www.w3.org/2007/app">IMAGE/<foo>PNG</foo></app:accept>
 #errors
-/accept/foo;element not allowed:text;m
-/accept/foo;unknown namespace element;w
+/accept;unknown element;u
+/accept/foo;unknown namespace element;u

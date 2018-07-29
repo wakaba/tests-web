@@ -91,7 +91,17 @@
 </wpt></gpx>
 #parsed
 {"waypoints":[
-{"page_url":"https://hoge/"}
+{"links":[{"url":"https://hoge/"}]}
+]}
+
+#data
+<gpx><wpt>
+  <link href="https://hoge"/>
+  <link href="ftp://hoge"/>
+</wpt></gpx>
+#parsed
+{"waypoints":[
+{"links":[{"url":"https://hoge/"},{"url":"ftp://hoge/"}]}
 ]}
 
 #data
@@ -101,6 +111,96 @@
 #parsed
 {"waypoints":[
 {"timestamp":"2300-04-05T03:41:04Z"}
+]}
+
+#data
+<gpx><wpt>
+  <time>2300-04-05T04:41:04+24:00</time>
+</wpt></gpx>
+#parsed
+{"waypoints":[
+{}
+]}
+
+#data
+<gpx><wpt>
+  <time>2300-04-05T04:41:04+04:60</time>
+</wpt></gpx>
+#parsed
+{"waypoints":[
+{}
+]}
+
+#data
+<gpx><wpt>
+  <time>2300-04-05T04:41:04+0100</time>
+</wpt></gpx>
+#parsed
+{"waypoints":[
+{"timestamp":"2300-04-05T03:41:04Z"}
+]}
+
+#data
+<gpx><wpt>
+  <time>2300-04-05 04:41:04+01:00</time>
+</wpt></gpx>
+#parsed
+{"waypoints":[
+{"timestamp":"2300-04-05T03:41:04Z"}
+]}
+
+#data
+<gpx><wpt>
+  <time>2300-04-05 04:41+01:00</time>
+</wpt></gpx>
+#parsed
+{"waypoints":[
+{"timestamp":"2300-04-05T03:41:00Z"}
+]}
+
+#data
+<gpx><wpt>
+  <time>2300-04-05T04:41:04Z</time>
+</wpt></gpx>
+#parsed
+{"waypoints":[
+{"timestamp":"2300-04-05T04:41:04Z"}
+]}
+
+#data
+<gpx><wpt>
+  <time>2300-04-05T04:41:04.123456Z</time>
+</wpt></gpx>
+#parsed
+{"waypoints":[
+{"timestamp":"2300-04-05T04:41:04.123456Z"}
+]}
+
+#data
+<gpx><wpt>
+  <time>2300-04-05T04:41:04+01:00&#xA;</time>
+</wpt></gpx>
+#parsed
+{"waypoints":[
+{}
+]}
+
+#data
+<gpx><wpt>
+  <time>2300-04-05T04:41:04.+01:00</time>
+</wpt></gpx>
+#parsed
+{"waypoints":[
+{}
+]}
+
+#data
+<gpx><wpt>
+  <time>2300-04-05T04:41.4344+01:00</time>
+</wpt></gpx>
+#parsed
+{"waypoints":[
+{}
 ]}
 
 #data

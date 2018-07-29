@@ -1,0 +1,54 @@
+#data
+<rdf:Seq xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+</rdf:Seq>
+#errors
+/Seq;unknown RDF element;u
+
+#data
+<rdf:Seq xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"
+  rdf:type="Literal">
+</rdf:Seq>
+#errors
+/Seq;unknown RDF element;u
+/Seq/@type;attribute not defined;m
+
+#data
+<rdf:li xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+</rdf:li>
+#errors
+/li;unknown RDF element;u
+/li;attribute missing;resource;m
+
+#data
+<rdf:li xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"
+    rdf:resource="abac">
+</rdf:li>
+#errors
+/li;unknown RDF element;u
+
+#data
+<rdf:li xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"
+    rdf:resource="http:[]abac">
+</rdf:li>
+#errors
+/li;unknown RDF element;u
+/li/@resource;syntax error:iriref3987;m
+
+#data
+<rdf:Li xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/"
+    rdf:resource="abac">
+</rdf:Li>
+#errors
+/Li;unknown namespace element;u
+/Li/@resource;unknown attribute;u
+
+#data
+<item xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+  <rdf:Seq>abc</rdf:Seq>
+</item>
+#errors
+/item/Seq;element not allowed;m
+/item/Seq;unknown RDF element;u
+/item;attribute missing;about;m
+/item;child element missing;link;m
+/item;child element missing;title;m

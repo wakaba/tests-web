@@ -2,14 +2,14 @@
 <!DOCTYPE x[<!ELEMENT x ANY>]><x></x>
 #is-document
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 
 #data
 <!DOCTYPE x[<!ELEMENT x! ANY>]><x></x>
 #is-document
 #errors
 /!DOCTYPE/!ELEMENT x!;xml:name syntax;m
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x;VC:Element Valid:declared;m
 
 #data
@@ -17,21 +17,21 @@
 #is-document
 #errors
 /!DOCTYPE/!ELEMENT x:;xml:qname syntax;m
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x;VC:Element Valid:declared;m
 
 #data
 <!DOCTYPE x[<!ELEMENT x:y ANY>]><x></x>
 #is-document
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x;VC:Element Valid:declared;m
 
 #data
 <!DOCTYPE x[<!ATTLIST x:y foo CDATA #IMPLIED><!ELEMENT x:y ANY>]><x></x>
 #is-document
 #errors
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x;VC:Element Valid:declared;m
 
 #data
@@ -39,7 +39,7 @@
 #is-document
 #errors
 /!DOCTYPE/!ELEMENT :y;xml:qname syntax;m
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x;VC:Element Valid:declared;m
 
 #data
@@ -48,5 +48,5 @@
 #errors
 /!DOCTYPE/!ELEMENT :y;xml:qname syntax;m
 /!DOCTYPE/!ELEMENT :y/@foo;xml:dtd:attlist element declared;w
-/x;unknown namespace element;w
+/x;unknown namespace element;u
 /x;VC:Element Valid:declared;m

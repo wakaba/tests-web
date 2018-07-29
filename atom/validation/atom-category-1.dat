@@ -3,77 +3,91 @@
 #is-document
 #errors
 /;xml:no DTD validation;i
+/categories;limited use;w
 
 #data
 <app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
     fixed="yes"/>
 #errors
+/categories;limited use;w
 
 #data
 <app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
     fixed="no"/>
 #errors
+/categories;limited use;w
 
 #data
 <app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
     fixed="YES"/>
 #errors
-/categories;invalid attribute value;m
+/categories;limited use;w
+/categories/@fixed;enumerated:invalid;m
 
 #data
 <app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
     fixed="no "/>
 #errors
-/categories;invalid attribute value;m
+/categories;limited use;w
+/categories/@fixed;enumerated:invalid;m
 
 #data
 <app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
     fixed="true"/>
 #errors
-/categories;invalid attribute value;m
+/categories;limited use;w
+/categories/@fixed;enumerated:invalid;m
 
 #data
 <app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
     scheme="hoge"/>
 #errors
+/categories;limited use;w
 
 #data
 <app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
     scheme="http://hoge/"/>
 #errors
+/categories;limited use;w
 
 #data
 <app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
     scheme="[]:"/>
 #errors
+/categories;limited use;w
 /categories/@scheme;syntax error:iriref3987;m
 
 #data
 <app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
     href="hoge"/>
 #errors
+/categories;limited use;w
 
 #data
 <app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
     href="http://hoge/"/>
 #errors
+/categories;limited use;w
 
 #data
 <app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
     href="[]:"/>
 #errors
+/categories;limited use;w
 /categories/@href;syntax error:iriref3987;m
 
 #data
 <app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
     href="http://hoge/" fixed="yes"/>
 #errors
+/categories;limited use;w
 /categories/@fixed;attribute not allowed;m
 
 #data
 <app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"
     href="http://hoge/" scheme="http://foo/"/>
 #errors
+/categories;limited use;w
 /categories/@scheme;attribute not allowed;m
 
 #data
@@ -83,6 +97,7 @@
   <atom:category term="bar"/>
 </app:categories>
 #errors
+/categories;limited use;w
 /categories/category;element not allowed:empty;m
 /categories/category;element not allowed:empty;m
 
@@ -91,6 +106,7 @@
   <atom:category term="foo"/>
 </app:categories>
 #errors
+/categories;limited use;w
 
 #data
 <app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -98,19 +114,22 @@
   <atom:category term="bar"/>
 </app:categories>
 #errors
+/categories;limited use;w
 
 #data
 <app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
   <hoge xmlns=""/>
 </app:categories>
 #errors
+/categories;limited use;w
 /categories/hoge;element not allowed;m
-/categories/hoge;unknown namespace element;w
+/categories/hoge;unknown namespace element;u
 
 #data
 <app:categories xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
   <hoge xmlns="http://foo/"/>
 </app:categories>
 #errors
+/categories;limited use;w
 /categories/hoge;element not allowed;m
-/categories/hoge;unknown namespace element;w
+/categories/hoge;unknown namespace element;u

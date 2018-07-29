@@ -1,0 +1,58 @@
+#data
+<p xmlns="http://www.w3.org/1999/xhtml"
+    class="abc"
+>a</p>
+#errors
+
+#data
+<p xmlns="http://www.w3.org/1999/xhtml/???"
+    class="abc"
+>a</p>
+#errors
+/p;unknown namespace element;u
+
+#data
+<p xmlns=""
+    class="abc"
+>a</p>
+#errors
+/p;unknown namespace element;u
+
+#data
+<p xmlns=""
+    class="abc
+abc"
+>a</p>
+#errors
+/p;unknown namespace element;u
+/p/@class;duplicate token;w
+
+#data
+<p xmlns:html="http://www.w3.org/1999/xhtml"
+    html:class="abc"
+>a</p>
+#errors
+/p;unknown namespace element;u
+/p/@class;attribute not defined;m
+
+#data
+<title xmlns="http://www.w3.org/2005/Atom"
+    class="abc"
+>a</title>
+#errors
+/title/@class;attribute not defined;m
+
+#data
+<title xmlns="http://www.w3.org/2005/Atom"
+    class="abc abc"
+>a</title>
+#errors
+/title/@class;attribute not defined;m
+/title/@class;duplicate token;w
+
+#rss2
+#data
+<title class="abc abc">s</title>
+#errors
+title/@class;attribute not defined;m
+title/@class;duplicate token;w

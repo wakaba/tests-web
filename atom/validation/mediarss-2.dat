@@ -1,0 +1,30 @@
+#data
+<media:keywords xmlns:media="http://search.yahoo.com/mrss/">abc</media:keywords>
+#errors
+
+#data
+<media:keywords xmlns:media="http://search.yahoo.com/mrss">abc</media:keywords>
+#errors
+/keywords;element not defined;m
+
+#data
+<media:thumbnail url="http://x/" xmlns:media="http://search.yahoo.com/mrss/"/>
+#errors
+
+#data
+<media:thumbnail url="http://x/" xmlns:media="http://search.yahoo.com/mrss"/>
+#errors
+/thumbnail;element not defined;m
+/thumbnail/@url;attribute not defined;m
+
+#data
+<media:thumbnail url="http:[]//x/" xmlns:media="http://search.yahoo.com/mrss/"/>
+#errors
+/thumbnail/@url;syntax error:iriref3987;m
+
+#data
+<media:thumbnail url="http:[]//x/" xmlns:media="http://search.yahoo.com/mrss"/>
+#errors
+/thumbnail;element not defined;m
+/thumbnail/@url;syntax error:iriref3987;m
+/thumbnail/@url;attribute not defined;m
