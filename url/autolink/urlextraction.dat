@@ -547,3 +547,24 @@ http://foo.bar.
   ["http://foo.bar", "http://foo.bar"],
   ["."]
 ]
+
+#data escaped
+ab\uFFFD\uFFFE\uFFFFaa
+#result
+[
+  ["ab\uFFFD\uFFFE\uFFFFaa"]
+]
+
+#data escaped
+ab\U0010FFFFaa
+#result escaped
+[
+  ["ab\U0010FFFFaa"]
+]
+
+#data escaped
+ab\uDC00aa
+#result escaped
+[
+  ["ab\uDC00aa"]
+]
