@@ -1,0 +1,549 @@
+#data
+#result
+[]
+
+#data
+abc
+#result
+[["abc"]]
+
+#data
+http://fo.o
+#result
+[["http://fo.o", "http://fo.o"]]
+
+#data
+abc http://fo.o bar
+#result
+[
+["abc "],
+["http://fo.o", "http://fo.o"],
+[" bar"]
+]
+
+#data
+abc http://fo.o/a%2Eb bar
+#result
+[
+["abc "],
+["http://fo.o/a%2Eb", "http://fo.o/a%2Eb"],
+[" bar"]
+]
+
+#data
+https://ab.c/def/xyx.html
+#result
+[
+  ["https://ab.c/def/xyx.html", "https://ab.c/def/xyx.html"]
+]
+
+#data escaped
+https://abc._%4E\U000D0000xA042.x-y/def/xyx.html
+#result escaped
+[
+  ["https://abc._%4E\U000D0000xA042.x-y/def/xyx.html",
+   "https://abc._%4E\U000D0000xA042.x-y/def/xyx.html"]
+]
+
+#data
+https://fpp@ab.c/def/xyx.html
+#result
+[
+  ["https://fpp@ab.c/def/xyx.html", "https://fpp@ab.c/def/xyx.html"]
+]
+
+#data
+https://ab.c:123/def/xyx.html
+#result
+[
+  ["https://ab.c:123/def/xyx.html", "https://ab.c:123/def/xyx.html"]
+]
+
+#data
+https://a.bc:/def/xyx.html
+#result
+[
+  ["https://a.bc:/def/xyx.html", "https://a.bc:/def/xyx.html"]
+]
+
+#data
+https://[12::44]/def/xyx.html
+#result
+[
+  ["https://[12::44]/def/xyx.html", "https://[12::44]/def/xyx.html"]
+]
+
+#data
+https://[12::44]:50/def/xyx.html
+#result
+[
+  ["https://[12::44]:50/def/xyx.html", "https://[12::44]:50/def/xyx.html"]
+]
+
+#data
+https://a:b@[12::44]/def/xyx.html
+#result
+[
+  ["https://a:b@[12::44]/def/xyx.html", "https://a:b@[12::44]/def/xyx.html"]
+]
+
+#data
+https://a.bc/def/xyx?a=b&c=%2d;ax|ab
+#result
+[
+  ["https://a.bc/def/xyx?a=b&c=%2d;ax", "https://a.bc/def/xyx?a=b&c=%2d;ax"],
+  ["|ab"]
+]
+
+#data
+https://a.bc/def/xyx?a=b&c=%2d;ax#a=b&c=%2d;ax|ab
+#result
+[
+  ["https://a.bc/def/xyx?a=b&c=%2d;ax#a=b&c=%2d;ax", "https://a.bc/def/xyx?a=b&c=%2d;ax#a=b&c=%2d;ax"],
+  ["|ab"]
+]
+
+#data
+This is great: https://example.com/great.html. Thanks!
+#result
+[
+  ["This is great: "],
+  ["https://example.com/great.html", "https://example.com/great.html"],
+  [". Thanks!"]
+]
+
+#data
+See https://example.com/great.html, please.
+#result
+[
+  ["See "],
+  ["https://example.com/great.html", "https://example.com/great.html"],
+  [", please."]
+]
+
+#data escaped
+https://example.com/page\u3000です
+#result
+[
+  ["https://example.com/page", "https://example.com/page"],
+  ["\u3000です"]
+]
+
+#data
+https://example.com/page、です
+#result
+[
+  ["https://example.com/page", "https://example.com/page"],
+  ["、です"]
+]
+
+#data
+https://example.com/page。
+#result
+[
+  ["https://example.com/page", "https://example.com/page"],
+  ["。"]
+]
+
+#data
+https://example.com/page，です
+#result
+[
+  ["https://example.com/page", "https://example.com/page"],
+  ["，です"]
+]
+
+#data
+https://example.com/page．
+#result
+[
+  ["https://example.com/page", "https://example.com/page"],
+  ["．"]
+]
+
+#data
+(https://test.test/foo)
+#result
+[
+  ["("],
+  ["https://test.test/foo", "https://test.test/foo"],
+  [")"]
+]
+
+#data
+[https://test.test/foo]
+#result
+[
+  ["["],
+  ["https://test.test/foo", "https://test.test/foo"],
+  ["]"]
+]
+
+#data
+https://test.test/foo>
+#result
+[
+  ["https://test.test/foo", "https://test.test/foo"],
+  [">"]
+]
+
+#data
+<https://test.test/foo
+#result
+[
+  ["<"],
+  ["https://test.test/foo", "https://test.test/foo"]
+]
+
+#data
+https://test.test/foohttps://test.test/foo
+#result
+[
+  ["https://test.test/foohttps://test.test/foo",
+   "https://test.test/foohttps://test.test/foo"]
+]
+
+#data
+https://twitter.com/#!twitter
+#result
+[
+  ["https://twitter.com/#!twitter", "https://twitter.com/#!twitter"]
+]
+
+#data
+uses https://html.spec.whatwg.org/#isplatformobjectsameorigin-(-o-): in https://html.spec.whatwg.org/#crossoriginproperties-(-o-).
+#result
+[
+  ["uses "],
+  ["https://html.spec.whatwg.org/#isplatformobjectsameorigin-(-o-)",
+   "https://html.spec.whatwg.org/#isplatformobjectsameorigin-(-o-)"],
+  [": in "],
+  ["https://html.spec.whatwg.org/#crossoriginproperties-(-o-)",
+   "https://html.spec.whatwg.org/#crossoriginproperties-(-o-)"],
+  ["."]
+]
+
+#data
+https://ho.ge/foo!
+#result
+[
+  ["https://ho.ge/foo", "https://ho.ge/foo"],
+  ["!"]
+]
+
+#data
+href="https://example.com/">Example Web Page</a>
+#result
+[
+  ["href=\""],
+  ["https://example.com/", "https://example.com/"],
+  ["\">Example Web Page</a>"]
+]
+
+#data
+ｈｔｔｐ：／／ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ
+#result
+[
+  ["ｈｔｔｐ：／／ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ",
+   "http://ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ"]
+]
+
+#data
+ｈｔｔｐ：／／ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ／
+#result
+[
+  ["ｈｔｔｐ：／／ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ／",
+   "http://ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ／"]
+]
+
+#data
+ｈｔｔｐｓ：／／ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ／
+#result
+[
+  ["ｈｔｔｐｓ：／／ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ／",
+   "https://ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ／"]
+]
+
+#data
+HTTP://WWW.EXAMPLE.COM
+#result
+[
+  ["HTTP://WWW.EXAMPLE.COM", "http://WWW.EXAMPLE.COM"]
+]
+
+#data
+ttp://fo.o/
+#result
+[
+  ["ttp://fo.o/"]
+]
+#lax-result
+[
+  ["ttp://fo.o/", "http://fo.o/"]
+]
+
+#data
+ttps://fo.o/
+#result
+[
+  ["ttps://fo.o/"]
+]
+#lax-result
+[
+  ["ttps://fo.o/", "https://fo.o/"]
+]
+
+#data
+abc<http://fo.o/bar/>ass
+#result
+[
+  ["abc"],
+  ["<http://fo.o/bar/>", "http://fo.o/bar/"],
+  ["ass"]
+]
+
+#data
+abc<https://fo.o/bar/>ass
+#result
+[
+  ["abc"],
+  ["<https://fo.o/bar/>", "https://fo.o/bar/"],
+  ["ass"]
+]
+
+#data
+abc<HTTPS://fo.o/bar/>ass
+#result
+[
+  ["abc"],
+  ["<HTTPS://fo.o/bar/>", "HTTPS://fo.o/bar/"],
+  ["ass"]
+]
+
+#data
+abc<URL:http://fo.o/bar/>ass
+#result
+[
+  ["abc"],
+  ["<URL:http://fo.o/bar/>", "http://fo.o/bar/"],
+  ["ass"]
+]
+
+#data
+abc<ftp://fo.o/bar/>ass
+#result
+[
+  ["abc<ftp://fo.o/bar/>ass"]
+]
+
+#data
+http://### http://()) http:%%%% mailto:/@/
+#result
+[
+  ["http://### http://()) http:%%%% mailto:/@/"]
+]
+
+#data
+http://ほげ.com/
+#result
+[
+  ["http://ほげ.com/", "http://ほげ.com/"]
+]
+
+#data escaped
+http://ほげ.com/\u3000
+#result
+[
+  ["http://ほげ.com/", "http://ほげ.com/"],
+  ["\u3000"]
+]
+
+#data
+<http://ほげ.com/>a
+#result
+[
+  ["<http://ほげ.com/>", "http://ほげ.com/"],
+  ["a"]
+]
+
+#data
+x{http://ほげ.com/}abc
+#result
+[
+  ["x{"],
+  ["http://ほげ.com/", "http://ほげ.com/"],
+  ["}abc"]
+]
+
+#data escaped
+x\u00ABhttp://ほげ.com/\u00BBabc
+#result
+[
+  ["x\u00AB"],
+  ["http://ほげ.com/", "http://ほげ.com/"],
+  ["\u00BBabc"]
+]
+
+#data
+a https://ja.wikipedia.org/wiki/魔法少女まどか☆マギカ x
+#result
+[
+  ["a "],
+  ["https://ja.wikipedia.org/wiki/魔法少女まどか☆マギカ",
+   "https://ja.wikipedia.org/wiki/魔法少女まどか☆マギカ"],
+  [" x"]
+]
+
+#data
+https://ja.wikipedia.org/wiki/Supercell_(%E3%82%A2%E3%83%AB%E3%83%90%E3%83%A0)
+#result
+[
+  ["https://ja.wikipedia.org/wiki/Supercell_(%E3%82%A2%E3%83%AB%E3%83%90%E3%83%A0)",
+   "https://ja.wikipedia.org/wiki/Supercell_(%E3%82%A2%E3%83%AB%E3%83%90%E3%83%A0)"]
+]
+
+#data
+https://ja.wikipedia.org/wiki/Supercell_(アルバム)
+#result
+[
+  ["https://ja.wikipedia.org/wiki/Supercell_(アルバム)",
+   "https://ja.wikipedia.org/wiki/Supercell_(アルバム)"]
+]
+
+#data
+https://ja.wikipedia.org/wiki/Supercell_(アルバム)#.E5.8F.8E.E9.8C.B2.E6.9B.B2
+#result
+[
+  ["https://ja.wikipedia.org/wiki/Supercell_(アルバム)#.E5.8F.8E.E9.8C.B2.E6.9B.B2",
+   "https://ja.wikipedia.org/wiki/Supercell_(アルバム)#.E5.8F.8E.E9.8C.B2.E6.9B.B2"]
+]
+
+#data
+http:// f.oo
+#result
+[
+  ["http:// f.oo"]
+]
+
+#data
+http:/h.oge
+#result
+[
+  ["http:/h.oge"]
+]
+
+#data
+shttp://fo.o/bar
+#result
+[
+  ["shttp://fo.o/bar"]
+]
+
+#data
+http://fo.o-b.ar
+#result
+[
+  ["http://fo.o-b.ar", "http://fo.o-b.ar"]
+]
+
+#data
+'http://fo.o/bar'
+#result
+[
+  ["'"],
+  ["http://fo.o/bar", "http://fo.o/bar"],
+  ["'"]
+]
+
+#data
+https://で始まるURL
+#result
+[
+  ["https://で始まるURL"]
+]
+
+#data
+URLはhttp://www.example.comです。
+#result
+[
+  ["URLは"],
+  ["http://www.example.com", "http://www.example.com"],
+  ["です。"]
+]
+
+#data
+URLはhttp://www.example.com/と、
+#result
+[
+  ["URLは"],
+  ["http://www.example.com/と", "http://www.example.com/と"],
+  ["、"]
+]
+
+#data
+https://ja.wikipedia.org/wiki/う
+#result
+[
+  ["https://ja.wikipedia.org/wiki/う",
+   "https://ja.wikipedia.org/wiki/う"]
+]
+
+#data
+https://ja.wikipedia.org/wiki/鹿目まどか
+#result
+[
+  ["https://ja.wikipedia.org/wiki/鹿目まどか",
+   "https://ja.wikipedia.org/wiki/鹿目まどか"]
+]
+
+#data
+[link:http://foo.bar/bar/]
+#result
+[
+  ["[link:"],
+  ["http://foo.bar/bar/", "http://foo.bar/bar/"],
+  ["]"]
+]
+
+#data
+[http://hoge.fuga/:title=abc]
+#result
+[
+  ["["],
+  ["http://hoge.fuga/:title=abc", "http://hoge.fuga/:title=abc"],
+  ["]"]
+]
+
+#data
+(http://ba.abc/eee)[foo]
+#result
+[
+  ["("],
+  ["http://ba.abc/eee", "http://ba.abc/eee"],
+  [")[foo]"]
+]
+
+#data
+http://abc.def https://foo.bar/
+#result
+[
+  ["http://abc.def", "http://abc.def"],
+  [" "],
+  ["https://foo.bar/", "https://foo.bar/"]
+]
+
+#data
+<https://foo/bar><https://a.b/c>
+#result
+[
+  ["<https://foo/bar>", "https://foo/bar"],
+  ["<https://a.b/c>", "https://a.b/c"]
+]
+
+#data
+http://foo.bar.
+#result
+[
+  ["http://foo.bar", "http://foo.bar"],
+  ["."]
+]
