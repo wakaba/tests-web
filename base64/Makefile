@@ -4,14 +4,24 @@ update: update-wpt update-generated
 
 clean: clean-wpt clean-generated
 
-update-generated: decode-generated.json encode-generated.json
+GENERATED_FILES = \
+    decode-generated.json encode-generated.json \
+    decodeu-generated.json encodeu-generated.json
+
+update-generated: $(GENERATED_FILES)
 clean-generated:
-	rm -fr decode-generated.json encode-generated.json
+	rm -fr $(GENERATED_FILES)
+
+PERL = ../perl
 
 decode-generated.json: generate-decode.pl
-	../perl $< > $@
+	$(PERL) $< > $@
 encode-generated.json: generate-encode.pl
-	../perl $< > $@
+	$(PERL) $< > $@
+decodeu-generated.json: generate-decode.pl
+	$(PERL) $< base64url > $@
+encodeu-generated.json: generate-encode.pl
+	$(PERL) $< base64url > $@
 
 update-wpt: LICENSE.wpt decode-wpt.json
 clean-wpt:
