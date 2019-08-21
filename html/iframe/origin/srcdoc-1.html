@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<title>Origin</title>
+
+<iframe srcdoc="
+  <p id=result class=FAIL>FAIL (noscript)
+
+  <script>
+    function result (r, e) {
+      var l = document.querySelector ('#result');
+      l.className = r;
+      l.textContent = r;
+      if (e) {
+        l.textContent += ' ('+e+')';
+      }
+    }
+
+    try {
+      if (parent.location.pathname.match (/srcdoc-1.html$/)) {
+        result ('PASS');
+      } else {
+        result ('FAIL', parent.location.href);
+      }
+    } catch (e) {
+      result ('FAIL', e);
+    }
+  </script>
+"></iframe>

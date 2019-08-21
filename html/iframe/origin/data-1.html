@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<title>Origin</title>
+
+<iframe src="data:text/html,<!DOCTYPE HTML>
+  <p id=result class=FAIL>FAIL (noscript)
+
+  <script>
+    function result (r, e) {
+      var l = document.querySelector ('%23result');
+      l.className = r;
+      l.textContent = r;
+      if (e) {
+        l.textContent += ' ('+e+')';
+      }
+    }
+
+    try {
+      result ('FAIL', parent.location.href);
+    } catch (e) {
+      result ('PASS', e);
+    }
+  </script>
+"></iframe>
