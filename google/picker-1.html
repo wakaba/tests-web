@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<title>Google Picker</title>
+<script>
+  var key = 'AIzaSyBQ_VReK_meBgu-VfNZA7a8_DQ0A1eRAXo';
+  var clientId = '379902789782-5so6qru35je5rm3d9lkbqnqnf2ot2bvd.apps.googleusercontent.com';
+  var scope = 'https://www.googleapis.com/auth/photos';
+
+  var oauthToken;
+  function prepareOAuth () {
+        return new Promise ((ok, ng) => {
+          if (oauthToken) return ok ();
+          gapi.auth2.init ({client_id: clientId}).then ((ga) => {
+            ga.signIn ({scope: scope}).then (function (result) {
+              var auth = result.getAuthResponse ();
+              if (auth && !auth.error) {
+                oauthToken = auth.access_token;
+                ok ();
+              } else {
+                ng (auth);
+              }
+            });
+          });
+        });
+  } // prepareOAuth
+
+      function onApiLoad () {
+        return Promise.all ([
+          new Promise (ok => {
+            gapi.load ('auth2', ok);
+          }),
+          new Promise (ok => {
+            gapi.load ('picker', ok);
+          }),
+        ]).then (() => {
+          var button = document.querySelector ('button');
+          button.onclick = () => {
+            prepareOAuth ().then (() => {
+              createPicker ();
+            });
+          };
+        });
+      } // onApiLoad
+
+  function createPicker () {
+    return new Promise ((ok, ng) => {
+      var picker = new google.picker.PickerBuilder()
+          .addView (google.picker.ViewId.PHOTOS)
+          .addView ((new google.picker.PhotosView).setType ("camerasync"))
+          .addView (google.picker.ViewId.PHOTO_UPLOAD)
+          .setOAuthToken (oauthToken)
+          .setDeveloperKey (key)
+          .setLocale ('ja')
+          .setCallback ((data) => {
+            console.log (data);
+            if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
+              ok (data);
+            } else if (data[google.picker.Response.ACTION] == google.picker.Action.CANCEL) {
+              ng (new DOMException ('User canceled', 'AbortError'));
+            }
+            // LOADED, ...
+          })
+          .build ();
+      picker.setVisible (true);
+    }).then (data => {
+      var doc = data[google.picker.Response.DOCUMENTS][0];
+      var url = doc[google.picker.Document.URL];
+      document.querySelector ('#result').textContent = url;
+      document.querySelector ('#resultImage').src = doc.thumbnails[doc.thumbnails.length-1].url;
+    });
+  } // createPicker
+
+</script>
+
+<body>
+  <p><a href=https://developers.google.com/picker/docs/>Documentation</a>
+
+  <p><button type=button>Select...</button>
+  <p>Selected: <span id=result></span> <img id=resultImage>
+  
+  <script src="https://apis.google.com/js/api.js?onload=onApiLoad"></script>
