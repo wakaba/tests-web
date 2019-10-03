@@ -65,7 +65,12 @@
       var doc = data[google.picker.Response.DOCUMENTS][0];
       var url = doc[google.picker.Document.URL];
       document.querySelector ('#result').textContent = url;
-      document.querySelector ('#resultImage').src = doc.thumbnails[doc.thumbnails.length-1].url;
+      var imageURL = doc.thumbnails[doc.thumbnails.length-1].url;
+      imageURL = imageURL.replace (/\/s[0-9]+[-a-z]*\/([^\/]+)$/, '/s1200/$1');
+      if (!/\/s1200\/[^\/]+$/.test (imageURL)) {
+        imageURL = imageURL.replace (/(?=[^\/]+$)/, 's1200/');
+      }
+      document.querySelector ('#resultImage').src = imageURL;
     });
   } // createPicker
 
