@@ -1,16 +1,21 @@
 #data
 #result
 []
+#html
 
 #data
 abc
 #result
 [["abc"]]
+#html
+abc
 
 #data
 http://fo.o
 #result
 [["http://fo.o", "http://fo.o"]]
+#html
+<a href="http://fo.o" class=url-link>http://fo.o</a>
 
 #data
 abc http://fo.o bar
@@ -20,6 +25,8 @@ abc http://fo.o bar
 ["http://fo.o", "http://fo.o"],
 [" bar"]
 ]
+#html
+abc <a href="http://fo.o" class=url-link>http://fo.o</a> bar
 
 #data
 abc http://fo.o/a%2Eb bar
@@ -29,6 +36,8 @@ abc http://fo.o/a%2Eb bar
 ["http://fo.o/a%2Eb", "http://fo.o/a%2Eb"],
 [" bar"]
 ]
+#html
+abc <a href="http://fo.o/a%2Eb" class=url-link>http://fo.o/a%2Eb</a> bar
 
 #data
 https://ab.c/def/xyx.html
@@ -36,6 +45,8 @@ https://ab.c/def/xyx.html
 [
   ["https://ab.c/def/xyx.html", "https://ab.c/def/xyx.html"]
 ]
+#html
+<a href="https://ab.c/def/xyx.html" class=url-link>https://ab.c/def/xyx.html</a>
 
 #data escaped
 https://abc._%4E\U000D0000xA042.x-y/def/xyx.html
@@ -44,6 +55,8 @@ https://abc._%4E\U000D0000xA042.x-y/def/xyx.html
   ["https://abc._%4E\U000D0000xA042.x-y/def/xyx.html",
    "https://abc._%4E\U000D0000xA042.x-y/def/xyx.html"]
 ]
+#html escaped
+<a href="https://abc._%4E\U000D0000xA042.x-y/def/xyx.html" class=url-link>https://abc._%4E\U000D0000xA042.x-y/def/xyx.html</a>
 
 #data
 https://fpp@ab.c/def/xyx.html
@@ -51,6 +64,8 @@ https://fpp@ab.c/def/xyx.html
 [
   ["https://fpp@ab.c/def/xyx.html", "https://fpp@ab.c/def/xyx.html"]
 ]
+#html
+<a href="https://fpp@ab.c/def/xyx.html" class=url-link>https://fpp@ab.c/def/xyx.html</a>
 
 #data
 https://ab.c:123/def/xyx.html
@@ -58,6 +73,8 @@ https://ab.c:123/def/xyx.html
 [
   ["https://ab.c:123/def/xyx.html", "https://ab.c:123/def/xyx.html"]
 ]
+#html
+<a href="https://ab.c:123/def/xyx.html" class=url-link>https://ab.c:123/def/xyx.html</a>
 
 #data
 https://a.bc:/def/xyx.html
@@ -65,6 +82,8 @@ https://a.bc:/def/xyx.html
 [
   ["https://a.bc:/def/xyx.html", "https://a.bc:/def/xyx.html"]
 ]
+#html
+<a href="https://a.bc:/def/xyx.html" class=url-link>https://a.bc:/def/xyx.html</a>
 
 #data
 https://[12::44]/def/xyx.html
@@ -72,6 +91,8 @@ https://[12::44]/def/xyx.html
 [
   ["https://[12::44]/def/xyx.html", "https://[12::44]/def/xyx.html"]
 ]
+#html
+<a href="https://[12::44]/def/xyx.html" class=url-link>https://[12::44]/def/xyx.html</a>
 
 #data
 https://[12::44]:50/def/xyx.html
@@ -79,6 +100,8 @@ https://[12::44]:50/def/xyx.html
 [
   ["https://[12::44]:50/def/xyx.html", "https://[12::44]:50/def/xyx.html"]
 ]
+#html
+<a href="https://[12::44]:50/def/xyx.html" class=url-link>https://[12::44]:50/def/xyx.html</a>
 
 #data
 https://a:b@[12::44]/def/xyx.html
@@ -86,6 +109,8 @@ https://a:b@[12::44]/def/xyx.html
 [
   ["https://a:b@[12::44]/def/xyx.html", "https://a:b@[12::44]/def/xyx.html"]
 ]
+#html
+<a href="https://a:b@[12::44]/def/xyx.html" class=url-link>https://a:b@[12::44]/def/xyx.html</a>
 
 #data
 https://a.bc/def/xyx?a=b&c=%2d;ax|ab
@@ -94,6 +119,8 @@ https://a.bc/def/xyx?a=b&c=%2d;ax|ab
   ["https://a.bc/def/xyx?a=b&c=%2d;ax", "https://a.bc/def/xyx?a=b&c=%2d;ax"],
   ["|ab"]
 ]
+#html
+<a href="https://a.bc/def/xyx?a=b&amp;c=%2d;ax" class=url-link>https://a.bc/def/xyx?a=b&amp;c=%2d;ax</a>|ab
 
 #data
 https://a.bc/def/xyx?a=b&c=%2d;ax#a=b&c=%2d;ax|ab
@@ -102,6 +129,8 @@ https://a.bc/def/xyx?a=b&c=%2d;ax#a=b&c=%2d;ax|ab
   ["https://a.bc/def/xyx?a=b&c=%2d;ax#a=b&c=%2d;ax", "https://a.bc/def/xyx?a=b&c=%2d;ax#a=b&c=%2d;ax"],
   ["|ab"]
 ]
+#html
+<a href="https://a.bc/def/xyx?a=b&amp;c=%2d;ax#a=b&amp;c=%2d;ax" class=url-link>https://a.bc/def/xyx?a=b&amp;c=%2d;ax#a=b&amp;c=%2d;ax</a>|ab
 
 #data
 This is great: https://example.com/great.html. Thanks!
@@ -111,6 +140,8 @@ This is great: https://example.com/great.html. Thanks!
   ["https://example.com/great.html", "https://example.com/great.html"],
   [". Thanks!"]
 ]
+#html
+This is great: <a href="https://example.com/great.html" class=url-link>https://example.com/great.html</a>. Thanks!
 
 #data
 See https://example.com/great.html, please.
@@ -120,6 +151,8 @@ See https://example.com/great.html, please.
   ["https://example.com/great.html", "https://example.com/great.html"],
   [", please."]
 ]
+#html
+See <a href="https://example.com/great.html" class=url-link>https://example.com/great.html</a>, please.
 
 #data escaped
 https://example.com/page\u3000です
@@ -128,6 +161,8 @@ https://example.com/page\u3000です
   ["https://example.com/page", "https://example.com/page"],
   ["\u3000です"]
 ]
+#html escaped
+<a href="https://example.com/page" class=url-link>https://example.com/page</a>\u3000です
 
 #data
 https://example.com/page、です
@@ -136,6 +171,8 @@ https://example.com/page、です
   ["https://example.com/page", "https://example.com/page"],
   ["、です"]
 ]
+#html
+<a href="https://example.com/page" class=url-link>https://example.com/page</a>、です
 
 #data
 https://example.com/page。
@@ -144,6 +181,8 @@ https://example.com/page。
   ["https://example.com/page", "https://example.com/page"],
   ["。"]
 ]
+#html
+<a href="https://example.com/page" class=url-link>https://example.com/page</a>。
 
 #data
 https://example.com/page，です
@@ -152,6 +191,8 @@ https://example.com/page，です
   ["https://example.com/page", "https://example.com/page"],
   ["，です"]
 ]
+#html
+<a href="https://example.com/page" class=url-link>https://example.com/page</a>，です
 
 #data
 https://example.com/page．
@@ -160,6 +201,8 @@ https://example.com/page．
   ["https://example.com/page", "https://example.com/page"],
   ["．"]
 ]
+#html
+<a href="https://example.com/page" class=url-link>https://example.com/page</a>．
 
 #data
 (https://test.test/foo)
@@ -169,6 +212,8 @@ https://example.com/page．
   ["https://test.test/foo", "https://test.test/foo"],
   [")"]
 ]
+#html
+(<a href="https://test.test/foo" class=url-link>https://test.test/foo</a>)
 
 #data
 [https://test.test/foo]
@@ -178,6 +223,8 @@ https://example.com/page．
   ["https://test.test/foo", "https://test.test/foo"],
   ["]"]
 ]
+#html
+[<a href="https://test.test/foo" class=url-link>https://test.test/foo</a>]
 
 #data
 https://test.test/foo>
@@ -186,6 +233,8 @@ https://test.test/foo>
   ["https://test.test/foo", "https://test.test/foo"],
   [">"]
 ]
+#html
+<a href="https://test.test/foo" class=url-link>https://test.test/foo</a>>
 
 #data
 <https://test.test/foo
@@ -194,6 +243,8 @@ https://test.test/foo>
   ["<"],
   ["https://test.test/foo", "https://test.test/foo"]
 ]
+#html
+&lt;<a href="https://test.test/foo" class=url-link>https://test.test/foo</a>
 
 #data
 https://test.test/foohttps://test.test/foo
@@ -202,6 +253,8 @@ https://test.test/foohttps://test.test/foo
   ["https://test.test/foohttps://test.test/foo",
    "https://test.test/foohttps://test.test/foo"]
 ]
+#html
+<a href="https://test.test/foohttps://test.test/foo" class=url-link>https://test.test/foohttps://test.test/foo</a>
 
 #data
 https://twitter.com/#!twitter
@@ -209,6 +262,8 @@ https://twitter.com/#!twitter
 [
   ["https://twitter.com/#!twitter", "https://twitter.com/#!twitter"]
 ]
+#html
+<a href="https://twitter.com/#!twitter" class=url-link>https://twitter.com/#!twitter</a>
 
 #data
 uses https://html.spec.whatwg.org/#isplatformobjectsameorigin-(-o-): in https://html.spec.whatwg.org/#crossoriginproperties-(-o-).
@@ -222,6 +277,8 @@ uses https://html.spec.whatwg.org/#isplatformobjectsameorigin-(-o-): in https://
    "https://html.spec.whatwg.org/#crossoriginproperties-(-o-)"],
   ["."]
 ]
+#html
+uses <a href="https://html.spec.whatwg.org/#isplatformobjectsameorigin-(-o-)" class=url-link>https://html.spec.whatwg.org/#isplatformobjectsameorigin-(-o-)</a>: in <a href="https://html.spec.whatwg.org/#crossoriginproperties-(-o-)" class=url-link>https://html.spec.whatwg.org/#crossoriginproperties-(-o-)</a>.
 
 #data
 https://ho.ge/foo!
@@ -230,6 +287,8 @@ https://ho.ge/foo!
   ["https://ho.ge/foo", "https://ho.ge/foo"],
   ["!"]
 ]
+#html
+<a href="https://ho.ge/foo" class=url-link>https://ho.ge/foo</a>!
 
 #data
 href="https://example.com/">Example Web Page</a>
@@ -239,6 +298,8 @@ href="https://example.com/">Example Web Page</a>
   ["https://example.com/", "https://example.com/"],
   ["\">Example Web Page</a>"]
 ]
+#html
+href=&quot;<a href="https://example.com/" class=url-link>https://example.com/</a>&quot;>Example Web Page&lt;/a>
 
 #data
 ｈｔｔｐ：／／ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ
@@ -247,6 +308,8 @@ href="https://example.com/">Example Web Page</a>
   ["ｈｔｔｐ：／／ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ",
    "http://ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ"]
 ]
+#html
+<a href="http://ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ" class=url-link>ｈｔｔｐ：／／ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ</a>
 
 #data
 ｈｔｔｐ：／／ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ／
@@ -255,6 +318,8 @@ href="https://example.com/">Example Web Page</a>
   ["ｈｔｔｐ：／／ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ／",
    "http://ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ／"]
 ]
+#html
+<a href="http://ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ／" class=url-link>ｈｔｔｐ：／／ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ／</a>
 
 #data
 ｈｔｔｐｓ：／／ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ／
@@ -263,6 +328,8 @@ href="https://example.com/">Example Web Page</a>
   ["ｈｔｔｐｓ：／／ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ／",
    "https://ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ／"]
 ]
+#html
+<a href="https://ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ／" class=url-link>ｈｔｔｐｓ：／／ｗｗｗ．ｅｘａｍｐｌｅ．ｃｏｍ／</a>
 
 #data
 HTTP://WWW.EXAMPLE.COM
@@ -270,6 +337,8 @@ HTTP://WWW.EXAMPLE.COM
 [
   ["HTTP://WWW.EXAMPLE.COM", "http://WWW.EXAMPLE.COM"]
 ]
+#html
+<a href="http://WWW.EXAMPLE.COM" class=url-link>HTTP://WWW.EXAMPLE.COM</a>
 
 #data
 ttp://fo.o/
@@ -281,6 +350,10 @@ ttp://fo.o/
 [
   ["ttp://fo.o/", "http://fo.o/"]
 ]
+#html
+ttp://fo.o/
+#lax-html
+<a href="http://fo.o/" class=url-link>ttp://fo.o/</a>
 
 #data
 ttps://fo.o/
@@ -292,6 +365,10 @@ ttps://fo.o/
 [
   ["ttps://fo.o/", "https://fo.o/"]
 ]
+#html
+ttps://fo.o/
+#lax-html
+<a href="https://fo.o/" class=url-link>ttps://fo.o/</a>
 
 #data
 abc<http://fo.o/bar/>ass
@@ -301,6 +378,8 @@ abc<http://fo.o/bar/>ass
   ["<http://fo.o/bar/>", "http://fo.o/bar/"],
   ["ass"]
 ]
+#html
+abc<a href="http://fo.o/bar/" class=url-link>&lt;http://fo.o/bar/></a>ass
 
 #data
 abc<https://fo.o/bar/>ass
@@ -310,6 +389,8 @@ abc<https://fo.o/bar/>ass
   ["<https://fo.o/bar/>", "https://fo.o/bar/"],
   ["ass"]
 ]
+#html
+abc<a href="https://fo.o/bar/" class=url-link>&lt;https://fo.o/bar/></a>ass
 
 #data
 abc<HTTPS://fo.o/bar/>ass
@@ -319,6 +400,8 @@ abc<HTTPS://fo.o/bar/>ass
   ["<HTTPS://fo.o/bar/>", "HTTPS://fo.o/bar/"],
   ["ass"]
 ]
+#html
+abc<a href="HTTPS://fo.o/bar/" class=url-link>&lt;HTTPS://fo.o/bar/></a>ass
 
 #data
 abc<URL:http://fo.o/bar/>ass
@@ -328,6 +411,8 @@ abc<URL:http://fo.o/bar/>ass
   ["<URL:http://fo.o/bar/>", "http://fo.o/bar/"],
   ["ass"]
 ]
+#html
+abc<a href="http://fo.o/bar/" class=url-link>&lt;URL:http://fo.o/bar/></a>ass
 
 #data
 abc<ftp://fo.o/bar/>ass
@@ -335,6 +420,8 @@ abc<ftp://fo.o/bar/>ass
 [
   ["abc<ftp://fo.o/bar/>ass"]
 ]
+#html
+abc&lt;ftp://fo.o/bar/>ass
 
 #data
 http://### http://()) http:%%%% mailto:/@/
@@ -342,6 +429,8 @@ http://### http://()) http:%%%% mailto:/@/
 [
   ["http://### http://()) http:%%%% mailto:/@/"]
 ]
+#html
+http://### http://()) http:%%%% mailto:/@/
 
 #data
 http://ほげ.com/
@@ -349,6 +438,8 @@ http://ほげ.com/
 [
   ["http://ほげ.com/", "http://ほげ.com/"]
 ]
+#html
+<a href="http://ほげ.com/" class=url-link>http://ほげ.com/</a>
 
 #data escaped
 http://ほげ.com/\u3000
@@ -357,6 +448,8 @@ http://ほげ.com/\u3000
   ["http://ほげ.com/", "http://ほげ.com/"],
   ["\u3000"]
 ]
+#html escaped
+<a href="http://ほげ.com/" class=url-link>http://ほげ.com/</a>\u3000
 
 #data
 <http://ほげ.com/>a
@@ -365,6 +458,8 @@ http://ほげ.com/\u3000
   ["<http://ほげ.com/>", "http://ほげ.com/"],
   ["a"]
 ]
+#html
+<a href="http://ほげ.com/" class=url-link>&lt;http://ほげ.com/></a>a
 
 #data
 x{http://ほげ.com/}abc
@@ -374,6 +469,8 @@ x{http://ほげ.com/}abc
   ["http://ほげ.com/", "http://ほげ.com/"],
   ["}abc"]
 ]
+#html
+x{<a href="http://ほげ.com/" class=url-link>http://ほげ.com/</a>}abc
 
 #data escaped
 x\u00ABhttp://ほげ.com/\u00BBabc
@@ -383,6 +480,8 @@ x\u00ABhttp://ほげ.com/\u00BBabc
   ["http://ほげ.com/", "http://ほげ.com/"],
   ["\u00BBabc"]
 ]
+#html escaped
+x\u00AB<a href="http://ほげ.com/" class=url-link>http://ほげ.com/</a>\u00BBabc
 
 #data
 a https://ja.wikipedia.org/wiki/魔法少女まどか☆マギカ x
@@ -393,6 +492,8 @@ a https://ja.wikipedia.org/wiki/魔法少女まどか☆マギカ x
    "https://ja.wikipedia.org/wiki/魔法少女まどか☆マギカ"],
   [" x"]
 ]
+#html
+a <a href="https://ja.wikipedia.org/wiki/魔法少女まどか☆マギカ" class=url-link>https://ja.wikipedia.org/wiki/魔法少女まどか☆マギカ</a> x
 
 #data
 https://ja.wikipedia.org/wiki/Supercell_(%E3%82%A2%E3%83%AB%E3%83%90%E3%83%A0)
@@ -401,6 +502,8 @@ https://ja.wikipedia.org/wiki/Supercell_(%E3%82%A2%E3%83%AB%E3%83%90%E3%83%A0)
   ["https://ja.wikipedia.org/wiki/Supercell_(%E3%82%A2%E3%83%AB%E3%83%90%E3%83%A0)",
    "https://ja.wikipedia.org/wiki/Supercell_(%E3%82%A2%E3%83%AB%E3%83%90%E3%83%A0)"]
 ]
+#html
+<a href="https://ja.wikipedia.org/wiki/Supercell_(%E3%82%A2%E3%83%AB%E3%83%90%E3%83%A0)" class=url-link>https://ja.wikipedia.org/wiki/Supercell_(%E3%82%A2%E3%83%AB%E3%83%90%E3%83%A0)</a>
 
 #data
 https://ja.wikipedia.org/wiki/Supercell_(アルバム)
@@ -409,6 +512,8 @@ https://ja.wikipedia.org/wiki/Supercell_(アルバム)
   ["https://ja.wikipedia.org/wiki/Supercell_(アルバム)",
    "https://ja.wikipedia.org/wiki/Supercell_(アルバム)"]
 ]
+#html
+<a href="https://ja.wikipedia.org/wiki/Supercell_(アルバム)" class=url-link>https://ja.wikipedia.org/wiki/Supercell_(アルバム)</a>
 
 #data
 https://ja.wikipedia.org/wiki/Supercell_(アルバム)#.E5.8F.8E.E9.8C.B2.E6.9B.B2
@@ -417,6 +522,8 @@ https://ja.wikipedia.org/wiki/Supercell_(アルバム)#.E5.8F.8E.E9.8C.B2.E6.9B.
   ["https://ja.wikipedia.org/wiki/Supercell_(アルバム)#.E5.8F.8E.E9.8C.B2.E6.9B.B2",
    "https://ja.wikipedia.org/wiki/Supercell_(アルバム)#.E5.8F.8E.E9.8C.B2.E6.9B.B2"]
 ]
+#html
+<a href="https://ja.wikipedia.org/wiki/Supercell_(アルバム)#.E5.8F.8E.E9.8C.B2.E6.9B.B2" class=url-link>https://ja.wikipedia.org/wiki/Supercell_(アルバム)#.E5.8F.8E.E9.8C.B2.E6.9B.B2</a>
 
 #data
 http:// f.oo
@@ -424,6 +531,8 @@ http:// f.oo
 [
   ["http:// f.oo"]
 ]
+#html
+http:// f.oo
 
 #data
 http:/h.oge
@@ -431,6 +540,8 @@ http:/h.oge
 [
   ["http:/h.oge"]
 ]
+#html
+http:/h.oge
 
 #data
 shttp://fo.o/bar
@@ -438,6 +549,8 @@ shttp://fo.o/bar
 [
   ["shttp://fo.o/bar"]
 ]
+#html
+shttp://fo.o/bar
 
 #data
 http://fo.o-b.ar
@@ -445,6 +558,8 @@ http://fo.o-b.ar
 [
   ["http://fo.o-b.ar", "http://fo.o-b.ar"]
 ]
+#html
+<a href="http://fo.o-b.ar" class=url-link>http://fo.o-b.ar</a>
 
 #data
 'http://fo.o/bar'
@@ -454,6 +569,8 @@ http://fo.o-b.ar
   ["http://fo.o/bar", "http://fo.o/bar"],
   ["'"]
 ]
+#html
+'<a href="http://fo.o/bar" class=url-link>http://fo.o/bar</a>'
 
 #data
 https://で始まるURL
@@ -461,6 +578,8 @@ https://で始まるURL
 [
   ["https://で始まるURL"]
 ]
+#html
+https://で始まるURL
 
 #data
 URLはhttp://www.example.comです。
@@ -470,6 +589,8 @@ URLはhttp://www.example.comです。
   ["http://www.example.com", "http://www.example.com"],
   ["です。"]
 ]
+#html
+URLは<a href="http://www.example.com" class=url-link>http://www.example.com</a>です。
 
 #data
 URLはhttp://www.example.com/と、
@@ -479,6 +600,8 @@ URLはhttp://www.example.com/と、
   ["http://www.example.com/と", "http://www.example.com/と"],
   ["、"]
 ]
+#html
+URLは<a href="http://www.example.com/と" class=url-link>http://www.example.com/と</a>、
 
 #data
 https://ja.wikipedia.org/wiki/う
@@ -487,6 +610,8 @@ https://ja.wikipedia.org/wiki/う
   ["https://ja.wikipedia.org/wiki/う",
    "https://ja.wikipedia.org/wiki/う"]
 ]
+#html
+<a href="https://ja.wikipedia.org/wiki/う" class=url-link>https://ja.wikipedia.org/wiki/う</a>
 
 #data
 https://ja.wikipedia.org/wiki/鹿目まどか
@@ -495,6 +620,8 @@ https://ja.wikipedia.org/wiki/鹿目まどか
   ["https://ja.wikipedia.org/wiki/鹿目まどか",
    "https://ja.wikipedia.org/wiki/鹿目まどか"]
 ]
+#html
+<a href="https://ja.wikipedia.org/wiki/鹿目まどか" class=url-link>https://ja.wikipedia.org/wiki/鹿目まどか</a>
 
 #data
 [link:http://foo.bar/bar/]
@@ -504,6 +631,8 @@ https://ja.wikipedia.org/wiki/鹿目まどか
   ["http://foo.bar/bar/", "http://foo.bar/bar/"],
   ["]"]
 ]
+#html
+[link:<a href="http://foo.bar/bar/" class=url-link>http://foo.bar/bar/</a>]
 
 #data
 [http://hoge.fuga/:title=abc]
@@ -513,6 +642,8 @@ https://ja.wikipedia.org/wiki/鹿目まどか
   ["http://hoge.fuga/:title=abc", "http://hoge.fuga/:title=abc"],
   ["]"]
 ]
+#html
+[<a href="http://hoge.fuga/:title=abc" class=url-link>http://hoge.fuga/:title=abc</a>]
 
 #data
 (http://ba.abc/eee)[foo]
@@ -522,6 +653,8 @@ https://ja.wikipedia.org/wiki/鹿目まどか
   ["http://ba.abc/eee", "http://ba.abc/eee"],
   [")[foo]"]
 ]
+#html
+(<a href="http://ba.abc/eee" class=url-link>http://ba.abc/eee</a>)[foo]
 
 #data
 http://abc.def https://foo.bar/
@@ -531,6 +664,8 @@ http://abc.def https://foo.bar/
   [" "],
   ["https://foo.bar/", "https://foo.bar/"]
 ]
+#html
+<a href="http://abc.def" class=url-link>http://abc.def</a> <a href="https://foo.bar/" class=url-link>https://foo.bar/</a>
 
 #data
 <https://foo/bar><https://a.b/c>
@@ -539,6 +674,8 @@ http://abc.def https://foo.bar/
   ["<https://foo/bar>", "https://foo/bar"],
   ["<https://a.b/c>", "https://a.b/c"]
 ]
+#html
+<a href="https://foo/bar" class=url-link>&lt;https://foo/bar></a><a href="https://a.b/c" class=url-link>&lt;https://a.b/c></a>
 
 #data
 http://foo.bar.
@@ -547,6 +684,8 @@ http://foo.bar.
   ["http://foo.bar", "http://foo.bar"],
   ["."]
 ]
+#html
+<a href="http://foo.bar" class=url-link>http://foo.bar</a>.
 
 #data escaped
 ab\uFFFD\uFFFE\uFFFFaa
@@ -554,6 +693,8 @@ ab\uFFFD\uFFFE\uFFFFaa
 [
   ["ab\uFFFD\uFFFE\uFFFFaa"]
 ]
+#html escaped
+ab\uFFFD\uFFFE\uFFFFaa
 
 #data escaped
 ab\U0010FFFFaa
@@ -561,6 +702,8 @@ ab\U0010FFFFaa
 [
   ["ab\U0010FFFFaa"]
 ]
+#html escaped
+ab\U0010FFFFaa
 
 #data escaped
 ab\uDC00aa
@@ -568,3 +711,5 @@ ab\uDC00aa
 [
   ["ab\uDC00aa"]
 ]
+#html escaped
+ab\uDC00aa
