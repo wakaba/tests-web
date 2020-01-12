@@ -196,3 +196,42 @@ interface A {
     }
   ]
 }
+
+#data
+interface A {
+  inherit attribute boolean hoge ;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "attribute",
+          "inherit": 1,
+          "name": "hoge",
+          "type": "boolean"
+        }
+      ]    
+    }
+  ]
+}
+
+#data
+interface A {
+  inherit readonly attribute boolean hoge ;
+};
+#errors
+24;webidl:parse error;attribute, ;;m
+
+#data
+interface B { };
+interface A : B {
+  inherit static attribute long proto;
+};
+#errors
+45;webidl:parse error;attribute, ;;m
