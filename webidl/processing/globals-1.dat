@@ -878,6 +878,7 @@ callback interface C {
   const long foo = 124;
 };
 #errors
+1;26;webidl:not allowed;;NoInterfaceObject;m
 1;;webidl:no Exposed;;C;w
 1;;webidl:no Exposed;;G;w
 #processed
@@ -886,11 +887,12 @@ callback interface C {
     "G": ["interface", {"members":{},"Global":1,"Exposed":{}}],
     "C": ["callback_interface", {"members":{
       "foo": ["const", {"type":"long","value":["integer",124]}]
-    },"Exposed":{},"NoInterfaceObject":1}]
+    },"Exposed":{}}]
   },
   "global_names": {"G":{"G":1}},
   "global_members": {
-    "G": ["object", {"Exposed":{}}]
+    "G": ["object", {"Exposed":{}}],
+    "C": ["object", {"Exposed":{}}]
   }
 }
 
@@ -1534,5 +1536,21 @@ interface I {
     "G1": ["object", { "Exposed": {}}],
     "G2": ["object", { "Exposed": {}}],
     "I": ["object", { "Exposed": {"G1":1,"G2":1}}]
+  }
+}
+
+#data
+[Global]
+callback interface A {
+};
+#errors
+1;1;webidl:not allowed;;Global;m
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "idl_defs": {
+    "A": ["callback_interface", {"members": {}, "Exposed": {}}]
+  },
+  "global_members": {
   }
 }

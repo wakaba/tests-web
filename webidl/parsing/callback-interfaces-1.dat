@@ -12,3 +12,58 @@ callback interface Foo {};
     }
   ]
 }
+
+#data
+[SecureContext]
+callback interface Foo {};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "callback": 1,
+      "name": "Foo",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "SecureContext"
+        }
+      ]
+    }
+  ]
+}
+
+#data
+callback interface Foo :Bar {};
+#errors
+23;webidl:parse error;{, ;;m
+
+#data
+callback interface Foo {
+  stringifier;
+};
+#errors
+27;webidl:parse error;[, ;;m
+
+#data
+callback interface Foo {
+  readonly attribute boolean foo;
+};
+#errors
+27;webidl:parse error;[, ;;m
+
+#data
+callback interface Foo {
+  static attribute DOMString foo;
+};
+#errors
+27;webidl:parse error;[, ;;m
+
+#data
+callback interface Foo {
+  static DOMString foo ();
+};
+#errors
+27;webidl:parse error;[, ;;m

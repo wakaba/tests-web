@@ -160,17 +160,6 @@ callback interface B {};
 }
 
 #data
-callback interface A : B {};
-interface B {};
-#errors
-1;0;webidl:bad type;;B;m
-#processed
-{
-  "A": ["callback_interface", {"members": {}}],
-  "B": ["interface", {"members": {}}]
-}
-
-#data
 callback interface A {};
 callback interface B {};
 B includes A;

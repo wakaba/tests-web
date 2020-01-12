@@ -123,10 +123,11 @@ interface A {};
 
 #data
 [LegacyArrayClass] callback interface A {};
+#errors
+1;1;webidl:not allowed;;LegacyArrayClass;m
 #processed
 {
   "A": ["callback_interface", {
-    "ArrayClass": 1,
     "members": {}
   }]
 }
@@ -976,6 +977,8 @@ interface A { };
 callback interface A {
   const long foo = 13;
 };
+#errors
+1;1;webidl:not allowed;;NoInterfaceObject;m
 #processed
 {
   "A": ["callback_interface", {
@@ -984,8 +987,7 @@ callback interface A {
         "type": "long",
         "value": ["integer", 13]
       }]
-    },
-    "NoInterfaceObject": 1
+    }
   }]
 }
 
@@ -1007,6 +1009,19 @@ interface A {
         }
       }
     }]
+  }]
+}
+
+#data
+[OverrideBuiltins]
+callback interface A {
+};
+#errors
+1;1;webidl:not allowed;;OverrideBuiltins;m
+#processed
+{
+  "A": ["callback_interface", {
+    "members": {}
   }]
 }
 

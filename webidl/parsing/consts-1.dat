@@ -415,10 +415,17 @@ interface A {
 
 #data
 interface A {
-  const Hoge? foo = null;
+  const Hoge? foo = 12;
 };
 #errors
 26;webidl:parse error;[, ;;m
+
+#data
+interface A {
+  const boolean? foo = 12;
+};
+#errors
+29;webidl:parse error;[, ;;m
 
 #data
 interface A {

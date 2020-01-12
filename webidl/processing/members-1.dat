@@ -1091,33 +1091,3 @@ interface A  {
 1;24;webidl:parse error;readonly, ;;m
 #processed
 {}
-
-#data
-callback interface A {
-  static attribute DOMString foo;
-};
-#errors
-1;25;webidl:not allowed;;foo;m
-#processed
-{
-  "A": ["callback_interface", {
-    "members": {"foo": ["static_attribute", {
-      "type": "DOMString", "getter": 1, "setter": 1
-    }]}
-  }]
-}
-
-#data
-callback interface A {
-  static DOMString foo ();
-};
-#errors
-1;25;webidl:not allowed;;foo;m
-#processed
-{
-  "A": ["callback_interface", {
-    "members": {"foo": ["static_operation", {
-      "overload_set": {"": {"type": "DOMString", "args": []}}
-    }]}
-  }]
-}
