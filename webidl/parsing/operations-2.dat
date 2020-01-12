@@ -1,0 +1,61 @@
+#data
+interface A {
+  void abc ();
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "type": "void",
+          "name": "abc",
+          "arguments": []
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  void includes ();
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "type": "void",
+          "name": "includes",
+          "arguments": []
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  void async ();
+};
+#errors
+21;webidl:parse error;[, ;;m
+
+#data
+interface A {
+  void required ();
+};
+#errors
+21;webidl:parse error;[, ;;m

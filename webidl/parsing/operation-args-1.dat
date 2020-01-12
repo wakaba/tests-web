@@ -334,6 +334,36 @@ interface A {
 
 #data
 interface A {
+  void hoo (DOMString async);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "index": 0,
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "name": "hoo",
+          "type": "void",
+          "arguments": [
+            {
+              "index": 26,
+              "name": "async",
+              "type": "DOMString"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
   void hoo (DOMString interface);
 };
 #parsed
@@ -422,3 +452,41 @@ interface A {
     }
   ]
 }
+
+#data
+interface A {
+  void hoo (DOMString [*id="callback"*]includes);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "index": 0,
+      "members": [
+        {
+          "index": 16,
+          "member_type": "operation",
+          "name": "hoo",
+          "type": "void",
+          "arguments": [
+            {
+              "index": 26,
+              "name": "includes",
+              "type": "DOMString",
+              "id": "callback"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  void hoo (DOMString void);
+};
+#errors
+36;webidl:parse error;?, ;;m
