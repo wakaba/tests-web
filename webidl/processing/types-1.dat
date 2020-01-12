@@ -623,10 +623,12 @@ dictionary E {};
 
 #data
 typedef Error ? Hoge;
+#errors
+1;0;webidl:not defined;;Error;m
 #processed
 {
   "Hoge": ["typedef", {
-    "type": ["nullable", "Error"]
+    "type": ["nullable", ["ref", "Error"]]
   }]
 }
 
