@@ -324,6 +324,7 @@ interface A {
 [Constructor]
 interface A {};
 #errors
+1;1;webidl:not allowed;;Constructor;m
 1;;webidl:no Exposed;;A;w
 #processed
 {
@@ -334,14 +335,8 @@ interface A {};
     }]
   },
   "global_members": {
-    "A": ["operation", {
-      "Exposed":{},
-      "overload_set": {
-        "": {
-          "type": ["ref_interface", "A"],
-          "args": []
-        }
-      }
+    "A": ["object", {
+      "Exposed":{}
     }]
   }
 }
@@ -350,6 +345,7 @@ interface A {};
 [Constructor(long foo)]
 interface A {};
 #errors
+1;1;webidl:not allowed;;Constructor;m
 1;;webidl:no Exposed;;A;w
 #processed
 {
@@ -360,13 +356,7 @@ interface A {};
     }]
   },
   "global_members": {
-    "A": ["operation", {
-      "overload_set": {
-        "long": {
-          "type": ["ref_interface", "A"],
-          "args": [{"name":"foo","type":"long","optionality":"required"}]
-        }
-      },
+    "A": ["object", {
       "Exposed":{}
     }]
   }
@@ -376,6 +366,8 @@ interface A {};
 [Constructor(long foo),Constructor]
 interface A {};
 #errors
+1;1;webidl:not allowed;;Constructor;m
+1;23;webidl:not allowed;;Constructor;m
 1;;webidl:no Exposed;;A;w
 #processed
 {
@@ -386,19 +378,8 @@ interface A {};
     }]
   },
   "global_members": {
-    "A": ["operation", {
-      "overloaded": 1,
-      "Exposed":{},
-      "overload_set": {
-        "": {
-          "type": ["ref_interface", "A"],
-          "args": []
-        },
-        "long": {
-          "type": ["ref_interface", "A"],
-          "args": [{"name":"foo","type":"long","optionality":"required"}]
-        }
-      }
+    "A": ["object", {
+      "Exposed":{}
     }]
   }
 }
@@ -407,6 +388,7 @@ interface A {};
 [Constructor(optional long foo)]
 interface A {};
 #errors
+1;1;webidl:not allowed;;Constructor;m
 1;;webidl:no Exposed;;A;w
 #processed
 {
@@ -417,18 +399,8 @@ interface A {};
     }]
   },
   "global_members": {
-    "A": ["operation", {
-      "Exposed":{},
-      "overload_set": {
-        "": {
-          "type": ["ref_interface", "A"],
-          "args": []
-        },
-        "long": {
-          "type": ["ref_interface", "A"],
-          "args": [{"name":"foo","type":"long","optionality":"optional"}]
-        }
-      }
+    "A": ["object", {
+      "Exposed":{}
     }]
   }
 }
@@ -437,7 +409,8 @@ interface A {};
 [Constructor,Constructor(optional long foo)]
 interface A {};
 #errors
-1;13;webidl:not distinguishable;;;m
+1;1;webidl:not allowed;;Constructor;m
+1;13;webidl:not allowed;;Constructor;m
 1;;webidl:no Exposed;;A;w
 #processed
 {
@@ -448,19 +421,8 @@ interface A {};
     }]
   },
   "global_members": {
-    "A": ["operation", {
-      "overloaded": 1,
-      "Exposed":{},
-      "overload_set": {
-        "": {
-          "type": ["ref_interface", "A"],
-          "args": []
-        },
-        "long": {
-          "type": ["ref_interface", "A"],
-          "args": [{"name":"foo","type":"long","optionality":"optional"}]
-        }
-      }
+    "A": ["object", {
+      "Exposed":{}
     }]
   }
 }
@@ -493,6 +455,7 @@ interface A {};
 [Constructor(long foo)]
 partial interface A {};
 #errors
+1;1;webidl:not allowed;;Constructor;m
 1;31;webidl:not allowed;;Constructor;m
 1;;webidl:no Exposed;;A;w
 #processed
@@ -504,13 +467,7 @@ partial interface A {};
     }]
   },
   "global_members": {
-    "A": ["operation", {
-      "overload_set": {
-        "": {
-          "type": ["ref_interface", "A"],
-          "args": []
-        }
-      },
+    "A": ["object", {
       "Exposed":{}
     }]
   }
@@ -683,6 +640,7 @@ interface A {
 [Constructor([EnforceRange] unsigned long a)]
 interface A {};
 #errors
+1;1;webidl:not allowed;;Constructor;m
 1;;webidl:no Exposed;;A;w
 #processed
 {
@@ -693,15 +651,7 @@ interface A {};
     }]
   },
   "global_members": {
-    "A": ["operation", {
-      "overload_set": {"EnforceRange[unsigned long]": {
-        "type": ["ref_interface", "A"],
-        "args": [{
-          "type": ["EnforceRange", "unsigned long"],
-          "optionality": "required",
-          "name": "a"
-        }]
-      }},
+    "A": ["object", {
       "Exposed":{}
     }]
   }
@@ -1632,6 +1582,7 @@ interface A {
 [Constructor(optional long hoge = 124)]
 interface A {};
 #errors
+1;1;webidl:not allowed;;Constructor;m
 1;;webidl:no Exposed;;A;w
 #processed
 {
@@ -1639,19 +1590,7 @@ interface A {};
     "A": ["interface", {"members":{},"Exposed":{}}]
   },
   "global_members": {
-    "A": ["operation", {
-      "overload_set": {
-        "": {
-          "type": ["ref_interface", "A"],
-          "args": []
-        },
-        "long": {
-          "type": ["ref_interface", "A"],
-          "args": [
-            {"name":"hoge","type":"long","optionality":"optional","value":["integer",124]}
-          ]
-        }
-      },
+    "A": ["object", {
       "Exposed":{}
     }]
   }
@@ -1661,7 +1600,7 @@ interface A {};
 [Constructor( long hoge = 124)]
 interface A {};
 #errors
-1;14;webidl:non-optional default;;hoge;m
+1;1;webidl:not allowed;;Constructor;m
 1;;webidl:no Exposed;;A;w
 #processed
 {
@@ -1669,19 +1608,7 @@ interface A {};
     "A": ["interface", {"members":{}, "Exposed":{}}]
   },
   "global_members": {
-    "A": ["operation", {
-      "overload_set": {
-        "": {
-          "type": ["ref_interface", "A"],
-          "args": []
-        },
-        "long": {
-          "type": ["ref_interface", "A"],
-          "args": [
-            {"name":"hoge","type":"long","optionality":"optional","value":["integer",124]}
-          ]
-        }
-      },
+    "A": ["object", {
       "Exposed":{}
     }]
   }

@@ -1025,7 +1025,7 @@ interface X {};
 #data
 [Global] interface G {};
 [Global,Exposed=G2] interface G2 {};
-[Constructor, NamedConstructor=Hoge] interface A {};
+[NamedConstructor=Hoge] interface A {constructor();};
 #errors
 1;;webidl:no Exposed;;A;w
 1;;webidl:no Exposed;;G;w

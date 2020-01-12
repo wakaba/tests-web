@@ -1,0 +1,241 @@
+#data
+interface A {
+constructor();
+};
+#errors
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {
+      "members": {},
+      "Exposed":{}
+    }]
+  },
+  "global_members": {
+    "A": ["operation", {
+      "Exposed":{},
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        }
+      }
+    }]
+  }
+}
+
+#data
+interface A {
+constructor(long foo);
+};
+#errors
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {
+      "members": {},
+      "Exposed":{}
+    }]
+  },
+  "global_members": {
+    "A": ["operation", {
+      "overload_set": {
+        "long": {
+          "type": ["ref_interface", "A"],
+          "args": [{"name":"foo","type":"long","optionality":"required"}]
+        }
+      },
+      "Exposed":{}
+    }]
+  }
+}
+
+#data
+interface A {
+constructor(long foo);
+constructor();
+};
+#errors
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {
+      "members": {},
+      "Exposed":{}
+    }]
+  },
+  "global_members": {
+    "A": ["operation", {
+      "overloaded": 1,
+      "Exposed":{},
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        },
+        "long": {
+          "type": ["ref_interface", "A"],
+          "args": [{"name":"foo","type":"long","optionality":"required"}]
+        }
+      }
+    }]
+  }
+}
+
+#data
+interface A {
+constructor(optional long foo);
+};
+#errors
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {
+      "members": {},
+      "Exposed":{}
+    }]
+  },
+  "global_members": {
+    "A": ["operation", {
+      "Exposed":{},
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        },
+        "long": {
+          "type": ["ref_interface", "A"],
+          "args": [{"name":"foo","type":"long","optionality":"optional"}]
+        }
+      }
+    }]
+  }
+}
+
+#data
+interface A {
+constructor();
+constructor(optional long foo);
+};
+#errors
+1;29;webidl:not distinguishable;;;m
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {
+      "Exposed":{},
+      "members": {}
+    }]
+  },
+  "global_members": {
+    "A": ["operation", {
+      "overloaded": 1,
+      "Exposed":{},
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        },
+        "long": {
+          "type": ["ref_interface", "A"],
+          "args": [{"name":"foo","type":"long","optionality":"optional"}]
+        }
+      }
+    }]
+  }
+}
+
+#data
+interface A {
+constructor([EnforceRange] unsigned long a);
+};
+#errors
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {
+      "members": {},
+      "Exposed":{}
+    }]
+  },
+  "global_members": {
+    "A": ["operation", {
+      "overload_set": {"EnforceRange[unsigned long]": {
+        "type": ["ref_interface", "A"],
+        "args": [{
+          "type": ["EnforceRange", "unsigned long"],
+          "optionality": "required",
+          "name": "a"
+        }]
+      }},
+      "Exposed":{}
+    }]
+  }
+}
+
+#data
+interface A {
+constructor(optional long hoge = 124);
+};
+#errors
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {"members":{},"Exposed":{}}]
+  },
+  "global_members": {
+    "A": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        },
+        "long": {
+          "type": ["ref_interface", "A"],
+          "args": [
+            {"name":"hoge","type":"long","optionality":"optional","value":["integer",124]}
+          ]
+        }
+      },
+      "Exposed":{}
+    }]
+  }
+}
+
+#data
+interface A {
+constructor( long hoge = 124);
+};
+#errors
+1;27;webidl:non-optional default;;hoge;m
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {"members":{}, "Exposed":{}}]
+  },
+  "global_members": {
+    "A": ["operation", {
+      "overload_set": {
+        "": {
+          "type": ["ref_interface", "A"],
+          "args": []
+        },
+        "long": {
+          "type": ["ref_interface", "A"],
+          "args": [
+            {"name":"hoge","type":"long","optionality":"optional","value":["integer",124]}
+          ]
+        }
+      },
+      "Exposed":{}
+    }]
+  }
+}

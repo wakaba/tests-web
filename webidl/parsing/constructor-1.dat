@@ -1,0 +1,99 @@
+#data
+interface A {
+  constructor ();
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "constructor",
+          "arguments": []
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  constructor DOMString ();
+};
+#errors
+28;webidl:parse error;(, ;;m
+
+#data
+interface A {
+  constructor (long... hh);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "constructor",
+          "arguments": [
+            {
+              "index": 29,
+              "name": "hh",
+              "type": "long",
+              "variadic": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {
+  constructor (long... hh, long foo);
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [
+        {
+          "index": 16,
+          "member_type": "constructor",
+          "arguments": [
+            {
+              "index": 29,
+              "name": "hh",
+              "type": "long",
+              "variadic": 1
+            },
+            {
+              "index": 41,
+              "name": "foo",
+              "type": "long"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+interface A {};
+partial interface A {
+constructor(optional long foo);
+};
+#errors
+38;webidl:parse error;[, ;;m

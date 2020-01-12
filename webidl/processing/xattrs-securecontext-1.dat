@@ -482,7 +482,9 @@ partial interface A {
 }
 
 #data
-[Constructor,SecureContext] interface A {};
+[SecureContext] interface A {
+  constructor();
+};
 #errors
 1;;webidl:no Exposed;;A;w
 #processed

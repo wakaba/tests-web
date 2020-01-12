@@ -29,7 +29,7 @@
 #data
 [HTMLConstructor, Constructor] interface A {};
 #errors
-1;0;webidl:not allowed;;Constructor;m
+1;18;webidl:not allowed;;Constructor;m
 1;;webidl:no Exposed;;A;w
 #processed
 {
@@ -44,7 +44,7 @@
 #data
 [Constructor, HTMLConstructor] interface A {};
 #errors
-1;0;webidl:not allowed;;Constructor;m
+1;1;webidl:not allowed;;Constructor;m
 1;;webidl:no Exposed;;A;w
 #processed
 {
@@ -59,7 +59,39 @@
 #data
 [NoInterfaceObject, Constructor] interface A {};
 #errors
+1;20;webidl:not allowed;;Constructor;m
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {"members": {}, "NoInterfaceObject":1,"Exposed":{}}]
+  },
+  "global_members": {
+  }
+}
+
+#data
+[HTMLConstructor] interface A {
+constructor();
+};
+#errors
 1;0;webidl:not allowed;;Constructor;m
+1;;webidl:no Exposed;;A;w
+#processed
+{
+  "idl_defs": {
+    "A": ["interface", {"members": {}, "Exposed":{}}]
+  },
+  "global_members": {
+    "A": ["HTMLConstructor", {"Exposed":{}}]
+  }
+}
+
+#data
+[NoInterfaceObject] interface A {
+constructor();
+};
+#errors
 1;;webidl:no Exposed;;A;w
 #processed
 {
@@ -77,7 +109,6 @@
 #data
 [NoInterfaceObject, HTMLConstructor] interface A {};
 #errors
-1;0;webidl:not allowed;;Constructor;m
 1;;webidl:no Exposed;;A;w
 #processed
 {
