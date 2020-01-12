@@ -391,7 +391,7 @@ interface A {
 
 #data
 interface A {
-  const Hoge? foo = null;
+  const Hoge foo = 32;
 };
 #parsed
 {
@@ -406,8 +406,7 @@ interface A {
           "member_type": "const",
           "name": "foo",
           "type_name": "Hoge",
-          "type_nullable": 1,
-          "value": "null"
+          "value_integer": 32
         }
       ]
     }
@@ -416,7 +415,14 @@ interface A {
 
 #data
 interface A {
-  const Hoge? foo = "ff" ;
+  const Hoge? foo = null;
 };
 #errors
-34;webidl:parse error;true, ;;m
+26;webidl:parse error;[, ;;m
+
+#data
+interface A {
+  const Hoge foo = "ff" ;
+};
+#errors
+33;webidl:parse error;true, ;;m
