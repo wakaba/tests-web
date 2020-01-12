@@ -420,3 +420,33 @@ interface A {
 1;36;webidl:parse error;,, ;;m
 #processed
 {}
+
+#data
+dictionary Dict  { };
+interface A {
+  void foo (optional Dict a = {});
+};
+#processed
+{
+  "Dict": ["dictionary", {
+    "members": {}
+  }],
+  "A": ["interface", {
+    "members": {
+      "foo": ["operation", {
+        "overload_set": {
+          "": {
+            "type": "void",
+            "args": []
+          },
+          "ref[Dict]": {
+            "type": "void",
+            "args": [{"type": ["ref_dictionary", "Dict"],
+                      "name": "a", "optionality": "optional",
+                      "value": ["dictionary_value", {}]}]
+          }
+        }
+      }]
+    }
+  }]
+}
