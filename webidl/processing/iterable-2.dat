@@ -17,6 +17,41 @@ interface A {
 
 #data
 interface A {
+  iterable < DOMString >;
+  async iterable < long, DOMString>;
+};
+#errors
+1;42;webidl:duplicate;;iterable;m
+#processed
+{
+  "A": ["interface", {
+    "iterable": ["iterable", {
+      "values_type": "DOMString"
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  async iterable < DOMString , DOMString >;
+  iterable < long>;
+};
+#errors
+1;60;webidl:duplicate;;iterable;m
+#processed
+{
+  "A": ["interface", {
+    "iterable": ["async_iterable", {
+      "keys_type": "DOMString",
+      "values_type": "DOMString"
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
   maplike < DOMString, DOMString >;
   legacyiterable <DOMString>;
 };
@@ -27,6 +62,24 @@ interface A {
 interface A {
   setlike < DOMString>;
   iterable <DOMString>;
+};
+#errors
+1;40;webidl:duplicate;;iterable;m
+#processed
+{
+  "A": ["interface", {
+    "iterable": ["setlike", {
+      "values_type": "DOMString",
+      "read": 1, "write": 1
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  setlike < DOMString>;
+  async iterable <DOMString, boolean>;
 };
 #errors
 1;40;webidl:duplicate;;iterable;m

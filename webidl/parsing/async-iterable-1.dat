@@ -1,0 +1,34 @@
+#data
+interface A {
+  async iterable<B>;
+};
+#errors
+32;webidl:parse error;?, ;;m
+
+#data
+interface A {
+  async iterable <B, long>;
+};
+#parsed
+{
+  "definitions": [
+    {
+      "definition_type": "interface",
+      "name": "A",
+      "index": 0,
+      "members": [
+        {
+          "index": 16,
+          "member_type": "iterable",
+          "async": 1,
+          "type1": {
+            "type_name": "B"
+          },
+          "type2": {
+            "type": "long"
+          }
+        }
+      ]
+    }
+  ]
+}

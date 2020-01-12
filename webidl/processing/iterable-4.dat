@@ -1,0 +1,29 @@
+#data
+interface A {
+  async iterable < DOMString ?, long >;
+};
+#processed
+{
+  "A": ["interface", {
+    "iterable": ["async_iterable", {
+      "keys_type": ["nullable", "DOMString"],
+      "values_type": "long"
+    }],
+    "members": {}
+  }]
+}
+
+#data
+interface A {
+  async iterable < DOMString , long >;
+};
+#processed
+{
+  "A": ["interface", {
+    "iterable": ["async_iterable", {
+      "keys_type": "DOMString",
+      "values_type": "long"
+    }],
+    "members": {}
+  }]
+}

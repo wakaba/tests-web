@@ -43,3 +43,27 @@ interface A {
     }
   }]
 }
+
+#data
+interface A {
+  attribute DOMString ent;
+  async iterable<B, C>;
+};
+#errors
+1;;webidl:not defined;;B;m
+1;;webidl:not defined;;C;m
+#processed
+{
+  "A": ["interface", {
+    "iterable": ["async_iterable", {
+      "keys_type": ["ref", "B"],
+      "values_type": ["ref", "C"]
+    }],
+    "members": {
+      "ent": ["attribute", {
+        "type": "DOMString",
+        "getter": 1, "setter": 1
+      }]
+    }
+  }]
+}
