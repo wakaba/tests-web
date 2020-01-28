@@ -97,3 +97,27 @@ constructor(optional long foo);
 };
 #errors
 38;webidl:parse error;[, ;;m
+
+#data
+interface Foo {
+  [*id="dom-foo"*]constructor();
+};
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "Foo",
+      "members": [
+        {
+          "index": 18,
+          "id": "dom-foo",
+          "member_type": "constructor",
+          "arguments": [
+          ]
+        }
+      ]
+    }
+  ]
+}
