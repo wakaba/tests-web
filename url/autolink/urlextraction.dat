@@ -713,3 +713,23 @@ ab\uDC00aa
 ]
 #html escaped
 ab\uDC00aa
+
+#data
+《http://example.jp/abc-def/》
+#result
+[
+  ["《"],
+  ["http://example.jp/abc-def/", "http://example.jp/abc-def/"],
+  ["》"]
+]
+#html
+《<a href="http://example.jp/abc-def/" class=url-link>http://example.jp/abc-def/</a>》
+
+#data
+https://www.amazon.co.jp/俠客行-二-《金庸作品集》修訂版-Traditional-Chinese-ebook/dp/B07TKH742J
+#result
+[
+  ["https://www.amazon.co.jp/俠客行-二-《金庸作品集》修訂版-Traditional-Chinese-ebook/dp/B07TKH742J", "https://www.amazon.co.jp/俠客行-二-《金庸作品集》修訂版-Traditional-Chinese-ebook/dp/B07TKH742J"]
+]
+#html
+<a href="https://www.amazon.co.jp/俠客行-二-《金庸作品集》修訂版-Traditional-Chinese-ebook/dp/B07TKH742J" class=url-link>https://www.amazon.co.jp/俠客行-二-《金庸作品集》修訂版-Traditional-Chinese-ebook/dp/B07TKH742J</a>
