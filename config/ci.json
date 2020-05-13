@@ -5,9 +5,11 @@
     ],
     "tests": [
       "make test",
-      "USE_XFF=1 ./plackup -p 5114 -t Twiggy::Prefork support/server.psgi ",
-      "sleep 20",
-      "curl -f http://localhost:5114 || (cat serverlog && false)"
+      {"USE_XFF=1 ./plackup -p 5114 -t Twiggy::Prefork support/server.psgi 2>&1 > serverlog": {
+        "background": true
+      }},
+      "sleep 10",
+      "curl -f http://0:5114 || (cat serverlog && false)"
     ],
     "merger": true,
     "heroku": true,
