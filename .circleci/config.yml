@@ -31,17 +31,17 @@
             },
             {
                "run" : {
-                  "command" : "USE_XFF=1 ./plackup -p 5114 -t Twiggy::Prefork support/server.psgi &"
+                  "command" : "USE_XFF=1 ./plackup -p 5114 -t Twiggy::Prefork support/server.psgi > serverlog 2>&1 &"
                }
             },
             {
                "run" : {
-                  "command" : "sleep 10"
+                  "command" : "sleep 20"
                }
             },
             {
                "run" : {
-                  "command" : "curl -f http://localhost:5114"
+                  "command" : "curl -f http://localhost:5114 || (cat serverlog && false)"
                }
             },
             {
@@ -127,7 +127,7 @@
          "triggers" : [
             {
                "schedule" : {
-                  "cron" : "21 17 * * *",
+                  "cron" : "6 18 * * *",
                   "filters" : {
                      "branches" : {
                         "only" : [
