@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<meta charset=utf-8>
+<title>Vertical</title>
+<style>
+  body {
+    margin-left: 10em;
+  }
+  p {
+    border: blue 1px solid;
+    overflow: auto;
+    resize: auto;
+  }
+</style>
+
+<p style="
+">私は<cite style="
+  writing-mode: vertical-rl;
+  vertical-align: middle;
+">吾輩は猫である</cite>を読みました。
+<button type=button onclick="
+  var c = parentNode.querySelector ('cite');
+  c.textContent += c.textContent;
+">+</button>
+
+<p style="
+">私は<cite style="
+  writing-mode: vertical-rl;
+  vertical-align: middle;
+">吾輩は猫である吾輩は猫である</cite>を読みました。
+
+<p style="
+  width: 21em;
+"><span style="
+  display: inline-block;
+  width: 13em;
+"></span>私は<cite style="
+  writing-mode: vertical-rl;
+  vertical-align: middle;
+">吾輩は猫である</cite>を読みました。
+
+<p style="
+  width: 22em;
+"><span style="
+  display: inline-block;
+  width: 13em;
+"></span>私は<cite style="
+  writing-mode: vertical-rl;
+  vertical-align: middle;
+">吾輩は猫である</cite>を読みました。
+
+<p style="
+  width: 23em;
+"><span style="
+  display: inline-block;
+  width: 13em;
+"></span>私は<cite style="
+  writing-mode: vertical-rl;
+  vertical-align: middle;
+">吾輩は猫である</cite>を読みました。
+
+<p style="
+  width: 23em;
+"><span style="
+  display: inline-block;
+  width: 13em;
+"></span>私は<cite style="
+  writing-mode: vertical-rl;
+  vertical-align: middle;
+">吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である</cite>を読みました。
+
+<p style="
+  width: 23em;
+"><span style="
+  display: inline-block;
+  width: 13em;
+"></span>私は<cite style="
+  writing-mode: vertical-rl;
+  vertical-align: middle;
+">吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である吾輩は猫である</cite>を読みました。
+
+<p style="
+">私は<cite style="
+  writing-mode: vertical-rl;
+  vertical-align: middle;
+">吾輩は<span style="
+  text-orientation: upright;
+">1</span>匹のcatである</cite>を読みました。
+
+<script>
+  var x = (e) => {
+    if (e.f) {
+      e.f.parentNode.insertBefore (e, e.f);
+      e.f.remove ();
+    }
+    var t = document.createElement ('span');
+    t.style.display = 'block';
+    e.parentNode.appendChild (t);
+    var mw = t.offsetWidth; // redraw
+    t.remove ();
+    e.style.transform = 'rotate(270deg) translate(-100%, 0)';
+    e.style.transformOrigin = 'top left';
+    e.style.position = 'fixed';
+    e.style.top = 0;
+    e.style.height = 'auto';
+    e.style.maxHeight = mw + 'px';
+    var f = document.createElement ('span');
+    f.style.display = 'inline-block';
+    f.style.verticalAlign = 'middle';
+    var eb = e.getClientRects () [0]; // redraw
+    f.style.width = eb.width + 'px';
+    f.style.height = eb.height + 'px';
+    e.parentNode.insertBefore (f, e);
+    e.f = f;
+    e.style.position = 'static';
+    var fb = f.getClientRects () [0]; // redraw
+    //e.style.width = fb.height + 'px';
+    e.style.height = fb.width + 'px';
+    f.appendChild (e);
+  };
+
+  document.querySelectorAll ('cite').forEach (c => {
+    x (c);
+  
+    var o = new MutationObserver ((e) => {
+      x (c);
+    });
+    o.observe (c, {childList: true, subtree: true, characterData: true});
+  });
+</script>
+  
