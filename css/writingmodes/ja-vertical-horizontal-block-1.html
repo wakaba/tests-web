@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<meta charset=utf-8>
+<title>Vertical</title>
+<style>
+  html {
+    writing-mode: vertical-rl;
+  }
+  body {
+    margin-left: 10em;
+  }
+  blockquote {
+    border: blue 1px solid;
+  }
+  ol {
+    list-style: simp-chinese-informal;
+  }
+</style>
+
+<p>私は読みました。
+
+<blockquote>
+  <v-box style="
+    display: block;
+    writing-mode: horizontal-tb;
+    vertical-align: middle;
+  ">
+    <h1>吾輩は猫である</h1>
+    <p><ruby>吾輩<rt>わがはい</ruby>は猫である。名前はまだない。
+    <p>どこで生れたかとんと<ruby>見当<rt>けんとう</ruby>がつかぬ。
+    何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。この書生というのは時々我々を捕えて煮て食うという話である。しかしその当時は何という考もなかったから別段恐しいとも思わなかった。ただ彼の掌に載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始であろう。この時妙なものだと思った感じが今でも残っている。第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ。その後猫にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。のみならず顔の真中があまりに突起している。そうしてその穴の中から時々ぷうぷうと煙を吹く。どうも咽せぽくて実に弱った。これが人間の飲む煙草というものである事はようやくこの頃知った。
+
+      <ol>
+        <li>第一章
+        <li>第二章
+        <li>第三章
+      </ol>
+  </v-box>
+</blockquote>
+
+<p>面白かったです。
+
+<script>
+  var sizing = false;
+  var x = (e) => {
+    if (sizing) return;
+    sizing = true;
+    var parent = (e.wmPlaceholder || e).parentNode;
+    var placeholder = e.wmPlaceholder || document.createElement ('wm-placeholder');
+    if (!e.wmPlaceholder) parent.insertBefore (placeholder, e.wmPlaceholder || e);
+
+    var sizer = document.createElement ('wm-sizer');
+    sizer.setAttribute ('style', 'display:block');
+    parent.appendChild (sizer);
+    var sizerRect = sizer.getClientRects () [0]; // redraw
+    var availHeight = sizerRect.height;
+    sizer.remove ();
+
+    var temp = document.createElement ('wm-temp');
+    temp.setAttribute ('style', 'position:absolute;top:0;left:0;');
+    temp.style.width = availHeight + 'px';
+    temp.style.height = window.innerHeight * 10 + 'px';
+    document.body.appendChild (temp);
+
+    e.style.width = 'auto';
+    e.style.transform = 'none';
+    temp.appendChild (e);
+    var eRect = e.getClientRects () [0]; // redraw
+    temp.remove ();
+
+    placeholder.setAttribute ('style', 'display:inline-block;vertical-align:middle');
+    placeholder.style.height = eRect.width + 'px';
+    placeholder.style.width = eRect.height + 'px';
+
+    e.style.transformOrigin = 'top right';
+    e.style.transform = 'rotate(90deg) translate(100%, 0)';
+    e.style.width = eRect.width + 'px';
+    e.wmPlaceholder = placeholder;
+    placeholder.appendChild (e);
+
+    sizing = false;
+  };
+
+  document.querySelectorAll ('v-box').forEach (c => {
+    x (c);
+
+    /*
+    var o = new MutationObserver ((e) => {
+      x (c);
+    });
+    o.observe (c, {childList: true, subtree: true, characterData: true});
+    */
+    // XXX
+    var o = new ResizeObserver (e => {
+      x (e[0].target);
+    });
+    o.observe (c);
+  });
+</script>
+  

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<meta charset=utf-8>
+<title>Vertical</title>
+<style>
+  html {
+    writing-mode: vertical-rl;
+  }
+  t-lines {
+    display: inline-table;
+    vertical-align: middle;
+    border-collapse: collapse;
+  }
+  t-line {
+    display: table-row;
+  }
+  t-lines[frac] > t-line + t-line {
+    border-block-start: 1px solid currentcolor;
+  }
+  t-yoko {
+    display: inline-block;
+    writing-mode: horizontal-tb;
+    line-height: 1.0;
+  }
+</style>
+
+<h1>縦書き</h1>
+
+<p>こんにちは、世界。
+
+<p>Hello, world!
+
+<p>詳しくは <a href=https://ja.wikipedia.org/wiki/縦書き>https://ja.wikipedia.org/wiki/縦書き</a> を✔チェック!
+
+<p>詳しくは <a href=https://ja.wikipedia.org/wiki/縦書き style="
+  text-orientation: sideways;
+">https://ja.wikipedia.org/wiki/縦書き</a> を✔チェック<span style="
+  text-orientation: upright;
+">!</span>
+
+<p>速さ = 距離 ÷ 時間
+
+<p style="
+  text-orientation: sideways;
+">速さ = 距離 ÷ 時間
+
+<p style="
+  text-orientation: sideways;
+">速さ = <t-lines frac><t-line>距離</t-line><t-line>時間</t-line></t-lines>
+
+<p style="
+  text-orientation: sideways;
+">速さ [m/s] = <t-lines frac><t-line>距離 [m]</t-line><t-line>時間 [s]</t-line></t-lines>
+
+<p>令和2(2020)年3月12日
+
+<p>令和<t-yoko>2</t-yoko>(<t-yoko>2020</t-yoko>)年<t-yoko>3</t-yoko>月<t-yoko>12</t-yoko>日
+
+<p>令和<t-yoko>2</t-yoko>(<span style="
+  text-orientation: upright;
+">2020</span>)年<t-yoko>3</t-yoko>月<t-yoko>12</t-yoko>日
+
+<p>令和二(<span style="
+  text-orientation: upright;
+">2020</span>)年三月十二日
+
+<p>令和二年(二〇二〇)三月十二日
+
+<p>令和<span style="
+  text-combine-upright: all;
+">2</span>(<span style="
+  text-combine-upright: all;
+">2020</span>)年<span style="
+  text-combine-upright: all;
+">3</span>月<span style="
+  text-combine-upright: all;
+">12</span>日
+
+<p>2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O
+
+<p>2H<sub>2</sub> (水素) + O<sub>2</sub> (酸素) → 2H<sub>2</sub>O (水)
+
+<p>H<sub>2</sub>Oは水です。
+
+<p><t-yoko>H<sub>2</sub>O</t-yoko>は水です。
+
+<p><span style="
+  text-orientation: upright;
+">H<sub>2</sub>O</span>は水です。
+
+<p><span style="
+  text-orientation: upright;
+">H<sub style="
+  vertical-align: super;
+">2</sub>O</span>は水です。
