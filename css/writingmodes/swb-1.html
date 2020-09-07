@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<meta charset=utf-8>
+<title>Vertical</title>
+<style>
+  html {
+    writing-mode: vertical-rl;
+  }
+  body {
+    margin-left: 10em;
+  }
+  blockquote {
+    border: blue 1px solid;
+  }
+  ol {
+    list-style: simp-chinese-informal;
+  }
+</style>
+
+<p>私は読みました。
+
+<blockquote>
+  <wm-box>
+    <h1>吾輩は猫である</h1>
+    <p><ruby>吾輩<rt>わがはい</ruby>は猫である。名前はまだない。
+    <p>どこで生れたかとんと<ruby>見当<rt>けんとう</ruby>がつかぬ。
+    何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。この書生というのは時々我々を捕えて煮て食うという話である。しかしその当時は何という考もなかったから別段恐しいとも思わなかった。ただ彼の掌に載せられてスーと持ち上げられた時何だかフワフワした感じがあったばかりである。掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始であろう。この時妙なものだと思った感じが今でも残っている。第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ。その後猫にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。のみならず顔の真中があまりに突起している。そうしてその穴の中から時々ぷうぷうと煙を吹く。どうも咽せぽくて実に弱った。これが人間の飲む煙草というものである事はようやくこの頃知った。
+
+      <ol>
+        <li>第一章
+        <li>第二章
+        <li><wm-box>第三章</wm-box>
+      </ol>
+  </wm-box>
+</blockquote>
+
+<p>面白かったです。
+<wm-box>(小並感)</wm-box>
+また読みたいです。
+
+<script>
+  class WMBoxElement extends HTMLElement {
+    connectedCallback () {
+      this.attachShadow ({mode: 'open'});
+      this.reshadow ();
+      window.addEventListener ('resize', () => {
+        delete this._InlineSize;
+        this.reshadow ();
+      });
+    };
+    reshadow () {
+      var df = this.shadowRoot;
+      df.textContent = '';
+      var mainContainer = document.createElement ('wm-container');
+      mainContainer.style.display = 'inline-block';
+      mainContainer.style.verticalAlign = 'middle';
+      var mainBox = document.createElement ('wm-context');
+      var mainWrapper = document.createElement ('wm-wrapper');
+      mainWrapper.style.display = 'block';
+      var mainSlot = document.createElement ('slot');
+      mainWrapper.appendChild (mainSlot);
+      mainBox.appendChild (mainWrapper);
+      mainContainer.appendChild (mainBox);
+      df.appendChild (mainContainer);
+
+      if (!this._InlineSize) {
+        var sizer = document.createElement ('wm-sizer');
+        sizer.style.display = 'block';
+        df.appendChild (sizer);
+        var sizerRect = sizer.getClientRects () [0]; // redraw!
+        sizer.remove ();
+        this._InlineSize = sizerRect.width || sizerRect.height; // zero or inline-size
+        this._InlineAxis = sizerRect.width ? 'height' : 'width';
+      }
+      var outerWM = getComputedStyle (this).writingMode;
+      var innerWM = 'vertical-rl';
+      if (/^vertical/.test (outerWM)) innerWM = 'horizontal-tb';
+
+      var canvas = document.createElement ('wm-canvas');
+      canvas.style.position = 'absolute';
+      canvas.style.display = 'block';
+      if (innerWM === 'horizontal-tb') {
+        canvas.style.width = this._InlineSize + 'px';
+      } else {
+        canvas.style.height = this._InlineSize + 'px';
+      }
+      canvas.style.background = 'rgba(0, 255, 0, 0.6)'; // for devs
+      var canvasContainer = document.createElement ('wm-container');
+      canvasContainer.style.display = 'inline-block';
+      canvasContainer.style.writingMode = innerWM;
+      var canvasSlot = document.createElement ('slot');
+      canvasContainer.appendChild (canvasSlot);
+      canvas.appendChild (canvasContainer);
+      df.appendChild (canvas);
+      mainSlot.name = 'disabled';
+      var canvasContainerRect = canvasContainer.getClientRects () [0]; // redraw!
+
+      mainBox.style.writingMode = innerWM;
+      mainBox.style.display = 'block';
+      var ix = this._InlineAxis;
+      var bx = ix === 'width' ? 'height' : 'width';
+      if (innerWM === 'horizontal-tb') {
+        mainBox.style.transformOrigin = 'top left';
+        mainBox.style.transform = 'translate(100%, 0) rotate(90deg)';
+        mainContainer.style[bx] = canvasContainerRect.width + 'px';
+        mainContainer.style[ix] = canvasContainerRect.height + 'px';
+        mainBox.style[ix] = canvasContainerRect.width + 'px';
+        mainBox.style[bx] = canvasContainerRect.height + 'px';
+      } else {
+        mainBox.style.transformOrigin = 'top right';
+        mainBox.style.transform = 'translate(-100%, 0) rotate(270deg)';
+        mainContainer.style[ix] = canvasContainerRect.width + 'px';
+        mainContainer.style[bx] = canvasContainerRect.height + 'px';
+        mainBox.style[bx] = canvasContainerRect.width + 'px';
+        mainBox.style[ix] = canvasContainerRect.height + 'px';
+      }
+      mainSlot.name = '';
+      canvas.remove ();
+
+      var reflowed = false;
+      var resizer = new ResizeObserver (() => {
+        if (!reflowed) {
+          reflowed = true;
+          return;
+        }
+        this.reshadow ();
+      });
+      resizer.observe (mainWrapper);
+    }; // reshadow
+  };
+  customElements.define ('wm-box', WMBoxElement);
+</script>
