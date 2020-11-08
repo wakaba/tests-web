@@ -1,0 +1,141 @@
+#data
+| a
+| __&&b&&__
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "a
+| "
+|       <sw replace>
+|         by="b"
+
+#data
+| a__&&abc&&__d
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "a"
+|       <sw replace>
+|         by="abc"
+|       "d"
+
+#data
+| a__&&abc&&__d&&__
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "a"
+|       <sw replace>
+|         by="abc"
+|       "d&&__"
+
+#data
+| a__&&abc&&
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "a__&&abc&&"
+
+#data
+| a&&__abc&&
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "a&&__abc&&"
+
+#data
+| a&&__&&_&&___x
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "a&&__x"
+
+#data
+| a&&__&&&&&___x
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "a&&&_x"
+
+#data
+| a&&__&&[&&___x
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "a&&[_x"
+
+#data
+| a&&__&&]&&___x
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "a&&]_x"
+
+#data
+| a&&__&&<&&___x
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "a&&<_x"
+
+#data
+| a&&__&&>&&___x
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "a&&>_x"
+
+#data
+| a&&__&&'&&___x
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "a&&'_x"
