@@ -131,3 +131,66 @@
     ]
   }]
 }]}
+
+#data
+<gpx><trk>
+  <trkseg>
+    <trkpt lat="42.440" lon="155.44">
+      <time>2020-02-03T00:12:52Z</time>
+    </trkpt>
+    <trkpt lat="-42.440" lon="-155.44">
+      <time>2020-02-03T00:12:52.012Z</time>
+    </trkpt>
+  </trkseg>
+</trk></gpx>
+#parsed
+{"tracks":[{
+  "segments":[{
+    "points":[
+      {"lat":42.44,"lon":155.44,"timestamp":"2020-02-03T00:12:52Z"},
+      {"lat":-42.44,"lon":-155.44,"timestamp":"2020-02-03T00:12:52.012Z"}
+    ]
+  }]
+}]}
+
+#data
+<gpx><trk>
+  <trkseg>
+    <trkpt lat="42.440" lon="155.44">
+      <time>2020-02-03T00:12:52.012345Z</time>
+    </trkpt>
+    <trkpt lat="-42.440" lon="-155.44">
+      <time>2020-02-03T00:12:52.012345678Z</time>
+    </trkpt>
+  </trkseg>
+</trk></gpx>
+#parsed
+{"tracks":[{
+  "segments":[{
+    "points":[
+      {"lat":42.44,"lon":155.44,"timestamp":"2020-02-03T00:12:52.012345Z"},
+      {"lat":-42.44,"lon":-155.44,"timestamp":"2020-02-03T00:12:52.012345678Z"}
+    ]
+  }]
+}]}
+
+#data
+<gpx><trk>
+  <trkseg>
+    <trkpt lat="42.440" lon="155.44">
+      <time>2020-02-03T00:12:52.012345678012Z</time>
+    </trkpt>
+    <trkpt lat="-42.440" lon="-155.44">
+      <time>2020-02-03T00:12:52.012345678012345Z</time>
+    </trkpt>
+  </trkseg>
+</trk></gpx>
+#parsed
+{"tracks":[{
+  "segments":[{
+    "points":[
+      {"lat":42.44,"lon":155.44,"timestamp":"2020-02-03T00:12:52.012345678012Z"},
+      {"lat":-42.44,"lon":-155.44,"timestamp":"2020-02-03T00:12:52.012345678012345Z"}
+    ]
+  }]
+}]}
