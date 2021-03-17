@@ -10,7 +10,7 @@
   result.textContent = 'FAIL (script error)';
   if (navigator.share) {
     document.querySelector ('#submit-button').onclick = function () {
-      var url = new URL (location.href);
+      var url = new window.URL (location.href);
       navigator.share ({url, title: "Shared document"}).then (function () {
         result.className = 'PASS';
         result.textContent = 'PASS (promise fulfilled)';
