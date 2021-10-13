@@ -187,3 +187,28 @@
 {"waypoints":[
 {"to_distance": 43}
 ]}
+
+#data
+<gpx xmlns:x="data:,gpx"><wpt x:pointrole="globalStart" /></gpx>
+#parsed
+{"waypoints":[
+{"point_role": "globalStart"}
+]}
+
+#data
+<gpx xmlns:x="data:,gpx"><trk><trkseg><trkpt x:pointrole="u" /></trkseg></trk></gpx>
+#parsed
+{"tracks":[
+{"segments":[
+{"points":[
+{"point_role": "u"}
+]}
+]}
+]}
+
+#data
+<gpx xmlns:x="data:,gpx"><wpt x:pointrole="abc" /></gpx>
+#parsed
+{"waypoints":[
+{"point_role": "abc"}
+]}
