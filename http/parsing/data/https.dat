@@ -369,10 +369,12 @@ tlsreneg
 "abc"
 tlsreneg
 close
-#status 0
+#status 200
+#reason OK
 #headers escaped
+Content-Length: 3
 #body
-(close)
+abc(close)
 #note
   With older versions of OpenSSL and LibreSSL:
     #status 200
@@ -381,7 +383,12 @@ close
     Content-Length: 3
     #body
     abc(close)
-  ... but incompatible with LibreSSL 3.
+  ... but incompatible with LibreSSL 3 and test result changed to:
+    #status 0
+    #headers escaped
+    #body
+    (close)
+  ... but then LibreSSL fixed.
 
 #name
 TLS renegotiation (no client auth) 2
