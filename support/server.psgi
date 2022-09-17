@@ -265,7 +265,7 @@ return sub {
 
         <footer>
           <a href="https://github.com/wakaba/tests-web/tree/master/%s">GitHub</a>
-          <cc-ads-footer></cc-ads-footer>
+          <sw-ads-footer></sw-ads-footer>
         </footer>
       }, join '/', @$path;
       return $app->send_html ($html);
