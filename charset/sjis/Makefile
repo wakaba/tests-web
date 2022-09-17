@@ -7,7 +7,7 @@ all: \
   shift-jis-1997-F.html
 
 shift-jis-1997.tbl:
-	wget "http://suika.fam.cx/gate/cvs/*checkout*/char/table/sjis/shift-jis-1997.tbl"
+	wget "https://suika.suikawiki.org/gate/cvs/*checkout*/char/table/sjis/shift-jis-1997.tbl"
 
 shift-jis-1997-0.html: shift-jis-1997.tbl maketest.pl
 	perl maketest.pl 0 $< > $@

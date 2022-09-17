@@ -44,7 +44,7 @@ print qq[Content-Type: text/html; charset=utf-8
 <!DOCTYPE HTML>
 <html lang=en>
 <title>Perl Encoder</title>
-<link rel=stylesheet href="http://suika.fam.cx/www/style/html/xhtml">
+<link rel=stylesheet href="https://suika.suikawiki.org/www/style/html/xhtml">
 <h1>Perl Encoder</h1>
 
 <form action method=get accept-charset=utf-8>

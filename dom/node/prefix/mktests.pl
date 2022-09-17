@@ -160,7 +160,7 @@ for my $type (
         var resultCell = document.getElementById (window.currentItem);
         if (window.opera && resultCell.title == 'noopera') {
           /* Don't test since Opera dies with create*NS
-             <http://suika.fam.cx/gate/2005/sw/createAttributeNS> */
+             <https://suika.suikawiki.org/gate/2005/sw/createAttributeNS> */
           resultCell.className = 'NA';
           resultCell.firstChild.data = 'N/A (skipped)';
         } else {
