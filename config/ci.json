@@ -1,9 +1,13 @@
 {
   "circleci": {
-    "build": [
-      "make test-deps"
-    ],
+    "build": ["make deps-circleci"],
+    "docker-build": "quay.io/manakai/tests-web",
+    "context": "deploy-context-manakai",
+    "merger": 1,
+    "build_generated_pmbp": true,
+    "gaa": 1,
     "tests": [
+      "make test-deps-circleci",
       "make test",
       {"USE_XFF=1 ./plackup -p 5114 -t Twiggy::Prefork support/server.psgi 2>&1 > serverlog": {
         "background": true
@@ -11,8 +15,6 @@
       "sleep 10",
       "curl -f http://0:5114 || (cat serverlog && false)"
     ],
-    "merger": true,
-    "heroku": true,
-    "gaa": true
+    "make_deploy_branches": ["master"]
   }
 }
