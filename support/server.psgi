@@ -259,8 +259,13 @@ return sub {
       } sort { $a cmp $b } $file_path->children (qr/\A[0-9A-Za-z][0-9A-Za-z_.-]*\z/);
       $html .= sprintf q{
         </table>
+
+        <sw-ads normal></sw-ads>
+        <script src="https://manakai.github.io/js/global.js" async></script>
+
         <footer>
           <a href="https://github.com/wakaba/tests-web/tree/master/%s">GitHub</a>
+          <cc-ads-footer></cc-ads-footer>
         </footer>
       }, join '/', @$path;
       return $app->send_html ($html);
