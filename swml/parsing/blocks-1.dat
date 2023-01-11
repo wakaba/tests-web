@@ -1159,7 +1159,21 @@
 |   <head>
 |   <body>
 |     <pre>
-|       class="a b "
+|       class="a b"
+
+#data
+| [PRE(a b #c #d .e .f g)[
+| ]PRE]
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <pre>
+|       class="a b g"
+|       id="c"
+|       itemprop="e f"
 
 #data
 | -a
@@ -2057,6 +2071,85 @@
 |   <body>
 |     <sw sw-rightbtbox>
 |       class="abc"
+|       <ul>
+|         <li>
+|           "abc"
+|         <li>
+|           "xyz"
+|     <ul>
+|       <li>
+|         <ul>
+|           <li>
+
+#data
+| [ITEMS(abc)[
+| - abc
+| - xyz
+| ]ITEMS]
+| --
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <sw sw-items>
+|       class="abc"
+|       <ul>
+|         <li>
+|           "abc"
+|         <li>
+|           "xyz"
+|     <ul>
+|       <li>
+|         <ul>
+|           <li>
+
+#data
+| [ITEMTYPES(abc)[
+| - abc
+| - xyz
+| ]ITEMTYPES]
+| --
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <sw sw-itemtypes>
+|       class="abc"
+|       <ul>
+|         <li>
+|           "abc"
+|         <li>
+|           "xyz"
+|     <ul>
+|       <li>
+|         <ul>
+|           <li>
+
+#data
+| [ITEMS(abc)[ [[abc]] [[x]]
+| - abc
+| - xyz
+| ]ITEMS]
+| --
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <sw sw-items>
+|       class="abc"
+|       <sw sw-itemtypes>
+|         <p>
+|           <sw anchor>
+|             "abc"
+|           " "
+|           <sw anchor>
+|             "x"
 |       <ul>
 |         <li>
 |           "abc"
