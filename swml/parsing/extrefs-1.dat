@@ -1,0 +1,95 @@
+#data
+aa<https://foo.bar/>bbb
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw anchor-external>
+|         sw resParameter="https://foo.bar/"
+|         sw resScheme="URI"
+|         "https://foo.bar/"
+|       "bbb"
+
+#data
+aa<URI:https://foo.bar/>bbb
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw anchor-external>
+|         sw resParameter="https://foo.bar/"
+|         sw resScheme="URI"
+|         "URI:https://foo.bar/"
+|       "bbb"
+
+#data
+aa<URL:https://foo.bar/>bbb
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw anchor-external>
+|         sw resParameter="https://foo.bar/"
+|         sw resScheme="URL"
+|         "URL:https://foo.bar/"
+|       "bbb"
+
+#data
+aa<IMG:https://foo.bar/>bbb
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw anchor-external>
+|         sw resParameter="https://foo.bar/"
+|         sw resScheme="IMG"
+|         "IMG:https://foo.bar/"
+|       "bbb"
+
+#data
+aa<EMBED:https://foo.bar/>bbb
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw anchor-external>
+|         sw resParameter="https://foo.bar/"
+|         sw resScheme="EMBED"
+|         "EMBED:https://foo.bar/"
+|       "bbb"
+
+#data
+aa<HOGE:https://foo.bar/>bbb
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw anchor-external>
+|         sw resParameter="https://foo.bar/"
+|         sw resScheme="HOGE"
+|         "HOGE:https://foo.bar/"
+|       "bbb"
