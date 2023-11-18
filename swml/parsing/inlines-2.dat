@@ -362,6 +362,22 @@ aa[CC[bbb]]o
 |       "o"
 
 #data
+aa[CC[bbb][ABC]]o
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw sw-cc>
+|         "bbb"
+|         <sw10 title>
+|           "ABC"
+|       "o"
+
+#data
 aa[CN[bbb]]o
 #errors
 #document
@@ -376,6 +392,22 @@ aa[CN[bbb]]o
 |       "o"
 
 #data
+aa[CN[bbb][a b]]o
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw sw-cn>
+|         "bbb"
+|         <sw10 title>
+|           "a b"
+|       "o"
+
+#data
 aa[CH[bbb]]o
 #errors
 #document
@@ -387,4 +419,20 @@ aa[CH[bbb]]o
 |       "aa"
 |       <sw sw-ch>
 |         "bbb"
+|       "o"
+
+#data
+aa[CH[bbb][foo bar]]o
+#errors
+#document
+| <html>
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <head>
+|   <body>
+|     <p>
+|       "aa"
+|       <sw sw-ch>
+|         "bbb"
+|         <sw10 title>
+|           "foo bar"
 |       "o"
