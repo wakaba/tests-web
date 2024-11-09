@@ -255,6 +255,98 @@ interface A {
 }
 
 #data
+[Exposed=*] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "Exposed",
+          "value_names": ["*"]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[Exposed= *] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "Exposed",
+          "value_names": ["*"]
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[Exposed=**] interface A { };
+#errors
+10;webidl:parse error;,, ;;m
+
+#data
+[Exposed=*,] interface A { };
+#errors
+11;webidl:parse error;[, ;;m
+
+#data
+[Exposed=*,*] interface A { };
+#errors
+11;webidl:parse error;[, ;;m
+
+#data
+[Exposed=a,*] interface A { };
+#errors
+11;webidl:parse error;[, ;;m
+
+#data
+[Exposed=*,a] interface A { };
+#parsed
+{
+  "definitions": [
+    {
+      "index": 0,
+      "definition_type": "interface",
+      "name": "A",
+      "members": [],
+      "extended_attributes": [
+        {
+          "index": 1,
+          "name": "Exposed",
+          "value_names": ["*"]
+        },
+        {
+          "index": 11,
+          "name": "a"
+        }
+      ]
+    }
+  ]
+}
+
+#data
+[Exposed=*()] interface A { };
+#errors
+10;webidl:parse error;,, ;;m
+
+#data
 [Exposed=(Worker)] interface A { };
 #parsed
 {
